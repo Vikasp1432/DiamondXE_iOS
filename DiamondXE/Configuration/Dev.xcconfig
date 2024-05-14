@@ -1,0 +1,11 @@
+//
+//  Dev.xcconfig
+//  DiamondXE
+//
+//  Created by iOS Developer on 17/04/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+Root_URL = admin-uat.diamondxe.com/
