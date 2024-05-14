@@ -260,6 +260,21 @@ class SignupVC: BaseViewController {
             if !self.isBasicInfoEmailVerified{
                 toastMessage("Verify your mail")
             }
+            
+            
+            guard (self.stateID != 0) else{
+                toastMessage("Select State")
+                return
+            }
+            
+            guard (self.cityID != 0) else{
+                toastMessage("Select City")
+                return
+            }
+            
+            self.dealerDataStruct.country = "\(self.countryId)"
+            self.dealerDataStruct.state = "\(self.stateID ?? 0)"
+            self.dealerDataStruct.city = "\(self.cityID ?? 0)"
          
             
 //            let indexPathDealerBasicDetails = IndexPath(row: 0, section: 1)
@@ -329,8 +344,8 @@ class SignupVC: BaseViewController {
                 self.dealerDataStruct.iecNo = dataStr.iecNumber
                 self.dealerDataStruct.tradeMembershipNo = dataStr.trademembership
                 self.dealerDataStruct.tradeMembershipNoDoc = self.companyTrade
-                self.dealerDataStruct.country = dataStr.country
-                self.dealerDataStruct.state = dataStr.state
+//                self.dealerDataStruct.country = dataStr.country
+//                self.dealerDataStruct.state = dataStr.state
                 
             }
             
@@ -351,11 +366,7 @@ class SignupVC: BaseViewController {
                 toastMessage("Verivied PAN number requried")
                 return
             }
-            
-            guard (self.panFront != nil) else{
-                toastMessage("Upload PAN front image requried")
-                return
-            }
+   
             
             guard (self.suplierDataStruct.companyName != nil) else{
                 toastMessage("Name requried")
@@ -405,9 +416,30 @@ class SignupVC: BaseViewController {
                 toastMessage("Company type requried")
                 return
             }
-           
-           
             
+           
+            guard (self.companyPAN != nil) else{
+                toastMessage("Company type requried")
+                return
+            }
+            
+            guard (self.stateID != 0) else{
+                toastMessage("Select State")
+                return
+            }
+            
+            guard (self.cityID != 0) else{
+                toastMessage("Select City")
+                return
+            }
+            
+            self.suplierDataStruct.country = "\(self.countryId)"
+            self.suplierDataStruct.state = "\(self.stateID ?? 0)"
+            self.suplierDataStruct.city = "\(self.cityID ?? 0)"
+           
+            self.suplierDataStruct.companyGSTNoDoc = self.companyGST
+            self.suplierDataStruct.companyPANNoDoc = self.companyPAN
+
             
             let indexPathDealerOtherDetails = IndexPath(row: 0, section: 2)
             if let cell = self.tableViewSingup.cellForRow(at: indexPathDealerOtherDetails) as? Dealer_OtherDocCell {
@@ -420,9 +452,19 @@ class SignupVC: BaseViewController {
             
             let indexPathDealerCompanyDetais = IndexPath(row: 0, section: 3)
             if let cell = self.tableViewSingup.cellForRow(at: indexPathDealerCompanyDetais) as? Supplier_AuthorisedPersonCell {
-               // self.suplierDataStruct. = cell.txtSupervisorName.text ?? ""
+                self.suplierDataStruct.authPersonName = cell.txtSupervisorName.text ?? ""
+                self.suplierDataStruct.authPersonContact = cell.txtSupervisorMobile.text ?? ""
+                self.suplierDataStruct.authPersonEmail = cell.txtSupervisorEmail.text ?? ""
             }
             
+            let indexPathDealerFoter = IndexPath(row: 0, section: 4)
+            if let cell = self.tableViewSingup.cellForRow(at: indexPathDealerFoter) as? FooterCell {
+                self.suplierDataStruct.referralCode = cell.txtRefralCode.text ?? ""
+               
+            }
+            
+            
+            //self.signupUserParam()
             if self.isSupllierGSTVerified &&  isSupllierPANVerified && isSupllierEmailVerified && isSupllierGSTDoc && isSupllierPANDoc {
                 self.signupUserParam()
             }
@@ -517,49 +559,62 @@ class SignupVC: BaseViewController {
             print("Suppler")
             
             let parameters : [String: Any] = [
-                "firstName": self.suplierDataStruct.firstName ?? "",
+                
+                    "firstName": self.suplierDataStruct.firstName ?? "",
                     "lastName": self.suplierDataStruct.lastName ?? "",
-                    "mobileNo": self.suplierDataStruct.mobileNo ?? "",
                     "email": self.suplierDataStruct.email ?? "",
+                    "mobileNo": self.suplierDataStruct.mobileNo ?? "",
+                    "country":self.suplierDataStruct.country ?? "",
+                    "state": self.suplierDataStruct.state ?? "",
+                    "city": self.suplierDataStruct.city ?? "",
                     "password": self.suplierDataStruct.password ?? "",
                     "confirmPassword": self.suplierDataStruct.confirmPassword ?? "",
-                    "country": self.countryId,
-                    "state": self.stateID ?? 0,
-                    "city": self.cityID ?? 0,
                     "pinCode": self.suplierDataStruct.pinCode ?? "",
                     "address": self.suplierDataStruct.address ?? "",
-                    "address2": self.suplierDataStruct.address2 ?? "",
-                    "referralCode": "refral code",
-                    
+                    "address2":self.suplierDataStruct.address2 ?? "",
+                    "referralCode": self.suplierDataStruct.referralCode ?? "",
                     "companyName": self.suplierDataStruct.companyName ?? "",
                     "companyEmail": self.suplierDataStruct.companyEmail ?? "",
                     "companyContact": self.suplierDataStruct.companyContact ?? "",
                     "typeOfCompany": self.suplierDataStruct.typeOfCompany ?? "",
                     "natureOfBusiness": self.suplierDataStruct.natureOfBusiness ?? "",
-                    "aadhaarNo": self.suplierDataStruct.aadhaarNo ?? "",
-                    "PANNo": self.suplierDataStruct.panNo ?? "",
+                   // "aadhaarNo": "451562516545",
+                   // "PANNo": "CDUYT6554E",
+                   // "GSTNo": "DDCDUYT6554EEE4",
                     "companyPANNo": self.suplierDataStruct.companyPANNo ?? "",
                     "companyGSTNo": self.suplierDataStruct.companyGSTNo ?? "",
                     "tradeMembershipNo": self.suplierDataStruct.tradeMembershipNo ?? "",
                     "IECNo": self.suplierDataStruct.iecNo ?? "",
+                    "authPersonName": self.suplierDataStruct.authPersonName ?? "",
+                    "authPersonContact": self.suplierDataStruct.authPersonContact ?? "",
+                    "authPersonEmail": self.suplierDataStruct.authPersonEmail ?? "",
+                     "bankName": self.suplierDataStruct.bankName ?? "",
+                     "branchName": self.suplierDataStruct.branchName ?? "",
+                     "accountNo": self.suplierDataStruct.accountNo ?? "",
+                     "accountType": self.suplierDataStruct.accountType ?? "",
+                     "IFSCCode": self.suplierDataStruct.ifscCode ?? "",
+                     "swiftCode": self.suplierDataStruct.swiftCode ?? "",
                     "dob": self.suplierDataStruct.dob ?? "",
-                   // "inventoryType": "",
+                    "inventoryType": self.suplierDataStruct.inventoryType ?? "",
                     //"emiratesId": "",
-                    "aadhaarNoDocFront" : self.suplierDataStruct.aadhaarNoDocFront ?? "",
-                    "aadhaarNoDocBack" : self.suplierDataStruct.aadhaarNoDocBack ?? "",
-                    "PANNoDoc" : self.suplierDataStruct.panNoDoc ?? "",
-                    "companyPANNoDoc" : self.suplierDataStruct.companyPANNoDoc ?? "",
-                    "companyGSTNoDoc" : self.suplierDataStruct.companyGSTNoDoc ?? "",
-                    "tradeMembershipNoDoc" : self.suplierDataStruct.tradeMembershipNoDoc ?? "",
-                    "IECDoc" : self.suplierDataStruct.iecDoc ?? "",
-                    //"emiratesIdDoc" : "AAAAAAAAAA",
-                    "otherDocs" : self.suplierDataStruct.otherDocs ?? []
+                   // "requestOtp": "0",
+                   // "emailOtp": "1234",
+                    // "mobileOtp": "Test@123",
+                  //  "aadhaarNoDocFront": "AA",
+                   // "aadhaarNoDocBack": "AAA",
+                  //  "PANNoDoc": "AAAA",
+                    "companyPANNoDoc":self.companyPAN ?? "",
+                   // "GSTNoDoc": self.companyGST,
+                    "companyGSTNoDoc":  self.companyGST ?? "",
+                    "tradeMembershipNoDoc": self.companyTrade ?? "",
+                    "IECDoc":  self.companyIEC ?? "",
+                    //"emiratesIdDoc": "AAAAAAAAAA",
                     
                 ]
             
-//            print(parameters)
+            print(parameters)
             CustomActivityIndicator.shared.show(in: view)
-            SignupDataModel().userSignup(url: APIs().signup_Dealer_API, requestParam: parameters, completion: { result , msg in
+            SignupDataModel().userSignup(url: APIs().signup_Supplier_API, requestParam: parameters, completion: { result , msg in
                 if result.status == 1{
                     self.toastMessage(result.msg ?? "")
                 }
@@ -1067,9 +1122,9 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                                  
                                 cell.txtCompanyName.text = self.companyGSTVerify.details?.companyName
                                 cell.txtEmail.text = self.companyGSTVerify.details?.email
-                                cell.txtCountry.text = self.companyGSTVerify.details?.country
-                                cell.txtState.text = self.companyGSTVerify.details?.state
-                                cell.txtCity.text = self.companyGSTVerify.details?.city
+//                                cell.txtCountry.text = self.companyGSTVerify.details?.country
+//                                cell.txtState.text = self.companyGSTVerify.details?.state
+//                                cell.txtCity.text = self.companyGSTVerify.details?.city
                                 cell.txtIPinNum.text = self.companyGSTVerify.details?.pincode
                                 cell.txtAddress1.text = self.companyGSTVerify.details?.address
                                 cell.txtCompanyType.text = self.companyGSTVerify.details?.companyType
@@ -1310,9 +1365,9 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                                  
                                 cell.txtCompanyName.text = self.companyGSTVerify.details?.companyName
                                 cell.txtEmail.text = self.companyGSTVerify.details?.email
-                                cell.txtCountry.text = self.companyGSTVerify.details?.country
-                                cell.txtState.text = self.companyGSTVerify.details?.state
-                                cell.txtCity.text = self.companyGSTVerify.details?.city
+//                                cell.txtCountry.text = self.companyGSTVerify.details?.country
+//                                cell.txtState.text = self.companyGSTVerify.details?.state
+//                                cell.txtCity.text = self.companyGSTVerify.details?.city
                                 cell.txtIPinNum.text = self.companyGSTVerify.details?.pincode
                                 cell.txtAddress1.text = self.companyGSTVerify.details?.address
                                 cell.txtCompanyType.text = self.companyGSTVerify.details?.companyType
@@ -1329,8 +1384,6 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                                         }
                                     }
                                     
-                                
-                                
                             }
                             else{
                                 self.isCompanyDetailsGSTVerified = false
@@ -1387,7 +1440,7 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                         let emailStr = cell.txtEmail.text ?? ""
                         if EmailValidation.isValidEmail(emailStr){
                             self.view.endEditing(true)
-                            var param  = ["email" : emailStr, "requestOtp": 1]
+                            let param  = ["email" : emailStr, "requestOtp": 1]
                             CustomActivityIndicator.shared.show(in: self.view)
                              SignupDataModel().emialVerification(url: APIs().email_verification_API, requestParam: param, completion: { emailVerify , message in
                                  print(emailVerify)
@@ -1926,11 +1979,11 @@ extension SignupVC : CellDataDelegate{
             self.suplierDataStruct.inventoryType = text
             
         case "CO.Country":
-            self.suplierDataStruct.country = text
+            self.suplierDataStruct.country = "\(self.countryId)"
         case "CO.State":
-            self.suplierDataStruct.state = text
+            self.suplierDataStruct.state = "\(self.stateID ?? 0)"
         case "CO.City":
-            self.suplierDataStruct.city = text
+            self.suplierDataStruct.city = "\(self.cityID ?? 0)"
         case "CO.PinC":
             self.suplierDataStruct.pinCode = text
         case "CO.Add1":

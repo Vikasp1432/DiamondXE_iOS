@@ -65,10 +65,15 @@ class Supplier_CompanyDetails: UITableViewCell, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        txtPassword.isSecureTextEntry = true
+        txtConfirmPassword.isSecureTextEntry = true
         
         txtGST.delegate = self
         txtPAN.delegate = self
         txtEmail.delegate = self
+        txtPassword.delegate = self
+        txtConfirmPassword.delegate = self
+        txtInventoryType.delegate = self
 //        self.btnFlag.setTitle(APIs().indianFlag, for: .normal)
         BaseViewController.setClrUItextField(textFields: [txtCity, txtState, txtCountry, txtMobile, txtEmail, txtAddress1, txtAddress2, txtCompanyType, txtBusinessVal, txtIEXNumber, txtTradeNumber, txtGST, txtPAN, txtCompanyName, txtIPinNum, txtPassword, txtConfirmPassword, txtInventoryType])
         

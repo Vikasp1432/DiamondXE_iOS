@@ -28,6 +28,7 @@ class Supplier_AuthorisedPersonCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
 //        self.btnFlag.setTitle(APIs().indianFlag, for: .normal)
+        BaseViewController.setClrUItextField(textFields: [txtSupervisorName, txtSupervisorEmail,txtSupervisorMobile])
     }
 
     func setupData(isExpand:Bool){

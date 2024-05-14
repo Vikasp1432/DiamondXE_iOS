@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		440254612BEE586D00E90546 /* splashVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 440254602BEE586D00E90546 /* splashVideo.mp4 */; };
 		440254632BEE59B900E90546 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440254622BEE59B900E90546 /* SplashVC.swift */; };
+		440FE4D82BF395C100B11770 /* splashVD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 440FE4D62BF395C100B11770 /* splashVD.mp4 */; };
+		440FE4D92BF395C100B11770 /* splashS.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 440FE4D72BF395C100B11770 /* splashS.jpg */; };
 		44172F262BEC9E51003875A6 /* TableViewCellManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44172F252BEC9E51003875A6 /* TableViewCellManager.swift */; };
 		4420B9782BD91EBE00C156CF /* UserTypeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4420B9772BD91EBE00C156CF /* UserTypeManager.swift */; };
 		4420B97B2BD9333A00C156CF /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4420B97A2BD9333A00C156CF /* IQKeyboardManagerSwift */; };
@@ -17,7 +18,6 @@
 		4440C5992BD9074400C00975 /* BuyerCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4440C5972BD9074400C00975 /* BuyerCell1.xib */; };
 		4440C59C2BD9110100C00975 /* FooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4440C59A2BD9110100C00975 /* FooterCell.swift */; };
 		4440C59D2BD9110100C00975 /* FooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4440C59B2BD9110100C00975 /* FooterCell.xib */; };
-		44479E6A2BCFE4B400638A63 /* splashL.png in Resources */ = {isa = PBXBuildFile; fileRef = 44479E692BCFE4B400638A63 /* splashL.png */; };
 		444A1A642BD24D1900B8A6CA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 444A1A632BD24D1900B8A6CA /* Alamofire */; };
 		444A1A662BD24DE000B8A6CA /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444A1A652BD24DE000B8A6CA /* AlamofireManager.swift */; };
 		444A1A682BD250F900B8A6CA /* JsonParsingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444A1A672BD250F900B8A6CA /* JsonParsingManager.swift */; };
@@ -126,8 +126,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		440254602BEE586D00E90546 /* splashVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = splashVideo.mp4; sourceTree = "<group>"; };
 		440254622BEE59B900E90546 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		440FE4D62BF395C100B11770 /* splashVD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = splashVD.mp4; sourceTree = "<group>"; };
+		440FE4D72BF395C100B11770 /* splashS.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = splashS.jpg; sourceTree = "<group>"; };
 		44172F252BEC9E51003875A6 /* TableViewCellManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellManager.swift; sourceTree = "<group>"; };
 		4420B9772BD91EBE00C156CF /* UserTypeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeManager.swift; sourceTree = "<group>"; };
 		4440C5912BD9033E00C00975 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
@@ -135,7 +136,6 @@
 		4440C5972BD9074400C00975 /* BuyerCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyerCell1.xib; sourceTree = "<group>"; };
 		4440C59A2BD9110100C00975 /* FooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCell.swift; sourceTree = "<group>"; };
 		4440C59B2BD9110100C00975 /* FooterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterCell.xib; sourceTree = "<group>"; };
-		44479E692BCFE4B400638A63 /* splashL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashL.png; sourceTree = "<group>"; };
 		44479E6D2BCFEC6300638A63 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		44479E6E2BCFEC6300638A63 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		44479E6F2BCFEC6300638A63 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -295,9 +295,9 @@
 		44479E6B2BCFE4E100638A63 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				440254602BEE586D00E90546 /* splashVideo.mp4 */,
+				440FE4D72BF395C100B11770 /* splashS.jpg */,
+				440FE4D62BF395C100B11770 /* splashVD.mp4 */,
 				447E72762BCFAB4100AAEA57 /* LaunchScreen.storyboard */,
-				44479E692BCFE4B400638A63 /* splashL.png */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -734,13 +734,13 @@
 				4440C5992BD9074400C00975 /* BuyerCell1.xib in Resources */,
 				44CC389B2BD7CA4F002B3597 /* OpenSans-Medium.ttf in Resources */,
 				44CC389C2BD7CA4F002B3597 /* OpenSans-MediumItalic.ttf in Resources */,
+				440FE4D82BF395C100B11770 /* splashVD.mp4 in Resources */,
 				44CC389D2BD7CA4F002B3597 /* OpenSans-Regular.ttf in Resources */,
 				44CC389E2BD7CA4F002B3597 /* OpenSans-SemiBold.ttf in Resources */,
 				44A81B572BDF6FB1008AB93A /* Dealer_OtherDocCell.xib in Resources */,
 				44CC389F2BD7CA4F002B3597 /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				44CC38A02BD7CA4F002B3597 /* Roboto-Black.ttf in Resources */,
 				44A81B4F2BDF6F75008AB93A /* Dealer_KYCCell.xib in Resources */,
-				440254612BEE586D00E90546 /* splashVideo.mp4 in Resources */,
 				44A81B532BDF6F95008AB93A /* Dealer_BasicCell.xib in Resources */,
 				44A81B5B2BDF6FD8008AB93A /* Dealer_CompanyDetailsCell.xib in Resources */,
 				44CC38A12BD7CA4F002B3597 /* Roboto-BlackItalic.ttf in Resources */,
@@ -755,6 +755,7 @@
 				44CC38A92BD7CA4F002B3597 /* Roboto-Regular.ttf in Resources */,
 				44CC38AA2BD7CA4F002B3597 /* Roboto-Thin.ttf in Resources */,
 				44CC38AB2BD7CA4F002B3597 /* Roboto-ThinItalic.ttf in Resources */,
+				440FE4D92BF395C100B11770 /* splashS.jpg in Resources */,
 				447E72752BCFAB4100AAEA57 /* Assets.xcassets in Resources */,
 				447E72782BCFAB4100AAEA57 /* Base in Resources */,
 				447E72D72BCFD0A600AAEA57 /* Login.storyboard in Resources */,
@@ -763,7 +764,6 @@
 				447E72D02BCFC85900AAEA57 /* Staging.xcconfig in Resources */,
 				44F631292BEF4442003EE2BC /* Supplier_CompanyDetails.xib in Resources */,
 				44CC388B2BD7C06A002B3597 /* Signup.storyboard in Resources */,
-				44479E6A2BCFE4B400638A63 /* splashL.png in Resources */,
 				44546A3C2BD65EE8007AFEF8 /* CustomAlerts.storyboard in Resources */,
 				447E72702BCFAB4000AAEA57 /* Base in Resources */,
 				447E72D22BCFC87000AAEA57 /* Production.xcconfig in Resources */,

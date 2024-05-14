@@ -69,7 +69,7 @@ struct OtherDocInfo: Codable {
 
 // Supplier data struct
 struct SupplierSignupDataStruct: Codable {
-    var firstName, lastName, email, mobileNo: String?
+    var firstName, lastName, email,referralCode, mobileNo: String?
     var country, state, city, password: String?
     var confirmPassword, pinCode, address, address2: String?
     var companyName, companyEmail, companyContact, typeOfCompany: String?

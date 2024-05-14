@@ -15,10 +15,10 @@ class SplashVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray
+       // view.backgroundColor = .red
         self.playVideo()
         // Do any additional setup after loading the view.
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.3) {
             self.moveToRootVC()
         }
     }
@@ -26,16 +26,16 @@ class SplashVC: BaseViewController {
 
     private func playVideo() {
 
-        guard let videoURL = Bundle.main.url(forResource: "splashVideo", withExtension: "mp4") else {
+        guard let videoURL = Bundle.main.url(forResource: "splashVD", withExtension: "mp4") else {
              fatalError("Video not found")
            }
 
            player = AVPlayer(url: videoURL)
         
-           // Create a player layer
 
            let playerLayer = AVPlayerLayer(player: player!)
            playerLayer.frame = view.bounds
+           playerLayer.videoGravity = .resizeAspectFill
            
            // Add the player layer to the view
            view.layer.addSublayer(playerLayer)

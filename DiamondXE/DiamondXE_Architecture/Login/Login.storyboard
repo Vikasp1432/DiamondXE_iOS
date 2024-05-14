@@ -882,27 +882,22 @@ with your account.</string>
         <scene sceneID="gev-lm-lfe">
             <objects>
                 <viewController storyboardIdentifier="SplashVC" id="uBt-FF-Bv9" customClass="SplashVC" customModule="DiamondXE" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="G75-c2-dCX">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="G75-c2-dCX">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vHr-W8-I8U">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashS.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="WQC-XT-EZY">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <color key="backgroundColor" red="0.97254901960784312" green="0.94901960784313721" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
+                            </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="zko-SQ-r7R"/>
                         <color key="backgroundColor" name="whitClr"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="vHr-W8-I8U" secondAttribute="trailing" id="WF7-1x-7DN"/>
-                            <constraint firstItem="vHr-W8-I8U" firstAttribute="top" secondItem="G75-c2-dCX" secondAttribute="top" id="XKH-65-0n6"/>
-                            <constraint firstItem="vHr-W8-I8U" firstAttribute="leading" secondItem="G75-c2-dCX" secondAttribute="leading" id="hbQ-qD-vlg"/>
-                            <constraint firstAttribute="bottom" secondItem="vHr-W8-I8U" secondAttribute="bottom" id="rDJ-hW-W7Z"/>
+                            <constraint firstAttribute="bottom" secondItem="WQC-XT-EZY" secondAttribute="bottom" id="6r6-dJ-2Sp"/>
+                            <constraint firstAttribute="trailing" secondItem="WQC-XT-EZY" secondAttribute="trailing" id="CPD-cm-3Yk"/>
+                            <constraint firstItem="WQC-XT-EZY" firstAttribute="leading" secondItem="G75-c2-dCX" secondAttribute="leading" id="QOB-LL-Mex"/>
+                            <constraint firstItem="WQC-XT-EZY" firstAttribute="top" secondItem="G75-c2-dCX" secondAttribute="top" id="gwW-Zp-zsi"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="bgView" destination="vHr-W8-I8U" id="dVe-6e-WOd"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fb5-4I-lNw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1276,6 +1271,7 @@ login into your account!</string>
         <image name="arrow-left" width="28" height="28"/>
         <image name="down" width="10" height="6"/>
         <image name="eye" width="17" height="17"/>
+        <image name="splashS.jpg" width="1242" height="2688"/>
         <namedColor name="ShadowClr">
             <color red="0.9179999828338623" green="0.92500001192092896" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
