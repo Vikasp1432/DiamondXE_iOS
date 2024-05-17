@@ -9,6 +9,20 @@ import UIKit
 
 class BaseViewController: UIViewController, UITextFieldDelegate {
     
+    struct Section {
+        var mainCellTitle: String
+        var expandableCellOptions: [String]
+        var isExpandableCellsHidden: Bool
+    }
+    
+    // uitableviewSections
+    var sections: [Section] = [
+        Section(mainCellTitle: "1~3", expandableCellOptions: ["1", "2", "3"], isExpandableCellsHidden: true),
+        Section(mainCellTitle: "4~6", expandableCellOptions: ["4", "5", "6"], isExpandableCellsHidden: true),
+        Section(mainCellTitle: "7~9", expandableCellOptions: ["7", "8", "9"], isExpandableCellsHidden: true),
+    ]
+    
+    
     let businessNature = ["Retailer",
                           "Wholesaler",
                           "Trader",
@@ -32,6 +46,9 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
 
 
         // Do any additional setup after loading the view.
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent // Or .darkContent depending on your needs
     }
     
     //get device uniq ID

@@ -6,30 +6,16 @@
 	<string>$(Root_URL)</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>OpenSans-Bold.ttf</string>
-		<string>OpenSans-BoldItalic.ttf</string>
-		<string>OpenSans-ExtraBold.ttf</string>
-		<string>OpenSans-ExtraBoldItalic.ttf</string>
-		<string>OpenSans-Italic.ttf</string>
-		<string>OpenSans-Light.ttf</string>
-		<string>OpenSans-LightItalic.ttf</string>
-		<string>OpenSans-Medium.ttf</string>
-		<string>OpenSans-MediumItalic.ttf</string>
-		<string>OpenSans-Regular.ttf</string>
-		<string>OpenSans-SemiBold.ttf</string>
-		<string>OpenSans-SemiBoldItalic.ttf</string>
-		<string>Roboto-Black.ttf</string>
-		<string>Roboto-BlackItalic.ttf</string>
-		<string>Roboto-Bold.ttf</string>
-		<string>Roboto-BoldItalic.ttf</string>
-		<string>Roboto-Italic.ttf</string>
-		<string>Roboto-Light.ttf</string>
-		<string>Roboto-LightItalic.ttf</string>
-		<string>Roboto-Medium.ttf</string>
-		<string>Roboto-MediumItalic.ttf</string>
-		<string>Roboto-Regular.ttf</string>
-		<string>Roboto-Thin.ttf</string>
-		<string>Roboto-ThinItalic.ttf</string>
+		<string>LATO-LIGHTITALIC.TTF</string>
+		<string>LATO-ITALIC.TTF</string>
+		<string>LATO-BOLDITALIC.TTF</string>
+		<string>LATO-BOLD.TTF</string>
+		<string>LATO-BLACKITALIC.TTF</string>
+		<string>LATO.SEMIBOLD.TTF</string>
+		<string>LATO-LIGHT.TTF</string>
+		<string>LATO-REGULAR.TTF</string>
+		<string>LATO-BLACK.TTF</string>
+		<string></string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

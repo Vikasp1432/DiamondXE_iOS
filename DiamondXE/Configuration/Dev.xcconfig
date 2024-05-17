@@ -7,5 +7,6 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
+// https://app-uat.diamondxe.com/
 
-Root_URL = admin-uat.diamondxe.com/
+Root_URL = app-uat.diamondxe.com/

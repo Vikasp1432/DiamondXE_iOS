@@ -57,8 +57,8 @@ class SplashVC: BaseViewController {
             guard let window = UIApplication.shared.keyWindow else {
                 return
             }
-            let storyboard = UIStoryboard(name: "Login", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+            let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "DashboardVC")
             window.rootViewController = vc
 
             let options: UIView.AnimationOptions = .transitionCrossDissolve
