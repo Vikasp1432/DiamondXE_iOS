@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HomeVC_CateogiesCVC" customModule="DiamondXE" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="191" height="234"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="191" height="234"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0R-RY-lEf">
+                        <rect key="frame" x="10" y="5" width="176" height="224"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgJW" translatesAutoresizingMaskIntoConstraints="NO" id="XNK-44-7ZP">
+                                <rect key="frame" x="0.0" y="0.0" width="176" height="184"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S45-kh-yUT">
+                                <rect key="frame" x="6" y="184" width="164" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JD2-uD-zcN"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Loose Diamonds">
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="Lato-Semibold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="S45-kh-yUT" secondAttribute="trailing" constant="6" id="2iK-A1-sVL"/>
+                            <constraint firstItem="S45-kh-yUT" firstAttribute="leading" secondItem="K0R-RY-lEf" secondAttribute="leading" constant="6" id="LCe-fR-NXM"/>
+                            <constraint firstAttribute="bottom" secondItem="S45-kh-yUT" secondAttribute="bottom" id="NXc-hy-3SA"/>
+                            <constraint firstItem="XNK-44-7ZP" firstAttribute="top" secondItem="K0R-RY-lEf" secondAttribute="top" id="Qoi-9C-oMe"/>
+                            <constraint firstItem="XNK-44-7ZP" firstAttribute="leading" secondItem="K0R-RY-lEf" secondAttribute="leading" id="WQR-Fu-fIX"/>
+                            <constraint firstItem="S45-kh-yUT" firstAttribute="top" secondItem="XNK-44-7ZP" secondAttribute="bottom" id="Wcp-kf-aUZ"/>
+                            <constraint firstAttribute="trailing" secondItem="XNK-44-7ZP" secondAttribute="trailing" id="luV-1d-XOQ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="K0R-RY-lEf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="3G5-ik-KFC"/>
+                <constraint firstItem="K0R-RY-lEf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="5q0-75-wRo"/>
+                <constraint firstAttribute="trailing" secondItem="K0R-RY-lEf" secondAttribute="trailing" constant="5" id="EgC-aO-PHh"/>
+                <constraint firstAttribute="bottom" secondItem="K0R-RY-lEf" secondAttribute="bottom" constant="5" id="agb-Gc-z5q"/>
+            </constraints>
+            <size key="customSize" width="191" height="234"/>
+            <connections>
+                <outlet property="bgView" destination="K0R-RY-lEf" id="w4V-an-cck"/>
+                <outlet property="lblCateIMG" destination="XNK-44-7ZP" id="xSl-t0-2Qf"/>
+                <outlet property="lblCateName" destination="S45-kh-yUT" id="QCK-qk-lBr"/>
+            </connections>
+            <point key="canvasLocation" x="170.22900763358777" y="63.380281690140848"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="imgJW" width="88" height="90"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

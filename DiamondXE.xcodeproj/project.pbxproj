@@ -96,6 +96,14 @@
 		44CE86332BF600AC004AAAF3 /* DashboardLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE86322BF600AC004AAAF3 /* DashboardLoginVC.swift */; };
 		44D7FCA92BE2131800A5B3F3 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D7FCA82BE2131800A5B3F3 /* SignupModel.swift */; };
 		44D7FCAB2BE2137B00A5B3F3 /* BuyerDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D7FCAA2BE2137B00A5B3F3 /* BuyerDataStruct.swift */; };
+		44E61DA52BFB30E0006E136E /* HomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44E61DA42BFB30E0006E136E /* HomeVC.storyboard */; };
+		44E61DA72BFB30F4006E136E /* CategoriesVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44E61DA62BFB30F4006E136E /* CategoriesVC.storyboard */; };
+		44E61DA92BFB3105006E136E /* WishlistVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44E61DA82BFB3105006E136E /* WishlistVC.storyboard */; };
+		44E61DAB2BFB3114006E136E /* CartVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44E61DAA2BFB3114006E136E /* CartVC.storyboard */; };
+		44E61DAF2BFB40BA006E136E /* HomeVC_CateogiesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E61DAD2BFB40BA006E136E /* HomeVC_CateogiesTVC.swift */; };
+		44E61DB02BFB40BA006E136E /* HomeVC_CateogiesTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44E61DAE2BFB40BA006E136E /* HomeVC_CateogiesTVC.xib */; };
+		44E61DB32BFB41E4006E136E /* HomeVC_CateogiesCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E61DB12BFB41E4006E136E /* HomeVC_CateogiesCVC.swift */; };
+		44E61DB42BFB41E4006E136E /* HomeVC_CateogiesCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44E61DB22BFB41E4006E136E /* HomeVC_CateogiesCVC.xib */; };
 		44F631252BEF3BA3003EE2BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447E72762BCFAB4100AAEA57 /* LaunchScreen.storyboard */; };
 		44F631282BEF4442003EE2BC /* Supplier_CompanyDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F631262BEF4442003EE2BC /* Supplier_CompanyDetails.swift */; };
 		44F631292BEF4442003EE2BC /* Supplier_CompanyDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44F631272BEF4442003EE2BC /* Supplier_CompanyDetails.xib */; };
@@ -210,6 +218,14 @@
 		44CE86322BF600AC004AAAF3 /* DashboardLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardLoginVC.swift; sourceTree = "<group>"; };
 		44D7FCA82BE2131800A5B3F3 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		44D7FCAA2BE2137B00A5B3F3 /* BuyerDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerDataStruct.swift; sourceTree = "<group>"; };
+		44E61DA42BFB30E0006E136E /* HomeVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeVC.storyboard; sourceTree = "<group>"; };
+		44E61DA62BFB30F4006E136E /* CategoriesVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoriesVC.storyboard; sourceTree = "<group>"; };
+		44E61DA82BFB3105006E136E /* WishlistVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WishlistVC.storyboard; sourceTree = "<group>"; };
+		44E61DAA2BFB3114006E136E /* CartVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CartVC.storyboard; sourceTree = "<group>"; };
+		44E61DAD2BFB40BA006E136E /* HomeVC_CateogiesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC_CateogiesTVC.swift; sourceTree = "<group>"; };
+		44E61DAE2BFB40BA006E136E /* HomeVC_CateogiesTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC_CateogiesTVC.xib; sourceTree = "<group>"; };
+		44E61DB12BFB41E4006E136E /* HomeVC_CateogiesCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC_CateogiesCVC.swift; sourceTree = "<group>"; };
+		44E61DB22BFB41E4006E136E /* HomeVC_CateogiesCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC_CateogiesCVC.xib; sourceTree = "<group>"; };
 		44F631262BEF4442003EE2BC /* Supplier_CompanyDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supplier_CompanyDetails.swift; sourceTree = "<group>"; };
 		44F631272BEF4442003EE2BC /* Supplier_CompanyDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Supplier_CompanyDetails.xib; sourceTree = "<group>"; };
 		44F8F9AA2BE4C2B400F4BC7A /* GalleryMaganer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryMaganer.swift; sourceTree = "<group>"; };
@@ -575,6 +591,10 @@
 			isa = PBXGroup;
 			children = (
 				44CC38902BD7C371002B3597 /* Dashboard.storyboard */,
+				44E61DAA2BFB3114006E136E /* CartVC.storyboard */,
+				44E61DA42BFB30E0006E136E /* HomeVC.storyboard */,
+				44E61DA62BFB30F4006E136E /* CategoriesVC.storyboard */,
+				44E61DA82BFB3105006E136E /* WishlistVC.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -582,6 +602,7 @@
 		44CC388F2BD7C30C002B3597 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				44E61DAC2BFB3F8D006E136E /* HomeTableViewCells */,
 				4470B0932BF7917500DC824B /* SideMenuXIB */,
 				44CE86272BF5F766004AAAF3 /* DashboardControllers */,
 				44CC38922BD7C394002B3597 /* DashboardVC.swift */,
@@ -606,6 +627,17 @@
 				44CE86322BF600AC004AAAF3 /* DashboardLoginVC.swift */,
 			);
 			path = DashboardControllers;
+			sourceTree = "<group>";
+		};
+		44E61DAC2BFB3F8D006E136E /* HomeTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				44E61DAD2BFB40BA006E136E /* HomeVC_CateogiesTVC.swift */,
+				44E61DAE2BFB40BA006E136E /* HomeVC_CateogiesTVC.xib */,
+				44E61DB12BFB41E4006E136E /* HomeVC_CateogiesCVC.swift */,
+				44E61DB22BFB41E4006E136E /* HomeVC_CateogiesCVC.xib */,
+			);
+			path = HomeTableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -724,6 +756,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44E61DA92BFB3105006E136E /* WishlistVC.storyboard in Resources */,
+				44E61DB42BFB41E4006E136E /* HomeVC_CateogiesCVC.xib in Resources */,
 				44F631252BEF3BA3003EE2BC /* LaunchScreen.storyboard in Resources */,
 				44556C222BF77EC600B5FBA4 /* LATO-BLACK.TTF in Resources */,
 				4440C5992BD9074400C00975 /* BuyerCell1.xib in Resources */,
@@ -734,15 +768,19 @@
 				44556C292BF77EC600B5FBA4 /* LATO.SEMIBOLD.TTF in Resources */,
 				44A81B4F2BDF6F75008AB93A /* Dealer_KYCCell.xib in Resources */,
 				44A81B532BDF6F95008AB93A /* Dealer_BasicCell.xib in Resources */,
+				44E61DA72BFB30F4006E136E /* CategoriesVC.storyboard in Resources */,
+				44E61DB02BFB40BA006E136E /* HomeVC_CateogiesTVC.xib in Resources */,
 				44A81B5B2BDF6FD8008AB93A /* Dealer_CompanyDetailsCell.xib in Resources */,
 				44556C242BF77EC600B5FBA4 /* LATO-LIGHTITALIC.TTF in Resources */,
 				44556C262BF77EC600B5FBA4 /* LATO-BOLDITALIC.TTF in Resources */,
 				44C8A45E2BE12145006C9B06 /* Supplier_AuthorisedPersonCell.xib in Resources */,
+				44E61DA52BFB30E0006E136E /* HomeVC.storyboard in Resources */,
 				4470B0992BF7919A00DC824B /* MainCell.xib in Resources */,
 				44556C272BF77EC600B5FBA4 /* LATO-BOLD.TTF in Resources */,
 				44556C252BF77EC600B5FBA4 /* LATO-ITALIC.TTF in Resources */,
 				440FE4D92BF395C100B11770 /* splashS.jpg in Resources */,
 				447E72752BCFAB4100AAEA57 /* Assets.xcassets in Resources */,
+				44E61DAB2BFB3114006E136E /* CartVC.storyboard in Resources */,
 				447E72782BCFAB4100AAEA57 /* Base in Resources */,
 				447E72D72BCFD0A600AAEA57 /* Login.storyboard in Resources */,
 				447E72CE2BCFC84200AAEA57 /* Dev.xcconfig in Resources */,
@@ -781,6 +819,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44E61DAF2BFB40BA006E136E /* HomeVC_CateogiesTVC.swift in Sources */,
 				44C7C1592BE3B8C4007E639A /* WKWebViewVC.swift in Sources */,
 				447E729E2BCFAEED00AAEA57 /* APIWithBaseURL.swift in Sources */,
 				44CC38932BD7C394002B3597 /* DashboardVC.swift in Sources */,
@@ -801,6 +840,7 @@
 				44546A3E2BD662BA007AFEF8 /* CountryListVC.swift in Sources */,
 				4440C59C2BD9110100C00975 /* FooterCell.swift in Sources */,
 				447E72DC2BCFD14300AAEA57 /* LoginVC.swift in Sources */,
+				44E61DB32BFB41E4006E136E /* HomeVC_CateogiesCVC.swift in Sources */,
 				444A1A732BD2883200B8A6CA /* ForgotPasswordVC.swift in Sources */,
 				44CE862F2BF5F80C004AAAF3 /* CartVC.swift in Sources */,
 				44546A452BD68500007AFEF8 /* Delegates.swift in Sources */,

@@ -15,6 +15,7 @@ class DashboardVC: BaseViewController {
     @IBOutlet var viewBG: UIImageView!
     @IBOutlet var swipeGesture: UISwipeGestureRecognizer!
     @IBOutlet var menuTableView: UITableView!
+    @IBOutlet var lblVersion: UILabel!
     
     let screen = UIScreen.main.bounds
     var menu = false
@@ -31,13 +32,17 @@ class DashboardVC: BaseViewController {
     @IBOutlet weak var btnLogin: UIButton!
     
     @IBOutlet weak var containerView: UIView!
-    private var childControllers: [UIViewController] = []
-    private var previouslyVisibleChildViewController: UIViewController?
-    
+ 
+    private var currentViewController: UIViewController?
+    private var currentViewControllerIdentifier: String?
+//    private let viewControllerIdentifiers = ["HomeVC", "CategoriesVC", "WishVC", "CartVC", "DashboardLoginVC"]
+//    private let storyboardNames = ["HomeVC", "CategoriesVC", "WishlistVC", "CartVC", "Dashboard"]
+
   
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.lblVersion.text = getAppVersion
         btnSearch.layer.shadowOffset = CGSize(width:0, height:0)
         btnSearch.layer.shadowRadius = 2.5
         btnSearch.layer.shadowColor = UIColor.black.cgColor
@@ -45,30 +50,56 @@ class DashboardVC: BaseViewController {
         btnSearch.clipsToBounds = false
         btnSearch.superview?.clipsToBounds = false
         
-        
-        let childViewController1 = HomeVC()
-        let childViewController2 = CategoriesVC()
-        let childViewController3 = WishVC()
-        let childViewController4 = CartVC()
-        let childViewController5 = DashboardLoginVC()
-        
-        childControllers = [childViewController1, childViewController2,
-                            childViewController3, childViewController4,
-                            childViewController5]
-        
-         transitionToViewController(at: 0)
-        
-        //
-       
+      
+        loadViewController(withIdentifier: viewControllerIdentifiers[0], fromStoryboard: storyboardNames[0])
+
        
         home = self.containerView.transform
-        
         
         // define uitableview cell
         menuTableView.register(UINib(nibName: ExpandableCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: ExpandableCell.cellIdentifier)
         menuTableView.register(UINib(nibName: MainCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: MainCell.cellIdentifier)
+        menuTableView.showsHorizontalScrollIndicator = false
+        menuTableView.showsVerticalScrollIndicator = false
       
     }
+    
+    private func loadViewController(withIdentifier identifier: String, fromStoryboard storyboardName: String) {
+            // Determine the direction
+            let direction: SlideDirection = {
+                if let currentIdentifier = currentViewControllerIdentifier,
+                   let currentIndex = viewControllerIdentifiers.firstIndex(of: currentIdentifier),
+                   let newIndex = viewControllerIdentifiers.firstIndex(of: identifier) {
+                    return newIndex > currentIndex ? .right : .left
+                }
+                return .right
+            }()
+
+            // Instantiate the view controller
+            let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+         let  newViewController = storyboard.instantiateViewController(withIdentifier: identifier)
+            let width = containerView.bounds.size.width
+            let initialFrame = CGRect(x: direction == .right ? width : -width, y: 0, width: width, height: containerView.bounds.size.height)
+            let finalFrame = containerView.bounds
+
+            newViewController.view.frame = initialFrame
+            containerView.addSubview(newViewController.view)
+            addChild(newViewController)
+            newViewController.didMove(toParent: self)
+            
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+                newViewController.view.frame = finalFrame
+                self.currentViewController?.view.frame = CGRect(x: direction == .right ? -width : width, y: 0, width: width, height: self.containerView.bounds.size.height)
+            }) { _ in
+                self.currentViewController?.willMove(toParent: nil)
+                self.currentViewController?.view.removeFromSuperview()
+                self.currentViewController?.removeFromParent()
+                self.currentViewController = newViewController
+                self.currentViewControllerIdentifier = identifier
+            }
+        }
+
+    
     
     
     func showMenu() {
@@ -104,7 +135,7 @@ class DashboardVC: BaseViewController {
     
     @IBAction func showMenu(_ sender: UISwipeGestureRecognizer) {
         
-        print("menu interaction")
+       // print("menu interaction")
         
         if menu == false && swipeGesture.direction == .right {
             
@@ -124,7 +155,7 @@ class DashboardVC: BaseViewController {
         
         if menu == true {
             
-            print("user is hiding menu")
+          //  print("user is hiding menu")
             
             hideMenu()
             
@@ -137,66 +168,29 @@ class DashboardVC: BaseViewController {
     
     
     @IBAction func btnActionTapped(_ sender: UIButton) {
-        switch sender.tag {
-        case 0:
-            transitionToViewController(at: sender.tag)
-        case 1:
-            transitionToViewController(at: sender.tag)
-        case 2:
-            transitionToViewController(at: sender.tag)
-        case 3:
-            transitionToViewController(at: sender.tag)
-        default:
-            transitionToViewController(at: sender.tag)
-        }
-    }
-    
-    
-    
-  
-    
-    private func getChildViewControllerIndex(of child: UIViewController?) -> Int? {
-        guard let child = child else { return nil }
-        return childControllers.firstIndex(of: child)
-    }
-    
-    private func transitionToViewController(at index: Int) {
-           guard index >= 0, index < childControllers.count else { return }
-           let childViewController = childControllers[index]
-
-           // Add child view controller if not already added
-           if childViewController.parent != self {
-               addChild(childViewController)
-               childViewController.view.frame = containerView.bounds
-               containerView.addSubview(childViewController.view)
-               childViewController.didMove(toParent: self)
-           }
-
-           // Calculate transition direction based on current and new indices
-           let currentChildIndex = getChildViewControllerIndex(of: previouslyVisibleChildViewController)
-           let direction: CGFloat = (index > currentChildIndex ?? 0) ? 1.0 : -1.0
-
-           // Animate transition using a slide animation
-        
-        print(direction)
-        
-       // let direction: CGFloat = 1 // 1 for right, -1 for left
-//        let transitionOptions: UIView.AnimationOptions = .curveEaseInOut
-       
-//           let transitionOptions = UIView.AnimationOptions.transitionSlide(along: direction > 0 ? .right : .left, with: .curveEaseInOut, duration: 0.5)
-        UIView.transition(with: self.containerView, duration: 0.5, options: .curveEaseInOut, animations: {
-               // Update container view to show the new child view controller
-               self.containerView.subviews.forEach { $0.removeFromSuperview() }
-               self.containerView.addSubview(childViewController.view)
-           }) { _ in
-               self.previouslyVisibleChildViewController = childViewController
-           }
-        
+        let identifier = viewControllerIdentifiers[sender.tag]
+        let storyboardName = storyboardNames[sender.tag]
+        loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
        }
-    
+        
+        
+//        switch sender.tag {
+//        case 0:
+//            loadViewController(withIdentifier: "HomeVC", fromStoryboard: "Dashboard")
+//        case 1:
+//            loadViewController(withIdentifier: "CategoriesVC", fromStoryboard: "Dashboard")
+//        case 2:
+//            loadViewController(withIdentifier: "WishVC", fromStoryboard: "Dashboard")
+//        case 3:
+//            loadViewController(withIdentifier: "CartVC", fromStoryboard: "Dashboard")
+//        default:
+//            loadViewController(withIdentifier: "DashboardLoginVC", fromStoryboard: "Dashboard")
+//        }
+//    }
+   
     
     @IBAction func btnActionSideMenu(_ sender: UIButton) {
-        print("menu interaction")
+       // print("menu interaction")
         
         if menu == false && swipeGesture.direction == .right {
             
@@ -219,19 +213,25 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
             return sections.count
         }
         
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             let section = sections[section]
-            return section.isExpandableCellsHidden ? 1 : section.expandableCellOptions.count + 1
+            if section.isExpandableCellsHidden {
+                return 1
+            } else {
+                return section.expandableCellOptions.count + 1
+            }
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainCell
-                cell.label.text = sections[indexPath.section].mainCellTitle
+                let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.cellIdentifier, for: indexPath) as! MainCell
+                cell.configure(with: sections[indexPath.section])
+                cell.mainIconIMG.image = sections[indexPath.section].mainCellOptionsIcons[indexPath.section]
                 return cell
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ExpandableCell", for: indexPath) as! ExpandableCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableCell.cellIdentifier, for: indexPath) as! ExpandableCell
                 cell.label.text = sections[indexPath.section].expandableCellOptions[indexPath.row - 1]
+                cell.iconIMG.image = sections[indexPath.section].expandableCellOptionsIcons[indexPath.row - 1]
                 return cell
             }
         }
@@ -241,25 +241,32 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
                 let section = indexPath.section
                 let isCurrentlyHidden = sections[section].isExpandableCellsHidden
                 sections[section].isExpandableCellsHidden = !isCurrentlyHidden
-                
+                sections[section].isExpanded = !isCurrentlyHidden // Update the expanded state
+
+                if sections[section].expandableCellOptions.isEmpty {
+                    // If there are no expandable options, do nothing
+                    return
+                }
+
                 var indexPaths = [IndexPath]()
                 for row in 1...sections[section].expandableCellOptions.count {
                     indexPaths.append(IndexPath(row: row, section: section))
                 }
                 
+                tableView.beginUpdates()
                 if isCurrentlyHidden {
                     // Expand the section with animation
-                    tableView.beginUpdates()
                     tableView.insertRows(at: indexPaths, with: .fade)
-                    tableView.endUpdates()
                 } else {
                     // Collapse the section with animation
-                    tableView.beginUpdates()
                     tableView.deleteRows(at: indexPaths, with: .fade)
-                    tableView.endUpdates()
                 }
-            }
+                tableView.endUpdates()
 
-    }
+                // Reload the main cell to update the icon
+                let mainCellIndexPath = IndexPath(row: 0, section: section)
+                tableView.reloadRows(at: [mainCellIndexPath], with: .none)
+            }
+        }
     
 }

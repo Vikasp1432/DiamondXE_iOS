@@ -18,9 +18,9 @@ class SplashVC: BaseViewController {
        // view.backgroundColor = .red
         self.playVideo()
         // Do any additional setup after loading the view.
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.3) {
-            self.moveToRootVC()
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 5.3) {
+//            self.moveToRootVC()
+//        }
     }
     
 
@@ -46,6 +46,7 @@ class SplashVC: BaseViewController {
            // Schedule to stop the video after 5 seconds
            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
              self.player?.pause()
+               self.moveToRootVC()
            }
          
         
