@@ -13,10 +13,15 @@ class HomeVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        //view.backgroundColor = .red
 
         // define uitableview cell
         homeTableView.register(UINib(nibName: HomeVC_CateogiesTVC.cellIdentifierHomeTVC, bundle: nil), forCellReuseIdentifier: HomeVC_CateogiesTVC.cellIdentifierHomeTVC)
+        homeTableView.register(UINib(nibName: BannerTVC.cellIdentifierBannerTVC, bundle: nil), forCellReuseIdentifier: BannerTVC.cellIdentifierBannerTVC)
+        homeTableView.register(UINib(nibName: GiftOfChoiceTVC.cellIdentifierGiftChoiceTVC, bundle: nil), forCellReuseIdentifier: GiftOfChoiceTVC.cellIdentifierGiftChoiceTVC)
+        homeTableView.register(UINib(nibName: NewArrivalsTVC.cellIdentifierNewArrTVC, bundle: nil), forCellReuseIdentifier: NewArrivalsTVC.cellIdentifierNewArrTVC)
+        homeTableView.showsHorizontalScrollIndicator = false
+        homeTableView.showsVerticalScrollIndicator = false
     }
 
 }
@@ -27,14 +32,30 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: HomeVC_CateogiesTVC.cellIdentifierHomeTVC, for: indexPath) as! HomeVC_CateogiesTVC
-            //cell.collectionCat.tag = indexPath.row
+            cell.selectionStyle = .none
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: BannerTVC.cellIdentifierBannerTVC, for: indexPath) as! BannerTVC
+            cell.selectionStyle = .none
+            return cell
+            
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: GiftOfChoiceTVC.cellIdentifierGiftChoiceTVC, for: indexPath) as! GiftOfChoiceTVC
+            cell.selectionStyle = .none
+            cell.lblTitle.text = "Gift of choice"
+            return cell
+            
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewArrivalsTVC.cellIdentifierNewArrTVC, for: indexPath) as! NewArrivalsTVC
+            cell.selectionStyle = .none
+            cell.lblTitle.text = "New Arrivals"
             return cell
         default:
             return UITableViewCell()
@@ -46,9 +67,18 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
         switch indexPath.section {
         case 0:
             return 170
+            
+        case 1:
+            return 320
+            
+        case 2:
+            return 340
+            
+        case 3:
+            return 224
+            
         default:
-            return 80
-        
+            return 0
         }
     }
   

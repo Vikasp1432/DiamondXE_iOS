@@ -18,7 +18,7 @@ class HomeVC_CateogiesCVC: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        bgView.layer.shadowColor = UIColor.black.cgColor
+        bgView.layer.shadowColor = UIColor.shadowViewclr.cgColor
         bgView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         bgView.layer.shadowRadius = 2.0
         bgView.layer.shadowOpacity = 0.5

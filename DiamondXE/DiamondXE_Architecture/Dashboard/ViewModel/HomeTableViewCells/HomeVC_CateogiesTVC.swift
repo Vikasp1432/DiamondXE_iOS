@@ -11,6 +11,23 @@ class HomeVC_CateogiesTVC: UITableViewCell {
     static let cellIdentifierHomeTVC = String(describing: HomeVC_CateogiesTVC.self)
 
     @IBOutlet var collectionCat:UICollectionView!
+    
+    
+    var imgArr = [  UIImage(named:"LooseDiamonds"),
+                    UIImage(named:"Rings_") ,
+                    UIImage(named:"EarRings") ,
+                    UIImage(named:"Pendants") ,
+                    UIImage(named:"Bracelets") ,
+                    UIImage(named:"Bangles_") ]
+    
+    var titleArr = [ "Loose Diamonds",
+                    "Rings" ,
+                    "Earrings" ,
+                    "Pendants" ,
+                    "Bracelets" ,
+                    "Bangles"]
+    
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,11 +36,8 @@ class HomeVC_CateogiesTVC: UITableViewCell {
         collectionCat.dataSource = self
         collectionCat.register(UINib(nibName: HomeVC_CateogiesCVC.cellIdentifierHomeCVC, bundle: nil), forCellWithReuseIdentifier: HomeVC_CateogiesCVC.cellIdentifierHomeCVC)
         
-//        
-//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//        //layout.minimumInteritemSpacing = 0
-//        //layout.minimumLineSpacing = 0
-//        collectionCat.collectionViewLayout = layout
+        collectionCat.showsHorizontalScrollIndicator = false
+        collectionCat.showsVerticalScrollIndicator = false
 
 
     }
@@ -39,11 +53,13 @@ class HomeVC_CateogiesTVC: UITableViewCell {
 
 extension HomeVC_CateogiesTVC: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return imgArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeVC_CateogiesCVC", for: indexPath) as! HomeVC_CateogiesCVC
+        cell.lblCateIMG.image = imgArr[indexPath.row]
+        cell.lblCateName.text = titleArr[indexPath.row]
        
         return cell
     }

@@ -25,11 +25,17 @@ class DashboardVC: BaseViewController {
     @IBOutlet var viewTabBar:UIView!
     @IBOutlet var btnSearch:UIButton!
     
-    @IBOutlet weak var btnHome: UIButton!
-    @IBOutlet weak var btnCategory: UIButton!
-    @IBOutlet weak var btnWish: UIButton!
-    @IBOutlet weak var btnCart: UIButton!
-    @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet var btnHome: UIButton!
+    @IBOutlet var btnCategory: UIButton!
+    @IBOutlet var btnWish: UIButton!
+    @IBOutlet var btnCart: UIButton!
+    @IBOutlet var btnLogin: UIButton!
+    @IBOutlet var btnTitleHome: UIButton!
+    @IBOutlet var btnTitleCategory: UIButton!
+    @IBOutlet var btnTitleWish: UIButton!
+    @IBOutlet var btnTitleCart: UIButton!
+    @IBOutlet var btnTitleLogin: UIButton!
+    
     
     @IBOutlet weak var containerView: UIView!
  
@@ -61,43 +67,51 @@ class DashboardVC: BaseViewController {
         menuTableView.register(UINib(nibName: MainCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: MainCell.cellIdentifier)
         menuTableView.showsHorizontalScrollIndicator = false
         menuTableView.showsVerticalScrollIndicator = false
+        
+      
       
     }
     
     private func loadViewController(withIdentifier identifier: String, fromStoryboard storyboardName: String) {
-            // Determine the direction
-            let direction: SlideDirection = {
-                if let currentIdentifier = currentViewControllerIdentifier,
-                   let currentIndex = viewControllerIdentifiers.firstIndex(of: currentIdentifier),
-                   let newIndex = viewControllerIdentifiers.firstIndex(of: identifier) {
-                    return newIndex > currentIndex ? .right : .left
-                }
-                return .right
-            }()
-
-            // Instantiate the view controller
-            let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-         let  newViewController = storyboard.instantiateViewController(withIdentifier: identifier)
-            let width = containerView.bounds.size.width
-            let initialFrame = CGRect(x: direction == .right ? width : -width, y: 0, width: width, height: containerView.bounds.size.height)
-            let finalFrame = containerView.bounds
-
-            newViewController.view.frame = initialFrame
-            containerView.addSubview(newViewController.view)
-            addChild(newViewController)
-            newViewController.didMove(toParent: self)
-            
-            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
-                newViewController.view.frame = finalFrame
-                self.currentViewController?.view.frame = CGRect(x: direction == .right ? -width : width, y: 0, width: width, height: self.containerView.bounds.size.height)
-            }) { _ in
-                self.currentViewController?.willMove(toParent: nil)
-                self.currentViewController?.view.removeFromSuperview()
-                self.currentViewController?.removeFromParent()
-                self.currentViewController = newViewController
-                self.currentViewControllerIdentifier = identifier
-            }
+        // Check if the new view controller is the same as the current one
+        if identifier == currentViewControllerIdentifier {
+            return
         }
+
+        // Determine the direction
+        let direction: SlideDirection = {
+            if let currentIdentifier = currentViewControllerIdentifier,
+               let currentIndex = viewControllerIdentifiers.firstIndex(of: currentIdentifier),
+               let newIndex = viewControllerIdentifiers.firstIndex(of: identifier) {
+                return newIndex > currentIndex ? .right : .left
+            }
+            return .right
+        }()
+
+        // Instantiate the view controller
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+         let newViewController = storyboard.instantiateViewController(withIdentifier: identifier)
+        
+        let width = containerView.bounds.size.width
+        let initialFrame = CGRect(x: direction == .right ? width : -width, y: 0, width: width, height: containerView.bounds.size.height)
+        let finalFrame = containerView.bounds
+
+        newViewController.view.frame = initialFrame
+        containerView.addSubview(newViewController.view)
+        addChild(newViewController)
+        newViewController.didMove(toParent: self)
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+            newViewController.view.frame = finalFrame
+            self.currentViewController?.view.frame = CGRect(x: direction == .right ? -width : width, y: 0, width: width, height: self.containerView.bounds.size.height)
+        }) { _ in
+            self.currentViewController?.willMove(toParent: nil)
+            self.currentViewController?.view.removeFromSuperview()
+            self.currentViewController?.removeFromParent()
+            self.currentViewController = newViewController
+            self.currentViewControllerIdentifier = identifier
+        }
+    }
 
     
     
@@ -171,22 +185,67 @@ class DashboardVC: BaseViewController {
         let identifier = viewControllerIdentifiers[sender.tag]
         let storyboardName = storyboardNames[sender.tag]
         loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
-       }
-        
-        
-//        switch sender.tag {
-//        case 0:
-//            loadViewController(withIdentifier: "HomeVC", fromStoryboard: "Dashboard")
-//        case 1:
-//            loadViewController(withIdentifier: "CategoriesVC", fromStoryboard: "Dashboard")
-//        case 2:
-//            loadViewController(withIdentifier: "WishVC", fromStoryboard: "Dashboard")
-//        case 3:
-//            loadViewController(withIdentifier: "CartVC", fromStoryboard: "Dashboard")
-//        default:
-//            loadViewController(withIdentifier: "DashboardLoginVC", fromStoryboard: "Dashboard")
-//        }
-//    }
+        switch sender.tag {
+        case 0:
+            self.btnHome.tintColor = .themeClr
+            self.btnCategory.tintColor = .clrGray
+            self.btnWish.tintColor = .clrGray
+            self.btnCart.tintColor = .clrGray
+            self.btnLogin.tintColor = .clrGray
+            self.btnTitleHome.setTitleColor(UIColor.themeClr, for: .normal)
+            self.btnTitleCategory.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
+        case 1:
+            self.btnHome.tintColor = .clrGray
+            self.btnCategory.tintColor = .themeClr
+            self.btnWish.tintColor = .clrGray
+            self.btnCart.tintColor = .clrGray
+            self.btnLogin.tintColor = .clrGray
+            self.btnTitleHome.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleCategory.setTitleColor(UIColor.themeClr, for: .normal)
+            self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
+        case 2:
+            self.btnHome.tintColor = .clrGray
+            self.btnCategory.tintColor = .clrGray
+            self.btnWish.tintColor = .themeClr
+            self.btnCart.tintColor = .clrGray
+            self.btnLogin.tintColor = .clrGray
+            self.btnTitleHome.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleCategory.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleWish.setTitleColor(UIColor.themeClr, for: .normal)
+            self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
+           
+        case 3:
+            self.btnHome.tintColor = .clrGray
+            self.btnCategory.tintColor = .clrGray
+            self.btnWish.tintColor = .clrGray
+            self.btnCart.tintColor = .themeClr
+            self.btnLogin.tintColor = .clrGray
+            self.btnTitleHome.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleCategory.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleCart.setTitleColor(UIColor.themeClr, for: .normal)
+            self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
+            
+        default:
+            self.btnHome.tintColor = .clrGray
+            self.btnCategory.tintColor = .clrGray
+            self.btnWish.tintColor = .clrGray
+            self.btnCart.tintColor = .clrGray
+            self.btnLogin.tintColor = .themeClr
+            self.btnTitleHome.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleCategory.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
+            self.btnTitleLogin.setTitleColor(UIColor.themeClr, for: .normal)
+            
+        }
+    }
    
     
     @IBAction func btnActionSideMenu(_ sender: UIButton) {

@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,8 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="258" height="264"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xAB-z5-IYa">
-                                <rect key="frame" x="0.0" y="0.0" width="258" height="264"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <rect key="frame" x="10" y="0.0" width="238" height="264"/>
+                                <color key="backgroundColor" name="viewBGClr"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="tac-pQ-ZNF">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="estimatedItemSize" width="128" height="128"/>
@@ -37,16 +37,15 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="viewBGClr"/>
                         <constraints>
                             <constraint firstItem="xAB-z5-IYa" firstAttribute="top" secondItem="MTN-cm-9oq" secondAttribute="top" id="7ef-QN-gq7"/>
                             <constraint firstAttribute="bottom" secondItem="xAB-z5-IYa" secondAttribute="bottom" id="ejE-bb-buU"/>
-                            <constraint firstAttribute="trailing" secondItem="xAB-z5-IYa" secondAttribute="trailing" id="hOU-ec-eYp"/>
-                            <constraint firstItem="xAB-z5-IYa" firstAttribute="leading" secondItem="MTN-cm-9oq" secondAttribute="leading" id="qYa-B5-XM6"/>
+                            <constraint firstAttribute="trailing" secondItem="xAB-z5-IYa" secondAttribute="trailing" constant="10" id="hOU-ec-eYp"/>
+                            <constraint firstItem="xAB-z5-IYa" firstAttribute="leading" secondItem="MTN-cm-9oq" secondAttribute="leading" constant="10" id="qYa-B5-XM6"/>
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="MTN-cm-9oq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="6P0-fH-p1y"/>
                     <constraint firstItem="MTN-cm-9oq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="GD6-g4-7za"/>
@@ -62,11 +61,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="viewBGClr">
+            <color red="0.96100002527236938" green="0.95300000905990601" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
