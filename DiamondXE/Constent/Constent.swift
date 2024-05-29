@@ -55,7 +55,7 @@ var nv_searchDiamond = "Search Diamonds"
 var nv_createDemand = "Create Demand"
 var nv_jewellery = "Jewellery"
 var nv_DXELUX = "DXE LUXE"
-var nv_diamondEducation = "Diamnd Education"
+var nv_diamondEducation = "Diamond Education"
 var nv_explore = "Explore Now"
 var nv_priceCalc = "Price Calculator"
 var nv_more = "More"
@@ -64,21 +64,23 @@ var nv_rateUS = "Rate us"
 
 var nv_naturalDiamond = "Natural Diamond"
 var nv_labGrownDiamond = "Lab-Grown Diamond"
-var nv_fancyDiamond = "Fancy Diamond"
+var nv_fancyDiamond = "Fancy Colour Diamond"
 var nv_rings = "Rings"
 var nv_earrings = "Earrings"
 var nv_pendent = "Pendent"
 var nv_bracelets = "Bracelets"
 var nv_bangles = "Bangles"
 var nv_jeweller = "Jeweller"
-var nv_supplier = "Eupplier"
+var nv_supplier = "Supplier"
 var nv_aboutUS = "About us"
 var nv_whyUS = "Why us"
 var nv_blogs = "Blogs"
 var nv_mediaGalley = "Media Galley"
 var nv_support = "Support"
-var nv_emial = "dxe@gmail.com"
-var nv_whatsapp = "00000000"
+var nv_termCondition = "Terms & Conditions"
+var nv_privacyPolicy = "Privacy Policy"
+var nv_emial = "support@diamondxe.com"
+var nv_whatsapp = "+91 9892003399"
 
 var nv_searchDiamondICN = [UIImage(named: "Natural Diamonds")!,UIImage(named: "Lab-Grown Diamonds")!,UIImage(named: "Fancy Diamonds")!]
 
@@ -86,8 +88,35 @@ var nv_jewelleryICN = [UIImage(named: "Rings")!,UIImage(named: "Earrings")!,UIIm
 
 var nv_exploreICN = [UIImage(named: "Jeweller")!,UIImage(named: "Supplier")!]
 
-var nv_moreICN = [UIImage(named: "About us")!,UIImage(named: "Why Us")!,UIImage(named: "Blog")!,UIImage(named: "Media Gallery")!,UIImage(named: "Support")!]
+var nv_moreICN = [UIImage(named: "About us")!,UIImage(named: "Why Us")!,UIImage(named: "Blog")!,UIImage(named: "Media Gallery")!,UIImage(named: "contact")!,UIImage(named: "t&c")!,UIImage(named: "privacyPolicy")!]
 
-var nv_contactICN = [UIImage(named: "Email")!,UIImage(named: "Call")!]
+var nv_contactICN = [UIImage(named: "Email")!,UIImage(named: "Contact Us")!]
 
-var nv_mainICN = [UIImage(named: "Home")!,UIImage(named: "Search Diamonds")!,UIImage(named: "Create Demand")!,UIImage(named: "jewellery")!,UIImage(named: "DXE LUXE")!,UIImage(named: "Diamond Education")!,UIImage(named: "Explore Now")!,UIImage(named: "Price Calculator")!,UIImage(named: "More")!,UIImage(named: "Contact Us")!,UIImage(named: "Rate us")!]
+var nv_mainICN = [UIImage(named: "Home")!,UIImage(named: "Search Diamonds")!,UIImage(named: "Create Demand")!,UIImage(named: "jewellery")!,UIImage(named: "DXE LUXE")!,UIImage(named: "Diamond Education")!,UIImage(named: "Explore Now")!,UIImage(named: "Price Calculator")!,UIImage(named: "More")!,UIImage(named: "Support")!,UIImage(named: "Rate us")!]
+
+var nv_mainTitle = [ nv_home,
+                     nv_searchDiamond,
+                     nv_createDemand,
+                     nv_jewellery,
+                     nv_DXELUX,
+                     nv_diamondEducation,
+                     nv_explore,
+                     nv_priceCalc,
+                     nv_more,
+                     nv_contactUS,
+                     nv_rateUS,
+                     nv_naturalDiamond,
+                     nv_labGrownDiamond,
+                     nv_fancyDiamond,
+                     nv_rings,
+                     nv_earrings,
+                     nv_pendent,
+                     nv_bracelets,
+                     nv_bangles,
+                     nv_jeweller,
+                     nv_supplier,
+                     nv_aboutUS,
+                     nv_whyUS,
+                     nv_blogs,
+                     nv_mediaGalley,
+                     nv_support]

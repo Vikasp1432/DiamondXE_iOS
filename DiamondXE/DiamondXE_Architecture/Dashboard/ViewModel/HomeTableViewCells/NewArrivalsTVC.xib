@@ -19,30 +19,37 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIK-JL-lWx">
-                        <rect key="frame" x="10" y="10" width="306" height="204"/>
+                        <rect key="frame" x="10" y="0.0" width="306" height="214"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zq-n4-UmV">
-                                <rect key="frame" x="5" y="5" width="296" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zq-n4-UmV">
+                                <rect key="frame" x="10" y="5" width="291" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="eAy-ex-TUn"/>
+                                    <constraint firstAttribute="height" constant="25" id="eAy-ex-TUn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="18"/>
-                                <color key="textColor" name="blackClr"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Label">
+                                        <attributes>
+                                            <color key="NSColor" name="blackClr"/>
+                                            <font key="NSFont" size="18" name="Lato-Semibold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AlM-k2-nNx">
-                                <rect key="frame" x="5" y="50" width="296" height="144"/>
+                                <rect key="frame" x="10" y="40" width="286" height="164"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="alI-jk-qTm">
-                                        <rect key="frame" x="0.0" y="0.0" width="143" height="144"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card5" translatesAutoresizingMaskIntoConstraints="NO" id="alI-jk-qTm">
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="164"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="12"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G6V-us-EFZ">
-                                        <rect key="frame" x="153" y="0.0" width="143" height="144"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CArd6" translatesAutoresizingMaskIntoConstraints="NO" id="G6V-us-EFZ">
+                                        <rect key="frame" x="148" y="0.0" width="138" height="164"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="12"/>
@@ -54,10 +61,10 @@
                         </subviews>
                         <color key="backgroundColor" name="viewBGClr"/>
                         <constraints>
-                            <constraint firstItem="4zq-n4-UmV" firstAttribute="leading" secondItem="tIK-JL-lWx" secondAttribute="leading" constant="5" id="AbX-18-zmG"/>
-                            <constraint firstItem="AlM-k2-nNx" firstAttribute="leading" secondItem="tIK-JL-lWx" secondAttribute="leading" constant="5" id="POR-Np-srP"/>
+                            <constraint firstItem="4zq-n4-UmV" firstAttribute="leading" secondItem="tIK-JL-lWx" secondAttribute="leading" constant="10" id="AbX-18-zmG"/>
+                            <constraint firstItem="AlM-k2-nNx" firstAttribute="leading" secondItem="tIK-JL-lWx" secondAttribute="leading" constant="10" id="POR-Np-srP"/>
                             <constraint firstAttribute="trailing" secondItem="4zq-n4-UmV" secondAttribute="trailing" constant="5" id="XJQ-o0-Kca"/>
-                            <constraint firstAttribute="trailing" secondItem="AlM-k2-nNx" secondAttribute="trailing" constant="5" id="Zdq-c0-eMg"/>
+                            <constraint firstAttribute="trailing" secondItem="AlM-k2-nNx" secondAttribute="trailing" constant="10" id="Zdq-c0-eMg"/>
                             <constraint firstItem="4zq-n4-UmV" firstAttribute="top" secondItem="tIK-JL-lWx" secondAttribute="top" constant="5" id="pHF-sM-ffQ"/>
                             <constraint firstItem="AlM-k2-nNx" firstAttribute="top" secondItem="4zq-n4-UmV" secondAttribute="bottom" constant="10" id="qYm-il-5oc"/>
                             <constraint firstAttribute="bottom" secondItem="AlM-k2-nNx" secondAttribute="bottom" constant="10" id="vKz-hM-XEE"/>
@@ -69,7 +76,7 @@
                     <constraint firstItem="tIK-JL-lWx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="PbQ-qg-aiI"/>
                     <constraint firstAttribute="trailing" secondItem="tIK-JL-lWx" secondAttribute="trailing" constant="10" id="Vye-aZ-qEk"/>
                     <constraint firstAttribute="bottom" secondItem="tIK-JL-lWx" secondAttribute="bottom" constant="10" id="dzF-VF-rSE"/>
-                    <constraint firstItem="tIK-JL-lWx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="uz3-ir-akP"/>
+                    <constraint firstItem="tIK-JL-lWx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uz3-ir-akP"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -82,6 +89,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="CArd6" width="180.66667175292969" height="180.66667175292969"/>
+        <image name="Card5" width="180.66667175292969" height="180.66667175292969"/>
         <namedColor name="blackClr">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

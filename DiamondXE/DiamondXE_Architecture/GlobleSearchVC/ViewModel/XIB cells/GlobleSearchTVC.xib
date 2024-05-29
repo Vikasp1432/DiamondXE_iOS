@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LATO.SEMIBOLD.TTF">
+            <string>Lato-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="250" id="KGk-i7-Jjw" customClass="GlobleSearchTVC" customModule="DiamondXE" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="349" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="349" height="250"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gs6-Gh-N0R">
+                        <rect key="frame" x="10" y="5" width="329" height="240"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trending" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaC-RV-hFa">
+                                <rect key="frame" x="20" y="0.0" width="294" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="XMi-qV-Y5w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="18"/>
+                                <color key="textColor" name="blackClr"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="OVv-7t-cFV">
+                                <rect key="frame" x="0.0" y="20" width="329" height="220"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="o2w-Ti-B1R">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <connections>
+                                    <outlet property="dataSource" destination="-1" id="sDK-hj-nMD"/>
+                                    <outlet property="delegate" destination="-1" id="2mk-aj-XmH"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" name="whitClr"/>
+                        <constraints>
+                            <constraint firstItem="OVv-7t-cFV" firstAttribute="leading" secondItem="gs6-Gh-N0R" secondAttribute="leading" id="7kd-Cs-pZJ"/>
+                            <constraint firstItem="iaC-RV-hFa" firstAttribute="leading" secondItem="gs6-Gh-N0R" secondAttribute="leading" constant="20" id="7kv-KO-zxJ"/>
+                            <constraint firstItem="OVv-7t-cFV" firstAttribute="top" secondItem="iaC-RV-hFa" secondAttribute="bottom" id="8Zn-uh-mvH"/>
+                            <constraint firstAttribute="trailing" secondItem="OVv-7t-cFV" secondAttribute="trailing" id="9gG-vH-ACy"/>
+                            <constraint firstAttribute="bottom" secondItem="OVv-7t-cFV" secondAttribute="bottom" id="Jz1-FL-qeN"/>
+                            <constraint firstAttribute="trailing" secondItem="iaC-RV-hFa" secondAttribute="trailing" constant="15" id="fMH-36-UKw"/>
+                            <constraint firstItem="iaC-RV-hFa" firstAttribute="top" secondItem="gs6-Gh-N0R" secondAttribute="top" id="wNt-ZO-A6Y"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="gs6-Gh-N0R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Fl0-KC-DCm"/>
+                    <constraint firstAttribute="trailing" secondItem="gs6-Gh-N0R" secondAttribute="trailing" constant="10" id="Ip2-Tm-gkj"/>
+                    <constraint firstAttribute="bottom" secondItem="gs6-Gh-N0R" secondAttribute="bottom" constant="5" id="t1z-Ae-YrZ"/>
+                    <constraint firstItem="gs6-Gh-N0R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="tcr-Cs-TTU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="collectionTrending" destination="OVv-7t-cFV" id="SIL-KV-Ivp"/>
+                <outlet property="lblHeading" destination="iaC-RV-hFa" id="Z9V-fJ-iLL"/>
+            </connections>
+            <point key="canvasLocation" x="116.79389312977099" y="91.549295774647888"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="blackClr">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="whitClr">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

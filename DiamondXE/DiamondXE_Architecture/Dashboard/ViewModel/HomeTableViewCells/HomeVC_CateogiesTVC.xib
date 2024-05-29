@@ -22,11 +22,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="258" height="264"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xAB-z5-IYa">
-                                <rect key="frame" x="10" y="0.0" width="238" height="264"/>
+                                <rect key="frame" x="0.0" y="0.0" width="258" height="264"/>
                                 <color key="backgroundColor" name="viewBGClr"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="tac-pQ-ZNF">
                                     <size key="itemSize" width="128" height="128"/>
-                                    <size key="estimatedItemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -41,8 +40,8 @@
                         <constraints>
                             <constraint firstItem="xAB-z5-IYa" firstAttribute="top" secondItem="MTN-cm-9oq" secondAttribute="top" id="7ef-QN-gq7"/>
                             <constraint firstAttribute="bottom" secondItem="xAB-z5-IYa" secondAttribute="bottom" id="ejE-bb-buU"/>
-                            <constraint firstAttribute="trailing" secondItem="xAB-z5-IYa" secondAttribute="trailing" constant="10" id="hOU-ec-eYp"/>
-                            <constraint firstItem="xAB-z5-IYa" firstAttribute="leading" secondItem="MTN-cm-9oq" secondAttribute="leading" constant="10" id="qYa-B5-XM6"/>
+                            <constraint firstAttribute="trailing" secondItem="xAB-z5-IYa" secondAttribute="trailing" id="hOU-ec-eYp"/>
+                            <constraint firstItem="xAB-z5-IYa" firstAttribute="leading" secondItem="MTN-cm-9oq" secondAttribute="leading" id="qYa-B5-XM6"/>
                         </constraints>
                     </view>
                 </subviews>

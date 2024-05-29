@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LATO.SEMIBOLD.TTF">
+            <string>Lato-Semibold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,30 +27,30 @@
                         <rect key="frame" x="10" y="10" width="300" height="328"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73p-9A-Kjz">
-                                <rect key="frame" x="5" y="5" width="290" height="35"/>
+                                <rect key="frame" x="10" y="5" width="285" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="auX-LY-MHM"/>
+                                    <constraint firstAttribute="height" constant="25" id="auX-LY-MHM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="18"/>
                                 <color key="textColor" name="blackClr"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xJk-4C-uZu">
-                                <rect key="frame" x="5" y="50" width="290" height="268"/>
+                                <rect key="frame" x="10" y="40" width="280" height="278"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6gP-hF-f80">
-                                        <rect key="frame" x="0.0" y="0.0" width="290" height="129"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="134"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ohn-8P-icP">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="129"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card1" translatesAutoresizingMaskIntoConstraints="NO" id="Ohn-8P-icP">
+                                                <rect key="frame" x="0.0" y="0.0" width="135" height="134"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="12"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ALk-dG-5sC">
-                                                <rect key="frame" x="150" y="0.0" width="140" height="129"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card2" translatesAutoresizingMaskIntoConstraints="NO" id="ALk-dG-5sC">
+                                                <rect key="frame" x="145" y="0.0" width="135" height="134"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="12"/>
@@ -55,18 +60,18 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Nl-Q8-DE2">
-                                        <rect key="frame" x="0.0" y="139" width="290" height="129"/>
+                                        <rect key="frame" x="0.0" y="144" width="280" height="134"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eu5-nO-n8f">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="129"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card3" translatesAutoresizingMaskIntoConstraints="NO" id="Eu5-nO-n8f">
+                                                <rect key="frame" x="0.0" y="0.0" width="135" height="134"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="12"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eyP-hr-BQm">
-                                                <rect key="frame" x="150" y="0.0" width="140" height="129"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card4" translatesAutoresizingMaskIntoConstraints="NO" id="eyP-hr-BQm">
+                                                <rect key="frame" x="145" y="0.0" width="135" height="134"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="12"/>
@@ -81,12 +86,12 @@
                         <color key="backgroundColor" name="viewBGClr"/>
                         <constraints>
                             <constraint firstItem="73p-9A-Kjz" firstAttribute="top" secondItem="dwX-Bt-1rU" secondAttribute="top" constant="5" id="273-zn-jFm"/>
-                            <constraint firstAttribute="trailing" secondItem="xJk-4C-uZu" secondAttribute="trailing" constant="5" id="Gtr-dZ-Cyc"/>
+                            <constraint firstAttribute="trailing" secondItem="xJk-4C-uZu" secondAttribute="trailing" constant="10" id="Gtr-dZ-Cyc"/>
                             <constraint firstAttribute="bottom" secondItem="xJk-4C-uZu" secondAttribute="bottom" constant="10" id="VSE-dr-JAc"/>
                             <constraint firstItem="xJk-4C-uZu" firstAttribute="top" secondItem="73p-9A-Kjz" secondAttribute="bottom" constant="10" id="ZJe-Zi-cH4"/>
-                            <constraint firstItem="73p-9A-Kjz" firstAttribute="leading" secondItem="dwX-Bt-1rU" secondAttribute="leading" constant="5" id="ZaK-dX-Vyw"/>
+                            <constraint firstItem="73p-9A-Kjz" firstAttribute="leading" secondItem="dwX-Bt-1rU" secondAttribute="leading" constant="10" id="ZaK-dX-Vyw"/>
                             <constraint firstAttribute="trailing" secondItem="73p-9A-Kjz" secondAttribute="trailing" constant="5" id="jac-5K-vTR"/>
-                            <constraint firstItem="xJk-4C-uZu" firstAttribute="leading" secondItem="dwX-Bt-1rU" secondAttribute="leading" constant="5" id="jbJ-Sb-2zZ"/>
+                            <constraint firstItem="xJk-4C-uZu" firstAttribute="leading" secondItem="dwX-Bt-1rU" secondAttribute="leading" constant="10" id="jbJ-Sb-2zZ"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -110,6 +115,10 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="Card1" width="180.66667175292969" height="180.66667175292969"/>
+        <image name="Card2" width="180.66667175292969" height="180.66667175292969"/>
+        <image name="Card3" width="180.66667175292969" height="180.66667175292969"/>
+        <image name="Card4" width="180.66667175292969" height="180.66667175292969"/>
         <namedColor name="blackClr">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

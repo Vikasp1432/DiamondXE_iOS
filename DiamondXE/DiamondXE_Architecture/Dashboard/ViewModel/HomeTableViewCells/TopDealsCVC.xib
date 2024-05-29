@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LATO.SEMIBOLD.TTF">
+            <string>Lato-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TopDealsCVC" customModule="DiamondXE" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="191" height="234"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="191" height="234"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRG-Hv-siL">
+                        <rect key="frame" x="0.0" y="0.0" width="191" height="229"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Emerald_" translatesAutoresizingMaskIntoConstraints="NO" id="scM-CT-UlG">
+                                <rect key="frame" x="0.0" y="0.0" width="191" height="164"/>
+                                <color key="backgroundColor" red="0.94509803921568625" green="0.92549019607843142" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="164" id="SZK-yz-hIg"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSR-WL-jLy">
+                                <rect key="frame" x="6" y="194" width="179" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Mer-QV-azL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="12"/>
+                                <color key="textColor" name="blackClr"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GX-Cg-Cyh">
+                                <rect key="frame" x="6" y="169" width="179" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="fjV-xg-ljg"/>
+                                </constraints>
+                                <string key="text">Heart 0.50Ct
+
+F VS2</string>
+                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="12"/>
+                                <color key="textColor" name="blackClr"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="whitClr"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7GX-Cg-Cyh" secondAttribute="trailing" constant="6" id="25X-hc-OsD"/>
+                            <constraint firstItem="7GX-Cg-Cyh" firstAttribute="top" secondItem="scM-CT-UlG" secondAttribute="bottom" constant="5" id="5ug-aF-iua"/>
+                            <constraint firstAttribute="trailing" secondItem="scM-CT-UlG" secondAttribute="trailing" id="CN8-aE-hz6"/>
+                            <constraint firstItem="scM-CT-UlG" firstAttribute="leading" secondItem="lRG-Hv-siL" secondAttribute="leading" id="EAn-1b-z67"/>
+                            <constraint firstItem="RSR-WL-jLy" firstAttribute="top" secondItem="7GX-Cg-Cyh" secondAttribute="bottom" id="I6b-Df-7nq"/>
+                            <constraint firstItem="scM-CT-UlG" firstAttribute="top" secondItem="lRG-Hv-siL" secondAttribute="top" id="MSh-4u-vWI"/>
+                            <constraint firstAttribute="bottom" secondItem="RSR-WL-jLy" secondAttribute="bottom" constant="10" id="VR1-GU-3b5"/>
+                            <constraint firstItem="RSR-WL-jLy" firstAttribute="leading" secondItem="lRG-Hv-siL" secondAttribute="leading" constant="6" id="VXe-wo-4Un"/>
+                            <constraint firstItem="7GX-Cg-Cyh" firstAttribute="leading" secondItem="lRG-Hv-siL" secondAttribute="leading" constant="6" id="dP9-Vw-JH6"/>
+                            <constraint firstAttribute="trailing" secondItem="RSR-WL-jLy" secondAttribute="trailing" constant="6" id="rLI-R5-T1i"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="lRG-Hv-siL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1w9-aF-ks6"/>
+                <constraint firstAttribute="trailing" secondItem="lRG-Hv-siL" secondAttribute="trailing" id="Ezr-AB-T7Y"/>
+                <constraint firstAttribute="bottom" secondItem="lRG-Hv-siL" secondAttribute="bottom" constant="5" id="SnY-UE-AFu"/>
+                <constraint firstItem="lRG-Hv-siL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yxQ-6h-LFc"/>
+            </constraints>
+            <size key="customSize" width="206" height="238"/>
+            <connections>
+                <outlet property="bgView" destination="lRG-Hv-siL" id="NNF-67-mQC"/>
+                <outlet property="imgDiamond" destination="scM-CT-UlG" id="g0y-hs-ePf"/>
+                <outlet property="lblDiaName" destination="7GX-Cg-Cyh" id="Nfh-eE-OT6"/>
+                <outlet property="lblDiaPrice" destination="RSR-WL-jLy" id="R5b-1p-zdl"/>
+            </connections>
+            <point key="canvasLocation" x="212.97709923664121" y="85.91549295774648"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Emerald_" width="182" height="153"/>
+        <namedColor name="blackClr">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="whitClr">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -25,3 +25,8 @@ struct ResetPasswordStruct: Codable {
     var otp, resetPassword: Int?
     var password, confirmPassword: String?
 }
+
+// param data
+struct VCTags: Codable {
+    var tagVC: Int?
+}

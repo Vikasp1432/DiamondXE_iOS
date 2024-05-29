@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import SDWebImage
+import Alamofire
+
 
 enum SlideDirection {
        case left
@@ -41,7 +44,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
         Sections(mainCellTitle: nv_diamondEducation, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
         Sections(mainCellTitle: nv_explore, expandableCellOptions: [nv_jeweller, nv_supplier], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_exploreICN, isExpandableCellsHidden: true, isExpanded: true),
         Sections(mainCellTitle: nv_priceCalc, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
-        Sections(mainCellTitle: nv_more, expandableCellOptions: [nv_aboutUS, nv_whyUS, nv_blogs, nv_mediaGalley, nv_support], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_moreICN, isExpandableCellsHidden: true,isExpanded: true),
+        Sections(mainCellTitle: nv_more, expandableCellOptions: [nv_aboutUS, nv_whyUS, nv_blogs, nv_mediaGalley, nv_support, nv_termCondition, nv_privacyPolicy], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_moreICN, isExpandableCellsHidden: true,isExpanded: true),
         Sections(mainCellTitle: nv_contactUS, expandableCellOptions: [nv_emial, nv_whatsapp], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_contactICN, isExpandableCellsHidden: true,isExpanded: true),
         Sections(mainCellTitle: nv_rateUS, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true,isExpanded: true),
     ]
@@ -126,6 +129,13 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
          let vc = storyBoard.instantiateViewController(withIdentifier: storyboardID)
          self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func navigationManagerWithTag(tagVC: Int,storybordName: String, storyboardID: String, controller: UIViewController){
+        let storyBoard: UIStoryboard = UIStoryboard(name: storybordName, bundle: nil)
+         let vc = storyBoard.instantiateViewController(withIdentifier: storyboardID)
+         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     func navigationManager<T: UIViewController & DataReceiver>(_ viewControllerType: T.Type, storyboardName: String,storyboardID: String, data: T.DataType) {
            guard let destinationViewController = UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: storyboardID) as? T else {
@@ -262,4 +272,30 @@ extension UITableView {
 }
 
 
-
+extension UIImageView {
+    func setImage(from url: URL?, placeholder: UIImage?, timeoutInterval: TimeInterval = 5.0) {
+        guard let url = url else {
+            self.image = placeholder
+            return
+        }
+        
+        // Set the placeholder image immediately
+        self.image = placeholder
+        
+        // Create a request with a timeout interval
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "HEAD"
+        urlRequest.timeoutInterval = timeoutInterval
+        
+        // Perform the Alamofire request
+        AF.request(urlRequest).response { response in
+            if let httpResponse = response.response, httpResponse.statusCode == 200 {
+                DispatchQueue.main.async {
+                    self.sd_setImage(with: url, placeholderImage: placeholder)
+                }
+            } else {
+                // The placeholder is already set, no need to set it again here
+            }
+        }
+    }
+}

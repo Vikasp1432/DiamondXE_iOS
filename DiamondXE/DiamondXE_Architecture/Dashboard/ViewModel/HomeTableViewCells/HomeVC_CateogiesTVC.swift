@@ -13,14 +13,14 @@ class HomeVC_CateogiesTVC: UITableViewCell {
     @IBOutlet var collectionCat:UICollectionView!
     
     
-    var imgArr = [  UIImage(named:"LooseDiamonds"),
+    var imgArr = [ UIImage(named:"LooseDiamonds"),
                     UIImage(named:"Rings_") ,
                     UIImage(named:"EarRings") ,
                     UIImage(named:"Pendants") ,
                     UIImage(named:"Bracelets") ,
                     UIImage(named:"Bangles_") ]
     
-    var titleArr = [ "Loose Diamonds",
+    var titleArr = [ "Solitaires",
                     "Rings" ,
                     "Earrings" ,
                     "Pendants" ,
@@ -51,7 +51,7 @@ class HomeVC_CateogiesTVC: UITableViewCell {
 }
 
 
-extension HomeVC_CateogiesTVC: UICollectionViewDelegate, UICollectionViewDataSource{
+extension HomeVC_CateogiesTVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imgArr.count
     }
@@ -73,8 +73,18 @@ extension HomeVC_CateogiesTVC: UICollectionViewDelegate, UICollectionViewDataSou
             + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
 
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
-        return CGSize(width: size, height: size)
+        return CGSize(width: size , height: size + 25)
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+            return 15 // Adjust the spacing between rows
+        }
+        
+//        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//            return 20 // Adjust the spacing between items in a row
+//        }
+        
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+            return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0) // Adjust the left padding
+        }
 }

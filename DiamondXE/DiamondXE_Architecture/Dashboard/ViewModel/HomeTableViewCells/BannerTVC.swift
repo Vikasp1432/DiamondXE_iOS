@@ -14,7 +14,9 @@ class BannerTVC: UITableViewCell {
     @IBOutlet var sliderCollectionView: UICollectionView!
     @IBOutlet var pageView: UIPageControl!
     
-    var imgArr = [  UIImage(named:"Banner1"),
+    var banners = Banners()
+    
+    var imgArr = [ UIImage(named:"Banner1"),
                     UIImage(named:"Banner2") ,
                     UIImage(named:"Banner3") ,
                     UIImage(named:"Banner4") ,
@@ -38,8 +40,17 @@ class BannerTVC: UITableViewCell {
         sliderCollectionView.dataSource = self
         sliderCollectionView.register(UINib(nibName: BannerCVC.cellIdentifierBannerCVC, bundle: nil), forCellWithReuseIdentifier: BannerCVC.cellIdentifierBannerCVC)
         
+//        if let layout = sliderCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+//                    layout.scrollDirection = .horizontal
+//                    layout.minimumLineSpacing = 0
+//                }
+//
+//        sliderCollectionView.isPagingEnabled = true
+        
         sliderCollectionView.showsHorizontalScrollIndicator = false
         sliderCollectionView.showsVerticalScrollIndicator = false
+        
+       
         
     }
 
@@ -51,8 +62,15 @@ class BannerTVC: UITableViewCell {
     
     
     @objc func changeImage() {
+        var count = 0
+        if banners.content?.count ?? 0 > 0 {
+            count = banners.content?.count ?? 0
+        }
+        else{
+            count = imgArr.count
+        }
      
-     if counter < imgArr.count {
+     if counter < count {
          let index = IndexPath.init(item: counter, section: 0)
          self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
          pageView.currentPage = counter
@@ -71,15 +89,36 @@ class BannerTVC: UITableViewCell {
 
  extension BannerTVC: UICollectionViewDelegate, UICollectionViewDataSource {
      func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return imgArr.count
+         
+         if banners.content?.count ?? 0 > 0 {
+             return banners.content?.count ?? 0
+         }
+         else{
+             return imgArr.count
+         }
+         
+         
      }
      
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCVC.cellIdentifierBannerCVC, for: indexPath) as! BannerCVC
-         if let vc = cell.viewWithTag(111) as? UIImageView {
-             vc.image = imgArr[indexPath.row]
+         if banners.content?.count ?? 0 > 0 {
+             cell.images.sd_setImage(with: URL(string: banners.content?[indexPath.row].image ?? ""), completed: nil)
          }
+         else{
+             cell.images.image = imgArr[indexPath.row]
+         }
+//         if let vc = cell.viewWithTag(111) as? UIImageView {
+//             if banners.content?.count ?? 0 > 0 {
+//                 vc.image.sd_setImage(with: URL(string: banners.content?[indexPath.row].image)!, for: .normal, completed: nil)
+//                 //vc.image
+//                // return banners.content?.count ?? 0
+//             }
+//             else{
+//                 vc.image = imgArr[indexPath.row]
+//             }
+//         }
          return cell
      }
  }

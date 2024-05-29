@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Bracelets.png",
+      "filename" : "Bracelet.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Bracelets@2x.png",
+      "filename" : "Bracelet@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Bracelets@3x.png",
+      "filename" : "Bracelet@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

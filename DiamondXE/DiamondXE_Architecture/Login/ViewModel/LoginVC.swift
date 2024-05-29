@@ -76,8 +76,7 @@ class LoginVC: BaseViewController {
         self.btnResendOTP.isHidden = true
         self.btnLoginWithPhone.isHidden = true
         self.btnSupplierPhone.isHidden = true
-        let navigationController = UINavigationController(rootViewController: self)
-        UIApplication.shared.windows.first?.rootViewController = navigationController
+     
         
         
         
@@ -123,12 +122,15 @@ class LoginVC: BaseViewController {
                 self.present(bottomSheet, animated: true)
             
             }
-        
     }
     
     
     @IBAction func btnActionSpplierLogin(_ sender: UIButton) {
-        self.navigationManager(storybordName: "Login", storyboardID: "WKWebViewVC", controller: WKWebViewVC())
+       // self.navigationManager(storybordName: "Dashboard", storyboardID: "WKWebViewVC", controller: WKWebViewVC())
+        var tagV = VCTags()
+        tagV.tagVC = 0
+        self.navigationManager(WKWebViewVC.self, storyboardName: "Dashboard", storyboardID: "WKWebViewVC", data: tagV)
+        
     }
     
     

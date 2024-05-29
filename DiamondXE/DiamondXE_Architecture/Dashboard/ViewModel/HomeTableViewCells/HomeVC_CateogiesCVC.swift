@@ -23,6 +23,9 @@ class HomeVC_CateogiesCVC: UICollectionViewCell {
         bgView.layer.shadowRadius = 2.0
         bgView.layer.shadowOpacity = 0.5
         bgView.layer.masksToBounds = false
+        
+        lblCateIMG.layer.cornerRadius = 7
+        lblCateIMG.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
 
 }

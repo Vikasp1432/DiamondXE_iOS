@@ -23,6 +23,8 @@ class AlamofireManager {
                 print(response)
                 switch response.result {
                 case .success(let data):
+                    let str = String(decoding: data, as: UTF8.self)
+                    print(str)
                     completion(.success(data))
                 case .failure(let error):
                   completion(.failure(error))
@@ -30,50 +32,11 @@ class AlamofireManager {
                 }
             }
     }
-    
-//    //Post APi
-//    func alamofireApiCalling(apiURl:String,paramater: [String:Any],shape:String,OnResultBlock: @escaping (_ dict: Any,_ status:Bool) -> Void) {
-//        let headers: HTTPHeaders = ["Content-Type":"application/x-www-form-urlencoded"]
-////        let paramater = ["request": [
-////                "header": [
-////                    "username": "privateKey",
-////                    "password": "privateKeyPass"
-////                ],
-////                "body": [
-////                    "shape" : shape
-//////                    "size" : size,
-//////                    "color" : color,
-//////                    "clarity" : clarity
-////                    
-////                ]
-////            ]
-////        ]
-//        print(apiURl)
-//        print(paramater)
-//        AF.request(apiURl, method: .post, parameters: paramater,encoding: JSONEncoding.default, headers: headers)
-//            .responseJSON { response in
-//                switch response.result {
-//                case .success:
-//                    let data = response.data
-//                    if data != nil{
-//                        let str = String(decoding: data!, as: UTF8.self)
-//                    }
-//                    OnResultBlock(data as Any, true)
-//                    
-//                case let .failure(error):
-//                  print(error)
-//                    OnResultBlock(error, false)
-//                }
-//            }
-//    }
-//    
-   
-
-    
+ 
     // get API
-      func callAPiINRInfoJson(apiURl:String,OnResultBlock: @escaping (_ dict: Any,_ status:Bool) -> Void) {
-        let url = apiURl
-        AF.request(url, method: .get, parameters: nil, encoding:  URLEncoding.queryString, headers: nil).response { response in
+    func makeGETAPIRequest(url : String, completion: @escaping (Result<Data?, Error>) -> Void) {
+        let headers: HTTPHeaders = HeaderInfo().headers
+        AF.request(url, method: .get, parameters: nil, encoding:  URLEncoding.queryString, headers: headers).response { response in
           switch response.result {
           case .success:
               let data = response.data
@@ -82,11 +45,13 @@ class AlamofireManager {
                   let str = String(decoding: data!, as: UTF8.self)
                   print(str)
               }
-              OnResultBlock(data as Any, true)
+              completion(.success(data))
+             // OnResultBlock(data as Any, true)
               
           case let .failure(error):
             print(error)
-              OnResultBlock(error, false)
+              completion(.failure(error))
+              //OnResultBlock(error, false)
           }
         }
               

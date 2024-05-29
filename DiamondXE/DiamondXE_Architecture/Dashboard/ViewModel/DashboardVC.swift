@@ -38,7 +38,8 @@ class DashboardVC: BaseViewController {
     
     
     @IBOutlet weak var containerView: UIView!
- 
+    var tagV = VCTags()
+   
     private var currentViewController: UIViewController?
     private var currentViewControllerIdentifier: String?
 //    private let viewControllerIdentifiers = ["HomeVC", "CategoriesVC", "WishVC", "CartVC", "DashboardLoginVC"]
@@ -47,6 +48,9 @@ class DashboardVC: BaseViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let navigationController = UINavigationController(rootViewController: self)
+        UIApplication.shared.windows.first?.rootViewController = navigationController
         
         self.lblVersion.text = getAppVersion
         btnSearch.layer.shadowOffset = CGSize(width:0, height:0)
@@ -68,7 +72,7 @@ class DashboardVC: BaseViewController {
         menuTableView.showsHorizontalScrollIndicator = false
         menuTableView.showsVerticalScrollIndicator = false
         
-      
+     
       
     }
     
@@ -153,7 +157,7 @@ class DashboardVC: BaseViewController {
         
         if menu == false && swipeGesture.direction == .right {
             
-            print("user is showing menu")
+            //print("user is showing menu")
             
             showMenu()
             
@@ -262,6 +266,16 @@ class DashboardVC: BaseViewController {
         }
     }
     
+    @IBAction func btnActionSearch(_ sender: UIButton) {
+        
+//        navigationManager(storybordName: "GlobleSearch", storyboardID: "GlobleSearchVC", controller: GlobleSearchVC())
+    }
+    
+    @IBAction func btnActionSocialM(_ sender: UIButton) {
+        self.tagV.tagVC = sender.tag
+        gotoWKWebView()
+        
+    }
     
 }
 
@@ -298,6 +312,9 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             if indexPath.row == 0 {
                 let section = indexPath.section
+                
+                self.sideMenuActions(sectionStr: sections[section].mainCellTitle)
+                
                 let isCurrentlyHidden = sections[section].isExpandableCellsHidden
                 sections[section].isExpandableCellsHidden = !isCurrentlyHidden
                 sections[section].isExpanded = !isCurrentlyHidden // Update the expanded state
@@ -326,6 +343,121 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
                 let mainCellIndexPath = IndexPath(row: 0, section: section)
                 tableView.reloadRows(at: [mainCellIndexPath], with: .none)
             }
+            
+            else{
+                self.sideMenuActions(sectionStr: sections[indexPath.section].expandableCellOptions[indexPath.row - 1])
+            }
         }
+    
+    
+    func sideMenuActions(sectionStr:String){
+        
+        if nv_home == sectionStr{
+            if menu == true {
+                let identifier = viewControllerIdentifiers[0]
+                let storyboardName = storyboardNames[0]
+                loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
+                self.btnHome.tintColor = .themeClr
+                self.btnCategory.tintColor = .clrGray
+                self.btnWish.tintColor = .clrGray
+                self.btnCart.tintColor = .clrGray
+                self.btnLogin.tintColor = .clrGray
+                self.btnTitleHome.setTitleColor(UIColor.themeClr, for: .normal)
+                self.btnTitleCategory.setTitleColor(UIColor.clrGray, for: .normal)
+                self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
+                self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
+                self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
+                
+                hideMenu()
+                
+                menu = false
+                
+            }
+        }
+        else if nv_diamondEducation == sectionStr{
+            print(sectionStr)
+            self.tagV.tagVC = 1
+            gotoWKWebView()
+           
+        }
+        
+        else if nv_jeweller == sectionStr{
+            print(sectionStr)
+            self.tagV.tagVC = 2
+            gotoWKWebView()
+            
+        }
+        
+        else if nv_supplier == sectionStr{
+            print(sectionStr)
+            self.tagV.tagVC = 3
+            gotoWKWebView()
+           
+        }
+        
+        else if nv_aboutUS == sectionStr{
+            print(sectionStr)
+            self.tagV.tagVC = 4
+            gotoWKWebView()
+            
+        }
+        
+        else if nv_whyUS == sectionStr{
+            print(sectionStr)
+            self.tagV.tagVC = 5
+            gotoWKWebView()
+            
+        }
+        
+        else if nv_blogs == sectionStr{
+            print(sectionStr)
+            self.tagV.tagVC = 6
+            gotoWKWebView()
+         
+        }
+        
+        else if nv_mediaGalley == sectionStr{
+            print(sectionStr)
+            self.tagV.tagVC = 7
+            gotoWKWebView()
+           
+        }
+        
+        else if nv_support == sectionStr{
+            print(sectionStr)
+            self.tagV.tagVC = 8
+            gotoWKWebView()
+            
+        }
+        
+        else if nv_termCondition == sectionStr{
+            print(sectionStr)
+            self.tagV.tagVC = 9
+            gotoWKWebView()
+            
+        }
+        
+        else if nv_privacyPolicy == sectionStr{
+            print(sectionStr)
+            self.tagV.tagVC = 10
+            gotoWKWebView()
+            
+        }
+        
+        else if nv_rateUS == sectionStr{
+            print(sectionStr)
+            self.tagV.tagVC = 11
+            gotoWKWebView()
+        }
+       
+        
+        
+    }
+    
+    func gotoWKWebView(){
+        self.navigationManager(WKWebViewVC.self, storyboardName: "Dashboard", storyboardID: "WKWebViewVC", data: self.tagV)
+    }
+    
+    
     
 }

@@ -19,11 +19,18 @@
 		44172F262BEC9E51003875A6 /* TableViewCellManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44172F252BEC9E51003875A6 /* TableViewCellManager.swift */; };
 		4420B9782BD91EBE00C156CF /* UserTypeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4420B9772BD91EBE00C156CF /* UserTypeManager.swift */; };
 		4420B97B2BD9333A00C156CF /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4420B97A2BD9333A00C156CF /* IQKeyboardManagerSwift */; };
+		443051C22C04889300A13ADF /* HomeDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443051C12C04889300A13ADF /* HomeDataStruct.swift */; };
+		443051C42C04896A00A13ADF /* ModelHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443051C32C04896A00A13ADF /* ModelHomeVC.swift */; };
+		443051C62C048C2600A13ADF /* TopDealsDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443051C52C048C2600A13ADF /* TopDealsDataStruct.swift */; };
+		443051CA2C04B32300A13ADF /* diamond_logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 443051C92C04B32300A13ADF /* diamond_logo.gif */; };
+		443C54662BFE1BD000740C0D /* CustomerViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443C54642BFE1BD000740C0D /* CustomerViewCVC.swift */; };
+		443C54672BFE1BD000740C0D /* CustomerViewCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443C54652BFE1BD000740C0D /* CustomerViewCVC.xib */; };
 		4440C5922BD9033E00C00975 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4440C5912BD9033E00C00975 /* SignupVC.swift */; };
 		4440C5982BD9074400C00975 /* BuyerCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4440C5962BD9074400C00975 /* BuyerCell1.swift */; };
 		4440C5992BD9074400C00975 /* BuyerCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4440C5972BD9074400C00975 /* BuyerCell1.xib */; };
 		4440C59C2BD9110100C00975 /* FooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4440C59A2BD9110100C00975 /* FooterCell.swift */; };
 		4440C59D2BD9110100C00975 /* FooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4440C59B2BD9110100C00975 /* FooterCell.xib */; };
+		444243932C05D473001E976B /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444243922C05D473001E976B /* UserDefaultManager.swift */; };
 		444A1A642BD24D1900B8A6CA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 444A1A632BD24D1900B8A6CA /* Alamofire */; };
 		444A1A662BD24DE000B8A6CA /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444A1A652BD24DE000B8A6CA /* AlamofireManager.swift */; };
 		444A1A682BD250F900B8A6CA /* JsonParsingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444A1A672BD250F900B8A6CA /* JsonParsingManager.swift */; };
@@ -31,6 +38,10 @@
 		444A1A712BD27E1800B8A6CA /* ActivityIndigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444A1A702BD27E1800B8A6CA /* ActivityIndigatorView.swift */; };
 		444A1A732BD2883200B8A6CA /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444A1A722BD2883200B8A6CA /* ForgotPasswordVC.swift */; };
 		444A1A772BD2A11200B8A6CA /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444A1A762BD2A11200B8A6CA /* ResetPasswordVC.swift */; };
+		445222F42C0082CB00EA79B2 /* SuggestedCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445222F32C0082CB00EA79B2 /* SuggestedCVC.xib */; };
+		445222F52C0082CB00EA79B2 /* SuggestedCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445222F22C0082CB00EA79B2 /* SuggestedCVC.swift */; };
+		445222FC2C00830D00EA79B2 /* SuggestedTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445222FB2C00830D00EA79B2 /* SuggestedTVC.xib */; };
+		445222FD2C00830D00EA79B2 /* SuggestedTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445222FA2C00830D00EA79B2 /* SuggestedTVC.swift */; };
 		44546A332BD62F22007AFEF8 /* ForgotPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44546A322BD62F22007AFEF8 /* ForgotPasswordModel.swift */; };
 		44546A372BD63721007AFEF8 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44546A362BD63721007AFEF8 /* TimerManager.swift */; };
 		44546A392BD65444007AFEF8 /* CountryListStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44546A382BD65444007AFEF8 /* CountryListStruct.swift */; };
@@ -48,7 +59,19 @@
 		44556C282BF77EC600B5FBA4 /* LATO-LIGHT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 44556C1F2BF77EC600B5FBA4 /* LATO-LIGHT.TTF */; };
 		44556C292BF77EC600B5FBA4 /* LATO.SEMIBOLD.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 44556C202BF77EC600B5FBA4 /* LATO.SEMIBOLD.TTF */; };
 		44556C2A2BF77EC600B5FBA4 /* LATO-REGULAR.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 44556C212BF77EC600B5FBA4 /* LATO-REGULAR.TTF */; };
+		4458B86E2BFDF60D0018AB4A /* DealerRegisterTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4458B86D2BFDF60D0018AB4A /* DealerRegisterTVC.xib */; };
+		4458B86F2BFDF60D0018AB4A /* DealerRegisterTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4458B86C2BFDF60D0018AB4A /* DealerRegisterTVC.swift */; };
+		4458B8722BFDF9620018AB4A /* DXELUXeTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4458B8712BFDF9620018AB4A /* DXELUXeTVC.xib */; };
+		4458B8732BFDF9620018AB4A /* DXELUXeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4458B8702BFDF9620018AB4A /* DXELUXeTVC.swift */; };
+		4458B8762BFE02360018AB4A /* PromisesDXETVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4458B8752BFE02360018AB4A /* PromisesDXETVC.xib */; };
+		4458B8772BFE02360018AB4A /* PromisesDXETVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4458B8742BFE02360018AB4A /* PromisesDXETVC.swift */; };
 		4463C2F92BCFF38C000D939E /* ViewProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463C2F82BCFF38C000D939E /* ViewProperty.swift */; };
+		44681F442BFF4D70009BD156 /* GlobleSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44681F432BFF4D70009BD156 /* GlobleSearchVC.swift */; };
+		44681F462BFF4D99009BD156 /* GlobleSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44681F452BFF4D99009BD156 /* GlobleSearch.storyboard */; };
+		44681F4A2BFF5212009BD156 /* GlobleSearchTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44681F492BFF5212009BD156 /* GlobleSearchTVC.xib */; };
+		44681F4B2BFF5212009BD156 /* GlobleSearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44681F482BFF5212009BD156 /* GlobleSearchTVC.swift */; };
+		44681F4E2BFF5660009BD156 /* GlobleSearchCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44681F4D2BFF5660009BD156 /* GlobleSearchCVC.xib */; };
+		44681F4F2BFF5660009BD156 /* GlobleSearchCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44681F4C2BFF5660009BD156 /* GlobleSearchCVC.swift */; };
 		4470B0982BF7919A00DC824B /* ExpandableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4470B0942BF7919900DC824B /* ExpandableCell.xib */; };
 		4470B0992BF7919A00DC824B /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4470B0952BF7919900DC824B /* MainCell.xib */; };
 		4470B09A2BF7919A00DC824B /* ExpandableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470B0962BF7919900DC824B /* ExpandableCell.swift */; };
@@ -71,6 +94,10 @@
 		447E72D72BCFD0A600AAEA57 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447E72D62BCFD0A600AAEA57 /* Login.storyboard */; };
 		447E72DC2BCFD14300AAEA57 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E72DB2BCFD14300AAEA57 /* LoginVC.swift */; };
 		447E72DE2BCFD28E00AAEA57 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E72DD2BCFD28E00AAEA57 /* LoginModel.swift */; };
+		448A56602BFE0B0100F01591 /* MediaSpotlightTVCl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448A565F2BFE0B0100F01591 /* MediaSpotlightTVCl.xib */; };
+		448A56612BFE0B0100F01591 /* MediaSpotlightTVCl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448A565E2BFE0B0100F01591 /* MediaSpotlightTVCl.swift */; };
+		448A56642BFE16DD00F01591 /* CustomerReviewTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448A56632BFE16DD00F01591 /* CustomerReviewTVC.xib */; };
+		448A56652BFE16DD00F01591 /* CustomerReviewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448A56622BFE16DD00F01591 /* CustomerReviewTVC.swift */; };
 		44A81B4F2BDF6F75008AB93A /* Dealer_KYCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44A81B4E2BDF6F75008AB93A /* Dealer_KYCCell.xib */; };
 		44A81B502BDF6F75008AB93A /* Dealer_KYCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A81B4D2BDF6F75008AB93A /* Dealer_KYCCell.swift */; };
 		44A81B532BDF6F95008AB93A /* Dealer_BasicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44A81B522BDF6F95008AB93A /* Dealer_BasicCell.xib */; };
@@ -104,6 +131,8 @@
 		44CE862D2BF5F7FB004AAAF3 /* WishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE862C2BF5F7FB004AAAF3 /* WishVC.swift */; };
 		44CE862F2BF5F80C004AAAF3 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE862E2BF5F80C004AAAF3 /* CartVC.swift */; };
 		44CE86332BF600AC004AAAF3 /* DashboardLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CE86322BF600AC004AAAF3 /* DashboardLoginVC.swift */; };
+		44D7F6A52BFDCB7F00C3F761 /* TopDealsCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D7F6A32BFDCB7F00C3F761 /* TopDealsCVC.swift */; };
+		44D7F6A62BFDCB7F00C3F761 /* TopDealsCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44D7F6A42BFDCB7F00C3F761 /* TopDealsCVC.xib */; };
 		44D7FCA92BE2131800A5B3F3 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D7FCA82BE2131800A5B3F3 /* SignupModel.swift */; };
 		44D7FCAB2BE2137B00A5B3F3 /* BuyerDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D7FCAA2BE2137B00A5B3F3 /* BuyerDataStruct.swift */; };
 		44E61DA52BFB30E0006E136E /* HomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44E61DA42BFB30E0006E136E /* HomeVC.storyboard */; };
@@ -150,17 +179,28 @@
 		440FE4D72BF395C100B11770 /* splashS.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = splashS.jpg; sourceTree = "<group>"; };
 		44172F252BEC9E51003875A6 /* TableViewCellManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellManager.swift; sourceTree = "<group>"; };
 		4420B9772BD91EBE00C156CF /* UserTypeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeManager.swift; sourceTree = "<group>"; };
+		443051C12C04889300A13ADF /* HomeDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataStruct.swift; sourceTree = "<group>"; };
+		443051C32C04896A00A13ADF /* ModelHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHomeVC.swift; sourceTree = "<group>"; };
+		443051C52C048C2600A13ADF /* TopDealsDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDealsDataStruct.swift; sourceTree = "<group>"; };
+		443051C92C04B32300A13ADF /* diamond_logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = diamond_logo.gif; sourceTree = "<group>"; };
+		443C54642BFE1BD000740C0D /* CustomerViewCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewCVC.swift; sourceTree = "<group>"; };
+		443C54652BFE1BD000740C0D /* CustomerViewCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerViewCVC.xib; sourceTree = "<group>"; };
 		4440C5912BD9033E00C00975 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		4440C5962BD9074400C00975 /* BuyerCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerCell1.swift; sourceTree = "<group>"; };
 		4440C5972BD9074400C00975 /* BuyerCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyerCell1.xib; sourceTree = "<group>"; };
 		4440C59A2BD9110100C00975 /* FooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCell.swift; sourceTree = "<group>"; };
 		4440C59B2BD9110100C00975 /* FooterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterCell.xib; sourceTree = "<group>"; };
+		444243922C05D473001E976B /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		444A1A652BD24DE000B8A6CA /* AlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
 		444A1A672BD250F900B8A6CA /* JsonParsingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParsingManager.swift; sourceTree = "<group>"; };
 		444A1A692BD25CDD00B8A6CA /* LoginDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataStruct.swift; sourceTree = "<group>"; };
 		444A1A702BD27E1800B8A6CA /* ActivityIndigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndigatorView.swift; sourceTree = "<group>"; };
 		444A1A722BD2883200B8A6CA /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		444A1A762BD2A11200B8A6CA /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		445222F22C0082CB00EA79B2 /* SuggestedCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCVC.swift; sourceTree = "<group>"; };
+		445222F32C0082CB00EA79B2 /* SuggestedCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedCVC.xib; sourceTree = "<group>"; };
+		445222FA2C00830D00EA79B2 /* SuggestedTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedTVC.swift; sourceTree = "<group>"; };
+		445222FB2C00830D00EA79B2 /* SuggestedTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedTVC.xib; sourceTree = "<group>"; };
 		44546A322BD62F22007AFEF8 /* ForgotPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordModel.swift; sourceTree = "<group>"; };
 		44546A362BD63721007AFEF8 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		44546A382BD65444007AFEF8 /* CountryListStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListStruct.swift; sourceTree = "<group>"; };
@@ -177,7 +217,19 @@
 		44556C1F2BF77EC600B5FBA4 /* LATO-LIGHT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LATO-LIGHT.TTF"; sourceTree = "<group>"; };
 		44556C202BF77EC600B5FBA4 /* LATO.SEMIBOLD.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = LATO.SEMIBOLD.TTF; sourceTree = "<group>"; };
 		44556C212BF77EC600B5FBA4 /* LATO-REGULAR.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LATO-REGULAR.TTF"; sourceTree = "<group>"; };
+		4458B86C2BFDF60D0018AB4A /* DealerRegisterTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerRegisterTVC.swift; sourceTree = "<group>"; };
+		4458B86D2BFDF60D0018AB4A /* DealerRegisterTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DealerRegisterTVC.xib; sourceTree = "<group>"; };
+		4458B8702BFDF9620018AB4A /* DXELUXeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DXELUXeTVC.swift; sourceTree = "<group>"; };
+		4458B8712BFDF9620018AB4A /* DXELUXeTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DXELUXeTVC.xib; sourceTree = "<group>"; };
+		4458B8742BFE02360018AB4A /* PromisesDXETVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromisesDXETVC.swift; sourceTree = "<group>"; };
+		4458B8752BFE02360018AB4A /* PromisesDXETVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromisesDXETVC.xib; sourceTree = "<group>"; };
 		4463C2F82BCFF38C000D939E /* ViewProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProperty.swift; sourceTree = "<group>"; };
+		44681F432BFF4D70009BD156 /* GlobleSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobleSearchVC.swift; sourceTree = "<group>"; };
+		44681F452BFF4D99009BD156 /* GlobleSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GlobleSearch.storyboard; sourceTree = "<group>"; };
+		44681F482BFF5212009BD156 /* GlobleSearchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobleSearchTVC.swift; sourceTree = "<group>"; };
+		44681F492BFF5212009BD156 /* GlobleSearchTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GlobleSearchTVC.xib; sourceTree = "<group>"; };
+		44681F4C2BFF5660009BD156 /* GlobleSearchCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobleSearchCVC.swift; sourceTree = "<group>"; };
+		44681F4D2BFF5660009BD156 /* GlobleSearchCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GlobleSearchCVC.xib; sourceTree = "<group>"; };
 		4470B0942BF7919900DC824B /* ExpandableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandableCell.xib; sourceTree = "<group>"; };
 		4470B0952BF7919900DC824B /* MainCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainCell.xib; sourceTree = "<group>"; };
 		4470B0962BF7919900DC824B /* ExpandableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableCell.swift; sourceTree = "<group>"; };
@@ -204,6 +256,10 @@
 		447E72D62BCFD0A600AAEA57 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		447E72DB2BCFD14300AAEA57 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		447E72DD2BCFD28E00AAEA57 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		448A565E2BFE0B0100F01591 /* MediaSpotlightTVCl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSpotlightTVCl.swift; sourceTree = "<group>"; };
+		448A565F2BFE0B0100F01591 /* MediaSpotlightTVCl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaSpotlightTVCl.xib; sourceTree = "<group>"; };
+		448A56622BFE16DD00F01591 /* CustomerReviewTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerReviewTVC.swift; sourceTree = "<group>"; };
+		448A56632BFE16DD00F01591 /* CustomerReviewTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerReviewTVC.xib; sourceTree = "<group>"; };
 		44A81B4D2BDF6F75008AB93A /* Dealer_KYCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer_KYCCell.swift; sourceTree = "<group>"; };
 		44A81B4E2BDF6F75008AB93A /* Dealer_KYCCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Dealer_KYCCell.xib; sourceTree = "<group>"; };
 		44A81B512BDF6F95008AB93A /* Dealer_BasicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer_BasicCell.swift; sourceTree = "<group>"; };
@@ -236,6 +292,8 @@
 		44CE862C2BF5F7FB004AAAF3 /* WishVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishVC.swift; sourceTree = "<group>"; };
 		44CE862E2BF5F80C004AAAF3 /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
 		44CE86322BF600AC004AAAF3 /* DashboardLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardLoginVC.swift; sourceTree = "<group>"; };
+		44D7F6A32BFDCB7F00C3F761 /* TopDealsCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDealsCVC.swift; sourceTree = "<group>"; };
+		44D7F6A42BFDCB7F00C3F761 /* TopDealsCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopDealsCVC.xib; sourceTree = "<group>"; };
 		44D7FCA82BE2131800A5B3F3 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		44D7FCAA2BE2137B00A5B3F3 /* BuyerDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerDataStruct.swift; sourceTree = "<group>"; };
 		44E61DA42BFB30E0006E136E /* HomeVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeVC.storyboard; sourceTree = "<group>"; };
@@ -318,6 +376,14 @@
 			path = SupplierXIB;
 			sourceTree = "<group>";
 		};
+		444243912C05D350001E976B /* UserDefaultManager */ = {
+			isa = PBXGroup;
+			children = (
+				444243922C05D473001E976B /* UserDefaultManager.swift */,
+			);
+			path = UserDefaultManager;
+			sourceTree = "<group>";
+		};
 		44479E6B2BCFE4E100638A63 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +417,55 @@
 				44546A3D2BD662BA007AFEF8 /* CountryListVC.swift */,
 			);
 			path = CustomAlert;
+			sourceTree = "<group>";
+		};
+		44681F3F2BFF4CE6009BD156 /* GlobleSearchVC */ = {
+			isa = PBXGroup;
+			children = (
+				44681F402BFF4D11009BD156 /* ViewModel */,
+				44681F422BFF4D34009BD156 /* View */,
+				44681F412BFF4D1D009BD156 /* Model */,
+			);
+			path = GlobleSearchVC;
+			sourceTree = "<group>";
+		};
+		44681F402BFF4D11009BD156 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				44681F472BFF51E5009BD156 /* XIB cells */,
+				44681F432BFF4D70009BD156 /* GlobleSearchVC.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		44681F412BFF4D1D009BD156 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		44681F422BFF4D34009BD156 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				44681F452BFF4D99009BD156 /* GlobleSearch.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		44681F472BFF51E5009BD156 /* XIB cells */ = {
+			isa = PBXGroup;
+			children = (
+				44681F482BFF5212009BD156 /* GlobleSearchTVC.swift */,
+				44681F492BFF5212009BD156 /* GlobleSearchTVC.xib */,
+				44681F4C2BFF5660009BD156 /* GlobleSearchCVC.swift */,
+				44681F4D2BFF5660009BD156 /* GlobleSearchCVC.xib */,
+				445222F22C0082CB00EA79B2 /* SuggestedCVC.swift */,
+				445222F32C0082CB00EA79B2 /* SuggestedCVC.xib */,
+				445222FA2C00830D00EA79B2 /* SuggestedTVC.swift */,
+				445222FB2C00830D00EA79B2 /* SuggestedTVC.xib */,
+			);
+			path = "XIB cells";
 			sourceTree = "<group>";
 		};
 		4470B0932BF7917500DC824B /* SideMenuXIB */ = {
@@ -388,6 +503,7 @@
 		447E72672BCFAB4000AAEA57 /* DiamondXE */ = {
 			isa = PBXGroup;
 			children = (
+				444243912C05D350001E976B /* UserDefaultManager */,
 				447E729B2BCFAEAC00AAEA57 /* APIManager */,
 				447E72CC2BCFC7E200AAEA57 /* Configuration */,
 				447E72A22BCFBF8000AAEA57 /* AlamofireManager */,
@@ -401,6 +517,7 @@
 				44546A3A2BD65EAD007AFEF8 /* CustomAlert */,
 				447E726E2BCFAB4000AAEA57 /* Main.storyboard */,
 				447E72742BCFAB4100AAEA57 /* Assets.xcassets */,
+				443051C92C04B32300A13ADF /* diamond_logo.gif */,
 				44479E6C2BCFEC2400638A63 /* Fonts */,
 				44479E6B2BCFE4E100638A63 /* Splash */,
 				447E72792BCFAB4100AAEA57 /* Info.plist */,
@@ -521,7 +638,6 @@
 				447E72DB2BCFD14300AAEA57 /* LoginVC.swift */,
 				444A1A722BD2883200B8A6CA /* ForgotPasswordVC.swift */,
 				444A1A762BD2A11200B8A6CA /* ResetPasswordVC.swift */,
-				44C7C1582BE3B8C4007E639A /* WKWebViewVC.swift */,
 				440254622BEE59B900E90546 /* SplashVC.swift */,
 			);
 			path = ViewModel;
@@ -539,6 +655,7 @@
 		44CC38852BD7BFB3002B3597 /* DiamondXE_Architecture */ = {
 			isa = PBXGroup;
 			children = (
+				44681F3F2BFF4CE6009BD156 /* GlobleSearchVC */,
 				44CC388C2BD7C2D9002B3597 /* Dashboard */,
 				44CC38862BD7C00E002B3597 /* Signup */,
 				447E72D52BCFD03E00AAEA57 /* Login */,
@@ -603,6 +720,9 @@
 		44CC388D2BD7C2E5002B3597 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				443051C12C04889300A13ADF /* HomeDataStruct.swift */,
+				443051C32C04896A00A13ADF /* ModelHomeVC.swift */,
+				443051C52C048C2600A13ADF /* TopDealsDataStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -626,6 +746,7 @@
 				4470B0932BF7917500DC824B /* SideMenuXIB */,
 				44CE86272BF5F766004AAAF3 /* DashboardControllers */,
 				44CC38922BD7C394002B3597 /* DashboardVC.swift */,
+				44C7C1582BE3B8C4007E639A /* WKWebViewVC.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -666,6 +787,20 @@
 				440D7BF42BFCC28D005F8835 /* NewArrivalsTVC.xib */,
 				440D7BFB2BFCCA3A005F8835 /* TopDealsTVC.swift */,
 				440D7BFC2BFCCA3A005F8835 /* TopDealsTVC.xib */,
+				44D7F6A32BFDCB7F00C3F761 /* TopDealsCVC.swift */,
+				44D7F6A42BFDCB7F00C3F761 /* TopDealsCVC.xib */,
+				4458B86C2BFDF60D0018AB4A /* DealerRegisterTVC.swift */,
+				4458B86D2BFDF60D0018AB4A /* DealerRegisterTVC.xib */,
+				4458B8702BFDF9620018AB4A /* DXELUXeTVC.swift */,
+				4458B8712BFDF9620018AB4A /* DXELUXeTVC.xib */,
+				4458B8742BFE02360018AB4A /* PromisesDXETVC.swift */,
+				4458B8752BFE02360018AB4A /* PromisesDXETVC.xib */,
+				448A565E2BFE0B0100F01591 /* MediaSpotlightTVCl.swift */,
+				448A565F2BFE0B0100F01591 /* MediaSpotlightTVCl.xib */,
+				448A56622BFE16DD00F01591 /* CustomerReviewTVC.swift */,
+				448A56632BFE16DD00F01591 /* CustomerReviewTVC.xib */,
+				443C54642BFE1BD000740C0D /* CustomerViewCVC.swift */,
+				443C54652BFE1BD000740C0D /* CustomerViewCVC.xib */,
 			);
 			path = HomeTableViewCells;
 			sourceTree = "<group>";
@@ -786,6 +921,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				443C54672BFE1BD000740C0D /* CustomerViewCVC.xib in Resources */,
 				44E61DA92BFB3105006E136E /* WishlistVC.storyboard in Resources */,
 				44E61DB42BFB41E4006E136E /* HomeVC_CateogiesCVC.xib in Resources */,
 				44F631252BEF3BA3003EE2BC /* LaunchScreen.storyboard in Resources */,
@@ -797,9 +933,15 @@
 				44556C282BF77EC600B5FBA4 /* LATO-LIGHT.TTF in Resources */,
 				44556C292BF77EC600B5FBA4 /* LATO.SEMIBOLD.TTF in Resources */,
 				44A81B4F2BDF6F75008AB93A /* Dealer_KYCCell.xib in Resources */,
+				44681F4A2BFF5212009BD156 /* GlobleSearchTVC.xib in Resources */,
 				44A81B532BDF6F95008AB93A /* Dealer_BasicCell.xib in Resources */,
 				44E61DA72BFB30F4006E136E /* CategoriesVC.storyboard in Resources */,
+				44D7F6A62BFDCB7F00C3F761 /* TopDealsCVC.xib in Resources */,
+				448A56602BFE0B0100F01591 /* MediaSpotlightTVCl.xib in Resources */,
+				445222FC2C00830D00EA79B2 /* SuggestedTVC.xib in Resources */,
+				445222F42C0082CB00EA79B2 /* SuggestedCVC.xib in Resources */,
 				44E61DB02BFB40BA006E136E /* HomeVC_CateogiesTVC.xib in Resources */,
+				443051CA2C04B32300A13ADF /* diamond_logo.gif in Resources */,
 				44A81B5B2BDF6FD8008AB93A /* Dealer_CompanyDetailsCell.xib in Resources */,
 				44556C242BF77EC600B5FBA4 /* LATO-LIGHTITALIC.TTF in Resources */,
 				44556C262BF77EC600B5FBA4 /* LATO-BOLDITALIC.TTF in Resources */,
@@ -820,13 +962,19 @@
 				447E72CE2BCFC84200AAEA57 /* Dev.xcconfig in Resources */,
 				44C8A45A2BE11CCB006C9B06 /* Supplier_BankInfoCell.xib in Resources */,
 				447E72D02BCFC85900AAEA57 /* Staging.xcconfig in Resources */,
+				4458B8762BFE02360018AB4A /* PromisesDXETVC.xib in Resources */,
+				448A56642BFE16DD00F01591 /* CustomerReviewTVC.xib in Resources */,
 				4470B0982BF7919A00DC824B /* ExpandableCell.xib in Resources */,
+				44681F4E2BFF5660009BD156 /* GlobleSearchCVC.xib in Resources */,
 				44F631292BEF4442003EE2BC /* Supplier_CompanyDetails.xib in Resources */,
+				44681F462BFF4D99009BD156 /* GlobleSearch.storyboard in Resources */,
 				44CC388B2BD7C06A002B3597 /* Signup.storyboard in Resources */,
 				44546A3C2BD65EE8007AFEF8 /* CustomAlerts.storyboard in Resources */,
 				44556C2A2BF77EC600B5FBA4 /* LATO-REGULAR.TTF in Resources */,
 				447E72702BCFAB4000AAEA57 /* Base in Resources */,
+				4458B86E2BFDF60D0018AB4A /* DealerRegisterTVC.xib in Resources */,
 				447E72D22BCFC87000AAEA57 /* Production.xcconfig in Resources */,
+				4458B8722BFDF9620018AB4A /* DXELUXeTVC.xib in Resources */,
 				44C571F12BFC9BC4007B081F /* BannerCVC.xib in Resources */,
 				44CC38912BD7C371002B3597 /* Dashboard.storyboard in Resources */,
 				4440C59D2BD9110100C00975 /* FooterCell.xib in Resources */,
@@ -855,19 +1003,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				44E61DAF2BFB40BA006E136E /* HomeVC_CateogiesTVC.swift in Sources */,
+				445222FD2C00830D00EA79B2 /* SuggestedTVC.swift in Sources */,
 				44C7C1592BE3B8C4007E639A /* WKWebViewVC.swift in Sources */,
 				447E729E2BCFAEED00AAEA57 /* APIWithBaseURL.swift in Sources */,
 				44CC38932BD7C394002B3597 /* DashboardVC.swift in Sources */,
+				443051C22C04889300A13ADF /* HomeDataStruct.swift in Sources */,
 				44CE862D2BF5F7FB004AAAF3 /* WishVC.swift in Sources */,
 				44172F262BEC9E51003875A6 /* TableViewCellManager.swift in Sources */,
 				44546A392BD65444007AFEF8 /* CountryListStruct.swift in Sources */,
+				4458B86F2BFDF60D0018AB4A /* DealerRegisterTVC.swift in Sources */,
 				4470B09A2BF7919A00DC824B /* ExpandableCell.swift in Sources */,
 				4463C2F92BCFF38C000D939E /* ViewProperty.swift in Sources */,
+				44681F442BFF4D70009BD156 /* GlobleSearchVC.swift in Sources */,
 				444A1A772BD2A11200B8A6CA /* ResetPasswordVC.swift in Sources */,
 				440D7BF62BFCC28D005F8835 /* NewArrivalsTVC.swift in Sources */,
 				44FFD83F2BEB54F2002A8C8D /* DocVerifyStruct.swift in Sources */,
 				447E726D2BCFAB4000AAEA57 /* ViewController.swift in Sources */,
 				44CE86292BF5F7CE004AAAF3 /* HomeVC.swift in Sources */,
+				443051C42C04896A00A13ADF /* ModelHomeVC.swift in Sources */,
+				44D7F6A52BFDCB7F00C3F761 /* TopDealsCVC.swift in Sources */,
 				4440C5922BD9033E00C00975 /* SignupVC.swift in Sources */,
 				444A1A662BD24DE000B8A6CA /* AlamofireManager.swift in Sources */,
 				44A81B542BDF6F95008AB93A /* Dealer_BasicCell.swift in Sources */,
@@ -875,17 +1029,22 @@
 				444A1A682BD250F900B8A6CA /* JsonParsingManager.swift in Sources */,
 				44546A3E2BD662BA007AFEF8 /* CountryListVC.swift in Sources */,
 				4440C59C2BD9110100C00975 /* FooterCell.swift in Sources */,
+				4458B8732BFDF9620018AB4A /* DXELUXeTVC.swift in Sources */,
 				447E72DC2BCFD14300AAEA57 /* LoginVC.swift in Sources */,
 				44E61DB32BFB41E4006E136E /* HomeVC_CateogiesCVC.swift in Sources */,
+				44681F4F2BFF5660009BD156 /* GlobleSearchCVC.swift in Sources */,
 				444A1A732BD2883200B8A6CA /* ForgotPasswordVC.swift in Sources */,
 				44CE862F2BF5F80C004AAAF3 /* CartVC.swift in Sources */,
 				44546A452BD68500007AFEF8 /* Delegates.swift in Sources */,
+				44681F4B2BFF5212009BD156 /* GlobleSearchTVC.swift in Sources */,
 				44CE862B2BF5F7EC004AAAF3 /* CategoriesVC.swift in Sources */,
 				44546A332BD62F22007AFEF8 /* ForgotPasswordModel.swift in Sources */,
 				44CD7D512BD0F2E80004153E /* BaseViewController.swift in Sources */,
+				4458B8772BFE02360018AB4A /* PromisesDXETVC.swift in Sources */,
 				4470B09B2BF7919A00DC824B /* MainCell.swift in Sources */,
 				447E72692BCFAB4000AAEA57 /* AppDelegate.swift in Sources */,
 				44F631282BEF4442003EE2BC /* Supplier_CompanyDetails.swift in Sources */,
+				443051C62C048C2600A13ADF /* TopDealsDataStruct.swift in Sources */,
 				4402EE562BFC8181002556B2 /* BannerTVC.swift in Sources */,
 				44546A402BD667F6007AFEF8 /* CustomSearchBar.swift in Sources */,
 				44546A372BD63721007AFEF8 /* TimerManager.swift in Sources */,
@@ -894,16 +1053,20 @@
 				440254632BEE59B900E90546 /* SplashVC.swift in Sources */,
 				44CD7D532BD0FF790004153E /* FloatingTextField.swift in Sources */,
 				44D7FCA92BE2131800A5B3F3 /* SignupModel.swift in Sources */,
+				448A56652BFE16DD00F01591 /* CustomerReviewTVC.swift in Sources */,
 				447E72DE2BCFD28E00AAEA57 /* LoginModel.swift in Sources */,
 				44B7383E2BE8E3EC005B9942 /* DealerDataStruct.swift in Sources */,
 				44C7C1532BE3A99F007E639A /* VerifyEmailPopupVC.swift in Sources */,
 				44A81B582BDF6FB1008AB93A /* Dealer_OtherDocCell.swift in Sources */,
+				445222F52C0082CB00EA79B2 /* SuggestedCVC.swift in Sources */,
 				444A1A6A2BD25CDD00B8A6CA /* LoginDataStruct.swift in Sources */,
 				4440C5982BD9074400C00975 /* BuyerCell1.swift in Sources */,
 				44C571F62BFCA9D6007B081F /* GiftOfChoiceTVC.swift in Sources */,
 				440D7BFE2BFCCA3A005F8835 /* TopDealsTVC.swift in Sources */,
 				44C8A45D2BE12145006C9B06 /* Supplier_AuthorisedPersonCell.swift in Sources */,
+				444243932C05D473001E976B /* UserDefaultManager.swift in Sources */,
 				44C4A3632BF499B700630E43 /* TabViewCustom.swift in Sources */,
+				448A56612BFE0B0100F01591 /* MediaSpotlightTVCl.swift in Sources */,
 				44A81B5C2BDF6FD8008AB93A /* Dealer_CompanyDetailsCell.swift in Sources */,
 				44CE86332BF600AC004AAAF3 /* DashboardLoginVC.swift in Sources */,
 				44CD7D4F2BD0F1CF0004153E /* Constent.swift in Sources */,
@@ -913,6 +1076,7 @@
 				447E726B2BCFAB4000AAEA57 /* SceneDelegate.swift in Sources */,
 				447E72732BCFAB4000AAEA57 /* DiamondXE.xcdatamodeld in Sources */,
 				44D7FCAB2BE2137B00A5B3F3 /* BuyerDataStruct.swift in Sources */,
+				443C54662BFE1BD000740C0D /* CustomerViewCVC.swift in Sources */,
 				444A1A712BD27E1800B8A6CA /* ActivityIndigatorView.swift in Sources */,
 				4420B9782BD91EBE00C156CF /* UserTypeManager.swift in Sources */,
 			);
@@ -1094,6 +1258,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
@@ -1118,6 +1283,7 @@
 				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1133,6 +1299,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
@@ -1157,6 +1324,7 @@
 				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1312,6 +1480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
@@ -1336,6 +1505,7 @@
 				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1453,6 +1623,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
@@ -1477,6 +1648,7 @@
 				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1594,6 +1766,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
@@ -1618,6 +1791,7 @@
 				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1728,6 +1902,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
@@ -1752,6 +1927,7 @@
 				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1862,6 +2038,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
@@ -1886,6 +2063,7 @@
 				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1996,6 +2174,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
@@ -2020,6 +2199,7 @@
 				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
