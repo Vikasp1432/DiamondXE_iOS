@@ -120,3 +120,47 @@ var nv_mainTitle = [ nv_home,
                      nv_blogs,
                      nv_mediaGalley,
                      nv_support]
+
+
+var fancyColor = ["Yellow-Bn",
+                  "Green-Blue",
+                  "Brown-Pink",
+                  "Black",
+                  "Blue",
+                  "Brown",
+                  "Gray",
+                  "Gray-Blue",
+                  "Green",
+                  "Yellow",
+                  "Orange",
+                  "Other",
+                  "Pink",
+                  "Purple",
+                  "Red",
+                  "Violet",
+                  "Pink-Brown"]
+
+var attributeTypeWhite = "STONE COLOR"
+var attributeTypeFancy = "FANCY COLOR"
+var attributeTypeClarity = "CLARITY"
+var attributeTypeCertificate = "LAB NAME"
+var attributeTypeFluorescence = "FLUORESCENCE INTENSITY"
+var attributeTypeMake = "MAKE"
+
+var attributeTypeCut = "CUT GRADE"
+var attributeTypePolish = "POLISH"
+var attributeTypSymmetry = "SYMMETRY"
+var attributeTypeTechnology = "TECHNOLOGY"
+
+var attributeTypeIntensity = "FANCY COLOR INTENSITY"
+var attributeTypeOvertone = "FANCY COLOR OVERTONE"
+var attributeTypTablePer = "TABLE PERCENTAGE"
+var attributeTypeDepthPer = "DEPTH PERCENTAGE"
+var attributeTypePavillion = "PAVILION ANGLE"
+var attributeTypeCrown = "CROWN ANGLE"
+
+var attributeTypeEyeClean = "EYE CLEAN"
+var attributeTypeShade = "SHADE"
+var attributeTypeLuster = "LUSTER"
+
+

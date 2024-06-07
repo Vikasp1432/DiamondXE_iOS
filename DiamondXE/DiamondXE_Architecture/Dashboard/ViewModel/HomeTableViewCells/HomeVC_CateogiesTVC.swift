@@ -7,10 +7,17 @@
 
 import UIKit
 
+
+protocol CategorySelecteDelegate: AnyObject {
+    func categoryViewTapped(in cellCategoryTag: Int)
+}
+
 class HomeVC_CateogiesTVC: UITableViewCell {
     static let cellIdentifierHomeTVC = String(describing: HomeVC_CateogiesTVC.self)
 
     @IBOutlet var collectionCat:UICollectionView!
+    weak var delegate: CategorySelecteDelegate?
+
     
     
     var imgArr = [ UIImage(named:"LooseDiamonds"),
@@ -64,25 +71,30 @@ extension HomeVC_CateogiesTVC: UICollectionViewDelegate, UICollectionViewDataSou
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.categoryViewTapped(in: indexPath.row)
+       }
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let noOfCellsInRow = 3   //number of column you want
+        let noOfCellsInRow = 3.7   //number of column you want
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let totalSpace = flowLayout.sectionInset.left
             + flowLayout.sectionInset.right
             + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
 
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
-        return CGSize(width: size , height: size + 25)
+        return CGSize(width: size , height: size + 35)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return 15 // Adjust the spacing between rows
-        }
-        
-//        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//            return 20 // Adjust the spacing between items in a row
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//            return 10 // Adjust the spacing between rows
 //        }
+        
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+            return 13 // Adjust the spacing between items in a row
+        }
         
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
             return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0) // Adjust the left padding

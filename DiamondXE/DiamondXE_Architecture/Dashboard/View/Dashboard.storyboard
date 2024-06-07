@@ -210,17 +210,16 @@
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKv-YU-VgW">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-o0-9yE">
-                                                <rect key="frame" x="13" y="5" width="40" height="50"/>
+                                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-o0-9yE" customClass="EnlargedButton" customModule="DiamondXE" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="T8I-1c-HLI"/>
-                                                    <constraint firstAttribute="width" constant="40" id="XxH-8s-3aX"/>
+                                                    <constraint firstAttribute="width" constant="60" id="XxH-8s-3aX"/>
                                                 </constraints>
                                                 <color key="tintColor" name="TabSelectClr"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="sideMenu"/>
                                                 <connections>
-                                                    <action selector="btnActionSideMenu:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="I9d-0P-gja"/>
+                                                    <action selector="btnActionSideMenu:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="67D-QV-J4K"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bzV-Js-l3X">
@@ -259,21 +258,33 @@
                                                 </subviews>
                                             </stackView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo2" translatesAutoresizingMaskIntoConstraints="NO" id="DBV-aI-uGt">
-                                                <rect key="frame" x="63" y="0.0" width="118" height="60"/>
+                                                <rect key="frame" x="60" y="0.0" width="118" height="60"/>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Diamond" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSc-HC-18L">
+                                                <rect key="frame" x="60" y="0.0" width="168" height="60"/>
+                                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="18"/>
+                                                <color key="textColor" name="themeClr"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" name="VideBGClr"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="DBV-aI-uGt" secondAttribute="bottom" id="0q8-cZ-QhT"/>
                                             <constraint firstAttribute="height" constant="60" id="3PN-eN-juQ"/>
-                                            <constraint firstItem="DBV-aI-uGt" firstAttribute="leading" secondItem="zb9-o0-9yE" secondAttribute="trailing" constant="10" id="Om4-WA-mDp"/>
-                                            <constraint firstItem="zb9-o0-9yE" firstAttribute="leading" secondItem="cKv-YU-VgW" secondAttribute="leading" constant="13" id="QQZ-vu-Wfx"/>
+                                            <constraint firstItem="LSc-HC-18L" firstAttribute="leading" secondItem="zb9-o0-9yE" secondAttribute="trailing" id="3ev-Vh-kBn"/>
+                                            <constraint firstItem="LSc-HC-18L" firstAttribute="top" secondItem="cKv-YU-VgW" secondAttribute="top" id="6yi-UU-3l0"/>
+                                            <constraint firstItem="bzV-Js-l3X" firstAttribute="leading" secondItem="LSc-HC-18L" secondAttribute="trailing" constant="20" id="8Fc-vq-XIc"/>
+                                            <constraint firstAttribute="bottom" secondItem="LSc-HC-18L" secondAttribute="bottom" id="C2y-yW-J8j"/>
+                                            <constraint firstItem="DBV-aI-uGt" firstAttribute="leading" secondItem="zb9-o0-9yE" secondAttribute="trailing" id="Om4-WA-mDp"/>
+                                            <constraint firstItem="zb9-o0-9yE" firstAttribute="leading" secondItem="cKv-YU-VgW" secondAttribute="leading" id="QQZ-vu-Wfx"/>
                                             <constraint firstAttribute="bottom" secondItem="bzV-Js-l3X" secondAttribute="bottom" constant="5" id="Rnv-j0-dRL"/>
                                             <constraint firstAttribute="trailing" secondItem="bzV-Js-l3X" secondAttribute="trailing" constant="15" id="VX7-Ax-ux6"/>
                                             <constraint firstItem="bzV-Js-l3X" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DBV-aI-uGt" secondAttribute="trailing" constant="20" id="YXV-cG-ozY"/>
                                             <constraint firstItem="zb9-o0-9yE" firstAttribute="centerY" secondItem="cKv-YU-VgW" secondAttribute="centerY" id="j50-WO-3pu"/>
                                             <constraint firstItem="bzV-Js-l3X" firstAttribute="top" secondItem="cKv-YU-VgW" secondAttribute="top" constant="5" id="oSp-Qf-eDg"/>
                                             <constraint firstItem="DBV-aI-uGt" firstAttribute="top" secondItem="cKv-YU-VgW" secondAttribute="top" id="pbJ-fC-853"/>
+                                            <constraint firstItem="zb9-o0-9yE" firstAttribute="top" secondItem="cKv-YU-VgW" secondAttribute="top" id="s3y-1S-UsB"/>
+                                            <constraint firstAttribute="bottom" secondItem="zb9-o0-9yE" secondAttribute="bottom" id="typ-vc-t9e"/>
                                         </constraints>
                                     </view>
                                     <containerView clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zy4-ls-lKp">
@@ -563,6 +574,7 @@
                         <outlet property="btnHome" destination="mNs-hd-VTe" id="lcn-eN-ixw"/>
                         <outlet property="btnLogin" destination="ibU-Qj-7Mu" id="ydB-DX-baE"/>
                         <outlet property="btnSearch" destination="LYk-2f-kSp" id="NDK-Yk-ZfL"/>
+                        <outlet property="btnSideMenu" destination="zb9-o0-9yE" id="9kT-ad-v3P"/>
                         <outlet property="btnTitleCart" destination="ndx-a4-Qm4" id="rdh-kh-TAZ"/>
                         <outlet property="btnTitleCategory" destination="B6D-xl-Vje" id="dKR-W1-dsO"/>
                         <outlet property="btnTitleHome" destination="MBa-yt-pWw" id="vNy-h0-pbb"/>
@@ -571,8 +583,11 @@
                         <outlet property="btnWish" destination="TFO-dl-Lug" id="vUN-x0-Kix"/>
                         <outlet property="containerView" destination="Zy4-ls-lKp" id="qRJ-UY-90W"/>
                         <outlet property="containerViewSideMenu" destination="IwM-g9-z12" id="KyE-rh-fUf"/>
+                        <outlet property="imgLOGO" destination="DBV-aI-uGt" id="iOT-qj-i53"/>
+                        <outlet property="lblTitle" destination="LSc-HC-18L" id="aKn-du-Iq0"/>
                         <outlet property="lblVersion" destination="eGD-bY-qhe" id="lWZ-zB-las"/>
                         <outlet property="menuTableView" destination="fab-y7-L4R" id="NDF-9e-JbC"/>
+                        <outlet property="stackIcons" destination="bzV-Js-l3X" id="7Xm-Y3-Oda"/>
                         <outlet property="swipeGesture" destination="dzd-Kb-jqh" id="mOn-Si-vTt"/>
                         <outlet property="viewBG" destination="aLu-jZ-vwk" id="lJb-cp-sgM"/>
                         <outlet property="viewTabBar" destination="SOH-fh-7dF" id="pVW-sS-DQ9"/>
@@ -722,6 +737,14 @@
             <point key="canvasLocation" x="2700" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="SOH-fh-7dF">
+            <size key="intrinsicContentSize" width="-1" height="83"/>
+        </designable>
+        <designable name="zb9-o0-9yE">
+            <size key="intrinsicContentSize" width="24" height="24"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Accounts" width="16" height="21"/>
         <image name="Cart" width="26" height="23"/>
@@ -763,7 +786,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemCyanColor">
-            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

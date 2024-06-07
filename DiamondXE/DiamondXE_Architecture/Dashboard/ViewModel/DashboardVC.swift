@@ -17,6 +17,11 @@ class DashboardVC: BaseViewController {
     @IBOutlet var menuTableView: UITableView!
     @IBOutlet var lblVersion: UILabel!
     
+    @IBOutlet var imgLOGO: UIImageView!
+    @IBOutlet var stackIcons: UIStackView!
+    @IBOutlet var lblTitle: UILabel!
+    
+    
     let screen = UIScreen.main.bounds
     var menu = false
     var home = CGAffineTransform()
@@ -35,6 +40,7 @@ class DashboardVC: BaseViewController {
     @IBOutlet var btnTitleWish: UIButton!
     @IBOutlet var btnTitleCart: UIButton!
     @IBOutlet var btnTitleLogin: UIButton!
+    @IBOutlet var btnSideMenu : UIButton!
     
     
     @IBOutlet weak var containerView: UIView!
@@ -42,9 +48,8 @@ class DashboardVC: BaseViewController {
    
     private var currentViewController: UIViewController?
     private var currentViewControllerIdentifier: String?
-//    private let viewControllerIdentifiers = ["HomeVC", "CategoriesVC", "WishVC", "CartVC", "DashboardLoginVC"]
-//    private let storyboardNames = ["HomeVC", "CategoriesVC", "WishlistVC", "CartVC", "Dashboard"]
-
+    var sideMenuBtnTag = 0
+    
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,8 +67,8 @@ class DashboardVC: BaseViewController {
         
       
         loadViewController(withIdentifier: viewControllerIdentifiers[0], fromStoryboard: storyboardNames[0])
-
-       
+        
+        self.lblTitle.isHidden = true
         home = self.containerView.transform
         
         // define uitableview cell
@@ -72,8 +77,6 @@ class DashboardVC: BaseViewController {
         menuTableView.showsHorizontalScrollIndicator = false
         menuTableView.showsVerticalScrollIndicator = false
         
-     
-      
     }
     
     private func loadViewController(withIdentifier identifier: String, fromStoryboard storyboardName: String) {
@@ -140,29 +143,40 @@ class DashboardVC: BaseViewController {
     
     func hideMenu() {
         
-            UIView.animate(withDuration: 0.3, animations: {
-                self.containerViewSideMenu.transform = self.home
-                self.containerViewSideMenu.layer.cornerRadius = 0
-                self.viewBG.layer.cornerRadius = 0
-                
-            })
+        UIView.animate(withDuration: 0.3, animations: {
+            self.containerViewSideMenu.transform = self.home
+            self.containerViewSideMenu.layer.cornerRadius = 0
+            self.viewBG.layer.cornerRadius = 0
+            
+        })
         
     }
     
-    
+//    @objc func imageTapped(_ sender: UITapGestureRecognizer) {
+//        if menu == false && swipeGesture.direction == .right {
+//            
+//            print("showing menu")
+//            
+//            showMenu()
+//            
+//            menu = true
+//            
+//        }
+//    }
     
     @IBAction func showMenu(_ sender: UISwipeGestureRecognizer) {
         
        // print("menu interaction")
-        
-        if menu == false && swipeGesture.direction == .right {
-            
-            //print("user is showing menu")
-            
-            showMenu()
-            
-            menu = true
-            
+        if self.sideMenuBtnTag == 0{
+            if menu == false && swipeGesture.direction == .right {
+                
+                //print("user is showing menu")
+                
+                showMenu()
+                
+                menu = true
+                
+            }
         }
         
     }
@@ -189,6 +203,11 @@ class DashboardVC: BaseViewController {
         let identifier = viewControllerIdentifiers[sender.tag]
         let storyboardName = storyboardNames[sender.tag]
         loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
+        self.sideMenuBtnTag = 0
+        self.btnSideMenu.setImage(UIImage(named: "sideMenu"), for: .normal)
+        self.lblTitle.isHidden = true
+        self.imgLOGO.isHidden = false
+        self.stackIcons.isHidden = false
         switch sender.tag {
         case 0:
             self.btnHome.tintColor = .themeClr
@@ -201,6 +220,7 @@ class DashboardVC: BaseViewController {
             self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
             self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
             self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
+            
         case 1:
             self.btnHome.tintColor = .clrGray
             self.btnCategory.tintColor = .themeClr
@@ -212,6 +232,7 @@ class DashboardVC: BaseViewController {
             self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
             self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
             self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
+            
         case 2:
             self.btnHome.tintColor = .clrGray
             self.btnCategory.tintColor = .clrGray
@@ -252,23 +273,36 @@ class DashboardVC: BaseViewController {
     }
    
     
-    @IBAction func btnActionSideMenu(_ sender: UIButton) {
+    @IBAction func btnActionSideMenu(_ sender: EnlargedButton) {
        // print("menu interaction")
         
-        if menu == false && swipeGesture.direction == .right {
+        if self.sideMenuBtnTag == 0{
             
-            print("user is showing menu")
-            
-            showMenu()
-            
-            menu = true
-            
+            if menu == false && swipeGesture.direction == .right {
+                
+                //print("user is showing menu")
+                
+                showMenu()
+                
+                menu = true
+                
+            }
+        }
+        else{
+            self.sideMenuBtnTag = 0
+            self.homeMenuActive()
+            self.btnSideMenu.setImage(UIImage(named: "sideMenu"), for: .normal)
+            self.lblTitle.isHidden = true
+            self.imgLOGO.isHidden = false
+            self.stackIcons.isHidden = false
         }
     }
     
+  
+    
     @IBAction func btnActionSearch(_ sender: UIButton) {
         
-//        navigationManager(storybordName: "GlobleSearch", storyboardID: "GlobleSearchVC", controller: GlobleSearchVC())
+//     navigationManager(storybordName: "GlobleSearch", storyboardID: "GlobleSearchVC", controller: GlobleSearchVC())
     }
     
     @IBAction func btnActionSocialM(_ sender: UIButton) {
@@ -276,6 +310,7 @@ class DashboardVC: BaseViewController {
         gotoWKWebView()
         
     }
+
     
 }
 
@@ -350,30 +385,63 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
         }
     
     
+    func homeMenuActive(){
+        let identifier = viewControllerIdentifiers[0]
+        let storyboardName = storyboardNames[0]
+        loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
+        self.btnHome.tintColor = .themeClr
+        self.btnCategory.tintColor = .clrGray
+        self.btnWish.tintColor = .clrGray
+        self.btnCart.tintColor = .clrGray
+        self.btnLogin.tintColor = .clrGray
+        self.btnTitleHome.setTitleColor(UIColor.themeClr, for: .normal)
+        self.btnTitleCategory.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
+        hideMenu()
+        menu = false
+    }
+    
     func sideMenuActions(sectionStr:String){
         
         if nv_home == sectionStr{
             if menu == true {
-                let identifier = viewControllerIdentifiers[0]
-                let storyboardName = storyboardNames[0]
-                loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
-                self.btnHome.tintColor = .themeClr
-                self.btnCategory.tintColor = .clrGray
-                self.btnWish.tintColor = .clrGray
-                self.btnCart.tintColor = .clrGray
-                self.btnLogin.tintColor = .clrGray
-                self.btnTitleHome.setTitleColor(UIColor.themeClr, for: .normal)
-                self.btnTitleCategory.setTitleColor(UIColor.clrGray, for: .normal)
-                self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
-                self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
-                self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
-                
-                hideMenu()
-                
-                menu = false
-                
+                homeMenuActive()
             }
         }
+        
+        else if nv_naturalDiamond == sectionStr{
+            
+            gotoSearchDiamondVC()
+//            print(sectionStr)
+//          //  self.navigationManager(storybordName: "SearchDiamond", storyboardID: "SearchDiamondVC", controller: SearchDiamondVC())
+//            let identifier = viewControllerIdentifiers[5]
+//            let storyboardName = storyboardNames[5]
+//            loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
+//            hideMenu()
+//            menu = false
+//            self.sideMenuBtnTag = 1
+//            self.btnSideMenu.setImage(UIImage(named: "backButton"), for: .normal)
+//            
+//            self.lblTitle.isHidden = false
+//            self.imgLOGO.isHidden = true
+//            self.stackIcons.isHidden = true
+//            
+//            self.btnHome.tintColor = .clrGray
+//            self.btnCategory.tintColor = .clrGray
+//            self.btnWish.tintColor = .clrGray
+//            self.btnCart.tintColor = .clrGray
+//            self.btnLogin.tintColor = .clrGray
+//            self.btnTitleHome.setTitleColor(UIColor.clrGray, for: .normal)
+//            self.btnTitleCategory.setTitleColor(UIColor.clrGray, for: .normal)
+//            self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
+//            self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
+//            self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
+            
+        }
+        
+        
         else if nv_diamondEducation == sectionStr{
             print(sectionStr)
             self.tagV.tagVC = 1
@@ -449,6 +517,32 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
             self.tagV.tagVC = 11
             gotoWKWebView()
         }
+        
+        else if nv_emial == sectionStr{
+            print(sectionStr)
+            let email = sectionStr
+                   if let emailURL = URL(string: "mailto:\(email)") {
+                       if UIApplication.shared.canOpenURL(emailURL) {
+                           UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
+                       } else {
+                           // Handle the error
+                           print("Cannot open email client")
+                       }
+                   }
+        }
+        
+        else if nv_whatsapp == sectionStr{
+            print(sectionStr)
+            let phoneNumber = sectionStr
+                   if let phoneURL = URL(string: "tel://\(phoneNumber)") {
+                       if UIApplication.shared.canOpenURL(phoneURL) {
+                           UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
+                       } else {
+                           // Handle the error
+                           print("Cannot open phone dialer")
+                       }
+                   }
+        }
        
         
         
@@ -456,6 +550,32 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
     
     func gotoWKWebView(){
         self.navigationManager(WKWebViewVC.self, storyboardName: "Dashboard", storyboardID: "WKWebViewVC", data: self.tagV)
+    }
+    
+    
+    func gotoSearchDiamondVC(){
+        let identifier = viewControllerIdentifiers[5]
+        let storyboardName = storyboardNames[5]
+        loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
+        hideMenu()
+        menu = false
+        self.sideMenuBtnTag = 1
+        self.btnSideMenu.setImage(UIImage(named: "backButton"), for: .normal)
+        
+        self.lblTitle.isHidden = false
+        self.imgLOGO.isHidden = true
+        self.stackIcons.isHidden = true
+        
+        self.btnHome.tintColor = .clrGray
+        self.btnCategory.tintColor = .clrGray
+        self.btnWish.tintColor = .clrGray
+        self.btnCart.tintColor = .clrGray
+        self.btnLogin.tintColor = .clrGray
+        self.btnTitleHome.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleCategory.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
     }
     
     

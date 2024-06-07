@@ -57,7 +57,29 @@ class AlamofireManager {
               
      }
     
-
+    // get API
+    func makeGETAPIRequestWithLocation(url : String, completion: @escaping (Result<Data?, Error>) -> Void) {
+        let headers: HTTPHeaders = HeaderInfoLocation().headers
+        AF.request(url, method: .get, parameters: nil, encoding:  URLEncoding.queryString, headers: headers).response { response in
+          switch response.result {
+          case .success:
+              let data = response.data
+              
+              if data != nil{
+                  let str = String(decoding: data!, as: UTF8.self)
+                  print(str)
+              }
+              completion(.success(data))
+             // OnResultBlock(data as Any, true)
+              
+          case let .failure(error):
+            print(error)
+              completion(.failure(error))
+              //OnResultBlock(error, false)
+          }
+        }
+              
+     }
     
 
 }

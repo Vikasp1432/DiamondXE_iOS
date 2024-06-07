@@ -379,12 +379,14 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
             return UITableViewCell()
         }
         
+        
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 190
+            return 175
             
         case 1:
             return 320

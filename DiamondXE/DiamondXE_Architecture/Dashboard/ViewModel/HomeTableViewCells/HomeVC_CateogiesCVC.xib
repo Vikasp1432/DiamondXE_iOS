@@ -24,13 +24,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0R-RY-lEf">
-                        <rect key="frame" x="0.0" y="5" width="191" height="224"/>
+                        <rect key="frame" x="5" y="5" width="181" height="224"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgJW" translatesAutoresizingMaskIntoConstraints="NO" id="XNK-44-7ZP">
-                                <rect key="frame" x="0.0" y="0.0" width="191" height="184"/>
+                                <rect key="frame" x="0.0" y="0.0" width="181" height="184"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loose Diamonds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S45-kh-yUT">
-                                <rect key="frame" x="6" y="184" width="179" height="40"/>
+                                <rect key="frame" x="6" y="184" width="169" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="JD2-uD-zcN"/>
                                 </constraints>
@@ -60,8 +60,8 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="K0R-RY-lEf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="3G5-ik-KFC"/>
-                <constraint firstItem="K0R-RY-lEf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5q0-75-wRo"/>
-                <constraint firstAttribute="trailing" secondItem="K0R-RY-lEf" secondAttribute="trailing" id="EgC-aO-PHh"/>
+                <constraint firstItem="K0R-RY-lEf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="5q0-75-wRo"/>
+                <constraint firstAttribute="trailing" secondItem="K0R-RY-lEf" secondAttribute="trailing" constant="10" id="EgC-aO-PHh"/>
                 <constraint firstAttribute="bottom" secondItem="K0R-RY-lEf" secondAttribute="bottom" constant="5" id="agb-Gc-z5q"/>
             </constraints>
             <size key="customSize" width="191" height="234"/>

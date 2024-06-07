@@ -92,7 +92,7 @@ extension TopDealsTVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopDealsCVC.cellIdentifierTopDealsCVC, for: indexPath) as! TopDealsCVC
-        let placeholderImage = UIImage(named: "placeholder")
+        let placeholderImage = UIImage(named: "place_Holder")
         if self.naturalDia.count > 0{
             
             let imageUrlString = naturalDia[indexPath.row].diamondImage ?? ""

@@ -27,8 +27,8 @@ struct Sections {
 
 class BaseViewController: UIViewController, UITextFieldDelegate {
     
-     let viewControllerIdentifiers = ["HomeVC", "CategoriesVC", "WishVC", "CartVC", "DashboardLoginVC"]
-     let storyboardNames = ["HomeVC", "CategoriesVC", "WishlistVC", "CartVC", "Dashboard"]
+     let viewControllerIdentifiers = ["HomeVC", "CategoriesVC", "WishVC", "CartVC", "DashboardLoginVC", "SearchDiamondVC"]
+     let storyboardNames = ["HomeVC", "CategoriesVC", "WishlistVC", "CartVC", "Dashboard", "SearchDiamond"]
     
     
     
@@ -297,5 +297,22 @@ extension UIImageView {
                 // The placeholder is already set, no need to set it again here
             }
         }
+    }
+}
+
+
+// button feature
+class EnlargedButton: UIButton {
+    var enlargedInsets: UIEdgeInsets = .zero
+
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        let rect = bounds.inset(by: enlargedInsets.inverted())
+        return rect.contains(point)
+    }
+}
+
+extension UIEdgeInsets {
+    func inverted() -> UIEdgeInsets {
+        return UIEdgeInsets(top: -top, left: -left, bottom: -bottom, right: -right)
     }
 }

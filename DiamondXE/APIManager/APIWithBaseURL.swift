@@ -35,10 +35,18 @@ struct APIs {
     
     let get_HomeContent_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-home-page-details"
     let get_topDeals_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/top-deals"
+    
+    let get_SearchAttribute_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-attributes"
 }
 
 struct HeaderInfo {
     let headers : HTTPHeaders =  ["Content-Type":"application/json",
+                                  "Apikey" : APIs().api_Key]
+}
+
+struct HeaderInfoLocation {
+    let headers : HTTPHeaders =  ["Content-Type":"application/json",
+                                  "location" : "in",
                                   "Apikey" : APIs().api_Key]
 }
 
