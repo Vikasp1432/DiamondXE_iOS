@@ -67,13 +67,18 @@ extension HomeVC_CateogiesTVC: UICollectionViewDelegate, UICollectionViewDataSou
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeVC_CateogiesCVC", for: indexPath) as! HomeVC_CateogiesCVC
         cell.lblCateIMG.image = imgArr[indexPath.row]
         cell.lblCateName.text = titleArr[indexPath.row]
+        cell.cateAction = {
+            self.delegate?.categoryViewTapped(in: indexPath.row)
+        }
        
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.categoryViewTapped(in: indexPath.row)
-       }
+  
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print("hhhudhsuhdus")
+//       //
+//       }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

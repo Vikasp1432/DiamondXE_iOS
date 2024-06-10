@@ -223,7 +223,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TKa-5Q-pPt">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="707"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xna-nt-Igb" customClass="HeaderDropShadow" customModule="DiamondXE" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
@@ -260,7 +260,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uNx-K4-mTQ">
-                                        <rect key="frame" x="0.0" y="60" width="393" height="699"/>
+                                        <rect key="frame" x="0.0" y="60" width="393" height="647"/>
                                         <color key="backgroundColor" name="VideBGClr"/>
                                         <connections>
                                             <outlet property="dataSource" destination="VIo-A3-YpP" id="B7V-kF-0zF"/>
@@ -271,12 +271,78 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="xna-nt-Igb" firstAttribute="leading" secondItem="TKa-5Q-pPt" secondAttribute="leading" id="0pz-91-vIU"/>
+                                    <constraint firstAttribute="bottom" secondItem="uNx-K4-mTQ" secondAttribute="bottom" id="48M-hZ-Idc"/>
                                     <constraint firstItem="xna-nt-Igb" firstAttribute="top" secondItem="TKa-5Q-pPt" secondAttribute="top" id="5nL-vj-ZA8"/>
-                                    <constraint firstAttribute="bottom" secondItem="uNx-K4-mTQ" secondAttribute="bottom" id="eTV-yv-C8l"/>
                                     <constraint firstAttribute="trailing" secondItem="uNx-K4-mTQ" secondAttribute="trailing" id="kK1-tY-Hka"/>
                                     <constraint firstAttribute="trailing" secondItem="xna-nt-Igb" secondAttribute="trailing" id="keu-RV-MZv"/>
                                     <constraint firstItem="uNx-K4-mTQ" firstAttribute="top" secondItem="xna-nt-Igb" secondAttribute="bottom" id="mrm-2k-RNV"/>
                                     <constraint firstItem="uNx-K4-mTQ" firstAttribute="leading" secondItem="TKa-5Q-pPt" secondAttribute="leading" id="xrS-hb-naX"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzK-wD-lTN">
+                                <rect key="frame" x="0.0" y="766" width="393" height="52"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ve2-1Q-jn5">
+                                        <rect key="frame" x="40" y="12" width="313" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ddz-5N-SJf">
+                                                <rect key="frame" x="0.0" y="0.0" width="141.66666666666666" height="40"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Clear All">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <font key="NSFont" size="15" name="Lato-Semibold"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kpy-6J-0UT">
+                                                <rect key="frame" x="171.66666666666663" y="0.0" width="141.33333333333337" height="40"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Apply">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <font key="NSFont" size="15" name="Lato-Semibold"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnActionBack:" destination="VIo-A3-YpP" eventType="touchUpInside" id="2dE-qQ-LYn"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Ore-XB-ltP"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="themeClr"/>
+                                <constraints>
+                                    <constraint firstItem="Ve2-1Q-jn5" firstAttribute="centerX" secondItem="uzK-wD-lTN" secondAttribute="centerX" id="HoD-0v-LbB"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ve2-1Q-jn5" secondAttribute="trailing" constant="40" id="T0i-yi-knh"/>
+                                    <constraint firstItem="Ve2-1Q-jn5" firstAttribute="top" secondItem="uzK-wD-lTN" secondAttribute="top" constant="12" id="ZH1-M2-DOE"/>
+                                    <constraint firstItem="Ve2-1Q-jn5" firstAttribute="leading" secondItem="uzK-wD-lTN" secondAttribute="leading" constant="40" id="i1U-YG-46h"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ve2-1Q-jn5" secondAttribute="bottom" id="sdx-L4-nLK"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -286,7 +352,10 @@
                             <constraint firstAttribute="trailing" secondItem="TKa-5Q-pPt" secondAttribute="trailing" id="28V-rA-I90"/>
                             <constraint firstItem="TKa-5Q-pPt" firstAttribute="top" secondItem="oXE-Lf-bfy" secondAttribute="top" id="3uL-XZ-KYR"/>
                             <constraint firstItem="TKa-5Q-pPt" firstAttribute="leading" secondItem="nd1-OD-aKz" secondAttribute="leading" id="7vr-EI-mJk"/>
-                            <constraint firstItem="TKa-5Q-pPt" firstAttribute="bottom" secondItem="oXE-Lf-bfy" secondAttribute="bottom" id="bh5-E2-cVy"/>
+                            <constraint firstItem="uzK-wD-lTN" firstAttribute="leading" secondItem="nd1-OD-aKz" secondAttribute="leading" id="NNj-iv-72o"/>
+                            <constraint firstItem="uzK-wD-lTN" firstAttribute="top" secondItem="TKa-5Q-pPt" secondAttribute="bottom" id="at0-6z-ARo"/>
+                            <constraint firstItem="oXE-Lf-bfy" firstAttribute="bottom" secondItem="uzK-wD-lTN" secondAttribute="bottom" id="bZ2-co-rGd"/>
+                            <constraint firstAttribute="trailing" secondItem="uzK-wD-lTN" secondAttribute="trailing" id="eaJ-AF-K9G"/>
                         </constraints>
                     </view>
                     <connections>

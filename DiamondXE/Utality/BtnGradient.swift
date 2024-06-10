@@ -41,7 +41,7 @@ extension UIButton {
         layer.shadowRadius = 2.0
         layer.shadowOpacity = 0.5
         layer.masksToBounds = false
-        
+
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = colors
         gradientLayer.frame = bounds
@@ -66,6 +66,8 @@ extension UIView {
         layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         layer.shadowRadius = 2.0
         layer.shadowOpacity = 0.5
+        layer.borderColor = UIColor.themeClr.cgColor
+
         layer.masksToBounds = false
         
         let gradientLayer = CAGradientLayer()
@@ -80,6 +82,9 @@ extension UIView {
         // Remove all gradient layers
         self.layer.sublayers?.removeAll(where: { $0 is CAGradientLayer })
         self.layer.shadowOpacity = 0
+        self.layer.borderWidth = 0.5
+        self.layer.borderColor = UIColor.lightGray.cgColor
+
     }
     
 }

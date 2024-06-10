@@ -7,9 +7,11 @@
 
 import UIKit
 
-class DashboardVC: BaseViewController {
-    
-  
+
+
+
+class DashboardVC: BaseViewController, BaseViewControllerDelegate {
+   
  
     @IBOutlet var containerViewSideMenu: UIView!
     @IBOutlet var viewBG: UIImageView!
@@ -45,7 +47,8 @@ class DashboardVC: BaseViewController {
     
     @IBOutlet weak var containerView: UIView!
     var tagV = VCTags()
-   
+    
+    
     private var currentViewController: UIViewController?
     private var currentViewControllerIdentifier: String?
     var sideMenuBtnTag = 0
@@ -77,48 +80,119 @@ class DashboardVC: BaseViewController {
         menuTableView.showsHorizontalScrollIndicator = false
         menuTableView.showsVerticalScrollIndicator = false
         
+        // setup search vc
+//        self.setupSearchVC()
     }
     
-    private func loadViewController(withIdentifier identifier: String, fromStoryboard storyboardName: String) {
-        // Check if the new view controller is the same as the current one
-        if identifier == currentViewControllerIdentifier {
-            return
-        }
-
-        // Determine the direction
-        let direction: SlideDirection = {
-            if let currentIdentifier = currentViewControllerIdentifier,
-               let currentIndex = viewControllerIdentifiers.firstIndex(of: currentIdentifier),
-               let newIndex = viewControllerIdentifiers.firstIndex(of: identifier) {
-                return newIndex > currentIndex ? .right : .left
+//    func setupSearchVC(){
+//        
+//        // Instantiate the view controller
+//        let storyboard = UIStoryboard(name: storyboardNames[0], bundle: nil)
+////        let newViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
+////        newViewController?.delegateVC = self
+////        print(newViewController)
+//        
+//        // Initialize and add FirstViewController
+//               containerVC = HomeVC()
+//               if let homeVc = containerVC {
+//                   homeVc.dashBoardVC = self
+//               }
+//
+//    }
+    
+    //goto search from dashboard
+    func didPerformAction(tag: Int) {
+        self.gotoSearchDiamondVC()
+       }
+    
+    func loadViewController(withIdentifier identifier: String, fromStoryboard storyboardName: String) {
+            if identifier == currentViewControllerIdentifier {
+                return
             }
-            return .right
-        }()
 
-        // Instantiate the view controller
-        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-         let newViewController = storyboard.instantiateViewController(withIdentifier: identifier)
-        
-        let width = containerView.bounds.size.width
-        let initialFrame = CGRect(x: direction == .right ? width : -width, y: 0, width: width, height: containerView.bounds.size.height)
-        let finalFrame = containerView.bounds
+            let direction: SlideDirection = {
+                if let currentIdentifier = currentViewControllerIdentifier,
+                   let currentIndex = viewControllerIdentifiers.firstIndex(of: currentIdentifier),
+                   let newIndex = viewControllerIdentifiers.firstIndex(of: identifier) {
+                    return newIndex > currentIndex ? .right : .left
+                }
+                return .right
+            }()
 
-        newViewController.view.frame = initialFrame
-        containerView.addSubview(newViewController.view)
-        addChild(newViewController)
-        newViewController.didMove(toParent: self)
+            let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+            guard let newViewController = storyboard.instantiateViewController(withIdentifier: identifier) as? ChildViewControllerProtocol else { return }
+            
+            newViewController.delegate = self
+
+            let width = self.containerView.bounds.size.width
+            let initialFrame = CGRect(x: direction == .right ? width : -width, y: 0, width: width, height: self.containerView.bounds.size.height)
+            let finalFrame = self.containerView.bounds
+
+            newViewController.view.frame = initialFrame
+            containerView.addSubview(newViewController.view)
+            addChild(newViewController)
+            newViewController.didMove(toParent: self)
+            
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+                newViewController.view.frame = finalFrame
+                self.currentViewController?.view.frame = CGRect(x: direction == .right ? -width : width, y: 0, width: width, height: self.containerView.bounds.size.height)
+            }) { _ in
+                self.currentViewController?.willMove(toParent: nil)
+                self.currentViewController?.view.removeFromSuperview()
+                self.currentViewController?.removeFromParent()
+                self.currentViewController = newViewController
+                self.currentViewControllerIdentifier = identifier
+            }
         
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
-            newViewController.view.frame = finalFrame
-            self.currentViewController?.view.frame = CGRect(x: direction == .right ? -width : width, y: 0, width: width, height: self.containerView.bounds.size.height)
-        }) { _ in
-            self.currentViewController?.willMove(toParent: nil)
-            self.currentViewController?.view.removeFromSuperview()
-            self.currentViewController?.removeFromParent()
-            self.currentViewController = newViewController
-            self.currentViewControllerIdentifier = identifier
-        }
     }
+    
+    
+    
+    
+//     func loadViewController(withIdentifier identifier: String, fromStoryboard storyboardName: String) {
+//        
+//        // Check if the new view controller is the same as the current one
+//        if identifier == currentViewControllerIdentifier {
+//            return
+//        }
+//
+//        // Determine the direction
+//        let direction: SlideDirection = {
+//            if let currentIdentifier = currentViewControllerIdentifier,
+//               let currentIndex = viewControllerIdentifiers.firstIndex(of: currentIdentifier),
+//               let newIndex = viewControllerIdentifiers.firstIndex(of: identifier) {
+//                return newIndex > currentIndex ? .right : .left
+//            }
+//            return .right
+//        }()
+//
+//        // Instantiate the view controller
+//        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+//         let newViewController = storyboard.instantiateViewController(withIdentifier: identifier)
+//         newViewController.delegate = self
+//
+//       
+//         let width = self.containerView.bounds.size.width
+//         let initialFrame = CGRect(x: direction == .right ? width : -width, y: 0, width: width, height: self.containerView.bounds.size.height)
+//         let finalFrame = self.containerView.bounds
+//
+//        newViewController.view.frame = initialFrame
+//        containerView.addSubview(newViewController.view)
+//        addChild(newViewController)
+//        newViewController.didMove(toParent: self)
+//        
+//        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+//            newViewController.view.frame = finalFrame
+//            self.currentViewController?.view.frame = CGRect(x: direction == .right ? -width : width, y: 0, width: width, height: self.containerView.bounds.size.height)
+//        }) { _ in
+//            self.currentViewController?.willMove(toParent: nil)
+//            self.currentViewController?.view.removeFromSuperview()
+//            self.currentViewController?.removeFromParent()
+//            self.currentViewController = newViewController
+//           
+//            self.currentViewControllerIdentifier = identifier
+//        }
+//    }
 
     
     

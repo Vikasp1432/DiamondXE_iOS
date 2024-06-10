@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35CA7F7B249EA5E4C140CFCA /* Pods_DiamondXETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3E30E3F43C815F33BA03AD /* Pods_DiamondXETests.framework */; };
 		440254632BEE59B900E90546 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440254622BEE59B900E90546 /* SplashVC.swift */; };
 		4402EE562BFC8181002556B2 /* BannerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4402EE542BFC8181002556B2 /* BannerTVC.swift */; };
 		4402EE572BFC8181002556B2 /* BannerTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4402EE552BFC8181002556B2 /* BannerTVC.xib */; };
@@ -123,7 +124,6 @@
 		44AB74322C10A53E00625FC2 /* FilterCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AB74302C10A53E00625FC2 /* FilterCVC.swift */; };
 		44AB74332C10A53E00625FC2 /* FilterCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44AB74312C10A53E00625FC2 /* FilterCVC.xib */; };
 		44B7383E2BE8E3EC005B9942 /* DealerDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B7383D2BE8E3EC005B9942 /* DealerDataStruct.swift */; };
-		44BEE1EF2BE64A070014ADDC /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 44BEE1EE2BE64A070014ADDC /* DropDown */; };
 		44C4A3632BF499B700630E43 /* TabViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C4A3622BF499B700630E43 /* TabViewCustom.swift */; };
 		44C571F12BFC9BC4007B081F /* BannerCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44C571F02BFC9BC4007B081F /* BannerCVC.xib */; };
 		44C571F22BFC9BC4007B081F /* BannerCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C571EF2BFC9BC4007B081F /* BannerCVC.swift */; };
@@ -166,6 +166,8 @@
 		44F631292BEF4442003EE2BC /* Supplier_CompanyDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44F631272BEF4442003EE2BC /* Supplier_CompanyDetails.xib */; };
 		44F8F9AB2BE4C2B400F4BC7A /* GalleryMaganer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F8F9AA2BE4C2B400F4BC7A /* GalleryMaganer.swift */; };
 		44FFD83F2BEB54F2002A8C8D /* DocVerifyStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FFD83E2BEB54F2002A8C8D /* DocVerifyStruct.swift */; };
+		9CDA85053702F2A558761B0A /* Pods_DiamondXE_DiamondXEUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D471837727523C2C338E8325 /* Pods_DiamondXE_DiamondXEUITests.framework */; };
+		DD61260E63F0781539FA6490 /* Pods_DiamondXE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295609195493BF26B23E6B0F /* Pods_DiamondXE.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +188,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02BAE3361DC22EAF7EF410F1 /* Pods-DiamondXE-DiamondXEUITests.release(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE-DiamondXEUITests.release(dev).xcconfig"; path = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.release(dev).xcconfig"; sourceTree = "<group>"; };
+		1223A767BA689BA8047BFC28 /* Pods-DiamondXETests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXETests.debug.xcconfig"; path = "Target Support Files/Pods-DiamondXETests/Pods-DiamondXETests.debug.xcconfig"; sourceTree = "<group>"; };
+		17BE16410613E8F9BF063F1B /* Pods-DiamondXE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE.debug.xcconfig"; path = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.debug.xcconfig"; sourceTree = "<group>"; };
+		235B1B6A190D4A9EE26DF07D /* Pods-DiamondXE.debug(staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE.debug(staging).xcconfig"; path = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.debug(staging).xcconfig"; sourceTree = "<group>"; };
+		281AEA04D27A7896376392DF /* Pods-DiamondXE.release(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE.release(dev).xcconfig"; path = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.release(dev).xcconfig"; sourceTree = "<group>"; };
+		295609195493BF26B23E6B0F /* Pods_DiamondXE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiamondXE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		426BC4937D1ACD410EEAAE20 /* Pods-DiamondXETests.debug(staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXETests.debug(staging).xcconfig"; path = "Target Support Files/Pods-DiamondXETests/Pods-DiamondXETests.debug(staging).xcconfig"; sourceTree = "<group>"; };
 		440254622BEE59B900E90546 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		4402EE542BFC8181002556B2 /* BannerTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTVC.swift; sourceTree = "<group>"; };
 		4402EE552BFC8181002556B2 /* BannerTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerTVC.xib; sourceTree = "<group>"; };
@@ -344,6 +353,26 @@
 		44F631272BEF4442003EE2BC /* Supplier_CompanyDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Supplier_CompanyDetails.xib; sourceTree = "<group>"; };
 		44F8F9AA2BE4C2B400F4BC7A /* GalleryMaganer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryMaganer.swift; sourceTree = "<group>"; };
 		44FFD83E2BEB54F2002A8C8D /* DocVerifyStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocVerifyStruct.swift; sourceTree = "<group>"; };
+		469028463AD5284A21AE0EDA /* Pods-DiamondXETests.release(staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXETests.release(staging).xcconfig"; path = "Target Support Files/Pods-DiamondXETests/Pods-DiamondXETests.release(staging).xcconfig"; sourceTree = "<group>"; };
+		587395873C8A69870D3AA9C9 /* Pods-DiamondXETests.release(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXETests.release(dev).xcconfig"; path = "Target Support Files/Pods-DiamondXETests/Pods-DiamondXETests.release(dev).xcconfig"; sourceTree = "<group>"; };
+		5F4C91D06FA281E10D8F4541 /* Pods-DiamondXETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXETests.release.xcconfig"; path = "Target Support Files/Pods-DiamondXETests/Pods-DiamondXETests.release.xcconfig"; sourceTree = "<group>"; };
+		6892F04AF85539804A856354 /* Pods-DiamondXE-DiamondXEUITests.debug(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE-DiamondXEUITests.debug(dev).xcconfig"; path = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.debug(dev).xcconfig"; sourceTree = "<group>"; };
+		69FF72832343623E04553DC5 /* Pods-DiamondXE-DiamondXEUITests.release(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE-DiamondXEUITests.release(production).xcconfig"; path = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.release(production).xcconfig"; sourceTree = "<group>"; };
+		75D1685C8D349921AD2C26EF /* Pods-DiamondXE-DiamondXEUITests.debug(staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE-DiamondXEUITests.debug(staging).xcconfig"; path = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.debug(staging).xcconfig"; sourceTree = "<group>"; };
+		7937E4A08C6FA518B5804FE5 /* Pods-DiamondXE-DiamondXEUITests.debug(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE-DiamondXEUITests.debug(production).xcconfig"; path = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.debug(production).xcconfig"; sourceTree = "<group>"; };
+		7D0A3CB19CE68ED4AF38C4E2 /* Pods-DiamondXE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE.release.xcconfig"; path = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.release.xcconfig"; sourceTree = "<group>"; };
+		8F7CBE54A7AC5CD48CF5A693 /* Pods-DiamondXETests.release(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXETests.release(production).xcconfig"; path = "Target Support Files/Pods-DiamondXETests/Pods-DiamondXETests.release(production).xcconfig"; sourceTree = "<group>"; };
+		902C72E499275580D77B9071 /* Pods-DiamondXE.release(staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE.release(staging).xcconfig"; path = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.release(staging).xcconfig"; sourceTree = "<group>"; };
+		95836B1A358EE47548D7B01E /* Pods-DiamondXE-DiamondXEUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE-DiamondXEUITests.release.xcconfig"; path = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A435A206C1E2CEC8F7177042 /* Pods-DiamondXETests.debug(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXETests.debug(dev).xcconfig"; path = "Target Support Files/Pods-DiamondXETests/Pods-DiamondXETests.debug(dev).xcconfig"; sourceTree = "<group>"; };
+		B4440A5BFC4D3B3315A00620 /* Pods-DiamondXETests.debug(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXETests.debug(production).xcconfig"; path = "Target Support Files/Pods-DiamondXETests/Pods-DiamondXETests.debug(production).xcconfig"; sourceTree = "<group>"; };
+		B93E64358104347D70186AB8 /* Pods-DiamondXE.debug(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE.debug(dev).xcconfig"; path = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.debug(dev).xcconfig"; sourceTree = "<group>"; };
+		CA6CE827A7D3A3BD9F188FAA /* Pods-DiamondXE-DiamondXEUITests.release(staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE-DiamondXEUITests.release(staging).xcconfig"; path = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.release(staging).xcconfig"; sourceTree = "<group>"; };
+		CB3E30E3F43C815F33BA03AD /* Pods_DiamondXETests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiamondXETests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D471837727523C2C338E8325 /* Pods_DiamondXE_DiamondXEUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiamondXE_DiamondXEUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD3FD7FCB8F8773D63A7FC77 /* Pods-DiamondXE.release(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE.release(production).xcconfig"; path = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.release(production).xcconfig"; sourceTree = "<group>"; };
+		F9506EFD8C8CB10F173D3977 /* Pods-DiamondXE.debug(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE.debug(production).xcconfig"; path = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.debug(production).xcconfig"; sourceTree = "<group>"; };
+		FF24D488EB8581B42DE948A1 /* Pods-DiamondXE-DiamondXEUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiamondXE-DiamondXEUITests.debug.xcconfig"; path = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,9 +381,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				44546A432BD67F87007AFEF8 /* SDWebImageSwiftUI in Frameworks */,
-				44BEE1EF2BE64A070014ADDC /* DropDown in Frameworks */,
 				444A1A642BD24D1900B8A6CA /* Alamofire in Frameworks */,
 				4420B97B2BD9333A00C156CF /* IQKeyboardManagerSwift in Frameworks */,
+				DD61260E63F0781539FA6490 /* Pods_DiamondXE.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +391,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35CA7F7B249EA5E4C140CFCA /* Pods_DiamondXETests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +399,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CDA85053702F2A558761B0A /* Pods_DiamondXE_DiamondXEUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +605,7 @@
 				447E728B2BCFAB4100AAEA57 /* DiamondXEUITests */,
 				447E72662BCFAB4000AAEA57 /* Products */,
 				44CD7D4B2BD0F1760004153E /* Frameworks */,
+				7702052594AEE81C9EE5B4FD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -856,6 +888,9 @@
 		44CD7D4B2BD0F1760004153E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				295609195493BF26B23E6B0F /* Pods_DiamondXE.framework */,
+				D471837727523C2C338E8325 /* Pods_DiamondXE_DiamondXEUITests.framework */,
+				CB3E30E3F43C815F33BA03AD /* Pods_DiamondXETests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -907,6 +942,37 @@
 			path = HomeTableViewCells;
 			sourceTree = "<group>";
 		};
+		7702052594AEE81C9EE5B4FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				17BE16410613E8F9BF063F1B /* Pods-DiamondXE.debug.xcconfig */,
+				F9506EFD8C8CB10F173D3977 /* Pods-DiamondXE.debug(production).xcconfig */,
+				B93E64358104347D70186AB8 /* Pods-DiamondXE.debug(dev).xcconfig */,
+				235B1B6A190D4A9EE26DF07D /* Pods-DiamondXE.debug(staging).xcconfig */,
+				7D0A3CB19CE68ED4AF38C4E2 /* Pods-DiamondXE.release.xcconfig */,
+				281AEA04D27A7896376392DF /* Pods-DiamondXE.release(dev).xcconfig */,
+				DD3FD7FCB8F8773D63A7FC77 /* Pods-DiamondXE.release(production).xcconfig */,
+				902C72E499275580D77B9071 /* Pods-DiamondXE.release(staging).xcconfig */,
+				FF24D488EB8581B42DE948A1 /* Pods-DiamondXE-DiamondXEUITests.debug.xcconfig */,
+				7937E4A08C6FA518B5804FE5 /* Pods-DiamondXE-DiamondXEUITests.debug(production).xcconfig */,
+				6892F04AF85539804A856354 /* Pods-DiamondXE-DiamondXEUITests.debug(dev).xcconfig */,
+				75D1685C8D349921AD2C26EF /* Pods-DiamondXE-DiamondXEUITests.debug(staging).xcconfig */,
+				95836B1A358EE47548D7B01E /* Pods-DiamondXE-DiamondXEUITests.release.xcconfig */,
+				02BAE3361DC22EAF7EF410F1 /* Pods-DiamondXE-DiamondXEUITests.release(dev).xcconfig */,
+				69FF72832343623E04553DC5 /* Pods-DiamondXE-DiamondXEUITests.release(production).xcconfig */,
+				CA6CE827A7D3A3BD9F188FAA /* Pods-DiamondXE-DiamondXEUITests.release(staging).xcconfig */,
+				1223A767BA689BA8047BFC28 /* Pods-DiamondXETests.debug.xcconfig */,
+				B4440A5BFC4D3B3315A00620 /* Pods-DiamondXETests.debug(production).xcconfig */,
+				A435A206C1E2CEC8F7177042 /* Pods-DiamondXETests.debug(dev).xcconfig */,
+				426BC4937D1ACD410EEAAE20 /* Pods-DiamondXETests.debug(staging).xcconfig */,
+				5F4C91D06FA281E10D8F4541 /* Pods-DiamondXETests.release.xcconfig */,
+				587395873C8A69870D3AA9C9 /* Pods-DiamondXETests.release(dev).xcconfig */,
+				8F7CBE54A7AC5CD48CF5A693 /* Pods-DiamondXETests.release(production).xcconfig */,
+				469028463AD5284A21AE0EDA /* Pods-DiamondXETests.release(staging).xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -914,9 +980,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 447E72922BCFAB4100AAEA57 /* Build configuration list for PBXNativeTarget "DiamondXE" */;
 			buildPhases = (
+				CC9D9B1ACC5840CFC5457ECF /* [CP] Check Pods Manifest.lock */,
 				447E72612BCFAB4000AAEA57 /* Sources */,
 				447E72622BCFAB4000AAEA57 /* Frameworks */,
 				447E72632BCFAB4000AAEA57 /* Resources */,
+				F7478098FA0E287E484A6778 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -927,7 +995,6 @@
 				444A1A632BD24D1900B8A6CA /* Alamofire */,
 				44546A422BD67F87007AFEF8 /* SDWebImageSwiftUI */,
 				4420B97A2BD9333A00C156CF /* IQKeyboardManagerSwift */,
-				44BEE1EE2BE64A070014ADDC /* DropDown */,
 			);
 			productName = DiamondXE;
 			productReference = 447E72652BCFAB4000AAEA57 /* DiamondXE.app */;
@@ -937,6 +1004,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 447E72952BCFAB4100AAEA57 /* Build configuration list for PBXNativeTarget "DiamondXETests" */;
 			buildPhases = (
+				FC0FD0288E41A525DD44DB9F /* [CP] Check Pods Manifest.lock */,
 				447E727A2BCFAB4100AAEA57 /* Sources */,
 				447E727B2BCFAB4100AAEA57 /* Frameworks */,
 				447E727C2BCFAB4100AAEA57 /* Resources */,
@@ -955,9 +1023,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 447E72982BCFAB4100AAEA57 /* Build configuration list for PBXNativeTarget "DiamondXEUITests" */;
 			buildPhases = (
+				778A998F62C241273A3103C9 /* [CP] Check Pods Manifest.lock */,
 				447E72842BCFAB4100AAEA57 /* Sources */,
 				447E72852BCFAB4100AAEA57 /* Frameworks */,
 				447E72862BCFAB4100AAEA57 /* Resources */,
+				DF4316FDBED8FAD5C32D3C31 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1005,7 +1075,6 @@
 				444A1A622BD24D0A00B8A6CA /* XCRemoteSwiftPackageReference "Alamofire" */,
 				44546A412BD67F7E007AFEF8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				4420B9792BD9330400C156CF /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				44BEE1ED2BE649960014ADDC /* XCRemoteSwiftPackageReference "DropDown" */,
 			);
 			productRefGroup = 447E72662BCFAB4000AAEA57 /* Products */;
 			projectDirPath = "";
@@ -1105,6 +1174,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		778A998F62C241273A3103C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DiamondXE-DiamondXEUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC9D9B1ACC5840CFC5457ECF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DiamondXE-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF4316FDBED8FAD5C32D3C31 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7478098FA0E287E484A6778 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DiamondXE/Pods-DiamondXE-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DiamondXE/Pods-DiamondXE-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DiamondXE/Pods-DiamondXE-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC0FD0288E41A525DD44DB9F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DiamondXETests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		447E72612BCFAB4000AAEA57 /* Sources */ = {
@@ -1291,7 +1463,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1354,7 +1526,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1375,6 +1547,7 @@
 		};
 		447E72932BCFAB4100AAEA57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17BE16410613E8F9BF063F1B /* Pods-DiamondXE.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1416,6 +1589,7 @@
 		};
 		447E72942BCFAB4100AAEA57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D0A3CB19CE68ED4AF38C4E2 /* Pods-DiamondXE.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1457,6 +1631,7 @@
 		};
 		447E72962BCFAB4100AAEA57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1223A767BA689BA8047BFC28 /* Pods-DiamondXETests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1477,6 +1652,7 @@
 		};
 		447E72972BCFAB4100AAEA57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F4C91D06FA281E10D8F4541 /* Pods-DiamondXETests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1497,6 +1673,7 @@
 		};
 		447E72992BCFAB4100AAEA57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF24D488EB8581B42DE948A1 /* Pods-DiamondXE-DiamondXEUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1515,6 +1692,7 @@
 		};
 		447E729A2BCFAB4100AAEA57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95836B1A358EE47548D7B01E /* Pods-DiamondXE-DiamondXEUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1569,7 +1747,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1597,6 +1775,7 @@
 		};
 		447E72B52BCFC57D00AAEA57 /* Debug(Dev) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B93E64358104347D70186AB8 /* Pods-DiamondXE.debug(dev).xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1638,6 +1817,7 @@
 		};
 		447E72B62BCFC57D00AAEA57 /* Debug(Dev) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A435A206C1E2CEC8F7177042 /* Pods-DiamondXETests.debug(dev).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1658,6 +1838,7 @@
 		};
 		447E72B72BCFC57D00AAEA57 /* Debug(Dev) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6892F04AF85539804A856354 /* Pods-DiamondXE-DiamondXEUITests.debug(dev).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1712,7 +1893,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1740,6 +1921,7 @@
 		};
 		447E72B92BCFC59400AAEA57 /* Debug(Staging) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 235B1B6A190D4A9EE26DF07D /* Pods-DiamondXE.debug(staging).xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1781,6 +1963,7 @@
 		};
 		447E72BA2BCFC59400AAEA57 /* Debug(Staging) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 426BC4937D1ACD410EEAAE20 /* Pods-DiamondXETests.debug(staging).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1801,6 +1984,7 @@
 		};
 		447E72BB2BCFC59400AAEA57 /* Debug(Staging) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75D1685C8D349921AD2C26EF /* Pods-DiamondXE-DiamondXEUITests.debug(staging).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1855,7 +2039,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1883,6 +2067,7 @@
 		};
 		447E72BD2BCFC5A800AAEA57 /* Debug(Production) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9506EFD8C8CB10F173D3977 /* Pods-DiamondXE.debug(production).xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1924,6 +2109,7 @@
 		};
 		447E72BE2BCFC5A800AAEA57 /* Debug(Production) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4440A5BFC4D3B3315A00620 /* Pods-DiamondXETests.debug(production).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1944,6 +2130,7 @@
 		};
 		447E72BF2BCFC5A800AAEA57 /* Debug(Production) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7937E4A08C6FA518B5804FE5 /* Pods-DiamondXE-DiamondXEUITests.debug(production).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1998,7 +2185,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2019,6 +2206,7 @@
 		};
 		447E72C12BCFC5C300AAEA57 /* Release(Dev) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 281AEA04D27A7896376392DF /* Pods-DiamondXE.release(dev).xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2060,6 +2248,7 @@
 		};
 		447E72C22BCFC5C300AAEA57 /* Release(Dev) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 587395873C8A69870D3AA9C9 /* Pods-DiamondXETests.release(dev).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2080,6 +2269,7 @@
 		};
 		447E72C32BCFC5C300AAEA57 /* Release(Dev) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02BAE3361DC22EAF7EF410F1 /* Pods-DiamondXE-DiamondXEUITests.release(dev).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2134,7 +2324,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2155,6 +2345,7 @@
 		};
 		447E72C52BCFC5CD00AAEA57 /* Release(Staging) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 902C72E499275580D77B9071 /* Pods-DiamondXE.release(staging).xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2196,6 +2387,7 @@
 		};
 		447E72C62BCFC5CD00AAEA57 /* Release(Staging) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 469028463AD5284A21AE0EDA /* Pods-DiamondXETests.release(staging).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2216,6 +2408,7 @@
 		};
 		447E72C72BCFC5CD00AAEA57 /* Release(Staging) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA6CE827A7D3A3BD9F188FAA /* Pods-DiamondXE-DiamondXEUITests.release(staging).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2270,7 +2463,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2291,6 +2484,7 @@
 		};
 		447E72C92BCFC5DA00AAEA57 /* Release(Production) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD3FD7FCB8F8773D63A7FC77 /* Pods-DiamondXE.release(production).xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2332,6 +2526,7 @@
 		};
 		447E72CA2BCFC5DA00AAEA57 /* Release(Production) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F7CBE54A7AC5CD48CF5A693 /* Pods-DiamondXETests.release(production).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2352,6 +2547,7 @@
 		};
 		447E72CB2BCFC5DA00AAEA57 /* Release(Production) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69FF72832343623E04553DC5 /* Pods-DiamondXE-DiamondXEUITests.release(production).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2458,14 +2654,6 @@
 				minimumVersion = 3.0.2;
 			};
 		};
-		44BEE1ED2BE649960014ADDC /* XCRemoteSwiftPackageReference "DropDown" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AssistoLab/DropDown.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2483,11 +2671,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 44546A412BD67F7E007AFEF8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
-		};
-		44BEE1EE2BE64A070014ADDC /* DropDown */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 44BEE1ED2BE649960014ADDC /* XCRemoteSwiftPackageReference "DropDown" */;
-			productName = DropDown;
 		};
 /* End XCSwiftPackageProductDependency section */
 

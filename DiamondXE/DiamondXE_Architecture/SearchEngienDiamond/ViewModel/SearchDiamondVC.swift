@@ -7,7 +7,9 @@
 
 import UIKit
 
-class SearchDiamondVC: BaseViewController {
+class SearchDiamondVC: BaseViewController , ChildViewControllerProtocol {
+    
+    var delegate : BaseViewControllerDelegate?
     
     @IBOutlet var shadowedView:InnerDropShadowView!
     @IBOutlet var shadowedBGView:UIView!
@@ -23,7 +25,14 @@ class SearchDiamondVC: BaseViewController {
 
 //        shadowedBGView.addInnerOuterShadow()
         
-        self.getSearchAttriDataAPICalling()
+        if let searchOptionData = UserDefaultManager().retrieveSearchFieldsData(){
+            self.searchAttributeStruct = searchOptionData
+        }
+        else{
+            self.getSearchAttriDataAPICalling()
+        }
+        
+        
 
         
     }
@@ -38,6 +47,9 @@ class SearchDiamondVC: BaseViewController {
            // print(homeData)
             if searchAttri.status == 1{
                 self.searchAttributeStruct = searchAttri
+                
+                UserDefaultManager().saveSearchFieldsData(topDelsObj: searchAttri)
+                
                 self.tbleViewSearchDim.reloadData()
             }
             

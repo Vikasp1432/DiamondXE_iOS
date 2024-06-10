@@ -7,7 +7,9 @@
 
 import UIKit
 
-class CategoriesVC: UIViewController {
+class CategoriesVC: UIViewController, ChildViewControllerProtocol {
+    
+    var delegate : BaseViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

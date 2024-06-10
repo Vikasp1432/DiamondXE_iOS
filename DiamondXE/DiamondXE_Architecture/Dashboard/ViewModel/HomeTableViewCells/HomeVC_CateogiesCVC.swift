@@ -14,7 +14,9 @@ class HomeVC_CateogiesCVC: UICollectionViewCell {
     @IBOutlet var lblCateName:UILabel!
     @IBOutlet var lblCateIMG:UIImageView!
     @IBOutlet var bgView:UIView!
-
+    var cateAction : (() -> Void) = { }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,6 +28,15 @@ class HomeVC_CateogiesCVC: UICollectionViewCell {
         
         lblCateIMG.layer.cornerRadius = 7
         lblCateIMG.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        lblCateIMG.isUserInteractionEnabled = true
+        lblCateIMG.addGestureRecognizer(tapGestureRecognizer)
     }
-
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        cateAction()
+    }
+    
 }

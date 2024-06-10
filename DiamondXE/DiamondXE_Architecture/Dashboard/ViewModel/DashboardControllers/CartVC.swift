@@ -7,7 +7,9 @@
 
 import UIKit
 
-class CartVC: UIViewController {
+class CartVC: UIViewController , ChildViewControllerProtocol {
+    
+    var delegate : BaseViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

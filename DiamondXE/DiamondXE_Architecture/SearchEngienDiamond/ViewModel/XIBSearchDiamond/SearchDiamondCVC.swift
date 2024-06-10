@@ -71,7 +71,7 @@ class SearchDiamondCVC: UICollectionViewCell {
            bgView.layer.shadowRadius = 5
            bgView.layer.shadowOpacity = 0.5
            bgView.layer.borderColor = UIColor.gradient2.cgColor
-           bgView.layer.borderWidth = 2.5
+           bgView.layer.borderWidth = 0.8
            bgView.layer.masksToBounds = false
            
 

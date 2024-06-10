@@ -67,6 +67,15 @@ class AdvanceFilterTVC: UITableViewCell {
     var dataArrShade: [SearchAttribDetail]?
     var dataArrLuster: [SearchAttribDetail]?
     
+    var selectedIndicesCut: Set<IndexPath> = []
+    var selectedIndicesPolish: Set<IndexPath> = []
+    var selectedIndicesSymmetry: Set<IndexPath> = []
+    var selectedIndicesEyeClean: Set<IndexPath> = []
+    var selectedIndicesShade: Set<IndexPath> = []
+    var selectedIndicesLuster: Set<IndexPath> = []
+    var selectedIndicesTech: Set<IndexPath> = []
+    
+    
     var searchAttriStruct =  SearchOptionDataStruct()
     
     public var height: CGFloat? {
@@ -221,9 +230,6 @@ class AdvanceFilterTVC: UITableViewCell {
                 self.dataArrPavillion = attributeData.attribDetails
             }
            
-            
-           
-            
         }
         
     }
@@ -238,8 +244,16 @@ class AdvanceFilterTVC: UITableViewCell {
         var intencityTitle = [String]()
         self.dataArrIntencity?.forEach { attributeData in
             intencityTitle.append(attributeData.displayAttr ?? "")
+           
         }
-        openDropDown(dataArr: intencityTitle, anchorView: intencityView, titleLabel: lblIntencity)
+        intencityTitle.append("")
+        intencityTitle.append("")
+        intencityTitle.append("")
+        intencityTitle.append("")
+//        intencityTitle.append("")
+
+        openDropDown(dataArr: intencityTitle, anchorView: self.intencityView, titleLabel: lblIntencity)
+       
        }
     
     @objc private func handleOvertoneTap() {
@@ -248,7 +262,7 @@ class AdvanceFilterTVC: UITableViewCell {
         self.dataArrOvertone?.forEach { attributeData in
             overtoneTitle.append(attributeData.displayAttr ?? "")
         }
-        openDropDown(dataArr: overtoneTitle, anchorView: intencityView, titleLabel: lblOvertone)
+        openDropDown(dataArr: overtoneTitle, anchorView: overtoneView, titleLabel: lblOvertone)
        }
     
     @objc private func handleTablePerFromTap() {
@@ -331,30 +345,24 @@ class AdvanceFilterTVC: UITableViewCell {
         dropDown.dataSource = dataArr
         dropDown.backgroundColor = .whitClr
         dropDown.selectionBackgroundColor = UIColor(red: 0.6494, green: 0.8155, blue: 1.0, alpha: 0.2)
-//        appearance.separatorColor = UIColor(white: 0.7, alpha: 0.8)
-//        dropDown.cornerRadius = 10
         dropDown.shadowColor = UIColor(white: 0.6, alpha: 1)
-        dropDown.shadowOpacity = 0.9
-        dropDown.shadowRadius = 25
-        dropDown.animationduration = 0.25
-        dropDown.textColor = .darkGray
+        dropDown.shadowOpacity = 0.7
+        dropDown.shadowRadius = 15
+        dropDown.cellHeight = 40
+        dropDown.height = 250
+      
+
         
-        // Top of drop down will be below the anchorView
-        dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
-        // When drop down is displayed with `Direction.top`, it will be above the anchorView
+//        dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
         dropDown.topOffset = CGPoint(x: 0, y:-(dropDown.anchorView?.plainView.bounds.height)!)
+
         
-//        dropDown.direction = .any
-//                dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
-//                dropDown.topOffset = CGPoint(x: 0, y:-(dropDown.anchorView?.plainView.bounds.height)!)
-////                dropDown.heightConstraint = 200 // Custo
-//        
         
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-          print("Selected item: \(item) at index: \(index)")
+            print("Selected item: \(item) at index: \(index)")
             titleLabel.text = dataArr[index]
             dropDown.hide()
-
+            
         }
         dropDown.show()
     }
@@ -364,7 +372,87 @@ class AdvanceFilterTVC: UITableViewCell {
 }
 
 
-extension AdvanceFilterTVC:UICollectionViewDelegate, UICollectionViewDataSource{
+extension AdvanceFilterTVC:UICollectionViewDelegate, UICollectionViewDataSource, AdvanceOptionsCVCellDelegate{
+    func titleTappedCell(in cell: FilterCVC, category: String) {
+        print(category)
+        switch category {
+        case "CUT":
+            if let indexPath = collectionCut.indexPath(for: cell) {
+                if selectedIndicesCut.contains(indexPath) {
+                    selectedIndicesCut.remove(indexPath)
+                    cell.isGradientApplied = false
+                } else {
+                    selectedIndicesCut.insert(indexPath)
+                    cell.isGradientApplied = true
+                }
+            }
+        case "POLISH":
+            if let indexPath = collectionPlolish.indexPath(for: cell) {
+                if selectedIndicesPolish.contains(indexPath) {
+                    selectedIndicesPolish.remove(indexPath)
+                    cell.isGradientApplied = false
+                } else {
+                    selectedIndicesPolish.insert(indexPath)
+                    cell.isGradientApplied = true
+                }
+            }
+        case "SYMMETRY":
+            if let indexPath = collectionSymmetry.indexPath(for: cell) {
+                if selectedIndicesSymmetry.contains(indexPath) {
+                    selectedIndicesSymmetry.remove(indexPath)
+                    cell.isGradientApplied = false
+                } else {
+                    selectedIndicesSymmetry.insert(indexPath)
+                    cell.isGradientApplied = true
+                }
+            }
+        case "TECHNOLOGY":
+            if let indexPath = collectionTech.indexPath(for: cell) {
+                if selectedIndicesTech.contains(indexPath) {
+                    selectedIndicesTech.remove(indexPath)
+                    cell.isGradientApplied = false
+                } else {
+                    selectedIndicesTech.insert(indexPath)
+                    cell.isGradientApplied = true
+                }
+            }
+        case "SHADE":
+            if let indexPath = collectionShade.indexPath(for: cell) {
+                if selectedIndicesShade.contains(indexPath) {
+                    selectedIndicesShade.remove(indexPath)
+                    cell.isGradientApplied = false
+                } else {
+                    selectedIndicesShade.insert(indexPath)
+                    cell.isGradientApplied = true
+                }
+            }
+        case "EYECLAN":
+            if let indexPath = collectionEyeClan.indexPath(for: cell) {
+                if selectedIndicesEyeClean.contains(indexPath) {
+                    selectedIndicesEyeClean.remove(indexPath)
+                    cell.isGradientApplied = false
+                } else {
+                    selectedIndicesEyeClean.insert(indexPath)
+                    cell.isGradientApplied = true
+                }
+            }
+        case "LUSTER":
+            if let indexPath = collectionLuster.indexPath(for: cell) {
+                if selectedIndicesLuster.contains(indexPath) {
+                    selectedIndicesLuster.remove(indexPath)
+                    cell.isGradientApplied = false
+                } else {
+                    selectedIndicesLuster.insert(indexPath)
+                    cell.isGradientApplied = true
+                }
+            }
+        default:
+            print("")
+        }
+        
+        
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -391,26 +479,45 @@ extension AdvanceFilterTVC:UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCVC.cellIdentifierAdvanceFilCVC, for: indexPath) as! FilterCVC
-        
+        cell.delegate = self
         switch collectionView {
         case self.collectionCut:
             cell.lblTitle.text = self.dataArrCut?[indexPath.row].displayAttr
+            cell.categoryStr = "CUT"
+            cell.isGradientApplied = selectedIndicesCut.contains(indexPath)
         case self.collectionPlolish:
             cell.lblTitle.text = self.dataArrPolish?[indexPath.row].displayAttr
+            cell.categoryStr = "POLISH"
+            cell.isGradientApplied = selectedIndicesPolish.contains(indexPath)
+
         case self.collectionSymmetry:
             cell.lblTitle.text = self.dataArrSymmetry?[indexPath.row].displayAttr
+            cell.categoryStr = "SYMMETRY"
+            cell.isGradientApplied = selectedIndicesSymmetry.contains(indexPath)
+
         case self.collectionTech:
             cell.lblTitle.text = self.dataArrTech?[indexPath.row].displayAttr
-            
+            cell.categoryStr = "TECHNOLOGY"
+            cell.isGradientApplied = selectedIndicesTech.contains(indexPath)
+
+
         case self.collectionShade:
             cell.lblTitle.text = self.dataArrShade?[indexPath.row].displayAttr
-            
+            cell.categoryStr = "SHADE"
+            cell.isGradientApplied = selectedIndicesShade.contains(indexPath)
+
+
         case self.collectionEyeClan:
             cell.lblTitle.text = self.dataArrEyeClean?[indexPath.row].displayAttr
-            
+            cell.categoryStr = "EYECLAN"
+            cell.isGradientApplied = selectedIndicesEyeClean.contains(indexPath)
+
         case self.collectionLuster:
             cell.lblTitle.text = self.dataArrLuster?[indexPath.row].displayAttr
-            
+            cell.categoryStr = "LUSTER"
+            cell.isGradientApplied = selectedIndicesLuster.contains(indexPath)
+
+
         default:
            print("Nothing")
         }

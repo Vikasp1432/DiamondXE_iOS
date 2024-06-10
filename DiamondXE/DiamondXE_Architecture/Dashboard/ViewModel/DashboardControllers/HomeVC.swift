@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeVC: BaseViewController {
+class HomeVC: BaseViewController, ChildViewControllerProtocol {
 
     @IBOutlet var homeTableView : UITableView!
     let refreshControl = UIRefreshControl()
@@ -16,6 +16,8 @@ class HomeVC: BaseViewController {
     var homeDataStruct = HomeDataStruct()
     var topDealsStruct = TopDealsDataStruct()
     var topDealsTag = 0
+    var dashBoardVC =  DashboardVC()
+    var delegate : BaseViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -211,6 +213,17 @@ class HomeVC: BaseViewController {
     
     
 }
+extension HomeVC : CategorySelecteDelegate {
+    func categoryViewTapped(in cellCategoryTag: Int) {
+        print(cellCategoryTag)
+//        dashBoardVC.gotoSearchDiamondVC()
+        delegate?.didPerformAction(tag: cellCategoryTag)
+
+    }
+    
+    
+}
+
 
 extension HomeVC : UITableViewDataSource, UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -226,6 +239,7 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: HomeVC_CateogiesTVC.cellIdentifierHomeTVC, for: indexPath) as! HomeVC_CateogiesTVC
             cell.selectionStyle = .none
+            cell.delegate = self
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: BannerTVC.cellIdentifierBannerTVC, for: indexPath) as! BannerTVC

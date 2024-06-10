@@ -51,7 +51,7 @@ extension AdvanceFilterVC :UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 1500
+        return 1360
     }
     
 }

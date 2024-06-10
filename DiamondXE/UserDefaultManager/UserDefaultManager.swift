@@ -45,6 +45,27 @@ class UserDefaultManager {
         }
         return nil
     }
+    
+    
+    func saveSearchFieldsData(topDelsObj: SearchOptionDataStruct) {
+        let encoder = JSONEncoder()
+        if let encodedUser = try? encoder.encode(topDelsObj) {
+            UserDefaults.standard.set(encodedUser, forKey: "SearchOption")
+        }
+    }
+    
+    func retrieveSearchFieldsData() -> SearchOptionDataStruct? {
+        if let savedUserData = UserDefaults.standard.data(forKey: "SearchOption") {
+            let decoder = JSONDecoder()
+            if let savedUser = try? decoder.decode(SearchOptionDataStruct.self, from: savedUserData) {
+                return savedUser
+            }
+        }
+        return nil
+    }
+    
+    
 }
 
 
+//SearchOptionDataStruct

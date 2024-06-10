@@ -7,7 +7,9 @@
 
 import UIKit
 
-class WishVC: UIViewController {
+class WishVC: UIViewController, ChildViewControllerProtocol {
+    
+    var delegate : BaseViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

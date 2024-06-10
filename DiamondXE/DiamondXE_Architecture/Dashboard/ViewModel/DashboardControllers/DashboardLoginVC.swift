@@ -7,7 +7,9 @@
 
 import UIKit
 
-class DashboardLoginVC: UIViewController {
+class DashboardLoginVC: UIViewController , ChildViewControllerProtocol {
+    
+    var delegate : BaseViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

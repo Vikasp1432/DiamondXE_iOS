@@ -22,6 +22,9 @@ class SearchDiamondTVC: UITableViewCell {
     
     @IBOutlet var btnClorWhite:UIButton!
     @IBOutlet var btnClorFancy:UIButton!
+    
+    @IBOutlet var btnYes:UIButton!
+    @IBOutlet var btnNo:UIButton!
 
     
     @IBOutlet var collectionColors:UICollectionView!
@@ -204,6 +207,27 @@ class SearchDiamondTVC: UITableViewCell {
         }
         
     }
+    
+    @IBAction func btnActionYES_No(_ sender:UIButton){
+
+        if sender.tag == 0{
+            btnYes.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            btnYes.setTitleColor(.whitClr, for: .normal)
+            btnNo.clearGradient()
+            btnNo.setTitleColor(.themeClr, for: .normal)
+        }
+        else{
+            btnNo.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            btnNo.setTitleColor(.whitClr, for: .normal)
+            btnYes.clearGradient()
+            btnYes.setTitleColor(.themeClr, for: .normal)
+
+        }
+        
+    }
+    
+    
+    
     
     @IBAction func btnActioColor(_ sender:UIButton){
         if sender.tag == 0{

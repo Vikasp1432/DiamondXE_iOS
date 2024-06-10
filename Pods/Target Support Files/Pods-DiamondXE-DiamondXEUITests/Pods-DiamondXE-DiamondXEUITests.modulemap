@@ -1,0 +1,6 @@
+framework module Pods_DiamondXE_DiamondXEUITests {
+  umbrella header "Pods-DiamondXE-DiamondXEUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
