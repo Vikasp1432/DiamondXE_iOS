@@ -8,6 +8,9 @@
 import UIKit
 
 class CartVC: UIViewController , ChildViewControllerProtocol {
+    func didSendString(str: String) {
+        print(str)
+    }
     
     var delegate : BaseViewControllerDelegate?
 

@@ -33,6 +33,9 @@ class SearchDiamondTVC: UITableViewCell {
     @IBOutlet var collectionFluorescence:UICollectionView!
     @IBOutlet var collectionMake:UICollectionView!
     
+    @IBOutlet var viewNatBG:UIView!
+    @IBOutlet var viewLabBG:UIView!
+    
     
     var imgArr = [ UIImage(named:"all"),
                     UIImage(named:"round") ,
@@ -90,12 +93,7 @@ class SearchDiamondTVC: UITableViewCell {
         configureCollectionView(collectionMake)
         
 
-        btnNaturalDia.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
-        btnNaturalDia.setTitleColor(.whitClr, for: .normal)
-        btnBest.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
-        btnBest.setTitleColor(.whitClr, for: .normal)
         
-        viewBGFilter.setGradientLayerView(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
         // filter datya
 //        self.filterDataStruct()
 
@@ -147,7 +145,30 @@ class SearchDiamondTVC: UITableViewCell {
            collectionView.allowsMultipleSelection = true
            collectionView.delegate = self
            collectionView.dataSource = self
+
+           
+            self.btnBest.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            self.btnBest.setTitleColor(.whitClr, for: .normal)
+            self.viewBGFilter.setGradientLayerView(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        
+        
        }
+    
+    func setGradientBtn(string:String){
+        if string == "Lab Grown Diamonds"{
+            self.btnLabGrownDia.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            self.btnLabGrownDia.setTitleColor(.whitClr, for: .normal)
+            self.btnNaturalDia.clearGradient()
+            self.btnNaturalDia.setTitleColor(.themeClr, for: .normal)
+        }
+        else{
+            self.btnNaturalDia.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            self.btnNaturalDia.setTitleColor(.whitClr, for: .normal)
+            self.btnLabGrownDia.clearGradient()
+            self.btnLabGrownDia.setTitleColor(.themeClr, for: .normal)
+        }
+        
+    }
     
    
     
@@ -200,6 +221,7 @@ class SearchDiamondTVC: UITableViewCell {
         }
         else{
             btnLabGrownDia.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+//            viewLabBG.setGradientLayerView(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
             btnLabGrownDia.setTitleColor(.whitClr, for: .normal)
             btnNaturalDia.clearGradient()
             btnNaturalDia.setTitleColor(.themeClr, for: .normal)

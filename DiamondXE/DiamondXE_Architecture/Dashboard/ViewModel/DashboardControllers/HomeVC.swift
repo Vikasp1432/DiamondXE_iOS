@@ -8,6 +8,9 @@
 import UIKit
 
 class HomeVC: BaseViewController, ChildViewControllerProtocol {
+    func didSendString(str: String) {
+        print(str)
+    }
 
     @IBOutlet var homeTableView : UITableView!
     let refreshControl = UIRefreshControl()

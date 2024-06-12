@@ -9,6 +9,10 @@ import UIKit
 
 class DashboardLoginVC: UIViewController , ChildViewControllerProtocol {
     
+    func didSendString(str: String) {
+        print(str)
+    }
+    
     var delegate : BaseViewControllerDelegate?
 
     override func viewDidLoad() {

@@ -8,8 +8,14 @@
 import UIKit
 
 class SearchDiamondVC: BaseViewController , ChildViewControllerProtocol {
+    func didSendString(str: String) {
+        strTitle = str
+    }
+    
     
     var delegate : BaseViewControllerDelegate?
+    var strTitle : String?
+
     
     @IBOutlet var shadowedView:InnerDropShadowView!
     @IBOutlet var shadowedBGView:UIView!
@@ -17,6 +23,7 @@ class SearchDiamondVC: BaseViewController , ChildViewControllerProtocol {
     @IBOutlet var tbleViewSearchDim:UITableView!
     
     var searchAttributeStruct = SearchOptionDataStruct()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +80,7 @@ extension SearchDiamondVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchDiamondTVC.cellIdentifierSearchDiamondTVC, for: indexPath) as! SearchDiamondTVC
        // cell.searchAttributeStruct = self.searchAttributeStruct
+        cell.setGradientBtn(string: self.strTitle ?? "")
         cell.filterDataStruct(searchAttributeStruct: self.searchAttributeStruct)
         cell.btnActionAdvanceFilter = { tag in
             self.navigationManager(AdvanceFilterVC.self, storyboardName: "SearchDiamond", storyboardID: "AdvanceFilterVC", data: self.searchAttributeStruct)

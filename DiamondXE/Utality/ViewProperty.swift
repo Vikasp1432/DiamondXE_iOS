@@ -41,10 +41,6 @@ import UIKit
         }
     
     
-    
- 
-
-    
 }
 
 extension UIView {
@@ -166,5 +162,47 @@ class HeaderDropShadow : UIView{
         self.layer.shadowRadius = 2.5
         self.layer.shadowOpacity = 0.3
         self.layer.masksToBounds = false
+    }
+}
+
+
+class TouchOverlayView: UIView {
+    
+    var onTouch: ((CGPoint) -> Void)?
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    private func setup() {
+        backgroundColor = .clear
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        handleTouches(touches)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        handleTouches(touches)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        handleTouches(touches)
+    }
+    
+    private func handleTouches(_ touches: Set<UITouch>) {
+        if let touch = touches.first {
+            let location = touch.location(in: self)
+            onTouch?(location)
+        }
     }
 }

@@ -63,8 +63,8 @@ var nv_contactUS = "Contact us"
 var nv_rateUS = "Rate us"
 
 var nv_naturalDiamond = "Natural Diamond"
-var nv_labGrownDiamond = "Lab-Grown Diamond"
-var nv_fancyDiamond = "Fancy Colour Diamond"
+var nv_labGrownDiamond = "Lab Grown Diamond"
+//var nv_fancyDiamond = "Fancy Colour Diamond"
 var nv_rings = "Rings"
 var nv_earrings = "Earrings"
 var nv_pendent = "Pendent"
@@ -82,7 +82,7 @@ var nv_privacyPolicy = "Privacy Policy"
 var nv_emial = "support@diamondxe.com"
 var nv_whatsapp = "+91 9892003399"
 
-var nv_searchDiamondICN = [UIImage(named: "Natural Diamonds")!,UIImage(named: "Lab-Grown Diamonds")!,UIImage(named: "Fancy Diamonds")!]
+var nv_searchDiamondICN = [UIImage(named: "Natural Diamonds")!,UIImage(named: "Lab-Grown Diamonds")!]//,UIImage(named: "Fancy Diamonds")!
 
 var nv_jewelleryICN = [UIImage(named: "Rings")!,UIImage(named: "Earrings")!,UIImage(named: "Pendant")!,UIImage(named: "Bracelet")!,UIImage(named: "Bangles")!]
 
@@ -107,7 +107,7 @@ var nv_mainTitle = [ nv_home,
                      nv_rateUS,
                      nv_naturalDiamond,
                      nv_labGrownDiamond,
-                     nv_fancyDiamond,
+                    // nv_fancyDiamond,
                      nv_rings,
                      nv_earrings,
                      nv_pendent,

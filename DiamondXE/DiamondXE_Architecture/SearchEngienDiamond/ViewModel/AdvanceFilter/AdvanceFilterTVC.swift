@@ -51,7 +51,8 @@ class AdvanceFilterTVC: UITableViewCell {
     @IBOutlet var lblCrownPerTo:UILabel!
     @IBOutlet var crownPerToView:UIView!
     
-    
+    let dropDown = DropDown()
+
     var dataArrCut : [SearchAttribDetail]?
     var dataArrPolish : [SearchAttribDetail]?
     var dataArrSymmetry: [SearchAttribDetail]?
@@ -77,6 +78,8 @@ class AdvanceFilterTVC: UITableViewCell {
     
     
     var searchAttriStruct =  SearchOptionDataStruct()
+    
+
     
     public var height: CGFloat? {
            didSet { setNeedsUpdateConstraints() }
@@ -249,7 +252,7 @@ class AdvanceFilterTVC: UITableViewCell {
         intencityTitle.append("")
         intencityTitle.append("")
         intencityTitle.append("")
-        intencityTitle.append("")
+//        intencityTitle.append("")
 //        intencityTitle.append("")
 
         openDropDown(dataArr: intencityTitle, anchorView: self.intencityView, titleLabel: lblIntencity)
@@ -340,7 +343,6 @@ class AdvanceFilterTVC: UITableViewCell {
     
     
     func openDropDown(dataArr:[String], anchorView:UIView, titleLabel:UILabel){
-        var dropDown = DropDown()
         dropDown.anchorView = anchorView
         dropDown.dataSource = dataArr
         dropDown.backgroundColor = .whitClr
@@ -350,7 +352,11 @@ class AdvanceFilterTVC: UITableViewCell {
         dropDown.shadowRadius = 15
         dropDown.cellHeight = 40
         dropDown.height = 250
-      
+//        dropDown.bottomOffset = CGPoint(x: 0, y: anchorView.bounds.height)
+        if dropDown.dataSource.count > 10 {
+                   dropDown.dismissMode = .onTap
+                   dropDown.reloadAllComponents()
+               }
 
         
 //        dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
@@ -368,7 +374,7 @@ class AdvanceFilterTVC: UITableViewCell {
     }
     
     
-    
+  
 }
 
 

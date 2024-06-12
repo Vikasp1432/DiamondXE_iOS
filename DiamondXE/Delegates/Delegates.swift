@@ -38,13 +38,13 @@ protocol DataReceiver {
 }
 
 // navigation delegate
-
 protocol BaseViewControllerDelegate: AnyObject {
     func didPerformAction(tag: Int)
 }
 
 protocol ChildViewControllerProtocol: UIViewController {
     var delegate: BaseViewControllerDelegate? { get set }
+    func didSendString(str:String)
 }
 
 

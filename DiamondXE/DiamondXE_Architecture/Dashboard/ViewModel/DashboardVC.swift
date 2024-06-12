@@ -43,6 +43,8 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     @IBOutlet var btnTitleCart: UIButton!
     @IBOutlet var btnTitleLogin: UIButton!
     @IBOutlet var btnSideMenu : UIButton!
+    @IBOutlet var viewSideMnu : UIView!
+
     
     
     @IBOutlet weak var containerView: UIView!
@@ -53,10 +55,19 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     private var currentViewControllerIdentifier: String?
     var sideMenuBtnTag = 0
     
-  
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+           let location = sender.location(in: view)
+           print("Screen tapped at: \(location)")
+       }
+    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        viewSideMnu.addGestureRecognizer(tapGesture)
+//        btnSideMenu.isUserInteractionEnabled = true
+//        btnSideMenu.superview?.isUserInteractionEnabled = true
+
         let navigationController = UINavigationController(rootViewController: self)
         UIApplication.shared.windows.first?.rootViewController = navigationController
         
@@ -79,30 +90,18 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
         menuTableView.register(UINib(nibName: MainCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: MainCell.cellIdentifier)
         menuTableView.showsHorizontalScrollIndicator = false
         menuTableView.showsVerticalScrollIndicator = false
-        
-        // setup search vc
-//        self.setupSearchVC()
+
     }
-    
-//    func setupSearchVC(){
-//        
-//        // Instantiate the view controller
-//        let storyboard = UIStoryboard(name: storyboardNames[0], bundle: nil)
-////        let newViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC
-////        newViewController?.delegateVC = self
-////        print(newViewController)
-//        
-//        // Initialize and add FirstViewController
-//               containerVC = HomeVC()
-//               if let homeVc = containerVC {
-//                   homeVc.dashBoardVC = self
-//               }
-//
-//    }
-    
+
     //goto search from dashboard
     func didPerformAction(tag: Int) {
-        self.gotoSearchDiamondVC()
+        switch tag {
+        case 0:
+            self.gotoSearchDiamondVC(title: "Solitaires")
+        default:
+            print(tag)
+        }
+       
        }
     
     func loadViewController(withIdentifier identifier: String, fromStoryboard storyboardName: String) {
@@ -122,8 +121,8 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
             let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
             guard let newViewController = storyboard.instantiateViewController(withIdentifier: identifier) as? ChildViewControllerProtocol else { return }
             
-            newViewController.delegate = self
-
+             newViewController.delegate = self
+            newViewController.didSendString(str: self.lblTitle.text ?? "")
             let width = self.containerView.bounds.size.width
             let initialFrame = CGRect(x: direction == .right ? width : -width, y: 0, width: width, height: self.containerView.bounds.size.height)
             let finalFrame = self.containerView.bounds
@@ -251,6 +250,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
                 menu = true
                 
             }
+           
         }
         
     }
@@ -347,7 +347,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     }
    
     
-    @IBAction func btnActionSideMenu(_ sender: EnlargedButton) {
+    @IBAction func btnActionSideMenu(_ sender: UIButton) {
        // print("menu interaction")
         
         if self.sideMenuBtnTag == 0{
@@ -360,6 +360,10 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
                 
                 menu = true
                 
+            }
+            else{
+                hideMenu()
+                menu = false
             }
         }
         else{
@@ -487,7 +491,7 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
         
         else if nv_naturalDiamond == sectionStr{
             
-            gotoSearchDiamondVC()
+            gotoSearchDiamondVC(title: "Natural Diamonds")
 //            print(sectionStr)
 //          //  self.navigationManager(storybordName: "SearchDiamond", storyboardID: "SearchDiamondVC", controller: SearchDiamondVC())
 //            let identifier = viewControllerIdentifiers[5]
@@ -513,6 +517,10 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
 //            self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
 //            self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
             
+        }
+        
+        else if nv_labGrownDiamond == sectionStr{
+            gotoSearchDiamondVC(title: "Lab Grown Diamonds")
         }
         
         
@@ -627,7 +635,8 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
     }
     
     
-    func gotoSearchDiamondVC(){
+    func gotoSearchDiamondVC(title:String){
+        self.lblTitle.text = title
         let identifier = viewControllerIdentifiers[5]
         let storyboardName = storyboardNames[5]
         loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)

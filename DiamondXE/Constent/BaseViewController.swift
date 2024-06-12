@@ -33,11 +33,11 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    // uitableviewSections
+    // uitableviewSections //, nv_fancyDiamond
     var sections: [Sections] = [
         
         Sections(mainCellTitle: nv_home, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
-        Sections(mainCellTitle: nv_searchDiamond, expandableCellOptions: [nv_naturalDiamond, nv_labGrownDiamond, nv_fancyDiamond], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_searchDiamondICN, isExpandableCellsHidden: true,isExpanded: true),
+        Sections(mainCellTitle: nv_searchDiamond, expandableCellOptions: [nv_naturalDiamond, nv_labGrownDiamond], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_searchDiamondICN, isExpandableCellsHidden: true,isExpanded: true),
         Sections(mainCellTitle: nv_createDemand, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true,isExpanded: true),
         Sections(mainCellTitle: nv_jewellery, expandableCellOptions: [nv_rings, nv_earrings, nv_pendent, nv_bracelets, nv_bangles], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_jewelleryICN, isExpandableCellsHidden: true, isExpanded: true),
         Sections(mainCellTitle: nv_DXELUX, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),

@@ -29,28 +29,32 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uul-mi-ops">
                         <rect key="frame" x="0.0" y="0.0" width="458" height="1124"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="IUf-wv-8UA">
+                            <stackView clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="IUf-wv-8UA">
                                 <rect key="frame" x="20" y="10" width="418" height="50"/>
                                 <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1Q-b4-edR">
+                                    <view clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="e1Q-b4-edR">
                                         <rect key="frame" x="0.0" y="0.0" width="201.66666666666666" height="50"/>
                                         <subviews>
                                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9H-aC-5Yx">
                                                 <rect key="frame" x="5" y="5" width="191.66666666666666" height="40"/>
+                                                <color key="backgroundColor" name="VideBGClr"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="86d-HW-ECh"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="15"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Natural Diamonds">
+                                                <state key="normal" title="Natural">
                                                     <color key="titleColor" name="themeClr"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" name="TabSelectClr"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -58,32 +62,37 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="c9H-aC-5Yx" firstAttribute="leading" secondItem="e1Q-b4-edR" secondAttribute="leading" constant="5" id="7IJ-AI-PH2"/>
-                                            <constraint firstItem="c9H-aC-5Yx" firstAttribute="top" secondItem="e1Q-b4-edR" secondAttribute="top" constant="5" id="gjc-dq-zMG"/>
-                                            <constraint firstAttribute="bottom" secondItem="c9H-aC-5Yx" secondAttribute="bottom" constant="5" id="msu-kk-YY1"/>
-                                            <constraint firstAttribute="trailing" secondItem="c9H-aC-5Yx" secondAttribute="trailing" constant="5" id="rsD-AK-2LU"/>
+                                            <constraint firstItem="c9H-aC-5Yx" firstAttribute="top" secondItem="e1Q-b4-edR" secondAttribute="top" constant="5" id="Swb-rH-zwg"/>
+                                            <constraint firstItem="c9H-aC-5Yx" firstAttribute="leading" secondItem="e1Q-b4-edR" secondAttribute="leading" constant="5" id="UyX-E1-tOb"/>
+                                            <constraint firstAttribute="trailing" secondItem="c9H-aC-5Yx" secondAttribute="trailing" constant="5" id="YwS-xF-r36"/>
+                                            <constraint firstAttribute="bottom" secondItem="c9H-aC-5Yx" secondAttribute="bottom" constant="5" id="jZD-Fi-0j4"/>
                                         </constraints>
                                     </view>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4I-5G-Egp">
+                                    <view clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Z4I-5G-Egp">
                                         <rect key="frame" x="216.66666666666663" y="0.0" width="201.33333333333337" height="50"/>
                                         <subviews>
                                             <button tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xy6-P0-qN1">
                                                 <rect key="frame" x="5" y="5" width="191.33333333333334" height="40"/>
+                                                <color key="backgroundColor" name="VideBGClr"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="kno-9O-piN"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Lab-Grown Diamonds">
+                                                <state key="normal" title="Lab Grown">
                                                     <color key="titleColor" name="TabSelectClr"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" name="TabSelectClr"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -91,17 +100,16 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="xy6-P0-qN1" secondAttribute="trailing" constant="5" id="3b8-SQ-bXZ"/>
-                                            <constraint firstItem="xy6-P0-qN1" firstAttribute="top" secondItem="Z4I-5G-Egp" secondAttribute="top" constant="5" id="fub-Aw-iFv"/>
-                                            <constraint firstItem="xy6-P0-qN1" firstAttribute="leading" secondItem="Z4I-5G-Egp" secondAttribute="leading" constant="5" id="shL-nh-FEw"/>
-                                            <constraint firstAttribute="bottom" secondItem="xy6-P0-qN1" secondAttribute="bottom" constant="5" id="vq5-7I-VqR"/>
+                                            <constraint firstItem="xy6-P0-qN1" firstAttribute="leading" secondItem="Z4I-5G-Egp" secondAttribute="leading" constant="5" id="TFu-iq-UzQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="xy6-P0-qN1" secondAttribute="trailing" constant="5" id="arf-Zm-BZ8"/>
+                                            <constraint firstItem="xy6-P0-qN1" firstAttribute="top" secondItem="Z4I-5G-Egp" secondAttribute="top" constant="5" id="jLb-jh-whs"/>
+                                            <constraint firstAttribute="bottom" secondItem="xy6-P0-qN1" secondAttribute="bottom" constant="5" id="v0G-Ae-G5X"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="dH6-Lh-1tE"/>
-                                </constraints>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lt0-LV-fHU">
                                 <rect key="frame" x="20" y="85" width="418" height="19.333333333333329"/>
@@ -254,14 +262,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="199" height="45"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qCk-lx-ulK">
-                                                <rect key="frame" x="10" y="7.6666666666666856" width="30" height="30"/>
+                                                <rect key="frame" x="10" y="7.6666666666666856" width="38" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="2fP-ya-ym6"/>
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
-                                                        <fragment content="From">
+                                                        <fragment content="₹ From">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <font key="NSFont" size="12" name="Lato-Medium"/>
@@ -272,7 +280,7 @@
                                                 </state>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cIB-Pz-9zI">
-                                                <rect key="frame" x="45" y="5" width="134" height="35"/>
+                                                <rect key="frame" x="53" y="5" width="126" height="35"/>
                                                 <color key="textColor" name="themeClr"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -322,9 +330,9 @@
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
-                                                        <fragment content="To">
+                                                        <fragment content="₹ To">
                                                             <attributes>
-                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <font key="NSFont" size="12" name="Lato-Medium"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
@@ -758,7 +766,6 @@
                             <constraint firstItem="xU7-Lz-BPZ" firstAttribute="leading" secondItem="Uul-mi-ops" secondAttribute="leading" id="PUj-Xg-lJR"/>
                             <constraint firstAttribute="trailing" secondItem="ve2-M2-SEe" secondAttribute="trailing" constant="20" id="RI2-GE-gTj"/>
                             <constraint firstItem="KJU-N5-bTD" firstAttribute="leading" secondItem="Uul-mi-ops" secondAttribute="leading" constant="20" id="Rxs-Pi-dht"/>
-                            <constraint firstItem="IUf-wv-8UA" firstAttribute="centerX" secondItem="Uul-mi-ops" secondAttribute="centerX" id="WEB-tg-9qI"/>
                             <constraint firstAttribute="trailing" secondItem="53X-fP-DUl" secondAttribute="trailing" constant="20" id="XDs-5O-dSm"/>
                             <constraint firstAttribute="trailing" secondItem="xU7-Lz-BPZ" secondAttribute="trailing" id="Xag-6W-dgP"/>
                             <constraint firstItem="Lt0-LV-fHU" firstAttribute="top" secondItem="IUf-wv-8UA" secondAttribute="bottom" constant="25" id="XnH-li-tcJ"/>
