@@ -98,6 +98,7 @@ extension UIView {
 
     }
     
+  
 }
 
 
@@ -120,3 +121,50 @@ extension CAGradientLayer {
 
 
 }
+
+
+class AnimatedButton: UIButton {
+
+    // MARK: - Properties
+        private var isAnimating = true
+
+        // MARK: - Initializer methods
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            setup()
+        }
+
+        required init?(coder aDecoder: NSCoder) {
+            super.init(coder: aDecoder)
+            setup()
+            
+        }
+
+        // MARK: - Setup method for button properties
+        private func setup() {
+//            addTarget(self, action: #selector(toggleAnimation), for: .touchUpInside)
+            startAnimation()
+        }
+
+        // MARK: - Animation methods
+//        @objc private func toggleAnimation() {
+//            isAnimating.toggle()
+//            if isAnimating {
+//                startAnimation()
+//            } else {
+//                stopAnimation()
+//            }
+//        }
+
+        private func startAnimation() {
+            guard isAnimating else { return }
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse, .repeat], animations: {
+                self.imageView?.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            }, completion: nil)
+        }
+
+        private func stopAnimation() {
+            imageView?.layer.removeAllAnimations()
+            imageView?.transform = CGAffineTransform.identity
+        }
+    }

@@ -14,8 +14,8 @@
             filePath = "DiamondXE/DiamondXE_Architecture/SearchEngienDiamond/ViewModel/AdvanceFilterVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "DiamondXE/DiamondXE_Architecture/SearchEngienDiamond/ViewModel/AdvanceFilter/AdvanceFilterTVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "awakeFromNib()"
             landmarkType = "7">
          </BreakpointContent>

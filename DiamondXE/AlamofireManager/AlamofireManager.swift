@@ -32,10 +32,37 @@ class AlamofireManager {
                 }
             }
     }
+    
+    
+    func makePostAPIRequestWithLocation(url : String,param: [String: Any], completion: @escaping (Result<Data?, Error>) -> Void) {
+        let headers: HTTPHeaders = HeaderInfoLocation().headers
+        // Define your API endpoint and parameters
+        print("Print Final URL ----------->\(url)")
+        print("Print Final Psram ----------->\(param)")
+        print("Print Final Header ----------->\(headers)")
+        AF.request(url, method: .get, parameters: param, encoding:  URLEncoding.queryString, headers: headers).response { response in
+          switch response.result {
+          case .success:
+              let data = response.data
+              
+              if data != nil{
+                  let str = String(decoding: data!, as: UTF8.self)
+                  print(str)
+              }
+              completion(.success(data))
+             // OnResultBlock(data as Any, true)
+              
+          case let .failure(error):
+            print(error)
+              completion(.failure(error))
+              //OnResultBlock(error, false)
+          }
+        }
+    }
  
     // get API
     func makeGETAPIRequest(url : String, completion: @escaping (Result<Data?, Error>) -> Void) {
-        let headers: HTTPHeaders = HeaderInfo().headers
+        let headers: HTTPHeaders = HeaderInfoLocation().headers
         AF.request(url, method: .get, parameters: nil, encoding:  URLEncoding.queryString, headers: headers).response { response in
           switch response.result {
           case .success:

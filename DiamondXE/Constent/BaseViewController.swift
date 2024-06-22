@@ -27,8 +27,8 @@ struct Sections {
 
 class BaseViewController: UIViewController, UITextFieldDelegate {
     
-     let viewControllerIdentifiers = ["HomeVC", "CategoriesVC", "WishVC", "CartVC", "DashboardLoginVC", "SearchDiamondVC"]
-     let storyboardNames = ["HomeVC", "CategoriesVC", "WishlistVC", "CartVC", "Dashboard", "SearchDiamond"]
+     let viewControllerIdentifiers = ["HomeVC", "CategoriesVC", "WishVC", "CartVC", "DashboardLoginVC", "SearchDiamondVC", "B2BSearchResultVC", "DiamondDetailsVC"]
+     let storyboardNames = ["HomeVC", "CategoriesVC", "WishlistVC", "CartVC", "Dashboard", "SearchDiamond", "B2BSearch", "DiamondDetails"]
     
     
     
@@ -143,6 +143,18 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
            }
            
            destinationViewController.receiveData(data)
+           
+           navigationController?.pushViewController(destinationViewController, animated: true)
+       }
+    
+    
+    func navigationManager<T: UIViewController & DataReceiver2>(_ viewControllerType: T.Type, storyboardName: String,storyboardID: String, data1: T.DataType1, data2: T.DataType2) {
+           guard let destinationViewController = UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: storyboardID) as? T else {
+               fatalError("Unable to instantiate view controller with storyboard ID: \(storyboardID)")
+           }
+           
+           destinationViewController.receiveData(data1)
+           destinationViewController.receiveData2(data2)
            
            navigationController?.pushViewController(destinationViewController, animated: true)
        }

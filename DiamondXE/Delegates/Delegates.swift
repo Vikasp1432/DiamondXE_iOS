@@ -37,6 +37,13 @@ protocol DataReceiver {
     func receiveData(_ data: DataType)
 }
 
+protocol DataReceiver2 {
+    associatedtype DataType1
+    associatedtype DataType2
+    func receiveData(_ data: DataType1)
+    func receiveData2(_ data: DataType2)
+}
+
 // navigation delegate
 protocol BaseViewControllerDelegate: AnyObject {
     func didPerformAction(tag: Int)
@@ -47,6 +54,19 @@ protocol ChildViewControllerProtocol: UIViewController {
     func didSendString(str:String)
 }
 
+protocol SearchOptionSelecteDelegate : AnyObject{
+    func didselectOption(searchTitle:String,details: [SearchAttribDetail], shapeArr:[String])
+}
+
+protocol SearchOptionSelecteDelegateB2B : UIViewController {
+    var delegateData: SearchOptionSelecteDelegate? { get set }
+}
 
 
+protocol B2BSearchResultVCDelegate: AnyObject {
+    func didSelectDiamond(_ diamond: DiamondListingDetail)
+}
 
+protocol PinCodeDelegate {
+    func didEnterPincode(pincode: String, indexPath: IndexPath)
+}

@@ -279,11 +279,11 @@
                                                     </attributedString>
                                                 </state>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cIB-Pz-9zI">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cIB-Pz-9zI">
                                                 <rect key="frame" x="53" y="5" width="126" height="35"/>
                                                 <color key="textColor" name="themeClr"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                         <color key="value" name="D1D2D9"/>
@@ -340,11 +340,11 @@
                                                     </attributedString>
                                                 </state>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jwj-nP-fVe">
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jwj-nP-fVe">
                                                 <rect key="frame" x="45" y="5" width="134" height="35"/>
                                                 <color key="textColor" name="themeClr"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                         <color key="value" name="D1D2D9"/>
@@ -411,11 +411,11 @@
                                                     </attributedString>
                                                 </state>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mCD-Rq-GUa">
+                                            <textField opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mCD-Rq-GUa">
                                                 <rect key="frame" x="45" y="5" width="134" height="35"/>
                                                 <color key="textColor" name="themeClr"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                         <color key="value" name="D1D2D9"/>
@@ -472,11 +472,11 @@
                                                     </attributedString>
                                                 </state>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o5r-hp-PlF">
+                                            <textField opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o5r-hp-PlF">
                                                 <rect key="frame" x="45" y="5" width="134" height="35"/>
                                                 <color key="textColor" name="themeClr"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                         <color key="value" name="D1D2D9"/>
@@ -829,6 +829,10 @@
                 <outlet property="collectionFluorescence" destination="WQN-GO-n4K" id="2xY-ho-tg0"/>
                 <outlet property="collectionMake" destination="7TS-rz-OXy" id="TuN-Cr-Nny"/>
                 <outlet property="collectionShap" destination="xU7-Lz-BPZ" id="DDg-gx-VOB"/>
+                <outlet property="txtCaratFrom" destination="mCD-Rq-GUa" id="TT9-wi-uO1"/>
+                <outlet property="txtCaratTo" destination="o5r-hp-PlF" id="KK3-Wb-sU7"/>
+                <outlet property="txtPriceFrom" destination="cIB-Pz-9zI" id="N3z-fR-20y"/>
+                <outlet property="txtPriceTo" destination="Jwj-nP-fVe" id="igD-Gu-uA0"/>
                 <outlet property="viewBGFilter" destination="DUs-ci-9Z9" id="ZBE-Dy-e4b"/>
             </connections>
             <point key="canvasLocation" x="172.51908396946564" y="504.22535211267609"/>

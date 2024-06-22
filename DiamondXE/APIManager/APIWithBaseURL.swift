@@ -11,6 +11,7 @@ import Alamofire
 struct APIs {
     //staging = app-uat.diamondxe.com/
     //live = admin.diamondxe.com/
+    let devBaseURL = "https://app-uat.diamondxe.com/"
     let liveBaseURL = "https://admin.diamondxe.com/app/v1/validate-document"
     let api_Key = "b8795c60-1400-4d70-b254-837a2a1da9e7"
     let supplierWebLogin = "https://supplier-uat.diamondxe.com/sign-in"
@@ -37,6 +38,10 @@ struct APIs {
     let get_topDeals_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/top-deals"
     
     let get_SearchAttribute_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-attributes"
+    
+    let get_Diamond_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-diamonds"
+    
+    let get_DiamondDetails_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-diamond-details"
 }
 
 struct HeaderInfo {
@@ -45,9 +50,25 @@ struct HeaderInfo {
 }
 
 struct HeaderInfoLocation {
-    let headers : HTTPHeaders =  ["Content-Type":"application/json",
-                                  "location" : "in",
-                                  "Apikey" : APIs().api_Key]
+//    let timeZoneMatcher = TimeZoneMatcher()
+//    var timeZone = timeZoneMatcher.findAndPrintMatchingTimeZone()
+//    let headers : HTTPHeaders =  ["Content-Type":"application/json",
+//                                  "location" : "IN",
+//                                  "Apikey" : APIs().api_Key]
+    
+    let timeZoneMatcher = TimeZoneMatcher()
+      var timeZoneInfo: (identifier: String, countryCode: String?) {
+          return timeZoneMatcher.findAndPrintMatchingTimeZone()
+      }
+      
+      var headers: HTTPHeaders {
+          let locationCode = timeZoneInfo.countryCode ?? "US"
+          return [
+              "Content-Type": "application/json",
+              "location": locationCode,
+              "Apikey": APIs().api_Key
+          ]
+      }
 }
 
 struct SideBarURLs {

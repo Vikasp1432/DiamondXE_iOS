@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -185,7 +185,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhF-be-StY">
-                                                                        <rect key="frame" x="27" y="0.0" width="125" height="40"/>
+                                                                        <rect key="frame" x="27" y="0.0" width="112" height="40"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal">
                                                                             <attributedString key="attributedTitle">
@@ -236,7 +236,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
                                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ynB-Ju-xhx">
-                                                                        <rect key="frame" x="27" y="0.0" width="123" height="40"/>
+                                                                        <rect key="frame" x="27" y="0.0" width="114" height="40"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal">
                                                                             <attributedString key="attributedTitle">
@@ -385,7 +385,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFt-vO-Tzj">
-                                                                <rect key="frame" x="27" y="0.0" width="109" height="40"/>
+                                                                <rect key="frame" x="27" y="0.0" width="98" height="40"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal">
                                                                     <attributedString key="attributedTitle">
@@ -508,10 +508,10 @@
     </objects>
     <designables>
         <designable name="cuv-kE-UhR">
-            <size key="intrinsicContentSize" width="189" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="189.66666666666666" height="18"/>
         </designable>
         <designable name="utj-wT-mF0">
-            <size key="intrinsicContentSize" width="161.33333333333334" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="162.66666666666666" height="18"/>
         </designable>
     </designables>
     <resources>

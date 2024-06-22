@@ -44,3 +44,21 @@ struct SearchAttribDetail: Codable {
         case displayAttr = "DisplayAttr"
     }
 }
+
+
+// MARK: - AttribDetail
+struct FilterAttribDetail: Hashable {
+    var attribID, attribTypeID: Int?
+    var attribType, attribCode: String?
+    var sortOrder: Int??
+    var displayAttr: String?
+
+    enum CodingKeys: String, CodingKey {
+        case attribID = "AttribId"
+        case attribTypeID = "AttribTypeId"
+        case attribType = "AttribType"
+        case attribCode = "AttribCode"
+        case sortOrder = "SortOrder"
+        case displayAttr = "DisplayAttr"
+    }
+}

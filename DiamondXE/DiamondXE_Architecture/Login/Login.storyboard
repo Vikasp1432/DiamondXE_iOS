@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -49,19 +49,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Enf-LF-4qY" userLabel="TopHeading">
-                                <rect key="frame" x="0.0" y="60" width="393" height="176"/>
+                                <rect key="frame" x="0.0" y="59.999999999999986" width="393" height="175.66666666666663"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jMH-7Z-TBQ">
-                                        <rect key="frame" x="20" y="20" width="353" height="61"/>
+                                        <rect key="frame" x="20" y="19.999999999999996" width="353" height="60.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="San-FH-MOV">
-                                                <rect key="frame" x="20" y="4.9999999999999982" width="313" height="28.333333333333329"/>
+                                                <rect key="frame" x="20" y="5" width="313" height="28"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
                                                 <color key="textColor" name="blackClr"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your gateway to diamonds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VR-33-zAw">
-                                                <rect key="frame" x="20" y="38.333333333333329" width="313" height="17.666666666666671"/>
+                                                <rect key="frame" x="20" y="38" width="313" height="17.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                 <color key="textColor" name="blackClr"/>
                                                 <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                                         </constraints>
                                     </view>
                                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xa8-nh-A13">
-                                        <rect key="frame" x="20" y="106" width="353" height="50"/>
+                                        <rect key="frame" x="20" y="105.66666666666666" width="353" height="50"/>
                                         <subviews>
                                             <stackView clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IWa-vb-cwA">
                                                 <rect key="frame" x="5" y="5" width="343" height="40"/>
@@ -160,13 +160,13 @@
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Suk-4P-pvF">
-                                <rect key="frame" x="0.0" y="246.00000000000003" width="393" height="333.66666666666674"/>
+                                <rect key="frame" x="0.0" y="245.66666666666666" width="393" height="330.66666666666674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qF-ix-o7U" userLabel="email">
                                         <rect key="frame" x="20" y="5" width="353" height="60"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector" translatesAutoresizingMaskIntoConstraints="NO" id="a8N-sJ-Ert">
-                                                <rect key="frame" x="10" y="21" width="18" height="18"/>
+                                                <rect key="frame" x="10" y="21.000000000000028" width="18" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="18" id="LIi-FB-zWz"/>
                                                     <constraint firstAttribute="height" constant="18" id="MQ3-nB-mlZ"/>
@@ -197,7 +197,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="su8-BI-tlO" userLabel="Password">
-                                        <rect key="frame" x="20" y="95" width="353" height="60"/>
+                                        <rect key="frame" x="20" y="95.000000000000028" width="353" height="60"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lock Password" translatesAutoresizingMaskIntoConstraints="NO" id="iLc-WY-NI3">
                                                 <rect key="frame" x="10" y="21" width="18" height="18"/>
@@ -245,7 +245,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25h-1k-Qbm">
-                                        <rect key="frame" x="245" y="165" width="128" height="33"/>
+                                        <rect key="frame" x="250" y="165.00000000000003" width="123" height="30"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Forgot Password?">
@@ -256,7 +256,7 @@
                                         </connections>
                                     </button>
                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBc-bj-o8x">
-                                        <rect key="frame" x="25" y="238" width="343" height="45"/>
+                                        <rect key="frame" x="25" y="235" width="343" height="45"/>
                                         <color key="backgroundColor" name="themeClr"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="32d-Od-F3N"/>
@@ -276,7 +276,7 @@
                                         </connections>
                                     </button>
                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7lv-7H-ArB">
-                                        <rect key="frame" x="20" y="298" width="353" height="30.666666666666686"/>
+                                        <rect key="frame" x="20" y="295" width="353" height="30.666666666666686"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
@@ -325,7 +325,7 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fg9-bC-c5S">
-                                <rect key="frame" x="0.0" y="246" width="393" height="334"/>
+                                <rect key="frame" x="0.0" y="245.66666666666663" width="393" height="331"/>
                                 <subviews>
                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="vhD-AD-ZEP">
                                         <rect key="frame" x="20" y="5" width="353" height="150"/>
@@ -341,7 +341,7 @@
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVU-px-vKd">
-                                                        <rect key="frame" x="10" y="10" width="92" height="40"/>
+                                                        <rect key="frame" x="10" y="10.000000000000028" width="92" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GxD-9a-MJQ">
                                                                 <rect key="frame" x="0.0" y="9" width="22" height="22"/>
@@ -421,7 +421,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOl-d3-IOo" userLabel="OTPView">
-                                                <rect key="frame" x="0.0" y="90" width="353" height="60"/>
+                                                <rect key="frame" x="0.0" y="90.000000000000028" width="353" height="60"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter OTP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qfc-GI-RGY" customClass="FloatingTextField" customModule="DiamondXE" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="5" width="333" height="50"/>
@@ -447,7 +447,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssf-VY-o1P">
-                                        <rect key="frame" x="286" y="165" width="87" height="33"/>
+                                        <rect key="frame" x="287" y="165.00000000000003" width="86" height="30"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Resend OTP">
@@ -455,7 +455,7 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ije-n5-erg">
-                                        <rect key="frame" x="19.999999999999996" y="171.33333333333331" width="38.666666666666657" height="20.666666666666657"/>
+                                        <rect key="frame" x="19.999999999999996" y="171.33333333333334" width="37.666666666666657" height="17.666666666666657"/>
                                         <attributedString key="attributedText">
                                             <fragment content="00:30">
                                                 <attributes>
@@ -468,7 +468,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeH-by-hbJ">
-                                        <rect key="frame" x="25" y="238" width="343" height="45"/>
+                                        <rect key="frame" x="25" y="235" width="343" height="45"/>
                                         <color key="backgroundColor" name="themeClr"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="L5C-uT-xWB"/>
@@ -488,7 +488,7 @@
                                         </connections>
                                     </button>
                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piQ-JL-a2K">
-                                        <rect key="frame" x="40" y="298" width="313" height="31"/>
+                                        <rect key="frame" x="40" y="295" width="313" height="31"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Are you supplier? Login here">
@@ -524,16 +524,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2H2-3O-lME">
-                                <rect key="frame" x="20" y="737" width="353" height="75"/>
+                                <rect key="frame" x="20" y="737.33333333333337" width="353" height="74.666666666666629"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Coe-qa-Cr2">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="19"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="18.666666666666668"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                         <color key="textColor" name="blackClr"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqi-Yv-fLK">
-                                        <rect key="frame" x="126.66666666666666" y="27" width="100" height="40"/>
+                                        <rect key="frame" x="126.66666666666666" y="26.666666666666629" width="100" height="40"/>
                                         <color key="backgroundColor" name="themeGoldenClr"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="O9g-EV-9I6"/>
@@ -653,19 +653,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KnS-c8-vxI" userLabel="TopHeading">
-                                <rect key="frame" x="0.0" y="99" width="393" height="117.66666666666669"/>
+                                <rect key="frame" x="0.0" y="99" width="393" height="117"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5r-mW-H3i">
-                                        <rect key="frame" x="20" y="20.000000000000007" width="353" height="92.666666666666686"/>
+                                        <rect key="frame" x="20" y="20" width="353" height="92"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJK-Py-uEM">
-                                                <rect key="frame" x="20" y="4.9999999999999982" width="313" height="28.333333333333329"/>
+                                                <rect key="frame" x="20" y="5" width="313" height="28"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
                                                 <color key="textColor" name="blackClr"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WU-by-8LB">
-                                                <rect key="frame" x="20" y="38.333333333333343" width="313" height="49.333333333333343"/>
+                                                <rect key="frame" x="20" y="38" width="313" height="49"/>
                                                 <string key="text">Don't worry, it happens to the best of us.
 Enter your email address or username associated
 with your account.</string>
@@ -693,7 +693,7 @@ with your account.</string>
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dD7-Ys-t17">
-                                <rect key="frame" x="0.0" y="226.66666666666663" width="393" height="273"/>
+                                <rect key="frame" x="0.0" y="226" width="393" height="270"/>
                                 <subviews>
                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="OMp-NJ-C46">
                                         <rect key="frame" x="20" y="5" width="353" height="150"/>
@@ -724,7 +724,7 @@ with your account.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6b-P9-48h" userLabel="OTPView">
-                                                <rect key="frame" x="0.0" y="90.000000000000028" width="353" height="60"/>
+                                                <rect key="frame" x="0.0" y="90" width="353" height="60"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter OTP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AOM-gD-wlK" customClass="FloatingTextField" customModule="DiamondXE" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="5" width="333" height="50"/>
@@ -750,7 +750,7 @@ with your account.</string>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbB-7C-egx">
-                                        <rect key="frame" x="286" y="165.00000000000003" width="87" height="33"/>
+                                        <rect key="frame" x="287" y="165" width="86" height="30"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Resend OTP">
@@ -761,7 +761,7 @@ with your account.</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLJ-vV-bmO">
-                                        <rect key="frame" x="19.999999999999996" y="171.33333333333334" width="38.666666666666657" height="20.666666666666657"/>
+                                        <rect key="frame" x="19.999999999999996" y="171.33333333333331" width="37.666666666666657" height="17.666666666666657"/>
                                         <attributedString key="attributedText">
                                             <fragment content="00:30">
                                                 <attributes>
@@ -773,7 +773,7 @@ with your account.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crO-Mv-WaH">
-                                        <rect key="frame" x="25" y="218.00000000000003" width="343" height="44.999999999999972"/>
+                                        <rect key="frame" x="25" y="215" width="343" height="45"/>
                                         <color key="backgroundColor" name="themeClr"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Ccd-ay-WEF"/>
@@ -809,16 +809,16 @@ with your account.</string>
                                 </constraints>
                             </view>
                             <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhU-rK-iTB">
-                                <rect key="frame" x="20" y="737" width="353" height="75"/>
+                                <rect key="frame" x="20" y="737.33333333333337" width="353" height="74.666666666666629"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSB-YY-5bb">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="19"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="18.666666666666668"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                         <color key="textColor" name="blackClr"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qg-QG-6Rv">
-                                        <rect key="frame" x="126.66666666666666" y="27" width="100" height="40"/>
+                                        <rect key="frame" x="126.66666666666666" y="26.666666666666629" width="100" height="40"/>
                                         <color key="backgroundColor" name="themeGoldenClr"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Ajl-cu-WwL"/>
@@ -890,6 +890,7 @@ with your account.</string>
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="VHj-11-CgF"/>
                         <color key="backgroundColor" name="whitClr"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="WQC-XT-EZY" secondAttribute="bottom" id="6r6-dJ-2Sp"/>
@@ -962,19 +963,19 @@ with your account.</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mmd-Dd-1BF" userLabel="TopHeading">
-                                <rect key="frame" x="0.0" y="99" width="393" height="101.33333333333331"/>
+                                <rect key="frame" x="0.0" y="99" width="393" height="100.66666666666669"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6k-Hb-dHh">
-                                        <rect key="frame" x="20" y="20" width="353" height="76.333333333333329"/>
+                                        <rect key="frame" x="20" y="20" width="353" height="75.666666666666671"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set New Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWj-Ca-feO">
-                                                <rect key="frame" x="20" y="4.9999999999999982" width="313" height="28.333333333333329"/>
+                                                <rect key="frame" x="20" y="5" width="313" height="28"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
                                                 <color key="textColor" name="blackClr"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65Y-Cu-TiR">
-                                                <rect key="frame" x="20" y="38.333333333333343" width="313" height="33"/>
+                                                <rect key="frame" x="20" y="38" width="313" height="32.666666666666657"/>
                                                 <string key="text">Set your new password to 
 login into your account!</string>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -1001,7 +1002,7 @@ login into your account!</string>
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYu-Sd-Hn8">
-                                <rect key="frame" x="0.0" y="210.33333333333337" width="393" height="240"/>
+                                <rect key="frame" x="0.0" y="209.66666666666663" width="393" height="240"/>
                                 <subviews>
                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Jo0-oa-bZj">
                                         <rect key="frame" x="20" y="5" width="353" height="150"/>
@@ -1032,7 +1033,7 @@ login into your account!</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PoL-V3-v5c" userLabel="OTPView">
-                                                <rect key="frame" x="0.0" y="89.999999999999972" width="353" height="60"/>
+                                                <rect key="frame" x="0.0" y="90.000000000000028" width="353" height="60"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ut5-xk-c2K" customClass="FloatingTextField" customModule="DiamondXE" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="5" width="333" height="50"/>
@@ -1058,7 +1059,7 @@ login into your account!</string>
                                         </subviews>
                                     </stackView>
                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wg6-cM-VU8">
-                                        <rect key="frame" x="25" y="184.99999999999997" width="343" height="45"/>
+                                        <rect key="frame" x="25" y="185.00000000000003" width="343" height="45"/>
                                         <color key="backgroundColor" name="themeClr"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="o2F-v9-IDr"/>
@@ -1090,16 +1091,16 @@ login into your account!</string>
                                 </constraints>
                             </view>
                             <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ijw-oH-IFm">
-                                <rect key="frame" x="20" y="737" width="353" height="75"/>
+                                <rect key="frame" x="20" y="737.33333333333337" width="353" height="74.666666666666629"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGc-Uo-mcA">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="19"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="18.666666666666668"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                         <color key="textColor" name="blackClr"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTa-SB-Sq5">
-                                        <rect key="frame" x="126.66666666666666" y="27" width="100" height="40"/>
+                                        <rect key="frame" x="126.66666666666666" y="26.666666666666629" width="100" height="40"/>
                                         <color key="backgroundColor" name="themeGoldenClr"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="9Yz-nV-uBH"/>
@@ -1242,25 +1243,25 @@ login into your account!</string>
     </scenes>
     <designables>
         <designable name="AOM-gD-wlK">
-            <size key="intrinsicContentSize" width="62.666666666666664" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="64.666666666666671" height="18"/>
         </designable>
         <designable name="KfG-j8-4wc">
-            <size key="intrinsicContentSize" width="100.66666666666667" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="101.66666666666667" height="18"/>
         </designable>
         <designable name="imM-N5-b0q">
-            <size key="intrinsicContentSize" width="166.33333333333334" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="167.66666666666666" height="18"/>
         </designable>
         <designable name="paa-CX-7ek">
-            <size key="intrinsicContentSize" width="127.33333333333333" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="129.66666666666666" height="18"/>
         </designable>
         <designable name="pno-IW-Tr4">
-            <size key="intrinsicContentSize" width="129.33333333333334" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="131" height="18"/>
         </designable>
         <designable name="qfc-GI-RGY">
-            <size key="intrinsicContentSize" width="62.666666666666664" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="64.666666666666671" height="18"/>
         </designable>
         <designable name="ut5-xk-c2K">
-            <size key="intrinsicContentSize" width="146.33333333333334" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="148" height="18"/>
         </designable>
     </designables>
     <resources>

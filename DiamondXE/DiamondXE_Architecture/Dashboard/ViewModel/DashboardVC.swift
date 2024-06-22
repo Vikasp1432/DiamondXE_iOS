@@ -22,11 +22,13 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     @IBOutlet var imgLOGO: UIImageView!
     @IBOutlet var stackIcons: UIStackView!
     @IBOutlet var lblTitle: UILabel!
+    @IBOutlet var headerView: UIView!
     
     
     let screen = UIScreen.main.bounds
     var menu = false
     var home = CGAffineTransform()
+    var diamondDetails = DiamondListingDetail()
     
     
     @IBOutlet var viewTabBar:UIView!
@@ -45,8 +47,6 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     @IBOutlet var btnSideMenu : UIButton!
     @IBOutlet var viewSideMnu : UIView!
 
-    
-    
     @IBOutlet weak var containerView: UIView!
     var tagV = VCTags()
     
@@ -92,11 +92,31 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
         menuTableView.showsVerticalScrollIndicator = false
 
     }
+    
+    func updateHeaderBG(setUpTag:Int) {
+        if setUpTag == 0 {
+            headerView.backgroundColor = .whitClr
+            headerView.layer.shadowColor = UIColor.lightGray.cgColor
+            headerView.layer.shadowOffset = CGSize(width: 0.0, height: 1.5)
+            headerView.layer.shadowRadius = 1.0
+            headerView.layer.shadowOpacity = 0.3
+            headerView.layer.masksToBounds = false
+        }
+        else{
+            headerView.backgroundColor = .videBGClr
+            headerView.layer.shadowColor = UIColor.shadowViewclr.cgColor
+            headerView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+            headerView.layer.shadowRadius = 0.0
+            headerView.layer.shadowOpacity = 0.0
+            headerView.layer.masksToBounds = false
+        }
+    }
 
     //goto search from dashboard
     func didPerformAction(tag: Int) {
         switch tag {
         case 0:
+            updateHeaderBG(setUpTag: 1)
             self.gotoSearchDiamondVC(title: "Solitaires")
         default:
             print(tag)
@@ -120,6 +140,14 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
 
             let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
             guard let newViewController = storyboard.instantiateViewController(withIdentifier: identifier) as? ChildViewControllerProtocol else { return }
+        
+          if let diamondDetailsVC = newViewController as? DiamondDetailsVC {
+              diamondDetailsVC.diamondInfo = self.diamondDetails
+            }
+        
+        if let b2bSearchDiamondVC = newViewController as? B2BSearchResultVC {
+               b2bSearchDiamondVC.dashboardVC = self
+           }
             
              newViewController.delegate = self
             newViewController.didSendString(str: self.lblTitle.text ?? "")
@@ -278,6 +306,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
         let storyboardName = storyboardNames[sender.tag]
         loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
         self.sideMenuBtnTag = 0
+        updateHeaderBG(setUpTag: 1)
         self.btnSideMenu.setImage(UIImage(named: "sideMenu"), for: .normal)
         self.lblTitle.isHidden = true
         self.imgLOGO.isHidden = false
@@ -350,35 +379,57 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     @IBAction func btnActionSideMenu(_ sender: UIButton) {
        // print("menu interaction")
         
-        if self.sideMenuBtnTag == 0{
+        switch self.currentViewController {
+        case is B2BSearchResultVC:
+            updateHeaderBG(setUpTag: 1)
+            gotoSearchDiamondVC(title: "Search Diamond")
             
-            if menu == false && swipeGesture.direction == .right {
+        case is DiamondDetailsVC:
+            updateHeaderBG(setUpTag: 1)
+            gotoSearchResultB2BVC(title: "Search Diamond")
+            
+        default:
+            updateHeaderBG(setUpTag: 1)
+            if self.sideMenuBtnTag == 0{
                 
-                //print("user is showing menu")
-                
-                showMenu()
-                
-                menu = true
-                
+                if menu == false && swipeGesture.direction == .right {
+                    
+                    //print("user is showing menu")
+                    
+                    showMenu()
+                    
+                    menu = true
+                    
+                }
+                else{
+                    hideMenu()
+                    menu = false
+                }
             }
             else{
-                hideMenu()
-                menu = false
+                self.sideMenuBtnTag = 0
+                self.homeMenuActive()
+                self.btnSideMenu.setImage(UIImage(named: "sideMenu"), for: .normal)
+                self.lblTitle.isHidden = true
+                self.imgLOGO.isHidden = false
+                self.stackIcons.isHidden = false
             }
         }
-        else{
-            self.sideMenuBtnTag = 0
-            self.homeMenuActive()
-            self.btnSideMenu.setImage(UIImage(named: "sideMenu"), for: .normal)
-            self.lblTitle.isHidden = true
-            self.imgLOGO.isHidden = false
-            self.stackIcons.isHidden = false
-        }
     }
+    
+    
     
   
     
     @IBAction func btnActionSearch(_ sender: UIButton) {
+        
+        switch self.currentViewController {
+        case is SearchDiamondVC:
+            updateHeaderBG(setUpTag: 0)
+           gotoSearchResultB2BVC(title: "Search Result")
+        default:
+            print(self.currentViewController)
+        }
         
 //     navigationManager(storybordName: "GlobleSearch", storyboardID: "GlobleSearchVC", controller: GlobleSearchVC())
     }
@@ -393,6 +444,18 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
 }
 
 
+extension DashboardVC : B2BSearchResultVCDelegate {
+    func didSelectDiamond(_ diamond: DiamondListingDetail) {
+        print(diamond)
+        self.diamondDetails = diamond
+//        let identifier = viewControllerIdentifiers[0]
+//        let storyboardName = storyboardNames[0]
+//        loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
+        self.loadViewController(withIdentifier: "DiamondDetailsVC", fromStoryboard: "DiamondDetails")
+
+    }
+    
+}
 
 extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -490,7 +553,7 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
         }
         
         else if nv_naturalDiamond == sectionStr{
-            
+            updateHeaderBG(setUpTag: 1)
             gotoSearchDiamondVC(title: "Natural Diamonds")
 //            print(sectionStr)
 //          //  self.navigationManager(storybordName: "SearchDiamond", storyboardID: "SearchDiamondVC", controller: SearchDiamondVC())
@@ -520,6 +583,7 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
         }
         
         else if nv_labGrownDiamond == sectionStr{
+            updateHeaderBG(setUpTag: 1)
             gotoSearchDiamondVC(title: "Lab Grown Diamonds")
         }
         
@@ -635,6 +699,21 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
     }
     
     
+    // goto outher vc manage bottom button color
+    func manageBottomTag(){
+        self.btnHome.tintColor = .clrGray
+        self.btnCategory.tintColor = .clrGray
+        self.btnWish.tintColor = .clrGray
+        self.btnCart.tintColor = .clrGray
+        self.btnLogin.tintColor = .clrGray
+        self.btnTitleHome.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleCategory.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
+    }
+    
+    
     func gotoSearchDiamondVC(title:String){
         self.lblTitle.text = title
         let identifier = viewControllerIdentifiers[5]
@@ -649,18 +728,41 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
         self.imgLOGO.isHidden = true
         self.stackIcons.isHidden = true
         
-        self.btnHome.tintColor = .clrGray
-        self.btnCategory.tintColor = .clrGray
-        self.btnWish.tintColor = .clrGray
-        self.btnCart.tintColor = .clrGray
-        self.btnLogin.tintColor = .clrGray
-        self.btnTitleHome.setTitleColor(UIColor.clrGray, for: .normal)
-        self.btnTitleCategory.setTitleColor(UIColor.clrGray, for: .normal)
-        self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
-        self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
-        self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
+        manageBottomTag()
     }
     
+    func gotoSearchResultB2BVC(title:String){
+        self.lblTitle.text = title
+        let identifier = viewControllerIdentifiers[6]
+        let storyboardName = storyboardNames[6]
+        loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
+        hideMenu()
+        menu = false
+        self.sideMenuBtnTag = 1
+        self.btnSideMenu.setImage(UIImage(named: "backButton"), for: .normal)
+        
+        self.lblTitle.isHidden = false
+        self.imgLOGO.isHidden = true
+        self.stackIcons.isHidden = true
+        
+        manageBottomTag()
+    }
     
+//    func gotoSearchResultB2BVC(title:String){
+//        self.lblTitle.text = title
+//        let identifier = viewControllerIdentifiers[6]
+//        let storyboardName = storyboardNames[6]
+//        loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
+//        hideMenu()
+//        menu = false
+//        self.sideMenuBtnTag = 1
+//        self.btnSideMenu.setImage(UIImage(named: "backButton"), for: .normal)
+//        
+//        self.lblTitle.isHidden = false
+//        self.imgLOGO.isHidden = true
+//        self.stackIcons.isHidden = true
+//        
+//        manageBottomTag()
+//    }
     
 }

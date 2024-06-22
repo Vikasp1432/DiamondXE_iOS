@@ -39,13 +39,13 @@ class SearchesOptionCVC: UICollectionViewCell {
     
     
     
-    private func addShadow() {
+     func addShadow() {
         btnTitle.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
         btnTitle.setTitleColor(.whitClr, for: .normal)
         
     }
     
-    private func removeShadow() {
+     func removeShadow() {
         btnTitle.clearGradient()
         btnTitle.setTitleColor(.themeClr, for: .normal)
     }
