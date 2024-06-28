@@ -14,7 +14,8 @@ class DiamondImagesTVC: UITableViewCell {
     @IBOutlet var btnShowInfoView: UIButton!
     @IBOutlet var lblTypeDia: UILabel!
     @IBOutlet var viewBG: UIView!
-    
+    @IBOutlet var btnAvailable: UIButton!
+
     @IBOutlet var viewImages: UIView!
     @IBOutlet var view360View: UIView!
     @IBOutlet var viewCertificate: UIView!
@@ -99,6 +100,7 @@ class DiamondImagesTVC: UITableViewCell {
             self.lblCertificate.textColor = UIColor.darkGray
             self.lblSize.textColor = UIColor.darkGray
             alertActionTag = 0
+            alertAction(alertActionTag)
         case 1:
             self.imgImages.backgroundColor = UIColor.darkGray
             self.img360View.tintColor = UIColor.tabSelectClr
@@ -115,6 +117,7 @@ class DiamondImagesTVC: UITableViewCell {
             self.lblCertificate.textColor = UIColor.darkGray
             self.lblSize.textColor = UIColor.darkGray
             alertActionTag = 1
+            alertAction(alertActionTag)
         case 2:
             self.imgImages.backgroundColor = UIColor.darkGray
             self.img360View.tintColor = UIColor.darkGray
@@ -131,6 +134,7 @@ class DiamondImagesTVC: UITableViewCell {
             self.lblCertificate.textColor = UIColor.tabSelectClr
             self.lblSize.textColor = UIColor.darkGray
             alertActionTag = 2
+            alertAction(alertActionTag)
         case 3:
             self.imgImages.backgroundColor = UIColor.darkGray
             self.img360View.tintColor = UIColor.darkGray
@@ -147,6 +151,7 @@ class DiamondImagesTVC: UITableViewCell {
             self.lblCertificate.textColor = UIColor.darkGray
             self.lblSize.textColor = UIColor.tabSelectClr
             alertActionTag = 3
+            alertAction(alertActionTag)
         default:
             print("")
         }

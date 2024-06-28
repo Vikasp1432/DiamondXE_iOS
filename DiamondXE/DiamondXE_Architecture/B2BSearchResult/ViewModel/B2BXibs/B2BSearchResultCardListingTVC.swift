@@ -48,6 +48,9 @@ class B2BSearchResultCardListingTVC: UITableViewCell, ShimmeringViewProtocol {
     
     var diamondSelect : (() -> Void) = { }
     
+    var addToCart : (() -> Void) = { }
+    var addToWish : (() -> Void) = { }
+    
     var shimmeringAnimatedItems: [UIView] {
            [
             imgDiamond,
@@ -111,6 +114,16 @@ class B2BSearchResultCardListingTVC: UITableViewCell, ShimmeringViewProtocol {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func btnActionWishCart(_ sender : UIButton){
+        if sender.tag == 0{
+            addToCart()
+        }
+        else{
+            addToWish()
+        }
+    }
+    
     
     @IBAction func btnActionRetunable(_ sender : UIButton){
         refundViewToast.isHidden = false

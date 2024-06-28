@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DiamondDetailsVC: UIViewController, ChildViewControllerProtocol{
+class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
     var delegate: (any BaseViewControllerDelegate)?
     
     func didSendString(str: String) {
@@ -93,7 +93,17 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: DiamondImagesTVC.cellIdentifierDiaDetailsTVC, for: indexPath) as! DiamondImagesTVC
             cell.selectionStyle = .none
-            cell.lblTypeDia.text = self.diamondDetails.details?.growthType
+            cell.lblTypeDia.text = self.diamondDetails.details?.category
+            
+            if let availibility = self.diamondDetails.details?.onHold{
+                if availibility == 0{
+                    cell.btnAvailable.setImage(UIImage(named: "onHold"), for: .normal)
+                }
+                else{
+                    cell.btnAvailable.setImage(UIImage(named: "available"), for: .normal)
+                }
+            }
+            
             cell.imgDiamndView.sd_setImage(with: URL(string:  self.diamondDetails.details?.diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
             cell.alertAction = { tag in
                 let overLayerView = OverLayerView()
@@ -102,6 +112,10 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
                 }
                 if tag == 0{
                     overLayerView.appear(sender: self, tag: tag, url: self.diamondDetails.details?.diamondImage ?? "")
+                }
+                if tag == 3{
+                    let sizesXIB = SizesViewXIB()
+                    sizesXIB.appear(sender: self, tag: tag, url:  "")
                 }
             }
             return cell
@@ -114,9 +128,12 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
             cell.lblCarat.text = self.diamondDetails.details?.carat ?? ""
             cell.lblClr.text = self.diamondDetails.details?.color ?? ""
             cell.lblClarity.text = self.diamondDetails.details?.clarity ?? ""
+           
             
-            cell.lblPrice.text = "₹\(self.diamondDetails.details?.totalPrice ?? 0)"
-            print(self.cut, self.polish, self.symmetry, self.certificate, self.flouro, self.discount)
+            let formattedNumber = formatNumber(Double(self.diamondDetails.details?.totalPrice ?? 0))
+            cell.lblPrice.text = "₹\(formattedNumber)"
+//            cell.lblPrice.text = "₹\(self.diamondDetails.details?.totalPrice ?? 0)"
+           // print(self.cut, self.polish, self.symmetry, self.certificate, self.flouro, self.discount)
             if !self.cut.isEmpty  {
                 cell.lblCut.text = self.cut
             }

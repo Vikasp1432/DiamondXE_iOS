@@ -8,6 +8,7 @@
 import UIKit
 import UIView_Shimmer
 import SDWebImage
+import DropDown
 
 
 class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
@@ -62,7 +63,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
     var certificateArr = [String]()
     var fluoreseArr = [String]()
     var makeArr = [String]()
-    
+    let dropDown = DropDown()
     var cutArr = [String]()
     var polishFancyArr = [String]()
     var symmetryArr = [String]()
@@ -95,12 +96,12 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
     var priceTo = Int()
    
     var param: [String: Any] = [:]
-    
-//    var arryData = ["Color:E","Clarity:FL","Certicicate:GIA","Cerate:GIA"]
+    var currencyRateDetailObj = CurrencyRateDetail()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        CurrencyRatesManager.shareInstence.getCurrencyRates()
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
         // Do any additional setup after loading the view.
@@ -124,12 +125,63 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
       
     }
     
+    
 //    override func viewDidAppear(_ animated: Bool) {
 //        super.viewDidAppear(animated)
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 //            self.isLoading = false
 //        }
 //    }
+    
+    @IBAction func btnActionSorting(_ sender : UIButton){
+        let dataArr = ["Recently Added", "Price(Low to High)", "Price(High to Low)", "Size(Low to High)", "Size(High to Low)"]
+        openDropDown(dataArr: dataArr, anchorView: self.btnSorting)
+       }
+    
+    func updateCurreny(currncyOBJ:CurrencyRateDetail){
+        currencyRateDetailObj = currncyOBJ
+        print(currncyOBJ)
+        self.tableViewList.reloadData()
+    }
+    
+    
+    func openDropDown(dataArr:[String], anchorView:UIView){
+        dropDown.anchorView = anchorView
+        dropDown.dataSource = dataArr
+        dropDown.backgroundColor = UIColor.whitClr
+        dropDown.selectionBackgroundColor = UIColor(red: 0.6494, green: 0.8155, blue: 1.0, alpha: 0.2)
+        dropDown.shadowColor = UIColor(white: 0.6, alpha: 1)
+        dropDown.shadowOpacity = 0.7
+        dropDown.shadowRadius = 15
+        dropDown.cellHeight = 40
+        dropDown.height = 250
+        dropDown.topOffset = CGPoint(x: 0, y:-(dropDown.anchorView?.plainView.bounds.height)!)
+       
+
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+            switch index {
+            case 0:
+                DataManager.shared.sortingBy = "RecentlyAdd"
+            case 1:
+                DataManager.shared.sortingBy = "PriceHigh"
+            case 2:
+                DataManager.shared.sortingBy = "PriceLow"
+            case 3:
+                DataManager.shared.sortingBy = "SizeHigh"
+            case 4:
+                DataManager.shared.sortingBy = "SizeLow"
+            default:
+                print("Selected item: \(item) at index: \(index)")
+            }
+            self.setParam()
+            dropDown.hide()
+            //(PriceHigh,PriceLow,DiscountHigh,RecentlyAdd,SizeHigh,SizeLow)
+        }
+        dropDown.show()
+    }
+
+    
+    
     
     func filterDataRetrive(){
         let shape = DataManager.shared.shapeArr
@@ -309,12 +361,18 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
             btnNatural.setTitleColor(.whitClr, for: .normal)
             btnLabGrown.clearGradient()
             btnLabGrown.setTitleColor(.themeClr, for: .normal)
+            DataManager.shared.diaType = "natural"
+            self.diamondListDetails.removeAll()
+            self.setParam()
         case 1:
             btnLabGrown.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
             btnLabGrown.setTitleColor(.whitClr, for: .normal)
             btnNatural.clearGradient()
             btnNatural.setTitleColor(.themeClr, for: .normal)
-            
+            DataManager.shared.diaType = "labgrown"
+            self.diamondListDetails.removeAll()
+            self.setParam()
+
         case 2:
             self.btnListing.tintColor = UIColor.tabSelectClr
             self.btnCardListing.tintColor = UIColor.clrGray
@@ -380,7 +438,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
                  "crownTo":self.crownToArr,
                  "pavillionFrom":self.pavllionFromArr,
                  "pavillionTo":self.pavllionToArr,
-                 "sortBy":"priceHigh" ]             //(PriceHigh,PriceLow,DiscountHigh,RecentlyAdd,SizeHigh,SizeLow)
+                 "sortBy":DataManager.shared.sortingBy ?? "" ]             //(PriceHigh,PriceLow,DiscountHigh,RecentlyAdd,SizeHigh,SizeLow)
         
         
         
@@ -400,11 +458,13 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
             if data.status == 1{
                 self.diamondListResult = data
                 if let listDetials = self.diamondListResult.details{
+//
                     self.diamondListDetails.append(contentsOf: listDetials)
                     if self.diamondListResult.details?.count ?? 0 > 0{
                         self.tableViewList.isHidden = false
                         self.dataNotFound.isHidden = true
                         self.tableViewList.reloadData()
+                        self.isLoading = false
                     }
                     else{
                         self.tableViewList.isHidden = true
@@ -414,7 +474,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
                     
                 }
 //                print(self.diamondListDetails)
-                self.isLoading = false
+               
                 self.page += 1
                 
                 
@@ -428,6 +488,28 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
         })
         
       }
+    
+    func addToCart(certificateNo:String, indexPath:IndexPath){
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+        
+        let deviceID = getSessionUniqID()
+        let url = APIs().addtoCart_API
+       let param = ["certificateNo":certificateNo,
+                     "sessionId":deviceID]
+        ModelGetDiamond().addToWishCart(url: url, requestParam: param, completion: { data, msg in
+            if data.status == 1{
+//                self.isDataListingView
+                if let cell = self.tableViewList.cellForRow(at: indexPath) as? B2BSearchResultCardListingTVC {
+                    cell.btnCard.setTitleColor(.themeClr, for: .normal)
+                    cell.btnCard.backgroundColor = .green
+                }
+            }
+            else{
+               print("ddd")
+            }
+            CustomActivityIndicator2.shared.hide()
+        })
+    }
     
     
 
@@ -506,6 +588,15 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 cell.lblClarity.text = self.diamondListDetails[indexPath.row].clarity
                 cell.lblCarat.text = self.diamondListDetails[indexPath.row].carat
                 
+                if let availibility = self.diamondListDetails[indexPath.row].onHold{
+                    if availibility == 0{
+                        cell.btnAvailable.setImage(UIImage(named: "onHold"), for: .normal)
+                    }
+                    else{
+                        cell.btnAvailable.setImage(UIImage(named: "available"), for: .normal)
+                    }
+                }
+                
                 let cutVal = self.diamondListDetails[indexPath.row].cutGrade
                 if cutVal?.isEmptyStr ?? true || cutVal == "-"{
                     cell.viewCut.isHidden = true
@@ -558,7 +649,24 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 cell.lblTablePer.text = "T: \(self.diamondListDetails[indexPath.row].tablePerc ?? "")"
                 cell.lblDepPer.text = "D: \(self.diamondListDetails[indexPath.row].depthPerc ?? "")"
                 cell.lblMasurments.text = "M: \(self.diamondListDetails[indexPath.row].measurement ?? "")"
-                cell.lblPrice.text = "₹\(self.diamondListDetails[indexPath.row].totalPrice ?? 0)"
+                
+                if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+                    let currncyVal = self.currencyRateDetailObj.value ?? 1
+                    var finalVal = Double((self.diamondListDetails[indexPath.row].totalPrice ?? 0)) * currncyVal
+                    
+                    let formattedNumber = formatNumber(finalVal)
+
+                    
+                    cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
+                    
+                }
+                else{
+                    let formattedNumber = formatNumber(Double(self.diamondListDetails[indexPath.row].totalPrice ?? 0))
+                    cell.lblPrice.text = "₹\(formattedNumber)"
+                }
+                
+                
+              
                 
                 cell.diamondSelect = {
                     self.delegateDiamond?.didSelectDiamond(self.diamondListDetails[indexPath.row])
@@ -581,6 +689,13 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
 
             cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
             
+            cell.addToCart = {
+                self.addToCart(certificateNo: self.diamondListDetails[indexPath.row].certificateNo ?? "", indexPath: indexPath)
+            }
+            cell.addToWish = {
+                
+            }
+            
             if diamondListDetails.count > 1{
                 cell.lblCirtificateNum.text = self.diamondListDetails[indexPath.row].certificateNo
                 cell.lblLotID.text = "ID: \(self.diamondListDetails[indexPath.row].supplierID ?? 0)"
@@ -590,6 +705,15 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 cell.lblClarity.text = self.diamondListDetails[indexPath.row].clarity
                 cell.lblCarat.text = self.diamondListDetails[indexPath.row].carat
                 
+                
+                if let availibility = self.diamondListDetails[indexPath.row].onHold{
+                    if availibility == 0{
+                        cell.btnAvailable.setImage(UIImage(named: "onHold"), for: .normal)
+                    }
+                    else{
+                        cell.btnAvailable.setImage(UIImage(named: "available"), for: .normal)
+                    }
+                }
                 
                 let cutVal = self.diamondListDetails[indexPath.row].cutGrade
                 if cutVal?.isEmptyStr ?? true || cutVal == "-"{
@@ -645,7 +769,21 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 cell.lblTablePer.text = "T: \(self.diamondListDetails[indexPath.row].tablePerc ?? "")"
                 cell.lblDepPer.text = "D: \(self.diamondListDetails[indexPath.row].depthPerc ?? "")"
                 cell.lblMasurments.text = "M: \(self.diamondListDetails[indexPath.row].measurement ?? "")"
-                cell.lblPrice.text = "₹\(self.diamondListDetails[indexPath.row].totalPrice ?? 0)"
+                
+                if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+                    let currncyVal = self.currencyRateDetailObj.value ?? 1
+                    var finalVal = Double((self.diamondListDetails[indexPath.row].totalPrice ?? 0)) * currncyVal
+                    
+                    let formattedNumber = formatNumber(finalVal)
+                    cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
+                    
+                }
+                else{
+                    
+                    let formattedNumber = formatNumber(Double(self.diamondListDetails[indexPath.row].totalPrice ?? 0))
+                    cell.lblPrice.text = "₹\(formattedNumber)"
+                }
+                
                 
                 cell.imgDiamond.sd_setImage(with: URL(string: self.diamondListDetails[indexPath.row].diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
                 

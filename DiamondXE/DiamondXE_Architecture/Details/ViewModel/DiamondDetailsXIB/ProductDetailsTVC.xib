@@ -195,7 +195,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0G-iq-S0Z">
                                                         <rect key="frame" x="7" y="5" width="28" height="20"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="10"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -225,7 +225,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94g-ye-dRw">
                                                         <rect key="frame" x="7" y="5" width="26" height="20"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="10"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -254,7 +254,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqb-Kj-VCa">
                                                         <rect key="frame" x="7" y="5" width="26" height="20"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="10"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -283,7 +283,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boo-6y-2Tb">
                                                         <rect key="frame" x="7" y="5" width="26" height="20"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="10"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -312,7 +312,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GIA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAD-Va-iGO">
                                                         <rect key="frame" x="7" y="5" width="26" height="20"/>
-                                                        <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="10"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -490,13 +490,13 @@
                                 <rect key="frame" x="15" y="267" width="433" height="50"/>
                                 <subviews>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0FB-fK-Mwr">
-                                        <rect key="frame" x="377" y="5" width="46" height="40"/>
+                                        <rect key="frame" x="386" y="5" width="37" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="kZf-4g-nFQ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="13"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Change">
+                                        <state key="normal" title="Select">
                                             <color key="titleColor" name="themeClr"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -509,9 +509,9 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eO-e5-w8G">
-                                        <rect key="frame" x="40" y="10" width="125" height="30"/>
+                                        <rect key="frame" x="40" y="10" width="245" height="30"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="Delivering to -----">
+                                            <fragment content="Select Delivery Location Pin-Code">
                                                 <attributes>
                                                     <color key="NSColor" name="blackClr"/>
                                                     <font key="NSFont" size="16" name="Lato-Medium"/>

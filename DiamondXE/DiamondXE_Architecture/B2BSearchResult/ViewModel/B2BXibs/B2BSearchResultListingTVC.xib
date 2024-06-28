@@ -360,7 +360,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buz-ff-8HO">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="30"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="available"/>
+                                        <state key="normal" image="onHold"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dH-c3-fOu">
                                         <rect key="frame" x="30" y="0.0" width="25" height="30"/>
@@ -591,8 +591,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="available" width="11.199999809265137" height="11.199999809265137"/>
         <image name="cart_" width="37" height="37"/>
+        <image name="onHold" width="11.199999809265137" height="11.199999809265137"/>
         <image name="returnable" width="13.680000305175781" height="15.829999923706055"/>
         <image name="wishlist" width="37" height="37"/>
         <namedColor name="757677">

@@ -25,6 +25,11 @@ struct Sections {
     var isExpanded: Bool
 }
 
+struct ResultStruct: Codable {
+    var status: Int?
+    var msg: String?
+}
+
 class BaseViewController: UIViewController, UITextFieldDelegate {
     
      let viewControllerIdentifiers = ["HomeVC", "CategoriesVC", "WishVC", "CartVC", "DashboardLoginVC", "SearchDiamondVC", "B2BSearchResultVC", "DiamondDetailsVC"]
@@ -167,6 +172,18 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
         } else {
             print("This view controller is not embedded in a navigation controller.")
         }
+    }
+    
+    // comma saparated
+    func formatNumber(_ number: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        formatter.groupingSeparator = ","
+        formatter.usesGroupingSeparator = true
+        
+        return formatter.string(from: NSNumber(value: number)) ?? ""
     }
 
 }

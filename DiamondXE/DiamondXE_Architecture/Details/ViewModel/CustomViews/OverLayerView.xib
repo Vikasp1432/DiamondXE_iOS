@@ -31,7 +31,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RFc-7r-ept" userLabel="contentView">
-                    <rect key="frame" x="40" y="248" width="334" height="400"/>
+                    <rect key="frame" x="40" y="218" width="334" height="460"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diamond Images" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36R-V9-nRC">
                             <rect key="frame" x="15" y="15" width="136.5" height="21"/>
@@ -53,7 +53,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAU-Js-BIH">
-                            <rect key="frame" x="294" y="360" width="25" height="25"/>
+                            <rect key="frame" x="294" y="420" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="25" id="vkq-qa-dpG"/>
                                 <constraint firstAttribute="height" constant="25" id="ydn-Fp-LHa"/>
@@ -66,10 +66,10 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igh-Ni-PaR">
-                            <rect key="frame" x="15" y="51" width="304" height="294"/>
+                            <rect key="frame" x="15" y="51" width="304" height="354"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="all" translatesAutoresizingMaskIntoConstraints="NO" id="7nV-FT-brN">
-                                    <rect key="frame" x="0.0" y="0.0" width="304" height="294"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="304" height="354"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="8"/>
@@ -103,7 +103,7 @@
                         <constraint firstItem="igh-Ni-PaR" firstAttribute="top" secondItem="36R-V9-nRC" secondAttribute="bottom" constant="15" id="9sC-D1-6J0"/>
                         <constraint firstItem="lAU-Js-BIH" firstAttribute="centerX" secondItem="KE7-5C-omn" secondAttribute="centerX" id="MaM-L6-pde"/>
                         <constraint firstAttribute="bottom" secondItem="lAU-Js-BIH" secondAttribute="bottom" constant="15" id="WY9-bL-H38"/>
-                        <constraint firstAttribute="height" constant="400" id="Xhn-ty-rV1"/>
+                        <constraint firstAttribute="height" constant="460" id="Xhn-ty-rV1"/>
                         <constraint firstItem="36R-V9-nRC" firstAttribute="leading" secondItem="RFc-7r-ept" secondAttribute="leading" constant="15" id="zjD-1o-i4m"/>
                     </constraints>
                 </view>
@@ -134,7 +134,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

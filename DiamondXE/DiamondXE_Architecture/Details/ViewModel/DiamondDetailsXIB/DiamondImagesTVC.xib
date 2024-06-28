@@ -421,6 +421,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnAvailable" destination="NUI-0D-EyI" id="K9K-mR-p0h"/>
                 <outlet property="btnShowInfoView" destination="Rtl-WY-Zt5" id="d0z-rR-K5N"/>
                 <outlet property="img360View" destination="qSi-bB-UZn" id="IqU-Av-AW5"/>
                 <outlet property="imgCertificate" destination="4mq-bD-t9Z" id="jLT-Oh-sw5"/>

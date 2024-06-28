@@ -24,6 +24,19 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     @IBOutlet var lblTitle: UILabel!
     @IBOutlet var headerView: UIView!
     
+    @IBOutlet weak var popupView: UIView!
+    private var isPopupVisible = false
+    private var popupViewHeightConstraint: NSLayoutConstraint!
+    private var popupViewWidthConstraint: NSLayoutConstraint!
+    var isViewExpand = false
+    @IBOutlet weak var popupViewHeightsConstraint: NSLayoutConstraint!
+    let selectCountryView = SelectCountryView()
+    let diaDetailsView = DiaDetailsPopupView()
+
+    @IBOutlet weak var overlayView: UIView!
+
+    var countryView = SelectCountryView()
+    
     
     let screen = UIScreen.main.bounds
     var menu = false
@@ -90,7 +103,192 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
         menuTableView.register(UINib(nibName: MainCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: MainCell.cellIdentifier)
         menuTableView.showsHorizontalScrollIndicator = false
         menuTableView.showsVerticalScrollIndicator = false
+        
+        
+        //
+        setupFloatingButton()
+        setupPopupView()
+        defineCountryPopupView()
+        defineDIADetailsPopupView()
+       
+       
+    }
+    
+    // setup for view
+    private func setupFloatingButton() {
+        btnSearch.addTarget(self, action: #selector(floatingButtonTapped), for: .touchUpInside)
+    }
+    
+    private func setupPopupView() {
+        overlayView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
 
+        popupView.backgroundColor = .white
+        popupView.layer.cornerRadius = 16
+        popupView.layer.masksToBounds = true
+        popupView.layer.borderWidth = 2
+        popupView.layer.borderColor = UIColor.white.cgColor
+        popupView.translatesAutoresizingMaskIntoConstraints = false
+                
+        NSLayoutConstraint.activate([
+            popupView.bottomAnchor.constraint(equalTo: btnSearch.topAnchor, constant: 40)
+        ])
+
+        popupViewHeightsConstraint.isActive = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(overlayViewTapped))
+        overlayView.addGestureRecognizer(tapGestureRecognizer)
+    }
+ 
+    @objc private func floatingButtonTapped() {
+        
+        switch self.currentViewController {
+        case is SearchDiamondVC:
+            updateHeaderBG(setUpTag: 0)
+           gotoSearchResultB2BVC(title: "Search Result")
+        case is B2BSearchResultVC:
+            print("B2BDetails")
+            togglePopup()
+        case is DiamondDetailsVC:
+            print("Details")
+            togglePopup()
+
+        default:
+            print(self.currentViewController)
+        }
+        
+//     navigationManager(storybordName: "GlobleSearch", storyboardID: "GlobleSearchVC", controller: GlobleSearchVC())
+    }
+    
+    
+    func defineCountryPopupView(){
+        selectCountryView.delegate = self
+        selectCountryView.frame = popupView.bounds
+//        popupView.addSubview(selectCountryView)
+        popupViewHeightsConstraint.constant = 145
+    }
+    
+    func defineDIADetailsPopupView(){
+        diaDetailsView.delegate = self
+        diaDetailsView.frame = popupView.bounds
+//        popupView.addSubview(diaDetailsView)
+        popupViewHeightsConstraint.constant = 250
+    }
+    
+    
+    @objc private func overlayViewTapped() {
+        if isPopupVisible {
+            togglePopup()
+        }
+    }
+    
+//    private func togglePopup() {
+//        isPopupVisible.toggle()
+//        overlayView.isHidden = !isPopupVisible
+//        btnSearch.layer.borderWidth = isPopupVisible ? 5 : 0
+//        btnSearch.layer.borderColor = isPopupVisible ? UIColor.white.cgColor : nil
+//        
+//        if isPopupVisible{
+//            btnSearch.layer.shadowRadius = 0
+//            btnSearch.layer.shadowColor = .none
+//            self.popupView.isHidden = false
+//        }
+//        else{
+//            btnSearch.layer.shadowRadius = 4
+//            self.popupView.isHidden = false
+//
+//        }
+//        
+//        switch self.currentViewController {
+//        case is B2BSearchResultVC:
+//            popupView.addSubview(selectCountryView)
+//            selectCountryView.viewData.isHidden = true
+//            selectCountryView.isViewExpand = false
+//            popupViewHeightsConstraint.constant = isPopupVisible ? 140 : 0
+//        case is DiamondDetailsVC:
+//            popupView.addSubview(diaDetailsView)
+//            popupViewHeightsConstraint.constant = isPopupVisible ? 250 : 0
+//
+//        default:
+//            print(self.currentViewController)
+//        }
+//        
+//        
+//        UIView.animate(withDuration: 0.3, animations: {
+//            self.view.layoutIfNeeded()
+//            let rotationAngle: CGFloat = self.isPopupVisible ? .pi / 4 : 0
+//            self.btnSearch.transform = CGAffineTransform(rotationAngle: rotationAngle)
+//            self.overlayView.alpha = self.isPopupVisible ? 0.7 : 0.0
+//           
+//        }){ _ in
+//            if !self.isPopupVisible {
+//                self.overlayView.isHidden = true
+//            }
+//        }
+//    }
+    
+    private func togglePopup() {
+        isPopupVisible.toggle()
+        overlayView.isHidden = false
+        btnSearch.layer.borderWidth = isPopupVisible ? 5 : 0
+        btnSearch.layer.borderColor = isPopupVisible ? UIColor.white.cgColor : nil
+        
+        if isPopupVisible {
+            btnSearch.layer.shadowRadius = 0
+            btnSearch.layer.shadowColor = .none
+            self.popupView.isHidden = false
+        } else {
+            btnSearch.layer.shadowRadius = 4
+        }
+        
+        switch self.currentViewController {
+        case is B2BSearchResultVC:
+            selectCountryView.translatesAutoresizingMaskIntoConstraints = false
+            
+            
+            popupView.addSubview(selectCountryView)
+           
+            NSLayoutConstraint.activate([
+                        selectCountryView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor),
+                        selectCountryView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor),
+                        selectCountryView.topAnchor.constraint(equalTo: popupView.topAnchor),
+                        selectCountryView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor)
+                    ])
+            selectCountryView.viewData.isHidden = true
+            selectCountryView.isViewExpand = false
+            popupViewHeightsConstraint.constant = isPopupVisible ? 140 : 0
+        case is DiamondDetailsVC:
+            diaDetailsView.translatesAutoresizingMaskIntoConstraints = false
+            popupView.addSubview(diaDetailsView)
+            NSLayoutConstraint.activate([
+                diaDetailsView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor),
+                diaDetailsView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor),
+                diaDetailsView.topAnchor.constraint(equalTo: popupView.topAnchor),
+                diaDetailsView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor)
+                    ])
+            popupViewHeightsConstraint.constant = isPopupVisible ? 250 : 0
+        default:
+            print(self.currentViewController)
+        }
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+            let rotationAngle: CGFloat = self.isPopupVisible ? .pi / 4 : 0
+            self.btnSearch.transform = CGAffineTransform(rotationAngle: rotationAngle)
+            self.overlayView.alpha = self.isPopupVisible ? 0.7 : 0.0
+        }, completion: { _ in
+            if self.isPopupVisible {
+                UIView.animate(withDuration: 0.3, animations: {
+                   
+                })
+            } else {
+                UIView.animate(withDuration: 0.3, animations: {
+//                    let rotationAngle: CGFloat = self.isPopupVisible ? .pi / 4 : 0
+//                    self.btnSearch.transform = CGAffineTransform(rotationAngle: rotationAngle)
+                }, completion: { _ in
+                    self.popupView.isHidden = true
+                    self.overlayView.isHidden = true
+                })
+            }
+        })
     }
     
     func updateHeaderBG(setUpTag:Int) {
@@ -125,51 +323,59 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
        }
     
     func loadViewController(withIdentifier identifier: String, fromStoryboard storyboardName: String) {
-            if identifier == currentViewControllerIdentifier {
-                return
-            }
-
-            let direction: SlideDirection = {
-                if let currentIdentifier = currentViewControllerIdentifier,
-                   let currentIndex = viewControllerIdentifiers.firstIndex(of: currentIdentifier),
-                   let newIndex = viewControllerIdentifiers.firstIndex(of: identifier) {
-                    return newIndex > currentIndex ? .right : .left
-                }
-                return .right
-            }()
-
-            let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-            guard let newViewController = storyboard.instantiateViewController(withIdentifier: identifier) as? ChildViewControllerProtocol else { return }
+        if identifier == currentViewControllerIdentifier {
+            return
+        }
         
-          if let diamondDetailsVC = newViewController as? DiamondDetailsVC {
-              diamondDetailsVC.diamondInfo = self.diamondDetails
+        let direction: SlideDirection = {
+            if let currentIdentifier = currentViewControllerIdentifier,
+               let currentIndex = viewControllerIdentifiers.firstIndex(of: currentIdentifier),
+               let newIndex = viewControllerIdentifiers.firstIndex(of: identifier) {
+                return newIndex > currentIndex ? .right : .left
             }
+            return .right
+        }()
+        
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        guard let newViewController = storyboard.instantiateViewController(withIdentifier: identifier) as? ChildViewControllerProtocol else { return }
+        if let diamondDetailsVC = newViewController as? HomeVC {
+            self.btnSearch.setImage(UIImage(named: "SearchI"), for: .normal)
+        }
+        if let diamondDetailsVC = newViewController as? SearchDiamondVC {
+            self.btnSearch.setImage(UIImage(named: "SearchI"), for: .normal)
+        }
+        
+        if let diamondDetailsVC = newViewController as? DiamondDetailsVC {
+            diamondDetailsVC.diamondInfo = self.diamondDetails
+            self.btnSearch.setImage(UIImage(named: "plus"), for: .normal)
+        }
         
         if let b2bSearchDiamondVC = newViewController as? B2BSearchResultVC {
-               b2bSearchDiamondVC.dashboardVC = self
-           }
-            
-             newViewController.delegate = self
-            newViewController.didSendString(str: self.lblTitle.text ?? "")
-            let width = self.containerView.bounds.size.width
-            let initialFrame = CGRect(x: direction == .right ? width : -width, y: 0, width: width, height: self.containerView.bounds.size.height)
-            let finalFrame = self.containerView.bounds
-
-            newViewController.view.frame = initialFrame
-            containerView.addSubview(newViewController.view)
-            addChild(newViewController)
-            newViewController.didMove(toParent: self)
-            
-            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
-                newViewController.view.frame = finalFrame
-                self.currentViewController?.view.frame = CGRect(x: direction == .right ? -width : width, y: 0, width: width, height: self.containerView.bounds.size.height)
-            }) { _ in
-                self.currentViewController?.willMove(toParent: nil)
-                self.currentViewController?.view.removeFromSuperview()
-                self.currentViewController?.removeFromParent()
-                self.currentViewController = newViewController
-                self.currentViewControllerIdentifier = identifier
-            }
+            b2bSearchDiamondVC.dashboardVC = self
+            self.btnSearch.setImage(UIImage(named: "plus"), for: .normal)
+        }
+        
+        newViewController.delegate = self
+        newViewController.didSendString(str: self.lblTitle.text ?? "")
+        let width = self.containerView.bounds.size.width
+        let initialFrame = CGRect(x: direction == .right ? width : -width, y: 0, width: width, height: self.containerView.bounds.size.height)
+        let finalFrame = self.containerView.bounds
+        
+        newViewController.view.frame = initialFrame
+        containerView.addSubview(newViewController.view)
+        addChild(newViewController)
+        newViewController.didMove(toParent: self)
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+            newViewController.view.frame = finalFrame
+            self.currentViewController?.view.frame = CGRect(x: direction == .right ? -width : width, y: 0, width: width, height: self.containerView.bounds.size.height)
+        }) { _ in
+            self.currentViewController?.willMove(toParent: nil)
+            self.currentViewController?.view.removeFromSuperview()
+            self.currentViewController?.removeFromParent()
+            self.currentViewController = newViewController
+            self.currentViewControllerIdentifier = identifier
+        }
         
     }
     
@@ -253,17 +459,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
         
     }
     
-//    @objc func imageTapped(_ sender: UITapGestureRecognizer) {
-//        if menu == false && swipeGesture.direction == .right {
-//            
-//            print("showing menu")
-//            
-//            showMenu()
-//            
-//            menu = true
-//            
-//        }
-//    }
+
     
     @IBAction func showMenu(_ sender: UISwipeGestureRecognizer) {
         
@@ -421,18 +617,25 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     
   
     
-    @IBAction func btnActionSearch(_ sender: UIButton) {
-        
-        switch self.currentViewController {
-        case is SearchDiamondVC:
-            updateHeaderBG(setUpTag: 0)
-           gotoSearchResultB2BVC(title: "Search Result")
-        default:
-            print(self.currentViewController)
-        }
-        
-//     navigationManager(storybordName: "GlobleSearch", storyboardID: "GlobleSearchVC", controller: GlobleSearchVC())
-    }
+//    @IBAction func btnActionSearch(_ sender: UIButton) {
+//        
+//        switch self.currentViewController {
+//        case is SearchDiamondVC:
+//            updateHeaderBG(setUpTag: 0)
+//           gotoSearchResultB2BVC(title: "Search Result")
+//        case is B2BSearchResultVC:
+//            print("B2BDetails")
+//            togglePopup()
+//        case is DiamondDetailsVC:
+//            print("Details")
+//            togglePopup()
+//
+//        default:
+//            print(self.currentViewController)
+//        }
+//        
+////     navigationManager(storybordName: "GlobleSearch", storyboardID: "GlobleSearchVC", controller: GlobleSearchVC())
+//    }
     
     @IBAction func btnActionSocialM(_ sender: UIButton) {
         self.tagV.tagVC = sender.tag
@@ -440,6 +643,60 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
         
     }
 
+    
+}
+
+extension DashboardVC : SelectCountryViewDelegate, DiaDetailsPopupViewDelegate {
+    func customViewButtonTapped(_ customView: SelectCountryView, returnValue: String) {
+        if returnValue != "isExpand" && returnValue != "None"{
+            var getCurrnyRate = CurrencyRatesManager.shareInstence.currencyRateStruct
+            for (index, value) in getCurrnyRate.enumerated() {
+                if returnValue == value.currency {
+                    switch self.currentViewController {
+                    case is B2BSearchResultVC:
+                        if let b2bSearchResultVC = self.currentViewController as? B2BSearchResultVC {
+                            b2bSearchResultVC.updateCurreny(currncyOBJ: value)
+                            break
+                        }
+                    default:
+                        print("")
+                    }
+                    break
+                }
+            }
+            
+        }
+        
+        isViewExpand.toggle()
+        if returnValue == "isExpand"{
+            selectCountryView.viewData.isHidden = false
+            selectCountryView.setupData()
+            popupViewHeightsConstraint.constant = 470
+            UIView.animate(withDuration: 0.3,
+                           delay: 0,
+                           options: .curveEaseInOut,
+                           animations: {
+                self.view.layoutIfNeeded()
+            },
+                           completion: nil)
+        }
+        else if returnValue == "None" {
+            selectCountryView.viewData.isHidden = true
+            popupViewHeightsConstraint.constant = 140
+            UIView.animate(withDuration: 0.3,
+                           delay: 0,
+                           options: .curveEaseInOut,
+                           animations: {
+                self.view.layoutIfNeeded()
+            },
+                           completion: nil)
+        }
+    }
+    
+    func customViewButtonTapped(_ customView: DiaDetailsPopupView, returnValue: String) {
+        print(returnValue)
+    }
+    
     
 }
 

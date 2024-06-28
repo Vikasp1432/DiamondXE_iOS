@@ -27,4 +27,23 @@ class ModelGetDiamond {
             }
         })
     }
+    
+    func addToWishCart(url : String, requestParam: [String:Any], completion: @escaping (ResultStruct, String?) -> Void) {
+        var resultStruct = ResultStruct()
+        AlamofireManager().makePostAPIRequestWithLocation(url: url, param: requestParam, completion: { result in
+            switch result {
+            case .success(let data):
+                // Handle the response data
+                do {
+                    resultStruct = try JsonParsingManagar.parse(jsonData: data!, type: ResultStruct.self)
+                    completion(resultStruct, resultStruct.msg)
+                } catch {
+                    completion(resultStruct, resultStruct.msg)
+                }
+            case .failure(let error):
+                // Handle the error
+                completion(resultStruct, error.localizedDescription)
+            }
+        })
+    }
 }

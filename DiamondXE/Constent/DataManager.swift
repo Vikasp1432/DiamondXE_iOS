@@ -20,6 +20,9 @@ class DataManager {
     var color : String?
     var isReturnabl : Int?
     
+    var sortingBy : String?
+    var curreny : String?
+    
     var keyWordSearch : String?
     
     var dictionaryOfSets: [String: Set<[FilterAttribDetail]>] = [:]

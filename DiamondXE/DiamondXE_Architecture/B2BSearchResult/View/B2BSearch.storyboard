@@ -159,6 +159,7 @@
                                                         <state key="normal" image="sort"/>
                                                         <connections>
                                                             <action selector="btnActionDiamdType:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qQE-X0-nAs"/>
+                                                            <action selector="btnActionSorting:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hTa-n6-QbF"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -175,9 +176,13 @@
                                             <constraint firstItem="B3v-E4-Xs7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0Xk-kW-LZ3" secondAttribute="trailing" constant="18" id="zKK-LO-faI"/>
                                         </constraints>
                                     </view>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rXx-f9-Mw9">
-                                        <rect key="frame" x="0.0" y="180.66666666666669" width="393" height="578.33333333333326"/>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noResult" translatesAutoresizingMaskIntoConstraints="NO" id="rXx-f9-Mw9">
+                                        <rect key="frame" x="136.66666666666666" y="445" width="119.99999999999997" height="50"/>
                                         <color key="backgroundColor" name="VideBGClr"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="5ip-49-Rhp"/>
+                                            <constraint firstAttribute="width" constant="120" id="YeT-uE-GcB"/>
+                                        </constraints>
                                     </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ha5-38-VqA">
                                         <rect key="frame" x="0.0" y="180.66666666666669" width="393" height="578.33333333333326"/>
@@ -190,22 +195,20 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="rXx-f9-Mw9" firstAttribute="leading" secondItem="yW9-HR-DwR" secondAttribute="leading" id="2xR-9X-uLr"/>
                                     <constraint firstItem="ha5-38-VqA" firstAttribute="top" secondItem="yTs-sv-lPh" secondAttribute="bottom" id="5dc-0d-1p0"/>
-                                    <constraint firstAttribute="bottom" secondItem="rXx-f9-Mw9" secondAttribute="bottom" id="AtY-eZ-1Lb"/>
                                     <constraint firstItem="yTs-sv-lPh" firstAttribute="leading" secondItem="yW9-HR-DwR" secondAttribute="leading" constant="15" id="D2F-m4-vRy"/>
                                     <constraint firstItem="C7b-ti-vkZ" firstAttribute="top" secondItem="yW9-HR-DwR" secondAttribute="top" constant="10" id="I3V-sN-AfI"/>
                                     <constraint firstAttribute="trailing" secondItem="C7b-ti-vkZ" secondAttribute="trailing" id="O6o-60-jv2"/>
                                     <constraint firstItem="C7b-ti-vkZ" firstAttribute="leading" secondItem="yW9-HR-DwR" secondAttribute="leading" id="UNh-5L-0TG"/>
                                     <constraint firstAttribute="trailing" secondItem="yTs-sv-lPh" secondAttribute="trailing" constant="10" id="WiL-u0-F0h"/>
-                                    <constraint firstItem="rXx-f9-Mw9" firstAttribute="top" secondItem="yTs-sv-lPh" secondAttribute="bottom" id="WvH-Yz-Vsq"/>
+                                    <constraint firstItem="rXx-f9-Mw9" firstAttribute="centerX" secondItem="ha5-38-VqA" secondAttribute="centerX" id="Xse-H9-ZJB"/>
                                     <constraint firstItem="yTs-sv-lPh" firstAttribute="top" secondItem="LEC-8G-cTk" secondAttribute="bottom" id="bQv-Wh-r1m"/>
                                     <constraint firstAttribute="trailing" secondItem="ha5-38-VqA" secondAttribute="trailing" id="e9T-nc-eLw"/>
                                     <constraint firstAttribute="bottom" secondItem="ha5-38-VqA" secondAttribute="bottom" id="fGi-oN-drd"/>
+                                    <constraint firstItem="rXx-f9-Mw9" firstAttribute="centerY" secondItem="ha5-38-VqA" secondAttribute="centerY" id="klu-fh-UYa"/>
                                     <constraint firstItem="ha5-38-VqA" firstAttribute="leading" secondItem="yW9-HR-DwR" secondAttribute="leading" id="sVP-Lz-XsO"/>
                                     <constraint firstAttribute="trailing" secondItem="LEC-8G-cTk" secondAttribute="trailing" constant="20" id="sYh-Tq-vbl"/>
                                     <constraint firstItem="LEC-8G-cTk" firstAttribute="top" secondItem="C7b-ti-vkZ" secondAttribute="bottom" constant="20" id="tT3-4R-oDb"/>
-                                    <constraint firstAttribute="trailing" secondItem="rXx-f9-Mw9" secondAttribute="trailing" id="vSl-6f-eSR"/>
                                     <constraint firstItem="LEC-8G-cTk" firstAttribute="leading" secondItem="yW9-HR-DwR" secondAttribute="leading" constant="20" id="yJp-4g-cgv"/>
                                 </constraints>
                             </view>
@@ -240,6 +243,7 @@
         <image name="arrowUp" width="10.079999923706055" height="6.2800002098083496"/>
         <image name="cardView" width="17.100000381469727" height="17.100000381469727"/>
         <image name="listView" width="20.040000915527344" height="15.680000305175781"/>
+        <image name="noResult" width="144.00999450683594" height="102.91999816894531"/>
         <image name="sort" width="15.810000419616699" height="16.75"/>
         <namedColor name="TabSelectClr">
             <color red="0.49399998784065247" green="0.18799999356269836" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

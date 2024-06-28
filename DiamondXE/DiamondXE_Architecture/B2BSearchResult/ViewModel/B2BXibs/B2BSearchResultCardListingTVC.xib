@@ -80,7 +80,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81m-Xx-FXB">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="30"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="available"/>
+                                        <state key="normal" image="onHold"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDs-4B-ajd">
                                         <rect key="frame" x="30" y="0.0" width="25" height="30"/>
@@ -441,6 +441,9 @@
                                                 <state key="normal" title="Add to Cart">
                                                     <color key="titleColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnActionWishCart:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rGL-ee-Sbs"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="whitClr"/>
@@ -462,10 +465,13 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aac-ej-Elm">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aac-ej-Elm">
                                         <rect key="frame" x="118" y="0.0" width="37" height="38"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="cart_"/>
+                                        <state key="normal" image="wishlist"/>
+                                        <connections>
+                                            <action selector="btnActionWishCart:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="z4G-bs-AUg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -594,10 +600,10 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="available" width="11.199999809265137" height="11.199999809265137"/>
-        <image name="cart_" width="37" height="37"/>
+        <image name="onHold" width="11.199999809265137" height="11.199999809265137"/>
         <image name="place_Holder" width="87" height="73.333335876464844"/>
         <image name="returnable" width="13.680000305175781" height="15.829999923706055"/>
+        <image name="wishlist" width="37" height="37"/>
         <namedColor name="757677">
             <color red="0.45882352941176469" green="0.46274509803921571" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

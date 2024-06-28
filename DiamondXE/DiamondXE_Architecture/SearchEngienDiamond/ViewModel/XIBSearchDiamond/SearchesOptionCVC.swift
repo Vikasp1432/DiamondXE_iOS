@@ -27,6 +27,7 @@ class SearchesOptionCVC: UICollectionViewCell {
     }
     
     @IBOutlet var btnTitle : UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

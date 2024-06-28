@@ -42,6 +42,17 @@ struct APIs {
     let get_Diamond_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-diamonds"
     
     let get_DiamondDetails_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-diamond-details"
+    let get_CurrencyRates_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-currency-rates"
+    
+    let get_DiamodPreview_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/diamond-size-preview"
+    
+    let addtoCart_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/add-to-cart"
+    
+    let removetoCart_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/remove-from-cart"
+    
+    let addtoWishlist_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/add-to-wishlist"
+    
+    let removetoWishlist_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/remove-from-wishlist"
 }
 
 struct HeaderInfo {

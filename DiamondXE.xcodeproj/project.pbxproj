@@ -28,6 +28,8 @@
 		443886A82C09A7F100F96AF5 /* SearchDiamondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443886A72C09A7F100F96AF5 /* SearchDiamondVC.swift */; };
 		4438F9BF2C0EF21A009906FF /* SearchesOptionCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4438F9BE2C0EF21A009906FF /* SearchesOptionCVC.xib */; };
 		4438F9C02C0EF21A009906FF /* SearchesOptionCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4438F9BD2C0EF21A009906FF /* SearchesOptionCVC.swift */; };
+		443B99842C2BF2CE00961B88 /* DiaDetailsPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443B99832C2BF2CE00961B88 /* DiaDetailsPopupView.xib */; };
+		443B99862C2BF2E400961B88 /* DiaDetailsPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B99852C2BF2E400961B88 /* DiaDetailsPopupView.swift */; };
 		443C54662BFE1BD000740C0D /* CustomerViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443C54642BFE1BD000740C0D /* CustomerViewCVC.swift */; };
 		443C54672BFE1BD000740C0D /* CustomerViewCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443C54652BFE1BD000740C0D /* CustomerViewCVC.xib */; };
 		443D5D9F2C09FD3800A6C15B /* SearchDiamondTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443D5D9E2C09FD3800A6C15B /* SearchDiamondTVC.xib */; };
@@ -36,6 +38,8 @@
 		443D5DA42C09FF9500A6C15B /* SearchDiamondCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443D5DA12C09FF9500A6C15B /* SearchDiamondCVC.swift */; };
 		443DCBC12C1039190003C859 /* SearchOptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DCBC02C1039190003C859 /* SearchOptionModel.swift */; };
 		443DCBC32C10392A0003C859 /* SearchOptionDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DCBC22C10392A0003C859 /* SearchOptionDataStruct.swift */; };
+		443E276D2C2AC77400981A6F /* SelectCountryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443E276C2C2AC77400981A6F /* SelectCountryView.xib */; };
+		443E276F2C2AC79100981A6F /* SelectCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E276E2C2AC79100981A6F /* SelectCountryView.swift */; };
 		4440C5922BD9033E00C00975 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4440C5912BD9033E00C00975 /* SignupVC.swift */; };
 		4440C5982BD9074400C00975 /* BuyerCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4440C5962BD9074400C00975 /* BuyerCell1.swift */; };
 		4440C5992BD9074400C00975 /* BuyerCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4440C5972BD9074400C00975 /* BuyerCell1.xib */; };
@@ -94,6 +98,10 @@
 		445A78DE2C257A390088463D /* OverLayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445A78DC2C257A380088463D /* OverLayerView.xib */; };
 		445A78DF2C257A390088463D /* OverLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445A78DD2C257A380088463D /* OverLayerView.swift */; };
 		445BD7632C20330200DB7DAF /* ModelGetDiamond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BD7622C20330200DB7DAF /* ModelGetDiamond.swift */; };
+		44624D9E2C2D5E6C002D5757 /* MakeDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44624D9D2C2D5E6C002D5757 /* MakeDropDown.swift */; };
+		44624DA32C2D744A002D5757 /* CurrencyRatesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44624DA22C2D744A002D5757 /* CurrencyRatesManager.swift */; };
+		44624DA62C2D9C7B002D5757 /* SizesViewXIB.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44624DA52C2D9C7B002D5757 /* SizesViewXIB.xib */; };
+		44624DA72C2D9C7B002D5757 /* SizesViewXIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44624DA42C2D9C7B002D5757 /* SizesViewXIB.swift */; };
 		4463C2F92BCFF38C000D939E /* ViewProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463C2F82BCFF38C000D939E /* ViewProperty.swift */; };
 		44681F442BFF4D70009BD156 /* GlobleSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44681F432BFF4D70009BD156 /* GlobleSearchVC.swift */; };
 		44681F462BFF4D99009BD156 /* GlobleSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44681F452BFF4D99009BD156 /* GlobleSearch.storyboard */; };
@@ -245,6 +253,8 @@
 		443886A72C09A7F100F96AF5 /* SearchDiamondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDiamondVC.swift; sourceTree = "<group>"; };
 		4438F9BD2C0EF21A009906FF /* SearchesOptionCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchesOptionCVC.swift; sourceTree = "<group>"; };
 		4438F9BE2C0EF21A009906FF /* SearchesOptionCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchesOptionCVC.xib; sourceTree = "<group>"; };
+		443B99832C2BF2CE00961B88 /* DiaDetailsPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiaDetailsPopupView.xib; sourceTree = "<group>"; };
+		443B99852C2BF2E400961B88 /* DiaDetailsPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaDetailsPopupView.swift; sourceTree = "<group>"; };
 		443C54642BFE1BD000740C0D /* CustomerViewCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewCVC.swift; sourceTree = "<group>"; };
 		443C54652BFE1BD000740C0D /* CustomerViewCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerViewCVC.xib; sourceTree = "<group>"; };
 		443D5D9D2C09FD3800A6C15B /* SearchDiamondTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDiamondTVC.swift; sourceTree = "<group>"; };
@@ -253,6 +263,8 @@
 		443D5DA22C09FF9500A6C15B /* SearchDiamondCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDiamondCVC.xib; sourceTree = "<group>"; };
 		443DCBC02C1039190003C859 /* SearchOptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionModel.swift; sourceTree = "<group>"; };
 		443DCBC22C10392A0003C859 /* SearchOptionDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionDataStruct.swift; sourceTree = "<group>"; };
+		443E276C2C2AC77400981A6F /* SelectCountryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectCountryView.xib; sourceTree = "<group>"; };
+		443E276E2C2AC79100981A6F /* SelectCountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryView.swift; sourceTree = "<group>"; };
 		4440C5912BD9033E00C00975 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		4440C5962BD9074400C00975 /* BuyerCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerCell1.swift; sourceTree = "<group>"; };
 		4440C5972BD9074400C00975 /* BuyerCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyerCell1.xib; sourceTree = "<group>"; };
@@ -309,6 +321,10 @@
 		445A78DC2C257A380088463D /* OverLayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverLayerView.xib; sourceTree = "<group>"; };
 		445A78DD2C257A380088463D /* OverLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverLayerView.swift; sourceTree = "<group>"; };
 		445BD7622C20330200DB7DAF /* ModelGetDiamond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGetDiamond.swift; sourceTree = "<group>"; };
+		44624D9D2C2D5E6C002D5757 /* MakeDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeDropDown.swift; sourceTree = "<group>"; };
+		44624DA22C2D744A002D5757 /* CurrencyRatesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatesManager.swift; sourceTree = "<group>"; };
+		44624DA42C2D9C7B002D5757 /* SizesViewXIB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesViewXIB.swift; sourceTree = "<group>"; };
+		44624DA52C2D9C7B002D5757 /* SizesViewXIB.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SizesViewXIB.xib; sourceTree = "<group>"; };
 		4463C2F82BCFF38C000D939E /* ViewProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProperty.swift; sourceTree = "<group>"; };
 		44681F432BFF4D70009BD156 /* GlobleSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobleSearchVC.swift; sourceTree = "<group>"; };
 		44681F452BFF4D99009BD156 /* GlobleSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GlobleSearch.storyboard; sourceTree = "<group>"; };
@@ -519,6 +535,17 @@
 			path = XIBSearchDiamond;
 			sourceTree = "<group>";
 		};
+		443E276B2C2AC72C00981A6F /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				443E276E2C2AC79100981A6F /* SelectCountryView.swift */,
+				443E276C2C2AC77400981A6F /* SelectCountryView.xib */,
+				443B99852C2BF2E400961B88 /* DiaDetailsPopupView.swift */,
+				443B99832C2BF2CE00961B88 /* DiaDetailsPopupView.xib */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		4440C5932BD9069C00C00975 /* BuyerXIB */ = {
 			isa = PBXGroup;
 			children = (
@@ -716,8 +743,18 @@
 				445A78DC2C257A380088463D /* OverLayerView.xib */,
 				44C38AE72C25B7CB005AAF9A /* LocationPinView.swift */,
 				44C38AE82C25B7CB005AAF9A /* LocationPinView.xib */,
+				44624DA42C2D9C7B002D5757 /* SizesViewXIB.swift */,
+				44624DA52C2D9C7B002D5757 /* SizesViewXIB.xib */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		44624DA12C2D742B002D5757 /* SetCurrcyRates */ = {
+			isa = PBXGroup;
+			children = (
+				44624DA22C2D744A002D5757 /* CurrencyRatesManager.swift */,
+			);
+			path = SetCurrcyRates;
 			sourceTree = "<group>";
 		};
 		44681F3F2BFF4CE6009BD156 /* GlobleSearchVC */ = {
@@ -857,6 +894,8 @@
 		447E729F2BCFBF3700AAEA57 /* Constent */ = {
 			isa = PBXGroup;
 			children = (
+				44624DA12C2D742B002D5757 /* SetCurrcyRates */,
+				44624D9D2C2D5E6C002D5757 /* MakeDropDown.swift */,
 				44CD7D4E2BD0F1CF0004153E /* Constent.swift */,
 				44CD7D502BD0F2E80004153E /* BaseViewController.swift */,
 				444F85372C2176F100369E97 /* DataManager.swift */,
@@ -1064,6 +1103,7 @@
 		44CC388F2BD7C30C002B3597 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				443E276B2C2AC72C00981A6F /* CustomViews */,
 				44E61DAC2BFB3F8D006E136E /* HomeTableViewCells */,
 				4470B0932BF7917500DC824B /* SideMenuXIB */,
 				44CE86272BF5F766004AAAF3 /* DashboardControllers */,
@@ -1291,6 +1331,7 @@
 				44556C222BF77EC600B5FBA4 /* LATO-BLACK.TTF in Resources */,
 				4440C5992BD9074400C00975 /* BuyerCell1.xib in Resources */,
 				440FE4D82BF395C100B11770 /* splashVD.mp4 in Resources */,
+				443B99842C2BF2CE00961B88 /* DiaDetailsPopupView.xib in Resources */,
 				44A81B572BDF6FB1008AB93A /* Dealer_OtherDocCell.xib in Resources */,
 				44CF42532C245D4200C20EAB /* ProductDetailsTVC.xib in Resources */,
 				44556C232BF77EC600B5FBA4 /* LATO-BLACKITALIC.TTF in Resources */,
@@ -1303,6 +1344,7 @@
 				44E61DA72BFB30F4006E136E /* CategoriesVC.storyboard in Resources */,
 				44D7F6A62BFDCB7F00C3F761 /* TopDealsCVC.xib in Resources */,
 				448A56602BFE0B0100F01591 /* MediaSpotlightTVCl.xib in Resources */,
+				44624DA62C2D9C7B002D5757 /* SizesViewXIB.xib in Resources */,
 				445222FC2C00830D00EA79B2 /* SuggestedTVC.xib in Resources */,
 				445222F42C0082CB00EA79B2 /* SuggestedCVC.xib in Resources */,
 				446A8A242C26CE92001DB644 /* SimillarProductTVC.xib in Resources */,
@@ -1357,6 +1399,7 @@
 				443886A22C09A43000F96AF5 /* SearchDiamond.storyboard in Resources */,
 				446A8A282C26CF47001DB644 /* SimillarProductCVC.xib in Resources */,
 				44CC38912BD7C371002B3597 /* Dashboard.storyboard in Resources */,
+				443E276D2C2AC77400981A6F /* SelectCountryView.xib in Resources */,
 				4440C59D2BD9110100C00975 /* FooterCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1498,11 +1541,13 @@
 				44C09F592C1C727A0031F390 /* DiamondSearchDataStructB2B.swift in Sources */,
 				445A78DF2C257A390088463D /* OverLayerView.swift in Sources */,
 				4470B09A2BF7919A00DC824B /* ExpandableCell.swift in Sources */,
+				443E276F2C2AC79100981A6F /* SelectCountryView.swift in Sources */,
 				4463C2F92BCFF38C000D939E /* ViewProperty.swift in Sources */,
 				44681F442BFF4D70009BD156 /* GlobleSearchVC.swift in Sources */,
 				444A1A772BD2A11200B8A6CA /* ResetPasswordVC.swift in Sources */,
 				440D7BF62BFCC28D005F8835 /* NewArrivalsTVC.swift in Sources */,
 				44FFD83F2BEB54F2002A8C8D /* DocVerifyStruct.swift in Sources */,
+				44624DA72C2D9C7B002D5757 /* SizesViewXIB.swift in Sources */,
 				447E726D2BCFAB4000AAEA57 /* ViewController.swift in Sources */,
 				44560D942C1AFF92003D8F18 /* B2BSearchResultListingTVC.swift in Sources */,
 				44CE86292BF5F7CE004AAAF3 /* HomeVC.swift in Sources */,
@@ -1538,6 +1583,7 @@
 				44457F7C2C241BF1008B1D9C /* DiamondDetailsVC.swift in Sources */,
 				44CD7D512BD0F2E80004153E /* BaseViewController.swift in Sources */,
 				4458B8772BFE02360018AB4A /* PromisesDXETVC.swift in Sources */,
+				443B99862C2BF2E400961B88 /* DiaDetailsPopupView.swift in Sources */,
 				4470B09B2BF7919A00DC824B /* MainCell.swift in Sources */,
 				447E72692BCFAB4000AAEA57 /* AppDelegate.swift in Sources */,
 				44F631282BEF4442003EE2BC /* Supplier_CompanyDetails.swift in Sources */,
@@ -1568,10 +1614,12 @@
 				444F85382C2176F100369E97 /* DataManager.swift in Sources */,
 				444A1A6A2BD25CDD00B8A6CA /* LoginDataStruct.swift in Sources */,
 				4440C5982BD9074400C00975 /* BuyerCell1.swift in Sources */,
+				44624D9E2C2D5E6C002D5757 /* MakeDropDown.swift in Sources */,
 				44C571F62BFCA9D6007B081F /* GiftOfChoiceTVC.swift in Sources */,
 				440D7BFE2BFCCA3A005F8835 /* TopDealsTVC.swift in Sources */,
 				44C8A45D2BE12145006C9B06 /* Supplier_AuthorisedPersonCell.swift in Sources */,
 				444243932C05D473001E976B /* UserDefaultManager.swift in Sources */,
+				44624DA32C2D744A002D5757 /* CurrencyRatesManager.swift in Sources */,
 				44C4A3632BF499B700630E43 /* TabViewCustom.swift in Sources */,
 				448A56612BFE0B0100F01591 /* MediaSpotlightTVCl.swift in Sources */,
 				44A81B5C2BDF6FD8008AB93A /* Dealer_CompanyDetailsCell.swift in Sources */,
