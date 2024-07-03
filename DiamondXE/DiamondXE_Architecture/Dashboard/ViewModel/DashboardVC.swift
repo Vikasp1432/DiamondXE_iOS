@@ -507,6 +507,8 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
         self.lblTitle.isHidden = true
         self.imgLOGO.isHidden = false
         self.stackIcons.isHidden = false
+        isComeFromHome = true
+        cartVCIsComeFromHome = true
         switch sender.tag {
         case 0:
             self.btnHome.tintColor = .themeClr
@@ -695,6 +697,17 @@ extension DashboardVC : SelectCountryViewDelegate, DiaDetailsPopupViewDelegate {
     
     func customViewButtonTapped(_ customView: DiaDetailsPopupView, returnValue: String) {
         print(returnValue)
+        if returnValue == "CallFEnqry"{
+            let phoneNumber = nv_whatsapp
+            if let phoneURL = URL(string: "tel://\(phoneNumber)") {
+                if UIApplication.shared.canOpenURL(phoneURL) {
+                    UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
+                } else {
+                    // Handle the error
+                    print("Cannot open phone dialer")
+                }
+            }
+        }
     }
     
     

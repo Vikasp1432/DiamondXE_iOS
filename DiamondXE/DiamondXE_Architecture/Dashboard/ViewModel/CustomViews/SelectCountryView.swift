@@ -415,6 +415,15 @@ class SelectCountryView: UIView{
     
     @IBAction func btnactionCallEnquiry(_ sender : UIButton){
         print("Some")
+        let phoneNumber = nv_whatsapp
+        if let phoneURL = URL(string: "tel://\(phoneNumber)") {
+            if UIApplication.shared.canOpenURL(phoneURL) {
+                UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
+            } else {
+                // Handle the error
+                print("Cannot open phone dialer")
+            }
+        }
     }
     
 }

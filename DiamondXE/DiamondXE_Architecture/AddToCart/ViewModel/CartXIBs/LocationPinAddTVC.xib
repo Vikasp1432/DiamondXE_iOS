@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="147" id="KGk-i7-Jjw" customClass="LocationPinAddTVC" customModule="DiamondXE" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="147"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="433" height="147"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="UIW-YN-nYl">
+                        <rect key="frame" x="15" y="5" width="403" height="132"/>
+                        <subviews>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVs-5l-9zj">
+                                <rect key="frame" x="356" y="-0.66666666666666785" width="37" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="j14-bV-7m6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="13"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Select">
+                                    <color key="titleColor" name="themeClr"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="TabSelectClr"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="actionSelect:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gVk-Af-PtB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpZ-Eo-ZnU">
+                                <rect key="frame" x="39.999999999999986" y="10.000000000000002" width="240.66666666666663" height="18.666666666666671"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Select Delivery Location Pin-Code">
+                                        <attributes>
+                                            <color key="NSColor" name="blackClr"/>
+                                            <font key="NSFont" size="16" name="Lato-Semibold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pin Code" translatesAutoresizingMaskIntoConstraints="NO" id="iS0-Bk-I5h">
+                                <rect key="frame" x="10" y="10" width="20" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="Gfv-xK-K1E"/>
+                                    <constraint firstAttribute="width" constant="20" id="vMT-1E-kFA"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGE-mU-shr">
+                                <rect key="frame" x="40" y="50.333333333333336" width="353" height="18.666666666666664"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Estimated Delivery by 3rd April">
+                                        <attributes>
+                                            <color key="NSColor" name="blackClr"/>
+                                            <font key="NSFont" size="16" name="Lato-Semibold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deliery" translatesAutoresizingMaskIntoConstraints="NO" id="VYf-pL-1tr">
+                                <rect key="frame" x="10" y="48" width="20" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="f4z-5O-nhU"/>
+                                    <constraint firstAttribute="width" constant="20" id="gjq-zm-fUF"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhz-mW-d6y">
+                                <rect key="frame" x="40" y="79" width="353" height="38"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Make shipping charges FREE, collect from our Mumbai Hub. ">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="16" name="Lato-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="PAy-Yf-ASf">
+                                <rect key="frame" x="10" y="81" width="20" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="4uG-6W-aaO"/>
+                                    <constraint firstAttribute="height" constant="23" id="yoD-md-u8z"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="whitClr"/>
+                        <constraints>
+                            <constraint firstItem="iS0-Bk-I5h" firstAttribute="top" secondItem="UIW-YN-nYl" secondAttribute="top" constant="10" id="2zZ-ZZ-wva"/>
+                            <constraint firstAttribute="trailing" secondItem="gGE-mU-shr" secondAttribute="trailing" constant="10" id="4qu-dd-JLD"/>
+                            <constraint firstItem="iS0-Bk-I5h" firstAttribute="leading" secondItem="UIW-YN-nYl" secondAttribute="leading" constant="10" id="5g0-9w-Wmh"/>
+                            <constraint firstItem="VYf-pL-1tr" firstAttribute="top" secondItem="iS0-Bk-I5h" secondAttribute="bottom" constant="15" id="7q1-w4-cd4"/>
+                            <constraint firstAttribute="trailing" secondItem="uVs-5l-9zj" secondAttribute="trailing" constant="10" id="9Fk-s4-bFY"/>
+                            <constraint firstItem="HpZ-Eo-ZnU" firstAttribute="leading" secondItem="iS0-Bk-I5h" secondAttribute="trailing" constant="10" id="Akd-5b-gyj"/>
+                            <constraint firstItem="gGE-mU-shr" firstAttribute="leading" secondItem="VYf-pL-1tr" secondAttribute="trailing" constant="10" id="DOf-wk-KnQ"/>
+                            <constraint firstItem="vhz-mW-d6y" firstAttribute="top" secondItem="gGE-mU-shr" secondAttribute="bottom" constant="10" id="NWl-8J-oF0"/>
+                            <constraint firstAttribute="bottom" secondItem="vhz-mW-d6y" secondAttribute="bottom" constant="15" id="NaA-hP-ZFD"/>
+                            <constraint firstItem="gGE-mU-shr" firstAttribute="centerY" secondItem="VYf-pL-1tr" secondAttribute="centerY" id="Q8e-km-JEO"/>
+                            <constraint firstAttribute="trailing" secondItem="vhz-mW-d6y" secondAttribute="trailing" constant="10" id="VBG-Gb-lIc"/>
+                            <constraint firstItem="VYf-pL-1tr" firstAttribute="leading" secondItem="UIW-YN-nYl" secondAttribute="leading" constant="10" id="VEE-H1-1gk"/>
+                            <constraint firstItem="HpZ-Eo-ZnU" firstAttribute="top" secondItem="UIW-YN-nYl" secondAttribute="top" constant="10" id="obK-dT-p9I"/>
+                            <constraint firstItem="PAy-Yf-ASf" firstAttribute="top" secondItem="VYf-pL-1tr" secondAttribute="bottom" constant="10" id="qwg-RU-NXG"/>
+                            <constraint firstItem="vhz-mW-d6y" firstAttribute="leading" secondItem="PAy-Yf-ASf" secondAttribute="trailing" constant="10" id="sMK-nm-3bJ"/>
+                            <constraint firstItem="PAy-Yf-ASf" firstAttribute="leading" secondItem="UIW-YN-nYl" secondAttribute="leading" constant="10" id="uPV-y4-0uW"/>
+                            <constraint firstItem="uVs-5l-9zj" firstAttribute="centerY" secondItem="HpZ-Eo-ZnU" secondAttribute="centerY" id="yrx-iu-XXT"/>
+                            <constraint firstItem="uVs-5l-9zj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HpZ-Eo-ZnU" secondAttribute="trailing" constant="20" id="zsR-I4-pIG"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="viewBGClr"/>
+                <constraints>
+                    <constraint firstItem="UIW-YN-nYl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="1Wv-za-SxZ"/>
+                    <constraint firstAttribute="trailing" secondItem="UIW-YN-nYl" secondAttribute="trailing" constant="15" id="7DU-K7-fll"/>
+                    <constraint firstItem="UIW-YN-nYl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="8yW-OG-bM7"/>
+                    <constraint firstAttribute="bottom" secondItem="UIW-YN-nYl" secondAttribute="bottom" constant="10" id="wMG-GT-Llv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnSelectPin" destination="uVs-5l-9zj" id="oMw-5D-jEQ"/>
+                <outlet property="imgCheckBox" destination="PAy-Yf-ASf" id="a9G-l3-aqQ"/>
+                <outlet property="lblPinCode" destination="HpZ-Eo-ZnU" id="q3W-UM-xtp"/>
+                <outlet property="viewBG" destination="UIW-YN-nYl" id="mHu-b4-hsb"/>
+            </connections>
+            <point key="canvasLocation" x="180.91603053435114" y="55.985915492957751"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Pin Code" width="19.100000381469727" height="27.299999237060547"/>
+        <image name="deliery" width="26.940000534057617" height="18.110000610351562"/>
+        <image name="uncheck" width="19" height="19"/>
+        <namedColor name="TabSelectClr">
+            <color red="0.49399998784065247" green="0.18799999356269836" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blackClr">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="themeClr">
+            <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="viewBGClr">
+            <color red="0.96100002527236938" green="0.95300000905990601" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="whitClr">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -62,7 +62,7 @@ class AdvanceFilterTVC: UITableViewCell, UITextFieldDelegate {
     
     
     
-    let dropDown = DropDown()
+    
 
     var dataArrCut : [SearchAttribDetail]?
     var dataArrPolish : [SearchAttribDetail]?
@@ -500,13 +500,13 @@ class AdvanceFilterTVC: UITableViewCell, UITextFieldDelegate {
             intencityTitle.append(attributeData.displayAttr ?? "")
            
         }
-        intencityTitle.append("")
-        intencityTitle.append("")
-        intencityTitle.append("")
+//        intencityTitle.append("")
+//        intencityTitle.append("")
+//        intencityTitle.append("")
 //        intencityTitle.append("")
 //        intencityTitle.append("")
 
-        openDropDown(dataArr: intencityTitle, anchorView: self.intencityView, titleLabel: lblIntencity, refr: "FCIntencity")
+        openDropDown(dataArr: intencityTitle, anchorView: self.overtoneView, titleLabel: lblIntencity, refr: "FCIntencity")
        
        }
     
@@ -594,6 +594,7 @@ class AdvanceFilterTVC: UITableViewCell, UITextFieldDelegate {
     
     
     func openDropDown(dataArr:[String], anchorView:UIView, titleLabel:UILabel, refr:String){
+        let dropDown = DropDown()
         dropDown.anchorView = anchorView
         dropDown.dataSource = dataArr
         dropDown.backgroundColor = .whitClr
@@ -602,7 +603,12 @@ class AdvanceFilterTVC: UITableViewCell, UITextFieldDelegate {
         dropDown.shadowOpacity = 0.7
         dropDown.shadowRadius = 15
         dropDown.cellHeight = 40
-        dropDown.height = 250
+        
+        if refr != "FCIntencity"{
+            dropDown.height = 250
+        }
+       
+       
 //        dropDown.bottomOffset = CGPoint(x: 0, y: anchorView.bounds.height)
         if dropDown.dataSource.count > 10 {
                    dropDown.dismissMode = .onTap

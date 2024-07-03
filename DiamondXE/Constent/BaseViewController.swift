@@ -32,8 +32,8 @@ struct ResultStruct: Codable {
 
 class BaseViewController: UIViewController, UITextFieldDelegate {
     
-     let viewControllerIdentifiers = ["HomeVC", "CategoriesVC", "WishVC", "CartVC", "DashboardLoginVC", "SearchDiamondVC", "B2BSearchResultVC", "DiamondDetailsVC"]
-     let storyboardNames = ["HomeVC", "CategoriesVC", "WishlistVC", "CartVC", "Dashboard", "SearchDiamond", "B2BSearch", "DiamondDetails"]
+     let viewControllerIdentifiers = ["HomeVC", "CategoriesVC", "AddToWishListVC", "AddToCartVC", "DashboardLoginVC", "SearchDiamondVC", "B2BSearchResultVC", "DiamondDetailsVC"]
+     let storyboardNames = ["HomeVC", "CategoriesVC", "AddTOWishlist", "AddTOCart", "Dashboard", "SearchDiamond", "B2BSearch", "DiamondDetails"]
     
     
     
@@ -185,6 +185,19 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
         
         return formatter.string(from: NSNumber(value: number)) ?? ""
     }
+    
+    func formatNumberWithoutDeciml(_ number: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 0
+        formatter.minimumFractionDigits = 0
+        formatter.groupingSeparator = ","
+        formatter.usesGroupingSeparator = true
+        
+        return formatter.string(from: NSNumber(value: number)) ?? ""
+    }
+    
+    
 
 }
 
@@ -343,5 +356,16 @@ class EnlargedButton: UIButton {
 extension UIEdgeInsets {
     func inverted() -> UIEdgeInsets {
         return UIEdgeInsets(top: -top, left: -left, bottom: -bottom, right: -right)
+    }
+}
+
+
+extension UIView {
+    func addTopShadow() {
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset = CGSize(width: 0, height: -2)
+        self.layer.shadowRadius = 1
     }
 }

@@ -53,6 +53,14 @@ struct APIs {
     let addtoWishlist_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/add-to-wishlist"
     
     let removetoWishlist_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/remove-from-wishlist"
+    
+    let recommendent_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-recommended-diamonds"
+    
+    let get_CartData_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-cart-details"
+    
+    let get_Wishlist_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-wishlist-details"
+//
+//    let get_MoveToWishList_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-cart-details"
 }
 
 struct HeaderInfo {

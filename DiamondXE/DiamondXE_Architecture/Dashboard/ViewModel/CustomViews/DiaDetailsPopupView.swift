@@ -56,20 +56,15 @@ class DiaDetailsPopupView: UIView {
         if let tappedView = sender.view {
             switch tappedView.tag {
             case 0:
-                print("Other view tapped")
                 self.delegate?.customViewButtonTapped(self, returnValue: "Share")
             case 1:
-                print("Other view tapped")
                 self.delegate?.customViewButtonTapped(self, returnValue: "Notify")
             case 2:
-                print("Other view tapped")
                 self.delegate?.customViewButtonTapped(self, returnValue: "MatchPair")
             case 3:
-                print("Other view tapped")
                 self.delegate?.customViewButtonTapped(self, returnValue: "Download")
             case 4:
-                print("Other view tapped")
-                self.delegate?.customViewButtonTapped(self, returnValue: "call")
+                self.delegate?.customViewButtonTapped(self, returnValue: "CallFEnqry")
                 
             default:
                 print("Other view tapped")

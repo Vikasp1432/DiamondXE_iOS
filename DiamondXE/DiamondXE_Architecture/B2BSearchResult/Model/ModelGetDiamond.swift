@@ -30,7 +30,7 @@ class ModelGetDiamond {
     
     func addToWishCart(url : String, requestParam: [String:Any], completion: @escaping (ResultStruct, String?) -> Void) {
         var resultStruct = ResultStruct()
-        AlamofireManager().makePostAPIRequestWithLocation(url: url, param: requestParam, completion: { result in
+        AlamofireManager().makePostAPIRequest(url: url, param: requestParam, completion: { result in
             switch result {
             case .success(let data):
                 // Handle the response data

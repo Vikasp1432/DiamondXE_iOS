@@ -18,6 +18,9 @@ class B2BSearchResultListingTVC: UITableViewCell , ShimmeringViewProtocol{
     @IBOutlet var btnAvailable :UIButton!
     
     @IBOutlet var refundViewToast :UIView!
+    
+    @IBOutlet var nameViewToast :UIView!
+    @IBOutlet var lblFullNameView :UILabel!
 
     
     @IBOutlet var lblCirtificateNum :UILabel!
@@ -46,6 +49,10 @@ class B2BSearchResultListingTVC: UITableViewCell , ShimmeringViewProtocol{
     
     var actionReturnable : (() -> Void) = { }
     var diamondSelect : (() -> Void) = { }
+    var shapeClick : (() -> Void) = { }
+    
+    var addToCart : (() -> Void) = { }
+    var addToWish : (() -> Void) = { }
     
     var shimmeringAnimatedItems: [UIView] {
            [
@@ -92,14 +99,46 @@ class B2BSearchResultListingTVC: UITableViewCell , ShimmeringViewProtocol{
         btnCard.layer.masksToBounds = false
         
         refundViewToast.isHidden = true
+        nameViewToast.isHidden = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cellTapped))
-            contentView.addGestureRecognizer(tapGesture)
+        contentView.addGestureRecognizer(tapGesture)
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(B2BSearchResultListingTVC.tapFunction))
+        btnShape.isUserInteractionEnabled = true
+        btnShape.addGestureRecognizer(tap)
     }
+    
+    @objc
+    func tapFunction(sender:UITapGestureRecognizer) {
+        shapeClick()
+    }
+    
+    func shapeFullNameshow(name:String){
+//        self.lblFullNameView.text = name
+        UIView.animate(withDuration: 0.5, delay: 2.0, options: .curveEaseOut, animations: {
+            print(name)
+            self.lblFullNameView.text = name
+            self.nameViewToast.isHidden = false
+            self.nameViewToast.alpha = 0.0 // Fade out
+        }) { _ in
+            self.nameViewToast.isHidden = true // Hide after animation completes
+            self.nameViewToast.alpha = 1.0 // Reset alpha for next use
+        }
+    }
+    
     
     @objc func cellTapped() {
         diamondSelect()
+    }
+    
+    @IBAction func btnActionWishCart(_ sender : UIButton){
+        if sender.tag == 0{
+            addToCart()
+        }
+        else{
+            addToWish()
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -109,14 +148,17 @@ class B2BSearchResultListingTVC: UITableViewCell , ShimmeringViewProtocol{
     }
     @IBAction func btnActionRetunable(_ sender : UIButton){
    
-        refundViewToast.isHidden = false
+        guard refundViewToast.isHidden else {
+                return // If the view is visible, do nothing
+            }
 
-               // Perform animation
-               UIView.animate(withDuration: 0.5, delay: 2.0, options: .curveEaseOut, animations: {
-                   self.refundViewToast.alpha = 0.0 // Fade out
-               }) { _ in
-                   self.refundViewToast.isHidden = true // Hide after animation completes
-                   self.refundViewToast.alpha = 1.0 // Reset alpha for next use
-               }
+            // Perform animation
+            UIView.animate(withDuration: 0.5, delay: 2.0, options: .curveEaseOut, animations: {
+                self.refundViewToast.isHidden = false
+                self.refundViewToast.alpha = 0.0 // Fade out
+            }) { _ in
+                self.refundViewToast.isHidden = true // Hide after animation completes
+                self.refundViewToast.alpha = 1.0 // Reset alpha for next use
+            }
     }
 }
