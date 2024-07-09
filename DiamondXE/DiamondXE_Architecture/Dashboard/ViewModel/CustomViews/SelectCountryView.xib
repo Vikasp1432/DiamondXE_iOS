@@ -58,18 +58,18 @@
                                     <state key="normal" image="dropDown"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1B-w4-ytj">
-                                    <rect key="frame" x="65" y="9.9999999999999982" width="23.333333333333329" height="16.333333333333329"/>
-                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                    <rect key="frame" x="65" y="10.000000000000002" width="26.666666666666671" height="18.666666666666671"/>
+                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                     <color key="textColor" name="blackClr"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oA8-2g-L9j">
-                                    <rect key="frame" x="65" y="26.333333333333332" width="64.333333333333314" height="11.666666666666668"/>
+                                    <rect key="frame" x="65" y="28.666666666666671" width="70.666666666666686" height="13"/>
                                     <attributedString key="attributedText">
                                         <fragment content="Indian Rupees">
                                             <attributes>
                                                 <color key="NSColor" name="blackClr"/>
-                                                <font key="NSFont" size="10" name="Lato-Medium"/>
+                                                <font key="NSFont" size="11" name="Lato-Medium"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -112,18 +112,18 @@
                                                             <state key="normal" image="Flag"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aL9-fZ-1Qc">
-                                                            <rect key="frame" x="65" y="6" width="251" height="16.333333333333332"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                                            <rect key="frame" x="65" y="6" width="251" height="18.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="blackClr"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zg-wE-lAV">
-                                                            <rect key="frame" x="65" y="22.333333333333329" width="251" height="11.666666666666664"/>
+                                                            <rect key="frame" x="65" y="24.666666666666671" width="251" height="13"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Indian Rupees">
                                                                     <attributes>
                                                                         <color key="NSColor" name="blackClr"/>
-                                                                        <font key="NSFont" size="10" name="Lato-Medium"/>
+                                                                        <font key="NSFont" size="11" name="Lato-Medium"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -158,18 +158,18 @@
                                                             <state key="normal" image="usd"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7q-ci-53X">
-                                                            <rect key="frame" x="65" y="6" width="251" height="16.333333333333332"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                                            <rect key="frame" x="65" y="6" width="251" height="18.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="blackClr"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZm-oC-2H8">
-                                                            <rect key="frame" x="65" y="22.333333333333329" width="251" height="11.666666666666664"/>
+                                                            <rect key="frame" x="65" y="24.666666666666657" width="251" height="13"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="US Dollar">
                                                                     <attributes>
                                                                         <color key="NSColor" name="blackClr"/>
-                                                                        <font key="NSFont" size="10" name="Lato-Medium"/>
+                                                                        <font key="NSFont" size="11" name="Lato-Medium"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -203,18 +203,18 @@
                                                             <state key="normal" image="eur"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iO9-YO-9Qn">
-                                                            <rect key="frame" x="65" y="6" width="251" height="16.333333333333332"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                                            <rect key="frame" x="65" y="6" width="251" height="18.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="blackClr"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEW-60-Vno">
-                                                            <rect key="frame" x="65" y="22.333333333333314" width="251" height="11.666666666666664"/>
+                                                            <rect key="frame" x="65" y="24.666666666666657" width="251" height="13"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Euro">
                                                                     <attributes>
                                                                         <color key="NSColor" name="blackClr"/>
-                                                                        <font key="NSFont" size="10" name="Lato-Medium"/>
+                                                                        <font key="NSFont" size="11" name="Lato-Medium"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -248,18 +248,18 @@
                                                             <state key="normal" image="gbp"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GBP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZ8-sb-zwV">
-                                                            <rect key="frame" x="65" y="6" width="251" height="16.333333333333332"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                                            <rect key="frame" x="65" y="6" width="251" height="18.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="blackClr"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnW-2u-llb">
-                                                            <rect key="frame" x="65" y="22.333333333333343" width="251" height="11.666666666666664"/>
+                                                            <rect key="frame" x="65" y="24.666666666666657" width="251" height="13"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="British Pound Setrling">
                                                                     <attributes>
                                                                         <color key="NSColor" name="blackClr"/>
-                                                                        <font key="NSFont" size="10" name="Lato-Medium"/>
+                                                                        <font key="NSFont" size="11" name="Lato-Medium"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -293,17 +293,17 @@
                                                             <state key="normal" image="aud"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AUD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilf-Xt-dES">
-                                                            <rect key="frame" x="65" y="6" width="251" height="16.333333333333332"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                                            <rect key="frame" x="65" y="6" width="251" height="18.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="blackClr"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0A-RP-OEI">
-                                                            <rect key="frame" x="65" y="22.333333333333343" width="251" height="11.666666666666664"/>
+                                                            <rect key="frame" x="65" y="24.666666666666686" width="251" height="13"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Australian Dollar">
                                                                     <attributes>
-                                                                        <font key="NSFont" size="10" name="Lato-Medium"/>
+                                                                        <font key="NSFont" size="11" name="Lato-Medium"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -337,17 +337,17 @@
                                                             <state key="normal" image="cad"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CAD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yka-8c-Pa6">
-                                                            <rect key="frame" x="65" y="6" width="251" height="16.333333333333332"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                                            <rect key="frame" x="65" y="6" width="251" height="18.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="blackClr"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSZ-D7-xMz">
-                                                            <rect key="frame" x="65" y="22.333333333333371" width="251" height="11.666666666666664"/>
+                                                            <rect key="frame" x="65" y="24.666666666666686" width="251" height="13"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Canadian Dollar">
                                                                     <attributes>
-                                                                        <font key="NSFont" size="10" name="Lato-Medium"/>
+                                                                        <font key="NSFont" size="11" name="Lato-Medium"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -381,17 +381,17 @@
                                                             <state key="normal" image="nzd"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NZD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCo-IA-Pwj">
-                                                            <rect key="frame" x="65" y="6" width="251" height="16.333333333333332"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                                            <rect key="frame" x="65" y="6" width="251" height="18.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="blackClr"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l37-7O-E3y">
-                                                            <rect key="frame" x="65" y="22.333333333333314" width="251" height="11.666666666666664"/>
+                                                            <rect key="frame" x="65" y="24.666666666666686" width="251" height="13"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="New Zealand Dollar">
                                                                     <attributes>
-                                                                        <font key="NSFont" size="10" name="Lato-Medium"/>
+                                                                        <font key="NSFont" size="11" name="Lato-Medium"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -425,18 +425,18 @@
                                                             <state key="normal" image="sgd"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SGD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujY-k1-4DU">
-                                                            <rect key="frame" x="65" y="6" width="251" height="16.333333333333332"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                                            <rect key="frame" x="65" y="6" width="251" height="18.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="blackClr"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNf-s9-PbI">
-                                                            <rect key="frame" x="65" y="22.333333333333314" width="251" height="11.666666666666664"/>
+                                                            <rect key="frame" x="65" y="24.666666666666629" width="251" height="13"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Singapore Dollar">
                                                                     <attributes>
                                                                         <color key="NSColor" name="blackClr"/>
-                                                                        <font key="NSFont" size="10" name="Lato-Medium"/>
+                                                                        <font key="NSFont" size="11" name="Lato-Medium"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -470,18 +470,18 @@
                                                             <state key="normal" image="aed"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7d-3q-vnV">
-                                                            <rect key="frame" x="65" y="6" width="251" height="16.333333333333332"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                                            <rect key="frame" x="65" y="6" width="251" height="18.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                                             <color key="textColor" name="blackClr"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSM-yu-goN">
-                                                            <rect key="frame" x="65" y="22.333333333333371" width="251" height="11.666666666666664"/>
+                                                            <rect key="frame" x="65" y="24.666666666666686" width="251" height="13"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="United Arab Emirates Dirham">
                                                                     <attributes>
                                                                         <color key="NSColor" name="blackClr"/>
-                                                                        <font key="NSFont" size="10" name="Lato-Medium"/>
+                                                                        <font key="NSFont" size="11" name="Lato-Medium"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -529,14 +529,14 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L0y-MF-aMa">
-                                            <rect key="frame" x="50" y="10.999999999999998" width="100" height="28.333333333333329"/>
+                                            <rect key="frame" x="50" y="9.6666666666666874" width="114" height="30.666666666666671"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal">
                                                 <attributedString key="attributedTitle">
                                                     <fragment content="Call For Enquiry">
                                                         <attributes>
                                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                            <font key="NSFont" size="14" name="Lato-Medium"/>
+                                                            <font key="NSFont" size="16" name="Lato-Medium"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>

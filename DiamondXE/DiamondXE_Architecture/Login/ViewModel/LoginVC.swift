@@ -6,18 +6,29 @@
 //
 
 import UIKit
+import DTTextField
 
 
 
-class LoginVC: BaseViewController {
+class LoginVC: BaseViewController, ChildViewControllerProtocol {
+    var delegate : BaseViewControllerDelegate?
     
-    @IBOutlet weak var txtEmail: FloatingTextField!
-    @IBOutlet weak var txtPassword: FloatingTextField!
-    @IBOutlet weak var txtPhoneNo: UITextField!
-    @IBOutlet weak var txtOTP: FloatingTextField!
+    func didSendString(str: String) {
+        print(str)
+    }
+    
+    @IBOutlet weak var txtEmail: DTTextField!
+    @IBOutlet weak var txtPassword: DTTextField!
+    @IBOutlet weak var txtPhoneNo: DTTextField!
+    @IBOutlet weak var txtOTP: DTTextField!
     @IBOutlet weak var viewBGButtons: UIView!
     @IBOutlet weak var btnMobile: UIButton!
     @IBOutlet weak var btnEmail: UIButton!
+    
+    @IBOutlet weak var viewErrorEmail: UIView!
+    @IBOutlet weak var viewErrorPass: UIView!
+    @IBOutlet weak var viewTxtEmail: UIView!
+    @IBOutlet weak var viewTxtPass: UIView!
     
     @IBOutlet weak var viewEmail: UIView!
     @IBOutlet weak var viewPhone: UIView!
@@ -40,10 +51,26 @@ class LoginVC: BaseViewController {
     var parameters : [String:Any]?
     var loginParamData = LoginParamStruct()
     
+    let emailMessage  = NSLocalizedString("Email is required.", comment: "")
+    let passMessage  = NSLocalizedString("Password is required.", comment: "")
+    let phoneNoMessage  = NSLocalizedString("Phone number is required.", comment: "")
+    let OTPMessage  = NSLocalizedString("OTP is required.", comment: "")
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        txtEmail.delegate = self
+        txtPassword.delegate = self
+        txtPhoneNo.delegate = self
+        txtOTP.delegate = self
+        txtEmail.floatPlaceholderActiveColor = .themeClr
+        txtPassword.floatPlaceholderActiveColor = .themeClr
+        txtPhoneNo.paddingX = 105.0
+        self.txtPassword.isSecureTextEntry = true
+        btnLoginWithEmail.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        btnLoginWithPhone.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        btnEmail.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
 //        for family in UIFont.familyNames {
 //            print("Family: \(family)")
 //            for name in UIFont.fontNames(forFamilyName: family) {
@@ -51,58 +78,68 @@ class LoginVC: BaseViewController {
 //            }
 //        }
       
-        // Do any additional setup after loading the view.
-        self.viewBGButtons.addBottomShadow()
-        self.txtEmail.placeholderColor = .themeClr
-        self.txtEmail.floatPlaceholderActiveColor = .themeClr
-        self.txtPassword.placeholderColor = .themeClr
-        self.txtPassword.floatPlaceholderActiveColor = .themeClr
-        self.txtEmail.floatPlaceholderColor = .themeClr
-        self.txtPassword.floatPlaceholderColor = .themeClr
-        self.txtOTP.placeholderColor = .themeClr
-        self.txtOTP.floatPlaceholderActiveColor = .themeClr
-        self.txtOTP.floatPlaceholderColor = .themeClr
 
-
-        self.txtEmail.textColor = .blackClr
-        self.txtPassword.textColor = .blackClr
-        self.txtEmail.delegate = self
-        self.txtPassword.delegate = self
-        self.txtEmail.tag = 0
-        self.txtPassword.tag = 1
-        self.txtPassword.isSecureTextEntry = true
-        self.viewPhone.isHidden = true
-        self.lblTimer.isHidden = true
-        self.btnResendOTP.isHidden = true
-        self.btnLoginWithPhone.isHidden = true
-        self.btnSupplierPhone.isHidden = true
-     
-        
-        
-        
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let dtTextField = textField as? DTTextField {
+            dtTextField.borderColor = .lightGray
+        }
+        return true
+    }
+    
+    @IBAction func btnActionBack(_ sender: UIButton){
+        self.navigationController?.popViewController(animated: true)
     }
     
     func validateData() -> Bool {
-    
-        if isLoginWithMob{
-            guard !txtPhoneNo.text!.isEmptyStr else {
-                self.toastMessage("Enter Phone number")
-                return false
-            }
-            return true
-        }
-        else{
+        
+        view.endEditing(true)
+        if !isLoginWithMob{
             guard !txtEmail.text!.isEmptyStr else {
-                txtEmail.showError(message: ConstentString.emailErr)
+                txtEmail.showError(message: emailMessage)
+                txtEmail.borderColor = .red
                 return false
             }
             
             guard !txtPassword.text!.isEmptyStr else {
-                txtPassword.showError(message: ConstentString.passErr)
+                txtPassword.showError(message: passMessage)
+                txtPassword.borderColor = .red
+                return false
+            }
+            return true
+           
+        }
+        else{
+            guard !txtPhoneNo.text!.isEmptyStr else {
+                txtPhoneNo.showError(message: phoneNoMessage)
+                txtPhoneNo.borderColor = .red
                 return false
             }
             return true
         }
+        
+        
+    
+//        if isLoginWithMob{
+//            guard !txtPhoneNo.text!.isEmptyStr else {
+//                self.toastMessage("Enter Phone number")
+//                return false
+//            }
+//            return true
+//        }
+//        else{
+//            guard !txtEmail.text!.isEmptyStr else {
+//                txtEmail.showError(message: ConstentString.emailErr)
+//                return false
+//            }
+//            
+//            guard !txtPassword.text!.isEmptyStr else {
+//                txtPassword.showError(message: ConstentString.passErr)
+//                return false
+//            }
+//            return true
+//        }
        
     }
     
@@ -250,11 +287,14 @@ class LoginVC: BaseViewController {
     @IBAction func btnActionEmialORMobile(_ sender: UIButton) {
         if sender.tag < 1{
             self.isLoginWithMob = false
-            self.btnEmail.backgroundColor = .themeClr
+            btnEmail.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            btnMobile.clearGradient()
+//            self.btnEmail.backgroundColor = .themeClr
             self.btnEmail.setTitleColor(.whitClr, for: .normal)
             self.btnMobile.backgroundColor = .whitClr
             self.btnMobile.setTitleColor(.themeClr, for: .normal)
             self.viewPhone.isHidden = true
+            self.viewEmail.isHidden = false
             self.lblTimer.isHidden = true
             self.btnResendOTP.isHidden = true
             self.btnLoginWithPhone.isHidden = true
@@ -265,11 +305,15 @@ class LoginVC: BaseViewController {
         }
         else{
             self.isLoginWithMob = true
+            
+            btnMobile.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            btnEmail.clearGradient()
             self.btnEmail.backgroundColor = .whitClr
             self.btnEmail.setTitleColor(.themeClr, for: .normal)
-            self.btnMobile.backgroundColor = .themeClr
+//            self.btnMobile.backgroundColor = .themeClr
             self.btnMobile.setTitleColor(.whitClr, for: .normal)
             self.viewPhone.isHidden = false
+            self.viewEmail.isHidden = true
             self.viewEnterMobilOTP.isHidden = true
             self.lblTimer.isHidden = true
             self.btnResendOTP.isHidden = true

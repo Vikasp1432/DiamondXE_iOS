@@ -41,7 +41,7 @@ class TopDealsTVC: UITableViewCell {
         
         collectionViewTopDeL.showsHorizontalScrollIndicator = false
         collectionViewTopDeL.showsVerticalScrollIndicator = false
-
+        self.btnNaturalDiamd.setGradientLayer(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
         
     }
 
@@ -55,17 +55,21 @@ class TopDealsTVC: UITableViewCell {
     @IBAction func buttonAction(_ sender: UIButton) {
         buttonPressed(sender.tag)
         if sender.tag == 0{
-            btnNaturalDiamd.backgroundColor = .tabSelectClr
+//            btnNaturalDiamd.backgroundColor = .tabSelectClr
             btnNaturalDiamd.setTitleColor(.whitClr, for: .normal)
             btnLABDiamd.backgroundColor = .clear
             btnLABDiamd.setTitleColor(.tabSelectClr, for: .normal)
+            btnLABDiamd.clearGradient()
+            self.btnNaturalDiamd.setGradientLayer(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
         }
         else{
             
             btnNaturalDiamd.backgroundColor = .clear
             btnNaturalDiamd.setTitleColor(.tabSelectClr, for: .normal)
-            btnLABDiamd.backgroundColor = .tabSelectClr
+//            btnLABDiamd.backgroundColor = .tabSelectClr
             btnLABDiamd.setTitleColor(.whitClr, for: .normal)
+            btnNaturalDiamd.clearGradient()
+            self.btnLABDiamd.setGradientLayer(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
             
         }
         

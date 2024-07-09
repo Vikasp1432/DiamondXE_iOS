@@ -7,6 +7,7 @@ target 'DiamondXE' do
 
   # Pods for DiamondXE
 pod 'DropDown'
+pod 'DTTextField'
 
   target 'DiamondXETests' do
     inherit! :search_paths

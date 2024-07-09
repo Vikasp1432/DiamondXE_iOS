@@ -13,6 +13,10 @@ class DataManager {
     
     private init() {}
     
+    var cartDataHolder : CartDataStruct?
+    var WishlistDataHolder : WishlistDataStruct?
+    
+    
     var searchTitle: String? = ""
     var searchInfoDetails: [SearchAttribDetail] = []
     var shapeArr: [String] = []

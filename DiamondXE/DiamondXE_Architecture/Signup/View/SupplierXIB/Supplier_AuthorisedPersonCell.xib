@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -307,6 +307,17 @@
             <point key="canvasLocation" x="102.29007633587786" y="102.8169014084507"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="AaH-0l-X8U">
+            <size key="intrinsicContentSize" width="145.66666666666666" height="18"/>
+        </designable>
+        <designable name="DRO-cU-mRH">
+            <size key="intrinsicContentSize" width="176.33333333333334" height="18"/>
+        </designable>
+        <designable name="T1p-d6-Dci">
+            <size key="intrinsicContentSize" width="198" height="18"/>
+        </designable>
+    </designables>
     <resources>
         <image name="d_down" width="14" height="8"/>
         <image name="down" width="10" height="6"/>

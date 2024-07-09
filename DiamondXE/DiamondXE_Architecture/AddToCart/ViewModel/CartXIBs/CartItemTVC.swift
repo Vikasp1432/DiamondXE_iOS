@@ -32,6 +32,7 @@ class CartItemTVC: UITableViewCell {
     
     var alertAction : (() -> Void) = {  }
     var isSelectedItem = true
+    var isTap = true
     
     var actionWishNRemove : ((Int) -> Void) = { _ in  }
 
@@ -68,14 +69,24 @@ class CartItemTVC: UITableViewCell {
     
     @IBAction func actionSelect(_ sender: UIButton){
         alertAction()
-        isSelectedItem.toggle()
-        if isSelectedItem{
-            self.btnSelectedItem.setImage(UIImage(named: "check"), for: .normal)
-        }
-        else{
-            self.btnSelectedItem.setImage(UIImage(named: "uncheck"), for: .normal)
+       
+    }
+    
+    func setupSelectedItem(items:[CardDataDetail]){
+        if items.count > 1{
+            isSelectedItem.toggle()
+            isTap.toggle()
+            if isSelectedItem{
+                self.btnSelectedItem.setImage(UIImage(named: "check"), for: .normal)
+            }
+            else{
+                
+                self.btnSelectedItem.setImage(UIImage(named: "uncheck"), for: .normal)
+                
+            }
         }
     }
+    
     
     
     @IBAction func btnActionRetunable(_ sender : UIButton){

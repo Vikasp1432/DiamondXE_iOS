@@ -176,27 +176,35 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/DTTextField/DTTextField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework"
 fi
 if [[ "$CONFIGURATION" == "Debug(Dev)" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/DTTextField/DTTextField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework"
 fi
 if [[ "$CONFIGURATION" == "Debug(Production)" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/DTTextField/DTTextField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework"
 fi
 if [[ "$CONFIGURATION" == "Debug(Staging)" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/DTTextField/DTTextField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/DTTextField/DTTextField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework"
 fi
 if [[ "$CONFIGURATION" == "Release(Dev)" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/DTTextField/DTTextField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework"
 fi
 if [[ "$CONFIGURATION" == "Release(Production)" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/DTTextField/DTTextField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework"
 fi
 if [[ "$CONFIGURATION" == "Release(Staging)" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/DTTextField/DTTextField.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

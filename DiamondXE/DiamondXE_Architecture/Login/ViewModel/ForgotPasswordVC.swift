@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DTTextField
 
 
 class ForgotPasswordVC: BaseViewController {
@@ -14,8 +15,11 @@ class ForgotPasswordVC: BaseViewController {
     @IBOutlet weak var viewEnterOTP: UIView!
     @IBOutlet weak var btnResendOTP: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var txtEmail: FloatingTextField!
-    @IBOutlet weak var txtOTP: FloatingTextField!
+    @IBOutlet weak var txtEmail: DTTextField!
+    @IBOutlet weak var txtOTP: DTTextField!
+    
+    @IBOutlet weak var btnContinue: UIButton!
+
     
     var forgotPassParamStruct = ForgotPassParamStruct()
     var resetPassParam = ResetPasswordStruct()
@@ -23,14 +27,22 @@ class ForgotPasswordVC: BaseViewController {
 
     
     var isReset = true
-
+    let emailMessage  = NSLocalizedString("Email is required.", comment: "")
+    let OTPMessage  = NSLocalizedString("OTP is required.", comment: "")
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        txtEmail.delegate = self
+        txtOTP.delegate = self
         // Do any additional setup after loading the view.
         self.navigationController?.isNavigationBarHidden = true
         self.viewEnterOTP.isHidden = true
         self.timerLabel.isHidden  = true
         self.btnResendOTP.isHidden  = true
+        
+        btnContinue.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
         
         self.txtEmail.placeholderColor = .themeClr
         self.txtEmail.floatPlaceholderActiveColor = .themeClr
@@ -38,6 +50,13 @@ class ForgotPasswordVC: BaseViewController {
         self.txtOTP.floatPlaceholderActiveColor = .themeClr
         self.txtEmail.floatPlaceholderColor = .themeClr
         self.txtOTP.floatPlaceholderColor = .themeClr
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let dtTextField = textField as? DTTextField {
+            dtTextField.borderColor = .lightGray
+        }
+        return true
     }
     
     @IBAction func btnActionBack(_ sender: UIButton){
@@ -92,6 +111,13 @@ class ForgotPasswordVC: BaseViewController {
             
             guard !txtEmail.text!.isEmptyStr else {
                 txtEmail.showError(message: ConstentString.emailErr)
+                txtEmail.borderColor = .red
+                return false
+            }
+            
+            guard !txtOTP.text!.isEmptyStr else {
+                txtOTP.showError(message: OTPMessage)
+                txtOTP.borderColor = .red
                 return false
             }
             

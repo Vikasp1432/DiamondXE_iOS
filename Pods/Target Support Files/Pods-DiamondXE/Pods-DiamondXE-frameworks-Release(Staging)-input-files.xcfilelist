@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-DiamondXE/Pods-DiamondXE-frameworks.sh
+${BUILT_PRODUCTS_DIR}/DTTextField/DTTextField.framework
 ${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework

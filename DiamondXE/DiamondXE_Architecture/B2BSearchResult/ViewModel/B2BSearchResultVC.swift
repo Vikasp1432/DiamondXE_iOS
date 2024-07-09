@@ -121,8 +121,13 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
         
         tableViewList.register(UINib(nibName: B2BSearchResultCardListingTVC.cellIdentifierCardListingB2B, bundle: nil), forCellReuseIdentifier: B2BSearchResultCardListingTVC.cellIdentifierCardListingB2B)
        
-        filterDataRetrive()
+//        filterDataRetrive()
       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        diamondListDetails.removeAll()
+        filterDataRetrive()
     }
     
     
@@ -173,7 +178,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
             default:
                 print("Selected item: \(item) at index: \(index)")
             }
-            self.setParam()
+            self.setParamAndAPICalling()
             dropDown.hide()
             //(PriceHigh,PriceLow,DiscountHigh,RecentlyAdd,SizeHigh,SizeLow)
         }
@@ -185,7 +190,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
     
     func filterDataRetrive(){
         let shape = DataManager.shared.shapeArr
-        print(shape)
+       // print(shape)
         
         shape.forEach { value in
             titleArr.append(value)
@@ -210,9 +215,9 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
                         case "Certificate":
                             self.certificateArr.append(attribCode)
                         case "Fluorescence":
-                            self.certificateArr.append(attribCode)
+                            self.fluoreseArr.append(attribCode)
                         case "Make":
-                            self.certificateArr.append(attribCode)
+                            self.makeArr.append(attribCode)
                         default:
                             print(key)
                         }
@@ -338,7 +343,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
             filterCollectionView.reloadData()
         }
         
-        self.setParam()
+        self.setParamAndAPICalling()
            
     }
     
@@ -363,7 +368,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
             btnLabGrown.setTitleColor(.themeClr, for: .normal)
             DataManager.shared.diaType = "natural"
             self.diamondListDetails.removeAll()
-            self.setParam()
+            self.setParamAndAPICalling()
         case 1:
             btnLabGrown.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
             btnLabGrown.setTitleColor(.whitClr, for: .normal)
@@ -371,7 +376,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
             btnNatural.setTitleColor(.themeClr, for: .normal)
             DataManager.shared.diaType = "labgrown"
             self.diamondListDetails.removeAll()
-            self.setParam()
+            self.setParamAndAPICalling()
 
         case 2:
             self.btnListing.tintColor = UIColor.tabSelectClr
@@ -392,7 +397,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
     
     
     
-    func setParam(){
+    func setParamAndAPICalling(){
         self.sessionID = self.getSessionUniqID()
         
         param = ["page": page, "limit": limit, "isLuxe":self.isLuxe, "sessionId" : self.sessionID,
@@ -573,8 +578,105 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
         })
     }
     
+    
+    func removeItemFromFilter(indexPth:IndexPath){
+       
+        var string = titleArr[indexPth.row]
+        let components = string.components(separatedBy: ":")
+
+        print(self.colorArr)
+        switch components[0] {
+        case "Color":
+            self.colorArr.removeAll { $0 == components[1] }
+            print(self.colorArr)
+        case "Color-Fancy":
+            self.colorFancyArr.removeAll { $0 == components[1] }
+        case "Clarity":
+            self.clarityArr.removeAll { $0 == components[1] }
+
+        case "Certificate":
+            self.certificateArr.removeAll { $0 == components[1] }
+
+        case "Fluorescence":
+            self.fluoreseArr.removeAll { $0 == components[1] }
+
+        case "Make":
+            self.makeArr.removeAll { $0 == components[1] }
+            
+        case "PriceFrom":
+            self.priceFrom =  0
+        case "PriceTo":
+            self.priceTo =  0
+        case "CaratFrom":
+            self.caratFrom = Int()
+        case "CaratTo":
+            self.caratTo =  Int()
+            
+        case "Cut":
+            self.cutArr.removeAll { $0 == components[1] }
+        case "Polish":
+            self.polishFancyArr.removeAll { $0 == components[1] }
+        case "Symmetry":
+            self.symmetryArr.removeAll { $0 == components[1] }
+        case "Technology":
+            self.techeArr.removeAll { $0 == components[1] }
+        case "FCIntencity":
+            self.fancyclrIntensityArr.removeAll { $0 == components[1] }
+        case "FCOvertone":
+            self.fancyclrOvertoneArr.removeAll { $0 == components[1] }
+        case "TabplePerFrom":
+            self.tableFromArr.removeAll { $0 == components[1] }
+        case "TablePerTo":
+            self.tableToArr.removeAll { $0 == components[1] }
+        case "DepthPerFrom":
+            self.depthFromArr.removeAll { $0 == components[1] }
+        case "DepthPerTo":
+            self.depthToArr.removeAll { $0 == components[1] }
+        case "CrownFrom":
+            self.crownFromArr.removeAll { $0 == components[1] }
+        case "CrownTo":
+            self.crownToArr.removeAll { $0 == components[1] }
+        case "PavllionFrom":
+            self.pavllionFromArr.removeAll { $0 == components[1] }
+        case "PavllionTo":
+            self.pavllionToArr.removeAll { $0 == components[1] }
+        case "EyeClean":
+            self.eyeClean.removeAll { $0 == components[1] }
+        case "Shade":
+            self.shade.removeAll { $0 == components[1] }
+        case "Luster":
+            self.luster.removeAll { $0 == components[1] }
+        case "LengthFrom":
+            self.lengthFromArr.removeAll { $0 == components[1] }
+        case "LengthTo":
+            self.lengthToArr.removeAll { $0 == components[1] }
+        case "WidthFrom":
+            self.widthFromArr.removeAll { $0 == components[1] }
+        case "WidthTo":
+            self.widthToArr.removeAll { $0 == components[1] }
+        case "DepthFrom":
+            self.depthMMFromArr.removeAll { $0 == components[1] }
+        case "DepthTo":
+            self.depthMMToArr.removeAll { $0 == components[1] }
+        case "LotID":
+            self.lotID.removeAll { $0 == components[1] }
+        case "Location":
+            self.location.removeAll { $0 == components[1] }
+        
+        default:
+            print("key")
+           
+
+        }
+        self.setParamAndAPICalling()
+        titleArr.remove(at: indexPth.row)
+        filterCollectionView.reloadData()
+        
+    }
+    
 
 }
+
 
 extension B2BSearchResultVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
   
@@ -585,6 +687,9 @@ extension B2BSearchResultVC: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterAppliedCVC.cellIdentifierFilterApplied, for: indexPath) as! FilterAppliedCVC
         cell.lblTitle.text = titleArr[indexPath.row]
+        cell.btnAction = {
+            self.removeItemFromFilter(indexPth: indexPath)
+        }
         return cell
     }
     

@@ -44,7 +44,7 @@ extension UIButton {
         layer.borderColor = UIColor.themeClr.cgColor
 
         layer.masksToBounds = false
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             let gradientLayer = CAGradientLayer()
             gradientLayer.colors = colors
             gradientLayer.frame = self.bounds

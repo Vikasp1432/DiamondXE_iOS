@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DTTextField
 
 @available(iOS 13.0, *)
 class ResetPasswordVC: BaseViewController , DataReceiver{
@@ -19,17 +20,28 @@ class ResetPasswordVC: BaseViewController , DataReceiver{
     
     
     
-    @IBOutlet var txtNewPassword: FloatingTextField!
-    @IBOutlet var txtConfirmPassword: FloatingTextField!
+    @IBOutlet var txtNewPassword: DTTextField!
+    @IBOutlet var txtConfirmPassword: DTTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        txtNewPassword.delegate = self
+        txtConfirmPassword.delegate = self
+        
         self.txtNewPassword.placeholderColor = .themeClr
         self.txtNewPassword.floatPlaceholderActiveColor = .themeClr
         self.txtConfirmPassword.placeholderColor = .themeClr
         self.txtConfirmPassword.floatPlaceholderActiveColor = .themeClr
         self.txtNewPassword.floatPlaceholderColor = .themeClr
         self.txtConfirmPassword.floatPlaceholderColor = .themeClr
+    }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let dtTextField = textField as? DTTextField {
+            dtTextField.borderColor = .lightGray
+        }
+        return true
     }
     
     
@@ -84,11 +96,14 @@ class ResetPasswordVC: BaseViewController , DataReceiver{
         
         guard !txtNewPassword.text!.isEmptyStr else {
             txtNewPassword.showError(message: ConstentString.emailErr)
+            txtNewPassword.borderColor = .red
+
             return false
         }
         
         guard !txtConfirmPassword.text!.isEmptyStr else {
             txtConfirmPassword.showError(message: ConstentString.emailErr)
+            txtConfirmPassword.borderColor = .red
             return false
         }
         

@@ -39,8 +39,8 @@
                                     <state key="normal" image="share!"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HiZ-q9-tTj">
-                                    <rect key="frame" x="85" y="11.999999999999998" width="184" height="16.333333333333329"/>
-                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                    <rect key="frame" x="85" y="11.33333333333333" width="184" height="17.666666666666671"/>
+                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                     <color key="textColor" name="blackClr"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -68,8 +68,8 @@
                                     <state key="normal" image="notifyMe"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notify Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eH-kU-n0U">
-                                    <rect key="frame" x="85" y="11.999999999999998" width="184" height="16.333333333333329"/>
-                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                    <rect key="frame" x="85" y="11.333333333333337" width="184" height="17.666666666666671"/>
+                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                     <color key="textColor" name="blackClr"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -97,8 +97,8 @@
                                     <state key="normal" image="matchPair"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Match Pair" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4P-cU-saF">
-                                    <rect key="frame" x="85" y="11.999999999999998" width="184" height="16.333333333333329"/>
-                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                    <rect key="frame" x="85" y="11.33333333333333" width="184" height="17.666666666666671"/>
+                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                     <color key="textColor" name="blackClr"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -126,8 +126,8 @@
                                     <state key="normal" image="download"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNQ-3g-uFf">
-                                    <rect key="frame" x="85" y="11.999999999999998" width="184" height="16.333333333333329"/>
-                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                    <rect key="frame" x="85" y="11.333333333333345" width="184" height="17.666666666666671"/>
+                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                     <color key="textColor" name="blackClr"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -155,8 +155,8 @@
                                     <state key="normal" image="callForEnquiry"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call for Enquiry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKc-rV-cqn">
-                                    <rect key="frame" x="85" y="11.999999999999998" width="184" height="16.333333333333329"/>
-                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                    <rect key="frame" x="85" y="11.333333333333345" width="184" height="17.666666666666671"/>
+                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                     <color key="textColor" name="blackClr"/>
                                     <nil key="highlightedColor"/>
                                 </label>

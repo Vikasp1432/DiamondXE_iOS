@@ -141,6 +141,8 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     @objc private func floatingButtonTapped() {
         
         switch self.currentViewController {
+        //case is HomeVC:
+           // navigationManager(storybordName: "GlobleSearch", storyboardID: "GlobleSearchVC", controller: GlobleSearchVC())
         case is SearchDiamondVC:
             updateHeaderBG(setUpTag: 0)
            gotoSearchResultB2BVC(title: "Search Result")
@@ -228,6 +230,9 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     private func togglePopup() {
         isPopupVisible.toggle()
         overlayView.isHidden = false
+        
+      
+        btnSearch.layer.masksToBounds = true
         btnSearch.layer.borderWidth = isPopupVisible ? 5 : 0
         btnSearch.layer.borderColor = isPopupVisible ? UIColor.white.cgColor : nil
         
@@ -326,7 +331,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
         if identifier == currentViewControllerIdentifier {
             return
         }
-        
+        cartVCIsComeFromHome = true
         let direction: SlideDirection = {
             if let currentIdentifier = currentViewControllerIdentifier,
                let currentIndex = viewControllerIdentifiers.firstIndex(of: currentIdentifier),
@@ -570,6 +575,8 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
             self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
             self.btnTitleLogin.setTitleColor(UIColor.themeClr, for: .normal)
             
+            self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
+            
         }
     }
    
@@ -673,7 +680,7 @@ extension DashboardVC : SelectCountryViewDelegate, DiaDetailsPopupViewDelegate {
         if returnValue == "isExpand"{
             selectCountryView.viewData.isHidden = false
             selectCountryView.setupData()
-            popupViewHeightsConstraint.constant = 470
+            popupViewHeightsConstraint.constant = 490
             UIView.animate(withDuration: 0.3,
                            delay: 0,
                            options: .curveEaseInOut,

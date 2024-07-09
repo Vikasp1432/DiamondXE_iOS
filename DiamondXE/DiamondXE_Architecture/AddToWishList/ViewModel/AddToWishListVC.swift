@@ -20,7 +20,7 @@ class AddToWishListVC: BaseViewController, ChildViewControllerProtocol {
     @IBOutlet var wishlistTableView:UITableView!
     @IBOutlet var headerViewHeight:NSLayoutConstraint!
     
-    @IBOutlet var bgImageView:UIImageView!
+    @IBOutlet var emipityView:UIView!
     
     var wishlistDataStruct = WishlistDataStruct()
     
@@ -32,7 +32,7 @@ class AddToWishListVC: BaseViewController, ChildViewControllerProtocol {
         }else{
             headerViewHeight.constant = 70
         }
-
+        emipityView.isHidden = true
         // Do any additional setup after loading the view.
         self.wishlistTableView.register(UINib(nibName: CartItemTVC.cellIdentifierCartItem, bundle: nil), forCellReuseIdentifier: CartItemTVC.cellIdentifierCartItem)
         
@@ -54,11 +54,17 @@ class AddToWishListVC: BaseViewController, ChildViewControllerProtocol {
         WishlistDataModel().getWishlistData(url: url, requestParam: param, completion: { data, msg in
             
             if data.status == 1{
-                 self.wishlistDataStruct = data
+                self.wishlistDataStruct = data
+                DataManager.shared.WishlistDataHolder = self.wishlistDataStruct
                 self.wishlistTableView.reloadData()
             }
             else{
-                self.toastMessage(msg ?? "")
+                if msg ?? "" ==  "Wishlist is empty"{
+                    self.checkToDataCount()
+                }
+                else{
+                    self.toastMessage(msg ?? "")
+                }
 //                self.isLoading = false
             }
             CustomActivityIndicator2.shared.hide()
@@ -66,6 +72,22 @@ class AddToWishListVC: BaseViewController, ChildViewControllerProtocol {
         })
         
       }
+    
+    func checkToDataCount(){
+        if  let count = self.wishlistDataStruct.details?.count {
+            if count > 0{
+                self.emipityView.isHidden = false
+            }
+            else{
+                self.emipityView.isHidden = true
+            }
+        }
+        else{
+            self.emipityView.isHidden = false
+        }
+        
+    }
+    
     
     func removeFromCartItem(certificateNo:String) {
         CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
@@ -77,12 +99,25 @@ class AddToWishListVC: BaseViewController, ChildViewControllerProtocol {
             
             if data.status == 1{
                 self.wishlistDataStruct.details = self.wishlistDataStruct.details?.filter { $0.certificateNo != certificateNo }
+                
+                if  let count = self.wishlistDataStruct.details?.count {
+                    if count > 0{
+                        self.emipityView.isHidden = true
+                    }
+                    else{
+                        self.emipityView.isHidden = false
+                    }
+                }
+                
                 self.wishlistTableView.reloadData()
             }
             else{
                 self.toastMessage(msg ?? "")
 //                self.isLoading = false
             }
+            
+            
+            
             CustomActivityIndicator2.shared.hide()
 
         })
@@ -99,6 +134,14 @@ class AddToWishListVC: BaseViewController, ChildViewControllerProtocol {
             
             if data.status == 1{
                 self.wishlistDataStruct.details = self.wishlistDataStruct.details?.filter { $0.certificateNo != certificateNo }
+                if  let count = self.wishlistDataStruct.details?.count {
+                    if count > 0{
+                        self.emipityView.isHidden = true
+                    }
+                    else{
+                        self.emipityView.isHidden = false
+                    }
+                }
                 self.wishlistTableView.reloadData()
             }
             else{
@@ -117,10 +160,13 @@ class AddToWishListVC: BaseViewController, ChildViewControllerProtocol {
 extension AddToWishListVC: UITableViewDelegate , UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = self.wishlistDataStruct.details?.count {
+           
             return count
         }
         else{
+            
             return 0
+            
         }
         
     }
@@ -130,6 +176,7 @@ extension AddToWishListVC: UITableViewDelegate , UITableViewDataSource{
         cell.selectionStyle = .none
         cell.imgDiamond.sd_setImage(with: URL(string: self.wishlistDataStruct.details?[indexPath.row].diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
         
+        cell.btnSelectedItem.isHidden = true
         cell.btnWishList.setImage(UIImage(named: "cart_"), for: .normal)
         cell.lblCirtificateNum.text = self.wishlistDataStruct.details?[indexPath.row].certificateNo
         cell.lblLotID.text = "ID: \(self.wishlistDataStruct.details?[indexPath.row].supplierID ?? 0)"
@@ -169,5 +216,11 @@ extension AddToWishListVC: UITableViewDelegate , UITableViewDataSource{
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+            return 160
+        
+    }
     
 }

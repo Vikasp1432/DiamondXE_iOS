@@ -14,12 +14,18 @@ class FilterAppliedCVC: UICollectionViewCell {
     
     @IBOutlet var lblTitle:UILabel!
     @IBOutlet var btnRemove:UIButton!
+    
+    var btnAction : (() -> Void) = {}
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
         
+    }
+    
+    @IBAction func btnActionremoveIndex(_ sender : UIButton){
+        btnAction()
     }
 
 }
