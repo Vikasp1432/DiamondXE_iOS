@@ -54,9 +54,22 @@ class ForgotPasswordVC: BaseViewController {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let dtTextField = textField as? DTTextField {
-            dtTextField.borderColor = .lightGray
+            dtTextField.borderColor = UIColor.tabSelectClr
         }
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+           // Change border color or perform any other actions
+           if let customTextField = textField as? DTTextField {
+               customTextField.borderColor = UIColor.tabSelectClr
+           }
+       }
+       
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let customTextField = textField as? DTTextField {
+            customTextField.borderColor = UIColor.borderClr
+        }
     }
     
     @IBAction func btnActionBack(_ sender: UIButton){

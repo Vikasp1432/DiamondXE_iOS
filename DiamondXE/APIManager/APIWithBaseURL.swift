@@ -81,12 +81,28 @@ struct HeaderInfoLocation {
       }
       
       var headers: HTTPHeaders {
-          let locationCode = timeZoneInfo.countryCode ?? "US"
-          return [
-              "Content-Type": "application/json",
-              "location": locationCode,
-              "Apikey": APIs().api_Key
-          ]
+          
+          
+//          if let loginData = UserDefaultManager().retrieveLoginData(){
+//             var brrTokn = loginData.details?.authToken ?? ""
+//              let locationCode = timeZoneInfo.countryCode ?? "US"
+//              return [
+//                  "Content-Type": "application/json",
+//                  "location": locationCode,
+//                  "Apikey": APIs().api_Key,
+//                  "Authorization" : "Bearer \(brrTokn)"
+//              ]
+//          }
+//          else{
+              let locationCode = timeZoneInfo.countryCode ?? "US"
+              return [
+                  "Content-Type": "application/json",
+                  "location": locationCode,
+                  "Apikey": APIs().api_Key
+              ]
+//          }
+          
+         
       }
 }
 

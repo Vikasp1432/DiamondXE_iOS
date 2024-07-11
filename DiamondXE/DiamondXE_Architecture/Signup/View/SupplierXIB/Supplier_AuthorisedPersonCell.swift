@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DTTextField
 
 class Supplier_AuthorisedPersonCell: UITableViewCell {
     

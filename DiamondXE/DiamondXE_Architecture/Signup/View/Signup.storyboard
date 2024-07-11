@@ -30,19 +30,10 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jS-Jj-gQO" userLabel="bgImagView">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Top bg" translatesAutoresizingMaskIntoConstraints="NO" id="HpM-ko-bdg">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="217.66666666666666"/>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="HpM-ko-bdg" secondAttribute="trailing" id="3Li-ko-yc9"/>
-                                    <constraint firstItem="HpM-ko-bdg" firstAttribute="top" secondItem="1jS-Jj-gQO" secondAttribute="top" id="ZOz-4j-lo1"/>
-                                    <constraint firstItem="HpM-ko-bdg" firstAttribute="leading" secondItem="1jS-Jj-gQO" secondAttribute="leading" id="f0p-P2-WwM"/>
-                                </constraints>
+                                <color key="backgroundColor" name="viewBGClr"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i3x-84-dwd" userLabel="TopHeading">
-                                <rect key="frame" x="0.0" y="58.999999999999986" width="393" height="175.66666666666663"/>
+                                <rect key="frame" x="0.0" y="58.999999999999986" width="393" height="180.66666666666663"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8h-Ow-TCz">
                                         <rect key="frame" x="20" y="19.999999999999996" width="353" height="60.666666666666657"/>
@@ -71,93 +62,120 @@
                                         </constraints>
                                     </view>
                                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="695-ZD-mTC">
-                                        <rect key="frame" x="20" y="105.66666666666666" width="353" height="50"/>
+                                        <rect key="frame" x="20" y="105.66666666666666" width="353" height="55"/>
                                         <subviews>
-                                            <stackView clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rML-U2-GV8">
-                                                <rect key="frame" x="5" y="5" width="343" height="40"/>
+                                            <stackView clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rML-U2-GV8">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="55"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQe-99-je8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="111" height="40"/>
-                                                        <color key="backgroundColor" name="themeClr"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Buyer">
-                                                            <color key="titleColor" name="whitClr"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="themeClr"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="btnActionEmialORMobile:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="rry-KP-GKz"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8UD-40-bzt">
-                                                        <rect key="frame" x="116" y="0.0" width="111" height="40"/>
-                                                        <color key="backgroundColor" name="whitClr"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Dealer">
-                                                            <color key="titleColor" name="themeClr"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="themeClr"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="btnActionEmialORMobile:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qQM-jF-7wM"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiH-qr-SBs">
-                                                        <rect key="frame" x="232" y="0.0" width="111" height="40"/>
-                                                        <color key="backgroundColor" name="whitClr"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Supplier">
-                                                            <color key="titleColor" name="themeClr"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="themeClr"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="btnActionEmialORMobile:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="6wN-Ej-6cS"/>
-                                                        </connections>
-                                                    </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Suw-VN-CeW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="112.33333333333333" height="55"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQe-99-je8">
+                                                                <rect key="frame" x="8" y="8" width="96.333333333333329" height="39"/>
+                                                                <color key="backgroundColor" name="themeClr"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Buyer">
+                                                                    <color key="titleColor" name="whitClr"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="themeClr"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="btnActionEmialORMobile:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="rry-KP-GKz"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="fQe-99-je8" secondAttribute="bottom" constant="8" id="GVb-go-DUm"/>
+                                                            <constraint firstItem="fQe-99-je8" firstAttribute="top" secondItem="Suw-VN-CeW" secondAttribute="top" constant="8" id="a4F-MP-ien"/>
+                                                            <constraint firstItem="fQe-99-je8" firstAttribute="leading" secondItem="Suw-VN-CeW" secondAttribute="leading" constant="8" id="c7R-z9-h5G"/>
+                                                            <constraint firstAttribute="trailing" secondItem="fQe-99-je8" secondAttribute="trailing" constant="8" id="kxW-Ep-F3L"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dp4-mF-zD7">
+                                                        <rect key="frame" x="120.33333333333334" y="0.0" width="112.33333333333334" height="55"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8UD-40-bzt">
+                                                                <rect key="frame" x="8" y="8" width="96.333333333333329" height="39"/>
+                                                                <color key="backgroundColor" name="whitClr"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Dealer">
+                                                                    <color key="titleColor" name="themeClr"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="themeClr"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="btnActionEmialORMobile:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qQM-jF-7wM"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="8UD-40-bzt" secondAttribute="trailing" constant="8" id="84t-Ch-rn5"/>
+                                                            <constraint firstItem="8UD-40-bzt" firstAttribute="leading" secondItem="dp4-mF-zD7" secondAttribute="leading" constant="8" id="NjF-P6-muh"/>
+                                                            <constraint firstAttribute="bottom" secondItem="8UD-40-bzt" secondAttribute="bottom" constant="8" id="T5i-Rg-jTH"/>
+                                                            <constraint firstItem="8UD-40-bzt" firstAttribute="top" secondItem="dp4-mF-zD7" secondAttribute="top" constant="8" id="k02-VI-i1p"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sep-MP-Euj">
+                                                        <rect key="frame" x="240.66666666666671" y="0.0" width="112.33333333333334" height="55"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiH-qr-SBs">
+                                                                <rect key="frame" x="8" y="8" width="96.333333333333329" height="39"/>
+                                                                <color key="backgroundColor" name="whitClr"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Supplier">
+                                                                    <color key="titleColor" name="themeClr"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="themeClr"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="btnActionEmialORMobile:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="6wN-Ej-6cS"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="uiH-qr-SBs" secondAttribute="trailing" constant="8" id="8cN-Xn-T42"/>
+                                                            <constraint firstItem="uiH-qr-SBs" firstAttribute="top" secondItem="Sep-MP-Euj" secondAttribute="top" constant="8" id="MR6-GV-4RX"/>
+                                                            <constraint firstItem="uiH-qr-SBs" firstAttribute="leading" secondItem="Sep-MP-Euj" secondAttribute="leading" constant="8" id="c8g-vC-kav"/>
+                                                            <constraint firstAttribute="bottom" secondItem="uiH-qr-SBs" secondAttribute="bottom" constant="8" id="hHp-hu-75n"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="xGy-xK-VJw"/>
+                                                    <constraint firstAttribute="height" constant="55" id="xGy-xK-VJw"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" name="whitClr"/>
+                                        <color key="backgroundColor" name="viewBGClr"/>
                                         <constraints>
-                                            <constraint firstItem="rML-U2-GV8" firstAttribute="leading" secondItem="695-ZD-mTC" secondAttribute="leading" constant="5" id="Es9-2e-4rE"/>
-                                            <constraint firstAttribute="trailing" secondItem="rML-U2-GV8" secondAttribute="trailing" constant="5" id="FTq-Vh-kj6"/>
-                                            <constraint firstAttribute="bottom" secondItem="rML-U2-GV8" secondAttribute="bottom" constant="5" id="bfX-cH-aV6"/>
-                                            <constraint firstItem="rML-U2-GV8" firstAttribute="top" secondItem="695-ZD-mTC" secondAttribute="top" constant="5" id="tht-Q0-bCz"/>
+                                            <constraint firstItem="rML-U2-GV8" firstAttribute="leading" secondItem="695-ZD-mTC" secondAttribute="leading" id="Es9-2e-4rE"/>
+                                            <constraint firstAttribute="trailing" secondItem="rML-U2-GV8" secondAttribute="trailing" id="FTq-Vh-kj6"/>
+                                            <constraint firstAttribute="bottom" secondItem="rML-U2-GV8" secondAttribute="bottom" id="bfX-cH-aV6"/>
+                                            <constraint firstItem="rML-U2-GV8" firstAttribute="top" secondItem="695-ZD-mTC" secondAttribute="top" id="tht-Q0-bCz"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="22"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" name="ShadowClr"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -185,7 +203,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfD-L5-ku2">
-                                <rect key="frame" x="20" y="239.66666666666663" width="353" height="35"/>
+                                <rect key="frame" x="20" y="244.66666666666663" width="353" height="35"/>
                                 <string key="text">Registering as a buyer, you can search for
 and buy any diamonds.</string>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -193,11 +211,11 @@ and buy any diamonds.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zTM-VK-a9m">
-                                <rect key="frame" x="0.0" y="282.66666666666669" width="393" height="525.33333333333326"/>
-                                <color key="backgroundColor" name="whitClr"/>
+                                <rect key="frame" x="0.0" y="287.66666666666669" width="393" height="520.33333333333326"/>
+                                <color key="backgroundColor" name="viewBGClr"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="6Aa-M8-JLd"/>
-                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="0DR-v9-yfV"/>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="42Q-ne-8wP"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="9ld-zM-r3D"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -417,7 +435,6 @@ and buy any diamonds.</string>
     <resources>
         <image name="Close" width="12" height="12"/>
         <image name="OTPVerification" width="56" height="64"/>
-        <image name="Top bg" width="375" height="217.66667175292969"/>
         <image name="arrow-left" width="28" height="28"/>
         <namedColor name="ShadowClr">
             <color red="0.9179999828338623" green="0.92500001192092896" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

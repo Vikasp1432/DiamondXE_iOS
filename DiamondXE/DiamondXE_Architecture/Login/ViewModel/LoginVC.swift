@@ -50,6 +50,7 @@ class LoginVC: BaseViewController, ChildViewControllerProtocol {
 
     var parameters : [String:Any]?
     var loginParamData = LoginParamStruct()
+    var loginDataStruct = LoginDataStruct()
     
     let emailMessage  = NSLocalizedString("Email is required.", comment: "")
     let passMessage  = NSLocalizedString("Password is required.", comment: "")
@@ -83,10 +84,24 @@ class LoginVC: BaseViewController, ChildViewControllerProtocol {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let dtTextField = textField as? DTTextField {
-            dtTextField.borderColor = .lightGray
+            dtTextField.borderColor = UIColor.tabSelectClr
         }
         return true
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+           // Change border color or perform any other actions
+           if let customTextField = textField as? DTTextField {
+               customTextField.borderColor = UIColor.tabSelectClr
+           }
+       }
+       
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let customTextField = textField as? DTTextField {
+            customTextField.borderColor = UIColor.borderClr
+        }
+    }
+    
     
     @IBAction func btnActionBack(_ sender: UIButton){
         self.navigationController?.popViewController(animated: true)
@@ -238,7 +253,7 @@ class LoginVC: BaseViewController, ChildViewControllerProtocol {
         view.endEditing(true)
         if self.isLoginWithMob{
             // callAPI_Login
-            CustomActivityIndicator.shared.show(in: view)
+            CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
             LoginDataModel().loginUser(url: APIs().email_phone_loginAPI, requestParam: parameters, completion: { loginData , message in
                 print(loginData)
                 if loginData.status == 2{
@@ -253,32 +268,35 @@ class LoginVC: BaseViewController, ChildViewControllerProtocol {
                 }
                 else if loginData.status == 1{
                     print("Navigate to Dashboard")
-                    self.navigationManager(storybordName: "Dashboard", storyboardID: "DashboardVC", controller: ForgotPasswordVC())
+                    UserDefaultManager().saveLoginData(topDelsObj: loginData)
+                    self.navigationController?.popViewController(animated: true)
                     self.toastMessage(message ?? "")
                 }
                 else{
                     //print(message)
                     self.toastMessage(message ?? "")
                 }
-                CustomActivityIndicator.shared.hide()
+                CustomActivityIndicator2.shared.hide()
+
                 
             })
         }
         else{
             // callAPI_Login
-            CustomActivityIndicator.shared.show(in: view)
+            CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
             LoginDataModel().loginUser(url: APIs().email_phone_loginAPI, requestParam: parameters, completion: { loginData , message in
                 print(loginData)
                 if loginData.status == 1{
-//                    print(message)
-                    self.navigationManager(storybordName: "Dashboard", storyboardID: "DashboardVC", controller: ForgotPasswordVC())
+                    UserDefaultManager().saveLoginData(topDelsObj: loginData)
+                    self.navigationController?.popViewController(animated: true)
                     self.toastMessage(message ?? "")
                     
                 }
                 else{
                     self.toastMessage(message ?? "")
                 }
-                CustomActivityIndicator.shared.hide()
+                CustomActivityIndicator2.shared.hide()
+
                 
             })
         }

@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 import Alamofire
+import DTTextField
 
 
 enum SlideDirection {
@@ -95,6 +96,13 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
             i.floatPlaceholderColor = .themeClr
         }
     }
+    
+    static func setClrUItextField2(textFields : [DTTextField]){
+         for i in textFields{
+             i.floatPlaceholderActiveColor = .themeClr
+             i.floatPlaceholderColor = .themeClr
+         }
+     }
     
     
     
@@ -367,5 +375,16 @@ extension UIView {
         self.layer.shadowOpacity = 0.5
         self.layer.shadowOffset = CGSize(width: 0, height: -2)
         self.layer.shadowRadius = 1
+    }
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        guard !self.isEmpty else { return self }
+        return self.prefix(1).capitalized + self.dropFirst().lowercased()
+    }
+    
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
     }
 }

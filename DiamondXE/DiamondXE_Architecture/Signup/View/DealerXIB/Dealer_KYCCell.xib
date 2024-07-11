@@ -30,10 +30,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pl7-5V-D3J">
-                        <rect key="frame" x="10" y="10" width="352" height="290"/>
+                        <rect key="frame" x="10" y="10" width="352" height="300"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="rRp-US-3NG">
-                                <rect key="frame" x="0.0" y="0.0" width="352" height="290"/>
+                                <rect key="frame" x="0.0" y="0.0" width="352" height="300"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kFI-3r-YaU">
                                         <rect key="frame" x="0.0" y="0.0" width="352" height="50"/>
@@ -69,16 +69,16 @@
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bf0-1d-4Rn">
-                                        <rect key="frame" x="0.0" y="50" width="352" height="240"/>
+                                        <rect key="frame" x="0.0" y="50" width="352" height="250"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xzx-Wu-doa">
-                                                <rect key="frame" x="10" y="0.0" width="332" height="60"/>
+                                                <rect key="frame" x="10" y="0.0" width="332" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dte-QP-ayZ" userLabel="address2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="332" height="60"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="332" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Gqj-xo-s5z">
-                                                                <rect key="frame" x="262" y="15" width="60" height="30"/>
+                                                                <rect key="frame" x="262" y="5" width="60" height="30"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZlB-Pc-l5z">
                                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
@@ -123,8 +123,8 @@
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="12 digit aadhaar card number*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cuv-kE-UhR" customClass="FloatingTextField" customModule="DiamondXE" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="5" width="242" height="50"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="12 digit aadhaar card number*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cuv-kE-UhR" customClass="DTTextField" customModule="DTTextField">
+                                                                <rect key="frame" x="0.0" y="0.0" width="332" height="40"/>
                                                                 <color key="textColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -135,19 +135,18 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
-                                                        <color key="backgroundColor" name="viewBGClr"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="Gqj-xo-s5z" secondAttribute="trailing" constant="10" id="0RU-Rz-xMF"/>
-                                                            <constraint firstItem="Gqj-xo-s5z" firstAttribute="leading" secondItem="cuv-kE-UhR" secondAttribute="trailing" constant="10" id="HGn-zQ-Lr1"/>
-                                                            <constraint firstAttribute="height" constant="60" id="Jfi-EF-4HT"/>
+                                                            <constraint firstAttribute="height" constant="40" id="Jfi-EF-4HT"/>
                                                             <constraint firstItem="Gqj-xo-s5z" firstAttribute="centerY" secondItem="dte-QP-ayZ" secondAttribute="centerY" id="at1-Ht-ogN"/>
-                                                            <constraint firstItem="cuv-kE-UhR" firstAttribute="top" secondItem="dte-QP-ayZ" secondAttribute="top" constant="5" id="gvW-So-dZH"/>
-                                                            <constraint firstItem="cuv-kE-UhR" firstAttribute="leading" secondItem="dte-QP-ayZ" secondAttribute="leading" constant="10" id="lrC-Nn-6iH"/>
-                                                            <constraint firstAttribute="bottom" secondItem="cuv-kE-UhR" secondAttribute="bottom" constant="5" id="utX-PM-cMG"/>
+                                                            <constraint firstAttribute="trailing" secondItem="cuv-kE-UhR" secondAttribute="trailing" id="gpu-2v-uwE"/>
+                                                            <constraint firstItem="cuv-kE-UhR" firstAttribute="top" secondItem="dte-QP-ayZ" secondAttribute="top" id="gvW-So-dZH"/>
+                                                            <constraint firstAttribute="bottom" secondItem="cuv-kE-UhR" secondAttribute="bottom" id="utX-PM-cMG"/>
+                                                            <constraint firstItem="cuv-kE-UhR" firstAttribute="leading" secondItem="dte-QP-ayZ" secondAttribute="leading" id="yNy-0R-MIV"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="12"/>
+                                                                <real key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
@@ -161,7 +160,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uf3-ro-wnk" userLabel="address2">
-                                                <rect key="frame" x="10" y="70" width="332" height="40"/>
+                                                <rect key="frame" x="10" y="50" width="332" height="40"/>
                                                 <subviews>
                                                     <stackView clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="pyh-mL-Q2Z">
                                                         <rect key="frame" x="0.0" y="0.0" width="332" height="40"/>
@@ -170,7 +169,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="153.66666666666666" height="40"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkQ-f9-ZPo">
-                                                                        <rect key="frame" x="0.0" y="7.6666666666666572" width="25" height="25"/>
+                                                                        <rect key="frame" x="0.0" y="7.6666666666666714" width="25" height="25"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="25" id="akT-Zb-cf6"/>
                                                                             <constraint firstAttribute="height" constant="25" id="t3K-KC-NDt"/>
@@ -221,7 +220,7 @@
                                                                 <rect key="frame" x="178.66666666666663" y="0.0" width="153.33333333333337" height="40"/>
                                                                 <subviews>
                                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFv-xY-LaE">
-                                                                        <rect key="frame" x="0.0" y="7.6666666666666572" width="25" height="25"/>
+                                                                        <rect key="frame" x="0.0" y="7.6666666666666714" width="25" height="25"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="25" id="d2v-yO-QKQ"/>
                                                                             <constraint firstAttribute="width" constant="25" id="is7-l1-Lc3"/>
@@ -287,7 +286,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBo-iN-fgp" userLabel="address2">
-                                                <rect key="frame" x="10" y="120" width="332" height="60"/>
+                                                <rect key="frame" x="10" y="100" width="332" height="60"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="pFc-wa-2L2">
                                                         <rect key="frame" x="262" y="15" width="60" height="30"/>
@@ -364,13 +363,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Plk-WR-eXS" userLabel="address2">
-                                                <rect key="frame" x="10" y="190" width="332" height="40"/>
+                                                <rect key="frame" x="10" y="170" width="332" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yD-VK-Ird">
                                                         <rect key="frame" x="0.0" y="0.0" width="332" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJk-bO-R6v">
-                                                                <rect key="frame" x="0.0" y="7.6666666666666856" width="25" height="25"/>
+                                                                <rect key="frame" x="0.0" y="7.6666666666666572" width="25" height="25"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="25" id="6Rc-cP-0mk"/>
                                                                     <constraint firstAttribute="width" constant="25" id="qs4-9Z-LTg"/>
@@ -442,7 +441,6 @@
                                             <constraint firstAttribute="trailing" secondItem="Uf3-ro-wnk" secondAttribute="trailing" constant="10" id="OmV-IM-Efh"/>
                                             <constraint firstItem="Plk-WR-eXS" firstAttribute="leading" secondItem="Bf0-1d-4Rn" secondAttribute="leading" constant="10" id="WZq-Rr-wBc"/>
                                             <constraint firstItem="cBo-iN-fgp" firstAttribute="leading" secondItem="Bf0-1d-4Rn" secondAttribute="leading" constant="10" id="Y3M-0L-IjI"/>
-                                            <constraint firstAttribute="bottom" secondItem="Plk-WR-eXS" secondAttribute="bottom" constant="10" id="ecu-8g-0TW"/>
                                             <constraint firstItem="xzx-Wu-doa" firstAttribute="top" secondItem="Bf0-1d-4Rn" secondAttribute="top" id="jMA-tl-ZWC"/>
                                             <constraint firstItem="Plk-WR-eXS" firstAttribute="top" secondItem="cBo-iN-fgp" secondAttribute="bottom" constant="10" id="nu2-Rk-AOr"/>
                                             <constraint firstItem="xzx-Wu-doa" firstAttribute="leading" secondItem="Bf0-1d-4Rn" secondAttribute="leading" constant="10" id="q3b-oI-Ink"/>
@@ -473,7 +471,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
-                <color key="backgroundColor" name="whitClr"/>
+                <color key="backgroundColor" name="viewBGClr"/>
                 <constraints>
                     <constraint firstItem="Pl7-5V-D3J" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="3JV-ey-uCA"/>
                     <constraint firstAttribute="trailing" secondItem="Pl7-5V-D3J" secondAttribute="trailing" constant="10" id="IWd-v4-qoi"/>

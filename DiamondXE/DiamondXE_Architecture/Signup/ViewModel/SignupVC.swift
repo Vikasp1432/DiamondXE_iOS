@@ -108,8 +108,10 @@ class SignupVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.viewBGButtons.addBottomShadow()
+//        self.viewBGButtons.addBottomShadow()
 //        self.navigationController?.isNavigationBarHidden = true
+        
+        btnBuyer.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
 
        
         self.defineXIBUItableView()
@@ -157,6 +159,9 @@ class SignupVC: BaseViewController {
         switch sender.tag {
         case 0:
             print("buyer")
+            btnBuyer.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            btnDealer.clearGradient()
+            btnSupplier.clearGradient()
             userType = 0
             lblHeading.text = "Registering as a buyer, you can search for\nand buy any diamonds."
             self.btnBuyer.backgroundColor = .themeClr
@@ -166,8 +171,12 @@ class SignupVC: BaseViewController {
             self.btnSupplier.backgroundColor = .whitClr
             self.btnSupplier.setTitleColor(.themeClr, for: .normal)
             self.tableViewSingup.reloadData()
+            
         case 1:
             print("dealer")
+            btnDealer.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            btnBuyer.clearGradient()
+            btnSupplier.clearGradient()
             userType = 1
             lblHeading.text = "Registering as a dealer enables you to receive\nadditional discounts on prices within the same trade."
             self.btnBuyer.backgroundColor = .whitClr
@@ -179,6 +188,9 @@ class SignupVC: BaseViewController {
             self.tableViewSingup.reloadData()
         default:
             print("supplier")
+            btnSupplier.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            btnDealer.clearGradient()
+            btnBuyer.clearGradient()
             lblHeading.text = "Upload your stock and sell on the platform"
             userType = 2
             self.btnBuyer.backgroundColor = .whitClr

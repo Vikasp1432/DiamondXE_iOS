@@ -59,6 +59,8 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     @IBOutlet var btnTitleLogin: UIButton!
     @IBOutlet var btnSideMenu : UIButton!
     @IBOutlet var viewSideMnu : UIView!
+    @IBOutlet var lblWelcomeUser: UILabel!
+    @IBOutlet var lblType: UILabel!
 
     @IBOutlet weak var containerView: UIView!
     var tagV = VCTags()
@@ -80,6 +82,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
         viewSideMnu.addGestureRecognizer(tapGesture)
 //        btnSideMenu.isUserInteractionEnabled = true
 //        btnSideMenu.superview?.isUserInteractionEnabled = true
+     
 
         let navigationController = UINavigationController(rootViewController: self)
         UIApplication.shared.windows.first?.rootViewController = navigationController
@@ -112,6 +115,18 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
         defineDIADetailsPopupView()
        
        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if let loginData = UserDefaultManager().retrieveLoginData(){
+            var userType = loginData.details?.userRole ?? ""
+            var username = "\(loginData.details?.firstName ?? "") \(loginData.details?.lastName ?? "")"
+            self.btnTitleLogin.setTitle(userType.capitalizingFirstLetter(), for: .normal)
+            self.lblWelcomeUser.text = username
+            self.lblType.text = userType
+            
+        }
     }
     
     // setup for view
@@ -564,6 +579,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
             self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
             
         default:
+            
             self.btnHome.tintColor = .clrGray
             self.btnCategory.tintColor = .clrGray
             self.btnWish.tintColor = .clrGray
@@ -574,8 +590,14 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
             self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
             self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
             self.btnTitleLogin.setTitleColor(UIColor.themeClr, for: .normal)
-            
-            self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
+            let loginData = UserDefaultManager().retrieveLoginData()
+//            if let status = loginData?.details?.userRole {
+//               print("")
+//            }
+//            else{
+                self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
+//            }
+           
             
         }
     }

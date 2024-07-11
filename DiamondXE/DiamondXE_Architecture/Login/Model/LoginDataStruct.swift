@@ -10,13 +10,15 @@ import Foundation
 struct LoginDataStruct: Codable {
     var status: Int?
     var msg: String?
-    var details: UserDetails?
+    var details: LoginUserDetails?
 }
 
 // MARK: - Details
-struct UserDetails: Codable {
+struct LoginUserDetails: Codable {
     var userRole, email, mobileNo, firstName: String?
     var lastName, companyName, status, kycStatus: String?
+    var tokenType: String?
+    var tokenExpiresIn: Int?
     var authToken: String?
 }
 

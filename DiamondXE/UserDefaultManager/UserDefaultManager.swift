@@ -65,6 +65,23 @@ class UserDefaultManager {
     }
     
     
+    func saveLoginData(topDelsObj: LoginDataStruct) {
+        let encoder = JSONEncoder()
+        if let encodedUser = try? encoder.encode(topDelsObj) {
+            UserDefaults.standard.set(encodedUser, forKey: "LoginData")
+        }
+    }
+    
+    func retrieveLoginData() -> LoginDataStruct? {
+        if let savedUserData = UserDefaults.standard.data(forKey: "LoginData") {
+            let decoder = JSONDecoder()
+            if let savedUser = try? decoder.decode(LoginDataStruct.self, from: savedUserData) {
+                return savedUser
+            }
+        }
+        return nil
+    }
+    
 }
 
 

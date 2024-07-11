@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import DTTextField
+
 
 class BuyerCell1: UITableViewCell, UITextFieldDelegate {
 
@@ -15,24 +17,34 @@ class BuyerCell1: UITableViewCell, UITextFieldDelegate {
     @IBOutlet var btnVerify: UIButton!
     @IBOutlet var btnVerifyDone: UIButton!
     
-    @IBOutlet var txtCity:FloatingTextField!
-    @IBOutlet var txtState:FloatingTextField!
-    @IBOutlet var txtCountry:FloatingTextField!
-    @IBOutlet var txtCityCode:FloatingTextField!
-    @IBOutlet var txtFirstName:FloatingTextField!
-    @IBOutlet var txtLastName:FloatingTextField!
-    @IBOutlet var txtMobile:FloatingTextField!
-    @IBOutlet var txtEmail:FloatingTextField!
-    @IBOutlet var txtPassword:FloatingTextField!
-    @IBOutlet var txtConfirmPass:FloatingTextField!
-    @IBOutlet var txtAddress1:FloatingTextField!
-    @IBOutlet var txtAddress2:FloatingTextField!
+    @IBOutlet var txtCity:DTTextField!
+    @IBOutlet var txtState:DTTextField!
+    @IBOutlet var txtCountry:DTTextField!
+    @IBOutlet var txtCityCode:DTTextField!
+    @IBOutlet var txtFirstName:DTTextField!
+    @IBOutlet var txtLastName:DTTextField!
+    @IBOutlet var txtMobile:DTTextField!
+    @IBOutlet var txtEmail:DTTextField!
+    @IBOutlet var txtPassword:DTTextField!
+    @IBOutlet var txtConfirmPass:DTTextField!
+    @IBOutlet var txtAddress1:DTTextField!
+    @IBOutlet var txtAddress2:DTTextField!
+    
+    @IBOutlet var viewBG: UIView!
 
     var buyerDataParam = BuyerParamDataStruct()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        btnVerify.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        
+        viewBG.layer.shadowColor = UIColor.shadowViewclr.cgColor
+        viewBG.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        viewBG.layer.shadowRadius = 2.0
+        viewBG.layer.shadowOpacity = 0.3
+        viewBG.layer.masksToBounds = false
         
         txtCountry.delegate = self
         txtState.delegate = self
@@ -47,12 +59,33 @@ class BuyerCell1: UITableViewCell, UITextFieldDelegate {
         txtAddress1.delegate = self
         txtAddress2.delegate = self
         btnVerifyDone.isHidden = true
-        
+        txtMobile.paddingX = 110
      
-        BaseViewController.setClrUItextField(textFields: [txtCity, txtState, txtCountry, txtMobile, txtEmail, txtAddress1, txtAddress2, txtFirstName, txtLastName, txtPassword, txtConfirmPass])
+        BaseViewController.setClrUItextField2(textFields: [txtCity, txtState, txtCountry, txtMobile, txtEmail, txtAddress1, txtAddress2, txtFirstName, txtLastName, txtPassword, txtConfirmPass])
         
     }
-
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let dtTextField = textField as? DTTextField {
+            dtTextField.borderColor = UIColor.tabSelectClr
+        }
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+           // Change border color or perform any other actions
+           if let customTextField = textField as? DTTextField {
+               customTextField.borderColor = UIColor.tabSelectClr
+           }
+       }
+       
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let customTextField = textField as? DTTextField {
+            customTextField.borderColor = UIColor.borderClr
+        }
+    }
+    
+   
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

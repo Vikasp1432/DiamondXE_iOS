@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -186,7 +186,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b1E-7U-Uk7">
-                                                                        <rect key="frame" x="27" y="0.0" width="142" height="40"/>
+                                                                        <rect key="frame" x="27" y="0.0" width="134" height="40"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal">
                                                                             <attributedString key="attributedTitle">
@@ -237,7 +237,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z0t-Pj-fZO">
-                                                                        <rect key="frame" x="27" y="0.0" width="123" height="40"/>
+                                                                        <rect key="frame" x="27" y="0.0" width="114" height="40"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal">
                                                                             <attributedString key="attributedTitle">
@@ -383,7 +383,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YWa-yp-Ulq">
-                                                                <rect key="frame" x="27" y="0.0" width="161" height="40"/>
+                                                                <rect key="frame" x="27" y="0.0" width="151" height="40"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal">
                                                                     <attributedString key="attributedTitle">
@@ -1002,7 +1002,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iTH-UP-P3Q">
-                                                                <rect key="frame" x="27" y="0.0" width="215" height="40"/>
+                                                                <rect key="frame" x="27" y="0.0" width="198" height="40"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal">
                                                                     <attributedString key="attributedTitle">
@@ -1100,7 +1100,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qw0-OZ-Pm9">
-                                                                <rect key="frame" x="27" y="0.0" width="127" height="40"/>
+                                                                <rect key="frame" x="27" y="0.0" width="121" height="40"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal">
                                                                     <attributedString key="attributedTitle">
@@ -1225,7 +1225,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
-                <color key="backgroundColor" name="whitClr"/>
+                <color key="backgroundColor" name="viewBGClr"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="yVk-02-ZSq" secondAttribute="bottom" constant="10" id="UI8-q3-iQm"/>
                     <constraint firstItem="yVk-02-ZSq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="YW6-Ne-DyC"/>
@@ -1273,49 +1273,49 @@
     </objects>
     <designables>
         <designable name="2EW-r9-IHa">
-            <size key="intrinsicContentSize" width="247.66666666666666" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="248" height="18"/>
         </designable>
         <designable name="4PW-jK-hhB">
-            <size key="intrinsicContentSize" width="91.666666666666671" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="92.333333333333329" height="18"/>
         </designable>
         <designable name="56x-k0-tVf">
-            <size key="intrinsicContentSize" width="155" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="155.66666666666666" height="18"/>
         </designable>
         <designable name="EQi-3A-uV4">
-            <size key="intrinsicContentSize" width="102" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="101.66666666666667" height="18"/>
         </designable>
         <designable name="FvL-z5-H5k">
-            <size key="intrinsicContentSize" width="174" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="177.66666666666666" height="18"/>
         </designable>
         <designable name="HFF-WL-JJd">
-            <size key="intrinsicContentSize" width="96.666666666666671" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="98" height="18"/>
         </designable>
         <designable name="JVg-De-gM0">
-            <size key="intrinsicContentSize" width="102.33333333333333" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="102.66666666666667" height="18"/>
         </designable>
         <designable name="K6V-MJ-GfY">
-            <size key="intrinsicContentSize" width="81" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="84.333333333333329" height="18"/>
         </designable>
         <designable name="LhX-N8-vDQ">
-            <size key="intrinsicContentSize" width="106.66666666666667" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="106.33333333333333" height="18"/>
         </designable>
         <designable name="Lr8-Es-6K0">
-            <size key="intrinsicContentSize" width="104" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="104.33333333333333" height="18"/>
         </designable>
         <designable name="YP7-cH-79e">
-            <size key="intrinsicContentSize" width="88.333333333333329" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="89" height="18"/>
         </designable>
         <designable name="Ytw-9F-RNv">
-            <size key="intrinsicContentSize" width="80.666666666666671" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="81" height="18"/>
         </designable>
         <designable name="cDI-3M-gz4">
-            <size key="intrinsicContentSize" width="98.333333333333329" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="99" height="18"/>
         </designable>
         <designable name="gXP-ce-J7f">
-            <size key="intrinsicContentSize" width="94.333333333333329" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="93.666666666666671" height="18"/>
         </designable>
         <designable name="h1A-Uw-koh">
-            <size key="intrinsicContentSize" width="71.666666666666671" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="72.666666666666671" height="18"/>
         </designable>
     </designables>
     <resources>

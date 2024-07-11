@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -120,7 +120,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nGb-3b-myE">
-                                                <rect key="frame" x="30" y="0.0" width="120" height="40"/>
+                                                <rect key="frame" x="30" y="0.0" width="111" height="40"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
@@ -362,7 +362,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OBn-bt-LFH">
-                                                                <rect key="frame" x="27" y="0.0" width="119" height="40"/>
+                                                                <rect key="frame" x="27" y="0.0" width="108" height="40"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal">
                                                                     <attributedString key="attributedTitle">
@@ -413,7 +413,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z0a-zo-fLj">
-                                                                <rect key="frame" x="27" y="0.0" width="117" height="40"/>
+                                                                <rect key="frame" x="27" y="0.0" width="109" height="40"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal">
                                                                     <attributedString key="attributedTitle">
@@ -690,7 +690,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6az-5U-uq4">
-                                                                <rect key="frame" x="27" y="0.0" width="122" height="40"/>
+                                                                <rect key="frame" x="27" y="0.0" width="111" height="40"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal">
                                                                     <attributedString key="attributedTitle">
@@ -741,7 +741,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
                                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nbX-it-iuT">
-                                                                <rect key="frame" x="27" y="0.0" width="117" height="40"/>
+                                                                <rect key="frame" x="27" y="0.0" width="109" height="40"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal">
                                                                     <attributedString key="attributedTitle">
@@ -824,7 +824,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="whitClr"/>
+                        <color key="backgroundColor" name="viewBGClr"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="yni-zS-dUM" secondAttribute="trailing" constant="10" id="71k-ic-kMU"/>
                             <constraint firstItem="6eF-fX-3VP" firstAttribute="leading" secondItem="Xgc-ca-xSu" secondAttribute="leading" constant="10" id="9pT-gY-obx"/>
@@ -895,13 +895,13 @@
     </objects>
     <designables>
         <designable name="9Tw-7J-7oN">
-            <size key="intrinsicContentSize" width="112.66666666666667" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="115.66666666666667" height="18"/>
         </designable>
         <designable name="CcC-gj-PjQ">
-            <size key="intrinsicContentSize" width="77.333333333333329" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="77.666666666666671" height="18"/>
         </designable>
         <designable name="PkR-P9-ckJ">
-            <size key="intrinsicContentSize" width="112.66666666666667" height="18.333333333333332"/>
+            <size key="intrinsicContentSize" width="115.66666666666667" height="18"/>
         </designable>
     </designables>
     <resources>

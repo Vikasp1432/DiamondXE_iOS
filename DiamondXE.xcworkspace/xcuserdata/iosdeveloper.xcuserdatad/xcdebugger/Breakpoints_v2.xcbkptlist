@@ -7,48 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CD47A7F2-6482-4FCC-B192-B705D920F3C2"
+            uuid = "75B7738B-8A8F-474F-9971-91934EA57CC1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/DTTextField/Sources/DTTextField/DTTextField.swift"
+            filePath = "DiamondXE/DiamondXE_Architecture/DiaDetails/ViewModel/CustomViews/LocationPinView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
-            landmarkName = "showFloatingLabel(_:)"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "locatemeButtonAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FA76852A-FA09-4335-8C1A-3E219AE65065"
+            uuid = "9FD8372F-9251-43F0-8601-0153FAD680BD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/DTTextField/Sources/DTTextField/DTTextField.swift"
+            filePath = "DiamondXE/DiamondXE_Architecture/Signup/View/BuyerXIB/BuyerCell1.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "dtborderStyle"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9A1134B3-CF54-4C05-AAE6-C4059A06ABD0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/DTTextField/Sources/DTTextField/DTTextField.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "415"
-            endingLineNumber = "415"
-            landmarkName = "insetRectForBounds(rect:)"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "textFieldDidBeginEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

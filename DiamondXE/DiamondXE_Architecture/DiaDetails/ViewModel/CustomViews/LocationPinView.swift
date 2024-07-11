@@ -29,6 +29,7 @@ class LocationPinView: BaseViewController, CLLocationManagerDelegate {
     @IBOutlet var btnSubmit : UIButton!
     @IBOutlet var txtPincode : UITextField!
     let locationManager = CLLocationManager()
+    
 
     var pincodeDelagate : PinCodeDelegate?
     var indexPath = IndexPath()
