@@ -1,15 +1,17 @@
 //
-//  Supplier_AuthorisedPersonCell.swift
+//  SupplierINT_KYCTableViewCell.swift
 //  DiamondXE
 //
-//  Created by iOS Developer on 30/04/24.
+//  Created by iOS Developer on 15/07/24.
 //
 
 import UIKit
 import DTTextField
 
-class Supplier_AuthorisedPersonCell: UITableViewCell {
+class SupplierINT_KYCTableViewCell: UITableViewCell {
     
+    static let cellIdentifierSuppINT_KYC = String(describing: SupplierINT_KYCTableViewCell.self)
+
     @IBOutlet var viewBGHeader:UIView!
     @IBOutlet var viewBGData:UIView!
     @IBOutlet var btnDropDown:UIButton!
@@ -18,28 +20,26 @@ class Supplier_AuthorisedPersonCell: UITableViewCell {
     @IBOutlet var btnCode: UIButton!
     
     @IBOutlet var txtSupervisorName:DTTextField!
-    @IBOutlet var txtSupervisorEmail:DTTextField!
-    @IBOutlet var txtSupervisorMobile:DTTextField!
+    @IBOutlet var txtNatureOfBusiness:DTTextField!
+    @IBOutlet var txtCompanyType:DTTextField!
     
     @IBOutlet var viewBG:UIView!
-    
 
-    var buttonBottomSheet : ((Int) -> Void) = {_ in }
+    var buttonDropDownCB : ((Int) -> Void) = {_ in }
     var buttonPressed : ((Int) -> Void) = {_ in }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         viewBG.layer.shadowColor = UIColor.shadowViewclr.cgColor
         viewBG.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         viewBG.layer.shadowRadius = 2.0
         viewBG.layer.shadowOpacity = 0.3
         viewBG.layer.masksToBounds = false
-        txtSupervisorMobile.paddingX = 110
-
+        
+        // Initialization code
 //        self.btnFlag.setTitle(APIs().indianFlag, for: .normal)
-        BaseViewController.setClrUItextField2(textFields: [txtSupervisorName, txtSupervisorEmail,txtSupervisorMobile])
+       // BaseViewController.setClrUItextField2(textFields: [txtSupervisorName, txtSupervisorEmail,txtSupervisorMobile])
     }
 
     func setupData(isExpand:Bool){
@@ -67,8 +67,10 @@ class Supplier_AuthorisedPersonCell: UITableViewCell {
         buttonPressed(sender.tag)
     }
     
-    @IBAction func buttonActionBottomsheetList(_ sender: UIButton) {
-
-        buttonBottomSheet(sender.tag)
+    @IBAction func buttonActionDropDown(_ sender: UIButton) {
+//        self.isExpanded.toggle()
+       
+        buttonDropDownCB(sender.tag)
     }
+    
 }

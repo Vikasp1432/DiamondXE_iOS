@@ -1,39 +1,26 @@
 //
-//  Dealer_KYCCell.swift
+//  OutherCountryKYC.swift
 //  DiamondXE
 //
-//  Created by iOS Developer on 29/04/24.
+//  Created by iOS Developer on 12/07/24.
 //
 
 import UIKit
 import DTTextField
 
-class Dealer_KYCCell: UITableViewCell, UITextFieldDelegate {
+class OutherCountryKYC: UITableViewCell , UITextFieldDelegate{
     
+    static let cellIdentifierInternationalCell = String(describing: OutherCountryKYC.self)
+
     @IBOutlet  var btnDropDown:UIButton!
     
-    @IBOutlet  var btnGSTFront:UIButton!
+    @IBOutlet  var btnBusinessLicenceNum:UIButton!
     @IBOutlet  var btnIECDoc:UIButton!
-    @IBOutlet  var btnPANFront:UIButton!
-    
-    @IBOutlet  var btnAdharFrontIcon:UIButton!
-    @IBOutlet  var btnAdharBackIcon:UIButton!
-    @IBOutlet  var btnPANFrontIcon:UIButton!
-    
-    @IBOutlet  var btnverifyGST:UIButton!
-    @IBOutlet  var btnverifiedAdhar:UIButton!
-    
-    @IBOutlet  var btnverifyPAN:UIButton!
-    @IBOutlet  var btnverifiedPAN:UIButton!
-    
-    @IBOutlet var viewBG1:UIView!
-    @IBOutlet var viewBG2:UIView!
-    @IBOutlet var viewBG3:UIView!
-    @IBOutlet var viewBG4:UIView!
+
     @IBOutlet var viewBGHeader:UIView!
     @IBOutlet var viewBGData:UIView!
-    @IBOutlet var txtAdhar:DTTextField!
-    @IBOutlet var txtPAN:DTTextField!
+    @IBOutlet var txtBusinessLicenceNum:DTTextField!
+    @IBOutlet var txtIECDoc:DTTextField!
     
     @IBOutlet var viewBG:UIView!
     
@@ -59,21 +46,14 @@ class Dealer_KYCCell: UITableViewCell, UITextFieldDelegate {
         viewBG.layer.shadowOpacity = 0.3
         viewBG.layer.masksToBounds = false
         
-        txtAdhar.delegate = self
-        txtPAN.delegate = self
-        BaseViewController.setClrUItextField2(textFields: [txtAdhar, txtPAN])
+        txtBusinessLicenceNum.delegate = self
+        txtIECDoc.delegate = self
+        BaseViewController.setClrUItextField2(textFields: [txtBusinessLicenceNum, txtIECDoc])
         
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-           // Check which text field triggered the method
-           if textField == txtAdhar {
-               self.btnverifyGST.isHidden = false
-               self.btnverifiedAdhar.isHidden = true
-           } else if textField == txtPAN {
-               self.btnverifyPAN.isHidden = false
-               self.btnverifiedPAN.isHidden = true
-           }
+        
         if let dtTextField = textField as? DTTextField {
             dtTextField.borderColor = UIColor.tabSelectClr
         }
@@ -86,12 +66,12 @@ class Dealer_KYCCell: UITableViewCell, UITextFieldDelegate {
             customTextField.borderColor = UIColor.borderClr
         }
         
-      if let text = txtAdhar.text {
+      if let text = txtBusinessLicenceNum.text {
        
           cellDataDelegate?.didUpdateText(textKey: "Aadhar", text: text, indexPath: indexPath)
           
       }
-        if let text = txtPAN.text {
+        if let text = txtIECDoc.text {
             cellDataDelegate?.didUpdateText(textKey: "PAN", text: text, indexPath: indexPath)
         }
         
@@ -106,12 +86,12 @@ class Dealer_KYCCell: UITableViewCell, UITextFieldDelegate {
     
     
     
-    func getAdharnum() -> String{
-        return self.txtAdhar.text ?? ""
+    func getBusinessLicencenum() -> String{
+        return self.txtBusinessLicenceNum.text ?? ""
     }
     
-    func getPANnum() -> String{
-        return self.txtPAN.text ?? ""
+    func getIECnum() -> String{
+        return self.txtIECDoc.text ?? ""
     }
     
     func setupData(isExpand:Bool){
@@ -141,8 +121,5 @@ class Dealer_KYCCell: UITableViewCell, UITextFieldDelegate {
         buttonPressedPicDoc(sender.tag)
     }
     
-    @IBAction func buttonActionVerify(_ sender: UIButton) {
-        buttonPressedVerify(sender.tag)
-    }
-    
+   
 }

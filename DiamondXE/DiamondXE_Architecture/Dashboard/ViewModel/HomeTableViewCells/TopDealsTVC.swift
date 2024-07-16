@@ -18,6 +18,8 @@ class TopDealsTVC: UITableViewCell {
     var naturalDia = [NaturalDiamond]()
     var labGlDia = [LabGDiamond]()
     
+    var buttonPressedDetails : ((Int) -> Void) = {_ in }
+    
     @IBOutlet var collectionViewTopDeL:UICollectionView!
     
     
@@ -98,6 +100,10 @@ extension TopDealsTVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopDealsCVC.cellIdentifierTopDealsCVC, for: indexPath) as! TopDealsCVC
         let placeholderImage = UIImage(named: "place_Holder")
         if self.naturalDia.count > 0{
+            
+            cell.diamondSelect = {
+                self.buttonPressedDetails(indexPath.row)
+            }
             
             let imageUrlString = naturalDia[indexPath.row].diamondImage ?? ""
             

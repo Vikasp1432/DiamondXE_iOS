@@ -6,20 +6,25 @@
 //
 
 import UIKit
+import DTTextField
+
+protocol CustomDatePickerDelegate: AnyObject {
+    func didSelectDate(date: String)
+}
+
 
 class Dealer_OtherDocCell: UITableViewCell , UITextFieldDelegate{
     
     @IBOutlet var viewBGHeader:UIView!
     @IBOutlet var viewBGData:UIView!
     
-    @IBOutlet var viewBGData1:UIView!
-    @IBOutlet var viewBGData2:UIView!
+    @IBOutlet  var btnPassportFront:UIButton!
+    @IBOutlet  var btnPassportBack:UIButton!
+    @IBOutlet  var btnLicenceFront:UIButton!
+   
     
-    @IBOutlet var viewAddDoc1:UIView!
-    @IBOutlet var viewAddDoc2:UIView!
     
-    @IBOutlet var viewAddDoc3:UIView!
-    @IBOutlet var viewAddDoc4:UIView!
+    @IBOutlet  var btnverifyLicence:UIButton!
     
     @IBOutlet var btnDropDown:UIButton!
     @IBOutlet var btnAddDoc:UIButton!
@@ -44,11 +49,16 @@ class Dealer_OtherDocCell: UITableViewCell , UITextFieldDelegate{
     @IBOutlet var lblSelect1:UILabel!
     @IBOutlet var lblSelect2:UILabel!
     
-    @IBOutlet var txtSelect1:FloatingTextField!
-    @IBOutlet var txtSelect2:FloatingTextField!
+    @IBOutlet var txtSelect1:DTTextField!
+    @IBOutlet var txtSelect2:DTTextField!
     
-    @IBOutlet var txtDOB:FloatingTextField!
+    @IBOutlet var txtDOB:DTTextField!
+    @IBOutlet var viewBG:UIView!
 
+
+    var passportFront : String?
+    var passportBack : String?
+    var drivLicence : String?
     //other doc
     var doc1Front : String?
     var doc2Front : String?
@@ -59,6 +69,8 @@ class Dealer_OtherDocCell: UITableViewCell , UITextFieldDelegate{
     var docParamStr = [String:Any]()
     var otherDocDetais = OtherDocInfo()
     private let datePicker = UIDatePicker()
+    
+   
 
     var dateString = ""
  
@@ -69,36 +81,56 @@ class Dealer_OtherDocCell: UITableViewCell , UITextFieldDelegate{
     var buttonActionPopup : ((Int) -> Void) = {_ in }
     var btnVerifyDoc:((Int) -> Void) = {_ in}
     
+    var btnDOB:((Int) -> Void) = {_ in}
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
        // print("")
         
+        viewBG.layer.shadowColor = UIColor.shadowViewclr.cgColor
+        viewBG.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        viewBG.layer.shadowRadius = 2.0
+        viewBG.layer.shadowOpacity = 0.3
+        viewBG.layer.masksToBounds = false
+        
         txtSelect1.delegate = self
         txtSelect2.delegate = self
-        BaseViewController.setClrUItextField(textFields: [txtDOB,txtSelect1, txtSelect2])
+        BaseViewController.setClrUItextField2(textFields: [txtDOB,txtSelect1, txtSelect2])
         
         txtDOB.addInputViewDatePicker(target: self, selector: #selector(doneButtonPressed))
-
         
     }
     
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
            // Check which text field triggered the method
-           if textField == txtSelect1 {
-               self.btnDoc1Verify.isHidden = false
-               self.btnDoc1Verified.isHidden = true
-           } else if textField == txtSelect2 {
-               self.btnDoc2Verify.isHidden = false
-               self.btnDoc2Verified.isHidden = true
-           }
-        
+//           if textField == txtSelect1 {
+//               self.btnDoc1Verify.isHidden = false
+//               self.btnDoc1Verified.isHidden = true
+//           } else if textField == txtSelect2 {
+//               self.btnDoc2Verify.isHidden = false
+//               self.btnDoc2Verified.isHidden = true
+//           }
+        if let dtTextField = textField as? DTTextField {
+            dtTextField.borderColor = UIColor.tabSelectClr
+        }
            return true
        }
     
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Change border color or perform any other actions
+        if let customTextField = textField as? DTTextField {
+            customTextField.borderColor = UIColor.tabSelectClr
+        }
+    }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let customTextField = textField as? DTTextField {
+            customTextField.borderColor = UIColor.borderClr
+        }
+    }
     
     @objc func doneButtonPressed() {
         if let  datePicker = self.txtDOB.inputView as? UIDatePicker {
@@ -144,10 +176,12 @@ class Dealer_OtherDocCell: UITableViewCell , UITextFieldDelegate{
 
     func setupData(isExpand:Bool){
         if isExpand{
+            viewBGData.isHidden = true
             btnDropDown.setImage( UIImage(named: "d_down"), for: .normal)
 
         }
         else{
+            viewBGData.isHidden = false
             btnDropDown.setImage(UIImage(named: "d_up"), for: .normal)
             
         }
@@ -191,4 +225,68 @@ class Dealer_OtherDocCell: UITableViewCell , UITextFieldDelegate{
         self.btnVerifyDoc(sender.tag)
     }
     
+    
+    @IBAction func buttonActionGetDOB(_ sender: UIButton) {
+        btnDOB(0)
+    }
+    
+
 }
+
+
+
+
+
+class CustomDatePicker: NSObject {
+    
+    private var datePicker: UIDatePicker
+       private weak var viewController: UIViewController?
+       weak var delegate: CustomDatePickerDelegate?
+       
+       override init() {
+           datePicker = UIDatePicker()
+           datePicker.datePickerMode = .date
+           if #available(iOS 13.4, *) {
+               datePicker.preferredDatePickerStyle = .wheels
+           }
+       }
+       
+       func showDatePicker(in viewController: UIViewController) {
+           self.viewController = viewController
+           
+           let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+           
+           // Add the date picker to the alert
+           let pickerViewController = UIViewController()
+           pickerViewController.preferredContentSize = CGSize(width: viewController.view.frame.width, height: 250)
+           pickerViewController.view.addSubview(datePicker)
+           
+           datePicker.translatesAutoresizingMaskIntoConstraints = false
+           NSLayoutConstraint.activate([
+               datePicker.leadingAnchor.constraint(equalTo: pickerViewController.view.leadingAnchor),
+               datePicker.trailingAnchor.constraint(equalTo: pickerViewController.view.trailingAnchor),
+               datePicker.topAnchor.constraint(equalTo: pickerViewController.view.topAnchor),
+               datePicker.bottomAnchor.constraint(equalTo: pickerViewController.view.bottomAnchor)
+           ])
+           
+           alert.setValue(pickerViewController, forKey: "contentViewController")
+           
+           let selectAction = UIAlertAction(title: "Select", style: .default) { _ in
+               self.dateSelected()
+           }
+           
+           let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+           
+           alert.addAction(selectAction)
+           alert.addAction(cancelAction)
+           
+           viewController.present(alert, animated: true, completion: nil)
+       }
+       
+       private func dateSelected() {
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = "dd/MM/yyyy"
+           let selectedDate = dateFormatter.string(from: datePicker.date)
+           delegate?.didSelectDate(date: selectedDate)
+       }
+   }

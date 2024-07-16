@@ -21,12 +21,18 @@ class UserTypeManager{
         }
     }
     
-    static func getSignupDataCellSections(userType : Int) -> Int{
+    static func getSignupDataCellSections(userType : Int, isIndiaCode:Bool) -> Int{
         switch userType {
         case 0:
             return 2
         case 1:
-            return 5
+            if isIndiaCode{
+                return 6
+            }
+            else{
+                return 5
+            }
+           
         default:
             return 5
         }

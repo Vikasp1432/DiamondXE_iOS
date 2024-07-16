@@ -21,6 +21,7 @@ class HomeVC: BaseViewController, ChildViewControllerProtocol {
     var topDealsTag = 0
     var dashBoardVC =  DashboardVC()
     var delegate : BaseViewControllerDelegate?
+//    let dashboardVC = DashboardVC()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -312,6 +313,21 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
                     }
                 }
             }
+            
+            cell.buttonPressedDetails = { tag in
+               
+                if self.topDealsTag == 1{
+                    self.dashBoardVC.diamondDetailsDocID = self.topDealsStruct.details?.labGrown?[tag].certificateNo ?? ""
+                    self.dashBoardVC.loadViewController(withIdentifier: "DiamondDetailsVC", fromStoryboard: "DiamondDetails")
+                }
+                else{
+                    self.dashBoardVC.diamondDetailsDocID = self.topDealsStruct.details?.natural?[tag].certificateNo ?? ""
+                    self.dashBoardVC.loadViewController(withIdentifier: "DiamondDetailsVC", fromStoryboard: "DiamondDetails")
+                }
+               
+            }
+            
+
             return cell
             
         case 5:

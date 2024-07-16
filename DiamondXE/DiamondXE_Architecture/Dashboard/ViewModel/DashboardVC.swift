@@ -42,6 +42,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     var menu = false
     var home = CGAffineTransform()
     var diamondDetails = DiamondListingDetail()
+    var diamondDetailsDocID = String()
     
     
     @IBOutlet var viewTabBar:UIView!
@@ -78,6 +79,10 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         viewSideMnu.addGestureRecognizer(tapGesture)
 //        btnSideMenu.isUserInteractionEnabled = true
@@ -359,6 +364,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         guard let newViewController = storyboard.instantiateViewController(withIdentifier: identifier) as? ChildViewControllerProtocol else { return }
         if let diamondDetailsVC = newViewController as? HomeVC {
+            diamondDetailsVC.dashBoardVC = self
             self.btnSearch.setImage(UIImage(named: "SearchI"), for: .normal)
         }
         if let diamondDetailsVC = newViewController as? SearchDiamondVC {
@@ -366,6 +372,10 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
         }
         
         if let diamondDetailsVC = newViewController as? DiamondDetailsVC {
+           if !self.diamondDetailsDocID.isEmpty{
+               self.diamondDetails.certificateNo = self.diamondDetailsDocID
+            }
+            
             diamondDetailsVC.diamondInfo = self.diamondDetails
             self.btnSearch.setImage(UIImage(named: "plus"), for: .normal)
         }

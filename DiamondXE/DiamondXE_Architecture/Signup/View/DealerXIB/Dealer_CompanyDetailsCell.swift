@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DTTextField
 
 class Dealer_CompanyDetailsCell: UITableViewCell, UITextFieldDelegate {
     
@@ -30,25 +31,26 @@ class Dealer_CompanyDetailsCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet var btnVerifyEmail: UIButton!
     @IBOutlet var btnVerifyDonegEmail: UIButton!
     
-    @IBOutlet var txtCity:FloatingTextField!
-    @IBOutlet var txtState:FloatingTextField!
-    @IBOutlet var txtCountry:FloatingTextField!
-    @IBOutlet var txtGST:FloatingTextField!
-    @IBOutlet var txtPAN:FloatingTextField!
+    @IBOutlet var txtCity:DTTextField!
+    @IBOutlet var txtState:DTTextField!
+    @IBOutlet var txtCountry:DTTextField!
+    @IBOutlet var txtGST:DTTextField!
+    @IBOutlet var txtPAN:DTTextField!
   
-    @IBOutlet var txtMobile:FloatingTextField!
-    @IBOutlet var txtEmail:FloatingTextField!
-    @IBOutlet var txtCompanyName:FloatingTextField!
-    @IBOutlet var txtAddress1:FloatingTextField!
-    @IBOutlet var txtAddress2:FloatingTextField!
-    @IBOutlet var txtCompanyType:FloatingTextField!
-    @IBOutlet var txtBusinessVal:FloatingTextField!
-    @IBOutlet var txtTradeNumber:FloatingTextField!
-    @IBOutlet var txtIEXNumber:FloatingTextField!
-    @IBOutlet var txtIPinNum:FloatingTextField!
+    @IBOutlet var txtMobile:DTTextField!
+    @IBOutlet var txtEmail:DTTextField!
+    @IBOutlet var txtCompanyName:DTTextField!
+    @IBOutlet var txtAddress1:DTTextField!
+    @IBOutlet var txtAddress2:DTTextField!
+    @IBOutlet var txtCompanyType:DTTextField!
+    @IBOutlet var txtBusinessVal:DTTextField!
+    @IBOutlet var txtTradeNumber:DTTextField!
+    @IBOutlet var txtIEXNumber:DTTextField!
+    @IBOutlet var txtIPinNum:DTTextField!
     @IBOutlet var btnCompanyType:UIButton!
     @IBOutlet var btnBusinessNature:UIButton!
-
+    
+    @IBOutlet var viewBG:UIView!
     
     var buttonPressed : ((Int) -> Void) = {_ in }
     
@@ -63,32 +65,68 @@ class Dealer_CompanyDetailsCell: UITableViewCell, UITextFieldDelegate {
         super.awakeFromNib()
         // Initialization code
         
-        txtGST.delegate = self
-        txtPAN.delegate = self
-        txtEmail.delegate = self
+        viewBG.layer.shadowColor = UIColor.shadowViewclr.cgColor
+        viewBG.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        viewBG.layer.shadowRadius = 2.0
+        viewBG.layer.shadowOpacity = 0.3
+        viewBG.layer.masksToBounds = false
         
-        BaseViewController.setClrUItextField(textFields: [txtCity, txtState, txtCountry, txtMobile, txtEmail, txtAddress1, txtAddress2, txtCompanyType, txtBusinessVal, txtIEXNumber, txtTradeNumber, txtGST, txtPAN, txtCompanyName, txtIPinNum])
+        txtCity.delegate = self
+        txtState.delegate = self
+        txtEmail.delegate = self
+        txtCountry.delegate = self
+        txtMobile.delegate = self
+        txtCompanyName.delegate = self
+        
+        txtAddress1.delegate = self
+        txtAddress2.delegate = self
+        txtCompanyType.delegate = self
+        txtBusinessVal.delegate = self
+        txtIPinNum.delegate = self
+        
+        txtMobile.paddingX = 110
+
+        
+        BaseViewController.setClrUItextField2(textFields: [txtCity, txtState, txtCountry, txtMobile, txtEmail, txtAddress1, txtAddress2, txtCompanyType, txtBusinessVal, txtCompanyName, txtIPinNum])
 
         
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
            // Check which text field triggered the method
-           if textField == txtGST {
-               self.btnVerifyGst.isHidden = false
-               self.btnVerifyDonegGst.isHidden = true
-           } else if textField == txtPAN {
-               self.btnVerifyPan.isHidden = false
-               self.btnVerifyDonegPan.isHidden = true
-           }
-        else  if textField == txtEmail {
-            self.btnVerifyEmail.isHidden = false
-            self.btnVerifyDonegEmail.isHidden = true
+//           if textField == txtGST {
+//               self.btnVerifyGst.isHidden = false
+//               self.btnVerifyDonegGst.isHidden = true
+//           } else if textField == txtPAN {
+//               self.btnVerifyPan.isHidden = false
+//               self.btnVerifyDonegPan.isHidden = true
+//           }
+//        else  if textField == txtEmail {
+//            self.btnVerifyEmail.isHidden = false
+//            self.btnVerifyDonegEmail.isHidden = true
+//        }
+        
+        if let dtTextField = textField as? DTTextField {
+            dtTextField.borderColor = UIColor.tabSelectClr
         }
         
            return true
        }
+    
   
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+           // Change border color or perform any other actions
+           if let customTextField = textField as? DTTextField {
+               customTextField.borderColor = UIColor.tabSelectClr
+           }
+       }
+       
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let customTextField = textField as? DTTextField {
+            customTextField.borderColor = UIColor.borderClr
+        }
+    }
     
 
     func setupData(isExpand:Bool){
@@ -114,8 +152,8 @@ class Dealer_CompanyDetailsCell: UITableViewCell, UITextFieldDelegate {
     func dataCollectCompanyDetail() -> CompanyDetailsDataStruct{
         
         if self.validateData() {
-            companyDetailsStruct.gstNumber = self.txtGST.text ?? ""
-            companyDetailsStruct.panNumber = self.txtPAN.text ?? ""
+//            companyDetailsStruct.gstNumber = self.txtGST.text ?? ""
+//            companyDetailsStruct.panNumber = self.txtPAN.text ?? ""
             
             if let title = btnCode.title(for: .normal) {
                 companyDetailsStruct.mobileNo = "\(title)\(self.txtMobile.text ?? "")"
@@ -132,8 +170,8 @@ class Dealer_CompanyDetailsCell: UITableViewCell, UITextFieldDelegate {
             companyDetailsStruct.address2 = self.txtAddress2.text ?? ""
             
             companyDetailsStruct.businessNature = self.txtBusinessVal.text ?? ""
-            companyDetailsStruct.trademembership = self.txtTradeNumber.text ?? ""
-            companyDetailsStruct.iecNumber = self.txtIEXNumber.text ?? ""
+            //companyDetailsStruct.trademembership = self.txtTradeNumber.text ?? ""
+           // companyDetailsStruct.iecNumber = self.txtIEXNumber.text ?? ""
             
             
         }
@@ -153,55 +191,64 @@ class Dealer_CompanyDetailsCell: UITableViewCell, UITextFieldDelegate {
 //                txtGST.showError(message: ConstentString.gstErr)
 //                return false
 //            }
-        guard !txtPAN.text!.isEmptyStr else {
-            txtPAN.showError(message: ConstentString.panErr)
-            return false
-        }
+//        guard !txtPAN.text!.isEmptyStr else {
+//            txtPAN.showError(message: ConstentString.panErr)
+//            return false
+//        }
         guard !txtCompanyName.text!.isEmptyStr else {
             txtCompanyName.showError(message: ConstentString.copnayNameError)
+            txtCompanyName.borderColor = .red
                 return false
             }
         guard !txtMobile.text!.isEmptyStr else {
             txtMobile.showError(message: ConstentString.mobileErr)
+            txtMobile.borderColor = .red
             return false
         }
         guard !txtEmail.text!.isEmptyStr else {
             txtEmail.showError(message: ConstentString.emailErr)
+            txtEmail.borderColor = .red
             return false
         }
             
             guard !txtCountry.text!.isEmptyStr else {
                 txtCountry.showError(message: ConstentString.countryErr)
+                txtCountry.borderColor = .red
                 return false
             }
         
         guard !txtState.text!.isEmptyStr else {
             txtState.showError(message: ConstentString.stateErr)
+            txtState.borderColor = .red
             return false
         }
         
         guard !txtCity.text!.isEmptyStr else {
             
             txtCity.showError(message: ConstentString.cityErr)
+            txtCity.borderColor = .red
             return false
         }
         
         guard !txtIPinNum.text!.isEmptyStr else {
             
             txtIPinNum.showError(message: ConstentString.cityPin)
+            txtIPinNum.borderColor = .red
             return false
         }
         
         guard !txtAddress1.text!.isEmptyStr else {
             
             txtAddress1.showError(message: ConstentString.address)
+            txtAddress1.borderColor = .red
             return false
         }
         
-        guard !txtCompanyType.text!.isEmptyStr else {
-            txtCompanyType.showError(message: ConstentString.copnayTypeError)
-            return false
-        }
+//        guard !txtCompanyType.text!.isEmptyStr else {
+//            txtCompanyType.showError(message: ConstentString.copnayTypeError)
+//            txtCompanyType.borderColor = .red
+//            return false
+//        }
         
       
         return true

@@ -119,6 +119,10 @@
 		44624DA32C2D744A002D5757 /* CurrencyRatesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44624DA22C2D744A002D5757 /* CurrencyRatesManager.swift */; };
 		44624DA62C2D9C7B002D5757 /* SizesViewXIB.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44624DA52C2D9C7B002D5757 /* SizesViewXIB.xib */; };
 		44624DA72C2D9C7B002D5757 /* SizesViewXIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44624DA42C2D9C7B002D5757 /* SizesViewXIB.swift */; };
+		4462F1C52C451420009DDE8B /* SupplierKYCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4462F1C32C451420009DDE8B /* SupplierKYCTableViewCell.swift */; };
+		4462F1C62C451420009DDE8B /* SupplierKYCTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4462F1C42C451420009DDE8B /* SupplierKYCTableViewCell.xib */; };
+		4462F1CD2C4515A8009DDE8B /* SupplierINT_KYCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4462F1CB2C4515A8009DDE8B /* SupplierINT_KYCTableViewCell.swift */; };
+		4462F1CE2C4515A8009DDE8B /* SupplierINT_KYCTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4462F1CC2C4515A8009DDE8B /* SupplierINT_KYCTableViewCell.xib */; };
 		4463C2F92BCFF38C000D939E /* ViewProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463C2F82BCFF38C000D939E /* ViewProperty.swift */; };
 		44681F442BFF4D70009BD156 /* GlobleSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44681F432BFF4D70009BD156 /* GlobleSearchVC.swift */; };
 		44681F462BFF4D99009BD156 /* GlobleSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44681F452BFF4D99009BD156 /* GlobleSearch.storyboard */; };
@@ -194,6 +198,10 @@
 		44C8A45A2BE11CCB006C9B06 /* Supplier_BankInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44C8A4582BE11CCB006C9B06 /* Supplier_BankInfoCell.xib */; };
 		44C8A45D2BE12145006C9B06 /* Supplier_AuthorisedPersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8A45B2BE12145006C9B06 /* Supplier_AuthorisedPersonCell.swift */; };
 		44C8A45E2BE12145006C9B06 /* Supplier_AuthorisedPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44C8A45C2BE12145006C9B06 /* Supplier_AuthorisedPersonCell.xib */; };
+		44C9413F2C41341700B29D05 /* OutherCountryKYC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C9413D2C41341700B29D05 /* OutherCountryKYC.swift */; };
+		44C941402C41341700B29D05 /* OutherCountryKYC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44C9413E2C41341700B29D05 /* OutherCountryKYC.xib */; };
+		44C941432C4149F600B29D05 /* AuthorisedPersionKYCTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C941412C4149F600B29D05 /* AuthorisedPersionKYCTVC.swift */; };
+		44C941442C4149F600B29D05 /* AuthorisedPersionKYCTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44C941422C4149F600B29D05 /* AuthorisedPersionKYCTVC.xib */; };
 		44C94F852C11B7D0009E6B59 /* DropDownViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C94F832C11B7D0009E6B59 /* DropDownViewCell.swift */; };
 		44C94F862C11B7D0009E6B59 /* DropDownViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44C94F842C11B7D0009E6B59 /* DropDownViewCell.xib */; };
 		44CC388B2BD7C06A002B3597 /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44CC388A2BD7C06A002B3597 /* Signup.storyboard */; };
@@ -366,6 +374,10 @@
 		44624DA22C2D744A002D5757 /* CurrencyRatesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatesManager.swift; sourceTree = "<group>"; };
 		44624DA42C2D9C7B002D5757 /* SizesViewXIB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesViewXIB.swift; sourceTree = "<group>"; };
 		44624DA52C2D9C7B002D5757 /* SizesViewXIB.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SizesViewXIB.xib; sourceTree = "<group>"; };
+		4462F1C32C451420009DDE8B /* SupplierKYCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierKYCTableViewCell.swift; sourceTree = "<group>"; };
+		4462F1C42C451420009DDE8B /* SupplierKYCTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupplierKYCTableViewCell.xib; sourceTree = "<group>"; };
+		4462F1CB2C4515A8009DDE8B /* SupplierINT_KYCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierINT_KYCTableViewCell.swift; sourceTree = "<group>"; };
+		4462F1CC2C4515A8009DDE8B /* SupplierINT_KYCTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupplierINT_KYCTableViewCell.xib; sourceTree = "<group>"; };
 		4463C2F82BCFF38C000D939E /* ViewProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProperty.swift; sourceTree = "<group>"; };
 		44681F432BFF4D70009BD156 /* GlobleSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobleSearchVC.swift; sourceTree = "<group>"; };
 		44681F452BFF4D99009BD156 /* GlobleSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GlobleSearch.storyboard; sourceTree = "<group>"; };
@@ -444,6 +456,10 @@
 		44C8A4582BE11CCB006C9B06 /* Supplier_BankInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Supplier_BankInfoCell.xib; sourceTree = "<group>"; };
 		44C8A45B2BE12145006C9B06 /* Supplier_AuthorisedPersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supplier_AuthorisedPersonCell.swift; sourceTree = "<group>"; };
 		44C8A45C2BE12145006C9B06 /* Supplier_AuthorisedPersonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Supplier_AuthorisedPersonCell.xib; sourceTree = "<group>"; };
+		44C9413D2C41341700B29D05 /* OutherCountryKYC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutherCountryKYC.swift; sourceTree = "<group>"; };
+		44C9413E2C41341700B29D05 /* OutherCountryKYC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutherCountryKYC.xib; sourceTree = "<group>"; };
+		44C941412C4149F600B29D05 /* AuthorisedPersionKYCTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisedPersionKYCTVC.swift; sourceTree = "<group>"; };
+		44C941422C4149F600B29D05 /* AuthorisedPersionKYCTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthorisedPersionKYCTVC.xib; sourceTree = "<group>"; };
 		44C94F832C11B7D0009E6B59 /* DropDownViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownViewCell.swift; sourceTree = "<group>"; };
 		44C94F842C11B7D0009E6B59 /* DropDownViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownViewCell.xib; sourceTree = "<group>"; };
 		44CC388A2BD7C06A002B3597 /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
@@ -662,6 +678,10 @@
 				44A81B562BDF6FB1008AB93A /* Dealer_OtherDocCell.xib */,
 				44A81B592BDF6FD8008AB93A /* Dealer_CompanyDetailsCell.swift */,
 				44A81B5A2BDF6FD8008AB93A /* Dealer_CompanyDetailsCell.xib */,
+				44C9413D2C41341700B29D05 /* OutherCountryKYC.swift */,
+				44C9413E2C41341700B29D05 /* OutherCountryKYC.xib */,
+				44C941412C4149F600B29D05 /* AuthorisedPersionKYCTVC.swift */,
+				44C941422C4149F600B29D05 /* AuthorisedPersionKYCTVC.xib */,
 			);
 			path = DealerXIB;
 			sourceTree = "<group>";
@@ -675,6 +695,10 @@
 				44C8A45C2BE12145006C9B06 /* Supplier_AuthorisedPersonCell.xib */,
 				44F631262BEF4442003EE2BC /* Supplier_CompanyDetails.swift */,
 				44F631272BEF4442003EE2BC /* Supplier_CompanyDetails.xib */,
+				4462F1C32C451420009DDE8B /* SupplierKYCTableViewCell.swift */,
+				4462F1C42C451420009DDE8B /* SupplierKYCTableViewCell.xib */,
+				4462F1CB2C4515A8009DDE8B /* SupplierINT_KYCTableViewCell.swift */,
+				4462F1CC2C4515A8009DDE8B /* SupplierINT_KYCTableViewCell.xib */,
 			);
 			path = SupplierXIB;
 			sourceTree = "<group>";
@@ -1571,6 +1595,7 @@
 				44556C292BF77EC600B5FBA4 /* LATO.SEMIBOLD.TTF in Resources */,
 				44A81B4F2BDF6F75008AB93A /* Dealer_KYCCell.xib in Resources */,
 				44681F4A2BFF5212009BD156 /* GlobleSearchTVC.xib in Resources */,
+				44C941442C4149F600B29D05 /* AuthorisedPersionKYCTVC.xib in Resources */,
 				44C94F862C11B7D0009E6B59 /* DropDownViewCell.xib in Resources */,
 				44A81B532BDF6F95008AB93A /* Dealer_BasicCell.xib in Resources */,
 				44E61DA72BFB30F4006E136E /* CategoriesVC.storyboard in Resources */,
@@ -1600,6 +1625,8 @@
 				44556C252BF77EC600B5FBA4 /* LATO-ITALIC.TTF in Resources */,
 				4408075F2C3026E3007410BD /* AddTOCart.storyboard in Resources */,
 				44457F852C241E14008B1D9C /* DiamondImagesTVC.xib in Resources */,
+				44C941402C41341700B29D05 /* OutherCountryKYC.xib in Resources */,
+				4462F1C62C451420009DDE8B /* SupplierKYCTableViewCell.xib in Resources */,
 				44C38AE92C25B7CB005AAF9A /* LocationPinView.xib in Resources */,
 				440FE4D92BF395C100B11770 /* splashS.jpg in Resources */,
 				44457F782C241B9D008B1D9C /* DiamondDetails.storyboard in Resources */,
@@ -1623,6 +1650,7 @@
 				44F631292BEF4442003EE2BC /* Supplier_CompanyDetails.xib in Resources */,
 				44AB742F2C1092CF00625FC2 /* AdvanceFilterTVC.xib in Resources */,
 				44681F462BFF4D99009BD156 /* GlobleSearch.storyboard in Resources */,
+				4462F1CE2C4515A8009DDE8B /* SupplierINT_KYCTableViewCell.xib in Resources */,
 				44CC388B2BD7C06A002B3597 /* Signup.storyboard in Resources */,
 				44546A3C2BD65EE8007AFEF8 /* CustomAlerts.storyboard in Resources */,
 				44556C2A2BF77EC600B5FBA4 /* LATO-REGULAR.TTF in Resources */,
@@ -1835,6 +1863,7 @@
 				447E72692BCFAB4000AAEA57 /* AppDelegate.swift in Sources */,
 				44F631282BEF4442003EE2BC /* Supplier_CompanyDetails.swift in Sources */,
 				443051C62C048C2600A13ADF /* TopDealsDataStruct.swift in Sources */,
+				44C941432C4149F600B29D05 /* AuthorisedPersionKYCTVC.swift in Sources */,
 				4402EE562BFC8181002556B2 /* BannerTVC.swift in Sources */,
 				44546A402BD667F6007AFEF8 /* CustomSearchBar.swift in Sources */,
 				447746912C0B1FAC001B051B /* BtnGradient.swift in Sources */,
@@ -1846,11 +1875,14 @@
 				44A81B502BDF6F75008AB93A /* Dealer_KYCCell.swift in Sources */,
 				445BD7632C20330200DB7DAF /* ModelGetDiamond.swift in Sources */,
 				440254632BEE59B900E90546 /* SplashVC.swift in Sources */,
+				4462F1C52C451420009DDE8B /* SupplierKYCTableViewCell.swift in Sources */,
+				4462F1CD2C4515A8009DDE8B /* SupplierINT_KYCTableViewCell.swift in Sources */,
 				44CD7D532BD0FF790004153E /* FloatingTextField.swift in Sources */,
 				44D7FCA92BE2131800A5B3F3 /* SignupModel.swift in Sources */,
 				448A56652BFE16DD00F01591 /* CustomerReviewTVC.swift in Sources */,
 				447E72DE2BCFD28E00AAEA57 /* LoginModel.swift in Sources */,
 				44B7383E2BE8E3EC005B9942 /* DealerDataStruct.swift in Sources */,
+				44C9413F2C41341700B29D05 /* OutherCountryKYC.swift in Sources */,
 				44C7C1532BE3A99F007E639A /* VerifyEmailPopupVC.swift in Sources */,
 				44AB74262C10758D00625FC2 /* AdvanceFilterVC.swift in Sources */,
 				4438F9C02C0EF21A009906FF /* SearchesOptionCVC.swift in Sources */,

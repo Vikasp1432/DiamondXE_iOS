@@ -24,7 +24,7 @@ class TableViewCellManager : SignupVC {
                     
                     if result.status == 1{
                         self.dealerDataStruct.aadhaarNo = aadharNo
-                        cell.btnverifyAdhar.isHidden = true
+                        cell.btnverifyGST.isHidden = true
                         cell.btnverifiedAdhar.isHidden = false
                         self.isAdharVerify = true
                     }

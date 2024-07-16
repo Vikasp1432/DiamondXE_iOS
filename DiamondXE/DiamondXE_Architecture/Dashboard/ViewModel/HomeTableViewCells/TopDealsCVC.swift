@@ -14,6 +14,8 @@ class TopDealsCVC: UICollectionViewCell {
     @IBOutlet var imgDiamond:UIImageView!
 
     @IBOutlet var bgView:UIView!
+    var diamondSelect : (() -> Void) = { }
+
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +29,11 @@ class TopDealsCVC: UICollectionViewCell {
 
         imgDiamond.layer.cornerRadius = 7
         imgDiamond.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cellTapped))
+        contentView.addGestureRecognizer(tapGesture)
     }
-
+    @objc func cellTapped() {
+        diamondSelect()
+    }
 }

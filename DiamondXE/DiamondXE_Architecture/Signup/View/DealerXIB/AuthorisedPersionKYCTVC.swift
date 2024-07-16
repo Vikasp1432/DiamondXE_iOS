@@ -1,26 +1,29 @@
 //
-//  Dealer_KYCCell.swift
+//  AuthorisedPersionKYCTVC.swift
 //  DiamondXE
 //
-//  Created by iOS Developer on 29/04/24.
+//  Created by iOS Developer on 12/07/24.
 //
 
 import UIKit
 import DTTextField
 
-class Dealer_KYCCell: UITableViewCell, UITextFieldDelegate {
+class AuthorisedPersionKYCTVC: UITableViewCell, UITextFieldDelegate {
     
+    
+    static let cellIdentifierAuthorisedPersionCell = String(describing: AuthorisedPersionKYCTVC.self)
+
     @IBOutlet  var btnDropDown:UIButton!
     
-    @IBOutlet  var btnGSTFront:UIButton!
-    @IBOutlet  var btnIECDoc:UIButton!
+    @IBOutlet  var btnAdharFront:UIButton!
+    @IBOutlet  var btnAdharBack:UIButton!
     @IBOutlet  var btnPANFront:UIButton!
     
     @IBOutlet  var btnAdharFrontIcon:UIButton!
     @IBOutlet  var btnAdharBackIcon:UIButton!
     @IBOutlet  var btnPANFrontIcon:UIButton!
     
-    @IBOutlet  var btnverifyGST:UIButton!
+    @IBOutlet  var btnverifyAdhar:UIButton!
     @IBOutlet  var btnverifiedAdhar:UIButton!
     
     @IBOutlet  var btnverifyPAN:UIButton!
@@ -32,8 +35,8 @@ class Dealer_KYCCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet var viewBG4:UIView!
     @IBOutlet var viewBGHeader:UIView!
     @IBOutlet var viewBGData:UIView!
-    @IBOutlet var txtAdhar:DTTextField!
-    @IBOutlet var txtPAN:DTTextField!
+    @IBOutlet var txtAadharNum:DTTextField!
+    @IBOutlet var txtPANnum:DTTextField!
     
     @IBOutlet var viewBG:UIView!
     
@@ -42,7 +45,6 @@ class Dealer_KYCCell: UITableViewCell, UITextFieldDelegate {
     var buttonPressed : ((Int) -> Void) = {_ in }
     var buttonPressedPicDoc : ((Int) -> Void) = {_ in }
     var buttonPressedVerify : ((Int) -> Void) = {_ in }
-    
     
     
     var cellDataDelegate : CellDataDelegate?
@@ -59,21 +61,14 @@ class Dealer_KYCCell: UITableViewCell, UITextFieldDelegate {
         viewBG.layer.shadowOpacity = 0.3
         viewBG.layer.masksToBounds = false
         
-        txtAdhar.delegate = self
-        txtPAN.delegate = self
-        BaseViewController.setClrUItextField2(textFields: [txtAdhar, txtPAN])
+        txtAadharNum.delegate = self
+        txtPANnum.delegate = self
+        BaseViewController.setClrUItextField2(textFields: [txtAadharNum, txtPANnum])
         
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-           // Check which text field triggered the method
-           if textField == txtAdhar {
-               self.btnverifyGST.isHidden = false
-               self.btnverifiedAdhar.isHidden = true
-           } else if textField == txtPAN {
-               self.btnverifyPAN.isHidden = false
-               self.btnverifiedPAN.isHidden = true
-           }
+        
         if let dtTextField = textField as? DTTextField {
             dtTextField.borderColor = UIColor.tabSelectClr
         }
@@ -86,12 +81,12 @@ class Dealer_KYCCell: UITableViewCell, UITextFieldDelegate {
             customTextField.borderColor = UIColor.borderClr
         }
         
-      if let text = txtAdhar.text {
+      if let text = txtAadharNum.text {
        
           cellDataDelegate?.didUpdateText(textKey: "Aadhar", text: text, indexPath: indexPath)
           
       }
-        if let text = txtPAN.text {
+        if let text = txtPANnum.text {
             cellDataDelegate?.didUpdateText(textKey: "PAN", text: text, indexPath: indexPath)
         }
         
@@ -106,12 +101,12 @@ class Dealer_KYCCell: UITableViewCell, UITextFieldDelegate {
     
     
     
-    func getAdharnum() -> String{
-        return self.txtAdhar.text ?? ""
+    func getAadharnum() -> String{
+        return self.txtAadharNum.text ?? ""
     }
     
     func getPANnum() -> String{
-        return self.txtPAN.text ?? ""
+        return self.txtPANnum.text ?? ""
     }
     
     func setupData(isExpand:Bool){
@@ -141,8 +136,9 @@ class Dealer_KYCCell: UITableViewCell, UITextFieldDelegate {
         buttonPressedPicDoc(sender.tag)
     }
     
-    @IBAction func buttonActionVerify(_ sender: UIButton) {
-        buttonPressedVerify(sender.tag)
+    @IBAction func btnActionVerifyDoc(_ sender:UIButton){
+        self.buttonPressedVerify(sender.tag)
     }
+    
     
 }

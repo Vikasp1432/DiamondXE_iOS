@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DTTextField
 
 class Supplier_BankInfoCell: UITableViewCell {
     
@@ -13,23 +14,31 @@ class Supplier_BankInfoCell: UITableViewCell {
     @IBOutlet var viewBGData:UIView!
     @IBOutlet  var btnDropDown:UIButton!
     
-    @IBOutlet var txtBNKName:FloatingTextField!
-    @IBOutlet var txtBNKBranchName:FloatingTextField!
-    @IBOutlet var txtBNKACCNumber:FloatingTextField!
-    @IBOutlet var txtBNKACCType:FloatingTextField!
-    @IBOutlet var txtBNKIFSC:FloatingTextField!
-    @IBOutlet var txtBNKSwiftCode:FloatingTextField!
+    @IBOutlet var txtBNKName:DTTextField!
+    @IBOutlet var txtBNKBranchName:DTTextField!
+    @IBOutlet var txtBNKACCNumber:DTTextField!
+    @IBOutlet var txtBNKACCType:DTTextField!
+    @IBOutlet var txtBNKIFSC:DTTextField!
+    @IBOutlet var txtBNKSwiftCode:DTTextField!
 
     
     var buttonPressed : ((Int) -> Void) = {_ in }
     
     var cellDataDelegate : CellDataDelegate?
     var indexPath = IndexPath()
+    
+    @IBOutlet var viewBG:UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        viewBG.layer.shadowColor = UIColor.shadowViewclr.cgColor
+        viewBG.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        viewBG.layer.shadowRadius = 2.0
+        viewBG.layer.shadowOpacity = 0.3
+        viewBG.layer.masksToBounds = false
         // Initialization code
-        BaseViewController.setClrUItextField(textFields: [txtBNKName, txtBNKBranchName,txtBNKACCNumber, txtBNKACCType, txtBNKIFSC, txtBNKSwiftCode])
+        BaseViewController.setClrUItextField2(textFields: [txtBNKName, txtBNKBranchName,txtBNKACCNumber, txtBNKACCType, txtBNKIFSC, txtBNKSwiftCode])
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

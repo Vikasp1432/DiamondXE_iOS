@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DTTextField
 
 class Dealer_BasicCell: UITableViewCell, UITextFieldDelegate {
     
@@ -19,14 +20,15 @@ class Dealer_BasicCell: UITableViewCell, UITextFieldDelegate {
     
     
     //
-    @IBOutlet var txtState:FloatingTextField!
-    @IBOutlet var txtContry:FloatingTextField!
-    @IBOutlet var txtFirstName:FloatingTextField!
-    @IBOutlet var txtLastName:FloatingTextField!
-    @IBOutlet var txtMobile:FloatingTextField!
-    @IBOutlet var txtEmail:FloatingTextField!
-    @IBOutlet var txtPassword:FloatingTextField!
-    @IBOutlet var txtConfirmPass:FloatingTextField!
+    @IBOutlet var txtState:DTTextField!
+    @IBOutlet var txtContry:DTTextField!
+    @IBOutlet var txtFirstName:DTTextField!
+    @IBOutlet var txtLastName:DTTextField!
+    @IBOutlet var txtMobile:DTTextField!
+    @IBOutlet var txtEmail:DTTextField!
+    @IBOutlet var txtPassword:DTTextField!
+    @IBOutlet var txtConfirmPass:DTTextField!
+    @IBOutlet var viewBG:UIView!
 
     
     var buttonDropDown : ((Int) -> Void) = {_ in }
@@ -42,6 +44,12 @@ class Dealer_BasicCell: UITableViewCell, UITextFieldDelegate {
         super.awakeFromNib()
         // Initialization code
         
+        viewBG.layer.shadowColor = UIColor.shadowViewclr.cgColor
+        viewBG.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        viewBG.layer.shadowRadius = 2.0
+        viewBG.layer.shadowOpacity = 0.3
+        viewBG.layer.masksToBounds = false
+        
         txtPassword.isSecureTextEntry = true
         txtConfirmPass.isSecureTextEntry = true
         txtFirstName.delegate = self
@@ -50,16 +58,21 @@ class Dealer_BasicCell: UITableViewCell, UITextFieldDelegate {
         txtEmail.delegate = self
         txtPassword.delegate = self
         txtConfirmPass.delegate = self
+        txtMobile.paddingX = 110
 
         btnVerifyDone.isHidden = true
         
       //txtContry, txtState, txtContry,
-        BaseViewController.setClrUItextField(textFields: [ txtMobile, txtEmail, txtFirstName, txtLastName, txtPassword, txtConfirmPass])
+        BaseViewController.setClrUItextField2(textFields: [ txtMobile, txtEmail, txtFirstName, txtLastName, txtPassword, txtConfirmPass])
         
        
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        if let customTextField = textField as? DTTextField {
+            customTextField.borderColor = UIColor.borderClr
+        }
+        
       if let text = txtFirstName.text {
        
           cellDataDelegate?.didUpdateText(textKey: "FName", text: text, indexPath: indexPath)
@@ -89,16 +102,28 @@ class Dealer_BasicCell: UITableViewCell, UITextFieldDelegate {
         
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+           // Change border color or perform any other actions
+           if let customTextField = textField as? DTTextField {
+               customTextField.borderColor = UIColor.tabSelectClr
+           }
+       }
+       
+ 
+    
+    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-           // Check which text field triggered the method
-           if textField == txtEmail {
-               self.btnVerify.isHidden = false
-               self.btnVerifyDone.isHidden = true
-           }
-        
-           return true
-       }
+        // Check which text field triggered the method
+        if textField == txtEmail {
+            self.btnVerify.isHidden = false
+            self.btnVerifyDone.isHidden = true
+        }
+        if let dtTextField = textField as? DTTextField {
+            dtTextField.borderColor = UIColor.tabSelectClr
+        }
+        return true
+    }
     
     
     
