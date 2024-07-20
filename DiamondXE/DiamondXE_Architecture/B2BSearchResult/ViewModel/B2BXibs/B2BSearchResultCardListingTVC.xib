@@ -424,7 +424,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ezs-LT-pEu">
-                                <rect key="frame" x="10" y="173" width="158" height="38"/>
+                                <rect key="frame" x="10" y="173" width="157" height="38"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YL5-Mv-fI0">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="38"/>
@@ -466,7 +466,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aac-ej-Elm">
-                                        <rect key="frame" x="120" y="0.0" width="38" height="38"/>
+                                        <rect key="frame" x="120" y="0.0" width="37" height="38"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="wishlist"/>
                                         <connections>
@@ -541,7 +541,7 @@
                             <constraint firstItem="WPf-GQ-R8W" firstAttribute="top" secondItem="v5d-9o-GQ1" secondAttribute="top" constant="10" id="Fdd-rv-E2g"/>
                             <constraint firstItem="uuN-U3-ee8" firstAttribute="centerY" secondItem="SKb-xM-wAZ" secondAttribute="centerY" id="Fq6-aQ-8b2"/>
                             <constraint firstItem="QRi-Zh-ivT" firstAttribute="leading" secondItem="TZG-Td-sdx" secondAttribute="trailing" constant="10" id="GXX-46-DFw"/>
-                            <constraint firstItem="e7k-PJ-X1P" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="J1c-6b-kbM" secondAttribute="trailing" constant="50" id="GmL-WT-mFB"/>
+                            <constraint firstItem="e7k-PJ-X1P" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="J1c-6b-kbM" secondAttribute="trailing" id="GmL-WT-mFB"/>
                             <constraint firstItem="q0f-iG-LO7" firstAttribute="centerY" secondItem="EsD-2T-ILe" secondAttribute="centerY" id="J5z-zh-ant"/>
                             <constraint firstItem="WPf-GQ-R8W" firstAttribute="leading" secondItem="TZG-Td-sdx" secondAttribute="trailing" constant="10" id="LQ2-m5-prc"/>
                             <constraint firstItem="ezs-LT-pEu" firstAttribute="leading" secondItem="v5d-9o-GQ1" secondAttribute="leading" constant="10" id="LWm-rb-Wjc"/>
@@ -617,6 +617,7 @@
                 <outlet property="lblTablePer" destination="w2j-M1-gpz" id="Z9B-u0-YBb"/>
                 <outlet property="nameViewToast" destination="5i6-2q-O1V" id="Hd8-pM-ffV"/>
                 <outlet property="refundViewToast" destination="e1M-oW-Jp3" id="h2s-Vv-qbX"/>
+                <outlet property="stacViewkBTN" destination="ezs-LT-pEu" id="oD5-Dj-1fp"/>
                 <outlet property="viewCart" destination="YL5-Mv-fI0" id="ooG-Ul-eiO"/>
                 <outlet property="viewCertificate" destination="WzQ-S4-tQf" id="4dH-Nv-bEy"/>
                 <outlet property="viewCut" destination="dzL-fp-8Gi" id="LCP-ca-pEK"/>

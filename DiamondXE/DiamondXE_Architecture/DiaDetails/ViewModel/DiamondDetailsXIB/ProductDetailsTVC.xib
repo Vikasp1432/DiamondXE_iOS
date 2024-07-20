@@ -594,6 +594,9 @@
                 <outlet property="lblClarity" destination="deg-AG-WSL" id="GZN-TY-oQj"/>
                 <outlet property="lblClr" destination="mpa-4n-cgv" id="k41-ZG-lSI"/>
                 <outlet property="lblCut" destination="F0G-iq-S0Z" id="0Rd-zC-crA"/>
+                <outlet property="lblDevidr1" destination="zE3-SS-a6f" id="eva-j7-0ia"/>
+                <outlet property="lblDevidr2" destination="2Bn-iI-keI" id="REb-M7-HVw"/>
+                <outlet property="lblDevidr3" destination="jyT-en-DeQ" id="ynQ-7i-n7Z"/>
                 <outlet property="lblDiscount" destination="udM-g2-eU5" id="jld-j8-yrj"/>
                 <outlet property="lblDocNumber" destination="q2L-h0-RZJ" id="Nx2-jY-XeT"/>
                 <outlet property="lblFlouro" destination="boo-6y-2Tb" id="8Ag-vg-vYH"/>

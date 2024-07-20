@@ -532,7 +532,7 @@
                         <color key="backgroundColor" name="whitClr"/>
                         <constraints>
                             <constraint firstItem="9o7-aW-8PH" firstAttribute="top" secondItem="h7Y-DL-bLf" secondAttribute="top" constant="15" id="08V-L4-48j"/>
-                            <constraint firstItem="ZgY-C1-JZD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HHK-Ab-8bU" secondAttribute="trailing" constant="50" id="1wO-ls-7em"/>
+                            <constraint firstItem="ZgY-C1-JZD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HHK-Ab-8bU" secondAttribute="trailing" id="1wO-ls-7em"/>
                             <constraint firstItem="b9p-ZV-B58" firstAttribute="leading" secondItem="h7Y-DL-bLf" secondAttribute="leading" constant="15" id="2BJ-LY-4cw"/>
                             <constraint firstItem="qev-AQ-ilg" firstAttribute="leading" secondItem="9o7-aW-8PH" secondAttribute="trailing" constant="7" id="4Hu-SG-6JA"/>
                             <constraint firstItem="kCx-Vw-2wM" firstAttribute="top" secondItem="b9p-ZV-B58" secondAttribute="bottom" constant="15" id="5Um-3o-tqi"/>

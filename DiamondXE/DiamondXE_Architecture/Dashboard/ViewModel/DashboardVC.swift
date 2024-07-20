@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DropDown
 
 
 
@@ -24,7 +25,14 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     @IBOutlet var lblTitle: UILabel!
     @IBOutlet var headerView: UIView!
     
+    @IBOutlet var btnLocatioen: UIButton!
+    @IBOutlet var btnNotific: UIButton!
+    @IBOutlet var btnSelectC0untry: UIButton!
+    
     @IBOutlet weak var popupView: UIView!
+    @IBOutlet weak var counrtyDropDownView: UIView!
+    private var isCountyView = false
+    
     private var isPopupVisible = false
     private var popupViewHeightConstraint: NSLayoutConstraint!
     private var popupViewWidthConstraint: NSLayoutConstraint!
@@ -32,6 +40,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     @IBOutlet weak var popupViewHeightsConstraint: NSLayoutConstraint!
     let selectCountryView = SelectCountryView()
     let diaDetailsView = DiaDetailsPopupView()
+    let countryDashboardView = DashboardCountryView()
 
     @IBOutlet weak var overlayView: UIView!
 
@@ -125,8 +134,8 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         
         if let loginData = UserDefaultManager().retrieveLoginData(){
-            var userType = loginData.details?.userRole ?? ""
-            var username = "\(loginData.details?.firstName ?? "") \(loginData.details?.lastName ?? "")"
+            let userType = loginData.details?.userRole ?? ""
+            let username = "\(loginData.details?.firstName ?? "") \(loginData.details?.lastName ?? "")"
             self.btnTitleLogin.setTitle(userType.capitalizingFirstLetter(), for: .normal)
             self.lblWelcomeUser.text = username
             self.lblType.text = userType
@@ -201,6 +210,53 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
             togglePopup()
         }
     }
+    
+    
+    @IBAction func btnActionHeaderBTN(_ sender : UIButton){
+        switch sender.tag {
+        case 1:
+            print("")
+        case 2:
+            print("")
+        default:
+            print("")
+//            countryViewDropDn()
+        }
+    }
+    
+    func countryViewDropDn(){
+        self.countryDashboardView.isHidden = false
+        
+        countryDashboardView.translatesAutoresizingMaskIntoConstraints = false
+        
+        counrtyDropDownView.addSubview(countryDashboardView)
+       
+        NSLayoutConstraint.activate([
+            countryDashboardView.leadingAnchor.constraint(equalTo: counrtyDropDownView.leadingAnchor),
+            countryDashboardView.trailingAnchor.constraint(equalTo: counrtyDropDownView.trailingAnchor),
+            countryDashboardView.topAnchor.constraint(equalTo: counrtyDropDownView.topAnchor),
+            countryDashboardView.bottomAnchor.constraint(equalTo: counrtyDropDownView.bottomAnchor)
+                ])
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+//            let rotationAngle: CGFloat = self.isPopupVisible ? .pi / 4 : 0
+//            self.btnSearch.transform = CGAffineTransform(rotationAngle: rotationAngle)
+            self.overlayView.alpha = self.isPopupVisible ? 0.7 : 0.0
+           
+        }){ _ in
+//            if !self.isPopupVisible {
+                self.overlayView.isHidden = true
+//            }
+        }
+       
+        
+    }
+    
+    
+    
+    
+    
     
 //    private func togglePopup() {
 //        isPopupVisible.toggle()

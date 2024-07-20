@@ -8,7 +8,7 @@
 import UIKit
 import UIView_Shimmer
 
-class ProductDetailsTVC: UITableViewCell {
+class ProductDetailsTVC: UITableViewCell,  ShimmeringViewProtocol{
     
     static let cellIdentifierProductDetailsTVC = String(describing: ProductDetailsTVC.self)
     
@@ -40,6 +40,10 @@ class ProductDetailsTVC: UITableViewCell {
     @IBOutlet var viewCertificate :UIView!
     @IBOutlet var viewDiscount :UIView!
     
+    @IBOutlet var lblDevidr1: UILabel!
+    @IBOutlet var lblDevidr2: UILabel!
+    @IBOutlet var lblDevidr3 :UILabel!
+    
     
     var alertAction : (() -> Void) = {  }
     var alertBuyResrv : ((Int) -> Void) = { _ in  }
@@ -59,7 +63,10 @@ class ProductDetailsTVC: UITableViewCell {
             lblFlouro,
             lblCertificate,
             lblDiscount,
-            lblPincode
+            lblPincode,
+            lblDevidr1,
+            lblDevidr2,
+            lblDevidr3
         ]
     }
 

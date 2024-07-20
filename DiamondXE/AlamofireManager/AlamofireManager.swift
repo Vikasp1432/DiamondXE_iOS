@@ -17,6 +17,7 @@ class AlamofireManager {
         // Define your API endpoint and parameters
         print("Print Final URL ----------->\(url)")
         print("Print Final Psram ----------->\(param)")
+        print("Print Final Header ----------->\(headers)")
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.prettyPrinted, headers: headers)
             .validate(statusCode: 200..<300)
             .responseData { response in

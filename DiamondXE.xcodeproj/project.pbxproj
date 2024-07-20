@@ -98,6 +98,12 @@
 		44556C282BF77EC600B5FBA4 /* LATO-LIGHT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 44556C1F2BF77EC600B5FBA4 /* LATO-LIGHT.TTF */; };
 		44556C292BF77EC600B5FBA4 /* LATO.SEMIBOLD.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 44556C202BF77EC600B5FBA4 /* LATO.SEMIBOLD.TTF */; };
 		44556C2A2BF77EC600B5FBA4 /* LATO-REGULAR.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 44556C212BF77EC600B5FBA4 /* LATO-REGULAR.TTF */; };
+		4455F4292C4B8DEE009618DA /* B2CSearchResultTableListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455F4272C4B8DEE009618DA /* B2CSearchResultTableListingCell.swift */; };
+		4455F42A2C4B8DEE009618DA /* B2CSearchResultTableListingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4455F4282C4B8DEE009618DA /* B2CSearchResultTableListingCell.xib */; };
+		4455F42D2C4B8E01009618DA /* B2CSearchResultCardListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455F42B2C4B8E01009618DA /* B2CSearchResultCardListingCell.swift */; };
+		4455F42E2C4B8E01009618DA /* B2CSearchResultCardListingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4455F42C2C4B8E01009618DA /* B2CSearchResultCardListingCell.xib */; };
+		4455F4342C4BE9A0009618DA /* DashboardCountryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4455F4332C4BE9A0009618DA /* DashboardCountryView.xib */; };
+		4455F4362C4BE9BE009618DA /* DashboardCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455F4352C4BE9BE009618DA /* DashboardCountryView.swift */; };
 		44560D8A2C1AC14A003D8F18 /* B2BSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44560D892C1AC14A003D8F18 /* B2BSearch.storyboard */; };
 		44560D8E2C1AC49D003D8F18 /* FilterAppliedCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44560D8C2C1AC49D003D8F18 /* FilterAppliedCVC.swift */; };
 		44560D8F2C1AC49D003D8F18 /* FilterAppliedCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44560D8D2C1AC49D003D8F18 /* FilterAppliedCVC.xib */; };
@@ -353,6 +359,12 @@
 		44556C1F2BF77EC600B5FBA4 /* LATO-LIGHT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LATO-LIGHT.TTF"; sourceTree = "<group>"; };
 		44556C202BF77EC600B5FBA4 /* LATO.SEMIBOLD.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = LATO.SEMIBOLD.TTF; sourceTree = "<group>"; };
 		44556C212BF77EC600B5FBA4 /* LATO-REGULAR.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LATO-REGULAR.TTF"; sourceTree = "<group>"; };
+		4455F4272C4B8DEE009618DA /* B2CSearchResultTableListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = B2CSearchResultTableListingCell.swift; sourceTree = "<group>"; };
+		4455F4282C4B8DEE009618DA /* B2CSearchResultTableListingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = B2CSearchResultTableListingCell.xib; sourceTree = "<group>"; };
+		4455F42B2C4B8E01009618DA /* B2CSearchResultCardListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = B2CSearchResultCardListingCell.swift; sourceTree = "<group>"; };
+		4455F42C2C4B8E01009618DA /* B2CSearchResultCardListingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = B2CSearchResultCardListingCell.xib; sourceTree = "<group>"; };
+		4455F4332C4BE9A0009618DA /* DashboardCountryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardCountryView.xib; sourceTree = "<group>"; };
+		4455F4352C4BE9BE009618DA /* DashboardCountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCountryView.swift; sourceTree = "<group>"; };
 		44560D892C1AC14A003D8F18 /* B2BSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = B2BSearch.storyboard; sourceTree = "<group>"; };
 		44560D8C2C1AC49D003D8F18 /* FilterAppliedCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterAppliedCVC.swift; sourceTree = "<group>"; };
 		44560D8D2C1AC49D003D8F18 /* FilterAppliedCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterAppliedCVC.xib; sourceTree = "<group>"; };
@@ -654,6 +666,8 @@
 				443E276C2C2AC77400981A6F /* SelectCountryView.xib */,
 				443B99852C2BF2E400961B88 /* DiaDetailsPopupView.swift */,
 				443B99832C2BF2CE00961B88 /* DiaDetailsPopupView.xib */,
+				4455F4352C4BE9BE009618DA /* DashboardCountryView.swift */,
+				4455F4332C4BE9A0009618DA /* DashboardCountryView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -878,6 +892,17 @@
 			path = CustomAlert;
 			sourceTree = "<group>";
 		};
+		4455F4252C4B8BE5009618DA /* B2CXibs */ = {
+			isa = PBXGroup;
+			children = (
+				4455F4272C4B8DEE009618DA /* B2CSearchResultTableListingCell.swift */,
+				4455F4282C4B8DEE009618DA /* B2CSearchResultTableListingCell.xib */,
+				4455F42B2C4B8E01009618DA /* B2CSearchResultCardListingCell.swift */,
+				4455F42C2C4B8E01009618DA /* B2CSearchResultCardListingCell.xib */,
+			);
+			path = B2CXibs;
+			sourceTree = "<group>";
+		};
 		44560D842C1AC0C8003D8F18 /* B2BSearchResult */ = {
 			isa = PBXGroup;
 			children = (
@@ -886,13 +911,6 @@
 				44560D872C1AC0FA003D8F18 /* Model */,
 			);
 			path = B2BSearchResult;
-			sourceTree = "<group>";
-		};
-		44560D852C1AC0E1003D8F18 /* B2CSearchResult */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = B2CSearchResult;
 			sourceTree = "<group>";
 		};
 		44560D862C1AC0F3003D8F18 /* View */ = {
@@ -915,6 +933,7 @@
 		44560D882C1AC100003D8F18 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4455F4252C4B8BE5009618DA /* B2CXibs */,
 				44560D8B2C1AC46F003D8F18 /* B2BXibs */,
 				44560D902C1ACA62003D8F18 /* B2BSearchResultVC.swift */,
 			);
@@ -1267,7 +1286,6 @@
 				4452A0EF2C357011004A39EA /* AddToWishList */,
 				4408075A2C302614007410BD /* AddToCart */,
 				44457F732C241AF7008B1D9C /* DiaDetails */,
-				44560D852C1AC0E1003D8F18 /* B2CSearchResult */,
 				44560D842C1AC0C8003D8F18 /* B2BSearchResult */,
 				443886A32C09A77D00F96AF5 /* SearchEngienDiamond */,
 				44681F3F2BFF4CE6009BD156 /* GlobleSearchVC */,
@@ -1593,6 +1611,7 @@
 				44556C232BF77EC600B5FBA4 /* LATO-BLACKITALIC.TTF in Resources */,
 				44556C282BF77EC600B5FBA4 /* LATO-LIGHT.TTF in Resources */,
 				44556C292BF77EC600B5FBA4 /* LATO.SEMIBOLD.TTF in Resources */,
+				4455F4342C4BE9A0009618DA /* DashboardCountryView.xib in Resources */,
 				44A81B4F2BDF6F75008AB93A /* Dealer_KYCCell.xib in Resources */,
 				44681F4A2BFF5212009BD156 /* GlobleSearchTVC.xib in Resources */,
 				44C941442C4149F600B29D05 /* AuthorisedPersionKYCTVC.xib in Resources */,
@@ -1624,6 +1643,7 @@
 				44C571F52BFCA9D6007B081F /* GiftOfChoiceTVC.xib in Resources */,
 				44556C252BF77EC600B5FBA4 /* LATO-ITALIC.TTF in Resources */,
 				4408075F2C3026E3007410BD /* AddTOCart.storyboard in Resources */,
+				4455F42E2C4B8E01009618DA /* B2CSearchResultCardListingCell.xib in Resources */,
 				44457F852C241E14008B1D9C /* DiamondImagesTVC.xib in Resources */,
 				44C941402C41341700B29D05 /* OutherCountryKYC.xib in Resources */,
 				4462F1C62C451420009DDE8B /* SupplierKYCTableViewCell.xib in Resources */,
@@ -1663,6 +1683,7 @@
 				44C571F12BFC9BC4007B081F /* BannerCVC.xib in Resources */,
 				4452A0F62C3570BF004A39EA /* AddTOWishlist.storyboard in Resources */,
 				443886A22C09A43000F96AF5 /* SearchDiamond.storyboard in Resources */,
+				4455F42A2C4B8DEE009618DA /* B2CSearchResultTableListingCell.xib in Resources */,
 				446A8A282C26CF47001DB644 /* SimillarProductCVC.xib in Resources */,
 				44CC38912BD7C371002B3597 /* Dashboard.storyboard in Resources */,
 				440807592C2FEB2C007410BD /* CertificateViewVC.xib in Resources */,
@@ -1902,6 +1923,7 @@
 				4452A0F82C3574D6004A39EA /* WishlistDataStruct.swift in Sources */,
 				44C8A45D2BE12145006C9B06 /* Supplier_AuthorisedPersonCell.swift in Sources */,
 				444243932C05D473001E976B /* UserDefaultManager.swift in Sources */,
+				4455F42D2C4B8E01009618DA /* B2CSearchResultCardListingCell.swift in Sources */,
 				44624DA32C2D744A002D5757 /* CurrencyRatesManager.swift in Sources */,
 				44C4A3632BF499B700630E43 /* TabViewCustom.swift in Sources */,
 				448A56612BFE0B0100F01591 /* MediaSpotlightTVCl.swift in Sources */,
@@ -1909,7 +1931,9 @@
 				44CE86332BF600AC004AAAF3 /* DashboardLoginVC.swift in Sources */,
 				44CD7D4F2BD0F1CF0004153E /* Constent.swift in Sources */,
 				44C8A4592BE11CCB006C9B06 /* Supplier_BankInfoCell.swift in Sources */,
+				4455F4362C4BE9BE009618DA /* DashboardCountryView.swift in Sources */,
 				44D50F162C32B86A00E1134E /* RecommendentDiamondDataManager.swift in Sources */,
+				4455F4292C4B8DEE009618DA /* B2CSearchResultTableListingCell.swift in Sources */,
 				44F8F9AB2BE4C2B400F4BC7A /* GalleryMaganer.swift in Sources */,
 				44C571F22BFC9BC4007B081F /* BannerCVC.swift in Sources */,
 				447E726B2BCFAB4000AAEA57 /* SceneDelegate.swift in Sources */,
