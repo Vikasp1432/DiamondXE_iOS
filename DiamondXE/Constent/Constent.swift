@@ -61,6 +61,7 @@ var nv_priceCalc = "Price Calculator"
 var nv_more = "More"
 var nv_contactUS = "Contact us"
 var nv_rateUS = "Rate us"
+var nv_logout = "Logout"
 
 var nv_naturalDiamond = "Natural Diamond"
 var nv_labGrownDiamond = "Lab Grown Diamond"
@@ -92,7 +93,7 @@ var nv_moreICN = [UIImage(named: "About us")!,UIImage(named: "Why Us")!,UIImage(
 
 var nv_contactICN = [UIImage(named: "Email")!,UIImage(named: "Contact Us")!]
 
-var nv_mainICN = [UIImage(named: "Home")!,UIImage(named: "Search Diamonds")!,UIImage(named: "Create Demand")!,UIImage(named: "jewellery")!,UIImage(named: "DXE LUXE")!,UIImage(named: "Diamond Education")!,UIImage(named: "Explore Now")!,UIImage(named: "Price Calculator")!,UIImage(named: "More")!,UIImage(named: "Support")!,UIImage(named: "Rate us")!]
+var nv_mainICN = [UIImage(named: "Home")!,UIImage(named: "Search Diamonds")!,UIImage(named: "Create Demand")!,UIImage(named: "jewellery")!,UIImage(named: "DXE LUXE")!,UIImage(named: "Diamond Education")!,UIImage(named: "Explore Now")!,UIImage(named: "Price Calculator")!,UIImage(named: "More")!,UIImage(named: "Support")!,UIImage(named: "Rate us")!,UIImage(named: "logout")!]
 
 var nv_mainTitle = [ nv_home,
                      nv_searchDiamond,
@@ -119,7 +120,8 @@ var nv_mainTitle = [ nv_home,
                      nv_whyUS,
                      nv_blogs,
                      nv_mediaGalley,
-                     nv_support]
+                     nv_support,
+                     nv_logout]
 
 
 var fancyColor = ["Yellow-Bn",

@@ -201,7 +201,7 @@
                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="j9k-f0-aJl">
                                                 <rect key="frame" x="10" y="220" width="336" height="45"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Leh-I5-on9" userLabel="MobileView">
+                                                    <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Leh-I5-on9" userLabel="MobileView">
                                                         <rect key="frame" x="0.0" y="0.0" width="163" height="45"/>
                                                         <subviews>
                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Inventory Type*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Beq-tH-9cy" customClass="DTTextField" customModule="DTTextField">
@@ -243,7 +243,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAE-6n-p8U" userLabel="MobileView">
+                                                    <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAE-6n-p8U" userLabel="MobileView">
                                                         <rect key="frame" x="173" y="0.0" width="163" height="45"/>
                                                         <subviews>
                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Country*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="03H-DG-Ssr" customClass="DTTextField" customModule="DTTextField">
@@ -290,7 +290,7 @@
                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xHV-6U-Bkr">
                                                 <rect key="frame" x="10" y="275" width="336" height="45"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6A-va-6oc" userLabel="OTPView">
+                                                    <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6A-va-6oc" userLabel="OTPView">
                                                         <rect key="frame" x="0.0" y="0.0" width="163" height="45"/>
                                                         <subviews>
                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select State*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="97H-HB-eGd" customClass="DTTextField" customModule="DTTextField">
@@ -332,7 +332,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lij-yp-6mY" userLabel="MobileView">
+                                                    <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lij-yp-6mY" userLabel="MobileView">
                                                         <rect key="frame" x="173" y="0.0" width="163" height="45"/>
                                                         <subviews>
                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select City*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mQP-6k-2Lw" customClass="DTTextField" customModule="DTTextField">
@@ -474,7 +474,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R1j-by-jVG" userLabel="OTPView">
                                                         <rect key="frame" x="173" y="0.0" width="163" height="45"/>
                                                         <subviews>
-                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZs-gw-T2D" customClass="DTTextField" customModule="DTTextField">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZs-gw-T2D" customClass="DTTextField" customModule="DTTextField">
                                                                 <rect key="frame" x="0.0" y="0.0" width="163" height="45"/>
                                                                 <color key="textColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -593,46 +593,50 @@
                 <outlet property="viewBG" destination="3Bb-Jb-KjJ" id="sJ8-WC-0Km"/>
                 <outlet property="viewBGData" destination="BKg-uQ-WRV" id="pK8-ev-2If"/>
                 <outlet property="viewBGHeader" destination="cZA-MN-tvu" id="AdV-oD-Mps"/>
+                <outlet property="viewCity" destination="lij-yp-6mY" id="pdc-Gi-GSc"/>
+                <outlet property="viewCountry" destination="SAE-6n-p8U" id="dfM-qj-MMG"/>
+                <outlet property="viewInventoryType" destination="Leh-I5-on9" id="FPd-tf-Dgq"/>
+                <outlet property="viewState" destination="h6A-va-6oc" id="RSW-Wg-tdK"/>
             </connections>
             <point key="canvasLocation" x="99.236641221374043" y="183.09859154929578"/>
         </tableViewCell>
     </objects>
     <designables>
         <designable name="03H-DG-Ssr">
-            <size key="intrinsicContentSize" width="98" height="18"/>
+            <size key="intrinsicContentSize" width="114" height="43"/>
         </designable>
         <designable name="97H-HB-eGd">
-            <size key="intrinsicContentSize" width="81" height="18"/>
+            <size key="intrinsicContentSize" width="97" height="43"/>
         </designable>
         <designable name="Beq-tH-9cy">
-            <size key="intrinsicContentSize" width="96" height="18"/>
+            <size key="intrinsicContentSize" width="112" height="43"/>
         </designable>
         <designable name="C7i-L4-Her">
-            <size key="intrinsicContentSize" width="145.33333333333334" height="18"/>
+            <size key="intrinsicContentSize" width="161.33333333333334" height="43"/>
         </designable>
         <designable name="Kv7-8b-qhT">
-            <size key="intrinsicContentSize" width="89" height="18"/>
+            <size key="intrinsicContentSize" width="105" height="43"/>
         </designable>
         <designable name="NqD-uX-1ZK">
-            <size key="intrinsicContentSize" width="104" height="18"/>
+            <size key="intrinsicContentSize" width="120" height="43"/>
         </designable>
         <designable name="RYz-dz-aGo">
-            <size key="intrinsicContentSize" width="92.333333333333329" height="18"/>
+            <size key="intrinsicContentSize" width="108.33333333333333" height="43"/>
         </designable>
         <designable name="YZs-gw-T2D">
-            <size key="intrinsicContentSize" width="120.66666666666667" height="18"/>
+            <size key="intrinsicContentSize" width="137" height="43"/>
         </designable>
         <designable name="bAp-31-nbe">
-            <size key="intrinsicContentSize" width="101.66666666666667" height="18"/>
+            <size key="intrinsicContentSize" width="117.66666666666667" height="43"/>
         </designable>
         <designable name="eDV-aI-D6j">
-            <size key="intrinsicContentSize" width="93.666666666666671" height="18"/>
+            <size key="intrinsicContentSize" width="109.66666666666667" height="43"/>
         </designable>
         <designable name="mQP-6k-2Lw">
-            <size key="intrinsicContentSize" width="72.666666666666671" height="18"/>
+            <size key="intrinsicContentSize" width="88.666666666666671" height="43"/>
         </designable>
         <designable name="zK9-gj-m8x">
-            <size key="intrinsicContentSize" width="106.66666666666667" height="18"/>
+            <size key="intrinsicContentSize" width="122.66666666666667" height="43"/>
         </designable>
     </designables>
     <resources>

@@ -73,7 +73,9 @@ class B2BSearchResultCardListingTVC: UITableViewCell, ShimmeringViewProtocol {
             lblDiscount ,
             lblTablePer ,
             lblDepPer ,
-            lblMasurments
+            lblMasurments,
+            btnWhshlist,
+            btnCard
            ]
        }
 

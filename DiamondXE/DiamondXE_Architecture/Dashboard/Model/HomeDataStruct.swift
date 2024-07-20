@@ -91,3 +91,8 @@ struct RegisterNowContent: Codable {
         case buttonText = "button_text"
     }
 }
+
+struct LogoutDataStruct: Codable {
+    var status : Int?
+    var msg : String?
+}

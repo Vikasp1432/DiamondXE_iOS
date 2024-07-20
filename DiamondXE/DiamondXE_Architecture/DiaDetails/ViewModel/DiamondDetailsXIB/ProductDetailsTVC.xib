@@ -30,9 +30,9 @@
                                 <rect key="frame" x="15" y="10" width="433" height="158.33333333333334"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2L-h0-RZJ">
-                                        <rect key="frame" x="14.999999999999993" y="46" width="101.33333333333331" height="16.333333333333329"/>
+                                        <rect key="frame" x="15" y="46" width="11" height="16.333333333333329"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="#123456789000">
+                                            <fragment content="--">
                                                 <attributes>
                                                     <color key="NSColor" name="blackClr"/>
                                                     <font key="NSFont" size="14" name="Lato-Medium"/>
@@ -43,7 +43,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zE3-SS-a6f">
-                                        <rect key="frame" x="123.33333333333334" y="46.666666666666664" width="1" height="15"/>
+                                        <rect key="frame" x="33" y="46.666666666666664" width="1" height="15"/>
                                         <color key="backgroundColor" name="757677"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="0hc-wE-bAY"/>
@@ -53,9 +53,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w43-NU-eYo">
-                                        <rect key="frame" x="131.33333333333334" y="46" width="49.333333333333343" height="16.333333333333329"/>
+                                        <rect key="frame" x="41" y="46" width="11" height="16.333333333333329"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="ID: M74">
+                                            <fragment content="--">
                                                 <attributes>
                                                     <color key="NSColor" name="blackClr"/>
                                                     <font key="NSFont" size="14" name="Lato-Medium"/>
@@ -66,9 +66,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9wC-yg-dgS">
-                                        <rect key="frame" x="108.33333333333331" y="75.666666666666671" width="54" height="21.666666666666671"/>
+                                        <rect key="frame" x="50" y="75.666666666666671" width="13.666666666666664" height="21.666666666666671"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="0.30Ct">
+                                            <fragment content="--">
                                                 <attributes>
                                                     <color key="NSColor" name="blackClr"/>
                                                     <font key="NSFont" size="18" name="Lato-Semibold"/>
@@ -79,7 +79,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bn-iI-keI">
-                                        <rect key="frame" x="167.33333333333334" y="79" width="1" height="15"/>
+                                        <rect key="frame" x="68.666666666666671" y="79" width="1" height="15"/>
                                         <color key="backgroundColor" name="757677"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="l0W-uT-NRk"/>
@@ -89,9 +89,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpa-4n-cgv">
-                                        <rect key="frame" x="173.33333333333334" y="75.666666666666671" width="14" height="21.666666666666671"/>
+                                        <rect key="frame" x="74.666666666666671" y="75.666666666666671" width="13.666666666666671" height="21.666666666666671"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="D">
+                                            <fragment content="--">
                                                 <attributes>
                                                     <color key="NSColor" name="blackClr"/>
                                                     <font key="NSFont" size="18" name="Lato-Semibold"/>
@@ -102,7 +102,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyT-en-DeQ">
-                                        <rect key="frame" x="192.33333333333334" y="79" width="1" height="15"/>
+                                        <rect key="frame" x="93.333333333333329" y="79" width="1" height="15"/>
                                         <color key="backgroundColor" name="757677"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="926-QG-u2R"/>
@@ -112,9 +112,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deg-AG-WSL">
-                                        <rect key="frame" x="198.33333333333334" y="75.666666666666671" width="45" height="21.666666666666671"/>
+                                        <rect key="frame" x="99.333333333333329" y="75.666666666666671" width="13.666666666666671" height="21.666666666666671"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="VVS2">
+                                            <fragment content="--">
                                                 <attributes>
                                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <font key="NSFont" size="18" name="Lato-Semibold"/>
@@ -125,12 +125,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDI-qI-URP">
-                                        <rect key="frame" x="15" y="74.333333333333329" width="73.333333333333329" height="24"/>
+                                        <rect key="frame" x="15" y="74.333333333333329" width="15" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="moL-O3-Eck"/>
                                         </constraints>
                                         <attributedString key="attributedText">
-                                            <fragment content="Princess">
+                                            <fragment content="--">
                                                 <attributes>
                                                     <color key="NSColor" name="blackClr"/>
                                                     <font key="NSFont" size="20" name="Lato-Semibold"/>

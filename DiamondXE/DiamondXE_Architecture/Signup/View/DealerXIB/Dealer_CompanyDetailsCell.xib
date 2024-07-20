@@ -250,7 +250,7 @@
                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HTy-nc-5oJ">
                                                 <rect key="frame" x="10" y="165" width="330" height="45"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLW-M6-AXx" userLabel="MobileView">
+                                                    <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLW-M6-AXx" userLabel="MobileView">
                                                         <rect key="frame" x="0.0" y="0.0" width="160" height="45"/>
                                                         <subviews>
                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Country*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HFF-WL-JJd" customClass="DTTextField" customModule="DTTextField">
@@ -292,7 +292,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anB-zG-QfG" userLabel="OTPView">
+                                                    <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anB-zG-QfG" userLabel="OTPView">
                                                         <rect key="frame" x="170" y="0.0" width="160" height="45"/>
                                                         <subviews>
                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select State*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ytw-9F-RNv" customClass="DTTextField" customModule="DTTextField">
@@ -339,7 +339,7 @@
                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vhq-rK-X0T">
                                                 <rect key="frame" x="10" y="220" width="330" height="45"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmb-gq-17a" userLabel="MobileView">
+                                                    <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmb-gq-17a" userLabel="MobileView">
                                                         <rect key="frame" x="0.0" y="0.0" width="160" height="45"/>
                                                         <subviews>
                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select City*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1A-Uw-koh" customClass="DTTextField" customModule="DTTextField">
@@ -630,43 +630,46 @@
                 <outlet property="viewBG" destination="yVk-02-ZSq" id="lEc-06-ad6"/>
                 <outlet property="viewBGData" destination="Ewc-M6-jVr" id="7qZ-k6-Skk"/>
                 <outlet property="viewBGHeader" destination="pAL-ow-dGl" id="MG0-E9-gZd"/>
+                <outlet property="viewCity" destination="bmb-gq-17a" id="5Om-d9-eIF"/>
+                <outlet property="viewCountry" destination="bLW-M6-AXx" id="TEU-cC-LlP"/>
+                <outlet property="viewState" destination="anB-zG-QfG" id="jDL-T8-a50"/>
             </connections>
             <point key="canvasLocation" x="120.61068702290076" y="182.04225352112678"/>
         </tableViewCell>
     </objects>
     <designables>
         <designable name="4PW-jK-hhB">
-            <size key="intrinsicContentSize" width="92.333333333333329" height="18"/>
+            <size key="intrinsicContentSize" width="108.33333333333333" height="43"/>
         </designable>
         <designable name="EQi-3A-uV4">
-            <size key="intrinsicContentSize" width="101.66666666666667" height="18"/>
+            <size key="intrinsicContentSize" width="117.66666666666667" height="43"/>
         </designable>
         <designable name="HFF-WL-JJd">
-            <size key="intrinsicContentSize" width="98" height="18"/>
+            <size key="intrinsicContentSize" width="114" height="43"/>
         </designable>
         <designable name="JVg-De-gM0">
-            <size key="intrinsicContentSize" width="102.66666666666667" height="18"/>
+            <size key="intrinsicContentSize" width="118.66666666666667" height="43"/>
         </designable>
         <designable name="LhX-N8-vDQ">
-            <size key="intrinsicContentSize" width="106.33333333333333" height="18"/>
+            <size key="intrinsicContentSize" width="122.33333333333333" height="43"/>
         </designable>
         <designable name="Lr8-Es-6K0">
-            <size key="intrinsicContentSize" width="104.33333333333333" height="18"/>
+            <size key="intrinsicContentSize" width="120.33333333333333" height="43"/>
         </designable>
         <designable name="YP7-cH-79e">
-            <size key="intrinsicContentSize" width="89" height="18"/>
+            <size key="intrinsicContentSize" width="105" height="43"/>
         </designable>
         <designable name="Ytw-9F-RNv">
-            <size key="intrinsicContentSize" width="81" height="18"/>
+            <size key="intrinsicContentSize" width="97" height="43"/>
         </designable>
         <designable name="cDI-3M-gz4">
-            <size key="intrinsicContentSize" width="99" height="18"/>
+            <size key="intrinsicContentSize" width="115" height="43"/>
         </designable>
         <designable name="gXP-ce-J7f">
-            <size key="intrinsicContentSize" width="93.666666666666671" height="18"/>
+            <size key="intrinsicContentSize" width="109.66666666666667" height="43"/>
         </designable>
         <designable name="h1A-Uw-koh">
-            <size key="intrinsicContentSize" width="72.666666666666671" height="18"/>
+            <size key="intrinsicContentSize" width="88.666666666666671" height="43"/>
         </designable>
     </designables>
     <resources>

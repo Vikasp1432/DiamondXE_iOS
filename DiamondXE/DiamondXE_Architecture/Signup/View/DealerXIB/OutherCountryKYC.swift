@@ -16,6 +16,9 @@ class OutherCountryKYC: UITableViewCell , UITextFieldDelegate{
     
     @IBOutlet  var btnBusinessLicenceNum:UIButton!
     @IBOutlet  var btnIECDoc:UIButton!
+    
+    @IBOutlet  var btnSelectBusinessLic:UIButton!
+    @IBOutlet  var btnSelectIEC:UIButton!
 
     @IBOutlet var viewBGHeader:UIView!
     @IBOutlet var viewBGData:UIView!

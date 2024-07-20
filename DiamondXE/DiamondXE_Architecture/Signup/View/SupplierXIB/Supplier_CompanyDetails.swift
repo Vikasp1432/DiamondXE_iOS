@@ -54,6 +54,11 @@ class Supplier_CompanyDetails: UITableViewCell, UITextFieldDelegate {
 //    @IBOutlet var btnBusinessNature:UIButton!
     
     @IBOutlet var viewBG:UIView!
+    @IBOutlet var viewCountry: UIView!
+    @IBOutlet var viewState: UIView!
+    @IBOutlet var viewCity: UIView!
+    @IBOutlet var viewInventoryType: UIView!
+    
     
     var buttonPressed : ((Int) -> Void) = {_ in }
     
@@ -82,16 +87,68 @@ class Supplier_CompanyDetails: UITableViewCell, UITextFieldDelegate {
         txtMobile.paddingX = 110
 
         
-//        txtGST.delegate = self
-//        txtPAN.delegate = self
+        txtMobile.delegate = self
+        txtAddress1.delegate = self
         txtEmail.delegate = self
+        txtIPinNum.delegate = self
+        txtCity.delegate = self
+        txtState.delegate = self
+        txtCountry.delegate = self
+        txtInventoryType.delegate = self
+        
         txtPassword.delegate = self
         txtConfirmPassword.delegate = self
-        txtInventoryType.delegate = self
-//        self.btnFlag.setTitle(APIs().indianFlag, for: .normal)
+        
+        txtAddress2.delegate = self
+        txtCompanyName.delegate = self
+        
+        
         BaseViewController.setClrUItextField2(textFields: [txtCity, txtState, txtCountry, txtMobile, txtEmail, txtAddress1, txtAddress2, txtCompanyName, txtIPinNum, txtPassword, txtConfirmPassword, txtInventoryType])
         
+        let tapCountry = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        viewCountry.addGestureRecognizer(tapCountry)
+        
+        let tapState = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        viewState.addGestureRecognizer(tapState)
+        
+        let tapCity = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        viewCity.addGestureRecognizer(tapCity)
+        
+        let tapInventoryType = UITapGestureRecognizer(target: self, action: #selector(handleTap2(_:)))
+        viewInventoryType.addGestureRecognizer(tapInventoryType)
+        
     }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        // handling code
+        guard let tappedView = sender?.view else { return }
+        switch tappedView.tag {
+        case 1:
+           // buttonPressed(tappedView.tag)
+            buttonBottomSheet(tappedView.tag)
+
+        case 2:
+            //buttonPressed(tappedView.tag)
+            buttonBottomSheet(tappedView.tag)
+
+        case 3:
+//            buttonPressed(tappedView.tag)
+            buttonBottomSheet(tappedView.tag)
+
+        default:
+            break
+        }
+        
+    }
+    
+    @objc func handleTap2(_ sender: UITapGestureRecognizer? = nil) {
+        // handling code
+        guard let tappedView = sender?.view else { return }
+        buttonDropDownCB(tappedView.tag)
+    }
+    
+    
+   
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
            // Check which text field triggered the method
@@ -207,6 +264,68 @@ class Supplier_CompanyDetails: UITableViewCell, UITextFieldDelegate {
             btnDropDown.setImage(UIImage(named: "d_up"), for: .normal)
             
         }
+    }
+    
+    
+    func validateData() -> Bool {
+    
+            guard !txtCompanyName.text!.isEmptyStr else {
+                txtCompanyName.showError(message: ConstentString.copnayNameError)
+                return false
+            }
+//        guard !txtEmail.text!.isEmptyStr else {
+//            txtEmail.showError(message: ConstentString.emailErr)
+//            return false
+//        }
+        guard !txtPassword.text!.isEmptyStr else {
+            txtPassword.showError(message: ConstentString.passErr)
+            return false
+        }
+        guard !txtConfirmPassword.text!.isEmptyStr else {
+            txtConfirmPassword.showError(message: ConstentString.cnPassErr)
+            return false
+        }
+            
+            guard !txtMobile.text!.isEmptyStr else {
+                txtMobile.showError(message: ConstentString.mobileErr)
+                return false
+            }
+        
+        guard !txtInventoryType.text!.isEmptyStr else {
+            txtInventoryType.showError(message: "Select Inventory")
+            return false
+        }
+        
+        guard !txtCountry.text!.isEmptyStr else {
+            
+            txtCountry.showError(message: ConstentString.countryErr)
+            return false
+        }
+        
+        guard !txtState.text!.isEmptyStr else {
+            
+            txtState.showError(message: ConstentString.stateErr)
+            return false
+        }
+        
+        guard !txtCity.text!.isEmptyStr else {
+            
+            txtCity.showError(message: ConstentString.cityErr)
+            return false
+        }
+        
+      
+        guard !txtAddress1.text!.isEmptyStr else {
+            txtAddress1.showError(message: ConstentString.address)
+            return false
+        }
+        
+//        guard !txtIPinNum.text!.isEmptyStr else {
+//            txtIPinNum.showError(message: ConstentString.cityPin)
+//            return false
+//        }
+            return true
+       
     }
 
     

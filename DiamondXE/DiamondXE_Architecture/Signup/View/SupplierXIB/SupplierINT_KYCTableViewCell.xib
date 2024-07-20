@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="LATO.SEMIBOLD.TTF">
+            <string>Lato-Semibold</string>
+        </array>
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
         </array>
@@ -149,35 +152,55 @@
                                                         <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vZc-fh-D3M">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="aJB-UH-pmA">
                                                         <rect key="frame" x="278" y="7" width="60" height="30"/>
-                                                        <color key="backgroundColor" red="0.27058823529999998" green="0.070588235289999995" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="1N6-jC-ON1"/>
-                                                            <constraint firstAttribute="width" constant="60" id="g8i-4r-xbr"/>
-                                                        </constraints>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="Browse">
-                                                                    <attributes>
-                                                                        <color key="NSColor" name="whitClr"/>
-                                                                        <font key="NSFont" size="11" name="Lato-Semibold"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vZc-fh-D3M">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                                                                <color key="backgroundColor" red="0.27058823529999998" green="0.070588235289999995" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="1N6-jC-ON1"/>
+                                                                    <constraint firstAttribute="width" constant="60" id="g8i-4r-xbr"/>
+                                                                </constraints>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="Browse">
+                                                                            <attributes>
+                                                                                <color key="NSColor" name="whitClr"/>
+                                                                                <font key="NSFont" size="11" name="Lato-Semibold"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="buttonActionGetDoc:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yNF-zA-IzR"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button hidden="YES" opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="alq-oa-EBk">
+                                                                <rect key="frame" x="60" y="0.0" width="0.0" height="30"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" image="Verify">
+                                                                    <attributedString key="attributedTitle"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="14"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="aJB-UH-pmA" firstAttribute="top" secondItem="iCL-Ye-yJY" secondAttribute="top" constant="7" id="1Hz-Uw-tqB"/>
                                                     <constraint firstAttribute="trailing" secondItem="jeS-yW-DsR" secondAttribute="trailing" id="EkW-b0-Ste"/>
-                                                    <constraint firstItem="vZc-fh-D3M" firstAttribute="top" secondItem="iCL-Ye-yJY" secondAttribute="top" constant="7" id="NR0-lZ-J7A"/>
-                                                    <constraint firstAttribute="trailing" secondItem="vZc-fh-D3M" secondAttribute="trailing" constant="8" id="R3T-4K-4Ky"/>
+                                                    <constraint firstAttribute="trailing" secondItem="aJB-UH-pmA" secondAttribute="trailing" constant="8" id="PgU-Oc-qwG"/>
                                                     <constraint firstAttribute="height" constant="45" id="gcP-Ju-cHc"/>
                                                     <constraint firstItem="jeS-yW-DsR" firstAttribute="top" secondItem="iCL-Ye-yJY" secondAttribute="top" id="iwt-gV-Wx4"/>
                                                     <constraint firstItem="jeS-yW-DsR" firstAttribute="leading" secondItem="iCL-Ye-yJY" secondAttribute="leading" id="izQ-Ts-yvw"/>
@@ -358,37 +381,57 @@
                                                         <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hz8-Ox-XD2">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="fHB-pF-CX3">
                                                         <rect key="frame" x="278" y="7" width="60" height="30"/>
-                                                        <color key="backgroundColor" red="0.27058823529999998" green="0.070588235289999995" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="Z1D-8X-Gmm"/>
-                                                            <constraint firstAttribute="width" constant="60" id="zDM-7p-Q34"/>
-                                                        </constraints>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="Browse">
-                                                                    <attributes>
-                                                                        <color key="NSColor" name="whitClr"/>
-                                                                        <font key="NSFont" size="11" name="Lato-Semibold"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hz8-Ox-XD2">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                                                                <color key="backgroundColor" red="0.27058823529999998" green="0.070588235289999995" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="Z1D-8X-Gmm"/>
+                                                                    <constraint firstAttribute="width" constant="60" id="zDM-7p-Q34"/>
+                                                                </constraints>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="Browse">
+                                                                            <attributes>
+                                                                                <color key="NSColor" name="whitClr"/>
+                                                                                <font key="NSFont" size="11" name="Lato-Semibold"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="buttonActionGetDoc:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eSz-mm-fRZ"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button hidden="YES" opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t1o-O4-3Es">
+                                                                <rect key="frame" x="60" y="0.0" width="0.0" height="30"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" image="Verify">
+                                                                    <attributedString key="attributedTitle"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="14"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" name="whitClr"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="fHB-pF-CX3" secondAttribute="trailing" constant="8" id="0HN-YT-ZJR"/>
                                                     <constraint firstAttribute="bottom" secondItem="TYi-dB-4Ph" secondAttribute="bottom" id="8kl-zB-fwJ"/>
                                                     <constraint firstItem="TYi-dB-4Ph" firstAttribute="top" secondItem="Xgl-dW-ns5" secondAttribute="top" id="Dv2-TS-RGd"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Hz8-Ox-XD2" secondAttribute="trailing" constant="8" id="NVl-i6-H37"/>
-                                                    <constraint firstItem="Hz8-Ox-XD2" firstAttribute="top" secondItem="Xgl-dW-ns5" secondAttribute="top" constant="7" id="OFT-td-5Dn"/>
+                                                    <constraint firstItem="fHB-pF-CX3" firstAttribute="top" secondItem="Xgl-dW-ns5" secondAttribute="top" constant="7" id="NJt-Ah-kVw"/>
                                                     <constraint firstAttribute="trailing" secondItem="TYi-dB-4Ph" secondAttribute="trailing" id="Y9D-lU-33v"/>
                                                     <constraint firstItem="TYi-dB-4Ph" firstAttribute="leading" secondItem="Xgl-dW-ns5" secondAttribute="leading" id="Z0H-yl-fUm"/>
                                                     <constraint firstAttribute="height" constant="45" id="oov-OA-odJ"/>
@@ -466,7 +509,15 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnBusinessLincDoc" destination="vZc-fh-D3M" id="egB-AJ-ZlH"/>
                 <outlet property="btnDropDown" destination="w5h-kL-gJp" id="wAr-tS-N9j"/>
+                <outlet property="btnIECDoc" destination="Hz8-Ox-XD2" id="ZNa-pM-htF"/>
+                <outlet property="btnSelectedBusinessLic" destination="alq-oa-EBk" id="Ls7-Kw-PF7"/>
+                <outlet property="btnSelectedIEC" destination="t1o-O4-3Es" id="g6V-9L-0Ua"/>
+                <outlet property="txtBusinessLicenNum" destination="yUJ-dv-VR8" id="xZk-Uk-qqt"/>
+                <outlet property="txtCompanyIEC" destination="c2k-xH-f8D" id="dhE-OI-Cuh"/>
+                <outlet property="txtCompanyType" destination="Axz-dY-dke" id="Fqd-fD-cJA"/>
+                <outlet property="txtNatureOfBusiness" destination="5XU-V9-cf6" id="IzR-Kk-H6G"/>
                 <outlet property="viewBG" destination="2jF-Ca-ZBu" id="FpL-Tm-fwZ"/>
                 <outlet property="viewBGData" destination="Z3V-NS-eQC" id="zpF-82-Toi"/>
                 <outlet property="viewBGHeader" destination="UzT-hz-MTB" id="jQJ-2N-0rI"/>
@@ -476,22 +527,22 @@
     </objects>
     <designables>
         <designable name="5XU-V9-cf6">
-            <size key="intrinsicContentSize" width="128" height="34"/>
+            <size key="intrinsicContentSize" width="116" height="41.333333333333329"/>
         </designable>
         <designable name="Axz-dY-dke">
-            <size key="intrinsicContentSize" width="107" height="34"/>
+            <size key="intrinsicContentSize" width="95" height="41.333333333333329"/>
         </designable>
         <designable name="TYi-dB-4Ph">
-            <size key="intrinsicContentSize" width="152" height="34"/>
+            <size key="intrinsicContentSize" width="140" height="41.333333333333329"/>
         </designable>
         <designable name="c2k-xH-f8D">
-            <size key="intrinsicContentSize" width="90.666666666666671" height="15.666666666666666"/>
+            <size key="intrinsicContentSize" width="106.66666666666667" height="40.666666666666664"/>
         </designable>
         <designable name="jeS-yW-DsR">
-            <size key="intrinsicContentSize" width="217" height="34"/>
+            <size key="intrinsicContentSize" width="205" height="41.333333333333329"/>
         </designable>
         <designable name="yUJ-dv-VR8">
-            <size key="intrinsicContentSize" width="172" height="15.666666666666666"/>
+            <size key="intrinsicContentSize" width="188" height="40.666666666666664"/>
         </designable>
     </designables>
     <resources>

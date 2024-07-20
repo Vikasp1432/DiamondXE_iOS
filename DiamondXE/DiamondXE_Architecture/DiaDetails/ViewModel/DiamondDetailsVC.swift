@@ -24,12 +24,19 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
     var  diamondInfo = DiamondListingDetail()
     var  diamondDetails = DiamondDetailsStruct()
     var  recommendentDataStruct = RecommendentDiamondStruct()
-    var cut = "EX"
-    var polish = "EX"
-    var symmetry = "EX"
-    var flouro = "EX"
-    var certificate = "EX"
+    var cut = "--"
+    var polish = "--"
+    var symmetry = "--"
+    var flouro = "--"
+    var certificate = "--"
     var discount = String()
+    
+    private var isLoading = true {
+        didSet {
+            tbleViewDetails.isUserInteractionEnabled = !isLoading
+            tbleViewDetails.reloadData()
+        }
+    }
     
   
     override func viewDidLoad() {
@@ -77,6 +84,7 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
                 self.toastMessage(msg ?? "")
                 
             }
+            self.isLoading = false
             CustomActivityIndicator2.shared.hide()
             
         })
@@ -342,6 +350,8 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailsTVC.cellIdentifierProductDetailsTVC, for: indexPath) as! ProductDetailsTVC
             cell.selectionStyle = .none
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+            
             cell.lblDocNumber.text = self.diamondDetails.details?.certificateNo ?? ""
             cell.lblLotID.text = "ID:\(self.diamondDetails.details?.supplierID ?? 0)"
             cell.lblShape.text = self.diamondDetails.details?.shape ?? ""

@@ -82,6 +82,19 @@ class UserDefaultManager {
         return nil
     }
     
+    func clearAllUserDefaults() {
+        let defaults = UserDefaults.standard
+        if let bundleIdentifier = Bundle.main.bundleIdentifier {
+            defaults.removePersistentDomain(forName: bundleIdentifier)
+            defaults.synchronize()
+        }
+    }
+    
+    func clearLoginDataDefaults() {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "LoginData")
+    }
+    
 }
 
 

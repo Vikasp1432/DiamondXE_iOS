@@ -8,7 +8,7 @@
 import UIKit
 import DTTextField
 
-class Supplier_BankInfoCell: UITableViewCell {
+class Supplier_BankInfoCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet var viewBGHeader:UIView!
     @IBOutlet var viewBGData:UIView!
@@ -38,10 +38,22 @@ class Supplier_BankInfoCell: UITableViewCell {
         viewBG.layer.shadowOpacity = 0.3
         viewBG.layer.masksToBounds = false
         // Initialization code
+        
+        txtBNKName.delegate = self
+        txtBNKBranchName.delegate = self
+        txtBNKACCNumber.delegate = self
+        txtBNKACCType.delegate = self
+        txtBNKIFSC.delegate = self
+        txtBNKSwiftCode.delegate = self
+        
         BaseViewController.setClrUItextField2(textFields: [txtBNKName, txtBNKBranchName,txtBNKACCNumber, txtBNKACCType, txtBNKIFSC, txtBNKSwiftCode])
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        if let customTextField = textField as? DTTextField {
+            customTextField.borderColor = UIColor.borderClr
+        }
+        
       if let text = txtBNKName.text {
        
           cellDataDelegate?.didUpdateText(textKey: "BNKName", text: text, indexPath: indexPath)
@@ -66,6 +78,28 @@ class Supplier_BankInfoCell: UITableViewCell {
         }
         
     }
+    
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let dtTextField = textField as? DTTextField {
+            dtTextField.borderColor = UIColor.tabSelectClr
+        }
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+           // Change border color or perform any other actions
+           if let customTextField = textField as? DTTextField {
+               customTextField.borderColor = UIColor.tabSelectClr
+           }
+       }
+       
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        if let customTextField = textField as? DTTextField {
+//            customTextField.borderColor = UIColor.borderClr
+//        }
+//    }
     
     
 

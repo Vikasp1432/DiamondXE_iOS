@@ -19,9 +19,9 @@ class AuthorisedPersionKYCTVC: UITableViewCell, UITextFieldDelegate {
     @IBOutlet  var btnAdharBack:UIButton!
     @IBOutlet  var btnPANFront:UIButton!
     
-    @IBOutlet  var btnAdharFrontIcon:UIButton!
-    @IBOutlet  var btnAdharBackIcon:UIButton!
-    @IBOutlet  var btnPANFrontIcon:UIButton!
+    @IBOutlet  var btnSelectAdharFront:UIButton!
+    @IBOutlet  var btnSelectAdharBack:UIButton!
+    @IBOutlet  var btnSelectPANFront:UIButton!
     
     @IBOutlet  var btnverifyAdhar:UIButton!
     @IBOutlet  var btnverifiedAdhar:UIButton!

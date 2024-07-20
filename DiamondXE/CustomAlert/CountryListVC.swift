@@ -237,7 +237,7 @@ extension CountryListVC : UITableViewDelegate, UITableViewDataSource{
     
     // get country list
     func getCountryList(){
-        CustomActivityIndicator.shared.show(in: view)
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
         LoginDataModel().getCountryList(url: APIs().country_list_API, requestParam: [:], completion: { countryList , message in
             //print(loginData)
             if countryList.status == 1{
@@ -249,14 +249,14 @@ extension CountryListVC : UITableViewDelegate, UITableViewDataSource{
             else{
                 self.toastMessage(message ?? "")
             }
-            CustomActivityIndicator.shared.hide()
+            CustomActivityIndicator2.shared.hide()
             
         })
     }
     
     // get state list
     func getStateList(param:[String:Any]){
-        CustomActivityIndicator.shared.show(in: view)
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
         SignupDataModel().getStateList(url: APIs().state_list_API, requestParam: param, completion: { stateList , message in
             if stateList.status == 1{
                // print(message)
@@ -267,14 +267,14 @@ extension CountryListVC : UITableViewDelegate, UITableViewDataSource{
             else{
                 self.toastMessage(message ?? "")
             }
-            CustomActivityIndicator.shared.hide()
+            CustomActivityIndicator2.shared.hide()
             
         })
     }
     
     // get city list
     func getCityList(param:[String:Any]){
-        CustomActivityIndicator.shared.show(in: view)
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
         SignupDataModel().getCityList(url: APIs().city_list_API, requestParam: param, completion: { cityList , message in
             if cityList.status == 1{
                // print(message)
@@ -285,7 +285,7 @@ extension CountryListVC : UITableViewDelegate, UITableViewDataSource{
             else{
                 self.toastMessage(message ?? "")
             }
-            CustomActivityIndicator.shared.hide()
+            CustomActivityIndicator2.shared.hide()
             
         })
     }

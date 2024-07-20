@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIView_Shimmer
 
 class ProductDetailsTVC: UITableViewCell {
     
@@ -42,6 +43,25 @@ class ProductDetailsTVC: UITableViewCell {
     
     var alertAction : (() -> Void) = {  }
     var alertBuyResrv : ((Int) -> Void) = { _ in  }
+    
+    var shimmeringAnimatedItems: [UIView] {
+        [
+            lblDocNumber,
+            lblLotID,
+            lblShape,
+            lblCarat,
+            lblClr,
+            lblClarity,
+            lblPrice,
+            lblCut,
+            lblPolish,
+            lblSymmetry,
+            lblFlouro,
+            lblCertificate,
+            lblDiscount,
+            lblPincode
+        ]
+    }
 
 
     override func awakeFromNib() {

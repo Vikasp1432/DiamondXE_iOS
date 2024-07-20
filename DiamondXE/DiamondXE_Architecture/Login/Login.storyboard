@@ -141,17 +141,6 @@
                                             <constraint firstAttribute="trailing" secondItem="IWa-vb-cwA" secondAttribute="trailing" constant="5" id="ESy-hI-PZt"/>
                                             <constraint firstItem="IWa-vb-cwA" firstAttribute="top" secondItem="xa8-nh-A13" secondAttribute="top" constant="5" id="Ez3-Df-QoS"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="22"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" name="ShadowClr"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" name="viewBGClr"/>
@@ -561,10 +550,10 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2H2-3O-lME">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2H2-3O-lME">
                                 <rect key="frame" x="20" y="737.33333333333337" width="353" height="74.666666666666629"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Coe-qa-Cr2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you a supplier?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Coe-qa-Cr2">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="18.666666666666668"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                         <color key="textColor" name="blackClr"/>
@@ -579,16 +568,16 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="KohinoorGujarati-Regular" family="Kohinoor Gujarati" pointSize="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="SingUp">
+                                        <state key="normal" title="Login Now">
                                             <color key="titleColor" name="whitClr"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="20"/>
+                                                <real key="value" value="6"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="btnActionSignup:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="mo2-TE-nlY"/>
+                                            <action selector="btnActionSpplierLogin:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="vPw-IZ-blQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1753,7 +1742,7 @@ login into your account!</string>
     </scenes>
     <designables>
         <designable name="AOM-gD-wlK">
-            <size key="intrinsicContentSize" width="64.666666666666671" height="18"/>
+            <size key="intrinsicContentSize" width="80.666666666666671" height="43"/>
         </designable>
         <designable name="Bf0-Hb-Tmy">
             <size key="intrinsicContentSize" width="129.66666666666666" height="18"/>
@@ -1762,25 +1751,25 @@ login into your account!</string>
             <size key="intrinsicContentSize" width="101.66666666666667" height="18"/>
         </designable>
         <designable name="KfG-j8-4wc">
-            <size key="intrinsicContentSize" width="34.333333333333336" height="18"/>
+            <size key="intrinsicContentSize" width="50.333333333333336" height="43"/>
         </designable>
         <designable name="R5a-El-aSI">
-            <size key="intrinsicContentSize" width="92.333333333333329" height="18"/>
+            <size key="intrinsicContentSize" width="108.33333333333333" height="43"/>
         </designable>
         <designable name="e5a-wu-NCs">
             <size key="intrinsicContentSize" width="64.666666666666671" height="18"/>
         </designable>
         <designable name="imM-N5-b0q">
-            <size key="intrinsicContentSize" width="167.66666666666666" height="18"/>
+            <size key="intrinsicContentSize" width="183.66666666666666" height="43"/>
         </designable>
         <designable name="paa-CX-7ek">
-            <size key="intrinsicContentSize" width="62" height="18"/>
+            <size key="intrinsicContentSize" width="78" height="43"/>
         </designable>
         <designable name="pno-IW-Tr4">
             <size key="intrinsicContentSize" width="131" height="18"/>
         </designable>
         <designable name="qfc-GI-RGY">
-            <size key="intrinsicContentSize" width="64.666666666666671" height="18"/>
+            <size key="intrinsicContentSize" width="80.666666666666671" height="43"/>
         </designable>
         <designable name="ut5-xk-c2K">
             <size key="intrinsicContentSize" width="148" height="18"/>

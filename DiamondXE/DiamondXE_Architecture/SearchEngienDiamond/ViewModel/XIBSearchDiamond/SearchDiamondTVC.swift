@@ -53,7 +53,9 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                     UIImage(named:"oval"),
                     UIImage(named:"pear"),
                     UIImage(named:"marquise"),
-                    UIImage(named:"asscher")]
+                    UIImage(named:"asscher"),
+                    UIImage(named:"CushionDiamond"),
+                    UIImage(named:"OtherDiamond")]
     var shapeDataArr = ["All",
                     "Round" ,
                     "Princess" ,
@@ -63,7 +65,9 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                     "Oval",
                     "Pear",
                     "Marquise",
-                    "Asscher"]
+                    "Asscher",
+                        "Cushion",
+                        "Other"]
     
    
     var selectedIndicesShaps: Set<IndexPath> = []

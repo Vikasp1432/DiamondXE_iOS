@@ -8,7 +8,7 @@
 import UIKit
 import DTTextField
 
-class SupplierINT_KYCTableViewCell: UITableViewCell {
+class SupplierINT_KYCTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     static let cellIdentifierSuppINT_KYC = String(describing: SupplierINT_KYCTableViewCell.self)
 
@@ -16,16 +16,24 @@ class SupplierINT_KYCTableViewCell: UITableViewCell {
     @IBOutlet var viewBGData:UIView!
     @IBOutlet var btnDropDown:UIButton!
     
-    @IBOutlet var btnFlag: UIButton!
-    @IBOutlet var btnCode: UIButton!
+    @IBOutlet var btnBusinessLincDoc: UIButton!
+    @IBOutlet var btnIECDoc: UIButton!
     
-    @IBOutlet var txtSupervisorName:DTTextField!
-    @IBOutlet var txtNatureOfBusiness:DTTextField!
     @IBOutlet var txtCompanyType:DTTextField!
+    @IBOutlet var txtNatureOfBusiness:DTTextField!
+    @IBOutlet var txtBusinessLicenNum:DTTextField!
+    @IBOutlet var txtCompanyIEC:DTTextField!
+    
+    @IBOutlet var btnSelectedBusinessLic: UIButton!
+    @IBOutlet var btnSelectedIEC: UIButton!
     
     @IBOutlet var viewBG:UIView!
+    
+    var cellDataDelegate : CellDataDelegate?
+    var indexPath = IndexPath()
 
     var buttonDropDownCB : ((Int) -> Void) = {_ in }
+    var buttonGetDocBase64 : ((Int) -> Void) = {_ in }
     var buttonPressed : ((Int) -> Void) = {_ in }
 
     override func awakeFromNib() {
@@ -39,9 +47,47 @@ class SupplierINT_KYCTableViewCell: UITableViewCell {
         
         // Initialization code
 //        self.btnFlag.setTitle(APIs().indianFlag, for: .normal)
-       // BaseViewController.setClrUItextField2(textFields: [txtSupervisorName, txtSupervisorEmail,txtSupervisorMobile])
+        txtCompanyType.delegate = self
+        txtBusinessLicenNum.delegate = self
+        txtCompanyIEC.delegate = self
+        BaseViewController.setClrUItextField2(textFields: [txtCompanyType, txtNatureOfBusiness,txtBusinessLicenNum,txtCompanyIEC])
     }
 
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let dtTextField = textField as? DTTextField {
+            dtTextField.borderColor = UIColor.tabSelectClr
+        }
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+           // Change border color or perform any other actions
+           if let customTextField = textField as? DTTextField {
+               customTextField.borderColor = UIColor.tabSelectClr
+           }
+       }
+       
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let customTextField = textField as? DTTextField {
+            customTextField.borderColor = UIColor.borderClr
+        }
+        
+        if let text = txtBusinessLicenNum.text {
+         
+            cellDataDelegate?.didUpdateText(textKey: "CO.BusinessLicence", text: text, indexPath: indexPath)
+            
+        }
+          if let text = txtCompanyIEC.text {
+              cellDataDelegate?.didUpdateText(textKey: "CO.IECN", text: text, indexPath: indexPath)
+          }
+          
+//          if let text = txtCompanyIEC.text {
+//              cellDataDelegate?.didUpdateText(textKey: "CO.IECN", text: text, indexPath: indexPath)
+//          }
+          
+        
+    }
+    
     func setupData(isExpand:Bool){
         if isExpand{
             viewBGData.isHidden = true
@@ -71,6 +117,12 @@ class SupplierINT_KYCTableViewCell: UITableViewCell {
 //        self.isExpanded.toggle()
        
         buttonDropDownCB(sender.tag)
+    }
+    
+    @IBAction func buttonActionGetDoc(_ sender: UIButton) {
+//        self.isExpanded.toggle()
+       
+        buttonGetDocBase64(sender.tag)
     }
     
 }

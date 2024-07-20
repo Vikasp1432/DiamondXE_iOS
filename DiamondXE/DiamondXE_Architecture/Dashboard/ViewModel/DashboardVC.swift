@@ -601,12 +601,12 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
             self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
             self.btnTitleLogin.setTitleColor(UIColor.themeClr, for: .normal)
             let loginData = UserDefaultManager().retrieveLoginData()
-//            if let status = loginData?.details?.userRole {
-//               print("")
-//            }
-//            else{
+            if let status = loginData?.details?.userRole {
+               print("")
+            }
+            else{
                 self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
-//            }
+            }
            
             
         }
@@ -998,6 +998,11 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
                        }
                    }
         }
+        
+        else if nv_logout == sectionStr{
+            print("logout:", sectionStr)
+            self.callAPILogout()
+        }
        
         
         
@@ -1073,5 +1078,19 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
 //        
 //        manageBottomTag()
 //    }
+    
+    func callAPILogout(){
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+        HomeDataModel().logoutUser(completion: { data, msg in
+            if data.status == 1{
+                self.toastMessage(data.msg ?? "")
+                UserDefaultManager().clearLoginDataDefaults()
+            }
+            else{
+                self.toastMessage(data.msg ?? "")
+            }
+            CustomActivityIndicator2.shared.hide()
+        })
+    }
     
 }

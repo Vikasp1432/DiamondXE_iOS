@@ -31,6 +31,11 @@ struct CompanyDetailsDataStruct: Codable {
 
 //  dealer final data struct
 struct DealerSignupDataStruct: Codable {
+    var passportNo : String?
+    var passportFrontDoc : String?
+    var passportBackDoc : String?
+    var drivingLicenseNo : String?
+    var drivingLicenseDoc : String?
     var firstName, lastName, email, mobileNo: String?
     var country, state, city,referralCode, password: String?
     var confirmPassword, pinCode, address, address2: String?
@@ -47,14 +52,14 @@ struct DealerSignupDataStruct: Codable {
         case panNo = "PANNo"
         case companyPANNo, companyGSTNo, tradeMembershipNo
         case iecNo = "IECNo"
-        case dob, inventoryType
+        case dob, inventoryType, passportNo,passportFrontDoc, passportBackDoc
         case emiratesID = "emiratesId"
         case requestOtp, emailOtp, aadhaarNoDocFront, aadhaarNoDocBack
         case panNoDoc = "PANNoDoc"
         case companyPANNoDoc, companyGSTNoDoc, tradeMembershipNoDoc
         case iecDoc = "IECDoc"
         case emiratesIDDoc = "emiratesIdDoc"
-        case otherDocs
+        case otherDocs, drivingLicenseNo,drivingLicenseDoc
     }
 }
 
@@ -66,10 +71,9 @@ struct OtherDocInfo: Codable {
 }
 
 
-
 // Supplier data struct
 struct SupplierSignupDataStruct: Codable {
-    var firstName, lastName, email,referralCode, mobileNo: String?
+    var firstName, lastName, email,referralCode, businessLicenceNumber, mobileNo: String?
     var country, state, city, password: String?
     var confirmPassword, pinCode, address, address2: String?
     var companyName, companyEmail, companyContact, typeOfCompany: String?
@@ -102,4 +106,53 @@ struct SupplierSignupDataStruct: Codable {
         case emiratesIDDoc = "emiratesIdDoc"
         case otherDocs
     }
+}
+
+struct SupplierParamDataStruct: Codable {
+    var mobileNo : String?
+    var email : String?
+    var password : String?
+    var pinCode : String?
+    var address : String?
+    var address2 : String?
+    var referralCode : String?
+    var companyName : String?
+    var companyEmail : String?
+    var companyContact : String?
+    var typeOfCompany : String?
+    var natureOfBusiness : String?
+    var GSTNo : String?
+    var companyPANNo : String?
+    var IECNo : String?
+    var tradeMembershipNo : String?
+    var authPersonName : String?
+    var authPersonContact : String?
+    var authPersonEmail : String?
+    var bankName : String?
+    var branchName : String?
+    var accountNo : String?
+    var accountType : String?
+    var IFSCCode : String?
+    var swiftCode : String?
+    var country : String?
+    var state : String?
+    var city : String?
+    var dob : String?
+    var inventoryType : String?
+    var emiratesId : String?
+   
+   
+    var aadhaarNoDocFront : String?
+    var aadhaarNoDocBack : String?
+    var PANNoDoc : String?
+    var GSTNoDoc : String?
+    var tradeMembershipNoDoc : String?
+    var companyPANNoDoc : String?
+    var IECDoc : String?
+    var emiratesIdDoc : String?
+    var passportNo : String?
+    var passportFrontDoc : String?
+    var passportBackDoc : String?
+    var drivingLicenseNo : String?
+    var drivingLicenseDoc : String?
 }

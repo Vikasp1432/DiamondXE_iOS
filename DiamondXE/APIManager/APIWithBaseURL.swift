@@ -60,7 +60,7 @@ struct APIs {
     
     let get_Wishlist_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-wishlist-details"
 //
-//    let get_MoveToWishList_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-cart-details"
+    let get_Logout_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/logout"
 }
 
 struct HeaderInfo {

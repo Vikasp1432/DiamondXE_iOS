@@ -44,15 +44,28 @@
                                     <color key="textColor" name="blackClr"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1A-59-6lL">
+                                    <rect key="frame" x="0.0" y="39.333333333333336" width="284" height="0.6666666666666643"/>
+                                    <color key="backgroundColor" name="borderClr"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="0.59999999999999998" id="soG-BS-5Nb"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
+                                    <color key="textColor" name="blackClr"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" name="whitClr"/>
                             <constraints>
                                 <constraint firstItem="HiZ-q9-tTj" firstAttribute="centerY" secondItem="7rM-j0-hA5" secondAttribute="centerY" id="5gL-oh-6IU"/>
                                 <constraint firstItem="7rM-j0-hA5" firstAttribute="centerY" secondItem="1hf-If-uFA" secondAttribute="centerY" id="Jd8-z1-OTF"/>
+                                <constraint firstAttribute="trailing" secondItem="l1A-59-6lL" secondAttribute="trailing" id="KNR-Xg-Bqo"/>
                                 <constraint firstItem="7rM-j0-hA5" firstAttribute="leading" secondItem="1hf-If-uFA" secondAttribute="leading" constant="40" id="SO1-1Y-xbM"/>
                                 <constraint firstAttribute="trailing" secondItem="HiZ-q9-tTj" secondAttribute="trailing" constant="15" id="bjg-sF-nik"/>
+                                <constraint firstAttribute="bottom" secondItem="l1A-59-6lL" secondAttribute="bottom" id="cc9-YE-77j"/>
                                 <constraint firstItem="HiZ-q9-tTj" firstAttribute="leading" secondItem="7rM-j0-hA5" secondAttribute="trailing" constant="15" id="hqw-XP-PkV"/>
                                 <constraint firstAttribute="height" constant="40" id="mwP-6h-EM2"/>
+                                <constraint firstItem="l1A-59-6lL" firstAttribute="leading" secondItem="1hf-If-uFA" secondAttribute="leading" id="qXP-M0-3ep"/>
                             </constraints>
                         </view>
                         <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqs-fX-3FB">
@@ -73,6 +86,16 @@
                                     <color key="textColor" name="blackClr"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO9-wm-cuH">
+                                    <rect key="frame" x="0.0" y="39.333333333333329" width="284" height="0.6666666666666643"/>
+                                    <color key="backgroundColor" name="borderClr"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="0.59999999999999998" id="UUd-Bt-NFz"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
+                                    <color key="textColor" name="blackClr"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" name="whitClr"/>
                             <constraints>
@@ -80,8 +103,11 @@
                                 <constraint firstItem="4eH-kU-n0U" firstAttribute="leading" secondItem="cWx-Li-SNB" secondAttribute="trailing" constant="15" id="NBV-5r-r5K"/>
                                 <constraint firstItem="4eH-kU-n0U" firstAttribute="centerY" secondItem="cWx-Li-SNB" secondAttribute="centerY" id="RAh-nb-hst"/>
                                 <constraint firstItem="cWx-Li-SNB" firstAttribute="centerY" secondItem="bqs-fX-3FB" secondAttribute="centerY" id="clO-4k-XGz"/>
+                                <constraint firstItem="fO9-wm-cuH" firstAttribute="leading" secondItem="bqs-fX-3FB" secondAttribute="leading" id="foK-ns-Ic6"/>
                                 <constraint firstItem="cWx-Li-SNB" firstAttribute="leading" secondItem="bqs-fX-3FB" secondAttribute="leading" constant="40" id="hQ2-nJ-zeL"/>
                                 <constraint firstAttribute="height" constant="40" id="iOa-yP-z1n"/>
+                                <constraint firstAttribute="bottom" secondItem="fO9-wm-cuH" secondAttribute="bottom" id="sU5-tb-Rvi"/>
+                                <constraint firstAttribute="trailing" secondItem="fO9-wm-cuH" secondAttribute="trailing" id="ttV-te-cpx"/>
                             </constraints>
                         </view>
                         <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUf-eN-Y9b">
@@ -102,12 +128,25 @@
                                     <color key="textColor" name="blackClr"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qas-bR-ZLT">
+                                    <rect key="frame" x="0.0" y="39.333333333333343" width="284" height="0.6666666666666643"/>
+                                    <color key="backgroundColor" name="borderClr"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="0.59999999999999998" id="Q2O-bD-kyQ"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
+                                    <color key="textColor" name="blackClr"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" name="whitClr"/>
                             <constraints>
                                 <constraint firstItem="y4P-cU-saF" firstAttribute="leading" secondItem="CLP-dF-R0Y" secondAttribute="trailing" constant="15" id="3U4-Ou-hY2"/>
+                                <constraint firstAttribute="bottom" secondItem="Qas-bR-ZLT" secondAttribute="bottom" id="AtD-iB-OnP"/>
                                 <constraint firstAttribute="height" constant="40" id="Bzz-1C-7yz"/>
                                 <constraint firstItem="y4P-cU-saF" firstAttribute="centerY" secondItem="CLP-dF-R0Y" secondAttribute="centerY" id="CDR-cp-SH8"/>
+                                <constraint firstItem="Qas-bR-ZLT" firstAttribute="leading" secondItem="cUf-eN-Y9b" secondAttribute="leading" id="CGl-he-hIQ"/>
+                                <constraint firstAttribute="trailing" secondItem="Qas-bR-ZLT" secondAttribute="trailing" id="KE9-tp-bKc"/>
                                 <constraint firstAttribute="trailing" secondItem="y4P-cU-saF" secondAttribute="trailing" constant="15" id="Tcy-1R-SN7"/>
                                 <constraint firstItem="CLP-dF-R0Y" firstAttribute="leading" secondItem="cUf-eN-Y9b" secondAttribute="leading" constant="40" id="ez2-1d-XkY"/>
                                 <constraint firstItem="CLP-dF-R0Y" firstAttribute="centerY" secondItem="cUf-eN-Y9b" secondAttribute="centerY" id="mLs-nv-kut"/>
@@ -131,13 +170,26 @@
                                     <color key="textColor" name="blackClr"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PP8-OC-2aW">
+                                    <rect key="frame" x="0.0" y="39.333333333333343" width="284" height="0.6666666666666643"/>
+                                    <color key="backgroundColor" name="borderClr"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="0.59999999999999998" id="r6u-WL-6c1"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
+                                    <color key="textColor" name="blackClr"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" name="whitClr"/>
                             <constraints>
                                 <constraint firstItem="Gf0-8M-b5J" firstAttribute="leading" secondItem="IQF-We-cOT" secondAttribute="leading" constant="40" id="2ct-ip-2Qi"/>
                                 <constraint firstItem="MNQ-3g-uFf" firstAttribute="leading" secondItem="Gf0-8M-b5J" secondAttribute="trailing" constant="15" id="BpM-ag-wjf"/>
                                 <constraint firstAttribute="trailing" secondItem="MNQ-3g-uFf" secondAttribute="trailing" constant="15" id="E1V-VZ-Jy9"/>
+                                <constraint firstAttribute="trailing" secondItem="PP8-OC-2aW" secondAttribute="trailing" id="Ea3-bD-HDC"/>
                                 <constraint firstItem="Gf0-8M-b5J" firstAttribute="centerY" secondItem="IQF-We-cOT" secondAttribute="centerY" id="Ogb-jF-iuy"/>
+                                <constraint firstAttribute="bottom" secondItem="PP8-OC-2aW" secondAttribute="bottom" id="Qhl-Et-Ff8"/>
+                                <constraint firstItem="PP8-OC-2aW" firstAttribute="leading" secondItem="IQF-We-cOT" secondAttribute="leading" id="XCA-el-O7J"/>
                                 <constraint firstItem="MNQ-3g-uFf" firstAttribute="centerY" secondItem="Gf0-8M-b5J" secondAttribute="centerY" id="gGR-I4-R4T"/>
                                 <constraint firstAttribute="height" constant="40" id="yjy-rc-Zst"/>
                             </constraints>
@@ -211,6 +263,9 @@
         <image name="share!" width="13.260000228881836" height="15.229999542236328"/>
         <namedColor name="blackClr">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="borderClr">
+            <color red="0.83099997043609619" green="0.83099997043609619" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

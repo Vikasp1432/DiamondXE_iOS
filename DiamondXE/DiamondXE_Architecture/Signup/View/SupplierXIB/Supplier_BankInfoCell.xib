@@ -94,11 +94,6 @@
                                                                 <color key="textColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                                        <color key="value" name="themeClr"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" name="whitClr"/>
@@ -130,11 +125,6 @@
                                                                 <color key="textColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                                        <color key="value" name="themeClr"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" name="whitClr"/>
@@ -166,11 +156,6 @@
                                                                 <color key="textColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                                        <color key="value" name="themeClr"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" name="whitClr"/>
@@ -202,11 +187,6 @@
                                                                 <color key="textColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                                        <color key="value" name="themeClr"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" name="whitClr"/>
@@ -238,11 +218,6 @@
                                                                 <color key="textColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                                        <color key="value" name="themeClr"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" name="whitClr"/>
@@ -274,11 +249,6 @@
                                                                 <color key="textColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                                        <color key="value" name="themeClr"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" name="whitClr"/>
@@ -377,22 +347,22 @@
     </objects>
     <designables>
         <designable name="D3P-0C-ZRY">
-            <size key="intrinsicContentSize" width="106.66666666666667" height="18"/>
+            <size key="intrinsicContentSize" width="122.66666666666667" height="43"/>
         </designable>
         <designable name="IfC-14-NSL">
-            <size key="intrinsicContentSize" width="114" height="18"/>
+            <size key="intrinsicContentSize" width="130" height="43"/>
         </designable>
         <designable name="PIU-E4-OoO">
-            <size key="intrinsicContentSize" width="174.33333333333334" height="18"/>
+            <size key="intrinsicContentSize" width="190.33333333333334" height="43"/>
         </designable>
         <designable name="bYH-ID-0pY">
-            <size key="intrinsicContentSize" width="103" height="18"/>
+            <size key="intrinsicContentSize" width="119" height="43"/>
         </designable>
         <designable name="hw9-2S-i6P">
-            <size key="intrinsicContentSize" width="119.33333333333333" height="18"/>
+            <size key="intrinsicContentSize" width="135.33333333333334" height="43"/>
         </designable>
         <designable name="jad-B9-BvS">
-            <size key="intrinsicContentSize" width="118.66666666666667" height="18"/>
+            <size key="intrinsicContentSize" width="135" height="43"/>
         </designable>
     </designables>
     <resources>

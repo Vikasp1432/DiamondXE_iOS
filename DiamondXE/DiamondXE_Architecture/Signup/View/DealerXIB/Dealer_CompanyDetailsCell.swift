@@ -52,6 +52,13 @@ class Dealer_CompanyDetailsCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet var viewBG:UIView!
     
+    @IBOutlet var viewCountry: UIView!
+    @IBOutlet var viewState: UIView!
+    @IBOutlet var viewCity: UIView!
+    
+    var cellDataDelegate : CellDataDelegate?
+    var indexPath = IndexPath()
+    
     var buttonPressed : ((Int) -> Void) = {_ in }
     
     var buttonDocBase64 : ((Int) -> Void) = {_ in }
@@ -88,9 +95,46 @@ class Dealer_CompanyDetailsCell: UITableViewCell, UITextFieldDelegate {
 
         
         BaseViewController.setClrUItextField2(textFields: [txtCity, txtState, txtCountry, txtMobile, txtEmail, txtAddress1, txtAddress2, txtCompanyType, txtBusinessVal, txtCompanyName, txtIPinNum])
+        
+        
+        let tapCountry = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        viewCountry.addGestureRecognizer(tapCountry)
+        
+        let tapState = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        viewState.addGestureRecognizer(tapState)
+        
+        let tapCity = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        viewCity.addGestureRecognizer(tapCity)
+        
 
         
     }
+    
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        // handling code
+        guard let tappedView = sender?.view else { return }
+        switch tappedView.tag {
+        case 1:
+           // buttonPressed(tappedView.tag)
+            buttonBottomSheet(tappedView.tag)
+
+        case 2:
+//            buttonPressed(tappedView.tag)
+            buttonBottomSheet(tappedView.tag)
+
+        case 3:
+//            buttonPressed(tappedView.tag)
+            buttonBottomSheet(tappedView.tag)
+
+        default:
+            break
+        }
+        
+        
+    }
+    
+    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
            // Check which text field triggered the method
@@ -126,6 +170,68 @@ class Dealer_CompanyDetailsCell: UITableViewCell, UITextFieldDelegate {
         if let customTextField = textField as? DTTextField {
             customTextField.borderColor = UIColor.borderClr
         }
+        
+//    case "Aadhar":
+//        self.dealerDataStruct.aadhaarNo = text
+//    case "PAN":
+//        self.dealerDataStruct.panNo = text
+//    case "FName":
+//        self.dealerDataStruct.firstName = text
+//    case "LName":
+//        self.dealerDataStruct.lastName = text
+//    case "Mobile":
+//        self.dealerDataStruct.mobileNo = text
+//    case "Email":
+//        self.dealerDataStruct.email = text
+//    case "Password":
+//        self.dealerDataStruct.password = text
+//    case "CNPassword":
+//        self.dealerDataStruct.confirmPassword = text
+        
+        
+        if let text = txtCompanyName.text {
+         
+            cellDataDelegate?.didUpdateText(textKey: "DealerComName", text: text, indexPath: indexPath)
+            
+        }
+          if let text = txtMobile.text {
+              cellDataDelegate?.didUpdateText(textKey: "DealerMobileN", text: text, indexPath: indexPath)
+          }
+        
+        if let text = txtEmail.text {
+         
+            cellDataDelegate?.didUpdateText(textKey: "DealerEmail", text: text, indexPath: indexPath)
+            
+        }
+          if let text = txtCity.text {
+              cellDataDelegate?.didUpdateText(textKey: "DealerCity", text: text, indexPath: indexPath)
+          }
+        
+        if let text = txtState.text {
+         
+            cellDataDelegate?.didUpdateText(textKey: "DealerState", text: text, indexPath: indexPath)
+            
+        }
+          if let text = txtCountry.text {
+              cellDataDelegate?.didUpdateText(textKey: "DealerContry", text: text, indexPath: indexPath)
+          }
+        if let text = txtIPinNum.text {
+            cellDataDelegate?.didUpdateText(textKey: "DealerPin", text: text, indexPath: indexPath)
+        }
+        
+        if let text = txtAddress1.text {
+            cellDataDelegate?.didUpdateText(textKey: "DealerAddress1", text: text, indexPath: indexPath)
+        }
+        if let text = txtAddress2.text {
+            cellDataDelegate?.didUpdateText(textKey: "DealerAddress2", text: text, indexPath: indexPath)
+        }
+        if let text = txtCompanyType.text {
+            cellDataDelegate?.didUpdateText(textKey: "DealerComType", text: text, indexPath: indexPath)
+        }
+        if let text = txtBusinessVal.text {
+            cellDataDelegate?.didUpdateText(textKey: "DealerBusinessNa", text: text, indexPath: indexPath)
+        }
+        
     }
     
 
@@ -170,7 +276,7 @@ class Dealer_CompanyDetailsCell: UITableViewCell, UITextFieldDelegate {
             companyDetailsStruct.address2 = self.txtAddress2.text ?? ""
             
             companyDetailsStruct.businessNature = self.txtBusinessVal.text ?? ""
-            //companyDetailsStruct.trademembership = self.txtTradeNumber.text ?? ""
+//            companyDetailsStruct.trademembership = self.txtTradeNumber.text ?? ""
            // companyDetailsStruct.iecNumber = self.txtIEXNumber.text ?? ""
             
             

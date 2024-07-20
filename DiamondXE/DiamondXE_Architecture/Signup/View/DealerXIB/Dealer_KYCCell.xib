@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="LATO.SEMIBOLD.TTF">
+            <string>Lato-Semibold</string>
+        </array>
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
         </array>
@@ -160,42 +163,59 @@
                                                         <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhF-be-StY">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="GcR-XI-6jw">
                                                         <rect key="frame" x="264" y="7" width="60" height="30"/>
-                                                        <color key="backgroundColor" red="0.27058823529999998" green="0.070588235289999995" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="kGx-fg-zip"/>
-                                                            <constraint firstAttribute="height" constant="30" id="vQA-wN-2sV"/>
-                                                        </constraints>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="Browse">
-                                                                    <attributes>
-                                                                        <color key="NSColor" name="whitClr"/>
-                                                                        <font key="NSFont" size="11" name="Lato-Semibold"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="buttonActionPicImg:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="H41-1B-aKi"/>
-                                                        </connections>
-                                                    </button>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhF-be-StY">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                                                                <color key="backgroundColor" red="0.27058823529999998" green="0.070588235289999995" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="kGx-fg-zip"/>
+                                                                    <constraint firstAttribute="height" constant="30" id="vQA-wN-2sV"/>
+                                                                </constraints>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="Browse">
+                                                                            <attributes>
+                                                                                <color key="NSColor" name="whitClr"/>
+                                                                                <font key="NSFont" size="11" name="Lato-Semibold"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="buttonActionPicImg:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="H41-1B-aKi"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button hidden="YES" opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="88s-hN-TQ9">
+                                                                <rect key="frame" x="60" y="0.0" width="0.0" height="30"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" image="Verify">
+                                                                    <attributedString key="attributedTitle"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="14"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="9no-kw-cbI"/>
-                                                    <constraint firstAttribute="trailing" secondItem="hhF-be-StY" secondAttribute="trailing" constant="8" id="Tdd-2I-3Cr"/>
                                                     <constraint firstAttribute="bottom" secondItem="U1Y-Ng-vrg" secondAttribute="bottom" id="Wz3-kA-yu9"/>
+                                                    <constraint firstItem="GcR-XI-6jw" firstAttribute="top" secondItem="Uf3-ro-wnk" secondAttribute="top" constant="7" id="bkV-yG-Gu5"/>
+                                                    <constraint firstAttribute="trailing" secondItem="GcR-XI-6jw" secondAttribute="trailing" constant="8" id="hdN-Tk-KHm"/>
                                                     <constraint firstItem="U1Y-Ng-vrg" firstAttribute="leading" secondItem="Uf3-ro-wnk" secondAttribute="leading" id="lvj-Kg-66P"/>
                                                     <constraint firstAttribute="trailing" secondItem="U1Y-Ng-vrg" secondAttribute="trailing" id="nfl-L8-p5r"/>
                                                     <constraint firstItem="U1Y-Ng-vrg" firstAttribute="top" secondItem="Uf3-ro-wnk" secondAttribute="top" id="qdQ-9Q-5PM"/>
-                                                    <constraint firstItem="hhF-be-StY" firstAttribute="top" secondItem="Uf3-ro-wnk" secondAttribute="top" constant="7" id="sA0-GU-w97"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -282,42 +302,59 @@
                                                         <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfD-Hr-9XT">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="9mj-hw-u7S">
                                                         <rect key="frame" x="264" y="7" width="60" height="30"/>
-                                                        <color key="backgroundColor" red="0.27058823529999998" green="0.070588235289999995" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="Typ-Z0-KUb"/>
-                                                            <constraint firstAttribute="width" constant="60" id="m6J-ln-Qa2"/>
-                                                        </constraints>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="Browse">
-                                                                    <attributes>
-                                                                        <color key="NSColor" name="whitClr"/>
-                                                                        <font key="NSFont" size="11" name="Lato-Semibold"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="buttonActionPicImg:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="R86-uv-rpp"/>
-                                                        </connections>
-                                                    </button>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfD-Hr-9XT">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                                                                <color key="backgroundColor" red="0.27058823529999998" green="0.070588235289999995" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="Typ-Z0-KUb"/>
+                                                                    <constraint firstAttribute="width" constant="60" id="m6J-ln-Qa2"/>
+                                                                </constraints>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="Browse">
+                                                                            <attributes>
+                                                                                <color key="NSColor" name="whitClr"/>
+                                                                                <font key="NSFont" size="11" name="Lato-Semibold"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="buttonActionPicImg:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="R86-uv-rpp"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button hidden="YES" opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2cK-rT-bgG">
+                                                                <rect key="frame" x="60" y="0.0" width="0.0" height="30"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" image="Verify">
+                                                                    <attributedString key="attributedTitle"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="14"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="ajP-dW-BaL" secondAttribute="bottom" id="7Rl-IB-vq8"/>
-                                                    <constraint firstItem="yfD-Hr-9XT" firstAttribute="top" secondItem="kk0-EK-shR" secondAttribute="top" constant="7" id="CWt-yy-O3q"/>
-                                                    <constraint firstAttribute="trailing" secondItem="yfD-Hr-9XT" secondAttribute="trailing" constant="8" id="LwN-VY-8Ox"/>
                                                     <constraint firstItem="ajP-dW-BaL" firstAttribute="leading" secondItem="kk0-EK-shR" secondAttribute="leading" id="OTe-fK-WCA"/>
+                                                    <constraint firstItem="9mj-hw-u7S" firstAttribute="top" secondItem="kk0-EK-shR" secondAttribute="top" constant="7" id="j71-On-HOu"/>
                                                     <constraint firstItem="ajP-dW-BaL" firstAttribute="top" secondItem="kk0-EK-shR" secondAttribute="top" id="oDf-2J-ufq"/>
                                                     <constraint firstAttribute="trailing" secondItem="ajP-dW-BaL" secondAttribute="trailing" id="qJo-SP-9PU"/>
                                                     <constraint firstAttribute="height" constant="45" id="uoI-02-1k6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9mj-hw-u7S" secondAttribute="trailing" constant="8" id="xHi-W4-LSf"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -405,41 +442,58 @@
                                                         <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADC-eI-2Dd">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="eyF-vN-ogk">
                                                         <rect key="frame" x="264" y="7" width="60" height="30"/>
-                                                        <color key="backgroundColor" red="0.27058823529999998" green="0.070588235289999995" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="BrX-gx-CsO"/>
-                                                            <constraint firstAttribute="height" constant="30" id="IAw-pT-0A6"/>
-                                                        </constraints>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="Browse">
-                                                                    <attributes>
-                                                                        <color key="NSColor" name="whitClr"/>
-                                                                        <font key="NSFont" size="11" name="Lato-Semibold"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="buttonActionPicImg:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZoP-vi-T9Y"/>
-                                                        </connections>
-                                                    </button>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADC-eI-2Dd">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                                                                <color key="backgroundColor" red="0.27058823529999998" green="0.070588235289999995" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="BrX-gx-CsO"/>
+                                                                    <constraint firstAttribute="height" constant="30" id="IAw-pT-0A6"/>
+                                                                </constraints>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="Browse">
+                                                                            <attributes>
+                                                                                <color key="NSColor" name="whitClr"/>
+                                                                                <font key="NSFont" size="11" name="Lato-Semibold"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="buttonActionPicImg:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZoP-vi-T9Y"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button hidden="YES" opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SXO-KN-H3G">
+                                                                <rect key="frame" x="60" y="0.0" width="0.0" height="30"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" image="Verify">
+                                                                    <attributedString key="attributedTitle"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="14"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" name="whitClr"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="qSX-k8-T0h" secondAttribute="trailing" id="2td-es-L8f"/>
-                                                    <constraint firstItem="ADC-eI-2Dd" firstAttribute="top" secondItem="h5T-uw-0bo" secondAttribute="top" constant="7" id="DUS-Cd-5bC"/>
                                                     <constraint firstItem="qSX-k8-T0h" firstAttribute="leading" secondItem="h5T-uw-0bo" secondAttribute="leading" id="EhE-6F-YTF"/>
+                                                    <constraint firstAttribute="trailing" secondItem="eyF-vN-ogk" secondAttribute="trailing" constant="8" id="IrK-t2-bgV"/>
                                                     <constraint firstAttribute="bottom" secondItem="qSX-k8-T0h" secondAttribute="bottom" id="JNi-ly-6lu"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ADC-eI-2Dd" secondAttribute="trailing" constant="8" id="RE9-aN-hGl"/>
+                                                    <constraint firstItem="eyF-vN-ogk" firstAttribute="top" secondItem="h5T-uw-0bo" secondAttribute="top" constant="7" id="XJf-Bx-jYF"/>
                                                     <constraint firstAttribute="height" constant="45" id="YsK-Ww-ZpM"/>
                                                     <constraint firstItem="qSX-k8-T0h" firstAttribute="top" secondItem="h5T-uw-0bo" secondAttribute="top" id="rPk-UY-kgW"/>
                                                 </constraints>
@@ -520,6 +574,9 @@
                 <outlet property="btnGSTFront" destination="hhF-be-StY" id="31C-Aw-ya2"/>
                 <outlet property="btnIECDoc" destination="ADC-eI-2Dd" id="4TK-xb-C2t"/>
                 <outlet property="btnPANFront" destination="yfD-Hr-9XT" id="j8d-Yq-WKu"/>
+                <outlet property="btnSelectGST" destination="88s-hN-TQ9" id="5LJ-mN-OXD"/>
+                <outlet property="btnSelectIEC" destination="SXO-KN-H3G" id="Tgp-zd-ACr"/>
+                <outlet property="btnSelectPAN" destination="2cK-rT-bgG" id="uPu-et-TIE"/>
                 <outlet property="btnverifiedAdhar" destination="CM3-ok-KiT" id="4nj-5q-Nza"/>
                 <outlet property="btnverifiedPAN" destination="400-kr-9sa" id="j1D-Wl-Z9J"/>
                 <outlet property="btnverifyGST" destination="ZlB-Pc-l5z" id="Mep-u2-Js2"/>
@@ -538,22 +595,22 @@
     </objects>
     <designables>
         <designable name="6SQ-iS-nfn">
-            <size key="intrinsicContentSize" width="90.666666666666671" height="15.666666666666666"/>
+            <size key="intrinsicContentSize" width="106.66666666666667" height="40.666666666666664"/>
         </designable>
         <designable name="U1Y-Ng-vrg">
-            <size key="intrinsicContentSize" width="150" height="34"/>
+            <size key="intrinsicContentSize" width="138" height="41.333333333333329"/>
         </designable>
         <designable name="ajP-dW-BaL">
-            <size key="intrinsicContentSize" width="175" height="34"/>
+            <size key="intrinsicContentSize" width="163" height="41.333333333333329"/>
         </designable>
         <designable name="cuv-kE-UhR">
-            <size key="intrinsicContentSize" width="119" height="18"/>
+            <size key="intrinsicContentSize" width="135" height="43"/>
         </designable>
         <designable name="qSX-k8-T0h">
-            <size key="intrinsicContentSize" width="152" height="34"/>
+            <size key="intrinsicContentSize" width="140" height="41.333333333333329"/>
         </designable>
         <designable name="utj-wT-mF0">
-            <size key="intrinsicContentSize" width="189.66666666666666" height="15.666666666666666"/>
+            <size key="intrinsicContentSize" width="205.66666666666666" height="40.666666666666664"/>
         </designable>
     </designables>
     <resources>

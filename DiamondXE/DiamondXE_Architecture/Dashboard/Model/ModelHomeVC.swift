@@ -48,5 +48,29 @@ class HomeDataModel {
             }
         })
     }
+    
+    
+    func logoutUser(completion: @escaping (LogoutDataStruct, String?) -> Void) {
+        var logoutResult = LogoutDataStruct()
+        let deviceID = BaseViewController().getSessionUniqID()
+        let requestParam = ["deviceId" : deviceID]
+        let url = APIs().get_Logout_API
+        
+        AlamofireManager().makePostAPIRequest(url: url, param: requestParam, completion: { result in
+            switch result {
+            case .success(let data):
+                // Handle the response data
+                do {
+                    logoutResult = try JsonParsingManagar.parse(jsonData: data!, type: LogoutDataStruct.self)
+                    completion(logoutResult, logoutResult.msg)
+                } catch {
+                    completion(logoutResult, logoutResult.msg)
+                }
+            case .failure(let error):
+                // Handle the error
+                completion(logoutResult, error.localizedDescription)
+            }
+        })
+    }
 }
     

@@ -30,8 +30,10 @@ class Dealer_OtherDocCell: UITableViewCell , UITextFieldDelegate{
     @IBOutlet var btnAddDoc:UIButton!
     
     
-    @IBOutlet var btnDropDown1c:UIButton!
-    @IBOutlet var btnDropDown2c:UIButton!
+    @IBOutlet var btnSelectDrivingLic:UIButton!
+    @IBOutlet var btnSelectPassportFront:UIButton!
+    @IBOutlet var btnSelectPassportBack:UIButton!
+
     
     @IBOutlet var btnDoc1Verify:UIButton!
     @IBOutlet var btnDoc1Verified:UIButton!
@@ -146,6 +148,14 @@ class Dealer_OtherDocCell: UITableViewCell , UITextFieldDelegate{
     
     func returnDOB() -> String{
         return dateString
+    }
+    
+    func returnPassportNum() -> String{
+        return self.txtSelect1.text ?? ""
+    }
+    
+    func returnDrivLinceNum() -> String{
+        return self.txtSelect2.text ?? ""
     }
     
     func returnDocArr() -> [OtherDocInfo]{

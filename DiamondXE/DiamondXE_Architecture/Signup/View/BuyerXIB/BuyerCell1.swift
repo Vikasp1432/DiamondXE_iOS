@@ -31,6 +31,10 @@ class BuyerCell1: UITableViewCell, UITextFieldDelegate {
     @IBOutlet var txtAddress2:DTTextField!
     
     @IBOutlet var viewBG: UIView!
+    
+    @IBOutlet var viewCountry: UIView!
+    @IBOutlet var viewState: UIView!
+    @IBOutlet var viewCity: UIView!
 
     var buyerDataParam = BuyerParamDataStruct()
 
@@ -38,6 +42,8 @@ class BuyerCell1: UITableViewCell, UITextFieldDelegate {
         super.awakeFromNib()
         // Initialization code
         
+        txtPassword.isSecureTextEntry = true
+        txtConfirmPass.isSecureTextEntry = true
         btnVerify.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
         
         viewBG.layer.shadowColor = UIColor.shadowViewclr.cgColor
@@ -62,6 +68,32 @@ class BuyerCell1: UITableViewCell, UITextFieldDelegate {
         txtMobile.paddingX = 110
      
         BaseViewController.setClrUItextField2(textFields: [txtCity, txtState, txtCountry, txtMobile, txtEmail, txtAddress1, txtAddress2, txtFirstName, txtLastName, txtPassword, txtConfirmPass])
+        
+        let tapCountry = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        viewCountry.addGestureRecognizer(tapCountry)
+        
+        let tapState = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        viewState.addGestureRecognizer(tapState)
+        
+        let tapCity = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        viewCity.addGestureRecognizer(tapCity)
+        
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        // handling code
+        guard let tappedView = sender?.view else { return }
+        switch tappedView.tag {
+        case 1:
+            buttonPressed(tappedView.tag)
+        case 2:
+            buttonPressed(tappedView.tag)
+        case 3:
+            buttonPressed(tappedView.tag)
+        default:
+            break
+        }
+        
         
     }
     

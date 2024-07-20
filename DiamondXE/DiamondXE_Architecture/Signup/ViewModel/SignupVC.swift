@@ -64,7 +64,7 @@ class SignupVC: BaseViewController {
     var cityID : Int?
     var cityName : String?
     
-    var isEmailVerified = 0
+    var isEmailVerified = 1
    
     
     // doc base64
@@ -86,7 +86,7 @@ class SignupVC: BaseViewController {
     var companyPAN : String?
     var companyIEC : String?
     var companyTrade : String?
-    
+    var businessLicenceDoc : String?
     var isDataCellHide = true
     var otheraDocList = [String]()
     
@@ -310,54 +310,54 @@ class SignupVC: BaseViewController {
            
         case 1:
           
-                if self.isAdharVerify{
-                    
-                    if let adharFront = self.adharFront{
-                        self.dealerDataStruct.aadhaarNoDocFront = adharFront
-                    }
-                    else{
-                        toastMessage("Please add adhar front image")
-                    }
-                    
-                    if let adharBack = self.adharBack{
-                        self.dealerDataStruct.aadhaarNoDocBack = adharBack
-                    }
-                    else{
-                        toastMessage("Please add adhar back image")
-                    }
-                }
-                if self.isPanVerify{
-                    
-                    if let pan = self.panFront{
-                        self.dealerDataStruct.panNoDoc = pan
-                    }
-                    else{
-                        toastMessage("Please add PAN front image")
-                    }
-                    
-                }
-
-            if !self.isBasicInfoEmailVerified{
-                toastMessage("Verify your mail")
-            }
-            
-            
-            guard (self.stateID != 0) else{
-                toastMessage("Select State")
-                return
-            }
-            
-            guard (self.cityID != 0) else{
-                toastMessage("Select City")
-                return
-            }
-            
+//                if self.isAdharVerify{
+//                    
+//                    if let adharFront = self.adharFront{
+//                        self.dealerDataStruct.aadhaarNoDocFront = adharFront
+//                    }
+//                    else{
+//                        toastMessage("Please add adhar front image")
+//                    }
+//                    
+//                    if let adharBack = self.adharBack{
+//                        self.dealerDataStruct.aadhaarNoDocBack = adharBack
+//                    }
+//                    else{
+//                        toastMessage("Please add adhar back image")
+//                    }
+//                }
+//                if self.isPanVerify{
+//                    
+//                    if let pan = self.panFront{
+//                        self.dealerDataStruct.panNoDoc = pan
+//                    }
+//                    else{
+//                        toastMessage("Please add PAN front image")
+//                    }
+//                    
+//                }
+//
+//            if !self.isBasicInfoEmailVerified{
+//                toastMessage("Verify your mail")
+//            }
+//            
+//            
+//            guard (self.stateID != 0) else{
+//                toastMessage("Select State")
+//                return
+//            }
+//            
+//            guard (self.cityID != 0) else{
+//                toastMessage("Select City")
+//                return
+//            }
+//            
             self.dealerDataStruct.country = "\(self.countryId)"
             self.dealerDataStruct.state = "\(self.stateID ?? 0)"
             self.dealerDataStruct.city = "\(self.cityID ?? 0)"
          
             
-//            let indexPathDealerBasicDetails = IndexPath(row: 0, section: 1)
+//            let indexPathDealerBasicDetails = IndexPath(row: 0, section: 2)
 //            if let cell = self.tableViewSingup.cellForRow(at: indexPathDealerBasicDetails) as? Dealer_BasicCell {
 //                let dataStr = cell.dataCollect()
 //                self.dealerDataStruct.firstName = dataStr.firstName
@@ -384,88 +384,156 @@ class SignupVC: BaseViewController {
 //              print("Cell not found or not a Dealer_BasicCell")
 //            }
             
-            let indexPathDealerOtherDetails = IndexPath(row: 0, section: 2)
+            
+            
+            let indexPathDealerOtherDetails = IndexPath(row: 0, section: 4)
             if let cell = self.tableViewSingup.cellForRow(at: indexPathDealerOtherDetails) as? Dealer_OtherDocCell {
                 
                 //let dataStr = cell.basicDataParam
                 let dob  = cell.returnDOB()
                 self.dealerDataStruct.dob = dob
+                self.dealerDataStruct.passportNo = cell.returnPassportNum()
+                self.dealerDataStruct.passportFrontDoc = self.passportFront
+                self.dealerDataStruct.passportBackDoc = self.passportBack
+                
+                self.dealerDataStruct.drivingLicenseNo = cell.returnDrivLinceNum()
+                self.dealerDataStruct.drivingLicenseDoc = self.drivLicence
                 self.dealerDataStruct.otherDocs = cell.returnDocArr()
                 
             }
             
-            let indexPathDealerCompanyDetais = IndexPath(row: 0, section: 3)
-            if let cell = self.tableViewSingup.cellForRow(at: indexPathDealerCompanyDetais) as? Dealer_CompanyDetailsCell {
-                let dataStr = cell.dataCollectCompanyDetail()
-                self.dealerDataStruct.companyName = dataStr.companyName
+//            let indexPathDealerCompanyDetais = IndexPath(row: 0, section: 0)
+//            if let cell = self.tableViewSingup.cellForRow(at: indexPathDealerCompanyDetais) as? Dealer_CompanyDetailsCell {
+//                let dataStr = cell.dataCollectCompanyDetail()
+//                self.dealerDataStruct.companyName = dataStr.companyName
+//                self.dealerDataStruct.mobileNo = dataStr.mobileNo
+//                self.dealerDataStruct.email = dataStr.email
+//                self.dealerDataStruct.country = dataStr.country
+//                self.dealerDataStruct.state = dataStr.state
+//                self.dealerDataStruct.city = dataStr.city
+//                self.dealerDataStruct.pinCode = dataStr.pinCode
+//                self.dealerDataStruct.address = dataStr.address
+//                self.dealerDataStruct.address2 = dataStr.address2
+//                self.dealerDataStruct.typeOfCompany = dataStr.companyType
+//                self.dealerDataStruct.natureOfBusiness = dataStr.businessNature
                 
-                let companyGSTNumber = dataStr.gstNumber
-                let companyPANNumber = dataStr.panNumber
-                let companyEmail = dataStr.email
-                
-                if self .isCompanyDetailsGSTVerified{
-                    self.dealerDataStruct.companyGSTNo = companyGSTNumber
-                }
-                
-                if self .isCompanyDetailsPANVerified{
-                    self.dealerDataStruct.companyPANNo = companyPANNumber
-                }
-                
-                if self .isCompanyDetailsEmailVerified{
-                    self.dealerDataStruct.companyEmail = companyEmail
-                }
-                
-                self.dealerDataStruct.companyGSTNoDoc = self.companyGST
-                self.dealerDataStruct.companyPANNoDoc = self.companyPAN
-                self.dealerDataStruct.companyContact = dataStr.mobileNo
-                
-                self.dealerDataStruct.typeOfCompany = dataStr.companyType
-                self.dealerDataStruct.natureOfBusiness = dataStr.businessNature
-                self.dealerDataStruct.iecNo = dataStr.iecNumber
-                self.dealerDataStruct.tradeMembershipNo = dataStr.trademembership
-                self.dealerDataStruct.tradeMembershipNoDoc = self.companyTrade
+//
+//
+//                
+//                let companyGSTNumber = dataStr.gstNumber
+//                let companyPANNumber = dataStr.panNumber
+//                let companyEmail = dataStr.email
+//                
+//                if self .isCompanyDetailsGSTVerified{
+//                    self.dealerDataStruct.companyGSTNo = companyGSTNumber
+//                }
+//                
+//                if self .isCompanyDetailsPANVerified{
+//                    self.dealerDataStruct.companyPANNo = companyPANNumber
+//                }
+//                
+//                if self .isCompanyDetailsEmailVerified{
+//                    self.dealerDataStruct.companyEmail = companyEmail
+//                }
+//                
+//                self.dealerDataStruct.companyGSTNoDoc = self.companyGST
+//                self.dealerDataStruct.companyPANNoDoc = self.companyPAN
+//                self.dealerDataStruct.companyContact = dataStr.mobileNo
+//                
+//                self.dealerDataStruct.typeOfCompany = dataStr.companyType
+//                self.dealerDataStruct.natureOfBusiness = dataStr.businessNature
+//                self.dealerDataStruct.iecNo = dataStr.iecNumber
+//                self.dealerDataStruct.tradeMembershipNo = dataStr.trademembership
+//                self.dealerDataStruct.tradeMembershipNoDoc = self.companyTrade
 //                self.dealerDataStruct.country = dataStr.country
 //                self.dealerDataStruct.state = dataStr.state
                 
+//            }
+            
+           
+            
+            
+            guard (self.dealerDataStruct.mobileNo != nil) else{
+                toastMessage("Mobile number requried")
+                return
+            }
+            guard (self.dealerDataStruct.email != nil) else{
+                toastMessage("Email requried")
+                return
+            }
+            guard (self.dealerDataStruct.mobileNo != nil) else{
+                toastMessage("Mobile number requried")
+                return
+            }
+            guard (self.dealerDataStruct.email != nil) else{
+                toastMessage("Email requried")
+                return
             }
             
-            //self.signupUserParam()
-            
-            if self.isGSTVerify && isPanVerify && isAdharVerify && isBasicInfoEmailVerified && isCompanyDetailsGSTVerified && isCompanyDetailsPANVerified && isCompanyDetailsEmailVerified {
-                self.signupUserParam()
-            }
-            else{
-                toastMessage("Check all field* mendatory data and verify the official document is requried.")
+            guard (self.dealerDataStruct.country != nil) else{
+                toastMessage("Country requried")
+                return
             }
             
+            guard (self.dealerDataStruct.state != nil) else{
+                toastMessage("State requried")
+                return
+            }
+            
+            guard (self.dealerDataStruct.city != nil) else{
+                toastMessage("City requried")
+                return
+            }
+            
+            guard (self.dealerDataStruct.pinCode != nil) else{
+                toastMessage("Pincode requried")
+                return
+            }
+            
+            guard (self.dealerDataStruct.address != nil) else{
+                toastMessage("Address requried")
+                return
+            }
+            
+            self.signupUserParam()
+            
+            
+//            if self.isGSTVerify && isPanVerify && isAdharVerify && isBasicInfoEmailVerified && isCompanyDetailsGSTVerified && isCompanyDetailsPANVerified && isCompanyDetailsEmailVerified {
+//                self.signupUserParam()
+//            }
+//            else{
+//                toastMessage("Check all field* mendatory data and verify the official document is requried.")
+//            }
+//            
             print("Button pressed with tag: \(tag)")
         default:
             print("Button")
+            self.suplierDataStruct.country = "\(self.countryId)"
+            self.suplierDataStruct.state = "\(self.stateID ?? 0)"
+            self.suplierDataStruct.city = "\(self.cityID ?? 0)"
+            self.suplierDataStruct.companyGSTNoDoc = self.companyGST
+            self.suplierDataStruct.companyPANNoDoc = self.companyPAN
            
-            guard (self.suplierDataStruct.companyPANNo != nil) else{
-                toastMessage("Verivied PAN number requried")
-                return
-            }
-   
-            
             guard (self.suplierDataStruct.companyName != nil) else{
                 toastMessage("Name requried")
                 return
             }
-            guard (self.suplierDataStruct.mobileNo != nil) else{
-                toastMessage("Mobile number requried")
-                return
-            }
+   
             guard (self.suplierDataStruct.email != nil) else{
-                toastMessage("Verified email requried")
+                toastMessage("Email requried")
                 return
             }
             guard (self.suplierDataStruct.password != nil) else{
                 toastMessage("Password requried")
                 return
             }
+   
             guard (self.suplierDataStruct.confirmPassword != nil) else{
                 toastMessage("Confirm password requried")
+                return
+            }
+            guard (self.suplierDataStruct.mobileNo != nil) else{
+                toastMessage("Mobile number requried")
                 return
             }
             guard (self.suplierDataStruct.inventoryType != nil) else{
@@ -484,58 +552,43 @@ class SignupVC: BaseViewController {
                 toastMessage("City requried")
                 return
             }
-            guard (self.suplierDataStruct.pinCode != nil) else{
-                toastMessage("Pin code requried")
-                return
-            }
             guard (self.suplierDataStruct.address != nil) else{
-                toastMessage("Address1 requried")
+                toastMessage("Address requried")
                 return
             }
-            guard (self.suplierDataStruct.typeOfCompany != nil) else{
-                toastMessage("Company type requried")
+            guard (self.suplierDataStruct.authPersonName != nil) else{
+                toastMessage("Auth Person Name requried")
                 return
             }
+            guard (self.suplierDataStruct.authPersonContact != nil) else{
+                toastMessage("Auth Person contact requried")
+                return
+            }
+            guard (self.suplierDataStruct.authPersonEmail != nil) else{
+                toastMessage("Auth Person email requried")
+                return
+            }
+           
+            
             
            
-            guard (self.companyPAN != nil) else{
-                toastMessage("Company type requried")
-                return
-            }
-            
-            guard (self.stateID != 0) else{
-                toastMessage("Select State")
-                return
-            }
-            
-            guard (self.cityID != 0) else{
-                toastMessage("Select City")
-                return
-            }
-            
-            self.suplierDataStruct.country = "\(self.countryId)"
-            self.suplierDataStruct.state = "\(self.stateID ?? 0)"
-            self.suplierDataStruct.city = "\(self.cityID ?? 0)"
-           
-            self.suplierDataStruct.companyGSTNoDoc = self.companyGST
-            self.suplierDataStruct.companyPANNoDoc = self.companyPAN
 
             
-            let indexPathDealerOtherDetails = IndexPath(row: 0, section: 2)
-            if let cell = self.tableViewSingup.cellForRow(at: indexPathDealerOtherDetails) as? Dealer_OtherDocCell {
-                //let dataStr = cell.basicDataParam
-                let dob  = cell.returnDOB()
-                self.suplierDataStruct.dob = dob
-                self.suplierDataStruct.otherDocs = cell.returnDocArr()
-                
-            }
+//            let indexPathDealerOtherDetails = IndexPath(row: 0, section: 2)
+//            if let cell = self.tableViewSingup.cellForRow(at: indexPathDealerOtherDetails) as? Dealer_OtherDocCell {
+//                //let dataStr = cell.basicDataParam
+//                let dob  = cell.returnDOB()
+//                self.suplierDataStruct.dob = dob
+//                self.suplierDataStruct.otherDocs = cell.returnDocArr()
+//                
+//            }
             
-            let indexPathDealerCompanyDetais = IndexPath(row: 0, section: 3)
-            if let cell = self.tableViewSingup.cellForRow(at: indexPathDealerCompanyDetais) as? Supplier_AuthorisedPersonCell {
-                self.suplierDataStruct.authPersonName = cell.txtSupervisorName.text ?? ""
-                self.suplierDataStruct.authPersonContact = cell.txtSupervisorMobile.text ?? ""
-                self.suplierDataStruct.authPersonEmail = cell.txtSupervisorEmail.text ?? ""
-            }
+//            let indexPathDealerCompanyDetais = IndexPath(row: 0, section: 3)
+//            if let cell = self.tableViewSingup.cellForRow(at: indexPathDealerCompanyDetais) as? Supplier_AuthorisedPersonCell {
+//                self.suplierDataStruct.authPersonName = cell.txtSupervisorName.text ?? ""
+//                self.suplierDataStruct.authPersonContact = cell.txtSupervisorMobile.text ?? ""
+//                self.suplierDataStruct.authPersonEmail = cell.txtSupervisorEmail.text ?? ""
+//            }
             
             let indexPathDealerFoter = IndexPath(row: 0, section: 4)
             if let cell = self.tableViewSingup.cellForRow(at: indexPathDealerFoter) as? FooterCell {
@@ -543,14 +596,15 @@ class SignupVC: BaseViewController {
                
             }
             
+            self.signupUserParam()
             
             //self.signupUserParam()
-            if self.isSupllierGSTVerified &&  isSupllierPANVerified && isSupllierEmailVerified && isSupllierGSTDoc && isSupllierPANDoc {
-                self.signupUserParam()
-            }
-            else{
-                toastMessage("Check all field* mendatory data and verify the official document is requried.")
-            }
+//            if self.isSupllierGSTVerified &&  isSupllierPANVerified && isSupllierEmailVerified && isSupllierGSTDoc && isSupllierPANDoc {
+//                self.signupUserParam()
+//            }
+//            else{
+//                toastMessage("Check all field* mendatory data and verify the official document is requried.")
+//            }
         }
     }
     
@@ -576,7 +630,6 @@ class SignupVC: BaseViewController {
                     
                 ]
           
-            //print(parameters)
             self.signupUser(param: parameters)
             
             
@@ -624,15 +677,16 @@ class SignupVC: BaseViewController {
                 ]
             
 //            print(parameters)
-            CustomActivityIndicator.shared.show(in: view)
+            CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
             SignupDataModel().userSignup(url: APIs().signup_Dealer_API, requestParam: parameters, completion: { result , msg in
                 if result.status == 1{
                     self.toastMessage(result.msg ?? "")
+                    self.navigationController?.popViewController(animated: true)
                 }
                 else{
                     self.toastMessage(result.msg ?? "")
                 }
-                CustomActivityIndicator.shared.hide()
+                CustomActivityIndicator2.shared.hide()
             })
             
         default:
@@ -693,15 +747,16 @@ class SignupVC: BaseViewController {
                 ]
             
             print(parameters)
-            CustomActivityIndicator.shared.show(in: view)
+            CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
             SignupDataModel().userSignup(url: APIs().signup_Supplier_API, requestParam: parameters, completion: { result , msg in
                 if result.status == 1{
+                    self.navigationController?.popViewController(animated: true)
                     self.toastMessage(result.msg ?? "")
                 }
                 else{
                     self.toastMessage(result.msg ?? "")
                 }
-                CustomActivityIndicator.shared.hide()
+                CustomActivityIndicator2.shared.hide()
             })
             
         }
@@ -710,17 +765,17 @@ class SignupVC: BaseViewController {
     func signupUser(param:[String:Any]){
         switch self.userType {
         case 0:
-            CustomActivityIndicator.shared.show(in: view)
+            CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
             SignupDataModel().userSignup(url: APIs().signup_Buyer_API, requestParam: param, completion: { buyerData , message in
                 print(buyerData)
                 if buyerData.status == 1{
-                    
                     self.toastMessage(buyerData.msg ?? "")
+                    self.navigationController?.popViewController(animated: true)
                 }
                 else{
                     self.toastMessage(buyerData.msg ?? "")
                 }
-                CustomActivityIndicator.shared.hide()
+                CustomActivityIndicator2.shared.hide()
                 
             })
             
@@ -896,9 +951,12 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                         case 0:// pic adhar front
                             ImagePickerManager().pickImage(self){ image in
                                 //here is the image
-                                cell.btnGSTFront.setImage(UIImage(named: "Verify"), for: .normal)
-                                cell.btnGSTFront.setTitle("", for: .normal)
-                                cell.btnGSTFront.backgroundColor = .clear
+                                
+                                cell.btnSelectGST.isHidden = false
+                                cell.btnGSTFront.isHidden = true
+//                                    .setImage(UIImage(named: "Verify"), for: .normal)
+//                                cell.btnGSTFront.setTitle("", for: .normal)
+//                                cell.btnGSTFront.backgroundColor = .clear
                                 self.adharFront = image
                                 // print(image)
                             }
@@ -906,10 +964,11 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                         case 1:// pic adhar front
                             ImagePickerManager().pickImage(self){ image in
                                 //here is the image
-                                
-                                cell.btnPANFront.setImage(UIImage(named: "Verify"), for: .normal)
-                                cell.btnPANFront.setTitle("", for: .normal)
-                                cell.btnPANFront.backgroundColor = .clear
+                                cell.btnSelectPAN.isHidden = false
+                                cell.btnPANFront.isHidden = true
+//                                    .setImage(UIImage(named: "Verify"), for: .normal)
+//                                cell.btnPANFront.setTitle("", for: .normal)
+//                                cell.btnPANFront.backgroundColor = .clear
                                 
                                 self.panFront = image
                                 // print(image)
@@ -919,9 +978,11 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                             ImagePickerManager().pickImage(self){ image in
                                 //here is the image
                                // cell.btnPANFrontIcon.setImage(UIImage(named: "done"), for: .normal)
-                                cell.btnIECDoc.setImage(UIImage(named: "Verify"), for: .normal)
-                                cell.btnIECDoc.setTitle("", for: .normal)
-                                cell.btnIECDoc.backgroundColor = .clear
+                                cell.btnSelectIEC.isHidden = false
+                                cell.btnIECDoc.isHidden = true
+//                                cell.btnIECDoc.setImage(UIImage(named: "Verify"), for: .normal)
+//                                cell.btnIECDoc.setTitle("", for: .normal)
+//                                cell.btnIECDoc.backgroundColor = .clear
                                 
                                 self.companyIEC = image
                                 //print(image)
@@ -998,8 +1059,6 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                 
                 return cell
                 
-                
-                
             case 3:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AuthorisedPersionKYCTVC.cellIdentifierAuthorisedPersionCell, for: indexPath) as? AuthorisedPersionKYCTVC else {
                     return UITableViewCell()
@@ -1075,9 +1134,11 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                     case 0:// pic adhar front
                         ImagePickerManager().pickImage(self){ image in
                             //here is the image
-                            cell.btnAdharFront.setImage(UIImage(named: "Verify"), for: .normal)
-                            cell.btnAdharFront.setTitle("", for: .normal)
-                            cell.btnAdharFront.backgroundColor = .clear
+                            cell.btnSelectAdharFront.isHidden = false
+                            cell.btnAdharFront.isHidden = true
+//                            cell.btnAdharFront.setImage(UIImage(named: "Verify"), for: .normal)
+//                            cell.btnAdharFront.setTitle("", for: .normal)
+//                            cell.btnAdharFront.backgroundColor = .clear
                             self.adharFront = image
                             // print(image)
                         }
@@ -1085,10 +1146,11 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                     case 1:// pic adhar front
                         ImagePickerManager().pickImage(self){ image in
                             //here is the image
-                            
-                            cell.btnAdharBack.setImage(UIImage(named: "Verify"), for: .normal)
-                            cell.btnAdharBack.setTitle("", for: .normal)
-                            cell.btnAdharBack.backgroundColor = .clear
+                            cell.btnSelectAdharBack.isHidden = false
+                            cell.btnAdharBack.isHidden = true
+//                            cell.btnAdharBack.setImage(UIImage(named: "Verify"), for: .normal)
+//                            cell.btnAdharBack.setTitle("", for: .normal)
+//                            cell.btnAdharBack.backgroundColor = .clear
                             
                             self.adharBack = image
                             // print(image)
@@ -1098,6 +1160,8 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                         ImagePickerManager().pickImage(self){ image in
                             //here is the image
                            // cell.btnPANFrontIcon.setImage(UIImage(named: "done"), for: .normal)
+                            cell.btnSelectPANFront.isHidden = false
+                            cell.btnPANFront.isHidden = true
                             cell.btnPANFront.setImage(UIImage(named: "Verify"), for: .normal)
                             cell.btnPANFront.setTitle("", for: .normal)
                             cell.btnPANFront.backgroundColor = .clear
@@ -1179,19 +1243,19 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
 //                    }
 //                }
                 
-                cell.buttonRemoveDocView = { tag in
-                  
-//                        if tag == 0 {
-//                            cell.viewBGData2.isHidden = false
-//                            cell.viewBGData1.isHidden = true
-//                        }
-//                        else{
-//                            cell.viewBGData1.isHidden = false
-//                            cell.viewBGData2.isHidden = true
-//                        }
-                        self.isDataCellHide = true
-                        self.tableViewSingup.reloadRows(at: [indexPath], with: .automatic)
-                    }
+//                cell.buttonRemoveDocView = { tag in
+//                  
+////                        if tag == 0 {
+////                            cell.viewBGData2.isHidden = false
+////                            cell.viewBGData1.isHidden = true
+////                        }
+////                        else{
+////                            cell.viewBGData1.isHidden = false
+////                            cell.viewBGData2.isHidden = true
+////                        }
+//                        self.isDataCellHide = true
+//                        self.tableViewSingup.reloadRows(at: [indexPath], with: .automatic)
+//                    }
                 
                 
                 cell.buttonDocBase64 = { tag in
@@ -1199,10 +1263,11 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                     case 0:
                         ImagePickerManager().pickImage(self){ image in
 
-                            
-                            cell.btnPassportFront.setImage(UIImage(named: "Verify"), for: .normal)
-                            cell.btnPassportFront.setTitle("", for: .normal)
-                            cell.btnPassportFront.backgroundColor = .clear
+                            cell.btnSelectPassportFront.isHidden = false
+                            cell.btnPassportFront.isHidden = true
+//                            cell.btnPassportFront.setImage(UIImage(named: "Verify"), for: .normal)
+//                            cell.btnPassportFront.setTitle("", for: .normal)
+//                            cell.btnPassportFront.backgroundColor = .clear
                             self.passportFront = image
                             
                            // print(image)
@@ -1210,9 +1275,11 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                     case 1:
                         ImagePickerManager().pickImage(self){ image in
                                //here is the image
-                            cell.btnPassportBack.setImage(UIImage(named: "Verify"), for: .normal)
-                            cell.btnPassportBack.setTitle("", for: .normal)
-                            cell.btnPassportBack.backgroundColor = .clear
+                            cell.btnSelectPassportBack.isHidden = false
+                            cell.btnPassportBack.isHidden = true
+//                            cell.btnPassportBack.setImage(UIImage(named: "Verify"), for: .normal)
+//                            cell.btnPassportBack.setTitle("", for: .normal)
+//                            cell.btnPassportBack.backgroundColor = .clear
                             self.passportBack = image
                            }
 //                    case 2:
@@ -1225,9 +1292,11 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                     default:
                         ImagePickerManager().pickImage(self){ image in
                                //here is the image
-                            cell.btnLicenceFront.setImage(UIImage(named: "Verify"), for: .normal)
-                            cell.btnLicenceFront.setTitle("", for: .normal)
-                            cell.btnLicenceFront.backgroundColor = .clear
+                            cell.btnSelectDrivingLic.isHidden = false
+                            cell.btnLicenceFront.isHidden = true
+//                            cell.btnLicenceFront.setImage(UIImage(named: "Verify"), for: .normal)
+//                            cell.btnLicenceFront.setTitle("", for: .normal)
+//                            cell.btnLicenceFront.backgroundColor = .clear
                             self.drivLicence = image
                            }
                     }
@@ -1235,12 +1304,12 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                 }
                 
                 cell.btnVerifyDoc = { tag in
-//                    let dob = cell.txtSelect1.text ?? ""
+                    //                    let dob = cell.txtSelect1.text ?? ""
                     if tag == 0{
                         let passportNum = cell.txtSelect1.text ?? ""
                         let passportDoc = ""
-                        if passportDoc != "" && passportDoc == "Passport"{
-
+                        if passportDoc != "" && !passportNum.isEmpty {
+                            
                             var param :[String:Any] = [:]
                             param = ["documentType" : "otherDocs", "otherDocumentType": passportDoc, "otherDocumentNumber":passportNum, "dob": ""]
                             CustomActivityIndicator.shared.show(in: self.view)
@@ -1249,7 +1318,7 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                                 if result.status ?? 0 == 1{
                                     cell.btnDoc1Verify.isHidden = true
                                     cell.btnDoc1Verified.isHidden = false
-//                                    self.dealerDataStruct.dob = dob
+                                    //                                    self.dealerDataStruct.dob = dob
                                     self.dealerDataStruct.otherDocs = cell.returnDocArr()
                                 }
                                 
@@ -1258,48 +1327,38 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                             })
                             
                         }
-                        else if passportDoc != "" && passportDoc == "Driving License"{
-//                            var isVerify =  self.verifyDoc(otherDocType: "otherDocs", otherDoc: "Driving License", docNumber: passportNum ?? "", dob: dob)
-                            
-                            var param :[String:Any] = [:]
-                            param = ["documentType" : "otherDocs", "otherDocumentType": passportDoc, "otherDocumentNumber":passportNum, "dob": ""]
-                            CustomActivityIndicator.shared.show(in: self.view)
-                            SignupDataModel().verifyDoc(url: APIs().document_verification_API, requestParam: param, completion: { result , msg in
-                                
-                                if result.status ?? 0 == 1{
-                                    cell.btnDoc1Verify.isHidden = true
-                                    cell.btnDoc1Verified.isHidden = false
-//                                    self.dealerDataStruct.dob = dob
-                                    self.dealerDataStruct.otherDocs = cell.returnDocArr()
-                                }
-                                
-                                self.toastMessage(result.msg ?? "")
-                                CustomActivityIndicator.shared.hide()
-                            })
+                        else  {
+                            self.toastMessage( "Enter Passort number and select doc")
                         }
                     }
-//                    else if tag == 1{
-//                        let doc2Num = cell.txtSelect2.text ?? ""
-//                        let doc2Doc = cell.lblSelect2.text ?? ""
-//                        if doc2Doc != "" && doc2Doc == "Passport"{
-//                            let isVerify =  self.verifyDoc(otherDocType: "otherDocs", otherDoc: "Passport", docNumber: doc2Num, dob: dob)
-//                            if isVerify == 1{
-//                                cell.btnDoc2Verify.isHidden = true
-//                                cell.btnDoc2Verified.isHidden = false
-//                                self.dealerDataStruct.dob = dob
-//                                self.dealerDataStruct.otherDocs = cell.returnDocArr()
-//                            }
-//                        }
-//                        else if doc2Doc != "" && doc2Doc == "Driving License"{
-//                            let isVerify =  self.verifyDoc(otherDocType: "otherDocs", otherDoc: "Driving License", docNumber: doc2Num, dob: dob)
-//                            if isVerify == 1{
-//                                cell.btnDoc2Verify.isHidden = true
-//                                cell.btnDoc2Verified.isHidden = false
-//                                self.dealerDataStruct.dob = dob
-//                                self.dealerDataStruct.otherDocs = cell.returnDocArr()
-//                            }
-//                        }
-//                    }
+                    else if tag == 1{
+                        let passportNum = cell.txtSelect1.text ?? ""
+                        let passportDoc = ""
+                        
+                        if passportDoc != "" && !passportNum.isEmpty {
+                            
+                            var param :[String:Any] = [:]
+                            param = ["documentType" : "otherDocs", "otherDocumentType": passportDoc, "otherDocumentNumber":passportNum, "dob": ""]
+                            CustomActivityIndicator.shared.show(in: self.view)
+                            SignupDataModel().verifyDoc(url: APIs().document_verification_API, requestParam: param, completion: { result , msg in
+                                
+                                if result.status ?? 0 == 1{
+                                    cell.btnDoc1Verify.isHidden = true
+                                    cell.btnDoc1Verified.isHidden = false
+                                    //                                    self.dealerDataStruct.dob = dob
+                                    self.dealerDataStruct.otherDocs = cell.returnDocArr()
+                                }
+                                
+                                self.toastMessage(result.msg ?? "")
+                                CustomActivityIndicator.shared.hide()
+                            })
+                        }
+                    
+                    else  {
+                        self.toastMessage( "Enter Driving Licence number and select doc")
+                    }
+                }
+                    
                 }
                 
                 
@@ -1310,7 +1369,8 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                     return UITableViewCell()
                 }
                 cell.selectionStyle = .none
-               
+                cell.cellDataDelegate = self
+                cell.indexPath = indexPath
                 
                 cell.buttonPressed = { tag in
                     
@@ -1545,7 +1605,7 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
 //                    }
                     
                     
-                   // self.manageTagFooterCell(tag: tag)
+                    self.manageTagFooterCell(tag: tag)
                    }
                 
                 return cell
@@ -1559,7 +1619,7 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                             return UITableViewCell()
                         }
                         cell.selectionStyle = .none
-                       // cell.cellDataDelegate = self
+                        cell.cellDataDelegate = self
                         cell.indexPath = indexPath
                         
                         cell.buttonPressed = { tag in
@@ -1574,9 +1634,12 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                         case 0:
                             ImagePickerManager().pickImage(self){ image in
                                 
-                                cell.btnBusinessLicenceNum.setImage(UIImage(named: "Verify"), for: .normal)
-                                cell.btnBusinessLicenceNum.setTitle("", for: .normal)
-                                cell.btnBusinessLicenceNum.backgroundColor = .clear
+                                cell.btnSelectBusinessLic.isHidden = false
+                                cell.btnBusinessLicenceNum.isHidden = true
+                                
+//                                cell.btnBusinessLicenceNum.setImage(UIImage(named: "Verify"), for: .normal)
+//                                cell.btnBusinessLicenceNum.setTitle("", for: .normal)
+//                                cell.btnBusinessLicenceNum.backgroundColor = .clear
                                 self.businessLicenNum = image
                                 
                                // print(image)
@@ -1585,6 +1648,8 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                         default:
                             ImagePickerManager().pickImage(self){ image in
                                    //here is the image
+                                cell.btnSelectIEC.isHidden = false
+                                cell.btnIECDoc.isHidden = true
                                 cell.btnIECDoc.setImage(UIImage(named: "Verify"), for: .normal)
                                 cell.btnIECDoc.setTitle("", for: .normal)
                                 cell.btnIECDoc.backgroundColor = .clear
@@ -1692,10 +1757,11 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                         case 0:
                             ImagePickerManager().pickImage(self){ image in
 
-                                
-                                cell.btnPassportFront.setImage(UIImage(named: "Verify"), for: .normal)
-                                cell.btnPassportFront.setTitle("", for: .normal)
-                                cell.btnPassportFront.backgroundColor = .clear
+                                cell.btnSelectPassportFront.isHidden = false
+                                cell.btnPassportFront.isHidden = true
+    //                            cell.btnPassportFront.setImage(UIImage(named: "Verify"), for: .normal)
+    //                            cell.btnPassportFront.setTitle("", for: .normal)
+    //                            cell.btnPassportFront.backgroundColor = .clear
                                 self.passportFront = image
                                 
                                // print(image)
@@ -1703,9 +1769,11 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                         case 1:
                             ImagePickerManager().pickImage(self){ image in
                                    //here is the image
-                                cell.btnPassportBack.setImage(UIImage(named: "Verify"), for: .normal)
-                                cell.btnPassportBack.setTitle("", for: .normal)
-                                cell.btnPassportBack.backgroundColor = .clear
+                                cell.btnSelectPassportBack.isHidden = false
+                                cell.btnPassportBack.isHidden = true
+    //                            cell.btnPassportBack.setImage(UIImage(named: "Verify"), for: .normal)
+    //                            cell.btnPassportBack.setTitle("", for: .normal)
+    //                            cell.btnPassportBack.backgroundColor = .clear
                                 self.passportBack = image
                                }
     //                    case 2:
@@ -1718,9 +1786,11 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                         default:
                             ImagePickerManager().pickImage(self){ image in
                                    //here is the image
-                                cell.btnLicenceFront.setImage(UIImage(named: "Verify"), for: .normal)
-                                cell.btnLicenceFront.setTitle("", for: .normal)
-                                cell.btnLicenceFront.backgroundColor = .clear
+                                cell.btnSelectDrivingLic.isHidden = false
+                                cell.btnLicenceFront.isHidden = true
+    //                            cell.btnLicenceFront.setImage(UIImage(named: "Verify"), for: .normal)
+    //                            cell.btnLicenceFront.setTitle("", for: .normal)
+    //                            cell.btnLicenceFront.backgroundColor = .clear
                                 self.drivLicence = image
                                }
                         }
@@ -2068,162 +2138,7 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
 //                cell.btnFlag?.sd_setImage(with: URL(string: APIs().indianFlag), for: .normal, completed: nil)
 //                cell.btnCode.setTitle("+91", for: .normal)
                 
-//                cell.buttonVerify = { tag in
-//                    if tag == 0{
-////                        let gstNo = cell.txtGST.text ?? ""
-////                        let isVerify = self.verifyDoc(docType: "GSTNo", docNumber: gstNo)
-//                        
-////                        let panNo = cell.txtGST.text ?? ""
-//                        self.view.endEditing(true)
-//                        var param :[String:Any] = [:]
-//                        param = ["documentType":"GSTNo", "GSTNo":panNo]
-//                        CustomActivityIndicator.shared.show(in: self.view)
-//                        // APIs().document_verification_API
-//                        SignupDataModel().verifyDoc(url: APIs().document_verification_API, requestParam: param, completion: { result , msg in
-//                            
-//                            if result.status == 1{
-//                                self.companyGSTVerify = result
-//                                self.dealerDataStruct.companyGSTNo = gstNo
-//                                cell.btnVerifyGst.isHidden = true
-//                                cell.btnVerifyDonegGst.isHidden = false
-//                                 
-//                                cell.txtCompanyName.text = self.companyGSTVerify.details?.companyName
-//                                cell.txtEmail.text = self.companyGSTVerify.details?.email
-////                                cell.txtCountry.text = self.companyGSTVerify.details?.country
-////                                cell.txtState.text = self.companyGSTVerify.details?.state
-////                                cell.txtCity.text = self.companyGSTVerify.details?.city
-//                                cell.txtIPinNum.text = self.companyGSTVerify.details?.pincode
-//                                cell.txtAddress1.text = self.companyGSTVerify.details?.address
-//                                cell.txtCompanyType.text = self.companyGSTVerify.details?.companyType
-//                                cell.txtBusinessVal.text = self.companyGSTVerify.details?.natureOfBusiness
-//                                
-//                                if let panDocInfo = self.companyPANVerify.details {
-//                                    
-//                                        if self.companyGSTVerify.details?.companyName == panDocInfo.panCompanyName {
-//                                            self.isSupllierGSTDoc = true
-//
-//                                        }
-//                                        else{
-//                                            self.toastMessage("Kindly enter the pan card associated with gst number")
-//                                        }
-//                                    }
-//                                    
-//                            }
-//                            else{
-//                                self.isCompanyDetailsGSTVerified = false
-//                                cell.txtGST.showError(message: "Enter Valid GST number")
-//                            }
-//                            
-//                            self.toastMessage(result.msg ?? "")
-//                            CustomActivityIndicator.shared.hide()
-//                        })
-//       
-//                    }
-//                    if tag == 1{
-//                        let panNo = cell.txtPAN.text ?? ""
-//
-//                        self.view.endEditing(true)
-//                        var param :[String:Any] = [:]
-//                        param = ["documentType":"PANNo", "PANNo":panNo]
-//                        CustomActivityIndicator.shared.show(in: self.view)
-//                        // APIs().document_verification_API
-//                        SignupDataModel().verifyDoc(url: APIs().document_verification_API, requestParam: param, completion: { result , msg in
-//                            
-//                            if result.status == 1{
-//                                self.companyPANVerify = result
-//                               // self.isCompanyDetailsPANVerified = true
-//                                self.dealerDataStruct.companyPANNo = panNo
-//                                cell.btnVerifyPan.isHidden = true
-//                                cell.btnVerifyDonegPan.isHidden = false
-//                                
-//                                
-//                                if let gstDocInfo = self.companyGSTVerify.details {
-//                                    
-//                                        if gstDocInfo.companyName == self.companyPANVerify.details?.panCompanyName{
-//                                            self.isSupllierPANDoc = true
-//
-//                                        }
-//                                        else{
-//                                            self.toastMessage("Kindly enter the pan card associated with gst number")
-//                                        }
-//                                    }
-//                                    
-//                            }
-//                            else{
-//                                self.isCompanyDetailsPANVerified = false
-//                                cell.txtPAN.showError(message: "Enter Valid PAN number")
-//                            }
-//                            
-//                            self.toastMessage(result.msg ?? "")
-//                            CustomActivityIndicator.shared.hide()
-//                        })
-//  
-//                    }
-//                    else  if tag == 2{
-//                        
-//                        let emailStr = cell.txtEmail.text ?? ""
-//                        if EmailValidation.isValidEmail(emailStr){
-//                            self.view.endEditing(true)
-//                            let param  = ["email" : emailStr, "requestOtp": 1]
-//                            CustomActivityIndicator.shared.show(in: self.view)
-//                             SignupDataModel().emialVerification(url: APIs().email_verification_API, requestParam: param, completion: { emailVerify , message in
-//                                 print(emailVerify)
-//                                 if emailVerify.status == 2{
-//                                     self.toastMessage(emailVerify.msg ?? "")
-//                                     self.openPopup(email: emailStr)
-//                                 }
-//                                 else{
-//                                     self.toastMessage(emailVerify.msg ?? "")
-//                                 }
-//                                 CustomActivityIndicator.shared.hide()
-//                                 
-//                             })
-//                            
-//                            
-//                            
-//                            self.isCompanyDetailsEmailVerified = true
-////                            self.openPopup(email: emailStr)
-//                        }
-//                        else{
-//                            cell.txtEmail.showError(message: emailStr)
-//                        }
-//                    }
-//                }
-                
-//                cell.buttonDocBase64 = { tag in
-//                    switch tag {
-//                    case 0:
-//                        ImagePickerManager().pickImage(self){ image in
-//                               //here is the image
-//                            cell.btnGSTDocIcon.setImage(UIImage(named: "done"), for: .normal)
-//                            self.companyGST = image
-//                            self.isSupllierPANDoc = true
-//                           // print(image)
-//                           }
-//                    case 1:
-//                        ImagePickerManager().pickImage(self){ image in
-//                               //here is the image
-//                            cell.btnPANDocIcon.setImage(UIImage(named: "done"), for: .normal)
-//                            self.companyPAN = image
-//                            self.isSupllierPANDoc = true
-//                           // print(image)
-//                           }
-//                    case 2:
-//                        ImagePickerManager().pickImage(self){ image in
-//                               //here is the image
-//                            cell.btnTradeDocIcon.setImage(UIImage(named: "done"), for: .normal)
-//                            self.companyTrade = image
-//                           // print(image)
-//                           }
-//                    default:
-//                        ImagePickerManager().pickImage(self){ image in
-//                               //here is the image
-//                            cell.btnIECDocIcon.setImage(UIImage(named: "done"), for: .normal)
-//                            self.companyIEC = image
-//                           // print(image)
-//                           }
-//                    }
-//                }
+
                 
                 cell.buttonBottomSheet = { tag in
                     self.supplierSection = 0
@@ -2234,41 +2149,10 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                     if tag == 2{
                         
                         self.openDropDown(dataArr: self.inventoryTypes, anchorView: cell.txtInventoryType, titleLabel: cell.txtInventoryType, refr: "")
-                        
-                        
-//                        self.dropDown.anchorView =
-//                        self.dropDown.dataSource =
-//                        self.dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-//                          print("Selected item: \(item) at index: \(index)")
-//                            cell.txtInventoryType.text = item
-//                            self.dropDown.hide()
-//
-//                        }
-//                        self.dropDown.show()
+   
                        
                     }
-//                   else if tag == 0{
-//                        self.dropDown.anchorView = cell.btnCompanyType
-//                        self.dropDown.dataSource = self.compaanyTypes
-//                        self.dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-//                          print("Selected item: \(item) at index: \(index)")
-//                            cell.txtCompanyType.text = item
-//                            self.dropDown.hide()
-//                        }
-//                        self.dropDown.show()
-//                       
-//                    }
-//                    else{
-//                        self.dropDown.anchorView = cell.btnBusinessNature
-//                        self.dropDown.dataSource = self.businessNature
-//                        self.dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-//                          print("Selected item: \(item) at index: \(index)")
-//                            cell.txtBusinessVal.text = item
-//                            self.dropDown.hide()
-//
-//                        }
-//                        self.dropDown.show()
-//                    }
+
                 }
                 
                 return cell
@@ -2301,6 +2185,8 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                         return UITableViewCell()
                     }
                     cell.selectionStyle = .none
+                    cell.cellDataDelegate = self
+                    cell.indexPath = indexPath
                     
                     cell.buttonPressed = { tag in
                         self.isCellExpandedSuppIntKYC.toggle()
@@ -2320,6 +2206,108 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                             
                             self.openDropDown(dataArr: self.businessNature, anchorView: cell.txtNatureOfBusiness, titleLabel: cell.txtNatureOfBusiness, refr: "")
                             
+                        }
+                    }
+                    
+                    cell.buttonVerify = { tag in
+                        if tag == 0{
+//                            let gstNo = cell.txtGST.text ?? ""
+//                            let isVerify = self.verifyDoc(docType: "GSTNo", docNumber: gstNo)
+                            
+                            let gstNo = cell.txtGSTNum.text ?? ""
+                            self.view.endEditing(true)
+                            var param :[String:Any] = [:]
+                            param = ["documentType":"GSTNo", "GSTNo":gstNo]
+                            CustomActivityIndicator.shared.show(in: self.view)
+                            // APIs().document_verification_API
+                            SignupDataModel().verifyDoc(url: APIs().document_verification_API, requestParam: param, completion: { result , msg in
+                                
+                                if result.status == 1{
+                                    self.companyGSTVerify = result
+                                    self.dealerDataStruct.companyGSTNo = gstNo
+                                    cell.btnVerify.isHidden = true
+                                    cell.btnVeriyed.isHidden = false
+                                   
+                                }
+                                else{
+                                    cell.txtGSTNum.borderColor = .red
+                                    cell.txtGSTNum.showError(message: "Enter Valid GST number")
+                                }
+                                self.toastMessage(result.msg ?? "")
+                                CustomActivityIndicator.shared.hide()
+                            })
+                            
+                        }
+                        if tag == 1{
+                            let panNo = cell.txtComPAN.text ?? ""
+                            
+                            self.view.endEditing(true)
+                            var param :[String:Any] = [:]
+                            param = ["documentType":"PANNo", "PANNo":panNo]
+                            CustomActivityIndicator.shared.show(in: self.view)
+                            // APIs().document_verification_API
+                            SignupDataModel().verifyDoc(url: APIs().document_verification_API, requestParam: param, completion: { result , msg in
+                                
+                                if result.status == 1{
+                                    self.companyPANVerify = result
+                                    // self.isCompanyDetailsPANVerified = true
+                                    self.dealerDataStruct.companyPANNo = panNo
+                                    cell.btnVerifyPAN.isHidden = true
+                                    cell.btnVeriyedPAN.isHidden = false
+                            
+                                    
+                                }
+                                else{
+                                    cell.txtComPAN.borderColor = .red
+
+                                    cell.txtComPAN.showError(message: "Enter Valid PAN number")
+                                }
+                                
+                                self.toastMessage(result.msg ?? "")
+                                CustomActivityIndicator.shared.hide()
+                            })
+                            
+                        }
+                    }
+                    
+                    cell.buttonDocBase64 = { tag in
+                        switch tag {
+                        case 0:
+                            ImagePickerManager().pickImage(self){ image in
+                                //here is the image
+                                cell.btnSelectedGST.isHidden = false
+                                cell.btnGSTDoc.isHidden = true
+//                                cell.btnGSTDoc.setImage(UIImage(named: "Verify"), for: .normal)
+//                                cell.btnGSTDoc.titleLabel?.isHidden = true
+//                                cell.btnGSTDoc.backgroundColor = .clear
+                                self.companyGST = image
+                                self.isSupllierPANDoc = true
+                                // print(image)
+                            }
+                        case 1:
+                            ImagePickerManager().pickImage(self){ image in
+                                //here is the image
+                                cell.btnSelectedPAN.isHidden = false
+                                cell.btnPANDoc.isHidden = true
+//                                cell.btnPANDoc.setImage(UIImage(named: "Verify"), for: .normal)
+//                                cell.btnPANDoc.titleLabel?.isHidden = true
+//                                cell.btnPANDoc.backgroundColor = .clear
+                                self.companyPAN = image
+//                                self.isSupllierPANDoc = true
+                                // print(image)
+                            }
+                        default:
+                            ImagePickerManager().pickImage(self){ image in
+                                //here is the image
+                                cell.btnSelectedIEC.isHidden = false
+                                cell.btnIECDoc.isHidden = true
+                                
+//                                cell.btnIECDoc.setImage(UIImage(named: "Verify"), for: .normal)
+//                                cell.btnIECDoc.titleLabel?.isHidden = true
+//                                cell.btnIECDoc.backgroundColor = .clear
+                                self.companyIEC = image
+                                // print(image)
+                            }
                         }
                     }
                     
@@ -2332,6 +2320,8 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                         return UITableViewCell()
                     }
                     cell.selectionStyle = .none
+                    cell.cellDataDelegate = self
+                    cell.indexPath = indexPath
                     
                     cell.buttonPressed = { tag in
                         self.isCellExpandedSuppIntKYC.toggle()
@@ -2354,6 +2344,37 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                         }
                     }
                     
+                    cell.buttonGetDocBase64 = { tag in
+                        switch tag {
+                        case 0:
+                            ImagePickerManager().pickImage(self){ image in
+                                //here is the image
+                                cell.btnSelectedBusinessLic.isHidden = false
+                                cell.btnBusinessLincDoc.isHidden = true
+//                                cell.btnBusinessLincDoc.setImage(UIImage(named: "Verify"), for: .normal)
+//                                cell.btnBusinessLincDoc.titleLabel?.isHidden = true
+//                                cell.btnBusinessLincDoc.backgroundColor = .clear
+                                self.businessLicenceDoc = image
+//                                self.isSupllierPANDoc = true
+                                // print(image)
+                            }
+                      
+                        default:
+                            ImagePickerManager().pickImage(self){ image in
+                                //here is the image
+                                
+                                cell.btnSelectedIEC.isHidden = false
+                                cell.btnIECDoc.isHidden = true
+                                
+//                                cell.btnIECDoc.setImage(UIImage(named: "Verify"), for: .normal)
+//                                cell.btnIECDoc.titleLabel?.isHidden = true
+//                                cell.btnIECDoc.backgroundColor = .clear
+                                self.companyIEC = image
+                                // print(image)
+                            }
+                        }
+                    }
+                    
                     
                     return cell
                 }
@@ -2363,6 +2384,8 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                     return UITableViewCell()
                 }
                 cell.selectionStyle = .none
+                cell.cellDataDelegate = self
+                cell.indexPath = indexPath
                 
                 if let cntryFlg = self.supervisorContryFlag{
                     cell.btnFlag.setTitle(cntryFlg, for: .normal)
@@ -2459,7 +2482,7 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                         
                     case 3:
                         
-                        return isCellExpandedAuthPersion ? 345 : 70
+                        return isCellExpandedAuthPersion ? 365 : 70
                         
                     case 4:
                         
@@ -2493,10 +2516,10 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                 case 1:
     
                     if isIndiaPinForSupplir {
-                        return isCellExpandedSuppIntKYC ? 510 : 70
+                        return isCellExpandedSuppIntKYC ? 525 : 70
                     }
                     else{
-                        return isCellExpandedSuppIntKYC ? 400 : 70
+                        return isCellExpandedSuppIntKYC ? 415 : 70
                     }
                     
                     
@@ -2609,10 +2632,29 @@ extension SignupVC : CustomDatePickerDelegate{
 extension SignupVC : CellDataDelegate{
     func didUpdateText(textKey: String, text: String?, indexPath: IndexPath) {
         switch textKey {
-        case "Aadhar":
-            self.dealerDataStruct.aadhaarNo = text
-        case "PAN":
-            self.dealerDataStruct.panNo = text
+        case "DealerComName":
+            self.dealerDataStruct.companyName = text
+        case "DealerMobileN":
+            self.dealerDataStruct.mobileNo = text
+        case "DealerEmail":
+            self.dealerDataStruct.email = text
+        case "DealerCity":
+            self.dealerDataStruct.city = text
+        case "DealerState":
+            self.dealerDataStruct.state = text
+        case "DealerContry":
+            self.dealerDataStruct.country = text
+        case "DealerPin":
+            self.dealerDataStruct.pinCode = text
+        case "DealerAddress1":
+            self.dealerDataStruct.address = text
+        case "DealerAddress2":
+            self.dealerDataStruct.address2 = text
+        case "DealerComType":
+            self.dealerDataStruct.typeOfCompany = text
+        case "DealerBusinessNa":
+            self.dealerDataStruct.natureOfBusiness = text
+            
         case "FName":
             self.dealerDataStruct.firstName = text
         case "LName":
@@ -2660,6 +2702,16 @@ extension SignupVC : CellDataDelegate{
             self.suplierDataStruct.tradeMembershipNo = text
         case "CO.IECN":
             self.suplierDataStruct.iecNo = text
+            
+        case "BusinessLicence":
+            self.suplierDataStruct.businessLicenceNumber = text
+            
+        case "CO.SupervisorName":
+            self.suplierDataStruct.authPersonName = text
+        case "CO.SupervisorEmail":
+            self.suplierDataStruct.authPersonEmail = text
+        case "CO.SupervisorMobile":
+            self.suplierDataStruct.authPersonContact = text
             
         case "CO.ComType":
             self.suplierDataStruct.typeOfCompany = text

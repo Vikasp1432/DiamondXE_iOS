@@ -16,9 +16,9 @@ class Dealer_KYCCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet  var btnIECDoc:UIButton!
     @IBOutlet  var btnPANFront:UIButton!
     
-    @IBOutlet  var btnAdharFrontIcon:UIButton!
-    @IBOutlet  var btnAdharBackIcon:UIButton!
-    @IBOutlet  var btnPANFrontIcon:UIButton!
+    @IBOutlet  var btnSelectGST:UIButton!
+    @IBOutlet  var btnSelectPAN:UIButton!
+    @IBOutlet  var btnSelectIEC:UIButton!
     
     @IBOutlet  var btnverifyGST:UIButton!
     @IBOutlet  var btnverifiedAdhar:UIButton!

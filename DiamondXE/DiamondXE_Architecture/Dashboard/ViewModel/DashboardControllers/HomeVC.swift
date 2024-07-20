@@ -315,8 +315,11 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
             }
             
             cell.buttonPressedDetails = { tag in
+                self.dashBoardVC.btnHome.tintColor = .clrGray
+                self.dashBoardVC.btnTitleHome.setTitleColor(UIColor.clrGray, for: .normal)
                
                 if self.topDealsTag == 1{
+                    
                     self.dashBoardVC.diamondDetailsDocID = self.topDealsStruct.details?.labGrown?[tag].certificateNo ?? ""
                     self.dashBoardVC.loadViewController(withIdentifier: "DiamondDetailsVC", fromStoryboard: "DiamondDetails")
                 }
