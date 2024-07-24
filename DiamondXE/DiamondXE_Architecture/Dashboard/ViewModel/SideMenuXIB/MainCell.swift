@@ -26,6 +26,19 @@ class MainCell: UITableViewCell {
    
         }
     
+    func configure2(with section: SectionsAccount) {
+        
+        label.text = section.mainCellTitle
+                if section.expandableCellOptions.isEmpty {
+                    dropdownIcon.isHidden = true // Hide the dropdown icon if no expandable options
+                } else {
+                    dropdownIcon.isHidden = false
+                    let imageName = section.isExpanded ? "Sub Bar Icon" : "Drop_Up" // Replace with your icon names
+                    dropdownIcon.image = UIImage(named: imageName)
+                }
+   
+        }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

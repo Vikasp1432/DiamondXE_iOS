@@ -36,5 +36,11 @@
 			</array>
 		</dict>
 	</dict>
+    
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We need your location to provide better service.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>We need your location to provide better service.</string>
+    
 </dict>
 </plist>

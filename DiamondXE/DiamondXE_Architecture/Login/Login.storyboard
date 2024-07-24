@@ -706,10 +706,10 @@ with your account.</string>
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dD7-Ys-t17">
-                                <rect key="frame" x="0.0" y="226" width="393" height="235"/>
+                                <rect key="frame" x="0.0" y="226" width="393" height="375"/>
                                 <subviews>
                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OMp-NJ-C46">
-                                        <rect key="frame" x="20" y="5" width="353" height="120"/>
+                                        <rect key="frame" x="20" y="5" width="353" height="260"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2R-EL-vte" userLabel="MobileView">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
@@ -750,10 +750,49 @@ with your account.</string>
                                                     <constraint firstItem="AOM-gD-wlK" firstAttribute="top" secondItem="T6b-P9-48h" secondAttribute="top" id="dIH-w9-RRR"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQH-1I-0Mg" userLabel="MobileView">
+                                                <rect key="frame" x="0.0" y="140" width="353" height="50"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pno-IW-Tr4" customClass="DTTextField" customModule="DTTextField">
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
+                                                        <color key="backgroundColor" name="viewBGClr"/>
+                                                        <color key="textColor" name="themeClr"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" name="viewBGClr"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="Cvc-u5-Uqp"/>
+                                                    <constraint firstAttribute="trailing" secondItem="pno-IW-Tr4" secondAttribute="trailing" id="FJp-X1-FbS"/>
+                                                    <constraint firstAttribute="bottom" secondItem="pno-IW-Tr4" secondAttribute="bottom" id="Gqu-60-ApH"/>
+                                                    <constraint firstItem="pno-IW-Tr4" firstAttribute="leading" secondItem="bQH-1I-0Mg" secondAttribute="leading" id="s2d-fP-PDw"/>
+                                                    <constraint firstItem="pno-IW-Tr4" firstAttribute="top" secondItem="bQH-1I-0Mg" secondAttribute="top" id="uxy-DB-obX"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PoL-V3-v5c" userLabel="OTPView">
+                                                <rect key="frame" x="0.0" y="210" width="353" height="50"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ut5-xk-c2K" customClass="DTTextField" customModule="DTTextField">
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
+                                                        <color key="textColor" name="themeClr"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" name="viewBGClr"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="ut5-xk-c2K" secondAttribute="bottom" id="0dh-P9-Oah"/>
+                                                    <constraint firstItem="ut5-xk-c2K" firstAttribute="leading" secondItem="PoL-V3-v5c" secondAttribute="leading" id="9rz-UT-B7i"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ut5-xk-c2K" secondAttribute="trailing" id="S2g-jr-Jcb"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="YO3-5p-MNS"/>
+                                                    <constraint firstItem="ut5-xk-c2K" firstAttribute="top" secondItem="PoL-V3-v5c" secondAttribute="top" id="fi5-Oh-M34"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbB-7C-egx">
-                                        <rect key="frame" x="287" y="135" width="86" height="30"/>
+                                        <rect key="frame" x="287" y="275" width="86" height="30"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Resend OTP">
@@ -764,7 +803,7 @@ with your account.</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLJ-vV-bmO">
-                                        <rect key="frame" x="19.999999999999996" y="141.33333333333331" width="37.666666666666657" height="17.666666666666657"/>
+                                        <rect key="frame" x="19.999999999999996" y="281.33333333333331" width="37.666666666666657" height="17.666666666666686"/>
                                         <attributedString key="attributedText">
                                             <fragment content="00:30">
                                                 <attributes>
@@ -776,7 +815,7 @@ with your account.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crO-Mv-WaH">
-                                        <rect key="frame" x="131.66666666666666" y="180" width="129.99999999999997" height="45"/>
+                                        <rect key="frame" x="131.66666666666666" y="320" width="129.99999999999997" height="45"/>
                                         <color key="backgroundColor" name="themeClr"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Ccd-ay-WEF"/>
@@ -832,10 +871,14 @@ with your account.</string>
                         <outlet property="btnContinue" destination="crO-Mv-WaH" id="d87-ot-Zwu"/>
                         <outlet property="btnResendOTP" destination="AbB-7C-egx" id="w6L-il-0FG"/>
                         <outlet property="timerLabel" destination="dLJ-vV-bmO" id="s6i-Hm-uGG"/>
+                        <outlet property="txtConfirmPassword" destination="ut5-xk-c2K" id="xIl-mW-Twv"/>
                         <outlet property="txtEmail" destination="imM-N5-b0q" id="xb3-7g-qHH"/>
+                        <outlet property="txtNewPassword" destination="pno-IW-Tr4" id="mrC-xk-95w"/>
                         <outlet property="txtOTP" destination="AOM-gD-wlK" id="W8r-Aq-eDw"/>
+                        <outlet property="viewConfirmPass" destination="PoL-V3-v5c" id="cFq-wW-UFe"/>
                         <outlet property="viewEnterEmail" destination="G2R-EL-vte" id="v6F-CH-Ywe"/>
                         <outlet property="viewEnterOTP" destination="T6b-P9-48h" id="M3U-FL-GT8"/>
+                        <outlet property="viewPass" destination="bQH-1I-0Mg" id="D9E-Ec-NTs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gxG-Vh-bZP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -954,54 +997,13 @@ login into your account!</string>
                                     <constraint firstAttribute="bottom" secondItem="W6k-Hb-dHh" secondAttribute="bottom" constant="5" id="zg0-Gm-Dbr"/>
                                 </constraints>
                             </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYu-Sd-Hn8">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bYu-Sd-Hn8">
                                 <rect key="frame" x="0.0" y="209.66666666666663" width="393" height="195"/>
                                 <subviews>
-                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jo0-oa-bZj">
+                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jo0-oa-bZj">
                                         <rect key="frame" x="20" y="5" width="353" height="120"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQH-1I-0Mg" userLabel="MobileView">
-                                                <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pno-IW-Tr4" customClass="FloatingTextField" customModule="DiamondXE" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
-                                                        <color key="backgroundColor" name="viewBGClr"/>
-                                                        <color key="textColor" name="themeClr"/>
-                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" name="viewBGClr"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="Cvc-u5-Uqp"/>
-                                                    <constraint firstAttribute="trailing" secondItem="pno-IW-Tr4" secondAttribute="trailing" id="FJp-X1-FbS"/>
-                                                    <constraint firstAttribute="bottom" secondItem="pno-IW-Tr4" secondAttribute="bottom" id="Gqu-60-ApH"/>
-                                                    <constraint firstItem="pno-IW-Tr4" firstAttribute="leading" secondItem="bQH-1I-0Mg" secondAttribute="leading" id="s2d-fP-PDw"/>
-                                                    <constraint firstItem="pno-IW-Tr4" firstAttribute="top" secondItem="bQH-1I-0Mg" secondAttribute="top" id="uxy-DB-obX"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PoL-V3-v5c" userLabel="OTPView">
-                                                <rect key="frame" x="0.0" y="70.000000000000028" width="353" height="50"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ut5-xk-c2K" customClass="FloatingTextField" customModule="DiamondXE" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
-                                                        <color key="textColor" name="themeClr"/>
-                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" name="viewBGClr"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="ut5-xk-c2K" secondAttribute="bottom" id="0dh-P9-Oah"/>
-                                                    <constraint firstItem="ut5-xk-c2K" firstAttribute="leading" secondItem="PoL-V3-v5c" secondAttribute="leading" id="9rz-UT-B7i"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ut5-xk-c2K" secondAttribute="trailing" id="S2g-jr-Jcb"/>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="YO3-5p-MNS"/>
-                                                    <constraint firstItem="ut5-xk-c2K" firstAttribute="top" secondItem="PoL-V3-v5c" secondAttribute="top" id="fi5-Oh-M34"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
                                     </stackView>
-                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wg6-cM-VU8">
+                                    <button clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wg6-cM-VU8">
                                         <rect key="frame" x="131.66666666666666" y="140.00000000000003" width="129.99999999999997" height="45"/>
                                         <color key="backgroundColor" name="themeClr"/>
                                         <constraints>
@@ -1766,13 +1768,13 @@ login into your account!</string>
             <size key="intrinsicContentSize" width="78" height="43"/>
         </designable>
         <designable name="pno-IW-Tr4">
-            <size key="intrinsicContentSize" width="131" height="18"/>
+            <size key="intrinsicContentSize" width="147" height="43"/>
         </designable>
         <designable name="qfc-GI-RGY">
             <size key="intrinsicContentSize" width="80.666666666666671" height="43"/>
         </designable>
         <designable name="ut5-xk-c2K">
-            <size key="intrinsicContentSize" width="148" height="18"/>
+            <size key="intrinsicContentSize" width="164" height="43"/>
         </designable>
     </designables>
     <resources>
@@ -2821,7 +2823,7 @@ d0x3T3dcd2F3aXdsd3F3eQAAAAAAAAIBAAAAAAAAAGgAAAAAAAAAAAAAAAAAAHd8A
             <color red="0.81199997663497925" green="0.6470000147819519" blue="0.39599999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="viewBGClr">
-            <color red="0.96100002527236938" green="0.95300000905990601" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

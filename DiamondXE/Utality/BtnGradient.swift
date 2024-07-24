@@ -44,7 +44,7 @@ extension UIButton {
         layer.borderColor = UIColor.themeClr.cgColor
 
         layer.masksToBounds = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) {
             let gradientLayer = CAGradientLayer()
             gradientLayer.colors = colors
             gradientLayer.frame = self.bounds
@@ -53,6 +53,26 @@ extension UIButton {
             self.layer.insertSublayer(gradientLayer, at: 0)
         }
     }
+    
+    func setGradientLayerWithoutShadow(colorsInOrder colors: [CGColor], startPoint sPoint: CGPoint = CGPoint(x: 0, y: 0.5), endPoint ePoint: CGPoint = CGPoint(x: 1, y: 0.5)) {
+
+//        layer.shadowColor = UIColor.black.cgColor
+//        layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+//        layer.shadowRadius = 2.0
+//        layer.shadowOpacity = 0.5
+//        layer.borderColor = UIColor.themeClr.cgColor
+
+        layer.masksToBounds = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) {
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.colors = colors
+            gradientLayer.frame = self.bounds
+            gradientLayer.cornerRadius = self.cornerRadius
+            gradientLayer.masksToBounds = true
+            self.layer.insertSublayer(gradientLayer, at: 0)
+        }
+    }
+    
     
 //    override open func layoutSubviews() {
 //        super.layoutSubviews()

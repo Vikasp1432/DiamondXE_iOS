@@ -926,7 +926,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                     
                     if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
                         let currncyVal = self.currencyRateDetailObj.value ?? 1
-                        let finalVal = Double((self.diamondListDetails[indexPath.row].totalPrice ?? 0)) * currncyVal
+                        let finalVal = Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)) * currncyVal
                         
                         let formattedNumber = formatNumberWithoutDeciml(finalVal)
                         
@@ -935,7 +935,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                         
                     }
                     else{
-                        let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].totalPrice ?? 0))
+                        let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].subtotal ?? 0))
                         cell.lblPrice.text = "₹\(formattedNumber)"
                     }
                     
@@ -1093,7 +1093,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                     
                     if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
                         let currncyVal = self.currencyRateDetailObj.value ?? 1
-                        var finalVal = Double((self.diamondListDetails[indexPath.row].totalPrice ?? 0)) * currncyVal
+                        var finalVal = Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)) * currncyVal
                         
                         let formattedNumber = formatNumberWithoutDeciml(finalVal)
                         cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
@@ -1101,7 +1101,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                     }
                     else{
                         
-                        let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].totalPrice ?? 0))
+                        let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].subtotal ?? 0))
                         cell.lblPrice.text = "₹\(formattedNumber)"
                     }
                     
@@ -1248,7 +1248,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 
                 if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
                     let currncyVal = self.currencyRateDetailObj.value ?? 1
-                    let finalVal = Double((self.diamondListDetails[indexPath.row].totalPrice ?? 0)) * currncyVal
+                    let finalVal = Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)) * currncyVal
                     
                     let formattedNumber = formatNumberWithoutDeciml(finalVal)
                     
@@ -1257,7 +1257,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                     
                 }
                 else{
-                    let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].totalPrice ?? 0))
+                    let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].subtotal ?? 0))
                     cell.lblPrice.text = "₹\(formattedNumber)"
                 }
                 
@@ -1415,7 +1415,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 
                 if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
                     let currncyVal = self.currencyRateDetailObj.value ?? 1
-                    var finalVal = Double((self.diamondListDetails[indexPath.row].totalPrice ?? 0)) * currncyVal
+                    var finalVal = Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)) * currncyVal
                     
                     let formattedNumber = formatNumberWithoutDeciml(finalVal)
                     cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
@@ -1423,7 +1423,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 }
                 else{
                     
-                    let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].totalPrice ?? 0))
+                    let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].subtotal ?? 0))
                     cell.lblPrice.text = "₹\(formattedNumber)"
                 }
                 

@@ -18,6 +18,11 @@ class ForgotPasswordVC: BaseViewController {
     @IBOutlet weak var txtEmail: DTTextField!
     @IBOutlet weak var txtOTP: DTTextField!
     
+    @IBOutlet var txtNewPassword: DTTextField!
+    @IBOutlet var txtConfirmPassword: DTTextField!
+    @IBOutlet weak var viewPass: UIView!
+    @IBOutlet weak var viewConfirmPass: UIView!
+    
     @IBOutlet weak var btnContinue: UIButton!
 
     
@@ -39,6 +44,8 @@ class ForgotPasswordVC: BaseViewController {
         // Do any additional setup after loading the view.
         self.navigationController?.isNavigationBarHidden = true
         self.viewEnterOTP.isHidden = true
+        self.viewPass.isHidden = true
+        self.viewConfirmPass.isHidden = true
         self.timerLabel.isHidden  = true
         self.btnResendOTP.isHidden  = true
         
@@ -50,6 +57,8 @@ class ForgotPasswordVC: BaseViewController {
         self.txtOTP.floatPlaceholderActiveColor = .themeClr
         self.txtEmail.floatPlaceholderColor = .themeClr
         self.txtOTP.floatPlaceholderColor = .themeClr
+        
+        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -81,11 +90,11 @@ class ForgotPasswordVC: BaseViewController {
     }
     
     @IBAction func btnActionContinue(_ sender: UIButton){
-        
+      
         if isReset {
             guard validateDataEmail() else { return }
-            self.forgotPassParamStruct.userType = "buyer"
-            self.forgotPassParamStruct.email = "vijayd@mailinator.com"
+            self.forgotPassParamStruct.userType = "Buyer"
+            self.forgotPassParamStruct.email = self.txtEmail.text ?? ""
             
             var parameters : [String:Any]?
             parameters =  [
@@ -100,19 +109,29 @@ class ForgotPasswordVC: BaseViewController {
         else{
             guard validateDataOTP() else { return }
             
-            self.resetPassParam.email = "vijayd@mailinator.com"
-            self.resetPassParam.otp = 1234
-            self.resetPassParam.resetPassword = 0
-            
-            var parameters : [String:Any]?
-            parameters =  [
-                "email": self.resetPassParam.email ?? "",
-                 "otp": self.resetPassParam.otp ?? 0,
-                "resetPassword": self.resetPassParam.resetPassword ?? 0
-            ]
-            
-            if let param = parameters{
-                self.verifyOTP(param: param)
+            let pass = self.txtNewPassword.text ?? ""
+            let CNpass = self.txtConfirmPassword.text ?? ""
+             
+            if pass == CNpass{
+                
+                self.resetPassParam.email = self.txtEmail.text ?? ""
+                self.resetPassParam.otp =  Int(self.txtOTP.text ?? "")
+                self.resetPassParam.resetPassword = 0
+                
+                var parameters : [String:Any]?
+                parameters =  [
+                    "email": self.resetPassParam.email ?? "",
+                    "otp": self.resetPassParam.otp ?? 0,
+                    "password": pass,
+                    "confirmPassword" : CNpass
+                ]
+                
+                
+                if let param = parameters{
+                    self.resetPass(param: param)
+                }
+            }else{
+                self.toastMessage("Password and confirm password not same")
             }
            
         }
@@ -128,12 +147,7 @@ class ForgotPasswordVC: BaseViewController {
                 return false
             }
             
-            guard !txtOTP.text!.isEmptyStr else {
-                txtOTP.showError(message: OTPMessage)
-                txtOTP.borderColor = .red
-                return false
-            }
-            
+          
             
             return true
         }
@@ -142,6 +156,16 @@ class ForgotPasswordVC: BaseViewController {
             
             guard !txtOTP.text!.isEmptyStr else {
                 txtOTP.showError(message: ConstentString.emailErr)
+                return false
+            }
+            
+            guard !txtNewPassword.text!.isEmptyStr else {
+                txtNewPassword.showError(message: ConstentString.passErr)
+                return false
+            }
+            
+            guard !txtConfirmPassword.text!.isEmptyStr else {
+                txtConfirmPassword.showError(message: ConstentString.cnPassErr)
                 return false
             }
             
@@ -154,15 +178,18 @@ class ForgotPasswordVC: BaseViewController {
     func getOTPONMail(param : [String:Any]) {
             // callAPI_Login
             view.endEditing(true)
-            CustomActivityIndicator.shared.show(in: view)
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
             LoginDataModel().forgotPassword(url: APIs().forgot_passwordAPI, requestParam: param, completion: { response , message in
                 print(response)
                 if response.status == 1{
                     //print(message)
                     self.viewEnterOTP.isHidden = false
+                    self.viewPass.isHidden = false
+                    self.viewConfirmPass.isHidden = false
                     self.timerLabel.isHidden  = false
                     self.btnResendOTP.isHidden  = false
                     self.isReset = false
+                    self.btnContinue.setTitle("Save", for: .normal)
                     self.btnResendOTP.isEnabled = false
                     TimerManager.shared.startTimer(withLabel: self.timerLabel) {
                         self.btnResendOTP.isEnabled = true
@@ -172,17 +199,17 @@ class ForgotPasswordVC: BaseViewController {
                     self.toastMessage(message ?? "")
                 }
                 
-                CustomActivityIndicator.shared.hide()
+                CustomActivityIndicator2.shared.hide()
                 
             })
             
            
         }
     
-    func verifyOTP(param : [String:Any]) {
+    func resetPass(param : [String:Any]) {
             // callAPI_Login
             view.endEditing(true)
-            CustomActivityIndicator.shared.show(in: view)
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
             LoginDataModel().resetPassword(url: APIs().reset_passwordAPI, requestParam: param, completion: { response , message in
                
                 if response.status == 1{
@@ -196,7 +223,7 @@ class ForgotPasswordVC: BaseViewController {
                     self.toastMessage(message ?? "")
                 }
                 
-                CustomActivityIndicator.shared.hide()
+                CustomActivityIndicator2.shared.hide()
                 
             })
             

@@ -465,7 +465,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Reserve Diamond">
+                                                <state key="normal" title="Buy Now">
                                                     <color key="titleColor" name="whitClr"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>

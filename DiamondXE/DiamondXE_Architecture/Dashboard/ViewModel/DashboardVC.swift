@@ -9,9 +9,7 @@ import UIKit
 import DropDown
 
 
-
-
-class DashboardVC: BaseViewController, BaseViewControllerDelegate {
+class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCountryPopupViewDelegate, PinCodeDelegate {
    
  
     @IBOutlet var containerViewSideMenu: UIView!
@@ -40,11 +38,12 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     @IBOutlet weak var popupViewHeightsConstraint: NSLayoutConstraint!
     let selectCountryView = SelectCountryView()
     let diaDetailsView = DiaDetailsPopupView()
-    let countryDashboardView = DashboardCountryView()
 
     @IBOutlet weak var overlayView: UIView!
 
     var countryView = SelectCountryView()
+    
+    var currencySelectObj = CurrencyRateDetail()
     
     
     let screen = UIScreen.main.bounds
@@ -90,7 +89,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
         super.viewDidLoad()
         
         
-        
+       
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         viewSideMnu.addGestureRecognizer(tapGesture)
@@ -127,6 +126,9 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
         setupPopupView()
         defineCountryPopupView()
         defineDIADetailsPopupView()
+        
+        
+        
        
        
     }
@@ -139,7 +141,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
             self.btnTitleLogin.setTitle(userType.capitalizingFirstLetter(), for: .normal)
             self.lblWelcomeUser.text = username
             self.lblType.text = userType
-            
+            refreshBearertoken()
         }
     }
     
@@ -215,47 +217,123 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
     @IBAction func btnActionHeaderBTN(_ sender : UIButton){
         switch sender.tag {
         case 1:
-            print("")
+            let overLayerView = LocationPinView()
+            overLayerView.pincodeDelagate = self
+            overLayerView.appear(sender: self, pincode: 0)
+            
         case 2:
             print("")
         default:
-            print("")
-//            countryViewDropDn()
+            countryViewDropDn()
+            
         }
     }
     
     func countryViewDropDn(){
-        self.countryDashboardView.isHidden = false
-        
-        countryDashboardView.translatesAutoresizingMaskIntoConstraints = false
-        
-        counrtyDropDownView.addSubview(countryDashboardView)
-       
-        NSLayoutConstraint.activate([
-            countryDashboardView.leadingAnchor.constraint(equalTo: counrtyDropDownView.leadingAnchor),
-            countryDashboardView.trailingAnchor.constraint(equalTo: counrtyDropDownView.trailingAnchor),
-            countryDashboardView.topAnchor.constraint(equalTo: counrtyDropDownView.topAnchor),
-            countryDashboardView.bottomAnchor.constraint(equalTo: counrtyDropDownView.bottomAnchor)
-                ])
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.layoutIfNeeded()
-//            let rotationAngle: CGFloat = self.isPopupVisible ? .pi / 4 : 0
-//            self.btnSearch.transform = CGAffineTransform(rotationAngle: rotationAngle)
-            self.overlayView.alpha = self.isPopupVisible ? 0.7 : 0.0
-           
-        }){ _ in
-//            if !self.isPopupVisible {
-                self.overlayView.isHidden = true
+        self.counrtyDropDownView.isHidden.toggle()
+        counrtyDropDownView.translatesAutoresizingMaskIntoConstraints = false
+        let customView = DashboardCountryView()
+        customView.delegate = self
+        customView.frame = self.counrtyDropDownView.bounds
+        customView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.counrtyDropDownView.addSubview(customView)
+//            UIView.animate(withDuration: 0.3, animations: {
+//                self.view.layoutIfNeeded()
+//
+//
+//            }){ _ in
 //            }
-        }
        
         
     }
     
     
+    func customViewButtonTapped(_ customView: DashboardCountryView, returnValue: String) {
+        print(returnValue)
+        switch returnValue {
+        case "INR":
+            self.btnSelectC0untry.setImage(UIImage(named: "Flag"), for: .normal)
+        case "USD":
+            self.btnSelectC0untry.setImage(UIImage(named: "usd"), for: .normal)
+        case "EUR":
+            self.btnSelectC0untry.setImage(UIImage(named: "eur"), for: .normal)
+        case "GBD":
+            self.btnSelectC0untry.setImage(UIImage(named: "gbp"), for: .normal)
+        case "AUD":
+            self.btnSelectC0untry.setImage(UIImage(named: "aud"), for: .normal)
+        case "CAD":
+            self.btnSelectC0untry.setImage(UIImage(named: "cad"), for: .normal)
+        case "NZD":
+            self.btnSelectC0untry.setImage(UIImage(named: "nzd"), for: .normal)
+        case "SGD":
+            self.btnSelectC0untry.setImage(UIImage(named: "sgd"), for: .normal)
+        case "AED":
+            self.btnSelectC0untry.setImage(UIImage(named: "aed"), for: .normal)
+        default:
+            print("")
+        }
+        self.counrtyDropDownView.isHidden.toggle()
+        
+        
+        var getCurrnyRate = CurrencyRatesManager.shareInstence.currencyRateStruct
+        for (index, value) in getCurrnyRate.enumerated() {
+            if returnValue == value.currency {
+                self.currencySelectObj = value
+                break
+            }
+        }
+        
+    }
     
     
+    func currncyValChange(currncyValObj:CurrencyRateDetail) {
+        switch self.currentViewController {
+        case is B2BSearchResultVC:
+            if let b2bSearchResultVC = self.currentViewController as? B2BSearchResultVC {
+                b2bSearchResultVC.updateCurreny(currncyOBJ: currncyValObj)
+                break
+            }
+        default:
+            print("")
+        }
+    }
+    
+    
+    
+    func refreshBearertoken(){
+        var logindata = UserDefaultManager.shareInstence.retrieveLoginData()
+        
+        if let token = logindata?.details?.authToken {
+                        
+            HomeDataModel().refreshToken(completion: { data, msg in
+                if data.status == 1{
+                    logindata?.details?.authToken = data.details?.accessToken
+                    if let dataL = logindata{
+                        UserDefaultManager.shareInstence.saveLoginData(topDelsObj: dataL)
+                    }
+                    
+                }
+                else{
+                    UserDefaultManager.shareInstence.clearLoginDataDefaults()
+                    self.btnTitleLogin.setTitle("Account", for: .normal)
+                    self.lblWelcomeUser.text = "Welcome User"
+                    self.lblType.text = "--"
+                }
+            })
+        }
+        else{
+            self.btnTitleLogin.setTitle("Account", for: .normal)
+            self.lblWelcomeUser.text = "Welcome User"
+            self.lblType.text = "--"
+        }
+        
+    }
+        
+    func didEnterPincode(pincode: String, indexPath: IndexPath) {
+        print(pincode)
+    }
+    
+  
     
     
 //    private func togglePopup() {
@@ -440,7 +518,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate {
             b2bSearchDiamondVC.dashboardVC = self
             self.btnSearch.setImage(UIImage(named: "plus"), for: .normal)
         }
-        
+        self.currncyValChange(currncyValObj: self.currencySelectObj)
         newViewController.delegate = self
         newViewController.didSendString(str: self.lblTitle.text ?? "")
         let width = self.containerView.bounds.size.width
@@ -1057,7 +1135,7 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
         
         else if nv_logout == sectionStr{
             print("logout:", sectionStr)
-            self.callAPILogout()
+            self.showLogoutConfirmationAlert()
         }
        
         
@@ -1135,12 +1213,33 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
 //        manageBottomTag()
 //    }
     
+    private func showLogoutConfirmationAlert() {
+           let alert = UIAlertController(title: "Logout Confirmation", message: "Are you sure you want to logout?", preferredStyle: .alert)
+           
+           // Add the cancel action
+           let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+           alert.addAction(cancelAction)
+           
+           // Add the logout action
+           let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
+               // Perform logout logic here
+               self.callAPILogout()
+           }
+           alert.addAction(logoutAction)
+           
+           present(alert, animated: true, completion: nil)
+       }
+       
+     
     func callAPILogout(){
         CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
         HomeDataModel().logoutUser(completion: { data, msg in
             if data.status == 1{
                 self.toastMessage(data.msg ?? "")
-                UserDefaultManager().clearLoginDataDefaults()
+                UserDefaultManager.shareInstence.clearLoginDataDefaults()
+                self.btnTitleLogin.setTitle("Account", for: .normal)
+                self.lblWelcomeUser.text = "Welcome User"
+                self.lblType.text = "--"
             }
             else{
                 self.toastMessage(data.msg ?? "")

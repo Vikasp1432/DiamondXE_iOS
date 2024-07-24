@@ -96,3 +96,22 @@ struct LogoutDataStruct: Codable {
     var status : Int?
     var msg : String?
 }
+
+
+struct RefreshBearerToken: Codable {
+    var status: Int?
+    var msg: String?
+    var details: TokenDetails?
+}
+
+// MARK: - Details
+struct TokenDetails: Codable {
+    var accessToken, tokenType: String?
+    var expiresIn: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case accessToken = "access_token"
+        case tokenType = "token_type"
+        case expiresIn = "expires_in"
+    }
+}

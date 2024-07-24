@@ -360,7 +360,7 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
             cell.lblClarity.text = self.diamondDetails.details?.clarity ?? ""
            
             
-            let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondDetails.details?.totalPrice ?? 0))
+            let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondDetails.details?.subtotal ?? 0))
             cell.lblPrice.text = "₹\(formattedNumber)"
 //            cell.lblPrice.text = "₹\(self.diamondDetails.details?.totalPrice ?? 0)"
            // print(self.cut, self.polish, self.symmetry, self.certificate, self.flouro, self.discount)
@@ -435,7 +435,7 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
                     
                 }
                 else{
-                    
+                    self.navigationManager(storybordName: "BillingAddress", storyboardID: "AddBillingAddress", controller: AddBillingAddress())
                 }
             }
             

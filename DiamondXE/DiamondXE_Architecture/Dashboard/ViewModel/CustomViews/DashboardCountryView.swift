@@ -40,6 +40,7 @@ class DashboardCountryView: UIView {
     func commonInit(){
         let viewFromXib = Bundle.main.loadNibNamed("DashboardCountryView", owner: self, options: nil)![0] as! UIView
         viewFromXib.frame = self.bounds
+        viewFromXib.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(viewFromXib)
         
         let tap1 = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))

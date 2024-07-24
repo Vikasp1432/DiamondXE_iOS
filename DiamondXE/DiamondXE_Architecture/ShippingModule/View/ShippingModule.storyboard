@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LATO.SEMIBOLD.TTF">
+            <string>Lato-Semibold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Shipping ModuleVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ShippingModuleVC" id="Y6W-OH-hqX" customClass="ShippingModuleVC" customModule="DiamondXE" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IQH-VP-i0P">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEH-cJ-diL">
+                                        <rect key="frame" x="0.0" y="70" width="393" height="80"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNE-fy-WlN">
+                                                <rect key="frame" x="41.666666666666657" y="29" width="180" height="2"/>
+                                                <color key="backgroundColor" name="TabSelectClr"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="kyy-hv-hJs"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjE-CC-dBY">
+                                                <rect key="frame" x="171.66666666666663" y="29" width="180" height="2"/>
+                                                <color key="backgroundColor" name="TabSelectClr"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="1U8-b2-wyi"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="RTF-bB-foJ">
+                                                <rect key="frame" x="41.666666666666657" y="5" width="310" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qj6-Hy-nTV" customClass="ShadowButton" customModule="DiamondXE" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <color key="backgroundColor" name="TabSelectClr"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="Dxi-B4-Rir"/>
+                                                            <constraint firstAttribute="width" constant="50" id="sCl-ST-7wm"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="whitClr"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="shipping"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="16"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="themeClr"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fo-Or-kQ2" customClass="ShadowButton" customModule="DiamondXE" customModuleProvider="target">
+                                                        <rect key="frame" x="130" y="0.0" width="50" height="50"/>
+                                                        <color key="backgroundColor" name="whitClr"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="iNn-ll-vbm"/>
+                                                            <constraint firstAttribute="height" constant="50" id="jb7-db-Kty"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="TabSelectClr"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="kyc"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="16"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="themeClr"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGX-0f-Xg8" customClass="ShadowButton" customModule="DiamondXE" customModuleProvider="target">
+                                                        <rect key="frame" x="260" y="0.0" width="50" height="50"/>
+                                                        <color key="backgroundColor" name="whitClr"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="60H-eg-UIb"/>
+                                                            <constraint firstAttribute="height" constant="50" id="siT-9I-Yuv"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="TabSelectClr"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="payment"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="16"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="themeClr"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFK-lx-K4x">
+                                                <rect key="frame" x="38.666666666666671" y="60.000000000000007" width="55.666666666666671" height="16.333333333333336"/>
+                                                <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                                <color key="textColor" name="TabSelectClr"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KYC Verification" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTS-Za-MgT">
+                                                <rect key="frame" x="146" y="60.000000000000007" width="101.33333333333331" height="16.333333333333336"/>
+                                                <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                                <color key="textColor" name="TabSelectClr"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="um6-Ah-YLQ">
+                                                <rect key="frame" x="299" y="60.000000000000007" width="55.333333333333314" height="16.333333333333336"/>
+                                                <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
+                                                <color key="textColor" name="TabSelectClr"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="viewBGClr"/>
+                                        <constraints>
+                                            <constraint firstItem="wTS-Za-MgT" firstAttribute="top" secondItem="RTF-bB-foJ" secondAttribute="bottom" constant="5" id="7N1-15-iZc"/>
+                                            <constraint firstItem="fNE-fy-WlN" firstAttribute="trailing" secondItem="6fo-Or-kQ2" secondAttribute="trailing" id="CN9-Lt-8ny"/>
+                                            <constraint firstItem="fNE-fy-WlN" firstAttribute="centerY" secondItem="Qj6-Hy-nTV" secondAttribute="centerY" id="EBq-Z0-Tbo"/>
+                                            <constraint firstAttribute="height" constant="80" id="Ggr-nW-tZJ"/>
+                                            <constraint firstItem="wTS-Za-MgT" firstAttribute="centerX" secondItem="6fo-Or-kQ2" secondAttribute="centerX" id="Goj-jp-QeE"/>
+                                            <constraint firstItem="um6-Ah-YLQ" firstAttribute="centerX" secondItem="tGX-0f-Xg8" secondAttribute="centerX" id="KiM-Cv-cCw"/>
+                                            <constraint firstItem="RTF-bB-foJ" firstAttribute="top" secondItem="HEH-cJ-diL" secondAttribute="top" constant="5" id="Lal-tg-g2d"/>
+                                            <constraint firstItem="cFK-lx-K4x" firstAttribute="top" secondItem="RTF-bB-foJ" secondAttribute="bottom" constant="5" id="LpP-ls-gHn"/>
+                                            <constraint firstItem="qjE-CC-dBY" firstAttribute="trailing" secondItem="tGX-0f-Xg8" secondAttribute="trailing" id="TWD-NL-uff"/>
+                                            <constraint firstItem="qjE-CC-dBY" firstAttribute="centerY" secondItem="6fo-Or-kQ2" secondAttribute="centerY" id="ayW-2R-z2U"/>
+                                            <constraint firstItem="fNE-fy-WlN" firstAttribute="leading" secondItem="Qj6-Hy-nTV" secondAttribute="leading" id="bqn-45-b5M"/>
+                                            <constraint firstItem="cFK-lx-K4x" firstAttribute="centerX" secondItem="Qj6-Hy-nTV" secondAttribute="centerX" id="fBe-Yc-wcD"/>
+                                            <constraint firstItem="RTF-bB-foJ" firstAttribute="centerX" secondItem="HEH-cJ-diL" secondAttribute="centerX" id="kgG-gt-0QC"/>
+                                            <constraint firstItem="qjE-CC-dBY" firstAttribute="leading" secondItem="6fo-Or-kQ2" secondAttribute="leading" id="uTP-D4-TLE"/>
+                                            <constraint firstItem="um6-Ah-YLQ" firstAttribute="top" secondItem="RTF-bB-foJ" secondAttribute="bottom" constant="5" id="uvh-L8-lX5"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Cjn-TW-2LC">
+                                        <rect key="frame" x="0.0" y="150" width="393" height="543"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Y6W-OH-hqX" id="ywj-Ud-MDw"/>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="tMP-cI-Y4Q"/>
+                                        </connections>
+                                    </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3T1-kk-Rov">
+                                        <rect key="frame" x="0.0" y="693" width="393" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFe-FQ-414">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1"/>
+                                                <color key="backgroundColor" name="borderClr"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="7N8-wU-XM7"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="hhG-qD-LOI">
+                                                <rect key="frame" x="0.0" y="1" width="393" height="99"/>
+                                                <subviews>
+                                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9l-mK-GsQ">
+                                                        <rect key="frame" x="111.00000000000001" y="19.666666666666629" width="171.33333333333337" height="40"/>
+                                                        <color key="backgroundColor" name="themeClr"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="BjK-hx-s8G"/>
+                                                            <constraint firstAttribute="width" constant="171.33000000000001" id="qmX-Vx-y9n"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="15"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Continue">
+                                                            <color key="titleColor" name="whitClr"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="TabSelectClr"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="f9l-mK-GsQ" firstAttribute="centerX" secondItem="hhG-qD-LOI" secondAttribute="centerX" id="a0w-6p-0fn"/>
+                                                    <constraint firstItem="f9l-mK-GsQ" firstAttribute="centerY" secondItem="hhG-qD-LOI" secondAttribute="centerY" constant="-9.8333333333333712" id="ipD-Kl-pfO"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="hhG-qD-LOI" firstAttribute="top" secondItem="cFe-FQ-414" secondAttribute="bottom" id="8ae-cQ-uuc"/>
+                                            <constraint firstAttribute="trailing" secondItem="cFe-FQ-414" secondAttribute="trailing" id="Cue-AC-zKR"/>
+                                            <constraint firstItem="hhG-qD-LOI" firstAttribute="leading" secondItem="3T1-kk-Rov" secondAttribute="leading" id="KkP-8u-vPR"/>
+                                            <constraint firstItem="cFe-FQ-414" firstAttribute="top" secondItem="3T1-kk-Rov" secondAttribute="top" id="KmA-1g-URr"/>
+                                            <constraint firstAttribute="height" constant="100" id="Vl0-6e-Edj"/>
+                                            <constraint firstAttribute="bottom" secondItem="hhG-qD-LOI" secondAttribute="bottom" id="g2g-7m-4dL"/>
+                                            <constraint firstAttribute="trailing" secondItem="hhG-qD-LOI" secondAttribute="trailing" id="myv-hH-jRA"/>
+                                            <constraint firstItem="cFe-FQ-414" firstAttribute="leading" secondItem="3T1-kk-Rov" secondAttribute="leading" id="xwH-fp-Rsd"/>
+                                        </constraints>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="48e-vh-eSr" customClass="HeaderDropShadow" customModule="DiamondXE" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCV-qQ-atG">
+                                                <rect key="frame" x="13" y="5" width="40" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="N8k-PX-zdH"/>
+                                                    <constraint firstAttribute="width" constant="40" id="m0K-wv-RT2"/>
+                                                </constraints>
+                                                <color key="tintColor" name="TabSelectClr"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="backButton"/>
+                                                <connections>
+                                                    <action selector="btnActionBack:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="A89-5e-KEI"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-Pp-7v5">
+                                                <rect key="frame" x="61" y="8" width="312" height="44"/>
+                                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="16"/>
+                                                <color key="textColor" name="gradient2"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="whitClr"/>
+                                        <constraints>
+                                            <constraint firstItem="LCV-qQ-atG" firstAttribute="leading" secondItem="48e-vh-eSr" secondAttribute="leading" constant="13" id="2F1-hY-hA1"/>
+                                            <constraint firstItem="YFG-Pp-7v5" firstAttribute="top" secondItem="48e-vh-eSr" secondAttribute="top" constant="8" id="3ez-en-3fl"/>
+                                            <constraint firstItem="LCV-qQ-atG" firstAttribute="centerY" secondItem="48e-vh-eSr" secondAttribute="centerY" id="7Ab-MG-Lu3"/>
+                                            <constraint firstItem="YFG-Pp-7v5" firstAttribute="leading" secondItem="LCV-qQ-atG" secondAttribute="trailing" constant="8" id="ZNb-yj-Hr0"/>
+                                            <constraint firstAttribute="trailing" secondItem="YFG-Pp-7v5" secondAttribute="trailing" constant="20" id="afU-yy-FVx"/>
+                                            <constraint firstAttribute="bottom" secondItem="YFG-Pp-7v5" secondAttribute="bottom" constant="8" id="hy7-JM-2Ed"/>
+                                            <constraint firstAttribute="height" constant="60" id="n2m-th-j3H"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="viewBGClr"/>
+                                <constraints>
+                                    <constraint firstItem="48e-vh-eSr" firstAttribute="top" secondItem="IQH-VP-i0P" secondAttribute="top" id="6G9-hS-KZC"/>
+                                    <constraint firstAttribute="bottom" secondItem="3T1-kk-Rov" secondAttribute="bottom" id="7Re-rO-9t4"/>
+                                    <constraint firstItem="HEH-cJ-diL" firstAttribute="leading" secondItem="IQH-VP-i0P" secondAttribute="leading" id="EH2-FZ-C3R"/>
+                                    <constraint firstItem="Cjn-TW-2LC" firstAttribute="leading" secondItem="IQH-VP-i0P" secondAttribute="leading" id="LSc-fk-qIc"/>
+                                    <constraint firstItem="Cjn-TW-2LC" firstAttribute="top" secondItem="HEH-cJ-diL" secondAttribute="bottom" id="QP9-E1-CLF"/>
+                                    <constraint firstItem="3T1-kk-Rov" firstAttribute="leading" secondItem="IQH-VP-i0P" secondAttribute="leading" id="SSo-sA-JZs"/>
+                                    <constraint firstAttribute="trailing" secondItem="3T1-kk-Rov" secondAttribute="trailing" id="Zuo-fQ-ISA"/>
+                                    <constraint firstItem="HEH-cJ-diL" firstAttribute="top" secondItem="48e-vh-eSr" secondAttribute="bottom" constant="10" id="d5t-8G-8mj"/>
+                                    <constraint firstAttribute="trailing" secondItem="48e-vh-eSr" secondAttribute="trailing" id="dJV-6U-SfP"/>
+                                    <constraint firstAttribute="trailing" secondItem="Cjn-TW-2LC" secondAttribute="trailing" id="sDi-S3-GQO"/>
+                                    <constraint firstItem="48e-vh-eSr" firstAttribute="leading" secondItem="IQH-VP-i0P" secondAttribute="leading" id="sUh-lf-Lp2"/>
+                                    <constraint firstAttribute="trailing" secondItem="HEH-cJ-diL" secondAttribute="trailing" id="tvX-hz-uYk"/>
+                                    <constraint firstItem="3T1-kk-Rov" firstAttribute="top" secondItem="Cjn-TW-2LC" secondAttribute="bottom" id="vI7-nA-ndZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="themeClr"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="IQH-VP-i0P" secondAttribute="trailing" id="PWZ-Q4-T7K"/>
+                            <constraint firstItem="IQH-VP-i0P" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="R9r-Wm-cbe"/>
+                            <constraint firstItem="IQH-VP-i0P" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="WpK-UT-wqj"/>
+                            <constraint firstAttribute="bottom" secondItem="IQH-VP-i0P" secondAttribute="bottom" id="f8B-rR-kDl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnKYC" destination="6fo-Or-kQ2" id="kVb-OR-WVL"/>
+                        <outlet property="btnPayment" destination="tGX-0f-Xg8" id="3G4-VX-Ly7"/>
+                        <outlet property="btnShipping" destination="Qj6-Hy-nTV" id="ocT-gI-GYi"/>
+                        <outlet property="shippingTableView" destination="Cjn-TW-2LC" id="HpN-9X-HXr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="38.931297709923662" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backButton" width="10.079999923706055" height="18.870000839233398"/>
+        <image name="kyc" width="16.799999237060547" height="14.789999961853027"/>
+        <image name="payment" width="13.920000076293945" height="13.920000076293945"/>
+        <image name="shipping" width="20.659999847412109" height="11.180000305175781"/>
+        <namedColor name="TabSelectClr">
+            <color red="0.49399998784065247" green="0.18799999356269836" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="borderClr">
+            <color red="0.83099997043609619" green="0.83099997043609619" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gradient2">
+            <color red="0.45100000500679016" green="0.20800000429153442" blue="0.48600000143051147" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="themeClr">
+            <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="viewBGClr">
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="whitClr">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

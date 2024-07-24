@@ -31,6 +31,22 @@ struct ResultStruct: Codable {
     var msg: String?
 }
 
+
+
+struct SectionsAccount {
+    var mainCellTitle: String
+    var expandableCellOptions: [String]
+    var mainCellOptionsIcons: [UIImage]
+    var expandableCellOptionsIcons: [UIImage]
+    var isExpandableCellsHidden: Bool
+    var isExpanded: Bool
+}
+
+
+
+
+
+
 class BaseViewController: UIViewController, UITextFieldDelegate {
     
      let viewControllerIdentifiers = ["HomeVC", "CategoriesVC", "AddToWishListVC", "AddToCartVC", "DashboardLoginVC", "SearchDiamondVC", "B2BSearchResultVC", "DiamondDetailsVC"]
@@ -55,6 +71,21 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
         Sections(mainCellTitle: nv_rateUS, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true,isExpanded: true),
         
         Sections(mainCellTitle: nv_logout, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true,isExpanded: true),
+    ]
+    
+    
+    var sectionsAccountProfile: [SectionsAccount] = [
+        SectionsAccount(mainCellTitle: account_, expandableCellOptions: [account_profile,account_address,account_kycV,account_password], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: account_Profileicons, isExpandableCellsHidden: true, isExpanded: true),
+        SectionsAccount(mainCellTitle: account_order, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+        SectionsAccount(mainCellTitle: account_wallet, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+        SectionsAccount(mainCellTitle: account_auction, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+        SectionsAccount(mainCellTitle: account_markup, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+        SectionsAccount(mainCellTitle: account_refer, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+        SectionsAccount(mainCellTitle: account_program, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+        SectionsAccount(mainCellTitle: account_payment, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+        SectionsAccount(mainCellTitle: account_solution, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+        SectionsAccount(mainCellTitle: account_delete, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true)
+    
     ]
     
     

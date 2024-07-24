@@ -61,10 +61,17 @@ struct APIs {
     let get_Wishlist_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-wishlist-details"
 //
     let get_Logout_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/logout"
+    
+    let get_RefreshToken_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/refresh-token"
 }
 
 struct HeaderInfo {
+    
+    static let loginData = UserDefaultManager().retrieveLoginData()
+    static var brrTokn = loginData?.details?.authToken ?? ""
+    
     let headers : HTTPHeaders =  ["Content-Type":"application/json",
+                                  "Authorization" : "Bearer \(brrTokn)",//
                                   "Apikey" : APIs().api_Key]
 }
 
@@ -83,24 +90,24 @@ struct HeaderInfoLocation {
       var headers: HTTPHeaders {
           
           
-//          if let loginData = UserDefaultManager().retrieveLoginData(){
-//             var brrTokn = loginData.details?.authToken ?? ""
-//              let locationCode = timeZoneInfo.countryCode ?? "US"
-//              return [
-//                  "Content-Type": "application/json",
-//                  "location": locationCode,
-//                  "Apikey": APIs().api_Key,
-//                  "Authorization" : "Bearer \(brrTokn)"
-//              ]
-//          }
-//          else{
+          if let loginData = UserDefaultManager().retrieveLoginData(){
+              let brrTokn = loginData.details?.authToken ?? ""
+              let locationCode = timeZoneInfo.countryCode ?? "US"
+              return [
+                  "Content-Type": "application/json",
+                  "location": locationCode,
+                  "Apikey": APIs().api_Key,
+                  "Authorization" : "Bearer \(brrTokn)"//
+              ]
+          }
+          else{
               let locationCode = timeZoneInfo.countryCode ?? "US"
               return [
                   "Content-Type": "application/json",
                   "location": locationCode,
                   "Apikey": APIs().api_Key
               ]
-//          }
+          }
           
          
       }

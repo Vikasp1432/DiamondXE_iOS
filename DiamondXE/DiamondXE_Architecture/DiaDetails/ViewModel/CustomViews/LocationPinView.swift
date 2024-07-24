@@ -7,7 +7,9 @@
 
 import UIKit
 import CoreLocation
+import UIView_Shimmer
 
+extension UITextField: ShimmeringViewProtocol { }
 
 class LocationPinView: BaseViewController, CLLocationManagerDelegate {
 
@@ -29,6 +31,10 @@ class LocationPinView: BaseViewController, CLLocationManagerDelegate {
     @IBOutlet var btnSubmit : UIButton!
     @IBOutlet var txtPincode : UITextField!
     let locationManager = CLLocationManager()
+    
+    var excludedItems: Set<UIView> {
+        [txtPincode]
+    }
     
 
     var pincodeDelagate : PinCodeDelegate?
@@ -73,9 +79,12 @@ class LocationPinView: BaseViewController, CLLocationManagerDelegate {
     @IBAction func locatemeButtonAction(_ sender: UIButton) {
         // Check the authorization status before requesting location
                if CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways {
+                   txtPincode.setTemplateWithSubviews(true, animate: true)
+
                    if CLLocationManager.locationServicesEnabled() {
                        locationManager.requestLocation()
                    } else {
+                       txtPincode.setTemplateWithSubviews(true, animate: false)
                        showLocationServicesDisabledAlert()
                    }
                } else {
@@ -90,6 +99,7 @@ class LocationPinView: BaseViewController, CLLocationManagerDelegate {
                if manager.authorizationStatus == .authorizedWhenInUse || manager.authorizationStatus == .authorizedAlways {
                    locationManager.requestLocation()
                } else {
+                   txtPincode.setTemplateWithSubviews(true, animate: false)
                    showLocationServicesDisabledAlert()
                }
            } else {
@@ -125,8 +135,9 @@ class LocationPinView: BaseViewController, CLLocationManagerDelegate {
 
                if let placemark = placemarks?.first {
                    DispatchQueue.main.async {
-                       if let postalCode = placemark.postalCode {
-                           self?.txtPincode.text = postalCode
+                       if let postalCode = placemark.postalCode, let city = placemark.locality {
+                           self?.txtPincode.setTemplateWithSubviews(false, animate: false)
+                           self?.txtPincode.text = "\(postalCode), \(city)"
                            print("Postal Code: \(postalCode)")
                        } else {
                            // Handle missing postal code
@@ -134,6 +145,7 @@ class LocationPinView: BaseViewController, CLLocationManagerDelegate {
                        }
                    }
                }
+               self?.txtPincode.setTemplateWithSubviews(false, animate: true)
            }
        }
 

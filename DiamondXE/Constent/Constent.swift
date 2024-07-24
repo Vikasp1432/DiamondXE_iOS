@@ -48,6 +48,22 @@ struct TVCellIdentifire {
 }
 
 
+// my account
+var account_ = "My Account"
+var account_order = "My Order"
+var account_wallet = "Wallet"
+var account_auction = "Auction"
+var account_markup = "Dealer Markup"
+var account_refer = "Refre a Friend"
+var account_program = "loyalty Program"
+var account_payment = "Custom Payment"
+var account_solution = "API Solution"
+var account_delete = "Delete Account"
+var account_profile = "Profile"
+var account_address = "Address"
+var account_kycV = "KYC Verification"
+var account_password = "Change Password"
+
 
 // Other Strings
 var nv_home = "Home"
@@ -94,6 +110,12 @@ var nv_moreICN = [UIImage(named: "About us")!,UIImage(named: "Why Us")!,UIImage(
 var nv_contactICN = [UIImage(named: "Email")!,UIImage(named: "Contact Us")!]
 
 var nv_mainICN = [UIImage(named: "Home")!,UIImage(named: "Search Diamonds")!,UIImage(named: "Create Demand")!,UIImage(named: "jewellery")!,UIImage(named: "DXE LUXE")!,UIImage(named: "Diamond Education")!,UIImage(named: "Explore Now")!,UIImage(named: "Price Calculator")!,UIImage(named: "More")!,UIImage(named: "Support")!,UIImage(named: "Rate us")!,UIImage(named: "logout")!]
+
+
+
+var account_icons = [UIImage(named: "myAccount")!,UIImage(named: "myOrder")!,UIImage(named: "wallet")!,UIImage(named: "acution")!,UIImage(named: "dealerMarkup")!,UIImage(named: "referAFriend")!,UIImage(named: "loyaltyProgram")!,UIImage(named: "customPayment")!,UIImage(named: "apiSolutions")!,UIImage(named: "delteAccount")!]
+
+var account_Profileicons = [UIImage(named: "profile")!,UIImage(named: "address")!,UIImage(named: "kvcVerification")!,UIImage(named: "Change Password")!]
 
 var nv_mainTitle = [ nv_home,
                      nv_searchDiamond,

@@ -72,13 +72,13 @@
                                                 <rect key="frame" x="10" y="10" width="383" height="280"/>
                                                 <subviews>
                                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5Gi-Pj-eQF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="383" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="383" height="48.333333333333336"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jh-iH-9Sb" userLabel="MobileView">
-                                                                <rect key="frame" x="0.0" y="0.0" width="186.66666666666666" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="186.66666666666666" height="48.333333333333336"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g7q-yq-ptF" customClass="DTTextField" customModule="DTTextField">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="186.66666666666666" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="186.66666666666666" height="48.333333333333336"/>
                                                                         <color key="textColor" name="themeClr"/>
                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -98,10 +98,10 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sal-JD-8qL" userLabel="OTPView">
-                                                                <rect key="frame" x="196.66666666666663" y="0.0" width="186.33333333333337" height="50"/>
+                                                                <rect key="frame" x="196.66666666666663" y="0.0" width="186.33333333333337" height="48.333333333333336"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eHf-IN-DbE" customClass="DTTextField" customModule="DTTextField">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="186.33333333333334" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="186.33333333333334" height="48.333333333333336"/>
                                                                         <color key="textColor" name="themeClr"/>
                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -123,19 +123,19 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWP-Ym-FMy" userLabel="MobileView">
-                                                        <rect key="frame" x="0.0" y="60" width="383" height="49.666666666666657"/>
+                                                        <rect key="frame" x="0.0" y="58.333333333333343" width="383" height="48.333333333333343"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEe-CR-Qik" customClass="DTTextField" customModule="DTTextField">
-                                                                <rect key="frame" x="0.0" y="0.0" width="383" height="49.666666666666664"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="383" height="48.333333333333336"/>
                                                                 <color key="textColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1V-uX-WJ8">
-                                                                <rect key="frame" x="10" y="10.000000000000002" width="92" height="29.666666666666671"/>
+                                                                <rect key="frame" x="10" y="9.9999999999999982" width="92" height="28.333333333333329"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20K-ff-waD">
-                                                                        <rect key="frame" x="0.0" y="4" width="22" height="22"/>
+                                                                        <rect key="frame" x="0.0" y="3" width="22" height="22"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="22" id="4yf-CO-GH5"/>
                                                                             <constraint firstAttribute="width" constant="22" id="Kfg-8r-RTX"/>
@@ -147,7 +147,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFo-Vy-PhA">
-                                                                        <rect key="frame" x="27" y="-2" width="35" height="34"/>
+                                                                        <rect key="frame" x="27" y="-3" width="35" height="34"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal" title="+ 91">
                                                                             <color key="titleColor" name="themeClr"/>
@@ -157,7 +157,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1U-Up-WzK">
-                                                                        <rect key="frame" x="67" y="0.0" width="15" height="29.666666666666668"/>
+                                                                        <rect key="frame" x="67" y="0.0" width="15" height="28.333333333333332"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="15" id="aSO-8Q-Qck"/>
                                                                         </constraints>
@@ -168,7 +168,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqQ-JK-awi">
-                                                                        <rect key="frame" x="91" y="3" width="1" height="23.666666666666668"/>
+                                                                        <rect key="frame" x="91" y="3" width="1" height="22.333333333333332"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.2034704507" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="1" id="fI8-3L-7Fv"/>
@@ -211,16 +211,16 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1e-Bf-egV" userLabel="email">
-                                                        <rect key="frame" x="0.0" y="119.66666666666666" width="383" height="50"/>
+                                                        <rect key="frame" x="0.0" y="116.66666666666666" width="383" height="48"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iwe-2p-0np" customClass="DTTextField" customModule="DTTextField">
-                                                                <rect key="frame" x="0.0" y="0.0" width="383" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="383" height="48"/>
                                                                 <color key="textColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="7UM-02-3MK">
-                                                                <rect key="frame" x="313" y="12.666666666666686" width="60" height="25"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="7UM-02-3MK">
+                                                                <rect key="frame" x="313" y="11.666666666666686" width="60" height="25"/>
                                                                 <subviews>
                                                                     <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jkM-Xb-zHC">
                                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="25"/>
@@ -282,10 +282,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tC8-L5-Eo4" userLabel="MobileView">
-                                                        <rect key="frame" x="0.0" y="179.66666666666666" width="383" height="49.666666666666657"/>
+                                                        <rect key="frame" x="0.0" y="174.66666666666666" width="383" height="48.333333333333343"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Set password*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XPO-qJ-Lof" customClass="DTTextField" customModule="DTTextField">
-                                                                <rect key="frame" x="0.0" y="0.0" width="383" height="49.666666666666664"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="383" height="48.333333333333336"/>
                                                                 <color key="backgroundColor" name="whitClr"/>
                                                                 <color key="textColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -306,10 +306,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSx-sz-A7T" userLabel="OTPView">
-                                                        <rect key="frame" x="0.0" y="239.33333333333331" width="383" height="49"/>
+                                                        <rect key="frame" x="0.0" y="233.00000000000003" width="383" height="48.333333333333343"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm password*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eix-ug-0xp" customClass="DTTextField" customModule="DTTextField">
-                                                                <rect key="frame" x="0.0" y="0.0" width="383" height="49"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="383" height="48.333333333333336"/>
                                                                 <color key="textColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -406,22 +406,22 @@
     </objects>
     <designables>
         <designable name="XPO-qJ-Lof">
-            <size key="intrinsicContentSize" width="91" height="18"/>
+            <size key="intrinsicContentSize" width="107" height="43"/>
         </designable>
         <designable name="eHf-IN-DbE">
-            <size key="intrinsicContentSize" width="72.666666666666671" height="18"/>
+            <size key="intrinsicContentSize" width="88.666666666666671" height="43"/>
         </designable>
         <designable name="eix-ug-0xp">
-            <size key="intrinsicContentSize" width="120" height="18"/>
+            <size key="intrinsicContentSize" width="136" height="43"/>
         </designable>
         <designable name="g7q-yq-ptF">
-            <size key="intrinsicContentSize" width="73.333333333333329" height="18"/>
+            <size key="intrinsicContentSize" width="89.333333333333329" height="43"/>
         </designable>
         <designable name="iwe-2p-0np">
-            <size key="intrinsicContentSize" width="106.33333333333333" height="18"/>
+            <size key="intrinsicContentSize" width="122.33333333333333" height="43"/>
         </designable>
         <designable name="wEe-CR-Qik">
-            <size key="intrinsicContentSize" width="101.66666666666667" height="18"/>
+            <size key="intrinsicContentSize" width="117.66666666666667" height="43"/>
         </designable>
     </designables>
     <resources>
@@ -439,7 +439,7 @@
             <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="viewBGClr">
-            <color red="0.96100002527236938" green="0.95300000905990601" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,8 +16,34 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPG-DG-Zar">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" translatesAutoresizingMaskIntoConstraints="NO" id="GAP-rw-27i">
+                                        <rect key="frame" x="252" y="0.0" width="141" height="72"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Coming Soon" translatesAutoresizingMaskIntoConstraints="NO" id="eRQ-Me-0lQ">
+                                        <rect key="frame" x="133.66666666666666" y="322" width="125.99999999999997" height="115"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="viewBGClr"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GAP-rw-27i" secondAttribute="trailing" id="2Qp-8s-hxP"/>
+                                    <constraint firstItem="eRQ-Me-0lQ" firstAttribute="centerX" secondItem="IPG-DG-Zar" secondAttribute="centerX" id="cFq-cu-nel"/>
+                                    <constraint firstItem="GAP-rw-27i" firstAttribute="top" secondItem="IPG-DG-Zar" secondAttribute="top" id="h1g-W6-1h9"/>
+                                    <constraint firstItem="eRQ-Me-0lQ" firstAttribute="centerY" secondItem="IPG-DG-Zar" secondAttribute="centerY" id="k3j-7Y-VHC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                        <color key="backgroundColor" name="themeClr"/>
+                        <constraints>
+                            <constraint firstItem="IPG-DG-Zar" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Tnn-wb-7af"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="IPG-DG-Zar" secondAttribute="trailing" id="c00-TV-BTt"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="IPG-DG-Zar" secondAttribute="bottom" id="mlS-4V-Knl"/>
+                            <constraint firstItem="IPG-DG-Zar" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="n1S-M3-kc3"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -26,8 +52,13 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="Coming Soon" width="126.83999633789062" height="115.05999755859375"/>
+        <image name="flower" width="141.05999755859375" height="72.410003662109375"/>
+        <namedColor name="themeClr">
+            <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="viewBGClr">
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

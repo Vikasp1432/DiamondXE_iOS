@@ -72,5 +72,28 @@ class HomeDataModel {
             }
         })
     }
+    
+    
+    func refreshToken(completion: @escaping (RefreshBearerToken, String?) -> Void) {
+        var refreshResult = RefreshBearerToken()
+       
+        let url = APIs().get_RefreshToken_API
+        
+        AlamofireManager().makeGETAPIRequest(url: url, completion: { result in
+            switch result {
+            case .success(let data):
+                // Handle the response data
+                do {
+                    refreshResult = try JsonParsingManagar.parse(jsonData: data!, type: RefreshBearerToken.self)
+                    completion(refreshResult, refreshResult.msg)
+                } catch {
+                    completion(refreshResult, refreshResult.msg)
+                }
+            case .failure(let error):
+                // Handle the error
+                completion(refreshResult, error.localizedDescription)
+            }
+        })
+    }
 }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddShippingAddressVC: UIViewController {
+class AddShippingAddressVC: BaseViewController {
     
     @IBOutlet var btnHomeTime:UIButton!
     @IBOutlet var btnOfficeTime:UIButton!
@@ -44,5 +44,10 @@ class AddShippingAddressVC: UIViewController {
             
         }
     }
+    
+    @IBAction func btnActionApply(_ sender: UIButton){
+        self.navigationManager(storybordName: "ShippingModule", storyboardID: "ShippingModuleVC", controller: ShippingModuleVC())
+    }
+    
     
 }
