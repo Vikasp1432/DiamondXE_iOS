@@ -1,0 +1,309 @@
+//
+//  KYCDOCResubmittedVC.swift
+//  DiamondXE
+//
+//  Created by iOS Developer on 30/07/24.
+//
+
+import UIKit
+import DTTextField
+
+class KYCDOCResubmittedVC: BaseViewController {
+    
+    @IBOutlet var viewGSTBG : UIView!
+    @IBOutlet var viewComPANBG : UIView!
+    @IBOutlet var viewIECBG : UIView!
+    @IBOutlet var viewAadharBG : UIView!
+    @IBOutlet var viewPANBG : UIView!
+    @IBOutlet var viewPassportBG : UIView!
+    @IBOutlet var viewDrivingLicenceBG : UIView!
+    
+    @IBOutlet var dataView : UIView!
+    
+    @IBOutlet var txtGSTNum:DTTextField!
+    @IBOutlet var txtIECNum:DTTextField!
+    @IBOutlet var txtAadharNum:DTTextField!
+    @IBOutlet var txPANNum:DTTextField!
+    @IBOutlet var txPassportNum:DTTextField!
+    @IBOutlet var txtDateOFBirth:DTTextField!
+    @IBOutlet var txtDrivingLicenceNum:DTTextField!
+    
+    @IBOutlet var txtComPAN:DTTextField!
+    
+    @IBOutlet var btnVerifyGST:UIButton!
+    @IBOutlet var btnGSTDoc:UIButton!
+    @IBOutlet var btnGSTDocSelected:UIButton!
+    @IBOutlet var btnComPAN:UIButton!
+    @IBOutlet var btnIECDoc:UIButton!
+    @IBOutlet var btnIECDocSelected:UIButton!
+    @IBOutlet var btnComPANDOC:UIButton!
+    @IBOutlet var btnComPANDOCSelected:UIButton!
+    
+    @IBOutlet var btnVerifyDrivingLicn:UIButton!
+    @IBOutlet var btnDrivingLicnDoc:UIButton!
+    @IBOutlet var btnDrivingLicnDocSelected:UIButton!
+    
+    @IBOutlet var btnVerifyPAN:UIButton!
+    @IBOutlet var btnPANDoc:UIButton!
+    @IBOutlet var btnPANDocSelected:UIButton!
+    
+    @IBOutlet var btnVerifyAadhar:UIButton!
+    @IBOutlet var btnAadharDocFront:UIButton!
+    @IBOutlet var btnAadharDocFrontSelected:UIButton!
+    @IBOutlet var btnAadharDocBack:UIButton!
+    @IBOutlet var btnAadharDocBackSelected:UIButton!
+    
+    @IBOutlet var btnVerifyPassport:UIButton!
+    @IBOutlet var btnPassportDocFront:UIButton!
+    @IBOutlet var btnPassportDocFrontSelected:UIButton!
+    @IBOutlet var btnPassportDocBack:UIButton!
+    @IBOutlet var btnPassportDocBackSelected:UIButton!
+   
+    
+    var docGST = String()
+    var docIEC = String()
+    var docAAdhaarFront = String()
+    var docAAdhaarBack = String()
+    var docPAN = String()
+    var docPassportFront = String()
+    var docPassportBack = String()
+    var docDrivingLicence = String()
+    var docComPAN = String()
+    
+    var isDocGST = false
+    var isDocIEC = false
+    var isDocAAdhaarFront = false
+    var isDocAAdhaarBack = false
+    var isDocPAN = false
+    var isDocPassportFront = false
+    var isDocPassportBack = false
+    var isDocDrivingLicence = false
+    var isDocComapnyPAN = false
+    var isDocCompanyGST = false
+    
+    var dateString = String()
+    
+   
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        dataView.layer.shadowColor = UIColor.shadowViewclr.cgColor
+        dataView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        dataView.layer.shadowRadius = 2.0
+        dataView.layer.shadowOpacity = 0.3
+        dataView.layer.masksToBounds = false
+
+         txtGSTNum.delegate = self
+         txtIECNum.delegate = self
+         txtAadharNum.delegate = self
+         txPANNum.delegate = self
+         txPassportNum.delegate = self
+         txtDateOFBirth.delegate = self
+         txtDrivingLicenceNum.delegate = self
+        
+        //
+        self.btnGSTDoc.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        self.btnVerifyGST.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        self.btnComPANDOC.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        self.btnComPAN.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        self.btnIECDoc.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        
+        self.btnAadharDocBack.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        self.btnAadharDocFront.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        self.btnVerifyAadhar.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        self.btnPANDoc.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        self.btnVerifyPAN.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        
+        self.btnVerifyPassport.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        self.btnPassportDocBack.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        self.btnPassportDocFront.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        self.btnDrivingLicnDoc.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        self.btnVerifyDrivingLicn.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        
+        
+        txtDateOFBirth.addInputViewDatePicker(target: self, selector: #selector(doneButtonPressed))
+        
+        
+        setupViews()
+        
+    }
+    
+    @objc func doneButtonPressed() {
+        if let  datePicker = self.txtDateOFBirth.inputView as? UIDatePicker {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            self.txtDateOFBirth.text = dateFormatter.string(from: datePicker.date)
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            self.dateString = dateFormatter.string(from: datePicker.date)
+        }
+        self.txtDateOFBirth.resignFirstResponder()
+     
+    }
+    
+   
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let dtTextField = textField as? DTTextField {
+            dtTextField.borderColor = UIColor.tabSelectClr
+        }
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+           // Change border color or perform any other actions
+           if let customTextField = textField as? DTTextField {
+               customTextField.borderColor = UIColor.tabSelectClr
+           }
+       }
+       
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let customTextField = textField as? DTTextField {
+            customTextField.borderColor = UIColor.borderClr
+        }
+    }
+    
+    
+    func setupViews(){
+     
+        
+        if isDocGST{
+            viewGSTBG.isHidden = true
+        }
+        else{
+            viewGSTBG.isHidden = false
+        }
+        
+        if isDocIEC{
+            viewIECBG.isHidden = true
+        }
+        else{
+            viewIECBG.isHidden = false
+        }
+        
+        if isDocAAdhaarFront && isDocAAdhaarBack{
+            viewAadharBG.isHidden = true
+        }
+        else{
+            viewAadharBG.isHidden = false
+        }
+        
+        if isDocPAN{
+            viewPANBG.isHidden = true
+        }
+        else{
+            viewPANBG.isHidden = false
+        }
+        
+        if isDocPassportFront && isDocPassportBack{
+            viewPassportBG.isHidden = true
+        }
+        else{
+            viewPassportBG.isHidden = false
+        }
+        
+        if isDocDrivingLicence{
+            viewDrivingLicenceBG.isHidden = true
+        }
+        else{
+            viewDrivingLicenceBG.isHidden = false
+        }
+        
+        if isDocComapnyPAN{
+            viewComPANBG.isHidden = true
+        }
+        else{
+            viewComPANBG.isHidden = false
+        }
+        
+        
+        
+    }
+    
+    
+    
+    
+    @IBAction func btnActionBack(_ sender: UIButton){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    @IBAction func btnActionDone(_ sender: UIButton){
+        
+    }
+    
+    @IBAction func btnActionVerify(_ sender: UIButton){
+        switch sender.tag {
+        case 11:
+            txtDateOFBirth.becomeFirstResponder()
+        default:
+            print(sender.tag)
+        }
+    }
+
+    @IBAction func btnActionBrows(_ sender: UIButton){
+        switch sender.tag {
+        case 0:
+            ImagePickerManager().pickImage(self){ image in
+                self.docGST = image
+                self.btnGSTDoc.isHidden = true
+                self.btnGSTDocSelected.isHidden = false
+            }
+        case 1:
+            ImagePickerManager().pickImage(self){ image in
+                self.docComPAN = image
+                self.btnComPANDOC.isHidden = true
+                self.btnComPANDOCSelected.isHidden = false
+            }
+        case 2:
+            ImagePickerManager().pickImage(self){ image in
+                self.docIEC = image
+                self.btnIECDoc.isHidden = true
+                self.btnIECDocSelected.isHidden = false
+            }
+       
+        case 3:
+            ImagePickerManager().pickImage(self){ image in
+                self.docAAdhaarFront = image
+                self.btnAadharDocFront.isHidden = true
+                self.btnAadharDocFrontSelected.isHidden = false
+            }
+        case 4:
+            ImagePickerManager().pickImage(self){ image in
+                self.docAAdhaarBack = image
+                self.btnAadharDocBack.isHidden = true
+                self.btnAadharDocBackSelected.isHidden = false
+            }
+        case 5:
+            ImagePickerManager().pickImage(self){ image in
+                self.docPAN = image
+                self.btnPANDoc.isHidden = true
+                self.btnPANDocSelected.isHidden = false
+            }
+        case 6:
+            ImagePickerManager().pickImage(self){ image in
+                self.docPassportFront = image
+                self.btnPassportDocFront.isHidden = true
+                self.btnPassportDocFrontSelected.isHidden = false
+            }
+        case 7:
+            ImagePickerManager().pickImage(self){ image in
+                self.docPassportBack = image
+                self.btnPassportDocBack.isHidden = true
+                self.btnPassportDocBackSelected.isHidden = false
+            }
+        case 8:
+            ImagePickerManager().pickImage(self){ image in
+                self.docDrivingLicence = image
+                self.btnDrivingLicnDoc.isHidden = true
+                self.btnDrivingLicnDocSelected.isHidden = false
+            }
+        default:
+            print(sender.tag)
+        }
+       
+    }
+   
+
+}

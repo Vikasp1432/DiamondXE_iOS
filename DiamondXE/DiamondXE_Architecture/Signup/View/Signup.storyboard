@@ -68,10 +68,10 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="55"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Suw-VN-CeW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="112.33333333333333" height="55"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="55"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQe-99-je8">
-                                                                <rect key="frame" x="8" y="8" width="96.333333333333329" height="39"/>
+                                                                <rect key="frame" x="8" y="8" width="156.66666666666666" height="39"/>
                                                                 <color key="backgroundColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -99,10 +99,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dp4-mF-zD7">
-                                                        <rect key="frame" x="120.33333333333334" y="0.0" width="112.33333333333334" height="55"/>
+                                                        <rect key="frame" x="180.66666666666663" y="0.0" width="172.33333333333337" height="55"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8UD-40-bzt">
-                                                                <rect key="frame" x="8" y="8" width="96.333333333333329" height="39"/>
+                                                                <rect key="frame" x="8" y="8" width="156.33333333333334" height="39"/>
                                                                 <color key="backgroundColor" name="whitClr"/>
                                                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -129,11 +129,11 @@
                                                             <constraint firstItem="8UD-40-bzt" firstAttribute="top" secondItem="dp4-mF-zD7" secondAttribute="top" constant="8" id="k02-VI-i1p"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sep-MP-Euj">
-                                                        <rect key="frame" x="240.66666666666671" y="0.0" width="112.33333333333334" height="55"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sep-MP-Euj">
+                                                        <rect key="frame" x="353" y="0.0" width="16" height="55"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiH-qr-SBs">
-                                                                <rect key="frame" x="8" y="8" width="96.333333333333329" height="39"/>
+                                                                <rect key="frame" x="8" y="8" width="0.0" height="39"/>
                                                                 <color key="backgroundColor" name="whitClr"/>
                                                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -446,7 +446,7 @@ and buy any diamonds.</string>
             <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="viewBGClr">
-            <color red="0.96100002527236938" green="0.95300000905990601" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

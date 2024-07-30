@@ -95,5 +95,73 @@ class HomeDataModel {
             }
         })
     }
+    
+    
+    func getAddresses(url : String, completion: @escaping (GetAddressStruct, String?) -> Void) {
+        var addressResponce = GetAddressStruct()
+        
+        AlamofireManager().makeGETAPIRequest(url: url,  completion: { result in
+            switch result {
+            case .success(let data):
+                // Handle the response data
+                do {
+                    addressResponce = try JsonParsingManagar.parse(jsonData: data!, type: GetAddressStruct.self)
+                    completion(addressResponce, addressResponce.msg)
+                } catch {
+                    completion(addressResponce, addressResponce.msg)
+                }
+            case .failure(let error):
+                // Handle the error
+                completion(addressResponce, error.localizedDescription)
+            }
+        })
+    }
+    
+    func deleteAddress(url : String, requestParam: [String:Any],completion: @escaping (LogoutDataStruct, String?) -> Void) {
+        var deleteAddResult = LogoutDataStruct()
+        let deviceID = BaseViewController().getSessionUniqID()
+       // let requestParam = ["addressId" : deviceID]
+        //let url = APIs().get_Logout_API
+        
+        AlamofireManager().makePostAPIRequest(url: url, param: requestParam, completion: { result in
+            switch result {
+            case .success(let data):
+                // Handle the response data
+                do {
+                    deleteAddResult = try JsonParsingManagar.parse(jsonData: data!, type: LogoutDataStruct.self)
+                    completion(deleteAddResult, deleteAddResult.msg)
+                } catch {
+                    completion(deleteAddResult, deleteAddResult.msg)
+                }
+            case .failure(let error):
+                // Handle the error
+                completion(deleteAddResult, error.localizedDescription)
+            }
+        })
+    }
+    
+    
+    func changePasswordAPI(url : String, requestParam: [String:Any], completion: @escaping (LogoutDataStruct, String?) -> Void) {
+        var respoce = LogoutDataStruct()
+        AlamofireManager().makePostAPIRequest(url: url, param: requestParam, completion: { result in
+            switch result {
+            case .success(let data):
+                // Handle the response data
+                do {
+                    respoce = try JsonParsingManagar.parse(jsonData: data!, type: LogoutDataStruct.self)
+                    completion(respoce, respoce.msg)
+                } catch {
+                    completion(respoce, respoce.msg)
+                }
+            case .failure(let error):
+                // Handle the error
+                completion(respoce, error.localizedDescription)
+            }
+        })
+    }
+    
+    
+    
+    
 }
     

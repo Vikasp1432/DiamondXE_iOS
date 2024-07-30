@@ -93,6 +93,9 @@ transport pricing for the industry.</string>
                                                         <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnActionSpotlight:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="M6E-2a-cOA"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9p-oA-P4p" userLabel="DiamondXE offers solutions on transport pricing for the industry.">
                                                 <rect key="frame" x="50" y="235" width="190" height="2"/>
@@ -138,7 +141,7 @@ Trade with transparency &amp; Trust.</string>
                                                 <color key="textColor" name="blackClr"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B5f-2B-UIR">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B5f-2B-UIR">
                                                 <rect key="frame" x="80" y="170" width="130" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="130" id="8cI-4e-QkY"/>
@@ -175,6 +178,9 @@ Trade with transparency &amp; Trust.</string>
                                                         <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnActionSpotlight:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vJm-6Q-su2"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1e-jW-5vu" userLabel="DiamondXE offers solutions on transport pricing for the industry.">
                                                 <rect key="frame" x="50" y="235" width="190" height="2"/>
@@ -218,7 +224,7 @@ Trade with transparency &amp; Trust.</string>
                                                 <color key="textColor" name="blackClr"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ze-op-RuE">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ze-op-RuE">
                                                 <rect key="frame" x="80" y="170" width="130" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Gpa-eS-VAH"/>
@@ -255,6 +261,9 @@ Trade with transparency &amp; Trust.</string>
                                                         <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnActionSpotlight:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5f6-3J-Qlb"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0An-rU-OvR" userLabel="DiamondXE offers solutions on transport pricing for the industry.">
                                                 <rect key="frame" x="50" y="235" width="190" height="2"/>
@@ -284,7 +293,7 @@ Trade with transparency &amp; Trust.</string>
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czq-el-Q1z">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czq-el-Q1z">
                                 <rect key="frame" x="100" y="840" width="120" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="dtc-xR-CoP"/>
@@ -302,6 +311,9 @@ Trade with transparency &amp; Trust.</string>
                                     </attributedString>
                                     <color key="baseForegroundColor" red="0.92941176470588238" green="0.023529411764705882" blue="0.023529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnActionSpotlight:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="txM-5F-XwJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="whitClr"/>
@@ -352,7 +364,7 @@ Trade with transparency &amp; Trust.</string>
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="viewBGClr">
-            <color red="0.96100002527236938" green="0.95300000905990601" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

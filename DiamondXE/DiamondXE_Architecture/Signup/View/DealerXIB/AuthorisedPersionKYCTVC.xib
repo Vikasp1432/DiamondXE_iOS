@@ -518,19 +518,19 @@
     </objects>
     <designables>
         <designable name="K6u-YR-it8">
-            <size key="intrinsicContentSize" width="110" height="41.333333333333329"/>
+            <size key="intrinsicContentSize" width="122" height="34"/>
         </designable>
         <designable name="Mk1-ZT-QJq">
-            <size key="intrinsicContentSize" width="207.66666666666666" height="40.666666666666664"/>
+            <size key="intrinsicContentSize" width="191.66666666666666" height="15.666666666666666"/>
         </designable>
         <designable name="Rr6-A8-I1v">
-            <size key="intrinsicContentSize" width="133" height="41.333333333333329"/>
+            <size key="intrinsicContentSize" width="145" height="34"/>
         </designable>
         <designable name="mzJ-ox-run">
-            <size key="intrinsicContentSize" width="163.33333333333334" height="40.666666666666664"/>
+            <size key="intrinsicContentSize" width="147.33333333333334" height="15.666666666666666"/>
         </designable>
         <designable name="r6I-aN-25p">
-            <size key="intrinsicContentSize" width="130" height="41.333333333333329"/>
+            <size key="intrinsicContentSize" width="142" height="34"/>
         </designable>
     </designables>
     <resources>
@@ -546,7 +546,7 @@
             <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="viewBGClr">
-            <color red="0.96100002527236938" green="0.95300000905990601" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -115,3 +115,51 @@ struct TokenDetails: Codable {
         case expiresIn = "expires_in"
     }
 }
+
+
+struct GetAddressStruct: Codable {
+    var status: Int?
+    var msg: String?
+    var details: [AddressDetail]?
+    var pincode: String?
+}
+
+// MARK: - Detail
+struct AddressDetail: Codable {
+    var addressID, addressTypeID: Int?
+    var addressType, address1: String?
+    var address2: String?
+    var cityNameS: String?
+    var cityName: Int?
+    var stateNameS: String?
+    var stateName: Int?
+    var countryNameS: String?
+    var countryName: Int?
+    var pinCode: String?
+    var isDefault: Int?
+    var emailID, mobileNo: String?
+    var gstNo, businessName: String?
+    var mobileDialCode, mobileNumber: String?
+
+    enum CodingKeys: String, CodingKey {
+        case addressID = "AddressId"
+        case addressTypeID = "AddressTypeId"
+        case addressType = "AddressType"
+        case address1 = "Address1"
+        case address2 = "Address2"
+        case cityNameS = "CityNameS"
+        case cityName = "CityName"
+        case stateNameS = "StateNameS"
+        case stateName = "StateName"
+        case countryNameS = "CountryNameS"
+        case countryName = "CountryName"
+        case pinCode = "PinCode"
+        case isDefault = "IsDefault"
+        case emailID = "EmailId"
+        case mobileNo = "MobileNo"
+        case gstNo = "GSTNo"
+        case businessName = "BusinessName"
+        case mobileDialCode = "MobileDialCode"
+        case mobileNumber = "MobileNumber"
+    }
+}

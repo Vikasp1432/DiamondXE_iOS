@@ -20,19 +20,26 @@ class HomeVC_CateogiesTVC: UITableViewCell {
 
     
     
-    var imgArr = [ UIImage(named:"LooseDiamonds"),
-                    UIImage(named:"Rings_") ,
-                    UIImage(named:"EarRings") ,
-                    UIImage(named:"Pendants") ,
-                    UIImage(named:"Bracelets") ,
-                    UIImage(named:"Bangles_") ]
+//    var imgArr = [ UIImage(named:"LooseDiamonds"),
+//                    UIImage(named:"Rings_") ,
+//                    UIImage(named:"EarRings") ,
+//                    UIImage(named:"Pendants") ,
+//                    UIImage(named:"Bracelets") ,
+//                    UIImage(named:"Bangles_") ]
+//    
+//    var titleArr = [ "Solitaires",
+//                    "Rings" ,
+//                    "Earrings" ,
+//                    "Pendants" ,
+//                    "Bracelets" ,
+//                    "Bangles"]
     
-    var titleArr = [ "Solitaires",
-                    "Rings" ,
-                    "Earrings" ,
-                    "Pendants" ,
-                    "Bracelets" ,
-                    "Bangles"]
+    
+    var imgArr = [ UIImage(named:"Solitaires"),
+                    UIImage(named:"Jewellery")]
+    
+    var titleArr = [ "",
+                    "" ]
     
     
 
@@ -45,6 +52,8 @@ class HomeVC_CateogiesTVC: UITableViewCell {
         
         collectionCat.showsHorizontalScrollIndicator = false
         collectionCat.showsVerticalScrollIndicator = false
+        collectionCat.isScrollEnabled = false
+
 
 
     }
@@ -83,25 +92,25 @@ extension HomeVC_CateogiesTVC: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let noOfCellsInRow = 3.7   //number of column you want
+        let noOfCellsInRow = 2   //number of column you want
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let totalSpace = flowLayout.sectionInset.left
             + flowLayout.sectionInset.right
             + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
 
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
-        return CGSize(width: size , height: size + 35)
+        return CGSize(width: size - 5   , height: size - 50)
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
 //            return 10 // Adjust the spacing between rows
 //        }
         
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return 13 // Adjust the spacing between items in a row
-        }
-        
+//        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//            return 40 // Adjust the spacing between items in a row
+//        }
+//        
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0) // Adjust the left padding
+            return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0) // Adjust the left padding
         }
 }

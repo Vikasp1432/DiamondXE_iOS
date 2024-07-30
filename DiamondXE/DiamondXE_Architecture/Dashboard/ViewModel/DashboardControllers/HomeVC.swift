@@ -399,6 +399,19 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
                 cell.imgMedia3.image = placeholderImage
             }
             
+            cell.btnActionMediaSpotlight = { tag in
+                switch tag {
+                case 0:
+                    self.gotoWKWebView(mediaTag: 16)
+                case 1:
+                    self.gotoWKWebView(mediaTag: 17)
+                case 2:
+                    self.gotoWKWebView(mediaTag: 18)
+                default:
+                    self.gotoWKWebView(mediaTag: 19)
+                }
+            }
+            
             return cell
             
         case 9:
@@ -418,6 +431,14 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
         
         
     }
+    
+    //
+    func gotoWKWebView(mediaTag : Int){
+        var tagV = VCTags()
+        tagV.tagVC = mediaTag
+        self.navigationManager(WKWebViewVC.self, storyboardName: "Dashboard", storyboardID: "WKWebViewVC", data: tagV)
+    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {

@@ -14,9 +14,19 @@ class ExpandableCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var iconIMG: UIImageView!
     
+    var tapCell : (() -> Void) = { }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cellTapped))
+        contentView.addGestureRecognizer(tapGesture)
+       
+    }
+    
+    @objc func cellTapped() {
+        tapCell()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

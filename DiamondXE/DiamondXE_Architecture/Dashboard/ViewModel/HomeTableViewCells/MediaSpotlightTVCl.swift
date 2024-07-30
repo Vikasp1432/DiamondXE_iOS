@@ -21,6 +21,7 @@ class MediaSpotlightTVCl: UITableViewCell {
     @IBOutlet var imgMedia3:UIImageView!
     @IBOutlet var lblDesc3:UILabel!
 
+    var btnActionMediaSpotlight : ((Int) -> Void) = { _ in}
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,6 +40,10 @@ class MediaSpotlightTVCl: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func btnActionSpotlight(_ sender : UIButton){
+        self.btnActionMediaSpotlight(sender.tag)
     }
     
 }

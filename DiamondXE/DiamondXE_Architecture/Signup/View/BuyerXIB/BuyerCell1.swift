@@ -44,7 +44,7 @@ class BuyerCell1: UITableViewCell, UITextFieldDelegate {
         
         txtPassword.isSecureTextEntry = true
         txtConfirmPass.isSecureTextEntry = true
-        btnVerify.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        btnVerify.setGradientLayerWithoutShadow(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
         
         viewBG.layer.shadowColor = UIColor.shadowViewclr.cgColor
         viewBG.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)

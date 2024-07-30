@@ -63,6 +63,21 @@ struct APIs {
     let get_Logout_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/logout"
     
     let get_RefreshToken_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/refresh-token"
+    
+    let get_AddAddress_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/add-address"
+    
+    let get_RemoveAddress_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/remove-address"
+    
+    let get_UpdateAddress_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/update-address"
+    
+    let get_GetAddressBilling_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-address/billing"
+    
+    let get_GetAddressShipping_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-address/shipping"
+    
+    let updatePassword_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/change-password"
+    
+    let get_KYCDoc_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-kyc-details"
+    
 }
 
 struct HeaderInfo {
@@ -129,5 +144,11 @@ struct SideBarURLs {
     let Instagram = "https://www.instagram.com/diamond_xe/"
     let Facebook = "https://www.facebook.com/DiamondXE"
     let YouTube = "https://youtube.com/@d-xe?si=VuTSaNDDvStzT1In"
+    
+    let economicTimes = "https://economictimes.indiatimes.com/small-biz/sme-sector/online-diamond-trading-platform-d[…]sparent-pricing-for-industry/articleshow/102904102.cms"
+    let retailJeweller = "https://retailjewellerindia.com/online-diamond-trading-platform-diamondxe-seeks-to-change-the-way-diamonds-are-bought-and-sold/"
+    let midday = "https://www.mid-day.com/brand-media/article/diamondxe-set-to-revolutionise-the-industry-with-innovative-solutions-23306755"
+    
+    let viewALL = "https://diamondxe.com/media-gallery"
     
 }

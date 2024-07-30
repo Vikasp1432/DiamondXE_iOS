@@ -64,7 +64,7 @@ class SignupVC: BaseViewController {
     var cityID : Int?
     var cityName : String?
     
-    var isEmailVerified = 1
+    var isEmailVerified = 0
    
     
     // doc base64
@@ -285,7 +285,7 @@ class SignupVC: BaseViewController {
             case 1:
                 let indexPathBuyer = IndexPath(row: 0, section: 0)
                 if let cell = self.tableViewSingup.cellForRow(at: indexPathBuyer) as? BuyerCell1 {
-                    if self.isEmailVerified == 1{
+                    if self.isEmailVerified == 0{
                         if let result = cell.dataCollect().firstName {
                             self.buyerDataParam = cell.dataCollect()
                             let indexPathFooter = IndexPath(row: 0, section: 1)
@@ -613,6 +613,24 @@ class SignupVC: BaseViewController {
         switch self.userType {
         case 0:
             
+            let pass = self.buyerDataParam?.password ?? ""
+            let CNpass = self.buyerDataParam?.confirmPassword ?? ""
+            if pass != CNpass{
+                self.toastMessage("password or confirm password are not same")
+                return
+            }
+            
+            if pass.count < 6 && CNpass.count < 6{
+                self.toastMessage("Password Character should be minimum 6 digit")
+                return
+            }
+            
+            if isEmailVerified == 0{
+                self.toastMessage("Email are not verified")
+                return
+            }
+            
+            
             let parameters : [String: Any] = [
                     "firstName": self.buyerDataParam?.firstName ?? "",
                     "lastName": self.buyerDataParam?.lastName ?? "",
@@ -635,6 +653,26 @@ class SignupVC: BaseViewController {
             
         case 1:
             print("Dealer")
+            
+            let pass = self.dealerDataStruct.password ?? ""
+            let CNpass = self.dealerDataStruct.confirmPassword ?? ""
+            if pass != CNpass{
+                self.toastMessage("password or confirm password are not same")
+                return
+            }
+            
+            if pass.count < 6 && CNpass.count < 6{
+                self.toastMessage("Password Character should be minimum 6 digit")
+                return
+            }
+            
+            if isEmailVerified == 0{
+                self.toastMessage("Email are not verified")
+                return
+            }
+            
+            
+            
             let parameters : [String: Any] = [
                 "firstName": self.dealerDataStruct.firstName ?? "",
                     "lastName": self.dealerDataStruct.lastName ?? "",
@@ -691,6 +729,23 @@ class SignupVC: BaseViewController {
             
         default:
             print("Suppler")
+            
+            let pass = self.suplierDataStruct.password ?? ""
+            let CNpass = self.suplierDataStruct.confirmPassword ?? ""
+            if pass != CNpass{
+                self.toastMessage("password or confirm password are not same")
+                return
+            }
+            
+            if pass.count < 6 && CNpass.count < 6{
+                self.toastMessage("Password Character should be minimum 6 digit")
+                return
+            }
+            
+            if isEmailVerified == 0{
+                self.toastMessage("Email are not verified")
+                return
+            }
             
             let parameters : [String: Any] = [
                 

@@ -12,6 +12,8 @@ class MainCell: UITableViewCell {
     @IBOutlet weak var mainIconIMG: UIImageView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet  var dropdownIcon: UIImageView! // Add this outlet
+    
+    var tapCell : (() -> Void) = { }
 
     func configure(with section: Sections) {
         
@@ -42,6 +44,13 @@ class MainCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cellTapped))
+        contentView.addGestureRecognizer(tapGesture)
+       
+    }
+    
+    @objc func cellTapped() {
+        tapCell()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

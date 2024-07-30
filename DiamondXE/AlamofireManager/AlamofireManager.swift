@@ -64,6 +64,8 @@ class AlamofireManager {
     // get API
     func makeGETAPIRequest(url : String, completion: @escaping (Result<Data?, Error>) -> Void) {
         let headers: HTTPHeaders = HeaderInfoLocation().headers
+        print("Print Final URL ----------->\(url)")
+        print("Print Final Header ----------->\(headers)")
         AF.request(url, method: .get, parameters: nil, encoding:  URLEncoding.queryString, headers: headers).response { response in
           switch response.result {
           case .success:

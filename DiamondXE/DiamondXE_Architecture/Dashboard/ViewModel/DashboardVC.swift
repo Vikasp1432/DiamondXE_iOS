@@ -141,7 +141,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             self.btnTitleLogin.setTitle(userType.capitalizingFirstLetter(), for: .normal)
             self.lblWelcomeUser.text = username
             self.lblType.text = userType
-            refreshBearertoken()
+            //refreshBearertoken()
         }
     }
     
@@ -919,54 +919,101 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
                 let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.cellIdentifier, for: indexPath) as! MainCell
                 cell.configure(with: sections[indexPath.section])
                 cell.mainIconIMG.image = sections[indexPath.section].mainCellOptionsIcons[indexPath.section]
+                
+                cell.tapCell = {
+                    if indexPath.row == 0 {
+                        let section = indexPath.section
+                        
+                        self.sideMenuActions(sectionStr: self.sections[section].mainCellTitle)
+                        
+                        let isCurrentlyHidden = self.sections[section].isExpandableCellsHidden
+                        self.sections[section].isExpandableCellsHidden = !isCurrentlyHidden
+                        self.sections[section].isExpanded = !isCurrentlyHidden // Update the expanded state
+
+                        if self.sections[section].expandableCellOptions.isEmpty {
+                            // If there are no expandable options, do nothing
+                            return
+                        }
+
+                        var indexPaths = [IndexPath]()
+                        for row in 1...self.sections[section].expandableCellOptions.count {
+                            indexPaths.append(IndexPath(row: row, section: section))
+                        }
+                        
+                        tableView.beginUpdates()
+                        if isCurrentlyHidden {
+                            // Expand the section with animation
+                            tableView.insertRows(at: indexPaths, with: .fade)
+                        } else {
+                            // Collapse the section with animation
+                            tableView.deleteRows(at: indexPaths, with: .fade)
+                        }
+                        tableView.endUpdates()
+
+                        // Reload the main cell to update the icon
+                        let mainCellIndexPath = IndexPath(row: 0, section: section)
+                        tableView.reloadRows(at: [mainCellIndexPath], with: .none)
+                    }
+                    
+                    else{
+                        self.sideMenuActions(sectionStr: self.sections[indexPath.section].expandableCellOptions[indexPath.row - 1])
+                    }
+
+                }
+                
+                
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableCell.cellIdentifier, for: indexPath) as! ExpandableCell
                 cell.label.text = sections[indexPath.section].expandableCellOptions[indexPath.row - 1]
                 cell.iconIMG.image = sections[indexPath.section].expandableCellOptionsIcons[indexPath.row - 1]
+                
+                cell.tapCell = {
+                    self.sideMenuActions(sectionStr: self.sections[indexPath.section].expandableCellOptions[indexPath.row - 1])
+                }
                 return cell
             }
         }
         
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            if indexPath.row == 0 {
-                let section = indexPath.section
-                
-                self.sideMenuActions(sectionStr: sections[section].mainCellTitle)
-                
-                let isCurrentlyHidden = sections[section].isExpandableCellsHidden
-                sections[section].isExpandableCellsHidden = !isCurrentlyHidden
-                sections[section].isExpanded = !isCurrentlyHidden // Update the expanded state
-
-                if sections[section].expandableCellOptions.isEmpty {
-                    // If there are no expandable options, do nothing
-                    return
-                }
-
-                var indexPaths = [IndexPath]()
-                for row in 1...sections[section].expandableCellOptions.count {
-                    indexPaths.append(IndexPath(row: row, section: section))
-                }
-                
-                tableView.beginUpdates()
-                if isCurrentlyHidden {
-                    // Expand the section with animation
-                    tableView.insertRows(at: indexPaths, with: .fade)
-                } else {
-                    // Collapse the section with animation
-                    tableView.deleteRows(at: indexPaths, with: .fade)
-                }
-                tableView.endUpdates()
-
-                // Reload the main cell to update the icon
-                let mainCellIndexPath = IndexPath(row: 0, section: section)
-                tableView.reloadRows(at: [mainCellIndexPath], with: .none)
-            }
-            
-            else{
-                self.sideMenuActions(sectionStr: sections[indexPath.section].expandableCellOptions[indexPath.row - 1])
-            }
-        }
+//        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//            if indexPath.row == 0 {
+//                let section = indexPath.section
+//                
+//                self.sideMenuActions(sectionStr: sections[section].mainCellTitle)
+//                
+//                let isCurrentlyHidden = sections[section].isExpandableCellsHidden
+//                sections[section].isExpandableCellsHidden = !isCurrentlyHidden
+//                sections[section].isExpanded = !isCurrentlyHidden // Update the expanded state
+//
+//                if sections[section].expandableCellOptions.isEmpty {
+//                    // If there are no expandable options, do nothing
+//                    return
+//                }
+//
+//                var indexPaths = [IndexPath]()
+//                for row in 1...sections[section].expandableCellOptions.count {
+//                    indexPaths.append(IndexPath(row: row, section: section))
+//                }
+//                
+//                tableView.beginUpdates()
+//                if isCurrentlyHidden {
+//                    // Expand the section with animation
+//                    tableView.insertRows(at: indexPaths, with: .fade)
+//                } else {
+//                    // Collapse the section with animation
+//                    tableView.deleteRows(at: indexPaths, with: .fade)
+//                }
+//                tableView.endUpdates()
+//
+//                // Reload the main cell to update the icon
+//                let mainCellIndexPath = IndexPath(row: 0, section: section)
+//                tableView.reloadRows(at: [mainCellIndexPath], with: .none)
+//            }
+//            
+//            else{
+//                self.sideMenuActions(sectionStr: sections[indexPath.section].expandableCellOptions[indexPath.row - 1])
+//            }
+//        }
     
     
     func homeMenuActive(){

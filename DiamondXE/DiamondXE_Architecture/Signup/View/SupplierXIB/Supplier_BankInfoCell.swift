@@ -66,6 +66,7 @@ class Supplier_BankInfoCell: UITableViewCell, UITextFieldDelegate {
         if let text = txtBNKACCNumber.text {
             cellDataDelegate?.didUpdateText(textKey: "BNKACCNumber", text: text, indexPath: indexPath)
         }
+        
         if let text = txtBNKACCType.text {
             cellDataDelegate?.didUpdateText(textKey: "BNKACCType", text: text, indexPath: indexPath)
         }

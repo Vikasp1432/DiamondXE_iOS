@@ -69,6 +69,15 @@ class WKWebViewVC: BaseViewController , DataReceiver{
             url = URL(string:SideBarURLs().LinkedIn)
         case 15:
             url = URL(string:SideBarURLs().YouTube)
+            
+        case 16:
+            url = URL(string:SideBarURLs().economicTimes)
+        case 17:
+            url = URL(string:SideBarURLs().retailJeweller)
+        case 18:
+            url = URL(string:SideBarURLs().midday)
+        case 19:
+            url = URL(string:SideBarURLs().viewALL)
         default:
             print(vcTag.tagVC)
         }

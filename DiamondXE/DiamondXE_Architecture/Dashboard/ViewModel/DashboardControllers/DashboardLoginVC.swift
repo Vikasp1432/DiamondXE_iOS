@@ -32,6 +32,29 @@ class DashboardLoginVC: BaseViewController , ChildViewControllerProtocol {
         menuTableView.showsVerticalScrollIndicator = false
     }
     
+    @IBAction func btnActionBack(_ sender: UIButton){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func showLogoutConfirmationAlert() {
+           let alert = UIAlertController(title: "Confirmation", message: "Are you sure you want to Delete this acount?", preferredStyle: .alert)
+           
+           // Add the cancel action
+           let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+           alert.addAction(cancelAction)
+           
+           // Add the logout action
+           let logoutAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+               // Perform logout logic here
+//               self.callAPILogout()
+           }
+           alert.addAction(logoutAction)
+           
+           present(alert, animated: true, completion: nil)
+       }
+    
+    
+    
 
 
 }
@@ -55,124 +78,95 @@ extension DashboardLoginVC: UITableViewDelegate, UITableViewDataSource{
                 let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.cellIdentifier, for: indexPath) as! MainCell
                 cell.configure2(with: sectionsAccountProfile[indexPath.section])
                 cell.mainIconIMG.image = sectionsAccountProfile[indexPath.section].mainCellOptionsIcons[indexPath.section]
+                
+                cell.tapCell = {
+                    if indexPath.row == 0 {
+                        let section = indexPath.section
+                        
+                        self.sideMenuActions(sectionStr: self.sectionsAccountProfile[section].mainCellTitle)
+                        
+                        let isCurrentlyHidden = self.sectionsAccountProfile[section].isExpandableCellsHidden
+                        self.sectionsAccountProfile[section].isExpandableCellsHidden = !isCurrentlyHidden
+                        self.sectionsAccountProfile[section].isExpanded = !isCurrentlyHidden // Update the expanded state
+
+                        if self.sectionsAccountProfile[section].expandableCellOptions.isEmpty {
+                            // If there are no expandable options, do nothing
+                            return
+                        }
+
+                        var indexPaths = [IndexPath]()
+                        for row in 1...self.sectionsAccountProfile[section].expandableCellOptions.count {
+                            indexPaths.append(IndexPath(row: row, section: section))
+                        }
+                        
+                        tableView.beginUpdates()
+                        if isCurrentlyHidden {
+                            // Expand the section with animation
+                            tableView.insertRows(at: indexPaths, with: .fade)
+                        } else {
+                            // Collapse the section with animation
+                            tableView.deleteRows(at: indexPaths, with: .fade)
+                        }
+                        tableView.endUpdates()
+
+                        // Reload the main cell to update the icon
+                        let mainCellIndexPath = IndexPath(row: 0, section: section)
+                        tableView.reloadRows(at: [mainCellIndexPath], with: .none)
+                    }
+                    
+                    else{
+                        self.sideMenuActions(sectionStr: self.sectionsAccountProfile[indexPath.section].expandableCellOptions[indexPath.row - 1])
+                    }
+                }
+                
+                
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableCell.cellIdentifier, for: indexPath) as! ExpandableCell
                 cell.label.text = sectionsAccountProfile[indexPath.section].expandableCellOptions[indexPath.row - 1]
                 cell.iconIMG.image = sectionsAccountProfile[indexPath.section].expandableCellOptionsIcons[indexPath.row - 1]
+                
+                cell.tapCell = {
+                    print(indexPath.row)
+                    self.myAcountVCsNavi(index: indexPath.row)
+                }
+                
                 return cell
             }
         }
+    
+    
+    func myAcountVCsNavi(index:Int){
         
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            if indexPath.row == 0 {
-                let section = indexPath.section
-                
-                //self.sideMenuActions(sectionStr: sections[section].mainCellTitle)
-                
-                let isCurrentlyHidden = sectionsAccountProfile[section].isExpandableCellsHidden
-                sectionsAccountProfile[section].isExpandableCellsHidden = !isCurrentlyHidden
-                sectionsAccountProfile[section].isExpanded = !isCurrentlyHidden // Update the expanded state
-
-                if sectionsAccountProfile[section].expandableCellOptions.isEmpty {
-                    // If there are no expandable options, do nothing
-                    return
-                }
-
-                var indexPaths = [IndexPath]()
-                for row in 1...sectionsAccountProfile[section].expandableCellOptions.count {
-                    indexPaths.append(IndexPath(row: row, section: section))
-                }
-                
-                tableView.beginUpdates()
-                if isCurrentlyHidden {
-                    // Expand the section with animation
-                    tableView.insertRows(at: indexPaths, with: .fade)
-                } else {
-                    // Collapse the section with animation
-                    tableView.deleteRows(at: indexPaths, with: .fade)
-                }
-                tableView.endUpdates()
-
-                // Reload the main cell to update the icon
-                let mainCellIndexPath = IndexPath(row: 0, section: section)
-                tableView.reloadRows(at: [mainCellIndexPath], with: .none)
-            }
-            
-            else{
-                self.sideMenuActions(sectionStr: sectionsAccountProfile[indexPath.section].expandableCellOptions[indexPath.row - 1])
+        let loginData = UserDefaultManager().retrieveLoginData()
+        if let data = loginData?.details?.userRole{
+           switch index {
+            case 1:
+                self.navigationManager(storybordName: "Dashboard", storyboardID: "PersonalProfileVC", controller: PersonalProfileVC())
+            case 2:
+                self.navigationManager(storybordName: "Dashboard", storyboardID: "AddressesManageVC", controller: AddressesManageVC())
+           case 4:
+               self.navigationManager(storybordName: "Dashboard", storyboardID: "ChangePasswordVC", controller: ChangePasswordVC())
+            default:
+               self.navigationManager(storybordName: "Dashboard", storyboardID: "KYCVerification", controller: KYCVerification())
             }
         }
+        else{
+            self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
+        }
+    }
     
+    
+        
+
     
     func sideMenuActions(sectionStr:String){
         
-        if nv_home == sectionStr{
-//            if menu == true {
-//                homeMenuActive()
-//            }
+        if account_delete == sectionStr{
+            self.showLogoutConfirmationAlert()
         }
         
-        else if nv_naturalDiamond == sectionStr{
-           
-        }
-        
-        else if nv_labGrownDiamond == sectionStr{
-           
-        }
-        
-        
-        else if nv_diamondEducation == sectionStr{
-            print(sectionStr)
-            
-           
-        }
-        
-        else if nv_jeweller == sectionStr{
-            print(sectionStr)
-           
-            
-        }
-        
-        else if nv_supplier == sectionStr{
-            print(sectionStr)
-           
-        }
-        
-        else if nv_aboutUS == sectionStr{
-            print(sectionStr)
-           
-            
-        }
-        
-        else if nv_whyUS == sectionStr{
-            print(sectionStr)
-            
-        }
-        
-        else if nv_blogs == sectionStr{
-            print(sectionStr)
-          
-         
-        }
-        
-        else if nv_mediaGalley == sectionStr{
-            print(sectionStr)
-          
-           
-        }
-        
-        else if nv_support == sectionStr{
-            print(sectionStr)
-           
-            
-        }
-        
-        else if nv_termCondition == sectionStr{
-            print(sectionStr)
-          
-            
-        }
+       
         
         
     }
