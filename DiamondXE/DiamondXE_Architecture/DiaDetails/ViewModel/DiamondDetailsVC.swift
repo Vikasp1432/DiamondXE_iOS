@@ -435,7 +435,16 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
                     
                 }
                 else{
-                    self.navigationManager(storybordName: "BillingAddress", storyboardID: "AddBillingAddress", controller: AddBillingAddress())
+                    let loginData = UserDefaultManager().retrieveLoginData()
+                    if let data = loginData?.details?.userRole{
+                        let placeOrder = CustomPlaceOrderView()
+                        placeOrder.appear(sender: self)
+                    }
+                    else{
+                        self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
+                    }
+                    
+                   // self.navigationManager(storybordName: "BillingAddress", storyboardID: "AddBillingAddress", controller: AddBillingAddress())
                 }
             }
             

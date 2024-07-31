@@ -161,7 +161,45 @@ class HomeDataModel {
     }
     
     
+    func getProfileInfo(url : String, completion: @escaping (ProfileInfoStruct, String?) -> Void) {
+        var profileInfo = ProfileInfoStruct()
+        
+        AlamofireManager().makeGETAPIRequest(url: url,  completion: { result in
+            switch result {
+            case .success(let data):
+                // Handle the response data
+                do {
+                    profileInfo = try JsonParsingManagar.parse(jsonData: data!, type: ProfileInfoStruct.self)
+                    completion(profileInfo, profileInfo.msg)
+                } catch {
+                    completion(profileInfo, profileInfo.msg)
+                }
+            case .failure(let error):
+                // Handle the error
+                completion(profileInfo, error.localizedDescription)
+            }
+        })
+    }
     
+    func updateProfileInfo(param:[String:Any],url : String, completion: @escaping (LogoutDataStruct, String?) -> Void) {
+        var profileInfo = LogoutDataStruct()
+        
+        AlamofireManager().makePostAPIRequest(url: url, param: param,  completion: { result in
+            switch result {
+            case .success(let data):
+                // Handle the response data
+                do {
+                    profileInfo = try JsonParsingManagar.parse(jsonData: data!, type: LogoutDataStruct.self)
+                    completion(profileInfo, profileInfo.msg)
+                } catch {
+                    completion(profileInfo, profileInfo.msg)
+                }
+            case .failure(let error):
+                // Handle the error
+                completion(profileInfo, error.localizedDescription)
+            }
+        })
+    }
     
 }
     

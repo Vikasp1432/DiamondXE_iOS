@@ -283,13 +283,13 @@
     </objects>
     <designables>
         <designable name="AaH-0l-X8U">
-            <size key="intrinsicContentSize" width="161.66666666666666" height="43"/>
+            <size key="intrinsicContentSize" width="145.66666666666666" height="18"/>
         </designable>
         <designable name="DRO-cU-mRH">
-            <size key="intrinsicContentSize" width="192.33333333333334" height="43"/>
+            <size key="intrinsicContentSize" width="176.33333333333334" height="18"/>
         </designable>
         <designable name="T1p-d6-Dci">
-            <size key="intrinsicContentSize" width="214" height="43"/>
+            <size key="intrinsicContentSize" width="198" height="18"/>
         </designable>
     </designables>
     <resources>
@@ -306,7 +306,7 @@
             <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="viewBGClr">
-            <color red="0.96100002527236938" green="0.95300000905990601" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

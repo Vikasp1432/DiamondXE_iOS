@@ -151,10 +151,10 @@
                                         </constraints>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6D-BJ-aBf">
-                                        <rect key="frame" x="25" y="75" width="343" height="1216"/>
+                                        <rect key="frame" x="25" y="75" width="343" height="1201"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vyz-qP-49Y">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="1220"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="1210"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vy2-3c-aJF">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="1200"/>
@@ -1564,7 +1564,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="vy2-3c-aJF" secondAttribute="bottom" constant="20" id="1nP-4S-RBO"/>
+                                                    <constraint firstAttribute="bottom" secondItem="vy2-3c-aJF" secondAttribute="bottom" constant="10" id="1nP-4S-RBO"/>
                                                     <constraint firstAttribute="trailing" secondItem="vy2-3c-aJF" secondAttribute="trailing" id="WBC-Of-rcl"/>
                                                     <constraint firstItem="vy2-3c-aJF" firstAttribute="leading" secondItem="Vyz-qP-49Y" secondAttribute="leading" id="Xxs-gN-nL1"/>
                                                     <constraint firstItem="vy2-3c-aJF" firstAttribute="top" secondItem="Vyz-qP-49Y" secondAttribute="top" id="fmA-wM-Oqq"/>
@@ -1597,7 +1597,7 @@
                                     <constraint firstItem="G6D-BJ-aBf" firstAttribute="leading" secondItem="sU7-43-1jw" secondAttribute="leading" constant="25" id="Z6R-Gh-BCn"/>
                                     <constraint firstItem="I3A-E3-SHj" firstAttribute="leading" secondItem="sU7-43-1jw" secondAttribute="leading" id="dHs-IF-Sla"/>
                                     <constraint firstAttribute="trailing" secondItem="I3A-E3-SHj" secondAttribute="trailing" id="dd0-26-9e1"/>
-                                    <constraint firstItem="SjF-Bu-37b" firstAttribute="top" secondItem="G6D-BJ-aBf" secondAttribute="bottom" id="kXj-hV-ylc"/>
+                                    <constraint firstItem="SjF-Bu-37b" firstAttribute="top" secondItem="G6D-BJ-aBf" secondAttribute="bottom" constant="15" id="kXj-hV-ylc"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TvG-0l-LV1">
@@ -1642,6 +1642,9 @@
                                                                 <real key="value" value="8"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="btnActionBack:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WfP-8h-zw8"/>
+                                                        </connections>
                                                     </button>
                                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaI-kV-GVC">
                                                         <rect key="frame" x="170" y="0.0" width="130" height="40"/>
@@ -1715,10 +1718,12 @@
                         <outlet property="btnComPAN" destination="YDS-3q-ghB" id="ts2-L6-c1S"/>
                         <outlet property="btnComPANDOC" destination="aGl-4h-hS5" id="etf-nk-3W1"/>
                         <outlet property="btnComPANDOCSelected" destination="Vhq-iZ-Xbi" id="Ro9-f9-cmO"/>
+                        <outlet property="btnComPANVerified" destination="7pf-yE-H4l" id="gIh-MK-XL3"/>
                         <outlet property="btnDrivingLicnDoc" destination="LZl-Si-tlJ" id="H1Y-zV-CZD"/>
                         <outlet property="btnDrivingLicnDocSelected" destination="OhQ-D6-fpc" id="C7m-NN-xbL"/>
                         <outlet property="btnGSTDoc" destination="54X-Zl-qqU" id="uEc-CI-ssg"/>
                         <outlet property="btnGSTDocSelected" destination="ZXd-cL-XV4" id="bRe-hJ-LCb"/>
+                        <outlet property="btnGSTVerified" destination="G02-Sd-8No" id="az7-K2-lRU"/>
                         <outlet property="btnIECDoc" destination="QTn-Oq-i6P" id="3te-wg-rEZ"/>
                         <outlet property="btnIECDocSelected" destination="Emb-9P-xcY" id="awo-5X-J4x"/>
                         <outlet property="btnPANDoc" destination="C4m-BE-RX9" id="JEd-HC-hoB"/>
@@ -1727,10 +1732,15 @@
                         <outlet property="btnPassportDocBackSelected" destination="D8N-9f-gST" id="bH5-eC-PhV"/>
                         <outlet property="btnPassportDocFront" destination="Hjs-tm-vhU" id="Jn4-2E-SlY"/>
                         <outlet property="btnPassportDocFrontSelected" destination="GLO-Ux-e8b" id="CEc-9t-zER"/>
+                        <outlet property="btnPassportVerified" destination="9ua-wU-R7r" id="qf5-DQ-lsE"/>
+                        <outlet property="btnSubmit" destination="kaI-kV-GVC" id="0do-Dl-vIS"/>
                         <outlet property="btnVerifyAadhar" destination="EBL-iP-fzG" id="OjJ-3o-ayy"/>
+                        <outlet property="btnVerifyAadharVerified" destination="2I3-1R-k4D" id="JqJ-wC-WeY"/>
                         <outlet property="btnVerifyDrivingLicn" destination="UIj-T4-qYr" id="MzF-q9-eUR"/>
+                        <outlet property="btnVerifyDrivingLicnVerified" destination="pKA-6c-O63" id="Vyp-cQ-30M"/>
                         <outlet property="btnVerifyGST" destination="W2d-bg-K0V" id="NNB-b0-sbb"/>
                         <outlet property="btnVerifyPAN" destination="uG6-Zg-d62" id="nvE-5H-i5Y"/>
+                        <outlet property="btnVerifyPANVerified" destination="VFd-Cw-giT" id="RBj-RN-yCL"/>
                         <outlet property="btnVerifyPassport" destination="28O-zm-yVd" id="f2m-Kc-vlJ"/>
                         <outlet property="dataView" destination="Vyz-qP-49Y" id="W1R-yf-Fjq"/>
                         <outlet property="txPANNum" destination="dTa-qI-43L" id="TKz-OW-5Xh"/>

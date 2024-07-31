@@ -31,33 +31,42 @@ class KYCDOCResubmittedVC: BaseViewController {
     @IBOutlet var txtComPAN:DTTextField!
     
     @IBOutlet var btnVerifyGST:UIButton!
+    @IBOutlet var btnGSTVerified:UIButton!
     @IBOutlet var btnGSTDoc:UIButton!
     @IBOutlet var btnGSTDocSelected:UIButton!
     @IBOutlet var btnComPAN:UIButton!
+    @IBOutlet var btnComPANVerified:UIButton!
     @IBOutlet var btnIECDoc:UIButton!
+    @IBOutlet var btnIECDocVerified:UIButton!
     @IBOutlet var btnIECDocSelected:UIButton!
     @IBOutlet var btnComPANDOC:UIButton!
     @IBOutlet var btnComPANDOCSelected:UIButton!
     
     @IBOutlet var btnVerifyDrivingLicn:UIButton!
+    @IBOutlet var btnVerifyDrivingLicnVerified:UIButton!
     @IBOutlet var btnDrivingLicnDoc:UIButton!
     @IBOutlet var btnDrivingLicnDocSelected:UIButton!
     
     @IBOutlet var btnVerifyPAN:UIButton!
+    @IBOutlet var btnVerifyPANVerified:UIButton!
     @IBOutlet var btnPANDoc:UIButton!
     @IBOutlet var btnPANDocSelected:UIButton!
     
     @IBOutlet var btnVerifyAadhar:UIButton!
+    @IBOutlet var btnVerifyAadharVerified:UIButton!
     @IBOutlet var btnAadharDocFront:UIButton!
     @IBOutlet var btnAadharDocFrontSelected:UIButton!
     @IBOutlet var btnAadharDocBack:UIButton!
     @IBOutlet var btnAadharDocBackSelected:UIButton!
     
     @IBOutlet var btnVerifyPassport:UIButton!
+    @IBOutlet var btnPassportVerified:UIButton!
     @IBOutlet var btnPassportDocFront:UIButton!
     @IBOutlet var btnPassportDocFrontSelected:UIButton!
     @IBOutlet var btnPassportDocBack:UIButton!
     @IBOutlet var btnPassportDocBackSelected:UIButton!
+    
+    @IBOutlet var btnSubmit:UIButton!
    
     
     var docGST = String()
@@ -80,6 +89,27 @@ class KYCDOCResubmittedVC: BaseViewController {
     var isDocDrivingLicence = false
     var isDocComapnyPAN = false
     var isDocCompanyGST = false
+    
+    
+    var isAdharVerify = false
+    var isPanVerify = false
+    var isGSTVerify = false
+    var isPassportVerify = false
+    var isDrivingLincVerify = false
+    var isBasicInfoEmailVerified = false
+    var isCompanyDetailsEmailVerified = false
+    var isCompanyDetailsPANVerified = false
+    var isCompanyDetailsGSTVerified = false
+    
+    var companyGSTDocID = Int()
+    var companyPANDocID = Int()
+    var IECDocID = Int()
+    var aadhaarFrontDocID = Int()
+    var aadhaarBackDocID = Int()
+    var pANDocID = Int()
+    var passportFrontDocID = Int()
+    var passportBackDocID = Int()
+    var DrivingLincDocID = Int()
     
     var dateString = String()
     
@@ -120,6 +150,8 @@ class KYCDOCResubmittedVC: BaseViewController {
         self.btnPassportDocFront.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
         self.btnDrivingLicnDoc.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
         self.btnVerifyDrivingLicn.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        
+        self.btnSubmit.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
         
         
         txtDateOFBirth.addInputViewDatePicker(target: self, selector: #selector(doneButtonPressed))
@@ -230,17 +262,192 @@ class KYCDOCResubmittedVC: BaseViewController {
     
     
     @IBAction func btnActionDone(_ sender: UIButton){
-        
+        csubmittedAllDocAPICall()
     }
+    
+    func csubmittedAllDocAPICall(){
+        var param : [String:Any] = [:]
+
+        if isGSTVerify{
+            param = ["companyGSTNo" : self.txtGSTNum.text ?? "","companyGSTNoDoc": "\(self.docGST)" ,"companyGSTNoId": "\(companyGSTDocID)" ]
+        }
+      
+        if isCompanyDetailsPANVerified{
+            param = ["companyPANNo" : self.txtComPAN.text ?? "","companyPANNoDoc": "\(self.docComPAN)" ,"companyPANNoId": "\(companyPANDocID)" ]
+        }
+        
+        if !txtIECNum.text!.isEmptyStr {
+            param = ["IEC" : self.txtIECNum.text ?? "","IECDoc": "\(self.docIEC)" ,"IECId": "\(IECDocID)" ]
+        }
+        
+        
+        if isAdharVerify{
+            param = ["aadhaarNo" : self.txtAadharNum.text ?? "","aadhaarNoFrontDoc": "\(self.docAAdhaarFront)" ,"aadhaarFrontId": "\(aadhaarFrontDocID)", "aadhaarBackId": "\(aadhaarBackDocID)" , "aadhaarNoBackDoc": "\(self.docAAdhaarBack)"]
+        }
+       
+        
+        if isPanVerify{
+ 
+            param = ["PANNo" : self.txPANNum.text ?? "","PANNoDoc": "\(self.docPAN)" ,"PANNoId": "\(pANDocID)" ]
+        }
+       
+        if isPassportVerify{
+            param = ["passportNo" : self.txPassportNum.text ?? "","passportFrontDoc": "\(self.docPassportFront)" ,"passportFrontDocId": "\(passportFrontDocID)", "passportBackDocId": "\(passportBackDocID)" , "passportBackDoc": "\(self.docPassportBack)"]
+        }
+       
+        if isDrivingLincVerify{
+            
+            param = ["dob" :self.txtDateOFBirth.text ?? "","drivingLicenseNo" : self.txtDrivingLicenceNum.text ?? "","drivingLicenseDoc": "\(self.docDrivingLicence)" ,"drivingLicenseDocId": "\(DrivingLincDocID)" ]
+        }
+        print(param)
+        
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+        SignupDataModel().verifyDoc(url: APIs().upload_KYCDoc_API, requestParam: param, completion: { result , msg in
+            
+            if result.status == 1{
+                self.navigationController?.popViewController(animated: true)
+                self.toastMessage(msg ?? "")
+            }
+            else{
+                self.toastMessage(msg ?? "")
+            }
+            
+            //self.toastMessage(result.msg ?? "")
+            CustomActivityIndicator2.shared.hide()
+        })
+                     
+    }
+    
+    
+    
     
     @IBAction func btnActionVerify(_ sender: UIButton){
         switch sender.tag {
         case 11:
             txtDateOFBirth.becomeFirstResponder()
+        case 0:
+            self.view.endEditing(true)
+            var param :[String:Any] = ["documentType":"GSTNo", "GSTNo":self.txtGSTNum.text ?? ""]
+            CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+            SignupDataModel().verifyDoc(url: APIs().document_verification_API, requestParam: param, completion: { result , msg in
+                
+                if result.status == 1{
+                    self.btnVerifyGST.isHidden = true
+                    self.btnGSTVerified.isHidden = false
+                    self.isGSTVerify = true
+                }
+                else{
+                    self.isGSTVerify = false
+                    self.txtGSTNum.showError(message: "GST number not verify")
+                }
+                
+                //self.toastMessage(result.msg ?? "")
+                CustomActivityIndicator2.shared.hide()
+            })
+            
+        
+        case 1:
+            self.view.endEditing(true)
+            var param :[String:Any] = ["documentType":"companyPANNo", "companyPANNo":self.txtComPAN.text ?? ""]
+            CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+            SignupDataModel().verifyDoc(url: APIs().document_verification_API, requestParam: param, completion: { result , msg in
+                
+                if result.status == 1{
+                    self.btnComPAN.isHidden = true
+                    self.btnComPANVerified.isHidden = false
+                    self.isCompanyDetailsPANVerified = true
+                }
+                else{
+                    self.isCompanyDetailsPANVerified = false
+                    self.txtComPAN.showError(message: "Co. PAN number not verify")
+                }
+                
+                //self.toastMessage(result.msg ?? "")
+                CustomActivityIndicator2.shared.hide()
+            })
+        case 2:
+            self.view.endEditing(true)
+            var param :[String:Any] = ["documentType":"aadhaarNo", "aadhaarNo":self.txtAadharNum.text ?? ""]
+            CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+            SignupDataModel().verifyDoc(url: APIs().document_verification_API, requestParam: param, completion: { result , msg in
+                
+                if result.status == 1{
+                    self.btnVerifyAadhar.isHidden = true
+                    self.btnVerifyAadharVerified.isHidden = false
+                    self.isAdharVerify = true
+                }
+                else{
+                    self.isAdharVerify = false
+                    self.txtAadharNum.showError(message: "Aadhaar number not verify")
+                }
+                
+                //self.toastMessage(result.msg ?? "")
+                CustomActivityIndicator2.shared.hide()
+            })
+        case 3:
+            self.view.endEditing(true)
+            var param :[String:Any] = ["documentType":"PANNo", "PANNo":self.txPANNum.text ?? ""]
+            CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+            SignupDataModel().verifyDoc(url: APIs().document_verification_API, requestParam: param, completion: { result , msg in
+                
+                if result.status == 1{
+                    self.btnVerifyPAN.isHidden = true
+                    self.btnVerifyPANVerified.isHidden = false
+                    self.isPanVerify = true
+                }
+                else{
+                    self.isPanVerify = false
+                    self.txPANNum.showError(message: "PAN number not verify")
+                }
+                
+                //self.toastMessage(result.msg ?? "")
+                CustomActivityIndicator2.shared.hide()
+            })
+        case 4:
+            self.view.endEditing(true)
+            var param :[String:Any] = ["documentType":"passportNo", "passportNo":self.txPassportNum.text ?? ""]
+            CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+            SignupDataModel().verifyDoc(url: APIs().document_verification_API, requestParam: param, completion: { result , msg in
+                
+                if result.status == 1{
+                    self.btnVerifyPassport.isHidden = true
+                    self.btnPassportVerified.isHidden = false
+                    self.isPassportVerify = true
+                }
+                else{
+                    self.isPassportVerify = false
+                    self.txPANNum.showError(message: "Passport number not verify")
+                }
+                
+                //self.toastMessage(result.msg ?? "")
+                CustomActivityIndicator2.shared.hide()
+            })
+        case 5:
+            self.view.endEditing(true)
+            var param :[String:Any] = ["documentType":"drivingLicenseNo", "drivingLicenseNo":self.txtDrivingLicenceNum.text ?? ""]
+            CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+            SignupDataModel().verifyDoc(url: APIs().document_verification_API, requestParam: param, completion: { result , msg in
+                
+                if result.status == 1{
+                    self.btnVerifyDrivingLicn.isHidden = true
+                    self.btnVerifyDrivingLicnVerified.isHidden = false
+                    self.isDrivingLincVerify = true
+                }
+                else{
+                    self.isDrivingLincVerify = false
+                    self.txPANNum.showError(message: "Driving Licence not verify")
+                }
+                
+                //self.toastMessage(result.msg ?? "")
+                CustomActivityIndicator2.shared.hide()
+            })
         default:
             print(sender.tag)
         }
     }
+    
+    
+    
 
     @IBAction func btnActionBrows(_ sender: UIButton){
         switch sender.tag {

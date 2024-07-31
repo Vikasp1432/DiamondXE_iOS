@@ -78,6 +78,12 @@ struct APIs {
     
     let get_KYCDoc_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-kyc-details"
     
+    let upload_KYCDoc_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/update-kyc-details"
+    
+    let get_ProfileInfo_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-profile"
+    
+    let update_ProfileInfo_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/update-profile"
+    
 }
 
 struct HeaderInfo {

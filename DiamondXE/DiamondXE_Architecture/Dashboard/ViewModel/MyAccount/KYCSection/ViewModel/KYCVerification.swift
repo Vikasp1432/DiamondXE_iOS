@@ -44,6 +44,16 @@ class KYCVerification: BaseViewController {
     var isDocComapnyPAN = false
     var isDocCompanyGST = false
     
+    var companyGSTDocID = Int()
+    var companyPANDocID = Int()
+    var IECDocID = Int()
+    var aadhaarFrontDocID = Int()
+    var aadhaarBackDocID = Int()
+    var pANDocID = Int()
+    var passportFrontDocID = Int()
+    var passportBackDocID = Int()
+    var DrivingLincDocID = Int()
+    
     var kycDocDataStruct =  KYCDataStruct()
 
 
@@ -76,6 +86,18 @@ class KYCVerification: BaseViewController {
         vc?.isDocDrivingLicence = self.isDocDrivingLicence
         vc?.isDocComapnyPAN = self.isDocComapnyPAN
         vc?.isDocCompanyGST = self.isDocGST
+        
+        vc?.companyGSTDocID = self.companyGSTDocID 
+        vc?.companyPANDocID = self.companyPANDocID
+        vc?.IECDocID = self.IECDocID
+        vc?.aadhaarFrontDocID = self.aadhaarFrontDocID
+        vc?.aadhaarBackDocID = self.aadhaarBackDocID
+        vc?.pANDocID = self.pANDocID
+        vc?.passportFrontDocID = self.passportFrontDocID
+        vc?.passportBackDocID = self.passportBackDocID
+        vc?.DrivingLincDocID = self.DrivingLincDocID
+        
+        
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
@@ -156,6 +178,7 @@ class KYCVerification: BaseViewController {
                         self.isDocIEC = false
                     }
                     self.lblIECCardSubmitDate.text = value.attachmentDate
+                    self.IECDocID = value.attachmentID ?? 0
                     
                 case "PAN Card":
                     switch value.verifiedInd {
@@ -173,7 +196,7 @@ class KYCVerification: BaseViewController {
                         self.isDocPAN = false
                     }
                     self.lblPanCardSubmitDate.text = value.attachmentDate
-                    
+                    self.pANDocID = value.attachmentID ?? 0
                 case "Aadhaar Card Back":
                     switch value.verifiedInd {
                     case 0:
@@ -190,6 +213,7 @@ class KYCVerification: BaseViewController {
                         self.isDocAAdhaarBack = false
                     }
                     self.lblAdahrBackSubmitDate.text = value.attachmentDate
+                    self.aadhaarBackDocID = value.attachmentID ?? 0
                 case "Aadhaar Card Front":
                     switch value.verifiedInd {
                     case 0:
@@ -206,7 +230,7 @@ class KYCVerification: BaseViewController {
                         self.isDocAAdhaarFront = false
                     }
                     self.lblAdahrFrontSubmitDate.text = value.attachmentDate
-                    
+                    self.aadhaarFrontDocID = value.attachmentID ?? 0
                 case "Passport Front":
                     switch value.verifiedInd {
                     case 0:
@@ -224,7 +248,7 @@ class KYCVerification: BaseViewController {
                     }
                     
                     self.lblPassportFrontSubmitDate.text = value.attachmentDate
-                    
+                    self.passportFrontDocID = value.attachmentID ?? 0
                 case "Passport Back":
                     switch value.verifiedInd {
                     case 0:
@@ -241,7 +265,7 @@ class KYCVerification: BaseViewController {
                         self.isDocPassportBack = false
                     }
                     self.lblPassportBackSubmitDate.text = value.attachmentDate
-                    
+                    self.passportBackDocID = value.attachmentID ?? 0
                 case "Company GST Certificate":
                     switch value.verifiedInd {
                     case 0:
@@ -258,7 +282,8 @@ class KYCVerification: BaseViewController {
                         self.isDocCompanyGST = false
                     }
                     self.lblCompanyGSTSubmitDate.text = value.attachmentDate
-                    
+                    self.companyGSTDocID = value.attachmentID ?? 0
+
                     
                 case "Driving License":
                     switch value.verifiedInd {
@@ -277,6 +302,8 @@ class KYCVerification: BaseViewController {
                     }
                     
                     self.lblDrivingLicenceSubmitDate.text = value.attachmentDate
+                    self.DrivingLincDocID = value.attachmentID ?? 0
+
                     
                 case "Company PAN Card":
                     switch value.verifiedInd {
@@ -295,6 +322,8 @@ class KYCVerification: BaseViewController {
                     }
                     
                     self.lblComPanCardSubmitDate.text = value.attachmentDate
+                    self.companyPANDocID = value.attachmentID ?? 0
+
 
                 default:
                     print(value.attachmentType)

@@ -681,28 +681,28 @@
     </objects>
     <designables>
         <designable name="Amq-WD-eFp">
-            <size key="intrinsicContentSize" width="140" height="41.333333333333329"/>
+            <size key="intrinsicContentSize" width="152" height="34"/>
         </designable>
         <designable name="FW7-wn-d9s">
-            <size key="intrinsicContentSize" width="202.33333333333334" height="40.666666666666664"/>
+            <size key="intrinsicContentSize" width="186.33333333333334" height="15.666666666666666"/>
         </designable>
         <designable name="Iwz-yw-BR9">
-            <size key="intrinsicContentSize" width="149.66666666666666" height="40.666666666666664"/>
+            <size key="intrinsicContentSize" width="133.66666666666666" height="15.666666666666666"/>
         </designable>
         <designable name="KCh-PV-dIP">
-            <size key="intrinsicContentSize" width="163" height="41.333333333333329"/>
+            <size key="intrinsicContentSize" width="175" height="34"/>
         </designable>
         <designable name="cBh-bB-KXy">
-            <size key="intrinsicContentSize" width="116" height="41.333333333333329"/>
+            <size key="intrinsicContentSize" width="128" height="34"/>
         </designable>
         <designable name="eJE-n0-5qc">
-            <size key="intrinsicContentSize" width="138" height="41.333333333333329"/>
+            <size key="intrinsicContentSize" width="150" height="34"/>
         </designable>
         <designable name="hft-0P-NxO">
-            <size key="intrinsicContentSize" width="106.66666666666667" height="40.666666666666664"/>
+            <size key="intrinsicContentSize" width="90.666666666666671" height="15.666666666666666"/>
         </designable>
         <designable name="t9f-N0-d8a">
-            <size key="intrinsicContentSize" width="95" height="41.333333333333329"/>
+            <size key="intrinsicContentSize" width="107" height="34"/>
         </designable>
     </designables>
     <resources>
@@ -718,7 +718,7 @@
             <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="viewBGClr">
-            <color red="0.96100002527236938" green="0.95300000905990601" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

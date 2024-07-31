@@ -603,40 +603,40 @@
     </objects>
     <designables>
         <designable name="03H-DG-Ssr">
-            <size key="intrinsicContentSize" width="114" height="43"/>
+            <size key="intrinsicContentSize" width="98" height="18"/>
         </designable>
         <designable name="97H-HB-eGd">
-            <size key="intrinsicContentSize" width="97" height="43"/>
+            <size key="intrinsicContentSize" width="81" height="18"/>
         </designable>
         <designable name="Beq-tH-9cy">
-            <size key="intrinsicContentSize" width="112" height="43"/>
+            <size key="intrinsicContentSize" width="96" height="18"/>
         </designable>
         <designable name="C7i-L4-Her">
-            <size key="intrinsicContentSize" width="161.33333333333334" height="43"/>
+            <size key="intrinsicContentSize" width="145.33333333333334" height="18"/>
         </designable>
         <designable name="Kv7-8b-qhT">
-            <size key="intrinsicContentSize" width="105" height="43"/>
+            <size key="intrinsicContentSize" width="89" height="18"/>
         </designable>
         <designable name="NqD-uX-1ZK">
-            <size key="intrinsicContentSize" width="120" height="43"/>
+            <size key="intrinsicContentSize" width="104" height="18"/>
         </designable>
         <designable name="RYz-dz-aGo">
-            <size key="intrinsicContentSize" width="108.33333333333333" height="43"/>
+            <size key="intrinsicContentSize" width="92.333333333333329" height="18"/>
         </designable>
         <designable name="YZs-gw-T2D">
-            <size key="intrinsicContentSize" width="137" height="43"/>
+            <size key="intrinsicContentSize" width="120.66666666666667" height="18"/>
         </designable>
         <designable name="bAp-31-nbe">
-            <size key="intrinsicContentSize" width="117.66666666666667" height="43"/>
+            <size key="intrinsicContentSize" width="101.66666666666667" height="18"/>
         </designable>
         <designable name="eDV-aI-D6j">
-            <size key="intrinsicContentSize" width="109.66666666666667" height="43"/>
+            <size key="intrinsicContentSize" width="93.666666666666671" height="18"/>
         </designable>
         <designable name="mQP-6k-2Lw">
-            <size key="intrinsicContentSize" width="88.666666666666671" height="43"/>
+            <size key="intrinsicContentSize" width="72.666666666666671" height="18"/>
         </designable>
         <designable name="zK9-gj-m8x">
-            <size key="intrinsicContentSize" width="122.66666666666667" height="43"/>
+            <size key="intrinsicContentSize" width="106.66666666666667" height="18"/>
         </designable>
     </designables>
     <resources>
@@ -654,7 +654,7 @@
             <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="viewBGClr">
-            <color red="0.96100002527236938" green="0.95300000905990601" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

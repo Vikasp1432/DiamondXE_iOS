@@ -595,22 +595,22 @@
     </objects>
     <designables>
         <designable name="6SQ-iS-nfn">
-            <size key="intrinsicContentSize" width="106.66666666666667" height="40.666666666666664"/>
+            <size key="intrinsicContentSize" width="90.666666666666671" height="15.666666666666666"/>
         </designable>
         <designable name="U1Y-Ng-vrg">
-            <size key="intrinsicContentSize" width="138" height="41.333333333333329"/>
+            <size key="intrinsicContentSize" width="150" height="34"/>
         </designable>
         <designable name="ajP-dW-BaL">
-            <size key="intrinsicContentSize" width="163" height="41.333333333333329"/>
+            <size key="intrinsicContentSize" width="175" height="34"/>
         </designable>
         <designable name="cuv-kE-UhR">
-            <size key="intrinsicContentSize" width="135" height="43"/>
+            <size key="intrinsicContentSize" width="119" height="18"/>
         </designable>
         <designable name="qSX-k8-T0h">
-            <size key="intrinsicContentSize" width="140" height="41.333333333333329"/>
+            <size key="intrinsicContentSize" width="152" height="34"/>
         </designable>
         <designable name="utj-wT-mF0">
-            <size key="intrinsicContentSize" width="205.66666666666666" height="40.666666666666664"/>
+            <size key="intrinsicContentSize" width="189.66666666666666" height="15.666666666666666"/>
         </designable>
     </designables>
     <resources>

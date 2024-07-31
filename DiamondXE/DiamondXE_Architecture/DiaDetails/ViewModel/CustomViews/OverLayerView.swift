@@ -81,23 +81,33 @@ class OverLayerView: UIViewController {
        }
     
     @IBAction func btnActionShare(_ sender : UIButton){
-        guard let image = imgDiamond.image else {
-                   print("Image not found!")
-                   return
-               }
-               
-               guard let jpegData = image.jpegData(compressionQuality: 1.0) else {
-                   print("Failed to convert image to JPEG")
-                   return
-               }
-               
-               let activityViewController = UIActivityViewController(activityItems: [jpegData], applicationActivities: nil)
-               
-               // For iPad, you need to specify the source view.
-               activityViewController.popoverPresentationController?.sourceView = self.view
-               
-               // Present the view controller
-               self.present(activityViewController, animated: true, completion: nil)
+//        guard let image = bgView.image else {
+//                   print("Image not found!")
+//                   return
+//               }
+//               
+//               guard let jpegData = image.jpegData(compressionQuality: 1.0) else {
+//                   print("Failed to convert image to JPEG")
+//                   return
+//               }
+//               
+//               let activityViewController = UIActivityViewController(activityItems: [jpegData], applicationActivities: nil)
+//               
+//               // For iPad, you need to specify the source view.
+//               activityViewController.popoverPresentationController?.sourceView = self.view
+//               
+//               // Present the view controller
+//               self.present(activityViewController, animated: true, completion: nil)
+        
+        let bounds = bgView.bounds
+            UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
+        bgView.drawHierarchy(in: bounds, afterScreenUpdates: false)
+            let img = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            let activityViewController = UIActivityViewController(activityItems: [img], applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: nil)
+        
+        
            }
     
     
