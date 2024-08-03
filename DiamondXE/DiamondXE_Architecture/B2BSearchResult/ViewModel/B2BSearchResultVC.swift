@@ -55,8 +55,9 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
     var filterDataDic = [String: Set<[FilterAttribDetail]>]()
     var advanceFilterDataDic = [String: Set<[FilterAttribDetail]>]()
     var manualfilterDataDic = [String: Set<[FilterAttribDetail]>]()
-    var titleArr = [String]()
     
+    
+    var titleArr = [String]()
     var colorArr = [String]()
     var colorFancyArr = [String]()
     var clarityArr = [String]()
@@ -90,8 +91,8 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
     var shade = [String]()
     var luster = [String]()
     
-    var caratFrom = Int()
-    var caratTo = Int()
+    var caratFrom = Double()
+    var caratTo = Double()
     var priceFrom = Int()
     var priceTo = Int()
     
@@ -113,10 +114,10 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
         filterCollectionView.showsHorizontalScrollIndicator = false
         filterCollectionView.showsVerticalScrollIndicator = false
         
-        btnNatural.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
-        btnNatural.setTitleColor(.whitClr, for: .normal)
-        btnLabGrown.clearGradient()
-        btnLabGrown.setTitleColor(.themeClr, for: .normal)
+//        btnNatural.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+//        btnNatural.setTitleColor(.whitClr, for: .normal)
+//        btnLabGrown.clearGradient()
+//        btnLabGrown.setTitleColor(.themeClr, for: .normal)
         
         self.tableViewList.delegate = self
         self.tableViewList.dataSource = self
@@ -130,12 +131,29 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
         tableViewList.register(UINib(nibName: B2CSearchResultCardListingCell.cellIdentifierCardListingB2C, bundle: nil), forCellReuseIdentifier: B2CSearchResultCardListingCell.cellIdentifierCardListingB2C)
        
 //        filterDataRetrive()
+        self.btnSelected()
       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         diamondListDetails.removeAll()
         filterDataRetrive()
+    }
+    
+    func btnSelected(){
+       var btnSelected =  DataManager.shared.diaType
+        if btnSelected == "natural"{
+            btnNatural.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            btnNatural.setTitleColor(.whitClr, for: .normal)
+            btnLabGrown.clearGradient()
+            btnLabGrown.setTitleColor(.themeClr, for: .normal)
+        }
+        else{
+            btnLabGrown.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            btnLabGrown.setTitleColor(.whitClr, for: .normal)
+            btnNatural.clearGradient()
+            btnNatural.setTitleColor(.themeClr, for: .normal)
+        }
     }
     
     
@@ -312,16 +330,16 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
                     array.forEach { detail in
                         if let attribCode = detail.displayAttr {
                             titleArr.append("\(key):\(attribCode)")
-                            
+                            print(attribCode)
                             switch key {
                             case "PriceFrom":
                                 self.priceFrom = Int(attribCode) ?? 0
                             case "PriceTo":
                                 self.priceTo = Int(attribCode) ?? 0
                             case "CaratFrom":
-                                self.caratFrom = Int(attribCode) ?? 0
+                                self.caratFrom = Double(attribCode) ?? 0
                             case "CaratTo":
-                                self.caratTo = Int(attribCode) ?? 0
+                                self.caratTo = Double(attribCode) ?? 0
                            
                             default:
                                 print(key)
@@ -353,6 +371,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
             filterCollectionView.reloadData()
         }
         
+        print( self.caratFrom, self.caratTo)
         self.setParamAndAPICalling()
            
     }
@@ -414,44 +433,44 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
                  
                  "keyWord":DataManager.shared.keyWordSearch ?? "",
                  "category":DataManager.shared.diaType ?? "",       //natural/labgrown
-                 "shape":DataManager.shared.shapeArr,
+                 "shape":DataManager.shared.shapeArr.joined(separator: ", "),
                  "colorType": DataManager.shared.color ?? "",           //white/fancy
-                 "color":self.colorArr,
-                 "fancyColor":self.colorFancyArr,
-                 "fancyColorIntencity":self.fancyclrIntensityArr,
-                 "fancyColorOvertone":self.fancyclrOvertoneArr,
-                 "clarity":self.clarityArr,
-                 "lengthFrom":self.lengthFromArr,
-                 "lengthTo":self.lengthToArr,
-                 "widthFrom":self.widthFromArr,
-                 "widthTo":self.widthToArr,
-                 "depthFrom":self.depthMMFromArr,
-                 "depthTo":self.depthMMToArr,
+                 "color":self.colorArr.joined(separator: ", "),
+                 "fancyColor":self.colorFancyArr.joined(separator: ", "),
+                 "fancyColorIntencity":self.fancyclrIntensityArr.joined(separator: ", "),
+                 "fancyColorOvertone":self.fancyclrOvertoneArr.joined(separator: ", "),
+                 "clarity":self.clarityArr.joined(separator: ", "),
+                 "lengthFrom":self.lengthFromArr.joined(separator: ", "),
+                 "lengthTo":self.lengthToArr.joined(separator: ", "),
+                 "widthFrom":self.widthFromArr.joined(separator: ", "),
+                 "widthTo":self.widthToArr.joined(separator: ", "),
+                 "depthFrom":self.depthMMFromArr.joined(separator: ", "),
+                 "depthTo":self.depthMMToArr.joined(separator: ", "),
                  "lotId":self.lotID,
                  "Location":self.location,
                  "certificate":"",
-                 "fluorescence":self.fluoreseArr,
-                 "cut":self.cutArr,
-                 "polish":self.polishFancyArr,
-                 "symmetry":self.symmetryArr,
-                 "technology":self.techeArr,
-                 "eyeClean":self.eyeClean,
-                 "shade":self.shade,
-                 "luster":self.luster,
+                 "fluorescence":self.fluoreseArr.joined(separator: ", "),
+                 "cut":self.cutArr.joined(separator: ", "),
+                 "polish":self.polishFancyArr.joined(separator: ", "),
+                 "symmetry":self.symmetryArr.joined(separator: ", "),
+                 "technology":self.techeArr.joined(separator: ", "),
+                 "eyeClean":self.eyeClean.joined(separator: ", "),
+                 "shade":self.shade.joined(separator: ", "),
+                 "luster":self.luster.joined(separator: ", "),
                  "returnable":DataManager.shared.isReturnabl ?? 0,                 // (0/1)
                  "caratFrom":self.caratFrom,
                  "caratTo":self.caratTo,
                  "priceFrom":self.priceFrom,
                  "priceTo":self.priceTo,
                  "currValue":"",                   //(By Default 1)
-                 "tablePerFrom":self.tableFromArr,
-                 "tablePerTo":self.tableToArr,
-                 "depthPerFrom":depthFromArr,
-                 "depthPerTo":depthToArr,
-                 "crownFrom":self.crownFromArr,
-                 "crownTo":self.crownToArr,
-                 "pavillionFrom":self.pavllionFromArr,
-                 "pavillionTo":self.pavllionToArr,
+                 "tablePerFrom":self.tableFromArr.joined(separator: ", "),
+                 "tablePerTo":self.tableToArr.joined(separator: ", "),
+                 "depthPerFrom":depthFromArr.joined(separator: ", "),
+                 "depthPerTo":depthToArr.joined(separator: ", "),
+                 "crownFrom":self.crownFromArr.joined(separator: ", "),
+                 "crownTo":self.crownToArr.joined(separator: ", "),
+                 "pavillionFrom":self.pavllionFromArr.joined(separator: ", "),
+                 "pavillionTo":self.pavllionToArr.joined(separator: ", "),
                  "sortBy":DataManager.shared.sortingBy ?? "" ]             //(PriceHigh,PriceLow,DiscountHigh,RecentlyAdd,SizeHigh,SizeLow)
         
         
@@ -515,7 +534,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
                 self.diamondListDetails[indexPath.row].isCart = 1
                 if let cell = self.tableViewList.cellForRow(at: indexPath) as? B2BSearchResultCardListingTVC {
                     cell.btnCard.setTitleColor(.themeClr, for: .normal)
-                    cell.btnCard.setTitle("Go To Cart", for: .normal)
+                    cell.btnCard.setTitle("Go to cart", for: .normal)
                     cartVCIsComeFromHome = false
                 }
                 
@@ -532,7 +551,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
                 
                 if let cell = self.tableViewList.cellForRow(at: indexPath) as? B2CSearchResultCardListingCell {
                     cell.btnCard.setTitleColor(.themeClr, for: .normal)
-                    cell.btnCard.setTitle("Go To Cart", for: .normal)
+                    cell.btnCard.setTitle("Go to cart", for: .normal)
                     cartVCIsComeFromHome = false
                 }
                 
@@ -657,9 +676,9 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
         case "PriceTo":
             self.priceTo =  0
         case "CaratFrom":
-            self.caratFrom = Int()
+            self.caratFrom = Double()
         case "CaratTo":
-            self.caratTo =  Int()
+            self.caratTo =  Double()
             
         case "Cut":
             self.cutArr.removeAll { $0 == components[1] }
@@ -835,10 +854,10 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 if diamondListDetails.count > 1{
                     if let isCart = self.diamondListDetails[indexPath.row].isCart{
                         if isCart == 0 {
-                            cell.btnCard.setTitle("Add To Cart", for: .normal)
+                            cell.btnCard.setTitle("Add to cart", for: .normal)
                         }
                         else{
-                            cell.btnCard.setTitle("Go To Cart", for: .normal)
+                            cell.btnCard.setTitle("Go to cart", for: .normal)
                         }
                     }
                     
@@ -852,7 +871,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                     }
                     
                     cell.lblCirtificateNum.text = self.diamondListDetails[indexPath.row].certificateNo
-                    cell.lblLotID.text = "\(self.diamondListDetails[indexPath.row].supplierID ?? 0)"
+                    cell.lblLotID.text = "\(self.diamondListDetails[indexPath.row].supplierID ?? "")"
                     cell.lblShape.text = self.diamondListDetails[indexPath.row].shape
                     cell.lblCarat.text = self.diamondListDetails[indexPath.row].carat
                     cell.lblClor.text = self.diamondListDetails[indexPath.row].color
@@ -995,10 +1014,10 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 if diamondListDetails.count > 1{
                     if let isCart = self.diamondListDetails[indexPath.row].isCart{
                         if isCart == 0 {
-                            cell.btnCard.setTitle("Add To Cart", for: .normal)
+                            cell.btnCard.setTitle("Add to cart", for: .normal)
                         }
                         else{
-                            cell.btnCard.setTitle("Go To Cart", for: .normal)
+                            cell.btnCard.setTitle("Go to cart", for: .normal)
                         }
                     }
                     
@@ -1012,7 +1031,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                     }
                     
                     cell.lblCirtificateNum.text = self.diamondListDetails[indexPath.row].certificateNo
-                    cell.lblLotID.text = "ID: \(self.diamondListDetails[indexPath.row].supplierID ?? 0)"
+                    cell.lblLotID.text = "ID: \(self.diamondListDetails[indexPath.row].supplierID ?? "")"
                     cell.lblShape.text = self.diamondListDetails[indexPath.row].shape
                     cell.lblCarat.text = "Ct\(self.diamondListDetails[indexPath.row].carat ?? "")"
                     cell.lblClor.text = self.diamondListDetails[indexPath.row].color
@@ -1157,10 +1176,10 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
             if diamondListDetails.count > 1{
                 if let isCart = self.diamondListDetails[indexPath.row].isCart{
                     if isCart == 0 {
-                        cell.btnCard.setTitle("Add To Cart", for: .normal)
+                        cell.btnCard.setTitle("Add to cart", for: .normal)
                     }
                     else{
-                        cell.btnCard.setTitle("Go To Cart", for: .normal)
+                        cell.btnCard.setTitle("Go to cart", for: .normal)
                     }
                 }
                 
@@ -1174,7 +1193,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 }
                 
                 cell.lblCirtificateNum.text = self.diamondListDetails[indexPath.row].certificateNo
-                cell.lblLotID.text = "\(self.diamondListDetails[indexPath.row].supplierID ?? 0)"
+                cell.lblLotID.text = "\(self.diamondListDetails[indexPath.row].supplierID ?? "")"
                 cell.btnShape.text = self.diamondListDetails[indexPath.row].shape
                 cell.lblCarat.text = self.diamondListDetails[indexPath.row].carat
                 cell.lblClor.text = self.diamondListDetails[indexPath.row].color
@@ -1317,10 +1336,10 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
             if diamondListDetails.count > 1{
                 if let isCart = self.diamondListDetails[indexPath.row].isCart{
                     if isCart == 0 {
-                        cell.btnCard.setTitle("Add To Cart", for: .normal)
+                        cell.btnCard.setTitle("Add to cart", for: .normal)
                     }
                     else{
-                        cell.btnCard.setTitle("Go To Cart", for: .normal)
+                        cell.btnCard.setTitle("Go to cart", for: .normal)
                     }
                 }
                 
@@ -1334,7 +1353,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 }
                 
                 cell.lblCirtificateNum.text = self.diamondListDetails[indexPath.row].certificateNo
-                cell.lblLotID.text = "ID: \(self.diamondListDetails[indexPath.row].supplierID ?? 0)"
+                cell.lblLotID.text = "ID: \(self.diamondListDetails[indexPath.row].supplierID ?? "")"
                 cell.btnShape.text = self.diamondListDetails[indexPath.row].shape
                 cell.lblCarat.text = "Ct\(self.diamondListDetails[indexPath.row].carat ?? "")"
                 cell.lblClor.text = self.diamondListDetails[indexPath.row].color

@@ -16,7 +16,7 @@ struct WishlistDataStruct: Codable {
 // MARK: - Detail
 struct WishlistData: Codable {
     var certificateNo, createdAt, stockID, itemName: String?
-    var supplierID: Int?
+    var supplierID: String?
     var category, cutGrade, certificateName, polish: String?
     var symmetry, measurement, fluorescenceIntensity, carat: String?
     var color, clarity, shape, shade: String?

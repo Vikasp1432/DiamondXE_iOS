@@ -13,7 +13,7 @@ class AlamofireManager {
     static var shareInstence = AlamofireManager()
 
     func makePostAPIRequest(url : String,param: [String: Any], completion: @escaping (Result<Data?, Error>) -> Void) {
-        let headers: HTTPHeaders = HeaderInfo().headers
+        let headers: HTTPHeaders = HeaderInfo.headers
         // Define your API endpoint and parameters
         print("Print Final URL ----------->\(url)")
         print("Print Final Psram ----------->\(param)")

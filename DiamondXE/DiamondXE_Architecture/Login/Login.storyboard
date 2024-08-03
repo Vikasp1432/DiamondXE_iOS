@@ -278,6 +278,9 @@
                                                 <state key="normal" title="Resend OTP">
                                                     <color key="titleColor" name="themeClr"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnActionResendOTP:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="iAg-Ae-t0l"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ije-n5-erg">
                                                 <rect key="frame" x="19.999999999999996" y="131.33333333333334" width="37.666666666666657" height="17.666666666666657"/>

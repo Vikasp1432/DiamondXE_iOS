@@ -151,15 +151,15 @@
                                         </constraints>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6D-BJ-aBf">
-                                        <rect key="frame" x="25" y="75" width="343" height="1201"/>
+                                        <rect key="frame" x="25" y="75" width="343" height="1216"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vyz-qP-49Y">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="1210"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="1216"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vy2-3c-aJF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="1200"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="1206"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7je-5O-Tb3">
+                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7je-5O-Tb3">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company GST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bxy-wR-Pz2">
@@ -171,13 +171,13 @@
                                                                         <color key="textColor" name="blackClr"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANy-52-dND">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ANy-52-dND">
                                                                         <rect key="frame" x="20" y="45" width="303" height="45"/>
                                                                         <subviews>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvT-Qb-N3A" userLabel="address2">
+                                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pvT-Qb-N3A" userLabel="address2">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="303" height="45"/>
                                                                                 <subviews>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter GST Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wOB-Dn-GQi" customClass="DTTextField" customModule="DTTextField">
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter GST Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wOB-Dn-GQi" customClass="DTTextField" customModule="DTTextField">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="303" height="45"/>
                                                                                         <color key="textColor" name="themeClr"/>
                                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -249,7 +249,7 @@
                                                                             <constraint firstAttribute="trailing" secondItem="pvT-Qb-N3A" secondAttribute="trailing" id="zKV-FS-W5r"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b56-bG-neF" userLabel="address2">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b56-bG-neF" userLabel="address2">
                                                                         <rect key="frame" x="20" y="95" width="303" height="45"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Upload GST Document" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zgU-z3-qxL" customClass="DTTextField" customModule="DTTextField">
@@ -333,8 +333,8 @@
                                                                     <constraint firstAttribute="trailing" secondItem="Bxy-wR-Pz2" secondAttribute="trailing" constant="20" id="uWK-Kr-4zg"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYK-tg-750">
-                                                                <rect key="frame" x="0.0" y="150" width="343" height="150"/>
+                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hYK-tg-750">
+                                                                <rect key="frame" x="0.0" y="150" width="343" height="156"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company PAN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMb-qh-NAD">
                                                                         <rect key="frame" x="20" y="10" width="303" height="30"/>
@@ -345,13 +345,13 @@
                                                                         <color key="textColor" name="blackClr"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJl-qN-lTS">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hJl-qN-lTS">
                                                                         <rect key="frame" x="20" y="45" width="303" height="45"/>
                                                                         <subviews>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQG-Uh-QzT" userLabel="address2">
+                                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XQG-Uh-QzT" userLabel="address2">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="303" height="45"/>
                                                                                 <subviews>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter PAN Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MaW-It-vu9" customClass="DTTextField" customModule="DTTextField">
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter PAN Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MaW-It-vu9" customClass="DTTextField" customModule="DTTextField">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="303" height="45"/>
                                                                                         <color key="textColor" name="themeClr"/>
                                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -423,7 +423,7 @@
                                                                             <constraint firstItem="XQG-Uh-QzT" firstAttribute="leading" secondItem="hJl-qN-lTS" secondAttribute="leading" id="owu-5P-CZH"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xcy-5J-hF1" userLabel="address2">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xcy-5J-hF1" userLabel="address2">
                                                                         <rect key="frame" x="20" y="95" width="303" height="45"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Upload PAN Document" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sBT-Go-rUX" customClass="DTTextField" customModule="DTTextField">
@@ -507,8 +507,8 @@
                                                                     <constraint firstAttribute="trailing" secondItem="Xcy-5J-hF1" secondAttribute="trailing" constant="20" id="uQS-Ej-5Vs"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAQ-57-p4K">
-                                                                <rect key="frame" x="0.0" y="300" width="343" height="150"/>
+                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UAQ-57-p4K">
+                                                                <rect key="frame" x="0.0" y="306" width="343" height="150"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IEC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kX5-Bc-Oja">
                                                                         <rect key="frame" x="20" y="10" width="303" height="30"/>
@@ -519,13 +519,13 @@
                                                                         <color key="textColor" name="blackClr"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xZ-z9-jjv">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xZ-z9-jjv">
                                                                         <rect key="frame" x="20" y="45" width="303" height="45"/>
                                                                         <subviews>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZP-gg-tSS" userLabel="address2">
+                                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zZP-gg-tSS" userLabel="address2">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="303" height="45"/>
                                                                                 <subviews>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter IEC Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhQ-2A-n7s" customClass="DTTextField" customModule="DTTextField">
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter IEC Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhQ-2A-n7s" customClass="DTTextField" customModule="DTTextField">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="303" height="45"/>
                                                                                         <color key="textColor" name="themeClr"/>
                                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -594,7 +594,7 @@
                                                                             <constraint firstAttribute="trailing" secondItem="zZP-gg-tSS" secondAttribute="trailing" id="qeY-LB-AML"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTi-Ni-Kqj" userLabel="address2">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VTi-Ni-Kqj" userLabel="address2">
                                                                         <rect key="frame" x="20" y="95" width="303" height="45"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Upload IEC Document" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hYq-8C-wPr" customClass="DTTextField" customModule="DTTextField">
@@ -678,8 +678,8 @@
                                                                     <constraint firstItem="kX5-Bc-Oja" firstAttribute="leading" secondItem="UAQ-57-p4K" secondAttribute="leading" constant="20" id="pD5-dM-h0W"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yew-0e-w6d">
-                                                                <rect key="frame" x="0.0" y="450" width="343" height="200"/>
+                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yew-0e-w6d">
+                                                                <rect key="frame" x="0.0" y="456" width="343" height="200"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aadhaar Card Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axl-YM-hwt">
                                                                         <rect key="frame" x="20" y="10" width="303" height="30"/>
@@ -690,13 +690,13 @@
                                                                         <color key="textColor" name="blackClr"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCb-66-q8w">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCb-66-q8w">
                                                                         <rect key="frame" x="20" y="45" width="303" height="45"/>
                                                                         <subviews>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MzD-6E-KJX" userLabel="address2">
+                                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MzD-6E-KJX" userLabel="address2">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="303" height="45"/>
                                                                                 <subviews>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="12 Digits Aadhaar number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VQv-fO-Hl3" customClass="DTTextField" customModule="DTTextField">
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="12 Digits Aadhaar number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VQv-fO-Hl3" customClass="DTTextField" customModule="DTTextField">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="303" height="45"/>
                                                                                         <color key="textColor" name="themeClr"/>
                                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -768,7 +768,7 @@
                                                                             <constraint firstItem="MzD-6E-KJX" firstAttribute="leading" secondItem="jCb-66-q8w" secondAttribute="leading" id="RPm-Vc-dcm"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Pt-ZL-aDs" userLabel="address2">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Pt-ZL-aDs" userLabel="address2">
                                                                         <rect key="frame" x="20" y="95" width="303" height="45"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Upload Aadhar Front" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fcv-WY-4zz" customClass="DTTextField" customModule="DTTextField">
@@ -837,7 +837,7 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbd-xo-pFe" userLabel="address2">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bbd-xo-pFe" userLabel="address2">
                                                                         <rect key="frame" x="20" y="145" width="303" height="45"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Upload Aadhar Back" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a3L-Qd-zuf" customClass="DTTextField" customModule="DTTextField">
@@ -924,8 +924,8 @@
                                                                     <constraint firstItem="jCb-66-q8w" firstAttribute="top" secondItem="axl-YM-hwt" secondAttribute="bottom" constant="5" id="y5h-dr-OGq"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qyx-Te-6FD">
-                                                                <rect key="frame" x="0.0" y="650" width="343" height="150"/>
+                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qyx-Te-6FD">
+                                                                <rect key="frame" x="0.0" y="656" width="343" height="150"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAN Card Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0E1-6x-Bfu">
                                                                         <rect key="frame" x="20" y="10" width="303" height="30"/>
@@ -936,13 +936,13 @@
                                                                         <color key="textColor" name="blackClr"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XC5-9L-zDi">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XC5-9L-zDi">
                                                                         <rect key="frame" x="20" y="45" width="303" height="45"/>
                                                                         <subviews>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9w-di-imb" userLabel="address2">
+                                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n9w-di-imb" userLabel="address2">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="303" height="45"/>
                                                                                 <subviews>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="10 Digit PAN Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dTa-qI-43L" customClass="DTTextField" customModule="DTTextField">
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="10 Digit PAN Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dTa-qI-43L" customClass="DTTextField" customModule="DTTextField">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="303" height="45"/>
                                                                                         <color key="textColor" name="themeClr"/>
                                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -1014,7 +1014,7 @@
                                                                             <constraint firstAttribute="trailing" secondItem="n9w-di-imb" secondAttribute="trailing" id="l4A-Wd-TLx"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vaU-Xc-aKQ" userLabel="address2">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vaU-Xc-aKQ" userLabel="address2">
                                                                         <rect key="frame" x="20" y="95" width="303" height="45"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Upload PAN Card" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FHL-tk-WJw" customClass="DTTextField" customModule="DTTextField">
@@ -1098,8 +1098,8 @@
                                                                     <constraint firstAttribute="trailing" secondItem="XC5-9L-zDi" secondAttribute="trailing" constant="20" id="qWZ-wb-Dr8"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cq7-up-jmw">
-                                                                <rect key="frame" x="0.0" y="800" width="343" height="200"/>
+                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cq7-up-jmw">
+                                                                <rect key="frame" x="0.0" y="806" width="343" height="200"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passport Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJO-nQ-6FC">
                                                                         <rect key="frame" x="20" y="10" width="303" height="30"/>
@@ -1110,13 +1110,13 @@
                                                                         <color key="textColor" name="blackClr"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhw-jL-OL1">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bhw-jL-OL1">
                                                                         <rect key="frame" x="20" y="45" width="303" height="45"/>
                                                                         <subviews>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwa-eo-hs9" userLabel="address2">
+                                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uwa-eo-hs9" userLabel="address2">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="303" height="45"/>
                                                                                 <subviews>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Passport Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ay-SU-5Nz" customClass="DTTextField" customModule="DTTextField">
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Passport Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ay-SU-5Nz" customClass="DTTextField" customModule="DTTextField">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="303" height="45"/>
                                                                                         <color key="textColor" name="themeClr"/>
                                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -1188,7 +1188,7 @@
                                                                             <constraint firstItem="uwa-eo-hs9" firstAttribute="leading" secondItem="Bhw-jL-OL1" secondAttribute="leading" id="YNd-6J-yXL"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQu-Ma-L9H" userLabel="address2">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LQu-Ma-L9H" userLabel="address2">
                                                                         <rect key="frame" x="20" y="95" width="303" height="45"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Upload Passport Front" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l2Y-PL-nCk" customClass="DTTextField" customModule="DTTextField">
@@ -1257,7 +1257,7 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4LK-RR-tzY" userLabel="address2">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4LK-RR-tzY" userLabel="address2">
                                                                         <rect key="frame" x="20" y="145" width="303" height="45"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Upload Passport Back" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cLU-SI-lK8" customClass="DTTextField" customModule="DTTextField">
@@ -1344,8 +1344,8 @@
                                                                     <constraint firstItem="4LK-RR-tzY" firstAttribute="leading" secondItem="Cq7-up-jmw" secondAttribute="leading" constant="20" id="r0a-7j-lHp"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Vr-BY-bGv">
-                                                                <rect key="frame" x="0.0" y="1000" width="343" height="200"/>
+                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Vr-BY-bGv">
+                                                                <rect key="frame" x="0.0" y="1006" width="343" height="200"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driving Licence Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKj-pN-DlE">
                                                                         <rect key="frame" x="20" y="10" width="303" height="30"/>
@@ -1356,16 +1356,16 @@
                                                                         <color key="textColor" name="blackClr"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G93-Kz-MKA" userLabel="address2">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G93-Kz-MKA" userLabel="address2">
                                                                         <rect key="frame" x="20" y="95" width="303" height="45"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Driving Licence" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JlD-T9-u2J" customClass="DTTextField" customModule="DTTextField">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Driving Licence" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JlD-T9-u2J" customClass="DTTextField" customModule="DTTextField">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="303" height="45"/>
                                                                                 <color key="textColor" name="themeClr"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                             </textField>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="unr-6c-yGd">
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="unr-6c-yGd">
                                                                                 <rect key="frame" x="235" y="7.6666666666667425" width="60" height="30"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UIj-T4-qYr">
@@ -1471,7 +1471,7 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYS-lf-n4Q" userLabel="address2">
+                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oYS-lf-n4Q" userLabel="address2">
                                                                         <rect key="frame" x="20" y="145" width="303" height="45"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Upload Driving Licence" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vXz-FA-SIZ" customClass="DTTextField" customModule="DTTextField">
@@ -1578,7 +1578,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Vyz-qP-49Y" secondAttribute="trailing" id="4cN-3a-xdj"/>
-                                            <constraint firstAttribute="bottom" secondItem="Vyz-qP-49Y" secondAttribute="bottom" id="9CB-u7-H59"/>
+                                            <constraint firstAttribute="bottom" secondItem="Vyz-qP-49Y" secondAttribute="bottom" constant="15" id="9CB-u7-H59"/>
                                             <constraint firstItem="Vyz-qP-49Y" firstAttribute="top" secondItem="G6D-BJ-aBf" secondAttribute="top" id="UqE-z1-aVS"/>
                                             <constraint firstItem="Vyz-qP-49Y" firstAttribute="width" secondItem="G6D-BJ-aBf" secondAttribute="width" id="fI3-Jm-gIU"/>
                                             <constraint firstItem="Vyz-qP-49Y" firstAttribute="height" secondItem="G6D-BJ-aBf" secondAttribute="height" priority="999" id="g6f-ye-fVK"/>
@@ -1597,7 +1597,7 @@
                                     <constraint firstItem="G6D-BJ-aBf" firstAttribute="leading" secondItem="sU7-43-1jw" secondAttribute="leading" constant="25" id="Z6R-Gh-BCn"/>
                                     <constraint firstItem="I3A-E3-SHj" firstAttribute="leading" secondItem="sU7-43-1jw" secondAttribute="leading" id="dHs-IF-Sla"/>
                                     <constraint firstAttribute="trailing" secondItem="I3A-E3-SHj" secondAttribute="trailing" id="dd0-26-9e1"/>
-                                    <constraint firstItem="SjF-Bu-37b" firstAttribute="top" secondItem="G6D-BJ-aBf" secondAttribute="bottom" constant="15" id="kXj-hV-ylc"/>
+                                    <constraint firstItem="SjF-Bu-37b" firstAttribute="top" secondItem="G6D-BJ-aBf" secondAttribute="bottom" id="kXj-hV-ylc"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TvG-0l-LV1">
@@ -1770,10 +1770,10 @@
             <size key="intrinsicContentSize" width="110.33333333333333" height="18"/>
         </designable>
         <designable name="FHL-tk-WJw">
-            <size key="intrinsicContentSize" width="122" height="34"/>
+            <size key="intrinsicContentSize" width="123" height="34"/>
         </designable>
         <designable name="Fcv-WY-4zz">
-            <size key="intrinsicContentSize" width="138" height="34"/>
+            <size key="intrinsicContentSize" width="141" height="34"/>
         </designable>
         <designable name="JlD-T9-u2J">
             <size key="intrinsicContentSize" width="114.33333333333333" height="15.666666666666666"/>
@@ -1788,34 +1788,34 @@
             <size key="intrinsicContentSize" width="163.33333333333334" height="18"/>
         </designable>
         <designable name="a3L-Qd-zuf">
-            <size key="intrinsicContentSize" width="136" height="34"/>
+            <size key="intrinsicContentSize" width="140" height="34"/>
         </designable>
         <designable name="cLU-SI-lK8">
-            <size key="intrinsicContentSize" width="144" height="34"/>
+            <size key="intrinsicContentSize" width="149" height="34"/>
         </designable>
         <designable name="dTa-qI-43L">
             <size key="intrinsicContentSize" width="167.66666666666666" height="18"/>
         </designable>
         <designable name="hYq-8C-wPr">
-            <size key="intrinsicContentSize" width="146" height="34"/>
+            <size key="intrinsicContentSize" width="149" height="34"/>
         </designable>
         <designable name="l2Y-PL-nCk">
-            <size key="intrinsicContentSize" width="147" height="34"/>
+            <size key="intrinsicContentSize" width="150" height="34"/>
         </designable>
         <designable name="lsW-fc-shy">
             <size key="intrinsicContentSize" width="150.33333333333334" height="15.666666666666666"/>
         </designable>
         <designable name="sBT-Go-rUX">
-            <size key="intrinsicContentSize" width="152" height="34"/>
+            <size key="intrinsicContentSize" width="153" height="34"/>
         </designable>
         <designable name="vXz-FA-SIZ">
-            <size key="intrinsicContentSize" width="151" height="34"/>
+            <size key="intrinsicContentSize" width="153" height="34"/>
         </designable>
         <designable name="wOB-Dn-GQi">
             <size key="intrinsicContentSize" width="119" height="18"/>
         </designable>
         <designable name="zgU-z3-qxL">
-            <size key="intrinsicContentSize" width="150" height="34"/>
+            <size key="intrinsicContentSize" width="153" height="34"/>
         </designable>
     </designables>
     <resources>

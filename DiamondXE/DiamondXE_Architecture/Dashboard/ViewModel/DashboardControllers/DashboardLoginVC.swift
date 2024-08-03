@@ -46,7 +46,7 @@ class DashboardLoginVC: BaseViewController , ChildViewControllerProtocol {
            // Add the logout action
            let logoutAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
                // Perform logout logic here
-//               self.callAPILogout()
+               self.callAPIDeleteAccount()
            }
            alert.addAction(logoutAction)
            
@@ -165,10 +165,31 @@ extension DashboardLoginVC: UITableViewDelegate, UITableViewDataSource{
         if account_delete == sectionStr{
             self.showLogoutConfirmationAlert()
         }
-        
-       
-        
-        
+    }
+    
+    
+    func callAPIDeleteAccount(){
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+            
+        let sessionID = getSessionUniqID()
+        let url = APIs().deleteAccount_API
+        let param : [String:Any] = ["deviceId": sessionID]
+            
+        HomeDataModel().deleteUserAccount(param: param, url: url, completion: { data, msg in
+                if data.status == 1{
+                    self.toastMessage(msg ?? "")
+                    UserDefaultManager.shareInstence.clearLoginDataDefaults()
+                  //  self.btnTitleLogin.setTitle("Account", for: .normal)
+//                    self.lblWelcomeUser.text = "Welcome User"
+//                    self.lblType.text = "--"
+                }
+                else{
+                    self.toastMessage(msg ?? "")
+                    
+                }
+                CustomActivityIndicator2.shared.hide()
+                
+            })
     }
     
 }

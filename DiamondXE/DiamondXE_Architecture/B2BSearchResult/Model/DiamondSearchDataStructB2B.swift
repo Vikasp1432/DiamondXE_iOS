@@ -25,7 +25,8 @@ struct DiamondSearchDataStructB2B: Codable {
    // MARK: - Detail
    struct DiamondListingDetail: Codable {
        var stockID, itemName, category: String?
-       var supplierID, subtotal: Int?
+       var subtotal: Int?
+       var supplierID : String?
        var cutGrade, certificateName, certificateNo, polish: String?
        var symmetry, measurement, fluorescenceIntensity, carat: String?
        var color, clarity, shape, shade: String?

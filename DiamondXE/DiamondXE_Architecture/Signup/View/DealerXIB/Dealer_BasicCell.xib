@@ -220,13 +220,12 @@
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="7UM-02-3MK">
-                                                                <rect key="frame" x="313" y="11.666666666666686" width="60" height="25"/>
+                                                                <rect key="frame" x="313" y="5" width="60" height="38"/>
                                                                 <subviews>
                                                                     <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jkM-Xb-zHC">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="25"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="38"/>
                                                                         <color key="backgroundColor" name="themeClr"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="25" id="J4D-yF-Z2J"/>
                                                                             <constraint firstAttribute="width" constant="60" id="yT4-Qp-YkK"/>
                                                                         </constraints>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -249,7 +248,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button hidden="YES" opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YLm-mC-poR">
-                                                                        <rect key="frame" x="60" y="0.0" width="0.0" height="25"/>
+                                                                        <rect key="frame" x="0.0" y="13" width="0.0" height="25"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="25" id="bE9-jq-NS1"/>
                                                                         </constraints>
@@ -267,7 +266,9 @@
                                                             </stackView>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="7UM-02-3MK" secondAttribute="bottom" constant="5" id="EEk-uK-ZhC"/>
                                                             <constraint firstAttribute="trailing" secondItem="7UM-02-3MK" secondAttribute="trailing" constant="10" id="IIt-Mz-JPs"/>
+                                                            <constraint firstItem="7UM-02-3MK" firstAttribute="top" secondItem="A1e-Bf-egV" secondAttribute="top" constant="5" id="bzB-C1-eB6"/>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="f1M-cv-xBe"/>
                                                             <constraint firstAttribute="trailing" secondItem="iwe-2p-0np" secondAttribute="trailing" id="gP4-oa-duD"/>
                                                             <constraint firstAttribute="bottom" secondItem="iwe-2p-0np" secondAttribute="bottom" id="kF8-rv-ilV"/>
@@ -406,22 +407,22 @@
     </objects>
     <designables>
         <designable name="XPO-qJ-Lof">
-            <size key="intrinsicContentSize" width="107" height="43"/>
+            <size key="intrinsicContentSize" width="91" height="18"/>
         </designable>
         <designable name="eHf-IN-DbE">
-            <size key="intrinsicContentSize" width="88.666666666666671" height="43"/>
+            <size key="intrinsicContentSize" width="72.666666666666671" height="18"/>
         </designable>
         <designable name="eix-ug-0xp">
-            <size key="intrinsicContentSize" width="136" height="43"/>
+            <size key="intrinsicContentSize" width="120" height="18"/>
         </designable>
         <designable name="g7q-yq-ptF">
-            <size key="intrinsicContentSize" width="89.333333333333329" height="43"/>
+            <size key="intrinsicContentSize" width="73.333333333333329" height="18"/>
         </designable>
         <designable name="iwe-2p-0np">
-            <size key="intrinsicContentSize" width="122.33333333333333" height="43"/>
+            <size key="intrinsicContentSize" width="106.33333333333333" height="18"/>
         </designable>
         <designable name="wEe-CR-Qik">
-            <size key="intrinsicContentSize" width="117.66666666666667" height="43"/>
+            <size key="intrinsicContentSize" width="101.66666666666667" height="18"/>
         </designable>
     </designables>
     <resources>

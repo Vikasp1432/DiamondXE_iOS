@@ -27,9 +27,9 @@
                         <rect key="frame" x="10" y="5" width="434" height="174"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_Holder" translatesAutoresizingMaskIntoConstraints="NO" id="0Gl-Xh-Y9n">
-                                <rect key="frame" x="10" y="10" width="130" height="145"/>
+                                <rect key="frame" x="10" y="13" width="130" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="145" id="FN2-Ze-g70"/>
+                                    <constraint firstAttribute="height" constant="150" id="FN2-Ze-g70"/>
                                     <constraint firstAttribute="width" constant="130" id="TIY-Bf-Ibe"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -230,8 +230,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="79y-Ij-PFh">
-                                <rect key="frame" x="152" y="125" width="157" height="38"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="79y-Ij-PFh">
+                                <rect key="frame" x="152" y="125" width="147" height="38"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FSw-Td-Yea">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="38"/>
@@ -273,7 +273,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrH-A9-8hu">
-                                        <rect key="frame" x="120" y="0.0" width="37" height="38"/>
+                                        <rect key="frame" x="110" y="0.0" width="37" height="38"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="wishlist"/>
                                         <connections>
@@ -302,7 +302,7 @@
                             <constraint firstItem="Lqv-kq-rVl" firstAttribute="top" secondItem="Te7-bc-2ug" secondAttribute="bottom" constant="5" id="Osz-6d-7Ld"/>
                             <constraint firstAttribute="trailing" secondItem="Ejn-IM-ik8" secondAttribute="trailing" constant="10" id="Q6G-Ju-J7T"/>
                             <constraint firstItem="79y-Ij-PFh" firstAttribute="leading" secondItem="0Gl-Xh-Y9n" secondAttribute="trailing" constant="12" id="Qsn-PB-IpH"/>
-                            <constraint firstItem="0Gl-Xh-Y9n" firstAttribute="top" secondItem="iOx-Cx-P1S" secondAttribute="top" constant="10" id="RnV-IB-XWH"/>
+                            <constraint firstItem="0Gl-Xh-Y9n" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iOx-Cx-P1S" secondAttribute="top" constant="10" id="RnV-IB-XWH"/>
                             <constraint firstItem="aEl-KC-eQX" firstAttribute="centerY" secondItem="fah-g2-e3u" secondAttribute="centerY" id="TCZ-O3-qbf"/>
                             <constraint firstItem="Te7-bc-2ug" firstAttribute="firstBaseline" secondItem="Ejn-IM-ik8" secondAttribute="firstBaseline" id="XoC-zl-ooG"/>
                             <constraint firstItem="qzH-Yo-QGo" firstAttribute="centerY" secondItem="VxT-v1-nfg" secondAttribute="centerY" id="bcs-LB-UM9"/>
@@ -314,6 +314,7 @@
                             <constraint firstItem="VxT-v1-nfg" firstAttribute="leading" secondItem="qWN-2k-1hP" secondAttribute="trailing" constant="5" id="icf-O9-GpI"/>
                             <constraint firstItem="Lqv-kq-rVl" firstAttribute="leading" secondItem="0Gl-Xh-Y9n" secondAttribute="trailing" constant="12" id="km1-K1-zva"/>
                             <constraint firstItem="M0X-9s-l5o" firstAttribute="centerY" secondItem="VxT-v1-nfg" secondAttribute="centerY" id="lRn-4h-Zla"/>
+                            <constraint firstItem="0Gl-Xh-Y9n" firstAttribute="bottom" secondItem="79y-Ij-PFh" secondAttribute="bottom" id="pvQ-f4-Qx2"/>
                             <constraint firstItem="Te7-bc-2ug" firstAttribute="leading" secondItem="Ejn-IM-ik8" secondAttribute="leading" id="q7A-uO-odN"/>
                             <constraint firstItem="fah-g2-e3u" firstAttribute="top" secondItem="iOx-Cx-P1S" secondAttribute="top" constant="10" id="r8i-Xz-QUb"/>
                             <constraint firstItem="Ejn-IM-ik8" firstAttribute="leading" secondItem="0Gl-Xh-Y9n" secondAttribute="trailing" constant="10" id="t1e-cJ-mbk"/>
@@ -377,7 +378,7 @@
             <color red="0.45100000500679016" green="0.20800000429153442" blue="0.48600000143051147" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="viewBGClr">
-            <color red="0.96100002527236938" green="0.95300000905990601" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

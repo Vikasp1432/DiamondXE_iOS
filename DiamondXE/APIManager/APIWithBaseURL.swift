@@ -84,17 +84,38 @@ struct APIs {
     
     let update_ProfileInfo_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/update-profile"
     
+    let buyProductUpdate_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/place-order"
+    
+    let deleteAccount_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/delete-user-account"
+    
 }
 
+//struct HeaderInfo {
+//    
+//    let loginData = UserDefaultManager().retrieveLoginData()
+//    var brrTokn = loginData?.details?.authToken ?? ""
+//    
+//    let headers : HTTPHeaders =  ["Content-Type":"application/json",
+//                                  "Authorization" : "Bearer \(brrTokn)",//
+//                                  "Apikey" : APIs().api_Key]
+//}
+
+
 struct HeaderInfo {
-    
-    static let loginData = UserDefaultManager().retrieveLoginData()
-    static var brrTokn = loginData?.details?.authToken ?? ""
-    
-    let headers : HTTPHeaders =  ["Content-Type":"application/json",
-                                  "Authorization" : "Bearer \(brrTokn)",//
-                                  "Apikey" : APIs().api_Key]
+  static var headers: HTTPHeaders {
+        // Retrieve login data
+        let loginData = UserDefaultManager().retrieveLoginData()
+        
+        let authToken = loginData?.details?.authToken ?? ""
+        
+        return [
+            "Content-Type": "application/json",
+            "Authorization": "Bearer \(authToken)",
+            "Apikey": APIs().api_Key
+        ]
+    }
 }
+
 
 struct HeaderInfoLocation {
 //    let timeZoneMatcher = TimeZoneMatcher()
@@ -156,5 +177,7 @@ struct SideBarURLs {
     let midday = "https://www.mid-day.com/brand-media/article/diamondxe-set-to-revolutionise-the-industry-with-innovative-solutions-23306755"
     
     let viewALL = "https://diamondxe.com/media-gallery"
+    
+    let termandCondition = "https://diamondxe.com/policy/terms-conditions"
     
 }

@@ -52,6 +52,8 @@ class LoginVC: BaseViewController, ChildViewControllerProtocol {
     var loginParamData = LoginParamStruct()
     var loginDataStruct = LoginDataStruct()
     
+    var parametersResend:[String:Any] = [:]
+    
     let emailMessage  = NSLocalizedString("Email is required.", comment: "")
     let passMessage  = NSLocalizedString("Password is required.", comment: "")
     let phoneNoMessage  = NSLocalizedString("Phone number is required.", comment: "")
@@ -212,7 +214,7 @@ class LoginVC: BaseViewController, ChildViewControllerProtocol {
             self.loginParamData.mobileNo = self.txtPhoneNo.text ?? ""
             self.loginParamData.loginType = "mobile"
             if self.txtOTP.text?.count ?? 0 > 0 {
-                self.loginParamData.otp = Int(self.txtOTP.text ?? "1234")
+                self.loginParamData.otp = Int(self.txtOTP.text ?? "0")
                 self.loginParamData.requestOtp = 0
                 self.loginParamData.otp =  self.loginParamData.otp
             }
@@ -248,6 +250,32 @@ class LoginVC: BaseViewController, ChildViewControllerProtocol {
         
     }
     
+    
+    @IBAction func btnActionResendOTP(_ sender:UIButton){
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+        LoginDataModel().loginUser(url: APIs().email_phone_loginAPI, requestParam: self.parametersResend, completion: { loginData , message in
+            print(loginData)
+            if loginData.status == 2{
+                //print(message)
+                self.viewEnterMobilOTP.isHidden = false
+                self.lblTimer.isHidden = false
+                self.btnResendOTP.isHidden = false
+                TimerManager.shared.startTimer(withLabel: self.lblTimer) {
+                    self.btnResendOTP.isEnabled = true
+                }
+                
+            }
+           
+            else{
+                //print(message)
+                self.toastMessage(message ?? "")
+            }
+            CustomActivityIndicator2.shared.hide()
+
+            
+        })
+    }
+    
     // api
     func loginWithMobile_Email(parameters:[String:Any]){
         view.endEditing(true)
@@ -256,6 +284,7 @@ class LoginVC: BaseViewController, ChildViewControllerProtocol {
             CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
             LoginDataModel().loginUser(url: APIs().email_phone_loginAPI, requestParam: parameters, completion: { loginData , message in
                 print(loginData)
+                self.parametersResend = parameters
                 if loginData.status == 2{
                     //print(message)
                     self.viewEnterMobilOTP.isHidden = false

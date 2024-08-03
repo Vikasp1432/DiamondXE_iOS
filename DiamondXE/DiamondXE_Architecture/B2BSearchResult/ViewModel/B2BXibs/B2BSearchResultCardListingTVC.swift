@@ -55,6 +55,7 @@ class B2BSearchResultCardListingTVC: UITableViewCell, ShimmeringViewProtocol {
     var addToCart : (() -> Void) = { }
     var addToWish : (() -> Void) = { }
     var shapeClick : (() -> Void) = { }
+    
 
     
     var shimmeringAnimatedItems: [UIView] {

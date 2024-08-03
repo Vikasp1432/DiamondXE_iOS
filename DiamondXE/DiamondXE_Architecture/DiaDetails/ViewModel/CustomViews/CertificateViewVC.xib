@@ -15,6 +15,7 @@
                 <outlet property="backView" destination="D8e-JO-I9A" id="NLE-K7-xSH"/>
                 <outlet property="contentView" destination="MAL-iF-5ef" id="avj-GL-J6a"/>
                 <outlet property="doneButton" destination="K48-oA-rwI" id="fQg-Tu-0cE"/>
+                <outlet property="lblNoCertificateFound" destination="nGD-RW-VjM" id="uba-Y6-zyt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="wkWebview" destination="GEN-mK-BUZ" id="2nU-bd-2V0"/>
             </connections>
@@ -61,11 +62,19 @@
                                         <wkPreferences key="preferences"/>
                                     </wkWebViewConfiguration>
                                 </wkWebView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Certificate Found!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGD-RW-VjM">
+                                    <rect key="frame" x="65" y="209" width="163" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
+                                <constraint firstItem="nGD-RW-VjM" firstAttribute="centerY" secondItem="1Bp-3g-zeM" secondAttribute="centerY" id="1IY-KX-yXH"/>
                                 <constraint firstItem="GEN-mK-BUZ" firstAttribute="top" secondItem="1Bp-3g-zeM" secondAttribute="top" id="1mb-aF-jdd"/>
                                 <constraint firstItem="GEN-mK-BUZ" firstAttribute="leading" secondItem="1Bp-3g-zeM" secondAttribute="leading" id="FaH-U3-THb"/>
+                                <constraint firstItem="nGD-RW-VjM" firstAttribute="centerX" secondItem="1Bp-3g-zeM" secondAttribute="centerX" id="MRP-gB-ylz"/>
                                 <constraint firstAttribute="trailing" secondItem="GEN-mK-BUZ" secondAttribute="trailing" id="q59-rG-i6p"/>
                                 <constraint firstAttribute="bottom" secondItem="GEN-mK-BUZ" secondAttribute="bottom" id="w0n-Cp-EXf"/>
                             </constraints>

@@ -353,7 +353,7 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
             cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
             
             cell.lblDocNumber.text = self.diamondDetails.details?.certificateNo ?? ""
-            cell.lblLotID.text = "ID:\(self.diamondDetails.details?.supplierID ?? 0)"
+            cell.lblLotID.text = "ID:\(self.diamondDetails.details?.supplierID ?? "")"
             cell.lblShape.text = self.diamondDetails.details?.shape ?? ""
             cell.lblCarat.text = self.diamondDetails.details?.carat ?? ""
             cell.lblClr.text = self.diamondDetails.details?.color ?? ""
@@ -437,8 +437,7 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
                 else{
                     let loginData = UserDefaultManager().retrieveLoginData()
                     if let data = loginData?.details?.userRole{
-                        let placeOrder = CustomPlaceOrderView()
-                        placeOrder.appear(sender: self)
+                        self.callAPIBuyNowUpdate(certificateNum: self.diamondDetails.details?.certificateNo ?? "")
                     }
                     else{
                         self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
@@ -461,7 +460,7 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
             }
             
             if self.diamondDetails.details?.depth?.count ?? 0 > 0{
-                cell.lblDepth.text = self.diamondDetails.details?.depth ?? ""
+                cell.lblDepth.text = "\(self.diamondDetails.details?.depthPerc ?? "")%"
             }
             else{
                 cell.lblDepth.text =  "-"
@@ -510,7 +509,7 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
             }
            
             if self.diamondDetails.details?.cutGrade?.count ?? 0 > 0{
-                cell.lblGridCulet.text = self.diamondDetails.details?.cutGrade ?? ""
+                cell.lblGridCulet.text = self.diamondDetails.details?.girdleCondition ?? ""
             }
             else{
                 cell.lblGridCulet.text =  "-"
@@ -537,7 +536,7 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
                 cell.lblLocation.text =  "-"
             }
            
-            cell.lblStatus.text =  "-"
+            cell.lblStatus.text =  self.diamondDetails.details?.status ?? ""
             
             if self.diamondDetails.details?.keyToSymbols?.count ?? 0 > 0{
                 cell.lblKeytoSymbole.text = self.diamondDetails.details?.keyToSymbols ?? ""
@@ -546,12 +545,12 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
                 cell.lblKeytoSymbole.text = "-"
             }
             
-            if self.diamondDetails.details?.currencyMarkup?.count ?? 0 > 0{
-                cell.lblRemark.text = self.diamondDetails.details?.currencyMarkup ?? ""
-            }
-            else{
-                cell.lblRemark.text = "-"
-            }
+//            if self.diamondDetails.details?.currencyMarkup?.count ?? 0 > 0{
+                cell.lblRemark.text = "\(self.diamondDetails.details?.supplierComment ?? ""), \(self.diamondDetails.details?.shade ?? ""), \(self.diamondDetails.details?.luster ?? ""), \(self.diamondDetails.details?.milky ?? ""), \(self.diamondDetails.details?.eyeClean ?? "")"
+//            }
+//            else{
+//                cell.lblRemark.text = "-"
+//            }
             
             if self.diamondDetails.details?.reportComments?.count ?? 0 > 0{
                 cell.lblReportComment.text = self.diamondDetails.details?.reportComments ?? ""
@@ -593,6 +592,30 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
         }
         
     }
+    
+    
+    // manage buy button to call API for update Backend
+    func callAPIBuyNowUpdate(certificateNum : String){
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+            
+        let url = APIs().buyProductUpdate_API
+        var param : [String:Any] = ["orderType": "Buy Now", "certificateNo": certificateNum]
+            
+        HomeDataModel().updateProfileInfo(param: param, url: url, completion: { data, msg in
+                if data.status == 1{
+                    let placeOrder = CustomPlaceOrderView()
+                    placeOrder.appear(sender: self)
+                }
+                else{
+                    self.toastMessage(msg ?? "")
+                    
+                }
+                CustomActivityIndicator2.shared.hide()
+                
+            })
+    }
+    
+    
 }
 
 extension DiamondDetailsVC : PinCodeDelegate{

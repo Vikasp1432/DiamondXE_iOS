@@ -21,7 +21,7 @@
                         <rect key="frame" x="15" y="5" width="460" height="148"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_Holder" translatesAutoresizingMaskIntoConstraints="NO" id="TdG-gR-WtP">
-                                <rect key="frame" x="10" y="15" width="120" height="118"/>
+                                <rect key="frame" x="10" y="10" width="120" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="hIi-eA-fWi"/>
                                 </constraints>
@@ -200,8 +200,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="g3J-kX-3NN">
-                                <rect key="frame" x="357" y="93" width="93" height="40"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="g3J-kX-3NN">
+                                <rect key="frame" x="367" y="93" width="83" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydz-OQ-Aa6">
                                         <rect key="frame" x="0.0" y="0.0" width="37" height="40"/>
@@ -215,7 +215,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmH-Dn-SgL">
-                                        <rect key="frame" x="57" y="0.0" width="36" height="40"/>
+                                        <rect key="frame" x="47" y="0.0" width="36" height="40"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="delete"/>
                                         <connections>
@@ -225,7 +225,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YtD-QY-7xn">
-                                <rect key="frame" x="10" y="15" width="28" height="28"/>
+                                <rect key="frame" x="10" y="10" width="28" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="28" id="9nj-qp-pvd"/>
                                     <constraint firstAttribute="height" constant="28" id="inn-s8-zV0"/>
@@ -250,7 +250,7 @@
                             <constraint firstItem="ywm-eB-wEp" firstAttribute="trailing" secondItem="Rd8-lQ-0yr" secondAttribute="trailing" id="H4q-YD-ier"/>
                             <constraint firstAttribute="trailing" secondItem="r6v-Ct-mxW" secondAttribute="trailing" constant="10" id="IBS-vo-NEx"/>
                             <constraint firstItem="r6v-Ct-mxW" firstAttribute="leading" secondItem="TdG-gR-WtP" secondAttribute="trailing" constant="10" id="IKb-Xq-Zvb"/>
-                            <constraint firstAttribute="bottom" secondItem="TdG-gR-WtP" secondAttribute="bottom" constant="15" id="IcE-oJ-PBC"/>
+                            <constraint firstAttribute="bottom" secondItem="TdG-gR-WtP" secondAttribute="bottom" constant="10" id="IcE-oJ-PBC"/>
                             <constraint firstItem="YtD-QY-7xn" firstAttribute="top" secondItem="TdG-gR-WtP" secondAttribute="top" id="VZR-wX-I5D"/>
                             <constraint firstItem="2Bb-tL-x6A" firstAttribute="centerY" secondItem="1EU-4M-ckH" secondAttribute="centerY" id="VbX-Gy-Qyi"/>
                             <constraint firstItem="uRA-Gf-e36" firstAttribute="centerY" secondItem="yxD-0a-Edq" secondAttribute="centerY" id="Vzi-ea-VRP"/>
@@ -267,7 +267,7 @@
                             <constraint firstItem="DM4-s5-csY" firstAttribute="leading" secondItem="TdG-gR-WtP" secondAttribute="trailing" constant="10" id="hbT-pR-H8m"/>
                             <constraint firstItem="hpJ-MH-7UQ" firstAttribute="leading" secondItem="uRA-Gf-e36" secondAttribute="trailing" constant="7" id="jwT-Zc-heE"/>
                             <constraint firstItem="YtD-QY-7xn" firstAttribute="leading" secondItem="TdG-gR-WtP" secondAttribute="leading" id="mLe-WO-dfQ"/>
-                            <constraint firstItem="TdG-gR-WtP" firstAttribute="top" secondItem="ia3-6E-e9m" secondAttribute="top" constant="15" id="oQq-ie-aO9"/>
+                            <constraint firstItem="TdG-gR-WtP" firstAttribute="top" secondItem="ia3-6E-e9m" secondAttribute="top" constant="10" id="oQq-ie-aO9"/>
                             <constraint firstItem="Tya-HD-deW" firstAttribute="centerY" secondItem="1EU-4M-ckH" secondAttribute="centerY" id="ozo-2Q-FSq"/>
                             <constraint firstItem="U2h-Uy-OaG" firstAttribute="leading" secondItem="Hau-wI-WNX" secondAttribute="trailing" constant="5" id="rsH-Gh-aYF"/>
                             <constraint firstItem="yxD-0a-Edq" firstAttribute="top" secondItem="ia3-6E-e9m" secondAttribute="top" constant="15" id="tAf-ap-UpP"/>
@@ -325,7 +325,7 @@
             <color red="0.45100000500679016" green="0.20800000429153442" blue="0.48600000143051147" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="viewBGClr">
-            <color red="0.96100002527236938" green="0.95300000905990601" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

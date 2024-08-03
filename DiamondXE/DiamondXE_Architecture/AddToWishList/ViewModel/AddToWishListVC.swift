@@ -142,7 +142,9 @@ class AddToWishListVC: BaseViewController, ChildViewControllerProtocol {
                         self.emipityView.isHidden = false
                     }
                 }
+               // self.toastMessage(msg ?? "")
                 self.wishlistTableView.reloadData()
+                
             }
             else{
                 self.toastMessage(msg ?? "")
@@ -179,7 +181,7 @@ extension AddToWishListVC: UITableViewDelegate , UITableViewDataSource{
         cell.btnSelectedItem.isHidden = true
         cell.btnWishList.setImage(UIImage(named: "cart_"), for: .normal)
         cell.lblCirtificateNum.text = self.wishlistDataStruct.details?[indexPath.row].certificateNo
-        cell.lblLotID.text = "ID: \(self.wishlistDataStruct.details?[indexPath.row].supplierID ?? 0)"
+        cell.lblLotID.text = "ID: \(self.wishlistDataStruct.details?[indexPath.row].supplierID ?? "")"
         cell.lblShape.text = self.wishlistDataStruct.details?[indexPath.row].shape
         cell.lblCarat.text = "Ct\(self.wishlistDataStruct.details?[indexPath.row].carat ?? "")"
         cell.lblClor.text = self.wishlistDataStruct.details?[indexPath.row].color

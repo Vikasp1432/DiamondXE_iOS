@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-var getAppVersion = "Verion - \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "")"
+var getAppVersion = "Version - \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "")"
 
 
 struct ConstentString {
@@ -78,6 +78,8 @@ var nv_more = "More"
 var nv_contactUS = "Contact us"
 var nv_rateUS = "Rate us"
 var nv_logout = "Logout"
+var nv_logIN = "Login"
+
 
 var nv_naturalDiamond = "Natural Diamond"
 var nv_labGrownDiamond = "Lab Grown Diamond"
@@ -109,11 +111,15 @@ var nv_moreICN = [UIImage(named: "About us")!,UIImage(named: "Why Us")!,UIImage(
 
 var nv_contactICN = [UIImage(named: "Email")!,UIImage(named: "Contact Us")!]
 
-var nv_mainICN = [UIImage(named: "Home")!,UIImage(named: "Search Diamonds")!,UIImage(named: "Create Demand")!,UIImage(named: "jewellery")!,UIImage(named: "DXE LUXE")!,UIImage(named: "Diamond Education")!,UIImage(named: "Explore Now")!,UIImage(named: "Price Calculator")!,UIImage(named: "More")!,UIImage(named: "Support")!,UIImage(named: "Rate us")!,UIImage(named: "logout")!]
+// var nv_mainICN = [UIImage(named: "Home")!,UIImage(named: "Search Diamonds")!,UIImage(named: "Create Demand")!,UIImage(named: "jewellery")!,UIImage(named: "DXE LUXE")!,UIImage(named: "Diamond Education")!,UIImage(named: "Explore Now")!,UIImage(named: "Price Calculator")!,UIImage(named: "More")!,UIImage(named: "Support")!,UIImage(named: "Rate us")!,UIImage(named: "logout")!]
+
+var nv_mainICN = [UIImage(named: "Home")!,UIImage(named: "Search Diamonds")!,UIImage(named: "Diamond Education")!,UIImage(named: "Explore Now")!,UIImage(named: "More")!,UIImage(named: "Support")!,UIImage(named: "Rate us")!,UIImage(named: "logout")!]
 
 
 
-var account_icons = [UIImage(named: "myAccount")!,UIImage(named: "myOrder")!,UIImage(named: "wallet")!,UIImage(named: "acution")!,UIImage(named: "dealerMarkup")!,UIImage(named: "referAFriend")!,UIImage(named: "loyaltyProgram")!,UIImage(named: "customPayment")!,UIImage(named: "apiSolutions")!,UIImage(named: "delteAccount")!]
+//var account_icons = [UIImage(named: "myAccount")!,UIImage(named: "myOrder")!,UIImage(named: "wallet")!,UIImage(named: "acution")!,UIImage(named: "dealerMarkup")!,UIImage(named: "referAFriend")!,UIImage(named: "loyaltyProgram")!,UIImage(named: "customPayment")!,UIImage(named: "apiSolutions")!,UIImage(named: "delteAccount")!]
+
+var account_icons = [UIImage(named: "myAccount")!,UIImage(named: "delteAccount")!]
 
 var account_Profileicons = [UIImage(named: "profile")!,UIImage(named: "address")!,UIImage(named: "kvcVerification")!,UIImage(named: "Change Password")!]
 

@@ -259,11 +259,14 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
             let cell = tableView.dequeueReusableCell(withIdentifier: GiftOfChoiceTVC.cellIdentifierGiftChoiceTVC, for: indexPath) as! GiftOfChoiceTVC
             cell.selectionStyle = .none
             cell.lblTitle.text = self.homeDataStruct.details?.middleBanners?.title
+            
             if let middleBanr = self.homeDataStruct.details?.middleBanners?.content{
-                cell.giftImg1.sd_setImage(with: URL(string: middleBanr[0].image ?? ""), completed: nil)
-                cell.giftImg2.sd_setImage(with: URL(string: middleBanr[1].image ?? ""), completed: nil)
-                cell.giftImg3.sd_setImage(with: URL(string: middleBanr[2].image ?? ""), completed: nil)
-                cell.giftImg4.sd_setImage(with: URL(string: middleBanr[3].image ?? ""), completed: nil)
+                if middleBanr.count >= 4{
+                    cell.giftImg1.sd_setImage(with: URL(string: middleBanr[0].image ?? ""), completed: nil)
+                    cell.giftImg2.sd_setImage(with: URL(string: middleBanr[1].image ?? ""), completed: nil)
+                    cell.giftImg3.sd_setImage(with: URL(string: middleBanr[2].image ?? ""), completed: nil)
+                    cell.giftImg4.sd_setImage(with: URL(string: middleBanr[3].image ?? ""), completed: nil)
+                }
             }
             return cell
             
@@ -347,6 +350,11 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
             
            
             cell.selectionStyle = .none
+            
+            cell.registerNow = {
+                self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
+            }
+            
             return cell
             
         case 6:

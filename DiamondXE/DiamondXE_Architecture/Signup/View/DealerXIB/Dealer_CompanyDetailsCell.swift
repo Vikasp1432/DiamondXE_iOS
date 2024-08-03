@@ -92,6 +92,8 @@ class Dealer_CompanyDetailsCell: UITableViewCell, UITextFieldDelegate {
         txtIPinNum.delegate = self
         
         txtMobile.paddingX = 110
+        
+        self.btnVerifyEmail.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
 
         
         BaseViewController.setClrUItextField2(textFields: [txtCity, txtState, txtCountry, txtMobile, txtEmail, txtAddress1, txtAddress2, txtCompanyType, txtBusinessVal, txtCompanyName, txtIPinNum])

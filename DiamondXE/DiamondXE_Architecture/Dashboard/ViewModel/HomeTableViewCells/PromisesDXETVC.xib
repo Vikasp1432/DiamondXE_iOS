@@ -52,6 +52,11 @@
                                             <constraint firstItem="DNM-sR-6Ps" firstAttribute="leading" secondItem="mwz-5A-spN" secondAttribute="leading" id="YdR-cI-DDl"/>
                                             <constraint firstAttribute="bottom" secondItem="DNM-sR-6Ps" secondAttribute="bottom" id="sp3-4o-ueq"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgO-F6-iyE">
                                         <rect key="frame" x="0.0" y="109.33333333333334" width="330" height="94.333333333333343"/>
@@ -67,6 +72,11 @@
                                             <constraint firstAttribute="bottom" secondItem="QVc-em-A3T" secondAttribute="bottom" id="Y4B-IR-Ugc"/>
                                             <constraint firstAttribute="trailing" secondItem="QVc-em-A3T" secondAttribute="trailing" id="fMQ-SD-6si"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Uk-tl-u7M">
                                         <rect key="frame" x="0.0" y="218.66666666666666" width="330" height="94.666666666666657"/>
@@ -82,6 +92,11 @@
                                             <constraint firstItem="9Bg-JX-q4v" firstAttribute="leading" secondItem="9Uk-tl-u7M" secondAttribute="leading" id="i1I-Ld-n1Y"/>
                                             <constraint firstAttribute="bottom" secondItem="9Bg-JX-q4v" secondAttribute="bottom" id="uwg-cW-HaN"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6DL-Wj-o6v">
                                         <rect key="frame" x="0.0" y="328.33333333333331" width="330" height="94.333333333333314"/>
@@ -97,6 +112,11 @@
                                             <constraint firstItem="KZS-Ut-SaL" firstAttribute="leading" secondItem="6DL-Wj-o6v" secondAttribute="leading" id="rbY-N6-L7r"/>
                                             <constraint firstAttribute="bottom" secondItem="KZS-Ut-SaL" secondAttribute="bottom" id="zkj-fU-caC"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igr-X6-TRH">
                                         <rect key="frame" x="0.0" y="437.66666666666669" width="330" height="94.333333333333314"/>
@@ -112,6 +132,11 @@
                                             <constraint firstAttribute="bottom" secondItem="ctz-lK-Cip" secondAttribute="bottom" id="tD6-5W-fYh"/>
                                             <constraint firstAttribute="trailing" secondItem="ctz-lK-Cip" secondAttribute="trailing" id="yoc-Ro-w0Y"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -150,7 +175,7 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="viewBGClr">
-            <color red="0.96100002527236938" green="0.95300000905990601" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -174,7 +174,7 @@ struct CartDataStruct: Codable {
 // MARK: - Detail
 struct CardDataDetail: Codable {
     var itemName, stockID, certificateNo, stockNo: String
-    var supplierID: Int
+    var supplierID: String
     var category: String
     var diamondImage: String
     var shape, color, clarity: String

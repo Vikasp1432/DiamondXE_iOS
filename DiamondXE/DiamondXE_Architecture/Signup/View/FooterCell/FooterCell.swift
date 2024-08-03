@@ -17,7 +17,7 @@ class FooterCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet var viewBG: UIView!
 
     var termAndCondition = false
-
+    var buttonTNC : (() -> Void) = { }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -59,6 +59,11 @@ class FooterCell: UITableViewCell, UITextFieldDelegate {
         if let customTextField = textField as? DTTextField {
             customTextField.borderColor = UIColor.borderClr
         }
+    }
+    
+    @IBAction func buttonTNCWeb(_ sender: UIButton) {
+        buttonTNC()
+       
     }
     
     

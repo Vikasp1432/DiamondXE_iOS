@@ -215,7 +215,9 @@ class ForgotPasswordVC: BaseViewController {
                 if response.status == 1{
                     self.toastMessage(message ?? "")
                     let data = self.resetPassParam
-                    self.navigationManager(ResetPasswordVC.self, storyboardName: "Login", storyboardID: "ResetPasswordVC", data: data)
+                    self.navigationController?.popViewController(animated: true)
+                    
+//                    self.navigationManager(ResetPasswordVC.self, storyboardName: "Login", storyboardID: "ResetPasswordVC", data: data)
                     
                     print(self.resetPassParam)
                 }

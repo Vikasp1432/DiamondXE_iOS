@@ -137,7 +137,7 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diamond Quality" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5S-6b-iOF">
-                                <rect key="frame" x="20" y="264.33333333333331" width="418" height="19.333333333333314"/>
+                                <rect key="frame" x="19.999999999999993" y="264.33333333333331" width="120.33333333333331" height="19.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="16"/>
                                 <color key="textColor" name="themeClr"/>
                                 <nil key="highlightedColor"/>
@@ -732,6 +732,20 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXR-Ss-ELr">
+                                <rect key="frame" x="357.33333333333331" y="258.66666666666669" width="75.666666666666686" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Clear All">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="14" name="Lato-Semibold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="VideBGClr"/>
                         <constraints>
@@ -751,9 +765,11 @@
                             <constraint firstAttribute="trailing" secondItem="KJU-N5-bTD" secondAttribute="trailing" constant="20" id="BNk-WE-6rT"/>
                             <constraint firstItem="8s7-mP-buT" firstAttribute="top" secondItem="Rhz-DH-QNd" secondAttribute="bottom" constant="15" id="C6k-5d-PX5"/>
                             <constraint firstItem="g0e-3p-asg" firstAttribute="top" secondItem="WQN-GO-n4K" secondAttribute="bottom" constant="15" id="CWP-x4-QH3"/>
+                            <constraint firstItem="kXR-Ss-ELr" firstAttribute="centerY" secondItem="q5S-6b-iOF" secondAttribute="centerY" id="CeR-kq-mNK"/>
                             <constraint firstItem="IUf-wv-8UA" firstAttribute="top" secondItem="Uul-mi-ops" secondAttribute="top" constant="10" id="E3E-2X-WmG"/>
                             <constraint firstItem="q5S-6b-iOF" firstAttribute="top" secondItem="xU7-Lz-BPZ" secondAttribute="bottom" constant="10" id="Hdm-60-nr5"/>
                             <constraint firstItem="Rhz-DH-QNd" firstAttribute="leading" secondItem="Uul-mi-ops" secondAttribute="leading" constant="20" id="K5c-Fb-Gnf"/>
+                            <constraint firstAttribute="trailing" secondItem="kXR-Ss-ELr" secondAttribute="trailing" constant="25" id="KpL-pj-LRF"/>
                             <constraint firstAttribute="trailing" secondItem="pne-Qv-qKw" secondAttribute="trailing" constant="20" id="LQf-zA-hZM"/>
                             <constraint firstAttribute="trailing" secondItem="8jO-Zo-hjH" secondAttribute="trailing" constant="20" id="LVz-Gy-vWw"/>
                             <constraint firstItem="8jO-Zo-hjH" firstAttribute="top" secondItem="riB-z5-Dpw" secondAttribute="bottom" constant="15" id="LWT-vl-UC8"/>
@@ -761,7 +777,6 @@
                             <constraint firstItem="rCO-aR-mwL" firstAttribute="leading" secondItem="Uul-mi-ops" secondAttribute="leading" constant="20" id="NDq-L7-Nah"/>
                             <constraint firstAttribute="trailing" secondItem="7TS-rz-OXy" secondAttribute="trailing" id="OS3-30-3C9"/>
                             <constraint firstItem="7TS-rz-OXy" firstAttribute="top" secondItem="g0e-3p-asg" secondAttribute="bottom" constant="15" id="OnH-1d-OsH"/>
-                            <constraint firstAttribute="trailing" secondItem="q5S-6b-iOF" secondAttribute="trailing" constant="20" id="Owk-Oj-6jj"/>
                             <constraint firstItem="53X-fP-DUl" firstAttribute="top" secondItem="BFh-6A-OGN" secondAttribute="bottom" constant="10" id="PAt-CP-Agf"/>
                             <constraint firstItem="xU7-Lz-BPZ" firstAttribute="leading" secondItem="Uul-mi-ops" secondAttribute="leading" id="PUj-Xg-lJR"/>
                             <constraint firstAttribute="trailing" secondItem="ve2-M2-SEe" secondAttribute="trailing" constant="20" id="RI2-GE-gTj"/>
@@ -786,6 +801,7 @@
                             <constraint firstItem="g0e-3p-asg" firstAttribute="leading" secondItem="Uul-mi-ops" secondAttribute="leading" constant="20" id="hzR-ts-Afi"/>
                             <constraint firstItem="7YJ-Vq-tcj" firstAttribute="top" secondItem="pne-Qv-qKw" secondAttribute="bottom" constant="15" id="i9J-57-yKR"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="War-4Y-0s4" secondAttribute="bottom" constant="10" id="jVn-V0-xtg"/>
+                            <constraint firstItem="kXR-Ss-ELr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="q5S-6b-iOF" secondAttribute="trailing" constant="10" id="lgF-Xl-waG"/>
                             <constraint firstItem="ve2-M2-SEe" firstAttribute="top" secondItem="4UB-GY-YNm" secondAttribute="bottom" constant="15" id="mkN-hK-7a8"/>
                             <constraint firstItem="riB-z5-Dpw" firstAttribute="top" secondItem="53X-fP-DUl" secondAttribute="bottom" constant="10" id="pvO-fi-rH1"/>
                             <constraint firstItem="WQN-GO-n4K" firstAttribute="top" secondItem="ve2-M2-SEe" secondAttribute="bottom" constant="15" id="qlt-ji-ahQ"/>

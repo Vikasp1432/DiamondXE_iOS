@@ -26,7 +26,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="USS-OR-JSu">
                     <rect key="frame" x="0.0" y="0.0" width="284" height="280"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hf-If-uFA">
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hf-If-uFA">
                             <rect key="frame" x="0.0" y="10" width="284" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rM-j0-hA5">
@@ -68,7 +68,7 @@
                                 <constraint firstItem="l1A-59-6lL" firstAttribute="leading" secondItem="1hf-If-uFA" secondAttribute="leading" id="qXP-M0-3ep"/>
                             </constraints>
                         </view>
-                        <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqs-fX-3FB">
+                        <view hidden="YES" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqs-fX-3FB">
                             <rect key="frame" x="0.0" y="50" width="284" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWx-Li-SNB">
@@ -110,7 +110,7 @@
                                 <constraint firstAttribute="trailing" secondItem="fO9-wm-cuH" secondAttribute="trailing" id="ttV-te-cpx"/>
                             </constraints>
                         </view>
-                        <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUf-eN-Y9b">
+                        <view hidden="YES" tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUf-eN-Y9b">
                             <rect key="frame" x="0.0" y="90" width="284" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLP-dF-R0Y">
@@ -152,7 +152,7 @@
                                 <constraint firstItem="CLP-dF-R0Y" firstAttribute="centerY" secondItem="cUf-eN-Y9b" secondAttribute="centerY" id="mLs-nv-kut"/>
                             </constraints>
                         </view>
-                        <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IQF-We-cOT">
+                        <view hidden="YES" tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IQF-We-cOT">
                             <rect key="frame" x="0.0" y="130" width="284" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gf0-8M-b5J">
@@ -195,7 +195,7 @@
                             </constraints>
                         </view>
                         <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tuv-Ot-DZ3">
-                            <rect key="frame" x="0.0" y="170" width="284" height="40"/>
+                            <rect key="frame" x="0.0" y="20" width="284" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVA-Xv-cmg">
                                     <rect key="frame" x="40" y="5" width="30" height="30"/>
@@ -207,7 +207,7 @@
                                     <state key="normal" image="callForEnquiry"/>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call for Enquiry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKc-rV-cqn">
-                                    <rect key="frame" x="85" y="11.333333333333345" width="184" height="17.666666666666671"/>
+                                    <rect key="frame" x="85" y="10.666666666666666" width="184" height="18.666666666666671"/>
                                     <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                     <color key="textColor" name="blackClr"/>
                                     <nil key="highlightedColor"/>
@@ -237,7 +237,7 @@
                         <constraint firstAttribute="trailing" secondItem="Tuv-Ot-DZ3" secondAttribute="trailing" id="Rxo-Vw-y2Z"/>
                         <constraint firstItem="Tuv-Ot-DZ3" firstAttribute="leading" secondItem="USS-OR-JSu" secondAttribute="leading" id="goa-CG-tPM"/>
                         <constraint firstAttribute="trailing" secondItem="1hf-If-uFA" secondAttribute="trailing" id="jTV-iL-T4c"/>
-                        <constraint firstItem="Tuv-Ot-DZ3" firstAttribute="top" secondItem="IQF-We-cOT" secondAttribute="bottom" id="l55-nU-pO8"/>
+                        <constraint firstItem="Tuv-Ot-DZ3" firstAttribute="top" secondItem="IQF-We-cOT" secondAttribute="bottom" constant="-150" id="l55-nU-pO8"/>
                         <constraint firstItem="IQF-We-cOT" firstAttribute="top" secondItem="cUf-eN-Y9b" secondAttribute="bottom" id="mPn-G4-9BZ"/>
                         <constraint firstAttribute="trailing" secondItem="bqs-fX-3FB" secondAttribute="trailing" id="wPd-gS-v8q"/>
                         <constraint firstItem="bqs-fX-3FB" firstAttribute="leading" secondItem="USS-OR-JSu" secondAttribute="leading" id="zAR-GL-ItR"/>

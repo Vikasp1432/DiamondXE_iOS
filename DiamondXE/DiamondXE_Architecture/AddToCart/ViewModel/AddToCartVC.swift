@@ -88,13 +88,37 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
     @IBAction func btnActionPlace(_ sender: UIButton){
         let loginData = UserDefaultManager().retrieveLoginData()
         if let data = loginData?.details?.userRole{
-            let placeOrder = CustomPlaceOrderView()
-            placeOrder.appear(sender: self)
+            
+            self.callAPIBuyNowUpdate()
+            
+//            let placeOrder = CustomPlaceOrderView()
+//            placeOrder.appear(sender: self)
         }
         else{
             self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
         }
        // self.navigationManager(storybordName: "BillingAddress", storyboardID: "AddBillingAddress", controller: AddBillingAddress())
+    }
+    
+    // manage buy button to call API for update Backend
+    func callAPIBuyNowUpdate(){
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+            
+        let url = APIs().buyProductUpdate_API
+        var param : [String:Any] = ["orderType": "Cart"]
+            
+        HomeDataModel().updateProfileInfo(param: param, url: url, completion: { data, msg in
+                if data.status == 1{
+                    let placeOrder = CustomPlaceOrderView()
+                    placeOrder.appear(sender: self)
+                }
+                else{
+                    self.toastMessage(msg ?? "")
+                    
+                }
+                CustomActivityIndicator2.shared.hide()
+                
+            })
     }
     
     
@@ -238,7 +262,7 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
                 }
                
               
-                
+               // self.toastMessage(msg ?? "")
                 self.cartTableView.reloadData()
             }
             else{
@@ -299,7 +323,7 @@ extension AddToCartVC : UITableViewDelegate, UITableViewDataSource{
             cell.imgDiamond.sd_setImage(with: URL(string: self.cartDataStruct.details?[indexPath.row].diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
             
             cell.lblCirtificateNum.text = self.cartDataStruct.details?[indexPath.row].certificateNo
-            cell.lblLotID.text = "ID: \(self.cartDataStruct.details?[indexPath.row].supplierID ?? 0)"
+            cell.lblLotID.text = "ID: \(self.cartDataStruct.details?[indexPath.row].supplierID ?? "")"
             cell.lblShape.text = self.cartDataStruct.details?[indexPath.row].shape
             cell.lblCarat.text = "Ct\(self.cartDataStruct.details?[indexPath.row].carat ?? "")"
             cell.lblClor.text = self.cartDataStruct.details?[indexPath.row].color

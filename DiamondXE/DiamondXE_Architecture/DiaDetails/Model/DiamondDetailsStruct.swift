@@ -16,7 +16,7 @@ struct DiamondDetailsStruct: Codable {
 // MARK: - Details
 struct DiamondDetails: Codable {
     var stockID, itemName, status: String?
-    var supplierID: Int?
+    var supplierID: String?
     var certificateNo, category, certificateName, cutGrade: String?
     var shape, clarity, carat, color: String?
     var growthType, fancyColor, fancyColorIntencity, fancyColorOvertone: String?

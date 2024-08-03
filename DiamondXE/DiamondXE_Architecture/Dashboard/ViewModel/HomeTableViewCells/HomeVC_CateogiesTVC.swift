@@ -99,7 +99,7 @@ extension HomeVC_CateogiesTVC: UICollectionViewDelegate, UICollectionViewDataSou
             + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
 
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
-        return CGSize(width: size - 5   , height: size - 50)
+        return CGSize(width: size - 5   , height: size - 55)
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

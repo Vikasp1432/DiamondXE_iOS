@@ -56,34 +56,50 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
     
     
     // uitableviewSections //, nv_fancyDiamond
-    var sections: [Sections] = [
-        
-        Sections(mainCellTitle: nv_home, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
-        Sections(mainCellTitle: nv_searchDiamond, expandableCellOptions: [nv_naturalDiamond, nv_labGrownDiamond], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_searchDiamondICN, isExpandableCellsHidden: true,isExpanded: true),
-        Sections(mainCellTitle: nv_createDemand, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true,isExpanded: true),
-        Sections(mainCellTitle: nv_jewellery, expandableCellOptions: [nv_rings, nv_earrings, nv_pendent, nv_bracelets, nv_bangles], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_jewelleryICN, isExpandableCellsHidden: true, isExpanded: true),
-        Sections(mainCellTitle: nv_DXELUX, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
-        Sections(mainCellTitle: nv_diamondEducation, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
-        Sections(mainCellTitle: nv_explore, expandableCellOptions: [nv_jeweller, nv_supplier], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_exploreICN, isExpandableCellsHidden: true, isExpanded: true),
-        Sections(mainCellTitle: nv_priceCalc, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
-        Sections(mainCellTitle: nv_more, expandableCellOptions: [nv_aboutUS, nv_whyUS, nv_blogs, nv_mediaGalley, nv_support, nv_termCondition, nv_privacyPolicy], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_moreICN, isExpandableCellsHidden: true,isExpanded: true),
-        Sections(mainCellTitle: nv_contactUS, expandableCellOptions: [nv_emial, nv_whatsapp], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_contactICN, isExpandableCellsHidden: true,isExpanded: true),
-        Sections(mainCellTitle: nv_rateUS, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true,isExpanded: true),
-        
-        Sections(mainCellTitle: nv_logout, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true,isExpanded: true),
-    ]
+   
+ 
+    
+    
+    func loadSections() -> [Sections]  {
+        let loginTitle = UserDefaultManager.shareInstence.retrieveLoginData() != nil ? nv_logout : nv_logIN
+        var sections: [Sections] = []
+        sections = [
+            Sections(mainCellTitle: nv_home, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+            Sections(mainCellTitle: nv_searchDiamond, expandableCellOptions: [nv_naturalDiamond, nv_labGrownDiamond], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_searchDiamondICN, isExpandableCellsHidden: true,isExpanded: true),
+            //  Sections(mainCellTitle: nv_createDemand, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true,isExpanded: true),
+            //  Sections(mainCellTitle: nv_jewellery, expandableCellOptions: [nv_rings, nv_earrings, nv_pendent, nv_bracelets, nv_bangles], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_jewelleryICN, isExpandableCellsHidden: true, isExpanded: true),
+            //  Sections(mainCellTitle: nv_DXELUX, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+            Sections(mainCellTitle: nv_diamondEducation, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+            Sections(mainCellTitle: nv_explore, expandableCellOptions: [nv_jeweller, nv_supplier], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_exploreICN, isExpandableCellsHidden: true, isExpanded: true),
+            //  Sections(mainCellTitle: nv_priceCalc, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+            Sections(mainCellTitle: nv_more, expandableCellOptions: [nv_aboutUS, nv_whyUS, nv_blogs, nv_mediaGalley, nv_support, nv_termCondition, nv_privacyPolicy], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_moreICN, isExpandableCellsHidden: true,isExpanded: true),
+            Sections(mainCellTitle: nv_contactUS, expandableCellOptions: [nv_emial, nv_whatsapp], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_contactICN, isExpandableCellsHidden: true,isExpanded: true),
+            Sections(mainCellTitle: nv_rateUS, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true,isExpanded: true),
+            
+            Sections(mainCellTitle: UserDefaultManager.shareInstence.retrieveLoginData() != nil ? nv_logout : nv_logIN, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true,isExpanded: true)
+        ]
+        return sections
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     var sectionsAccountProfile: [SectionsAccount] = [
         SectionsAccount(mainCellTitle: account_, expandableCellOptions: [account_profile,account_address,account_kycV,account_password], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: account_Profileicons, isExpandableCellsHidden: true, isExpanded: true),
-        SectionsAccount(mainCellTitle: account_order, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
-        SectionsAccount(mainCellTitle: account_wallet, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
-        SectionsAccount(mainCellTitle: account_auction, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
-        SectionsAccount(mainCellTitle: account_markup, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
-        SectionsAccount(mainCellTitle: account_refer, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
-        SectionsAccount(mainCellTitle: account_program, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
-        SectionsAccount(mainCellTitle: account_payment, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
-        SectionsAccount(mainCellTitle: account_solution, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+       // SectionsAccount(mainCellTitle: account_order, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+       // SectionsAccount(mainCellTitle: account_wallet, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+       // SectionsAccount(mainCellTitle: account_auction, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+       // SectionsAccount(mainCellTitle: account_markup, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+       // SectionsAccount(mainCellTitle: account_refer, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+       // SectionsAccount(mainCellTitle: account_program, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+       // SectionsAccount(mainCellTitle: account_payment, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+      //  SectionsAccount(mainCellTitle: account_solution, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
         SectionsAccount(mainCellTitle: account_delete, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true)
     
     ]

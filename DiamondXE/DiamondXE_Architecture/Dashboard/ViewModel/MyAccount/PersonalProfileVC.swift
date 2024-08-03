@@ -155,12 +155,20 @@ class PersonalProfileVC: BaseViewController {
             self.txtEmail.text = self.profileInfoStruct.details?.loginEmailID ?? ""
             self.txtCompanyName.text = self.profileInfoStruct.details?.companyName ?? ""
             self.txtCompanyEmail.text = self.profileInfoStruct.details?.companyEmailID ?? ""
-            self.txtCompanyPhone.text = self.profileInfoStruct.details?.companyContact ?? ""
+            
+            var companyContact = self.profileInfoStruct.details?.companyContact ?? ""
+            let numStr = companyContact.split(separator: " ")
+            
+            if  numStr.count > 1{
+                self.txtCompanyPhone.text = "\(numStr[1])"
+                self.btnCompanyCountryCode.setTitle("\(numStr[0])", for: .normal)
+            }
+
             self.txtCompanyType.text = self.profileInfoStruct.details?.typeOfCompany ?? ""
             self.txtCompanyNatureBusiness.text = self.profileInfoStruct.details?.natureOfBusiness ?? ""
             
             self.btnCountryCode.setTitle("+\(self.profileInfoStruct.details?.mobileDialCode ?? "")", for: .normal)
-            self.btnCompanyCountryCode.setTitle("+\(self.profileInfoStruct.details?.companyDialCode ?? "")", for: .normal)
+           
         }
     }
     
@@ -251,7 +259,7 @@ class PersonalProfileVC: BaseViewController {
         }
         else{
             parameter = [
-                "FirstName": self.txtFirstName.text ?? "","LastName" : self.txtLastName.text ?? "","companyContact" : self.txtCompanyPhone.text ?? "","companyName" : self.txtCompanyName.text ?? "","companyEmailId" : self.txtCompanyEmail.text ?? "","typeOfCompany" : self.txtCompanyType.text ?? "","natureOfBusiness" : self.txtCompanyNatureBusiness.text ?? "", "CompanyDialCode": "\(self.btnCompanyCountryCode.currentTitle ?? "")"
+                "FirstName": self.txtFirstName.text ?? "","LastName" : self.txtLastName.text ?? "","companyContact" : "\(self.btnCompanyCountryCode.titleLabel?.text ?? "")\(" ")\(self.txtCompanyPhone.text ?? "")","companyName" : self.txtCompanyName.text ?? "","companyEmailId" : self.txtCompanyEmail.text ?? "","typeOfCompany" : self.txtCompanyType.text ?? "","natureOfBusiness" : self.txtCompanyNatureBusiness.text ?? "", "CompanyDialCode": "\(self.btnCompanyCountryCode.currentTitle ?? "")"
             ]
 //
         }

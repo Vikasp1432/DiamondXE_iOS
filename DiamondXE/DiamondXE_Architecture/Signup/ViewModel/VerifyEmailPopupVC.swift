@@ -26,7 +26,7 @@ class VerifyEmailPopupVC: UIViewController {
         
        
        // get otp
-     //   getOTP()
+        getOTP()
         TimerManager.shared.startTimer(withLabel: self.lblTimer) {
              print("Start time")
         }

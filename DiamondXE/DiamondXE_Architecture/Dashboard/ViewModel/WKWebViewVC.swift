@@ -78,6 +78,8 @@ class WKWebViewVC: BaseViewController , DataReceiver{
             url = URL(string:SideBarURLs().midday)
         case 19:
             url = URL(string:SideBarURLs().viewALL)
+        case 20:
+            url = URL(string:SideBarURLs().termandCondition)
         default:
             print(vcTag.tagVC)
         }

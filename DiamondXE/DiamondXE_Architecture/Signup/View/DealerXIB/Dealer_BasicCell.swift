@@ -62,6 +62,8 @@ class Dealer_BasicCell: UITableViewCell, UITextFieldDelegate {
 
         btnVerifyDone.isHidden = true
         
+        self.btnVerify.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        
       //txtContry, txtState, txtContry,
         BaseViewController.setClrUItextField2(textFields: [ txtMobile, txtEmail, txtFirstName, txtLastName, txtPassword, txtConfirmPass])
         

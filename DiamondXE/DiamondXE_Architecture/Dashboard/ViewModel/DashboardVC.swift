@@ -74,6 +74,8 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
     @IBOutlet weak var containerView: UIView!
     var tagV = VCTags()
     
+    var sections: [Sections] = []
+    
     
     private var currentViewController: UIViewController?
     private var currentViewControllerIdentifier: String?
@@ -127,13 +129,11 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
         defineCountryPopupView()
         defineDIADetailsPopupView()
         
-        
-        
-       
-       
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        self.sections = loadSections()
         
         if let loginData = UserDefaultManager().retrieveLoginData(){
             let userType = loginData.details?.userRole ?? ""
@@ -142,6 +142,13 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             self.lblWelcomeUser.text = username
             self.lblType.text = userType
             //refreshBearertoken()
+            
+            if menu == true {
+                hideMenu()
+                menu = false
+            }
+            
+            self.menuTableView.reloadData()
         }
     }
     
@@ -172,7 +179,9 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
     @objc private func floatingButtonTapped() {
         
         switch self.currentViewController {
-        //case is HomeVC:
+        case is HomeVC :
+            gotoSearchDiamondVC(title: "Search Diamond")
+            
            // navigationManager(storybordName: "GlobleSearch", storyboardID: "GlobleSearchVC", controller: GlobleSearchVC())
         case is SearchDiamondVC:
             updateHeaderBG(setUpTag: 0)
@@ -185,6 +194,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             togglePopup()
 
         default:
+            gotoSearchDiamondVC(title: "Search Diamond")
             print(self.currentViewController)
         }
         
@@ -203,7 +213,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
         diaDetailsView.delegate = self
         diaDetailsView.frame = popupView.bounds
 //        popupView.addSubview(diaDetailsView)
-        popupViewHeightsConstraint.constant = 250
+        popupViewHeightsConstraint.constant = 100
     }
     
     
@@ -423,7 +433,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
                 diaDetailsView.topAnchor.constraint(equalTo: popupView.topAnchor),
                 diaDetailsView.bottomAnchor.constraint(equalTo: popupView.bottomAnchor)
                     ])
-            popupViewHeightsConstraint.constant = isPopupVisible ? 250 : 0
+            popupViewHeightsConstraint.constant = isPopupVisible ? 100 : 0
         default:
             print(self.currentViewController)
         }
@@ -502,6 +512,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             self.btnSearch.setImage(UIImage(named: "SearchI"), for: .normal)
         }
         if let diamondDetailsVC = newViewController as? SearchDiamondVC {
+            self.diamondDetailsDocID = String()
             self.btnSearch.setImage(UIImage(named: "SearchI"), for: .normal)
         }
         
@@ -917,6 +928,7 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.cellIdentifier, for: indexPath) as! MainCell
+                
                 cell.configure(with: sections[indexPath.section])
                 cell.mainIconIMG.image = sections[indexPath.section].mainCellOptionsIcons[indexPath.section]
                 
@@ -1182,7 +1194,16 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
         
         else if nv_logout == sectionStr{
             print("logout:", sectionStr)
-            self.showLogoutConfirmationAlert()
+            
+            let loginData = UserDefaultManager().retrieveLoginData()
+            if let authToken = loginData?.details?.authToken{
+                self.showLogoutConfirmationAlert()
+            }
+           
+        }
+        
+        else if nv_logIN == sectionStr{
+            self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
         }
        
         
@@ -1260,15 +1281,15 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
 //        manageBottomTag()
 //    }
     
-    private func showLogoutConfirmationAlert() {
-           let alert = UIAlertController(title: "Logout Confirmation", message: "Are you sure you want to logout?", preferredStyle: .alert)
+     func showLogoutConfirmationAlert() {
+           let alert = UIAlertController(title: "Confirmation", message: "Are you sure you want to logout?", preferredStyle: .alert)
            
            // Add the cancel action
-           let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+           let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
            alert.addAction(cancelAction)
            
            // Add the logout action
-           let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
+           let logoutAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
                // Perform logout logic here
                self.callAPILogout()
            }
@@ -1287,6 +1308,12 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
                 self.btnTitleLogin.setTitle("Account", for: .normal)
                 self.lblWelcomeUser.text = "Welcome User"
                 self.lblType.text = "--"
+                self.sections = self.loadSections()
+                if self.menu == true {
+                    self.hideMenu()
+                    self.menu = false
+                }
+                self.menuTableView.reloadData()
             }
             else{
                 self.toastMessage(data.msg ?? "")

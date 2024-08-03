@@ -256,18 +256,18 @@ class SignupVC: BaseViewController {
             
         default:
             print("supplier")
-            btnSupplier.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
-            btnDealer.clearGradient()
-            btnBuyer.clearGradient()
-            lblHeading.text = "Upload your stock and sell on the platform"
-            userType = 2
-            self.btnBuyer.backgroundColor = .whitClr
-            self.btnBuyer.setTitleColor(.themeClr, for: .normal)
-            self.btnDealer.backgroundColor = .whitClr
-            self.btnDealer.setTitleColor(.themeClr, for: .normal)
-            self.btnSupplier.backgroundColor = .themeClr
-            self.btnSupplier.setTitleColor(.whitClr, for: .normal)
-            self.tableViewSingup.reloadData()
+//            btnSupplier.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+//            btnDealer.clearGradient()
+//            btnBuyer.clearGradient()
+//            lblHeading.text = "Upload your stock and sell on the platform"
+//            userType = 2
+//            self.btnBuyer.backgroundColor = .whitClr
+//            self.btnBuyer.setTitleColor(.themeClr, for: .normal)
+//            self.btnDealer.backgroundColor = .whitClr
+//            self.btnDealer.setTitleColor(.themeClr, for: .normal)
+//            self.btnSupplier.backgroundColor = .themeClr
+//            self.btnSupplier.setTitleColor(.whitClr, for: .normal)
+//            self.tableViewSingup.reloadData()
         }
     }
     
@@ -285,21 +285,24 @@ class SignupVC: BaseViewController {
             case 1:
                 let indexPathBuyer = IndexPath(row: 0, section: 0)
                 if let cell = self.tableViewSingup.cellForRow(at: indexPathBuyer) as? BuyerCell1 {
-                    if self.isEmailVerified == 0{
+//                    if self.isEmailVerified == 0{
                         if let result = cell.dataCollect().firstName {
                             self.buyerDataParam = cell.dataCollect()
                             let indexPathFooter = IndexPath(row: 0, section: 1)
                             if let cell = self.tableViewSingup.cellForRow(at: indexPathFooter) as? FooterCell {
                                 self.buyerDataParam?.referralCode = cell.getRefralCode()
                             }
+                            
                             self.signupUserParam()
+                            
                         } else {
                             self.toastMessage("Please fill all the data")
                         }
-                    }
-                    else{
-                        self.toastMessage("Please verify your email.")
-                    }
+//                    }
+//                    else{
+//                        self.signupUserParam()
+//                        //self.toastMessage("Please verify your email.")
+//                    }
                    
                 }
                 
@@ -625,6 +628,12 @@ class SignupVC: BaseViewController {
                 return
             }
             
+          
+            if self.countryId == 0 && self.stateID == 0 && self.cityID == 0{
+                self.toastMessage("Country, State and ceity are mandatory")
+                return
+            }
+            
             if isEmailVerified == 0{
                 self.toastMessage("Email are not verified")
                 return
@@ -663,6 +672,11 @@ class SignupVC: BaseViewController {
             
             if pass.count < 6 && CNpass.count < 6{
                 self.toastMessage("Password Character should be minimum 6 digit")
+                return
+            }
+            
+            if self.countryId == 0 && self.stateID == 0 && self.cityID == 0{
+                self.toastMessage("Country, State and ceity are mandatory")
                 return
             }
             
@@ -925,6 +939,12 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                     // Handle button action with tag
                     self.manageTagFooterCell(tag: tag)
                    }
+                
+                cell.buttonTNC = {
+                    var tagV = VCTags()
+                    tagV.tagVC = 20
+                    self.navigationManager(WKWebViewVC.self, storyboardName: "Dashboard", storyboardID: "WKWebViewVC", data:tagV)
+                }
                 
                 return cell
             }
@@ -1663,6 +1683,12 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                     self.manageTagFooterCell(tag: tag)
                    }
                 
+                cell.buttonTNC = {
+                    var tagV = VCTags()
+                    tagV.tagVC = 20
+                    self.navigationManager(WKWebViewVC.self, storyboardName: "Dashboard", storyboardID: "WKWebViewVC", data:tagV)
+                }
+                
                 return cell
             }
                 
@@ -2153,6 +2179,12 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                         self.manageTagFooterCell(tag: tag)
                        }
                     
+                    cell.buttonTNC = {
+                        var tagV = VCTags()
+                        tagV.tagVC = 20
+                        self.navigationManager(WKWebViewVC.self, storyboardName: "Dashboard", storyboardID: "WKWebViewVC", data:tagV)
+                    }
+                    
                     return cell
                 }
             }
@@ -2480,6 +2512,11 @@ extension SignupVC: UITableViewDelegate, UITableViewDataSource {
                     // Handle button action with tag
                     self.manageTagFooterCell(tag: tag)
                    }
+                cell.buttonTNC = {
+                    var tagV = VCTags()
+                    tagV.tagVC = 20
+                    self.navigationManager(WKWebViewVC.self, storyboardName: "Dashboard", storyboardID: "WKWebViewVC", data:tagV)
+                }
                 
                 return cell
             }
@@ -2805,7 +2842,7 @@ extension SignupVC: CountryInfoDelegate, StateInfoDelegate , CityInfoDelegate, E
         if let cell = self.tableViewSingup.cellForRow(at: indexPath) as? BuyerCell1 {
             cell.btnVerify.isHidden = true
             cell.btnVerifyDone.isHidden = false
-            self.isEmailVerified = status
+            self.isEmailVerified = 1
         }
         case 1:
             if dealerSection == 0{

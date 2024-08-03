@@ -28,7 +28,7 @@ struct TopDealsDataDetails: Codable {
 // MARK: - Natural
 struct NaturalDiamond: Codable {
     var stockID, itemName, category: String?
-    var supplierID: Int?
+    var supplierID: String?
     var cutGrade, certificateName, certificateNo, polish: String?
     var symmetry, measurement, fluorescenceIntensity, carat: String?
     var color, clarity, shape, shade: String?
@@ -68,7 +68,7 @@ struct NaturalDiamond: Codable {
 // MARK: - Lab G
 struct LabGDiamond: Codable {
     var stockID, itemName, category: String?
-    var supplierID: Int?
+    var supplierID: String?
     var cutGrade, certificateName, certificateNo, polish: String?
     var symmetry, measurement, fluorescenceIntensity, carat: String?
     var color, clarity, shape, shade: String?

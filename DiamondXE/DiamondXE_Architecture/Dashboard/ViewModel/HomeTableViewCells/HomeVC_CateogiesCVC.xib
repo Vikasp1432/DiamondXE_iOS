@@ -23,11 +23,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="323" height="234"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0R-RY-lEf">
+                    <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0R-RY-lEf">
                         <rect key="frame" x="5" y="5" width="308" height="224"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Jewellery" translatesAutoresizingMaskIntoConstraints="NO" id="XNK-44-7ZP">
                                 <rect key="frame" x="0.0" y="0.0" width="308" height="224"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loose Diamonds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S45-kh-yUT">
                                 <rect key="frame" x="6" y="224" width="296" height="0.0"/>
@@ -39,7 +44,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="whitClr"/>
+                        <color key="backgroundColor" name="viewBGClr"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="S45-kh-yUT" secondAttribute="trailing" constant="6" id="2iK-A1-sVL"/>
                             <constraint firstItem="S45-kh-yUT" firstAttribute="leading" secondItem="K0R-RY-lEf" secondAttribute="leading" constant="6" id="LCe-fR-NXM"/>
@@ -78,8 +83,8 @@
         <namedColor name="blackClr">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="whitClr">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="viewBGClr">
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

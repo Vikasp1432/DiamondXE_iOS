@@ -11,6 +11,7 @@ import WebKit
 class CertificateViewVC: UIViewController {
 
     @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var lblNoCertificateFound: UILabel!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var doneButton: UIButton!
     @IBAction func doneButtonAction(_ sender: UIButton) {
@@ -51,6 +52,15 @@ class CertificateViewVC: UIViewController {
     
     func appear(sender: UIViewController, tag:Int, url:String) {
         sender.present(self, animated: false) {
+            
+            if  url.isEmpty{
+                self.lblNoCertificateFound.isHidden = false
+                self.wkWebview.isHidden = true
+            }
+            else{
+                self.lblNoCertificateFound.isHidden = true
+                self.wkWebview.isHidden = false
+            }
             self.show()
             let urlA = URL(string: url)
             if let url = urlA{
