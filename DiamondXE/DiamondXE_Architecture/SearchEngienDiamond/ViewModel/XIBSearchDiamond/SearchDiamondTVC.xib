@@ -745,6 +745,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnActionClearAll:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="inj-MU-JfG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="VideBGClr"/>

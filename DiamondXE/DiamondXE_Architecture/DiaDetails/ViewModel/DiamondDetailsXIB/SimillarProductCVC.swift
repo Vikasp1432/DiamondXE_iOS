@@ -44,6 +44,9 @@ class SimillarProductCVC: UICollectionViewCell {
     @IBOutlet var viewFlouro :UIView!
     @IBOutlet var viewCertificate :UIView!
     @IBOutlet var viewDiscount :UIView!
+    
+    @IBOutlet var tagViewBG :UIView!
+    @IBOutlet var lblTAG :UILabel!
 
     var actionReturnable : (() -> Void) = { }
     
@@ -55,6 +58,8 @@ class SimillarProductCVC: UICollectionViewCell {
     
     var shimmeringAnimatedItems: [UIView] {
            [
+            tagViewBG,
+            lblTAG,
             imgDiamond,
             lblCirtificateNum,
             lblLotID,

@@ -34,6 +34,7 @@
 		443051C42C04896A00A13ADF /* ModelHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443051C32C04896A00A13ADF /* ModelHomeVC.swift */; };
 		443051C62C048C2600A13ADF /* TopDealsDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443051C52C048C2600A13ADF /* TopDealsDataStruct.swift */; };
 		443051CA2C04B32300A13ADF /* diamond_logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 443051C92C04B32300A13ADF /* diamond_logo.gif */; };
+		4437BA922C6245AE006FC6C7 /* CommingSoonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4437BA912C6245AE006FC6C7 /* CommingSoonVC.swift */; };
 		443886A22C09A43000F96AF5 /* SearchDiamond.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443886A12C09A43000F96AF5 /* SearchDiamond.storyboard */; };
 		443886A82C09A7F100F96AF5 /* SearchDiamondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443886A72C09A7F100F96AF5 /* SearchDiamondVC.swift */; };
 		4438F9BF2C0EF21A009906FF /* SearchesOptionCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4438F9BE2C0EF21A009906FF /* SearchesOptionCVC.xib */; };
@@ -323,6 +324,7 @@
 		443051C32C04896A00A13ADF /* ModelHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHomeVC.swift; sourceTree = "<group>"; };
 		443051C52C048C2600A13ADF /* TopDealsDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDealsDataStruct.swift; sourceTree = "<group>"; };
 		443051C92C04B32300A13ADF /* diamond_logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = diamond_logo.gif; sourceTree = "<group>"; };
+		4437BA912C6245AE006FC6C7 /* CommingSoonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommingSoonVC.swift; sourceTree = "<group>"; };
 		443886A12C09A43000F96AF5 /* SearchDiamond.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchDiamond.storyboard; sourceTree = "<group>"; };
 		443886A72C09A7F100F96AF5 /* SearchDiamondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDiamondVC.swift; sourceTree = "<group>"; };
 		4438F9BD2C0EF21A009906FF /* SearchesOptionCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchesOptionCVC.swift; sourceTree = "<group>"; };
@@ -660,6 +662,14 @@
 				4408076C2C3029A2007410BD /* OrderSummaryTVC.xib */,
 			);
 			path = CartXIBs;
+			sourceTree = "<group>";
+		};
+		4437BA902C62458E006FC6C7 /* CommingSoonVC */ = {
+			isa = PBXGroup;
+			children = (
+				4437BA912C6245AE006FC6C7 /* CommingSoonVC.swift */,
+			);
+			path = CommingSoonVC;
 			sourceTree = "<group>";
 		};
 		443886A32C09A77D00F96AF5 /* SearchEngienDiamond */ = {
@@ -1510,6 +1520,7 @@
 		44CC388C2BD7C2D9002B3597 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				4437BA902C62458E006FC6C7 /* CommingSoonVC */,
 				44CC388F2BD7C30C002B3597 /* ViewModel */,
 				44CC388E2BD7C305002B3597 /* View */,
 				44CC388D2BD7C2E5002B3597 /* Model */,
@@ -2022,6 +2033,7 @@
 				445404832C3422310093C2E5 /* CartDataStruct.swift in Sources */,
 				44CE86292BF5F7CE004AAAF3 /* HomeVC.swift in Sources */,
 				440807692C302987007410BD /* LocationPinAddTVC.swift in Sources */,
+				4437BA922C6245AE006FC6C7 /* CommingSoonVC.swift in Sources */,
 				443051C42C04896A00A13ADF /* ModelHomeVC.swift in Sources */,
 				440807652C302909007410BD /* CartItemTVC.swift in Sources */,
 				44D7F6A52BFDCB7F00C3F761 /* TopDealsCVC.swift in Sources */,
@@ -2327,7 +2339,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -2349,7 +2361,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.01.100;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2359,7 +2371,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2371,7 +2383,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -2393,7 +2405,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.01.100;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2403,7 +2415,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -2559,7 +2571,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -2581,7 +2593,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.01.100;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2591,7 +2603,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = "Debug(Dev)";
 		};
@@ -2707,7 +2719,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -2729,7 +2741,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.01.100;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2739,7 +2751,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = "Debug(Staging)";
 		};
@@ -2855,7 +2867,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -2877,7 +2889,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.01.100;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2887,7 +2899,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = "Debug(Production)";
 		};
@@ -2996,7 +3008,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -3018,7 +3030,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.01.100;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3028,7 +3040,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = "Release(Dev)";
 		};
@@ -3137,7 +3149,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -3159,7 +3171,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.01.100;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3169,7 +3181,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = "Release(Staging)";
 		};
@@ -3278,7 +3290,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -3300,7 +3312,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.01.100;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3310,7 +3322,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = "Release(Production)";
 		};

@@ -47,6 +47,9 @@ class B2BSearchResultCardListingTVC: UITableViewCell, ShimmeringViewProtocol {
     @IBOutlet var viewFlouro :UIView!
     @IBOutlet var viewCertificate :UIView!
     @IBOutlet var viewDiscount :UIView!
+    
+    @IBOutlet var tagViewBG :UIView!
+    @IBOutlet var lblTAG :UILabel!
 
     var actionReturnable : (() -> Void) = { }
     
@@ -60,6 +63,8 @@ class B2BSearchResultCardListingTVC: UITableViewCell, ShimmeringViewProtocol {
     
     var shimmeringAnimatedItems: [UIView] {
            [
+            tagViewBG,
+            lblTAG,
             imgDiamond,
             lblCirtificateNum,
             lblLotID,

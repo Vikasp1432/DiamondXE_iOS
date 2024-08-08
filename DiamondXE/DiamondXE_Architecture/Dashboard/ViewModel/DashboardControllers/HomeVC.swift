@@ -14,13 +14,15 @@ class HomeVC: BaseViewController, ChildViewControllerProtocol {
 
     @IBOutlet var homeTableView : UITableView!
     let refreshControl = UIRefreshControl()
-
+    var currencySelectObj = CurrencyRateDetail()
     
     var homeDataStruct = HomeDataStruct()
     var topDealsStruct = TopDealsDataStruct()
     var topDealsTag = 0
     var dashBoardVC =  DashboardVC()
     var delegate : BaseViewControllerDelegate?
+    
+    
 //    let dashboardVC = DashboardVC()
     
     override func viewDidLoad() {
@@ -279,6 +281,16 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
                 cell.newArrImg2.sd_setImage(with: URL(string: middleBanr[1].image ?? ""), completed: nil)
                
             }
+            
+            cell.tapAction = { tag in
+                if tag == 0{
+                    self.dashBoardVC.gotoSearchDiamondVC(title: "Natural Diamonds")
+                }
+                else{
+                    self.dashBoardVC.gotoSearchDiamondVC(title: "Lab Grown Diamonds")
+                }
+                
+            }
             return cell
             
         case 4:
@@ -288,6 +300,7 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
                 if let topDeals = self.topDealsStruct.details?.natural{
                     cell.naturalDia = topDeals
                     cell.labGlDia = [LabGDiamond]()
+                    cell.currencyRateDetailObj = self.currencySelectObj
                     cell.collectionViewTopDeL.reloadData()
                 }
             }
@@ -351,9 +364,9 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
            
             cell.selectionStyle = .none
             
-            cell.registerNow = {
-                self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
-            }
+//            cell.registerNow = {
+//                self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
+//            }
             
             return cell
             

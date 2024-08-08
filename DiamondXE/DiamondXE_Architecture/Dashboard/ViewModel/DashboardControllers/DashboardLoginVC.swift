@@ -53,6 +53,15 @@ class DashboardLoginVC: BaseViewController , ChildViewControllerProtocol {
            present(alert, animated: true, completion: nil)
        }
     
+    private func showLogoutAlert() {
+           let alert = UIAlertController(title: "Alert", message: "Need to login first", preferredStyle: .alert)
+           
+           // Add the cancel action
+           let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+           alert.addAction(cancelAction)
+           
+           present(alert, animated: true, completion: nil)
+       }
     
     
 
@@ -163,7 +172,13 @@ extension DashboardLoginVC: UITableViewDelegate, UITableViewDataSource{
     func sideMenuActions(sectionStr:String){
         
         if account_delete == sectionStr{
-            self.showLogoutConfirmationAlert()
+            let loginData = UserDefaultManager().retrieveLoginData()
+            if let authToken = loginData?.details?.authToken{
+                self.showLogoutConfirmationAlert()
+            }
+            else{
+                self.showLogoutAlert()
+            }
         }
     }
     

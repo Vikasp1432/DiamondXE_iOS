@@ -61,6 +61,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" name="VideBGClr"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="p34-dr-atK" secondAttribute="bottom" id="2FZ-qt-tJ1"/>
                     <constraint firstItem="p34-dr-atK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6uS-cO-ODH"/>
@@ -70,6 +71,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="bgDataView" destination="p34-dr-atK" id="yGB-ll-9IP"/>
                 <outlet property="pageView" destination="lB7-tS-MRf" id="9Nx-qp-2Zf"/>
                 <outlet property="sliderCollectionView" destination="2yf-8U-LO2" id="J6D-7l-wlc"/>
             </connections>
@@ -78,10 +80,10 @@
     </objects>
     <resources>
         <namedColor name="VideBGClr">
-            <color red="0.94099998474121094" green="0.90200001001358032" blue="0.89399999380111694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94117647058823528" green="0.90196078431372551" blue="0.89411764705882346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="themeClr">
-            <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.29803921568627451" green="0.047058823529411764" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

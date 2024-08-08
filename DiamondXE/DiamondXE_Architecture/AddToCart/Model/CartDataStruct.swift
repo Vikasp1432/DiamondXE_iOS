@@ -124,7 +124,7 @@ import Foundation
 
 struct CartDataStruct: Codable {
     var isCoupanApplied: Int?
-    var couponCode: String?
+    var couponCode, stockNO: String?
     var couponValue, couponDiscount, status: Int?
     var msg: String?
     var subTotal, cgst: Int?
@@ -147,6 +147,7 @@ struct CartDataStruct: Codable {
         case couponDiscount = "coupon_discount"
         case status, msg
         case subTotal = "sub_total"
+        case stockNO = "stock_no"
         case cgst
         case cgstPerc = "cgst_perc"
         case sgst

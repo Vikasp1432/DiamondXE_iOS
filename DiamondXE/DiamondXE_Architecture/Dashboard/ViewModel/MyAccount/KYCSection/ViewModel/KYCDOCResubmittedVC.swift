@@ -30,6 +30,8 @@ class KYCDOCResubmittedVC: BaseViewController {
     
     @IBOutlet var txtComPAN:DTTextField!
     
+    @IBOutlet var txtTitle:UILabel!
+    
     @IBOutlet var btnVerifyGST:UIButton!
     @IBOutlet var btnGSTVerified:UIButton!
     @IBOutlet var btnGSTDoc:UIButton!
@@ -198,56 +200,146 @@ class KYCDOCResubmittedVC: BaseViewController {
     
     
     func setupViews(){
+        
      
+        let loginData = UserDefaultManager().retrieveLoginData()
+        if let userRole = loginData?.details?.userRole{
+            if  userRole == "BUYER"{
+                self.txtTitle.text = "Buyer KYC Verification"
+                
+                
+                //            if let range = loginData?.details?.mobileNo?.range(of: "+91") {
+                if isDocAAdhaarFront && isDocAAdhaarBack{
+                    viewAadharBG.isHidden = true
+                }
+                else{
+                    viewAadharBG.isHidden = false
+                }
+                
+                if isDocPAN{
+                    viewPANBG.isHidden = true
+                }
+                else{
+                    viewPANBG.isHidden = false
+                }
+                
+                if isDocPassportFront && isDocPassportBack{
+                    viewPassportBG.isHidden = true
+                }
+                else{
+                    viewPassportBG.isHidden = false
+                }
+                
+                if isDocDrivingLicence{
+                    viewDrivingLicenceBG.isHidden = true
+                }
+                else{
+                    viewDrivingLicenceBG.isHidden = false
+                }
+                
+                //            }
+                //            else{
+                //                viewGSTBG.isHidden = true
+                //                viewIECBG.isHidden = true
+                //                viewComPANBG.isHidden = true
+                //                viewAadharBG.isHidden = true
+                //                viewPANBG.isHidden = true
+                //                if isDocPassportFront && isDocPassportBack{
+                //                    viewPassportBG.isHidden = true
+                //                }
+                //                else{
+                //                    viewPassportBG.isHidden = false
+                //                }
+                //
+                //                if isDocDrivingLicence{
+                //                    viewDrivingLicenceBG.isHidden = true
+                //                }
+                //                else{
+                //                    viewDrivingLicenceBG.isHidden = false
+                //                }
+                //            }
+                
+                
+                
+            }
+            else{
+                self.txtTitle.text = "Dealer KYC Verification"
+                
+                //            if let range = loginData?.details?.mobileNo?.range(of: "+91") {
+                
+                if isDocGST{
+                    viewGSTBG.isHidden = true
+                }
+                else{
+                    viewGSTBG.isHidden = false
+                }
+                
+                if isDocIEC{
+                    viewIECBG.isHidden = true
+                }
+                else{
+                    viewIECBG.isHidden = false
+                }
+                
+                if isDocAAdhaarFront && isDocAAdhaarBack{
+                    viewAadharBG.isHidden = true
+                }
+                else{
+                    viewAadharBG.isHidden = false
+                }
+                
+                if isDocPAN{
+                    viewPANBG.isHidden = true
+                }
+                else{
+                    viewPANBG.isHidden = false
+                }
+                
+                if isDocPassportFront && isDocPassportBack{
+                    viewPassportBG.isHidden = true
+                }
+                else{
+                    viewPassportBG.isHidden = false
+                }
+                
+                if isDocDrivingLicence{
+                    viewDrivingLicenceBG.isHidden = true
+                }
+                else{
+                    viewDrivingLicenceBG.isHidden = false
+                }
+                
+                if isDocComapnyPAN{
+                    viewComPANBG.isHidden = true
+                }
+                else{
+                    viewComPANBG.isHidden = false
+                }
+                //            }
+                //            else{
+                //                viewGSTBG.isHidden = true
+                //                viewIECBG.isHidden = true
+                //                viewComPANBG.isHidden = true
+                //                viewAadharBG.isHidden = true
+                //                viewPANBG.isHidden = true
+                //                if isDocPassportFront && isDocPassportBack{
+                //                    viewPassportBG.isHidden = true
+                //                }
+                //                else{
+                //                    viewPassportBG.isHidden = false
+                //                }
+                //
+                //                if isDocDrivingLicence{
+                //                    viewDrivingLicenceBG.isHidden = true
+                //                }
+                //                else{
+                //                    viewDrivingLicenceBG.isHidden = false
+                //                }
+                //            }
+            }
+        }
         
-        if isDocGST{
-            viewGSTBG.isHidden = true
-        }
-        else{
-            viewGSTBG.isHidden = false
-        }
-        
-        if isDocIEC{
-            viewIECBG.isHidden = true
-        }
-        else{
-            viewIECBG.isHidden = false
-        }
-        
-        if isDocAAdhaarFront && isDocAAdhaarBack{
-            viewAadharBG.isHidden = true
-        }
-        else{
-            viewAadharBG.isHidden = false
-        }
-        
-        if isDocPAN{
-            viewPANBG.isHidden = true
-        }
-        else{
-            viewPANBG.isHidden = false
-        }
-        
-        if isDocPassportFront && isDocPassportBack{
-            viewPassportBG.isHidden = true
-        }
-        else{
-            viewPassportBG.isHidden = false
-        }
-        
-        if isDocDrivingLicence{
-            viewDrivingLicenceBG.isHidden = true
-        }
-        else{
-            viewDrivingLicenceBG.isHidden = false
-        }
-        
-        if isDocComapnyPAN{
-            viewComPANBG.isHidden = true
-        }
-        else{
-            viewComPANBG.isHidden = false
-        }
+       
         
         
         

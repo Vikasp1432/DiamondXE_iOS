@@ -43,6 +43,8 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
     
     var delegate : SearchOptionSelecteDelegate?
     
+    var searchAttributeStruct = SearchOptionDataStruct()
+    
     
     var imgArr = [  UIImage(named:"all"),
                     UIImage(named:"round") ,
@@ -59,7 +61,7 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
     var shapeDataArr = ["All",
                     "Round" ,
                     "Princess" ,
-                    "Emrald" ,
+                    "Emerald" ,
                     "Heart",
                     "Radiant",
                     "Oval",
@@ -100,11 +102,34 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
     var isMediumQuality = false
     var isLowQuality = false
     
+    
+    // advanceFilterLogic
+    var dataArrCut : [SearchAttribDetail]?
+    var dataArrPolish : [SearchAttribDetail]?
+    var dataArrSymmetry: [SearchAttribDetail]?
+   
+    
+    var selectedIndicesCut: Set<IndexPath> = []
+    var selectedIndicesPolish: Set<IndexPath> = []
+    var selectedIndicesSymmetry: Set<IndexPath> = []
+ 
+    
+    
+    var searchAttriStruct =  SearchOptionDataStruct()
+    
+    var selectedDataArrCut = [SearchAttribDetail]()
+    var selectedDataArrPolish = [SearchAttribDetail]()
+    var selectedDataArrSymmetry = [SearchAttribDetail]()
+    var selectedDataArrIntencity = [SearchAttribDetail]()
+    
     var btnActionAdvanceFilter : (([SearchAttribDetail]) -> Void) = {_ in }
 
     
    // var searchAttributeStruct = SearchOptionDataStruct()
     var colorDiaWhiteShow = true
+    
+    
+    
 
 
     override func awakeFromNib() {
@@ -115,6 +140,11 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
         txtCaratFrom.delegate = self
         txtPriceTo.delegate = self
         txtCaratTo.delegate = self
+        
+        if let searchOptionData = UserDefaultManager().retrieveSearchFieldsData(){
+            self.searchAttributeStruct = searchOptionData
+        }
+        
      
         collectionShap.register(UINib(nibName: SearchDiamondCVC.cellIdentifierShapeDiamondCVC, bundle: nil), forCellWithReuseIdentifier: SearchDiamondCVC.cellIdentifierShapeDiamondCVC)
         
@@ -137,6 +167,22 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
         
 
         
+        selectedIndicesShaps =   DataManager.shared.defaultSelectedIndicesShaps
+        selectedIndicesColor  =    DataManager.shared.defaultSelectedIndicesColor
+        selectedIndicesClarity =  DataManager.shared.defaultSelectedIndicesClarity
+         selectedIndicesCertificate = DataManager.shared.defaultSelectedIndicesCertificate
+         selectedIndicesFluorescence = DataManager.shared.defaultSelectedIndicesFluorescence
+        selectedIndicesMake =  DataManager.shared.defaultSelectedIndicesMake
+        
+        self.txtCaratTo.text = DataManager.shared.cartTo
+        self.txtCaratFrom.text = DataManager.shared.cartFrom
+        self.txtPriceTo.text = DataManager.shared.txttPriceTo
+        self.txtPriceFrom.text = DataManager.shared.txtPriceFrom
+        
+       // setUpMediumBestBTN()
+        //setupTopBTN()
+        setupIsreturnable()
+        
         // filter datya
 //        self.filterDataStruct()
 
@@ -150,21 +196,25 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
             var dataArr = SearchAttribDetail()
             dataArr.displayAttr = textField.text ?? ""
             self.textData.append(dataArr)
+            DataManager.shared.txtPriceFrom = textField.text ?? ""
             self.delegate?.didselectOption(searchTitle: "PriceFrom", details: self.textData, shapeArr: [])
         case 2:
             var dataArr = SearchAttribDetail()
             dataArr.displayAttr = textField.text ?? ""
             self.textData.append(dataArr)
+            DataManager.shared.txttPriceTo = textField.text ?? ""
             self.delegate?.didselectOption(searchTitle: "PriceTo", details: self.textData, shapeArr: [])
         case 3:
             var dataArr = SearchAttribDetail()
             dataArr.displayAttr = textField.text ?? ""
             self.textData.append(dataArr)
+            DataManager.shared.cartFrom = textField.text ?? ""
             self.delegate?.didselectOption(searchTitle: "CaratFrom", details: self.textData, shapeArr: [])
         case 4:
             var dataArr = SearchAttribDetail()
             dataArr.displayAttr = textField.text ?? ""
             self.textData.append(dataArr)
+            DataManager.shared.cartTo = textField.text ?? ""
             self.delegate?.didselectOption(searchTitle: "CaratTo", details: self.textData, shapeArr: [])
        
         default:
@@ -172,6 +222,65 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
         }
 //           }
        }
+    
+    @IBAction func btnActionClearAll(_ sender:UIButton){
+        DataManager.shared.isReturnabl = Int()
+        DataManager.shared.advanceFilterDictionaryOfSets.removeAll()
+        DataManager.shared.manualFilterDictionaryOfSets.removeAll()
+        DataManager.shared.dictionaryOfSets.removeAll()
+        DataManager.shared.shapeArr.removeAll()
+        DataManager.shared.keyWordSearch = String()
+        
+        DataManager.shared.defaultSelectedIndicesShaps.removeAll()
+        DataManager.shared.defaultSelectedIndicesColor.removeAll()
+        DataManager.shared.defaultSelectedIndicesClarity.removeAll()
+        DataManager.shared.defaultSelectedIndicesCertificate.removeAll()
+        DataManager.shared.defaultSelectedIndicesFluorescence.removeAll()
+        DataManager.shared.defaultSelectedIndicesMake =  IndexPath()
+        DataManager.shared.defaultSelectedDataArrColorWhite.removeAll()
+        DataManager.shared.defaultSelectedDataArrColorFancy .removeAll()
+        DataManager.shared.defaultSelectedDataArrClarity.removeAll()
+        DataManager.shared.defaultSelectedDataArrCertificate.removeAll()
+        DataManager.shared.defaultSelectedDataArrFluorescence.removeAll()
+        DataManager.shared.defaultSelectedDataArrMake.removeAll()
+        DataManager.shared.defaultShapeArr.removeAll()
+        DataManager.shared.txttPriceTo = String()
+        DataManager.shared.txtPriceFrom = String()
+        DataManager.shared.cartTo = String()
+        DataManager.shared.cartFrom = String()
+        DataManager.shared.btnTagSelect = Int()
+        
+        
+        self.selectedIndicesShaps.removeAll()
+        self.selectedIndicesColor.removeAll()
+        self.selectedIndicesClarity.removeAll()
+        self.selectedIndicesCertificate.removeAll()
+        self.selectedIndicesFluorescence.removeAll()
+        self.selectedIndicesMake = nil
+        self.selectedDataArrColorWhite.removeAll()
+        self.selectedDataArrColorFancy.removeAll()
+        self.selectedDataArrClarity.removeAll()
+        self.selectedDataArrCertificate.removeAll()
+        self.selectedDataArrFluorescence.removeAll()
+        self.selectedDataArrMake.removeAll()
+        self.shapeArr.removeAll()
+        
+        
+        self.txtCaratTo.text = ""
+        self.txtCaratFrom.text = ""
+        self.txtPriceTo.text = ""
+        self.txtPriceFrom.text = ""
+        setupIsreturnable()
+        
+        self.collectionShap.reloadData()
+        self.collectionColors.reloadData()
+        self.collectionClarity.reloadData()
+        self.collectionCertificate.reloadData()
+        self.collectionFluorescence.reloadData()
+        self.collectionMake.reloadData()
+        
+        
+    }
     
     
     func filterDataStruct(searchAttributeStruct:SearchOptionDataStruct){
@@ -208,9 +317,26 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                 self.collectionMake.reloadData()
             }
             
+            if attributeData.attribType == attributeTypeCut{
+                self.dataArrCut = attributeData.attribDetails
+            }
+            
+            if attributeData.attribType == attributeTypePolish{
+                self.dataArrPolish = attributeData.attribDetails
+            }
+            
+            if attributeData.attribType == attributeTypSymmetry{
+                self.dataArrSymmetry = attributeData.attribDetails
+            }
+            
+           
+            
         }
         
     }
+    
+    
+    
     
     
     func configureCollectionView(_ collectionView: UICollectionView) {
@@ -250,6 +376,16 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
         
     }
     
+    func btnClerBG(){
+        DataManager.shared.btnTagSelect = Int()
+        btnBest.clearGradient()
+        btnBest.setTitleColor(.themeClr, for: .normal)
+        btnMedium.clearGradient()
+        btnMedium.setTitleColor(.themeClr, for: .normal)
+        btnLow.clearGradient()
+        btnLow.setTitleColor(.themeClr, for: .normal)
+    }
+    
    
     
 
@@ -259,8 +395,82 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
         // Configure the view for the selected state
     }
     
+    func setUpMediumBestBTN(){
+        switch DataManager.shared.btnTagSelect {
+        case 0:
+            self.removedefaultFilter()
+            self.isBestQuality.toggle()
+            if self.isBestQuality{
+                self.isMediumQuality = false
+                self.isLowQuality = false
+                btnBest.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+                btnBest.setTitleColor(.whitClr, for: .normal)
+                self.setupBtnLogicForDia( buttonTag: 0)
+            }
+            else{
+                btnBest.clearGradient()
+                btnBest.setTitleColor(.themeClr, for: .normal)
+                
+            }
+          
+            btnMedium.clearGradient()
+            btnMedium.setTitleColor(.themeClr, for: .normal)
+            btnLow.clearGradient()
+            btnLow.setTitleColor(.themeClr, for: .normal)
+        case 1:
+            self.removedefaultFilter()
+            self.isMediumQuality.toggle()
+            if self.isMediumQuality{
+                self.isBestQuality = false
+                self.isLowQuality = false
+                btnMedium.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+                btnMedium.setTitleColor(.whitClr, for: .normal)
+                self.setupBtnLogicForDia( buttonTag: 1)
+            }
+            else{
+                
+                btnMedium.clearGradient()
+                btnMedium.setTitleColor(.themeClr, for: .normal)
+               
+            }
+           
+            btnBest.clearGradient()
+            btnBest.setTitleColor(.themeClr, for: .normal)
+            btnLow.clearGradient()
+            btnLow.setTitleColor(.themeClr, for: .normal)
+        case 2:
+            self.removedefaultFilter()
+            self.isLowQuality.toggle()
+            if self.isLowQuality{
+                self.isMediumQuality = false
+                self.isBestQuality = false
+                btnLow.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+                btnLow.setTitleColor(.whitClr, for: .normal)
+                self.setupBtnLogicForDia( buttonTag: 2)
+            }
+            else{
+                btnLow.clearGradient()
+                btnLow.setTitleColor(.themeClr, for: .normal)
+                
+            }
+           
+           
+            btnMedium.clearGradient()
+            btnMedium.setTitleColor(.themeClr, for: .normal)
+            btnBest.clearGradient()
+            btnBest.setTitleColor(.themeClr, for: .normal)
+        default:
+           print("////")
+        }
+    }
+    
+    
+    
     @IBAction func btnActionBestMediumLow(_ sender:UIButton){
-
+        DataManager.shared.btnTagSelect = sender.tag
+        
+        setupGetDataDIA(attributID: sender.tag + 1)
+        
         if sender.tag == 0{
             self.removedefaultFilter()
             self.isBestQuality.toggle()
@@ -281,6 +491,8 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
             btnMedium.setTitleColor(.themeClr, for: .normal)
             btnLow.clearGradient()
             btnLow.setTitleColor(.themeClr, for: .normal)
+            
+         
             
         }
         else if sender.tag == 1{
@@ -330,6 +542,169 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
         
     }
     
+    
+    //btnActionTag
+    func setupGetDataDIA(attributID:Int){
+        
+            switch attributID {
+            case 1:
+                self.dataArrCut?.enumerated().forEach { (index, detail) in
+                    if index == 0 || index == 1  {
+                        self.selectedDataArrCut.append(detail)
+                        let itemIndex = index
+                        let indexPath = IndexPath(item: itemIndex, section: 0)
+                        selectedIndicesCut.insert(indexPath)
+                        
+                    }
+                    self.setupDefaultTabs(searchTitle: "Cut", dataArr: selectedDataArrCut)
+                    
+                }
+                self.dataArrPolish?.enumerated().forEach { (index, detail) in
+                    if index == 0  {
+                        self.selectedDataArrPolish.append(detail)
+                        let itemIndex = index
+                        let indexPath = IndexPath(item: itemIndex, section: 0)
+                        selectedIndicesPolish.insert(indexPath)
+                        
+                    }
+                    
+                    self.setupDefaultTabs(searchTitle: "Polish", dataArr: selectedDataArrPolish)
+                  //  delegate?.didselectOption(searchTitle: "Polish", details: selectedDataArrCut, shapeArr: [])
+                }
+                
+                self.dataArrSymmetry?.enumerated().forEach { (index, detail) in
+                    if index == 0 {
+                        self.selectedDataArrSymmetry.append(detail)
+                        let itemIndex = index
+                        let indexPath = IndexPath(item: itemIndex, section: 0)
+                        selectedIndicesSymmetry.insert(indexPath)
+                        
+                    }
+                    
+                    self.setupDefaultTabs(searchTitle: "Symmetry", dataArr: selectedDataArrSymmetry)
+                   // delegate?.didselectOption(searchTitle: "Symmetry", details: selectedDataArrCut, shapeArr: [])
+                }
+                
+            case 2:
+                self.dataArrCut?.enumerated().forEach { (index, detail) in
+                    if index == 1  {
+                        self.selectedDataArrCut.append(detail)
+                        let itemIndex = index
+                        let indexPath = IndexPath(item: itemIndex, section: 0)
+                        selectedIndicesCut.insert(indexPath)
+                        
+                    }
+                    self.setupDefaultTabs(searchTitle: "Cut", dataArr: selectedDataArrCut)
+                  //  delegate?.didselectOption(searchTitle: "Symmetry", details: selectedDataArrCut, shapeArr: [])
+                }
+                self.dataArrPolish?.enumerated().forEach { (index, detail) in
+                    if index == 0 || index == 1  {
+                        self.selectedDataArrPolish.append(detail)
+                        let itemIndex = index
+                        let indexPath = IndexPath(item: itemIndex, section: 0)
+                        selectedIndicesPolish.insert(indexPath)
+                        
+                    }
+                    
+                    self.setupDefaultTabs(searchTitle: "Polish", dataArr: selectedDataArrPolish)
+                    
+                    //delegate?.didselectOption(searchTitle: "Polish", details: selectedDataArrCut, shapeArr: [])
+                }
+                
+                self.dataArrSymmetry?.enumerated().forEach { (index, detail) in
+                    if index == 0 || index == 1 {
+                        self.selectedDataArrSymmetry.append(detail)
+                        let itemIndex = index
+                        let indexPath = IndexPath(item: itemIndex, section: 0)
+                        selectedIndicesSymmetry.insert(indexPath)
+                        
+                    }
+                    self.setupDefaultTabs(searchTitle: "Symmetry", dataArr: selectedDataArrSymmetry)
+                  //  delegate?.didselectOption(searchTitle: "Symmetry", details: selectedDataArrCut, shapeArr: [])
+                }
+                
+            case 3:
+                self.dataArrCut?.enumerated().forEach { (index, detail) in
+                    if index == 2 || index == 1  {
+                        self.selectedDataArrCut.append(detail)
+                        let itemIndex = index
+                        let indexPath = IndexPath(item: itemIndex, section: 0)
+                        selectedIndicesCut.insert(indexPath)
+                        
+                    }
+                    
+                    self.setupDefaultTabs(searchTitle: "Cut", dataArr: selectedDataArrCut)
+                    
+                    //delegate?.didselectOption(searchTitle: "Cut", details: selectedDataArrCut, shapeArr: [])
+                }
+                self.dataArrPolish?.enumerated().forEach { (index, detail) in
+                    if index == 0 || index == 1  {
+                        self.selectedDataArrPolish.append(detail)
+                        let itemIndex = index
+                        let indexPath = IndexPath(item: itemIndex, section: 0)
+                        selectedIndicesPolish.insert(indexPath)
+                        
+                    }
+                    
+                    self.setupDefaultTabs(searchTitle: "Polish", dataArr: selectedDataArrPolish)
+                    
+                   // delegate?.didselectOption(searchTitle: "Polish", details: selectedDataArrCut, shapeArr: [])
+                }
+                
+                self.dataArrSymmetry?.enumerated().forEach { (index, detail) in
+                    if index == 0 || index == 1 {
+                        self.selectedDataArrSymmetry.append(detail)
+                        let itemIndex = index
+                        let indexPath = IndexPath(item: itemIndex, section: 0)
+                        selectedIndicesSymmetry.insert(indexPath)
+                        
+                    }
+                    
+                    self.setupDefaultTabs(searchTitle: "Symmetry", dataArr: selectedDataArrSymmetry)
+                    
+                    //delegate?.didselectOption(searchTitle: "Symmetry", details: selectedDataArrCut, shapeArr: [])
+                }
+            default:
+                print("")
+                
+            }
+    }
+    
+    
+    func setupDefaultTabs(searchTitle: String,dataArr : [SearchAttribDetail]){
+        var filterAtribut = [FilterAttribDetail]()
+        dataArr.enumerated().forEach { inxe , item in
+            var filterArr = FilterAttribDetail()
+            filterArr.attribCode = item.attribCode
+            filterArr.attribType = item.attribType
+            filterArr.attribID = item.attribID
+            filterArr.attribTypeID = item.attribTypeID
+            filterArr.displayAttr = item.displayAttr
+            filterArr.sortOrder = item.sortOrder
+            filterAtribut.append(filterArr)
+        }
+        
+        switch searchTitle {
+        case "Cut":
+            DataManager.shared.advanceFilterDictionaryOfSets.removeValue(forKey: "Cut")
+            DataManager.shared.addAdvanceFIlterAttribute(toKey: searchTitle, element: filterAtribut)
+        case "Polish":
+            DataManager.shared.advanceFilterDictionaryOfSets.removeValue(forKey: "Polish")
+            DataManager.shared.addAdvanceFIlterAttribute(toKey: searchTitle, element: filterAtribut)
+            
+        case "Symmetry":
+            DataManager.shared.advanceFilterDictionaryOfSets.removeValue(forKey: "Symmetry")
+            DataManager.shared.addAdvanceFIlterAttribute(toKey: searchTitle, element: filterAtribut)
+        default:
+           print(shapeArr)
+        }
+    }
+    
+    
+    
+    
+    
+    
     func setupBtnLogicForDia(buttonTag:Int){
 
             self.dataArrColorWhite?.enumerated().forEach { (index, detail) in
@@ -361,6 +736,8 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                         
                     }
                 }
+                
+                DataManager.shared.defaultSelectedIndicesColor =  selectedIndicesColor
                 delegate?.didselectOption(searchTitle: "Color", details: selectedDataArrColorWhite, shapeArr: [])
                 self.collectionColors.reloadData()
             }
@@ -390,7 +767,8 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                         selectedIndicesClarity.insert(indexPath)
                     }
                 }
-                
+              
+                DataManager.shared.defaultSelectedIndicesClarity =  selectedIndicesClarity
                 delegate?.didselectOption(searchTitle: "Clarity", details: selectedDataArrClarity, shapeArr: [])
                 self.collectionClarity.reloadData()
             }
@@ -408,6 +786,9 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                 default:
                     print("Setificate")
                 }
+                
+                
+                DataManager.shared.defaultSelectedIndicesCertificate =  selectedIndicesCertificate
                 delegate?.didselectOption(searchTitle: "Certificate", details: selectedDataArrCertificate, shapeArr: [])
                 self.collectionCertificate.reloadData()
             }
@@ -436,6 +817,10 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                         let indexPath = IndexPath(item: itemIndex, section: 0)
                         selectedIndicesFluorescence.insert(indexPath)
                 }
+                
+                
+                DataManager.shared.defaultSelectedIndicesFluorescence =  selectedIndicesFluorescence
+                
                 delegate?.didselectOption(searchTitle: "Fluorescence", details: selectedDataArrFluorescence, shapeArr: [])
                 self.collectionFluorescence.reloadData()
             }
@@ -459,6 +844,11 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                 default:
                    print("Make")
                 }
+                
+                //DataManager.shared.defaultSelectedIndicesMake =
+               
+                DataManager.shared.defaultSelectedIndicesMake =  selectedIndicesMake
+                
                 
                 delegate?.didselectOption(searchTitle: "Make", details: selectedDataArrMake, shapeArr: [])
                 self.collectionMake.reloadData()
@@ -489,6 +879,22 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
     
     
     
+    func setupTopBTN(){
+        if DataManager.shared.diaType == "natural"{
+            btnNaturalDia.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            btnNaturalDia.setTitleColor(.whitClr, for: .normal)
+            btnLabGrownDia.clearGradient()
+            btnLabGrownDia.setTitleColor(.themeClr, for: .normal)
+        }
+        else if DataManager.shared.diaType == "labgrown" {
+            btnLabGrownDia.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+//            viewLabBG.setGradientLayerView(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            btnLabGrownDia.setTitleColor(.whitClr, for: .normal)
+            btnNaturalDia.clearGradient()
+            btnNaturalDia.setTitleColor(.themeClr, for: .normal)
+        }
+    }
+    
     @IBAction func btnActionNaturalLabD(_ sender:UIButton){
 
         if sender.tag == 0{
@@ -509,6 +915,25 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
         }
         
     }
+    
+    
+    func setupIsreturnable(){
+        if DataManager.shared.isReturnabl == 1{
+            btnYes.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            btnYes.setTitleColor(.whitClr, for: .normal)
+            btnNo.clearGradient()
+            btnNo.setTitleColor(.themeClr, for: .normal)
+            
+        }
+        else if DataManager.shared.isReturnabl == 0{
+            btnNo.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            btnNo.setTitleColor(.whitClr, for: .normal)
+            btnYes.clearGradient()
+            btnYes.setTitleColor(.themeClr, for: .normal)
+          
+        }
+    }
+    
     
     @IBAction func btnActionYES_No(_ sender:UIButton){
 
@@ -763,13 +1188,25 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
                 cell.isGradientApplied = true
             }
             
-            
+           
             if self.selectedDataArrColorWhite.count > 0{
+                
+                DataManager.shared.defaultSelectedIndicesColor =  selectedIndicesColor
+                
+                DataManager.shared.defaultSelectedDataArrColorWhite = selectedDataArrColorWhite
+               
                 self.delegate?.didselectOption(searchTitle: "Color", details: selectedDataArrColorWhite, shapeArr: [""])
             }
             if self.selectedDataArrColorFancy.count > 0{
+                
+                DataManager.shared.defaultSelectedIndicesColor =  selectedIndicesColor
+                
+                DataManager.shared.defaultSelectedDataArrColorFancy = selectedDataArrColorFancy
+                
                 self.delegate?.didselectOption(searchTitle: "Color-Fancy", details: selectedDataArrColorFancy, shapeArr: [""])
             }
+            
+            
             
         }
         
@@ -796,7 +1233,13 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
                 cell.isGradientApplied = true
             }
             
+           
             if self.selectedDataArrClarity.count > 0{
+                
+                DataManager.shared.defaultSelectedIndicesClarity =  selectedIndicesClarity
+                
+                DataManager.shared.defaultSelectedDataArrClarity = selectedDataArrClarity
+                
                 self.delegate?.didselectOption(searchTitle: "Clarity", details: selectedDataArrClarity, shapeArr: [""])
             }
         }
@@ -823,7 +1266,13 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
                 }
                 cell.isGradientApplied = true
             }
+            
             if self.selectedDataArrCertificate.count > 0{
+                
+                DataManager.shared.defaultSelectedIndicesCertificate = selectedIndicesCertificate
+                
+                DataManager.shared.defaultSelectedDataArrCertificate = selectedDataArrCertificate
+                
                 self.delegate?.didselectOption(searchTitle: "Certificate", details: selectedDataArrCertificate, shapeArr: [""])
             }
         }
@@ -853,6 +1302,11 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
             }
             
             if self.selectedDataArrFluorescence.count > 0{
+                
+                DataManager.shared.defaultSelectedIndicesFluorescence = selectedIndicesFluorescence
+                
+                DataManager.shared.defaultSelectedDataArrFluorescence = selectedDataArrFluorescence
+                
                 self.delegate?.didselectOption(searchTitle: "Fluorescence", details: selectedDataArrFluorescence, shapeArr: [""])
             }
         }
@@ -889,6 +1343,12 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
             // Notify the delegate
 //            print(dataArrMake?.first?.attribID)
             if !selectedDataArrMake.isEmpty {
+                
+                
+                DataManager.shared.defaultSelectedIndicesMake = selectedIndicesMake
+                
+                DataManager.shared.defaultSelectedDataArrMake = selectedDataArrMake
+                
                 delegate?.didselectOption(searchTitle: "Make", details: selectedDataArrMake, shapeArr: [""])
             }
             else{
@@ -897,6 +1357,7 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
             
             
         }
+        self.btnClerBG()
     }
     
 //    func imageViewTapped(in cell: SearchDiamondCVC) {
@@ -972,6 +1433,7 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
                     if let index = shapeArr.firstIndex(of: selectedItem) {
                         shapeArr.remove(at: index)
                     }
+                   
                     cell.isShadowApplied = false
                 } else {
                     // Select the specific item
@@ -1001,6 +1463,8 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
             }
             
             if shapeArr.count > 0 {
+                 DataManager.shared.defaultSelectedIndicesShaps = selectedIndicesShaps
+                DataManager.shared.defaultShapeArr = shapeArr
                 self.delegate?.didselectOption(searchTitle: "Shape", details: [], shapeArr: shapeArr)
             }
         }

@@ -28,6 +28,8 @@ class AllDiamondDetailsTVC: UITableViewCell {
     @IBOutlet var lblReportComment:UILabel!
     @IBOutlet var lblLocation:UILabel!
     
+    @IBOutlet var lblCulet:UILabel!
+    
     @IBOutlet var btnDropDown:UIButton!
     @IBOutlet var viewBGData:UIView!
     @IBOutlet var bg1View:UIView!

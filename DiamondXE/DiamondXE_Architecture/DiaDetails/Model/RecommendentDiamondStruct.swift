@@ -15,7 +15,7 @@ struct RecommendentDiamondStruct: Codable {
 
 // MARK: - Detail
 struct RecommendedDiamdDetail: Codable {
-    var stockID, itemName, category: String?
+    var stockID, itemName, category , stockNO: String?
     var subtotal: Int?
     var supplierID : String?
     var cutGrade, certificateName, certificateNo, polish: String?
@@ -34,6 +34,7 @@ struct RecommendedDiamdDetail: Codable {
     enum CodingKeys: String, CodingKey {
         case stockID = "stock_id"
         case itemName = "item_name"
+        case stockNO = "stock_no"
         case category
         case supplierID = "supplier_id"
         case cutGrade = "cut_grade"

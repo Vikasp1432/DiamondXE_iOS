@@ -31,6 +31,9 @@ class B2CSearchResultTableListingCell: UITableViewCell, ShimmeringViewProtocol {
     @IBOutlet var lblCarat :UILabel!
     @IBOutlet var lblClarity :UILabel!
     @IBOutlet var lblPrice :UILabel!
+    
+    @IBOutlet var tagViewBG :UIView!
+    @IBOutlet var lblTAG :UILabel!
 
     var actionReturnable : (() -> Void) = { }
     var diamondSelect : (() -> Void) = { }
@@ -41,6 +44,8 @@ class B2CSearchResultTableListingCell: UITableViewCell, ShimmeringViewProtocol {
     
     var shimmeringAnimatedItems: [UIView] {
            [
+            tagViewBG,
+            lblTAG,
             lblCirtificateNum,
             lblLotID,
             lblShape,

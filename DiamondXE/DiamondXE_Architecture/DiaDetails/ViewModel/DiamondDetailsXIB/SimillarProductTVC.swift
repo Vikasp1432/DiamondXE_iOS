@@ -17,6 +17,7 @@ class SimillarProductTVC: UITableViewCell {
     
     @IBOutlet var sliderCollectionView: UICollectionView!
     @IBOutlet var pageView: UIPageControl!
+    @IBOutlet var bgDataView: UIView!
     
      var isLoading = true {
         didSet {
@@ -61,17 +62,24 @@ class SimillarProductTVC: UITableViewCell {
     
     func setupRecommendentData(dataObj:[RecommendedDiamdDetail]){
         self.diaDataObj = dataObj
-        if dataObj.count > 0{
-            pageView.numberOfPages = self.diaDataObj.count
-//            pageView.numberOfPages = 0
-            pageView.currentPage = 0
-            DispatchQueue.main.async {
-                self.timer = Timer.scheduledTimer(timeInterval: 6.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
-            }
-            
-            sliderCollectionView.reloadData()
+        
+        if self.diaDataObj.count < 1 {
+            bgDataView.isHidden = true
         }
-        self.isLoading = false
+        else{
+            bgDataView.isHidden = false
+            if dataObj.count > 0{
+                pageView.numberOfPages = self.diaDataObj.count
+                //            pageView.numberOfPages = 0
+                pageView.currentPage = 0
+                DispatchQueue.main.async {
+                    self.timer = Timer.scheduledTimer(timeInterval: 6.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
+                }
+                
+                sliderCollectionView.reloadData()
+            }
+            self.isLoading = false
+        }
         
     }
     
@@ -129,7 +137,7 @@ class SimillarProductTVC: UITableViewCell {
 
          cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
          
-       
+        
          
          cell.addToCart = {
              self.delegate?.cellViewTapped(in: self.diaDataObj[indexPath.row].certificateNo ?? "", cell, tag: 0)
@@ -139,6 +147,15 @@ class SimillarProductTVC: UITableViewCell {
          }
          
          if diaDataObj.count > 1{
+             
+             if  self.diaDataObj[indexPath.row].category == "Natural"{
+                 cell.tagViewBG.backgroundColor = .themeGoldenClr
+                 cell.lblTAG.text = "NATURAL"
+             }
+             else if  self.diaDataObj[indexPath.row].category == "Lab Grown"{
+                 cell.tagViewBG.backgroundColor = .green2
+                 cell.lblTAG.text = "LAB"
+             }
              
              if let isCart = self.diaDataObj[indexPath.row].isCart{
                  if isCart == 0 {
@@ -158,7 +175,7 @@ class SimillarProductTVC: UITableViewCell {
                  }
              }
              
-             cell.lblCirtificateNum.text = self.diaDataObj[indexPath.row].certificateNo
+             cell.lblCirtificateNum.text = self.diaDataObj[indexPath.row].stockNO
              cell.lblLotID.text = "ID: \(self.diaDataObj[indexPath.row].supplierID ?? "")"
              cell.btnShape.text = self.diaDataObj[indexPath.row].shape
              cell.lblCarat.text = "Ct\(self.diaDataObj[indexPath.row].carat ?? "")"
@@ -181,7 +198,7 @@ class SimillarProductTVC: UITableViewCell {
              
              let cutVal = self.diaDataObj[indexPath.row].cutGrade
              if cutVal?.isEmptyStr ?? true || cutVal == "-"{
-                 cell.viewCut.isHidden = true
+                 cell.lblCut.text = "-"
              }
              else{
                  cell.lblCut.text = cutVal
@@ -194,7 +211,7 @@ class SimillarProductTVC: UITableViewCell {
 
              let polishVal = self.diaDataObj[indexPath.row].polish
              if polishVal?.isEmptyStr ?? true || polishVal == "-"{
-                 cell.viewPolish.isHidden = true
+                 cell.lblPolish.text = "-"
              }
              else{
                  cell.lblPolish.text = polishVal
@@ -202,7 +219,7 @@ class SimillarProductTVC: UITableViewCell {
            
              let symmetryVal = self.diaDataObj[indexPath.row].symmetry
              if symmetryVal?.isEmptyStr ?? true || symmetryVal == "-"{
-                 cell.viewSymmetry.isHidden = true
+                 cell.lblSymmetry.text = "-"
              }
              else{
                  cell.lblSymmetry.text = symmetryVal
@@ -210,7 +227,7 @@ class SimillarProductTVC: UITableViewCell {
              
              let flouroVal = self.diaDataObj[indexPath.row].fluorescenceIntensity
              if flouroVal?.isEmptyStr ?? true || flouroVal == "-"{
-                 cell.viewFlouro.isHidden = true
+                 cell.lblFlouro.text = "-"
              }
              else{
                  cell.lblFlouro.text = flouroVal
@@ -218,7 +235,7 @@ class SimillarProductTVC: UITableViewCell {
              
              let certificateVal = self.diaDataObj[indexPath.row].certificateName
              if certificateVal?.isEmptyStr ?? true || certificateVal == "-"{
-                 cell.viewCertificate.isHidden = true
+                 cell.lblCertificate.text = "-"
              }
              else{
                  cell.lblCertificate.text = certificateVal

@@ -56,6 +56,11 @@ class PersonalProfileVC: BaseViewController {
         viewCompanyType.isHidden = true
         viewCompanyNatureOfBusiness.isHidden = true
         
+        
+//        self.txtMobile.textColor = UIColor.lightGray
+//        self.txtEmail.textColor = UIColor.lightGray
+
+        
         txtCompanyType.addInputViewDatePicker(target: self, selector: #selector(companyType))
         
         txtCompanyNatureBusiness.addInputViewDatePicker(target: self, selector: #selector(natureOfbusiness))

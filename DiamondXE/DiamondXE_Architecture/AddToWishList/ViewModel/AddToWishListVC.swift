@@ -23,6 +23,8 @@ class AddToWishListVC: BaseViewController, ChildViewControllerProtocol {
     @IBOutlet var emipityView:UIView!
     
     var wishlistDataStruct = WishlistDataStruct()
+    var currencyRateDetailObj = CurrencyRateDetail()
+    var dashboardVC: DashboardVC?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,18 @@ class AddToWishListVC: BaseViewController, ChildViewControllerProtocol {
     @IBAction func btnActionBack(_ sender: UIButton){
         self.navigationController?.popViewController(animated: true)
     }
+    
+    
+    
+    func updateCurreny(currncyOBJ:CurrencyRateDetail){
+        currencyRateDetailObj = currncyOBJ
+        print(currncyOBJ)
+        
+        if self.wishlistDataStruct.details?.count ?? 0 > 0 {
+            self.wishlistTableView.reloadData()
+        }
+    }
+    
     
     
     func fetchCartData() {
@@ -176,11 +190,27 @@ extension AddToWishListVC: UITableViewDelegate , UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CartItemTVC.cellIdentifierCartItem, for: indexPath) as! CartItemTVC
         cell.selectionStyle = .none
+        
+        if  self.wishlistDataStruct.details?[indexPath.row].category == "Natural"{
+            cell.tagViewBG.backgroundColor = .themeGoldenClr
+            cell.lblTAG.text = "NATURAL"
+        }
+        else if  self.wishlistDataStruct.details?[indexPath.row].category == "Lab Grown"{
+            cell.tagViewBG.backgroundColor = .green2
+            cell.lblTAG.text =  "LAB"
+        }
+        
+        
+        cell.diamondSelect = {
+            self.dashboardVC?.diamondDetails.certificateNo = self.wishlistDataStruct.details?[indexPath.row].certificateNo
+            self.dashboardVC?.loadViewController(withIdentifier: "DiamondDetailsVC", fromStoryboard: "DiamondDetails")
+        }
+        
         cell.imgDiamond.sd_setImage(with: URL(string: self.wishlistDataStruct.details?[indexPath.row].diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
         
         cell.btnSelectedItem.isHidden = true
         cell.btnWishList.setImage(UIImage(named: "cart_"), for: .normal)
-        cell.lblCirtificateNum.text = self.wishlistDataStruct.details?[indexPath.row].certificateNo
+        cell.lblCirtificateNum.text = self.wishlistDataStruct.details?[indexPath.row].stockNo
         cell.lblLotID.text = "ID: \(self.wishlistDataStruct.details?[indexPath.row].supplierID ?? "")"
         cell.lblShape.text = self.wishlistDataStruct.details?[indexPath.row].shape
         cell.lblCarat.text = "Ct\(self.wishlistDataStruct.details?[indexPath.row].carat ?? "")"
@@ -200,8 +230,19 @@ extension AddToWishListVC: UITableViewDelegate , UITableViewDataSource{
             }
         }
         
-        let formattedNumber = formatNumberWithoutDeciml(Double(self.wishlistDataStruct.details?[indexPath.row].totalPrice ?? 0))
-        cell.lblPrice.text = "₹\(formattedNumber)"
+        
+        if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+            let currncyVal = self.currencyRateDetailObj.value ?? 1
+            let finalVal = Double((self.wishlistDataStruct.details?[indexPath.row].totalPrice ?? 0)) * currncyVal
+            let formattedNumber = formatNumberWithoutDeciml(finalVal)
+            cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
+        }
+        else{
+
+            let formattedNumber = formatNumberWithoutDeciml(Double(self.wishlistDataStruct.details?[indexPath.row].totalPrice ?? 0))
+            cell.lblPrice.text = "₹\(formattedNumber)"
+            
+        }
         
         cell.alertAction = {
             

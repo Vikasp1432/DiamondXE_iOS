@@ -24,6 +24,8 @@ class OverLayerView: UIViewController {
     @IBOutlet var imgDiamond : UIImageView!
     @IBOutlet var iblTitle : UILabel!
     
+    @IBOutlet var lblNoURL : UILabel!
+    
     
 //    private var player: AVPlayer?
     var player: AVPlayer?
@@ -46,6 +48,7 @@ class OverLayerView: UIViewController {
         configView()
         playerLayer?.frame = bgView.bounds
         setupHTMLWebView()
+        self.lblNoURL.isHidden = true
 
     }
     
@@ -53,6 +56,7 @@ class OverLayerView: UIViewController {
            htmlWebView = HTMLWebView(frame: bgView.bounds)
            htmlWebView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         bgView.addSubview(htmlWebView)
+        self.lblNoURL.isHidden = true
        }
     
   
@@ -120,23 +124,42 @@ class OverLayerView: UIViewController {
     }
     
     func appear(sender: UIViewController, tag:Int, url:String) {
-        sender.present(self, animated: false) {
-            self.show()
-            switch tag {
-            case 0:
-                self.imgDiamond.isHidden = true
-                self.iblTitle.text = "Diamond Image"
-                self.htmlWebView.loadURL(url)
-                //self.imgDiamond.sd_setImage(with: URL(string:  url), placeholderImage: UIImage(named: "place_Holder"))
-            case 1:
-                self.imgDiamond.isHidden = true
-                self.iblTitle.text = "Diamond Video"
-//                self.playVideo(url:url)
-                self.htmlWebView.loadURL(url)
-
-            default:
-                print("")
-            }
+        
+//        if url.isEmpty{
+//            self.imgDiamond.isHidden = true
+//            self.htmlWebView.isHidden = true
+//            self.lblNoURL.isHidden = false
+//            switch tag {
+//            case 0:
+//                self.lblNoURL.text = "No Image Fount"
+//            case 1:
+//                self.lblNoURL.text = "No Video Fount"
+//            default:
+//                print("")
+//            
+//            }
+//        }
+//        else{
+//            self.lblNoURL.isHidden = true
+            
+            sender.present(self, animated: false) {
+                self.show()
+                switch tag {
+                case 0:
+                    self.imgDiamond.isHidden = true
+                    self.iblTitle.text = "Diamond Image"
+                    self.htmlWebView.loadURL(url)
+                    //self.imgDiamond.sd_setImage(with: URL(string:  url), placeholderImage: UIImage(named: "place_Holder"))
+                case 1:
+                    self.imgDiamond.isHidden = true
+                    self.iblTitle.text = "Diamond Video"
+                    //self.playVideo(url:url)
+                    self.htmlWebView.loadURL(url)
+                    
+                default:
+                    print("")
+                }
+//            }
         }
     }
     

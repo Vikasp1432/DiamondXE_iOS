@@ -24,7 +24,7 @@ struct DiamondSearchDataStructB2B: Codable {
 
    // MARK: - Detail
    struct DiamondListingDetail: Codable {
-       var stockID, itemName, category: String?
+       var stockID, itemName, category, stockNO: String?
        var subtotal: Int?
        var supplierID : String?
        var cutGrade, certificateName, certificateNo, polish: String?
@@ -41,6 +41,7 @@ struct DiamondSearchDataStructB2B: Codable {
        enum CodingKeys: String, CodingKey {
            case stockID = "stock_id"
            case itemName = "item_name"
+           case stockNO = "stock_no"
            case category
            case supplierID = "supplier_id"
            case cutGrade = "cut_grade"
@@ -65,5 +66,6 @@ struct DiamondSearchDataStructB2B: Codable {
            case onHold = "on_hold"
            case rDiscount = "r_discount"
            case rDiscountType = "r_discount_type"
+           case status
        }
    }

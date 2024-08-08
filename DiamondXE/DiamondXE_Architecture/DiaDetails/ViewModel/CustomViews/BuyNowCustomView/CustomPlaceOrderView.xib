@@ -33,10 +33,10 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4W-PR-tl2" userLabel="contentView">
-                    <rect key="frame" x="15" y="248.33333333333334" width="363" height="355.33333333333326"/>
+                    <rect key="frame" x="15" y="263" width="363" height="326"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rQ-M1-mOe">
-                            <rect key="frame" x="313" y="14.999999999999972" width="35" height="35"/>
+                            <rect key="frame" x="313" y="15" width="35" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="CY5-FA-hdi"/>
                                 <constraint firstAttribute="width" constant="35" id="DYG-2D-XsW"/>
@@ -48,20 +48,27 @@
                                 <action selector="doneButtonAction:" destination="-1" eventType="touchUpInside" id="csa-oa-JmY"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank You!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDE-EQ-k8N">
-                            <rect key="frame" x="129.33333333333334" y="144.99999999999997" width="104.33333333333334" height="22.333333333333343"/>
-                            <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="20"/>
-                            <color key="textColor" name="themeClr"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDE-EQ-k8N">
+                            <rect key="frame" x="42" y="145" width="279" height="24"/>
+                            <attributedString key="attributedText">
+                                <fragment content="Thank you for showing interest!">
+                                    <attributes>
+                                        <color key="NSColor" name="themeClr"/>
+                                        <font key="NSFont" size="20" name="Lato-Semibold"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for placing your Intrest! Our customer care executive will be in touch with you shortly." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mF-yr-e7S">
-                            <rect key="frame" x="30" y="187.33333333333334" width="303" height="63"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our customer care executive will be in touch with you shortly." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mF-yr-e7S">
+                            <rect key="frame" x="30" y="179" width="303" height="42"/>
                             <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="18"/>
                             <color key="textColor" name="blackClr"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customersupport" translatesAutoresizingMaskIntoConstraints="NO" id="gM9-Qg-Ykt">
-                            <rect key="frame" x="141.66666666666666" y="49.999999999999972" width="80" height="80"/>
+                            <rect key="frame" x="141.66666666666666" y="50" width="80" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="DPH-eL-D6p"/>
                                 <constraint firstAttribute="height" constant="80" id="oZZ-0e-oid"/>
@@ -73,7 +80,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xlk-bZ-c77">
-                            <rect key="frame" x="5" y="280.33333333333326" width="353" height="40"/>
+                            <rect key="frame" x="5" y="251" width="353" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuI-BE-p9v">
                                     <rect key="frame" x="10" y="2" width="138" height="36"/>
@@ -147,7 +154,7 @@
                         <constraint firstItem="gM9-Qg-Ykt" firstAttribute="centerX" secondItem="K4W-PR-tl2" secondAttribute="centerX" id="BNW-gU-Zx9"/>
                         <constraint firstAttribute="bottom" secondItem="Xlk-bZ-c77" secondAttribute="bottom" constant="35" id="BNW-mJ-EJq"/>
                         <constraint firstAttribute="trailing" secondItem="Xlk-bZ-c77" secondAttribute="trailing" constant="5" id="CmH-Be-592"/>
-                        <constraint firstItem="2mF-yr-e7S" firstAttribute="top" secondItem="sDE-EQ-k8N" secondAttribute="bottom" constant="20" id="DZz-cy-G46"/>
+                        <constraint firstItem="2mF-yr-e7S" firstAttribute="top" secondItem="sDE-EQ-k8N" secondAttribute="bottom" constant="10" id="DZz-cy-G46"/>
                         <constraint firstItem="gM9-Qg-Ykt" firstAttribute="top" secondItem="K4W-PR-tl2" secondAttribute="top" constant="50" id="G3l-oD-d2P"/>
                         <constraint firstItem="2mF-yr-e7S" firstAttribute="leading" secondItem="K4W-PR-tl2" secondAttribute="leading" constant="30" id="Gso-Kv-aUc"/>
                         <constraint firstAttribute="trailing" secondItem="2mF-yr-e7S" secondAttribute="trailing" constant="30" id="HZ9-yu-cat"/>

@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import SDWebImage
 
 
 class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCountryPopupViewDelegate, PinCodeDelegate {
@@ -90,7 +91,8 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        // get currency
+        CurrencyRatesManager.shareInstence.getCurrencyRates()
        
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
@@ -283,16 +285,35 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             print("")
         }
         self.counrtyDropDownView.isHidden.toggle()
-        
-        
+       
         var getCurrnyRate = CurrencyRatesManager.shareInstence.currencyRateStruct
         for (index, value) in getCurrnyRate.enumerated() {
             if returnValue == value.currency {
                 self.currencySelectObj = value
+                print(value)
                 break
             }
         }
         
+        switch self.currentViewController {
+        case is AddToCartVC:
+            if let addTocart = self.currentViewController as? AddToCartVC {
+                addTocart.updateCurreny(currncyOBJ: self.currencySelectObj)
+                break
+            }
+        case is AddToWishListVC:
+            if let addTocart = self.currentViewController as? AddToWishListVC {
+                addTocart.updateCurreny(currncyOBJ: self.currencySelectObj)
+                break
+            }
+        case is HomeVC:
+            if let homeVC = self.currentViewController as? HomeVC {
+                homeVC.currencySelectObj =  currencySelectObj
+                homeVC.homeTableView.reloadSections([4], with: .none)
+            }
+        default:
+            print("")
+        }
     }
     
     
@@ -325,14 +346,14 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
                 }
                 else{
                     UserDefaultManager.shareInstence.clearLoginDataDefaults()
-                    self.btnTitleLogin.setTitle("Account", for: .normal)
+                    self.btnTitleLogin.setTitle("Login", for: .normal)
                     self.lblWelcomeUser.text = "Welcome User"
                     self.lblType.text = "--"
                 }
             })
         }
         else{
-            self.btnTitleLogin.setTitle("Account", for: .normal)
+            self.btnTitleLogin.setTitle("Login", for: .normal)
             self.lblWelcomeUser.text = "Welcome User"
             self.lblType.text = "--"
         }
@@ -340,7 +361,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
     }
         
     func didEnterPincode(pincode: String, indexPath: IndexPath) {
-        print(pincode)
+        UserDefaultManager().saveLocation(location: pincode)
     }
     
   
@@ -414,7 +435,8 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             
             
             popupView.addSubview(selectCountryView)
-           
+            
+         
             NSLayoutConstraint.activate([
                         selectCountryView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor),
                         selectCountryView.trailingAnchor.constraint(equalTo: popupView.trailingAnchor),
@@ -423,6 +445,13 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
                     ])
             selectCountryView.viewData.isHidden = true
             selectCountryView.isViewExpand = false
+            if let title = self.currencySelectObj.currency{
+                selectCountryView.lblTitle.text = "\(title)"
+                selectCountryView.lblSubTitle.text = "\(self.currencySelectObj.desc ?? "")"
+                selectCountryView.btnFlag.sd_setImage(with: URL(string: self.currencySelectObj.img ?? ""), for: .normal,placeholderImage: UIImage(named: "place_Holder"))
+                
+               
+            }
             popupViewHeightsConstraint.constant = isPopupVisible ? 140 : 0
         case is DiamondDetailsVC:
             diaDetailsView.translatesAutoresizingMaskIntoConstraints = false
@@ -486,7 +515,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             updateHeaderBG(setUpTag: 1)
             self.gotoSearchDiamondVC(title: "Solitaires")
         default:
-            print(tag)
+            self.navigationManager(storybordName: "CategoriesVC", storyboardID: "CommingSoonVC", controller: CommingSoonVC())
         }
        
        }
@@ -510,23 +539,37 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
         if let diamondDetailsVC = newViewController as? HomeVC {
             diamondDetailsVC.dashBoardVC = self
             self.btnSearch.setImage(UIImage(named: "SearchI"), for: .normal)
+            
         }
         if let diamondDetailsVC = newViewController as? SearchDiamondVC {
             self.diamondDetailsDocID = String()
             self.btnSearch.setImage(UIImage(named: "SearchI"), for: .normal)
         }
         
+        
+        if let addToCartVC = newViewController as? AddToCartVC{
+            addToCartVC.dashboardVC = self
+            addToCartVC.currencyRateDetailObj = self.currencySelectObj
+        }
+        
+        if let addToWishListVC = newViewController as? AddToWishListVC{
+            addToWishListVC.dashboardVC = self
+            addToWishListVC.currencyRateDetailObj = self.currencySelectObj
+        }
+        
         if let diamondDetailsVC = newViewController as? DiamondDetailsVC {
            if !self.diamondDetailsDocID.isEmpty{
                self.diamondDetails.certificateNo = self.diamondDetailsDocID
             }
-            
+            self.lblTitle.text = "Diamond Detail"
+            diamondDetailsVC.currencyRateDetailObj = self.currencySelectObj
             diamondDetailsVC.diamondInfo = self.diamondDetails
             self.btnSearch.setImage(UIImage(named: "plus"), for: .normal)
         }
         
         if let b2bSearchDiamondVC = newViewController as? B2BSearchResultVC {
             b2bSearchDiamondVC.dashboardVC = self
+            b2bSearchDiamondVC.updateCurreny(currncyOBJ: self.currencySelectObj)
             self.btnSearch.setImage(UIImage(named: "plus"), for: .normal)
         }
         self.currncyValChange(currncyValObj: self.currencySelectObj)
@@ -1305,7 +1348,7 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
             if data.status == 1{
                 self.toastMessage(data.msg ?? "")
                 UserDefaultManager.shareInstence.clearLoginDataDefaults()
-                self.btnTitleLogin.setTitle("Account", for: .normal)
+                self.btnTitleLogin.setTitle("Login", for: .normal)
                 self.lblWelcomeUser.text = "Welcome User"
                 self.lblType.text = "--"
                 self.sections = self.loadSections()

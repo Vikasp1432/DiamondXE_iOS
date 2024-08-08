@@ -17,7 +17,7 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
     }
     var isCellExpandedDetails = false
     var isAddtoCartItem = false
-    
+    var currencyRateDetailObj = CurrencyRateDetail()
    
     @IBOutlet var tbleViewDetails:UITableView!
     
@@ -68,7 +68,7 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
             
             if data.status == 1{
                 self.diamondDetails = data
-                print(self.diamondDetails)
+               // print(self.diamondDetails)
                 
                 
                 self.cut = self.diamondDetails.details?.cutGrade ?? ""
@@ -82,6 +82,9 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
             }
             else{
                 self.toastMessage(msg ?? "")
+                self.navigationController?.popViewController(animated: true)
+                
+
                 
             }
             self.isLoading = false
@@ -127,7 +130,7 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
             print(data)
             if data.status == 1{
                 if let cell = self.tbleViewDetails.cellForRow(at: indexPath) as? ProductDetailsTVC {
-                    cell.btnBuyNow.setTitle("Go To Cart", for: .normal)
+                    cell.btnBuyNow.setTitle("Go to cart", for: .normal)
                     self.isAddtoCartItem = true
                 }
             }
@@ -149,7 +152,7 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
             if data.status == 1{
 
                 self.recommendentDataStruct.details?.enumerated().forEach{ index, val in
-                    if val.certificateNo == certificateNo{
+                    if val.stockNO == certificateNo{
                         self.recommendentDataStruct.details?[index].isCart = 1
                     }
                 }
@@ -163,7 +166,7 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
                
                 if let cell = cell as? SimillarProductCVC {
                     cell.btnCard.setTitleColor(.themeClr, for: .normal)
-                    cell.btnCard.setTitle("Go To Cart", for: .normal)
+                    cell.btnCard.setTitle("Go to cart", for: .normal)
                     cartVCIsComeFromHome = false
                 }
                 
@@ -187,7 +190,7 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
             if data.status == 1{
 //                self.isDataListingView
                 self.recommendentDataStruct.details?.enumerated().forEach{ index, val in
-                    if val.certificateNo == certificateNo{
+                    if val.stockNO == certificateNo{
                         self.recommendentDataStruct.details?[index].isWishlist = 1
                     }
                 }
@@ -223,7 +226,7 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
             if data.status == 1{
 //                self.isDataListingView
                 self.recommendentDataStruct.details?.enumerated().forEach{ index, val in
-                    if val.certificateNo == certificateNo{
+                    if val.stockNO == certificateNo{
                         self.recommendentDataStruct.details?[index].isWishlist = 0
                     }
                 }
@@ -261,7 +264,7 @@ extension DiamondDetailsVC : CustomRcommCellDelegate{
         case 0:
             
             self.recommendentDataStruct.details?.enumerated().forEach{ index, val in
-                if val.certificateNo == certificateNO{
+                if val.stockNO == certificateNO{
                     var cart = self.recommendentDataStruct.details?[index].isCart ?? 0
                     if cart == 0{
                         self.addToCartRecommendent(certificateNo: certificateNO, cell: cell)
@@ -278,7 +281,7 @@ extension DiamondDetailsVC : CustomRcommCellDelegate{
             
         case 1:
             self.recommendentDataStruct.details?.enumerated().forEach{ index, val in
-                if val.certificateNo == certificateNO{
+                if val.stockNO == certificateNO{
                     var wishList = self.recommendentDataStruct.details?[index].isWishlist ?? 0
                     if wishList == 0{
                         self.addToWishList(certificateNo: certificateNO, cell: cell)
@@ -342,8 +345,17 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
                     sizesXIB.appear(sender: self, tag: tag, url:  "")
                 }
                 if tag == 2{
-                    let sizesXIB = CertificateViewVC()
-                    sizesXIB.appear(sender: self, tag: tag, url:  self.diamondDetails.details?.certificateFile ?? "")
+                    
+                    let loginData = UserDefaultManager().retrieveLoginData()
+                    if let data = loginData?.details?.userRole{
+                        let sizesXIB = CertificateViewVC()
+                        sizesXIB.appear(sender: self, tag: tag, url:  self.diamondDetails.details?.certificateFile ?? "")
+                    }
+                    else{
+                        self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
+                    }
+                    
+                    
                 }
             }
             return cell
@@ -352,49 +364,60 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
             cell.selectionStyle = .none
             cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
             
-            cell.lblDocNumber.text = self.diamondDetails.details?.certificateNo ?? ""
+            cell.lblDocNumber.text = self.diamondDetails.details?.stockNO ?? ""
             cell.lblLotID.text = "ID:\(self.diamondDetails.details?.supplierID ?? "")"
             cell.lblShape.text = self.diamondDetails.details?.shape ?? ""
             cell.lblCarat.text = self.diamondDetails.details?.carat ?? ""
             cell.lblClr.text = self.diamondDetails.details?.color ?? ""
             cell.lblClarity.text = self.diamondDetails.details?.clarity ?? ""
            
+            if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+                let currncyVal = self.currencyRateDetailObj.value ?? 1
+                let finalVal = Double((self.diamondDetails.details?.subtotal ?? 0)) * currncyVal
+                let formattedNumber = formatNumberWithoutDeciml(finalVal)
+                cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
+            }
+            else{
+                let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondDetails.details?.subtotal ?? 0))
+                cell.lblPrice.text = "₹\(formattedNumber)"
+            }
             
-            let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondDetails.details?.subtotal ?? 0))
-            cell.lblPrice.text = "₹\(formattedNumber)"
+            
+            
+           
 //            cell.lblPrice.text = "₹\(self.diamondDetails.details?.totalPrice ?? 0)"
            // print(self.cut, self.polish, self.symmetry, self.certificate, self.flouro, self.discount)
             if !self.cut.isEmpty  {
                 cell.lblCut.text = self.cut
             }
             else{
-                cell.viewCut.isHidden = true
+                cell.lblCut.text = "-"
             }
             if !self.polish.isEmpty  {
                 cell.lblPolish.text = self.polish
             }
             else{
-                cell.viewPolish.isHidden = true
+                cell.lblPolish.text = "-"
             }
             
             if !self.symmetry.isEmpty  {
                 cell.lblSymmetry.text = self.symmetry
             }
             else{
-                cell.viewSymmetry.isHidden = true
+                cell.lblSymmetry.text = "-"
             }
             
             if !self.flouro.isEmpty  {
                 cell.lblFlouro.text = self.flouro
             }
             else{
-                cell.viewFlouro.isHidden = true
+                cell.lblFlouro.text = "-"
             }
             if !self.certificate.isEmpty  {
                 cell.lblCertificate.text = certificate
             }
             else{
-                cell.viewCertificate.isHidden = true
+                cell.lblCertificate.text = "-"
             }
            
             if self.diamondDetails.details?.rDescount ?? "" == "-"{
@@ -415,11 +438,11 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
             
             if self.diamondDetails.details?.isCart == 1 {
                 self.isAddtoCartItem = true
-                cell.btnBuyNow.setTitle("Go To Cart", for: .normal)
+                cell.btnBuyNow.setTitle("Go to cart", for: .normal)
             }
             else{
                 self.isAddtoCartItem = false
-                cell.btnBuyNow.setTitle("Add To Cart", for: .normal)
+                cell.btnBuyNow.setTitle("Add to cart", for: .normal)
                 
             }
             
@@ -508,12 +531,21 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
                 cell.lblShade.text =  "-"
             }
            
-            if self.diamondDetails.details?.cutGrade?.count ?? 0 > 0{
+            if self.diamondDetails.details?.girdleCondition?.count ?? 0 > 0{
                 cell.lblGridCulet.text = self.diamondDetails.details?.girdleCondition ?? ""
             }
             else{
                 cell.lblGridCulet.text =  "-"
             }
+            
+            
+            if self.diamondDetails.details?.culet?.count ?? 0 > 0{
+                cell.lblCulet.text = self.diamondDetails.details?.culet ?? ""
+            }
+            else{
+                cell.lblGridCulet.text =  "-"
+            }
+            
 
             if self.diamondDetails.details?.growthType?.count ?? 0 > 0{
                 cell.lblGrowthType.text = self.diamondDetails.details?.growthType ?? ""
@@ -535,8 +567,15 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
             else{
                 cell.lblLocation.text =  "-"
             }
+            
+            if self.diamondDetails.details?.status?.count ?? 0 > 0{
+                cell.lblStatus.text =  self.diamondDetails.details?.status ?? ""
+            }
+            else{
+                cell.lblStatus.text =  "-"
+            }
            
-            cell.lblStatus.text =  self.diamondDetails.details?.status ?? ""
+            //cell.lblStatus.text =  self.diamondDetails.details?.status ?? ""
             
             if self.diamondDetails.details?.keyToSymbols?.count ?? 0 > 0{
                 cell.lblKeytoSymbole.text = self.diamondDetails.details?.keyToSymbols ?? ""
@@ -599,7 +638,7 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
         CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
             
         let url = APIs().buyProductUpdate_API
-        var param : [String:Any] = ["orderType": "Buy Now", "certificateNo": certificateNum]
+        let param : [String:Any] = ["orderType": "Buy Now", "certificateNo": certificateNum]
             
         HomeDataModel().updateProfileInfo(param: param, url: url, completion: { data, msg in
                 if data.status == 1{

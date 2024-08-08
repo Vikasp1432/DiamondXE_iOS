@@ -42,7 +42,7 @@
                                                 <rect key="frame" x="45" y="5" width="288" height="44"/>
                                                 <color key="textColor" name="themeClr"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                         <color key="value" name="clrGray"/>
@@ -242,6 +242,19 @@
                                                     <action selector="btnActionBack:" destination="VIo-A3-YpP" eventType="touchUpInside" id="k4w-4P-TFy"/>
                                                 </connections>
                                             </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ewg-5G-fIL">
+                                                <rect key="frame" x="333" y="5" width="40" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="NK5-kU-A1q"/>
+                                                    <constraint firstAttribute="width" constant="40" id="aM5-Id-HUk"/>
+                                                </constraints>
+                                                <color key="tintColor" name="TabSelectClr"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="edit"/>
+                                                <connections>
+                                                    <action selector="btnActionBack:" destination="VIo-A3-YpP" eventType="touchUpInside" id="JYg-bx-4pV"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advance Filters" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTh-m3-VHS">
                                                 <rect key="frame" x="61" y="8" width="312" height="44"/>
                                                 <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="16"/>
@@ -252,11 +265,14 @@
                                         <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstItem="UTh-m3-VHS" firstAttribute="top" secondItem="xna-nt-Igb" secondAttribute="top" constant="8" id="5hc-uX-NE3"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ewg-5G-fIL" secondAttribute="trailing" constant="20" id="C26-gQ-ftT"/>
                                             <constraint firstAttribute="trailing" secondItem="UTh-m3-VHS" secondAttribute="trailing" constant="20" id="Nmg-fS-xRM"/>
                                             <constraint firstItem="C43-GQ-0HH" firstAttribute="leading" secondItem="xna-nt-Igb" secondAttribute="leading" constant="13" id="ULp-J8-mkk"/>
                                             <constraint firstAttribute="bottom" secondItem="UTh-m3-VHS" secondAttribute="bottom" constant="8" id="Ugj-YV-4Ga"/>
                                             <constraint firstItem="UTh-m3-VHS" firstAttribute="leading" secondItem="C43-GQ-0HH" secondAttribute="trailing" constant="8" id="VrH-IX-SbO"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ewg-5G-fIL" secondAttribute="bottom" constant="5" id="ajo-TQ-5iw"/>
                                             <constraint firstAttribute="height" constant="60" id="g00-7C-2hF"/>
+                                            <constraint firstItem="Ewg-5G-fIL" firstAttribute="top" secondItem="xna-nt-Igb" secondAttribute="top" constant="5" id="gVk-dI-wvl"/>
                                             <constraint firstItem="C43-GQ-0HH" firstAttribute="centerY" secondItem="xna-nt-Igb" secondAttribute="centerY" id="i7m-Jq-LRb"/>
                                         </constraints>
                                     </view>
@@ -286,8 +302,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ve2-1Q-jn5">
                                         <rect key="frame" x="40" y="12" width="313" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ddz-5N-SJf">
-                                                <rect key="frame" x="0.0" y="0.0" width="141.66666666666666" height="40"/>
+                                            <button hidden="YES" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ddz-5N-SJf">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal">
@@ -311,7 +327,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kpy-6J-0UT">
-                                                <rect key="frame" x="171.66666666666663" y="0.0" width="141.33333333333337" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="313" height="40"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal">
@@ -374,6 +390,7 @@
     </scenes>
     <resources>
         <image name="backButton" width="10.079999923706055" height="18.870000839233398"/>
+        <image name="edit" width="16.010000228881836" height="15.930000305175781"/>
         <image name="magnifyingGlass" width="18.549999237060547" height="18.549999237060547"/>
         <namedColor name="TabSelectClr">
             <color red="0.49399998784065247" green="0.18799999356269836" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

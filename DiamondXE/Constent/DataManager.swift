@@ -16,6 +16,46 @@ class DataManager {
     var cartDataHolder : CartDataStruct?
     var WishlistDataHolder : WishlistDataStruct?
     
+    var defaultSelectedIndicesShaps: Set<IndexPath> = []
+    var defaultSelectedIndicesColor: Set<IndexPath> = []
+    var defaultSelectedIndicesClarity: Set<IndexPath> = []
+    var defaultSelectedIndicesCertificate: Set<IndexPath> = []
+    var defaultSelectedIndicesFluorescence: Set<IndexPath> = []
+    var defaultSelectedIndicesMake: IndexPath?
+    
+    
+    var defaultSelectedIndicesCut: Set<IndexPath> = []
+    var defaultSelectedIndicesPolish: Set<IndexPath> = []
+    var defaultSelectedIndicesSymmetry: Set<IndexPath> = []
+    var defaultSelectedIndicesEyeClean: Set<IndexPath> = []
+    var defaultSelectedIndicesShade: Set<IndexPath> = []
+    var defaultSelectedIndicesLuster: Set<IndexPath> = []
+    var defaultSelectedIndicesTech: Set<IndexPath> = []
+    
+    
+    
+    
+    var defaultSelectedDataArrColorWhite = [SearchAttribDetail]()
+    var defaultSelectedDataArrColorFancy = [SearchAttribDetail]()
+    var defaultSelectedDataArrClarity = [SearchAttribDetail]()
+    var defaultSelectedDataArrCertificate = [SearchAttribDetail]()
+    var defaultSelectedDataArrFluorescence = [SearchAttribDetail]()
+    var defaultSelectedDataArrMake = [SearchAttribDetail]()
+    var defaultShapeArr = [String]()
+    
+    var txttPriceTo = String()
+    var txtPriceFrom = String()
+    var cartTo = String()
+    var cartFrom = String()
+    var btnTagSelect : Int? = -1
+    //var isReturnable = Int()
+    
+    var textData = [SearchAttribDetail]()
+    var diaQualityTap: [String]?
+    
+    
+    
+    
     
     var searchTitle: String? = ""
     var searchInfoDetails: [SearchAttribDetail] = []

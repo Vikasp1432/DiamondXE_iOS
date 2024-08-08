@@ -491,10 +491,10 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C4v-ky-0hv">
-                                                                <rect key="frame" x="130" y="0.0" width="252" height="66"/>
+                                                                <rect key="frame" x="130" y="0.0" width="152" height="66"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfx-wP-9gB">
-                                                                        <rect key="frame" x="5" y="8" width="242" height="20"/>
+                                                                        <rect key="frame" x="5" y="8" width="142" height="20"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20" id="iXA-hw-xL7"/>
                                                                         </constraints>
@@ -510,7 +510,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="913-Dq-HYY">
-                                                                        <rect key="frame" x="5" y="28" width="242" height="30"/>
+                                                                        <rect key="frame" x="5" y="28" width="142" height="30"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="30" id="8Un-yU-ae6"/>
                                                                         </constraints>
@@ -535,6 +535,53 @@
                                                                     <constraint firstAttribute="trailing" secondItem="913-Dq-HYY" secondAttribute="trailing" constant="5" id="clQ-sy-lLS"/>
                                                                     <constraint firstItem="913-Dq-HYY" firstAttribute="top" secondItem="rfx-wP-9gB" secondAttribute="bottom" id="nV6-f2-RFD"/>
                                                                     <constraint firstItem="rfx-wP-9gB" firstAttribute="leading" secondItem="C4v-ky-0hv" secondAttribute="leading" constant="5" id="ydd-vm-OlP"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zir-5H-2Ox">
+                                                                <rect key="frame" x="282" y="0.0" width="100" height="66"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcl-Ol-Bxe">
+                                                                        <rect key="frame" x="5" y="8" width="90" height="20"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="20" id="qkp-Y7-p2N"/>
+                                                                        </constraints>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="Culet">
+                                                                                <attributes>
+                                                                                    <color key="NSColor" name="757677"/>
+                                                                                    <font key="NSFont" size="14" name="Lato-Regular"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yH0-41-L4X">
+                                                                        <rect key="frame" x="5" y="28" width="90" height="30"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="30" id="tiA-9A-qfn"/>
+                                                                        </constraints>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="value">
+                                                                                <attributes>
+                                                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <font key="NSFont" size="15" name="Lato-Medium"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="xcl-Ol-Bxe" secondAttribute="trailing" constant="5" id="Dmo-zA-SMK"/>
+                                                                    <constraint firstItem="yH0-41-L4X" firstAttribute="top" secondItem="xcl-Ol-Bxe" secondAttribute="bottom" id="G7b-Tv-K4l"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="yH0-41-L4X" secondAttribute="bottom" constant="8" id="MaN-eh-GMR"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="yH0-41-L4X" secondAttribute="trailing" constant="5" id="PNq-7V-VDA"/>
+                                                                    <constraint firstItem="xcl-Ol-Bxe" firstAttribute="leading" secondItem="Zir-5H-2Ox" secondAttribute="leading" constant="5" id="RiI-Ty-aub"/>
+                                                                    <constraint firstItem="xcl-Ol-Bxe" firstAttribute="top" secondItem="Zir-5H-2Ox" secondAttribute="top" constant="8" id="SKt-xE-ao6"/>
+                                                                    <constraint firstItem="yH0-41-L4X" firstAttribute="leading" secondItem="Zir-5H-2Ox" secondAttribute="leading" constant="5" id="WWz-N0-Ft0"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -667,7 +714,7 @@
                                                                             <constraint firstAttribute="height" constant="30" id="1Zf-sR-iDb"/>
                                                                         </constraints>
                                                                         <attributedString key="attributedText">
-                                                                            <fragment content="value">
+                                                                            <fragment content="-">
                                                                                 <attributes>
                                                                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                                     <font key="NSFont" size="15" name="Lato-Medium"/>
@@ -995,6 +1042,7 @@
                 <outlet property="btnDropDown" destination="RQj-x7-MVL" id="6jU-0W-yHb"/>
                 <outlet property="lblCrownAngle" destination="QPM-rD-3Hw" id="slw-CJ-OlM"/>
                 <outlet property="lblCrownHeight" destination="MHg-zc-FYs" id="NPz-iX-4Ew"/>
+                <outlet property="lblCulet" destination="yH0-41-L4X" id="2Km-tF-Yw9"/>
                 <outlet property="lblDepth" destination="Kyi-Gm-14y" id="aZm-e1-Equ"/>
                 <outlet property="lblGridCulet" destination="913-Dq-HYY" id="4tz-y9-wdl"/>
                 <outlet property="lblGrowthType" destination="izQ-98-ms7" id="aqW-vo-UGW"/>

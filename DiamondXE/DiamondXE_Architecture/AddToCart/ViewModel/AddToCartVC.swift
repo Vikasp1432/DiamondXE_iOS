@@ -22,6 +22,8 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
     
     var delegate : BaseViewControllerDelegate?
     var backDelegate : BackVCDelegate?
+    var currencyRateDetailObj = CurrencyRateDetail()
+    var dashboardVC: DashboardVC?
     
     @IBOutlet var cartTableView:UITableView!
     @IBOutlet var footerView:UIView!
@@ -85,6 +87,27 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
     }
     
     
+    func updateCurreny(currncyOBJ:CurrencyRateDetail){
+        currencyRateDetailObj = currncyOBJ
+        print(currncyOBJ)
+        
+        if self.cartDataStruct.details?.count ?? 0 > 0 {
+            self.cartTableView.reloadData()
+        }
+        
+        if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+            let currncyVal = self.currencyRateDetailObj.value ?? 1
+            let finalVal = (Double((self.grandTotal))) * currncyVal
+            let formattedNumber = self.formatNumberWithoutDeciml(finalVal)
+            self.lblTotalPrice.text = "\(currncySimbol)\(formattedNumber)"
+        }
+        else{
+            let formattedNumber = self.formatNumberWithoutDeciml(Double(self.grandTotal))
+            self.lblTotalPrice.text = "₹\(formattedNumber)"
+        }
+    }
+    
+    
     @IBAction func btnActionPlace(_ sender: UIButton){
         let loginData = UserDefaultManager().retrieveLoginData()
         if let data = loginData?.details?.userRole{
@@ -139,7 +162,19 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
                 }
                 
                 let gTotal = self.formatNumberWithoutDeciml(Double(self.grandTotal))
-                self.lblTotalPrice.text = "₹\(gTotal)"
+                
+                
+                if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+                    let currncyVal = self.currencyRateDetailObj.value ?? 1
+                    let finalVal = (Double((self.grandTotal))) * currncyVal
+                    let formattedNumber = self.formatNumberWithoutDeciml(finalVal)
+                    self.lblTotalPrice.text = "\(currncySimbol)\(formattedNumber)"
+                }
+                else{
+                    self.lblTotalPrice.text = "₹\(gTotal)"
+                }
+                
+               // self.lblTotalPrice.text = "₹\(gTotal)"
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     self.checkToDataCount()
                 }
@@ -207,7 +242,19 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
                 self.grandTotal = self.grandTotal - (item?.first?.totalPrice ?? 0)
                 
                 let grandTotal = self.formatNumberWithoutDeciml(Double(self.grandTotal))
-                self.lblTotalPrice.text = "₹\(grandTotal)"
+                
+                
+                if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+                    let currncyVal = self.currencyRateDetailObj.value ?? 1
+                    let finalVal = (Double((self.grandTotal))) * currncyVal
+                    let formattedNumber = self.formatNumberWithoutDeciml(finalVal)
+                    self.lblTotalPrice.text = "\(currncySimbol)\(formattedNumber)"
+                }
+                else{
+                    self.lblTotalPrice.text = "₹\(grandTotal)"
+                }
+                
+               // self.lblTotalPrice.text = "₹\(grandTotal)"
                 
                 if  let count = self.cartDataStruct.details?.count {
                     if count > 0{
@@ -247,7 +294,18 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
                 self.grandTotal = self.grandTotal - (item?.first?.totalPrice ?? 0)
                 
                 let grandTotal = self.formatNumberWithoutDeciml(Double(self.grandTotal))
-                self.lblTotalPrice.text = "₹\(grandTotal)"
+                
+                if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+                    let currncyVal = self.currencyRateDetailObj.value ?? 1
+                    let finalVal = (Double((self.grandTotal))) * currncyVal
+                    let formattedNumber = self.formatNumberWithoutDeciml(finalVal)
+                    self.lblTotalPrice.text = "\(currncySimbol)\(formattedNumber)"
+                }
+                else{
+                    self.lblTotalPrice.text = "₹\(grandTotal)"
+                }
+                
+               // self.lblTotalPrice.text = "₹\(grandTotal)"
                 
                 
                 if  let count = self.cartDataStruct.details?.count {
@@ -320,9 +378,27 @@ extension AddToCartVC : UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: CartItemTVC.cellIdentifierCartItem, for: indexPath) as! CartItemTVC
             cell.selectionStyle = .none
             
+            if  self.cartDataStruct.details?[indexPath.row].category == "Natural"{
+                cell.tagViewBG.backgroundColor = .themeGoldenClr
+                cell.lblTAG.text = "NATURAL"
+            }
+            else if  self.cartDataStruct.details?[indexPath.row].category == "Lab Grown"{
+                cell.tagViewBG.backgroundColor = .green2
+                cell.lblTAG.text = "LAB"
+            }
+            
+            
+            
+            cell.diamondSelect = {
+                self.dashboardVC?.diamondDetails.certificateNo = self.cartDataStruct.details?[indexPath.row].certificateNo
+                self.dashboardVC?.loadViewController(withIdentifier: "DiamondDetailsVC", fromStoryboard: "DiamondDetails")
+            }
+            
+            
+            
             cell.imgDiamond.sd_setImage(with: URL(string: self.cartDataStruct.details?[indexPath.row].diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
             
-            cell.lblCirtificateNum.text = self.cartDataStruct.details?[indexPath.row].certificateNo
+            cell.lblCirtificateNum.text = self.cartDataStruct.details?[indexPath.row].stockNo
             cell.lblLotID.text = "ID: \(self.cartDataStruct.details?[indexPath.row].supplierID ?? "")"
             cell.lblShape.text = self.cartDataStruct.details?[indexPath.row].shape
             cell.lblCarat.text = "Ct\(self.cartDataStruct.details?[indexPath.row].carat ?? "")"
@@ -342,10 +418,20 @@ extension AddToCartVC : UITableViewDelegate, UITableViewDataSource{
                 }
             }
             
-            let formattedNumber = formatNumberWithoutDeciml(Double(self.cartDataStruct.details?[indexPath.row].totalPrice ?? 0))
-            cell.lblPrice.text = "₹\(formattedNumber)"
             
-          
+            if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+                let currncyVal = self.currencyRateDetailObj.value ?? 1
+                let finalVal = Double((self.cartDataStruct.details?[indexPath.row].totalPrice ?? 0)) * currncyVal
+                let formattedNumber = formatNumberWithoutDeciml(finalVal)
+                cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
+            }
+            else{
+
+                let formattedNumber = formatNumberWithoutDeciml(Double(self.cartDataStruct.details?[indexPath.row].totalPrice ?? 0))
+                cell.lblPrice.text = "₹\(formattedNumber)"
+                
+            }
+            
             cell.alertAction = {
                 if let items = self.cartDataStruct.details{
                     cell.setupSelectedItem(items: items)
@@ -357,14 +443,37 @@ extension AddToCartVC : UITableViewDelegate, UITableViewDataSource{
                         self.grandTotal = self.grandTotal + itemPrice
                         
                         let grandTotal = self.formatNumberWithoutDeciml(Double(self.grandTotal))
-                        self.lblTotalPrice.text = "₹\(grandTotal)"
+                        
+                        if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+                            let currncyVal = self.currencyRateDetailObj.value ?? 1
+                            let finalVal = (Double((self.grandTotal)) ?? 0) * currncyVal
+                            let formattedNumber = self.formatNumberWithoutDeciml(finalVal)
+                            self.lblTotalPrice.text = "\(currncySimbol)\(formattedNumber)"
+                        }
+                        else{
+                            self.lblTotalPrice.text = "₹\(grandTotal)"
+                        }
+                        
+                        
+                        
+                        
                     }
                     else{
                         let itemPrice = self.cartDataStruct.details?[indexPath.row].totalPrice ?? 0
                         self.grandTotal = self.grandTotal - itemPrice
                         
                         let grandTotal = self.formatNumberWithoutDeciml(Double(self.grandTotal))
-                        self.lblTotalPrice.text = "₹\(grandTotal)"
+                        
+                        if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+                            let currncyVal = self.currencyRateDetailObj.value ?? 1
+                            let finalVal = (Double((self.grandTotal)) ?? 0) * currncyVal
+                            let formattedNumber = self.formatNumberWithoutDeciml(finalVal)
+                            self.lblTotalPrice.text = "\(currncySimbol)\(formattedNumber)"
+                        }
+                        else{
+                            self.lblTotalPrice.text = "₹\(grandTotal)"
+                        }
+                       // self.lblTotalPrice.text = "₹\(grandTotal)"
                     }
                 }
             }

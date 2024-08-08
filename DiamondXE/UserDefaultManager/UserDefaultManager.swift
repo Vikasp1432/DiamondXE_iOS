@@ -82,6 +82,15 @@ class UserDefaultManager {
         return nil
     }
     
+    
+    func saveLocation(location: String) {
+        UserDefaults.standard.set(location, forKey: "location")
+    }
+    
+    func retrieveLocation() -> String? {
+        return UserDefaults.standard.object(forKey: "location") as? String
+    }
+    
     func clearAllUserDefaults() {
         let defaults = UserDefaults.standard
         if let bundleIdentifier = Bundle.main.bundleIdentifier {

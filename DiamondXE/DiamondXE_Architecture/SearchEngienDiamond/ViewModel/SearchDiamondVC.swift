@@ -30,6 +30,11 @@ class SearchDiamondVC: BaseViewController , ChildViewControllerProtocol {
         
         txtSearchKeyword.delegate = self
         
+        if let keyWord = DataManager.shared.keyWordSearch{
+            txtSearchKeyword.text = keyWord
+        }
+        
+        
         tbleViewSearchDim.register(UINib(nibName: SearchDiamondTVC.cellIdentifierSearchDiamondTVC, bundle: nil), forCellReuseIdentifier: SearchDiamondTVC.cellIdentifierSearchDiamondTVC)
 
 //        shadowedBGView.addInnerOuterShadow()
@@ -41,17 +46,13 @@ class SearchDiamondVC: BaseViewController , ChildViewControllerProtocol {
             self.getSearchAttriDataAPICalling()
         }
         
-        DataManager.shared.dictionaryOfSets.removeAll()
+       // DataManager.shared.dictionaryOfSets.removeAll()
 
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        DataManager.shared.advanceFilterDictionaryOfSets.removeAll()
-        DataManager.shared.manualFilterDictionaryOfSets.removeAll()
-        DataManager.shared.dictionaryOfSets.removeAll()
-        DataManager.shared.shapeArr.removeAll()
-        DataManager.shared.keyWordSearch = String()
+  
     }
   
     
@@ -63,7 +64,7 @@ class SearchDiamondVC: BaseViewController , ChildViewControllerProtocol {
     func textFieldDidEndEditing(_ textField: UITextField) {
         print("Text field did end editing")
         
-        DataManager.shared.keyWordSearch = textField.text ?? ""
+        DataManager.shared.keyWordSearch = textField.text ?? "".uppercased()
         
     }
 
@@ -75,6 +76,11 @@ class SearchDiamondVC: BaseViewController , ChildViewControllerProtocol {
     override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
            // Hide keyboard when 'return' key is pressed
            textField.resignFirstResponder()
+        
+        DataManager.shared.keyWordSearch = textField.text ?? "".uppercased()
+        
+        
+        
            return true
        }
     
@@ -159,11 +165,14 @@ extension SearchDiamondVC : SearchOptionSelecteDelegate {
             DataManager.shared.manualFilterDictionaryOfSets.removeValue(forKey: "CaratTo")
             DataManager.shared.addManualFIlterAttribute(toKey: searchTitle, element: filterAtribut)
             
-        default:
+        case "Shape":
             if shapeArr.count > 0{
                 DataManager.shared.shapeArr.removeAll()
                 DataManager.shared.shapeArr = shapeArr
             }
+            
+        default:
+            print(searchTitle)
         }
         
         

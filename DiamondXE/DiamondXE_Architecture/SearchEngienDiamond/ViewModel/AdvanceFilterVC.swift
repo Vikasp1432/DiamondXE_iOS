@@ -40,13 +40,16 @@ class AdvanceFilterVC: BaseViewController , DataReceiver2{
         case 1:
             print("clear")
         case 2:
-            
             self.navigationController?.popViewController(animated: true)
         default:
             self.navigationController?.popViewController(animated: true)
         }
         
     }
+    
+
+    
+   
 
 
 }

@@ -54,7 +54,7 @@ class SizesViewXIB: UIViewController {
     var shapeDataArr = [
                     "Round" ,
                     "Princess" ,
-                    "Emrald" ,
+                    "Emerald" ,
                     "Heart",
                     "Radiant",
                     "Oval",
@@ -144,7 +144,7 @@ class SizesViewXIB: UIViewController {
                 do {
                     self.dataArrCarat = try JsonParsingManagar.parse(jsonData: data!, type: [ShapeSizeDataStruct].self)
                     print(self.dataArrCarat)
-                    self.dataArrCarat
+                    //self.dataArrCarat
                     self.caratCollection.reloadData()
                     
                 } catch {

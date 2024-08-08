@@ -55,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="42" y="-23"/>
         </scene>
-        <!--View Controller-->
+        <!--Comming SoonVC-->
         <scene sceneID="lLR-RS-rIH">
             <objects>
-                <viewController id="SrZ-2q-oQr" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommingSoonVC" id="SrZ-2q-oQr" customClass="CommingSoonVC" customModule="DiamondXE" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y0R-in-NFb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,6 +92,9 @@
                                         <color key="tintColor" name="TabSelectClr"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="backButton"/>
+                                        <connections>
+                                            <action selector="btnActionBack:" destination="SrZ-2q-oQr" eventType="touchUpInside" id="SyF-Ys-ahW"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comming Soon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8g-aN-FhG">
                                         <rect key="frame" x="61" y="8" width="312" height="44"/>

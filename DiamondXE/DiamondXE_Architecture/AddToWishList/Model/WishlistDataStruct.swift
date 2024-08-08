@@ -16,7 +16,7 @@ struct WishlistDataStruct: Codable {
 // MARK: - Detail
 struct WishlistData: Codable {
     var certificateNo, createdAt, stockID, itemName: String?
-    var supplierID: String?
+    var supplierID, stockNo: String?
     var category, cutGrade, certificateName, polish: String?
     var symmetry, measurement, fluorescenceIntensity, carat: String?
     var color, clarity, shape, shade: String?
@@ -33,6 +33,7 @@ struct WishlistData: Codable {
     enum CodingKeys: String, CodingKey {
         case certificateNo = "certificate_no"
         case createdAt = "created_at"
+        case stockNo = "stock_no"
         case stockID = "stock_id"
         case itemName = "item_name"
         case supplierID = "supplier_id"

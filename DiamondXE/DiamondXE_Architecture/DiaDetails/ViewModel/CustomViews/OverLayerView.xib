@@ -18,6 +18,7 @@
                 <outlet property="doneButton" destination="KE7-5C-omn" id="7CQ-co-5Ww"/>
                 <outlet property="iblTitle" destination="36R-V9-nRC" id="QBY-20-35x"/>
                 <outlet property="imgDiamond" destination="7nV-FT-brN" id="nw5-JD-wG4"/>
+                <outlet property="lblNoURL" destination="nIx-H2-OeR" id="ONN-1m-Jra"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -76,11 +77,19 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Certificate Found!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIx-H2-OeR">
+                                    <rect key="frame" x="70.5" y="166.5" width="163" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
+                                <constraint firstItem="nIx-H2-OeR" firstAttribute="centerX" secondItem="igh-Ni-PaR" secondAttribute="centerX" id="VRN-DX-JeG"/>
                                 <constraint firstAttribute="bottom" secondItem="7nV-FT-brN" secondAttribute="bottom" id="YcZ-oW-vxa"/>
                                 <constraint firstAttribute="trailing" secondItem="7nV-FT-brN" secondAttribute="trailing" id="Z71-ib-Gkn"/>
+                                <constraint firstItem="nIx-H2-OeR" firstAttribute="centerY" secondItem="igh-Ni-PaR" secondAttribute="centerY" id="a3i-Jd-K2d"/>
                                 <constraint firstItem="7nV-FT-brN" firstAttribute="leading" secondItem="igh-Ni-PaR" secondAttribute="leading" id="spi-dT-aP7"/>
                                 <constraint firstItem="7nV-FT-brN" firstAttribute="top" secondItem="igh-Ni-PaR" secondAttribute="top" id="xeN-6D-En3"/>
                             </constraints>
@@ -125,7 +134,7 @@
     </objects>
     <resources>
         <image name="all" width="85.5" height="87.5"/>
-        <image name="cross" width="11.399999618530273" height="11.399999618530273"/>
+        <image name="cross" width="8.4200000762939453" height="8.4200000762939453"/>
         <image name="share" width="13.260000228881836" height="15.229999542236328"/>
         <namedColor name="themeClr">
             <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

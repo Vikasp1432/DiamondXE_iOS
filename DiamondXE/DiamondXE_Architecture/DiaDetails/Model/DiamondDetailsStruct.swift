@@ -15,7 +15,7 @@ struct DiamondDetailsStruct: Codable {
 
 // MARK: - Details
 struct DiamondDetails: Codable {
-    var stockID, itemName, status: String?
+    var stockID, itemName, status, stockNO : String?
     var supplierID: String?
     var certificateNo, category, certificateName, cutGrade: String?
     var shape, clarity, carat, color: String?
@@ -46,6 +46,7 @@ struct DiamondDetails: Codable {
     enum CodingKeys: String, CodingKey {
         case stockID = "stock_id"
         case itemName = "item_name"
+        case stockNO = "stock_no"
         case supplierID = "supplier_id"
         case certificateNo = "certificate_no"
         case category

@@ -42,6 +42,9 @@ class B2CSearchResultCardListingCell: UITableViewCell, ShimmeringViewProtocol {
     
     var diamondSelect : (() -> Void) = { }
     
+    @IBOutlet var tagViewBG :UIView!
+    @IBOutlet var lblTAG :UILabel!
+    
     var addToCart : (() -> Void) = { }
     var addToWish : (() -> Void) = { }
     var shapeClick : (() -> Void) = { }
@@ -49,6 +52,8 @@ class B2CSearchResultCardListingCell: UITableViewCell, ShimmeringViewProtocol {
     
     var shimmeringAnimatedItems: [UIView] {
            [
+            tagViewBG,
+            lblTAG,
             imgDiamond,
             lblCirtificateNum,
             lblLotID,

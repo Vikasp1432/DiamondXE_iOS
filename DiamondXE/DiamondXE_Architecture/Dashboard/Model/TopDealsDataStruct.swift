@@ -34,7 +34,7 @@ struct NaturalDiamond: Codable {
     var color, clarity, shape, shade: String?
     var tablePerc, depthPerc, luster: String?
     var diamondImage, diamondVideo: String?
-    var subtotal: String?
+    var subtotal: Double?
     var totalPrice, isReturnable, dxePrefered, isAvailableForSale: Int?
     var isCart, isWishlist, onHold: Int?
 
@@ -74,7 +74,7 @@ struct LabGDiamond: Codable {
     var color, clarity, shape, shade: String?
     var tablePerc, depthPerc, luster: String?
     var diamondImage, diamondVideo: String?
-    var subtotal: String?
+    var subtotal: Double?
     var totalPrice, isReturnable, dxePrefered, isAvailableForSale: Int?
     var isCart, isWishlist, onHold: Int?
 

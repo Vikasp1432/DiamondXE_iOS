@@ -17,6 +17,7 @@ class TopDealsTVC: UITableViewCell {
     
     var naturalDia = [NaturalDiamond]()
     var labGlDia = [LabGDiamond]()
+    var currencyRateDetailObj = CurrencyRateDetail()
     
     var buttonPressedDetails : ((Int) -> Void) = {_ in }
     
@@ -115,7 +116,26 @@ extension TopDealsTVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             }
             
             cell.lblDiaName.text = naturalDia[indexPath.row].itemName
-            cell.lblDiaPrice.text = "₹\(naturalDia[indexPath.row].totalPrice ?? 0)"
+            
+            
+            
+            if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+                let currncyVal = self.currencyRateDetailObj.value ?? 1
+                let finalVal = Double((naturalDia[indexPath.row].subtotal ?? 0)) * currncyVal
+                
+                let formattedNumber = BaseViewController().formatNumberWithoutDeciml(finalVal)
+                
+                
+                cell.lblDiaPrice.text = "\(currncySimbol)\(formattedNumber)"
+                
+            }
+            else{
+                let formattedNumber = BaseViewController().formatNumberWithoutDeciml(Double(naturalDia[indexPath.row].subtotal ?? 0))
+                cell.lblDiaPrice.text = "₹\(naturalDia[indexPath.row].subtotal ?? 0)"
+            }
+            
+            
+           // cell.lblDiaPrice.text = "₹\(naturalDia[indexPath.row].subtotal ?? 0)"
 //            cell.imgDiamond.sd_setImage(with: URL(string: naturalDia[indexPath.row].diamondImage ?? ""), completed: nil)
         }
         else if self.labGlDia.count > 0{
@@ -130,7 +150,25 @@ extension TopDealsTVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
 
             
             cell.lblDiaName.text = labGlDia[indexPath.row].itemName
-            cell.lblDiaPrice.text = "₹\(labGlDia[indexPath.row].totalPrice ?? 0)"
+            
+            
+            if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+                let currncyVal = self.currencyRateDetailObj.value ?? 1
+                let finalVal = Double((labGlDia[indexPath.row].subtotal ?? 0)) * currncyVal
+                
+                let formattedNumber = BaseViewController().formatNumberWithoutDeciml(finalVal)
+                
+                
+                cell.lblDiaPrice.text = "\(currncySimbol)\(formattedNumber)"
+                
+            }
+            else{
+                let formattedNumber = BaseViewController().formatNumberWithoutDeciml(Double(labGlDia[indexPath.row].subtotal ?? 0))
+                cell.lblDiaPrice.text = "₹\(labGlDia[indexPath.row].subtotal ?? 0)"
+            }
+            
+            
+           // cell.lblDiaPrice.text = "₹\(labGlDia[indexPath.row].subtotal ?? 0)"
            // cell.imgDiamond.sd_setImage(with: URL(string: labGlDia[indexPath.row].diamondImage ?? ""), completed: nil)
             
         }

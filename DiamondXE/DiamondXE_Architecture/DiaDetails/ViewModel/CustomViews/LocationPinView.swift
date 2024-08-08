@@ -56,6 +56,8 @@ class LocationPinView: BaseViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         btnSubmit.setGradientLayer(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+        
+        self.txtPincode.text =  UserDefaultManager().retrieveLocation()
     }
     
   
@@ -79,7 +81,7 @@ class LocationPinView: BaseViewController, CLLocationManagerDelegate {
     @IBAction func locatemeButtonAction(_ sender: UIButton) {
         // Check the authorization status before requesting location
                if CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways {
-                   txtPincode.setTemplateWithSubviews(true, animate: true)
+                   txtPincode.setTemplateWithSubviews(true, animate: true, viewBackgroundColor: .lightGray)
 
                    if CLLocationManager.locationServicesEnabled() {
                        locationManager.requestLocation()

@@ -30,11 +30,16 @@ class CartItemTVC: UITableViewCell {
     @IBOutlet var btnWishList :UIButton!
     @IBOutlet var btnDelete :UIButton!
     
+    @IBOutlet var tagViewBG :UIView!
+    @IBOutlet var lblTAG :UILabel!
+    
     var alertAction : (() -> Void) = {  }
     var isSelectedItem = true
     var isTap = true
     
     var actionWishNRemove : ((Int) -> Void) = { _ in  }
+    
+    var diamondSelect : (() -> Void) = { }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -54,6 +59,14 @@ class CartItemTVC: UITableViewCell {
         btnDelete.layer.masksToBounds = false
         
         refundViewToast.isHidden = true
+        
+       
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cellTapped))
+            contentView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func cellTapped() {
+        diamondSelect()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

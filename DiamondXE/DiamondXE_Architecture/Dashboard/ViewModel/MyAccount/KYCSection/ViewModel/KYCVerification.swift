@@ -33,6 +33,8 @@ class KYCVerification: BaseViewController {
     
     @IBOutlet var btnSubmiited:UIButton!
     
+    @IBOutlet var txtTitle:UILabel!
+    
     var isDocGST = false
     var isDocIEC = false
     var isDocAAdhaarFront = false
@@ -55,10 +57,20 @@ class KYCVerification: BaseViewController {
     var DrivingLincDocID = Int()
     
     var kycDocDataStruct =  KYCDataStruct()
-
+    let loginData = UserDefaultManager().retrieveLoginData()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       // let loginData = UserDefaultManager().retrieveLoginData()
+        if let userRole = loginData?.details?.userRole{
+            if  userRole == "BUYER"{
+                self.txtTitle.text = "Buyer KYC Verification"
+            }  else{
+                    self.txtTitle.text = "Dealer KYC Verification"
+                }
+        }
+       
 
         viewData.layer.shadowColor = UIColor.shadowViewclr.cgColor
         viewData.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -75,6 +87,11 @@ class KYCVerification: BaseViewController {
     
     
     @IBAction func btnActionDone(_ sender: UIButton){
+        btnActionGotoVerify()
+    }
+    
+    
+    func btnActionGotoVerify(){
         let vc = UIStoryboard.init(name: "KYCDocVerify", bundle: Bundle.main).instantiateViewController(withIdentifier: "KYCDOCResubmittedVC") as? KYCDOCResubmittedVC
         vc?.isDocGST = self.isDocGST
         vc?.isDocIEC = self.isDocIEC
@@ -87,7 +104,7 @@ class KYCVerification: BaseViewController {
         vc?.isDocComapnyPAN = self.isDocComapnyPAN
         vc?.isDocCompanyGST = self.isDocGST
         
-        vc?.companyGSTDocID = self.companyGSTDocID 
+        vc?.companyGSTDocID = self.companyGSTDocID
         vc?.companyPANDocID = self.companyPANDocID
         vc?.IECDocID = self.IECDocID
         vc?.aadhaarFrontDocID = self.aadhaarFrontDocID
@@ -96,8 +113,6 @@ class KYCVerification: BaseViewController {
         vc?.passportFrontDocID = self.passportFrontDocID
         vc?.passportBackDocID = self.passportBackDocID
         vc?.DrivingLincDocID = self.DrivingLincDocID
-        
-        
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
@@ -126,6 +141,9 @@ class KYCVerification: BaseViewController {
     func sataSetup(){
         
         if self.kycDocDataStruct.documentStatus == 0{
+            
+            self.btnActionGotoVerify()
+            
             self.btnSubmiited.isHidden = false
             
             self.lblComPanCardStatus.text = "Pending"
@@ -157,24 +175,30 @@ class KYCVerification: BaseViewController {
             
             self.lblCompanyGSTStatus.text = "Pending"
             self.lblCompanyGSTStatus.backgroundColor = .lightGray
-        }else{
-            self.btnSubmiited.isHidden = true
+        }
+        
+       
+        else{
+            
+            if self.kycDocDataStruct.documentStatus == 2{
+                self.btnSubmiited.isHidden = true
+            }
             self.kycDocDataStruct.details?.allDocument?.enumerated().forEach { (index, value) in
                 switch value.attachmentType {
                 case "IEC Card":
                     switch value.verifiedInd {
                     case 0:
                         self.lblIECCardStatus.text = "Pending"
-                        self.lblIECCardStatus.backgroundColor = .lightGray
+                        self.lblIECCardStatus.backgroundColor = UIColor(named: "DXE_Gray")
                         self.isDocIEC = false
                         
                     case 1:
                         self.lblIECCardStatus.text = "Verified"
-                        self.lblIECCardStatus.backgroundColor = .systemGreen
+                        self.lblIECCardStatus.backgroundColor = UIColor(named: "green2")
                         self.isDocIEC = true
                     default:
                         self.lblIECCardStatus.text = "Rejected"
-                        self.lblIECCardStatus.backgroundColor = .systemRed
+                        self.lblIECCardStatus.backgroundColor = UIColor(named: "red_")
                         self.isDocIEC = false
                     }
                     self.lblIECCardSubmitDate.text = value.attachmentDate
@@ -184,15 +208,15 @@ class KYCVerification: BaseViewController {
                     switch value.verifiedInd {
                     case 0:
                         self.lblPanCardStatus.text = "Pending"
-                        self.lblPanCardStatus.backgroundColor = .lightGray
+                        self.lblPanCardStatus.backgroundColor = UIColor(named: "DXE_Gray")
                         self.isDocPAN = false
                     case 1:
                         self.lblPanCardStatus.text = "Verified"
-                        self.lblPanCardStatus.backgroundColor = .systemGreen
+                        self.lblPanCardStatus.backgroundColor = UIColor(named: "green2")
                         self.isDocPAN = true
                     default:
                         self.lblPanCardStatus.text = "Rejected"
-                        self.lblPanCardStatus.backgroundColor = .systemRed
+                        self.lblPanCardStatus.backgroundColor = UIColor(named: "red_")
                         self.isDocPAN = false
                     }
                     self.lblPanCardSubmitDate.text = value.attachmentDate
@@ -201,15 +225,15 @@ class KYCVerification: BaseViewController {
                     switch value.verifiedInd {
                     case 0:
                         self.lblAdahrBackStatus.text = "Pending"
-                        self.lblAdahrBackStatus.backgroundColor = .lightGray
+                        self.lblAdahrBackStatus.backgroundColor = UIColor(named: "DXE_Gray")
                         self.isDocAAdhaarBack = false
                     case 1:
                         self.lblAdahrBackStatus.text = "Verified"
-                        self.lblAdahrBackStatus.backgroundColor = .systemGreen
+                        self.lblAdahrBackStatus.backgroundColor = UIColor(named: "green2")
                         self.isDocAAdhaarBack = true
                     default:
                         self.lblAdahrBackStatus.text = "Rejected"
-                        self.lblAdahrBackStatus.backgroundColor = .systemRed
+                        self.lblAdahrBackStatus.backgroundColor = UIColor(named: "red_")
                         self.isDocAAdhaarBack = false
                     }
                     self.lblAdahrBackSubmitDate.text = value.attachmentDate
@@ -218,15 +242,15 @@ class KYCVerification: BaseViewController {
                     switch value.verifiedInd {
                     case 0:
                         self.lblAdahrFrontStatus.text = "Pending"
-                        self.lblAdahrFrontStatus.backgroundColor = .lightGray
+                        self.lblAdahrFrontStatus.backgroundColor = UIColor(named: "DXE_Gray")
                         self.isDocAAdhaarFront = false
                     case 1:
                         self.lblAdahrFrontStatus.text = "Verified"
-                        self.lblAdahrFrontStatus.backgroundColor = .systemGreen
+                        self.lblAdahrFrontStatus.backgroundColor = UIColor(named: "green2")
                         self.isDocAAdhaarFront = true
                     default:
                         self.lblAdahrFrontStatus.text = "Rejected"
-                        self.lblAdahrFrontStatus.backgroundColor = .systemRed
+                        self.lblAdahrFrontStatus.backgroundColor = UIColor(named: "red_")
                         self.isDocAAdhaarFront = false
                     }
                     self.lblAdahrFrontSubmitDate.text = value.attachmentDate
@@ -235,15 +259,15 @@ class KYCVerification: BaseViewController {
                     switch value.verifiedInd {
                     case 0:
                         self.lblPassportFrontStatus.text = "Pending"
-                        self.lblPassportFrontStatus.backgroundColor = .lightGray
+                        self.lblPassportFrontStatus.backgroundColor = UIColor(named: "DXE_Gray")
                         self.isDocPassportFront = false
                     case 1:
                         self.lblPassportFrontStatus.text = "Verified"
-                        self.lblPassportFrontStatus.backgroundColor = .systemGreen
+                        self.lblPassportFrontStatus.backgroundColor = UIColor(named: "green2")
                         self.isDocPassportFront = true
                     default:
                         self.lblPassportFrontStatus.text = "Rejected"
-                        self.lblPassportFrontStatus.backgroundColor = .systemRed
+                        self.lblPassportFrontStatus.backgroundColor = UIColor(named: "red_")
                         self.isDocPassportFront = false
                     }
                     
@@ -253,15 +277,15 @@ class KYCVerification: BaseViewController {
                     switch value.verifiedInd {
                     case 0:
                         self.lblPassportBackStatus.text = "Pending"
-                        self.lblPassportBackStatus.backgroundColor = .lightGray
+                        self.lblPassportBackStatus.backgroundColor = UIColor(named: "DXE_Gray")
                         self.isDocPassportBack = false
                     case 1:
                         self.lblPassportBackStatus.text = "Verified"
-                        self.lblPassportBackStatus.backgroundColor = .systemGreen
+                        self.lblPassportBackStatus.backgroundColor = UIColor(named: "green2")
                         self.isDocPassportBack = true
                     default:
                         self.lblPassportBackStatus.text = "Rejected"
-                        self.lblPassportBackStatus.backgroundColor = .systemRed
+                        self.lblPassportBackStatus.backgroundColor = UIColor(named: "red_")
                         self.isDocPassportBack = false
                     }
                     self.lblPassportBackSubmitDate.text = value.attachmentDate
@@ -270,15 +294,15 @@ class KYCVerification: BaseViewController {
                     switch value.verifiedInd {
                     case 0:
                         self.lblCompanyGSTStatus.text = "Pending"
-                        self.lblCompanyGSTStatus.backgroundColor = .lightGray
+                        self.lblCompanyGSTStatus.backgroundColor = UIColor(named: "DXE_Gray")
                         self.isDocCompanyGST = false
                     case 1:
                         self.lblCompanyGSTStatus.text = "Verified"
-                        self.lblCompanyGSTStatus.backgroundColor = .systemGreen
+                        self.lblCompanyGSTStatus.backgroundColor = UIColor(named: "green2")
                         self.isDocCompanyGST = true
                     default:
                         self.lblCompanyGSTStatus.text = "Rejected"
-                        self.lblCompanyGSTStatus.backgroundColor = .systemRed
+                        self.lblCompanyGSTStatus.backgroundColor = UIColor(named: "red_")
                         self.isDocCompanyGST = false
                     }
                     self.lblCompanyGSTSubmitDate.text = value.attachmentDate
@@ -289,15 +313,15 @@ class KYCVerification: BaseViewController {
                     switch value.verifiedInd {
                     case 0:
                         self.lblDrivingLicenceStatus.text = "Pending"
-                        self.lblDrivingLicenceStatus.backgroundColor = .lightGray
+                        self.lblDrivingLicenceStatus.backgroundColor = UIColor(named: "DXE_Gray")
                         self.isDocDrivingLicence = false
                     case 1:
                         self.lblDrivingLicenceStatus.text = "Verified"
-                        self.lblDrivingLicenceStatus.backgroundColor = .systemGreen
+                        self.lblDrivingLicenceStatus.backgroundColor = UIColor(named: "green2")
                         self.isDocDrivingLicence = true
                     default:
                         self.lblDrivingLicenceStatus.text = "Rejected"
-                        self.lblDrivingLicenceStatus.backgroundColor = .systemRed
+                        self.lblDrivingLicenceStatus.backgroundColor = UIColor(named: "red_")
                         self.isDocDrivingLicence = false
                     }
                     
@@ -309,15 +333,15 @@ class KYCVerification: BaseViewController {
                     switch value.verifiedInd {
                     case 0:
                         self.lblComPanCardStatus.text = "Pending"
-                        self.lblComPanCardStatus.backgroundColor = .lightGray
+                        self.lblComPanCardStatus.backgroundColor = UIColor(named: "DXE_Gray")
                         self.isDocComapnyPAN = false
                     case 1:
                         self.lblComPanCardStatus.text = "Verified"
-                        self.lblComPanCardStatus.backgroundColor = .systemGreen
+                        self.lblComPanCardStatus.backgroundColor = UIColor(named: "green2")
                         self.isDocComapnyPAN = true
                     default:
                         self.lblComPanCardStatus.text = "Rejected"
-                        self.lblComPanCardStatus.backgroundColor = .systemRed
+                        self.lblComPanCardStatus.backgroundColor = UIColor(named: "red_")
                         self.isDocComapnyPAN = false
                     }
                     
