@@ -15,6 +15,8 @@ class DiamondImagesTVC: UITableViewCell {
     @IBOutlet var lblTypeDia: UILabel!
     @IBOutlet var viewBG: UIView!
     @IBOutlet var btnAvailable: UIButton!
+    
+    @IBOutlet var viewCategoryBG: UIView!
 
     @IBOutlet var viewImages: UIView!
     @IBOutlet var view360View: UIView!

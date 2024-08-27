@@ -11,18 +11,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="180" id="KGk-i7-Jjw" customClass="ShippingItemsListCell" customModule="DiamondXE" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="455" height="180"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="141" id="KGk-i7-Jjw" customClass="ShippingItemsListCell" customModule="DiamondXE" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="455" height="141"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="455" height="180"/>
+                <rect key="frame" x="0.0" y="0.0" width="455" height="141"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrJ-jx-ufI">
-                        <rect key="frame" x="10" y="5" width="435" height="168"/>
+                        <rect key="frame" x="10" y="5" width="435" height="131"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_Holder" translatesAutoresizingMaskIntoConstraints="NO" id="gxQ-LL-O5h">
-                                <rect key="frame" x="10" y="10" width="130" height="143"/>
+                                <rect key="frame" x="10" y="5" width="130" height="117"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="KDU-Gz-qYZ"/>
                                 </constraints>
@@ -206,17 +206,15 @@
                             <constraint firstItem="eBe-bT-cLa" firstAttribute="leading" secondItem="fGX-iX-XPy" secondAttribute="trailing" constant="7" id="8j1-vq-MsK"/>
                             <constraint firstItem="1Sa-Z9-r9D" firstAttribute="centerY" secondItem="gdE-WZ-9tw" secondAttribute="centerY" id="8nP-qu-8KN"/>
                             <constraint firstItem="Tt2-nc-mSp" firstAttribute="top" secondItem="Mwb-VI-Zek" secondAttribute="bottom" constant="7" id="AgQ-RC-liD"/>
+                            <constraint firstItem="gxQ-LL-O5h" firstAttribute="bottom" secondItem="b0z-eh-cgI" secondAttribute="bottom" id="BX3-sb-OxZ"/>
                             <constraint firstItem="fGX-iX-XPy" firstAttribute="centerY" secondItem="Mwb-VI-Zek" secondAttribute="centerY" id="CDC-VX-3ro"/>
                             <constraint firstItem="ZPM-kN-5Wa" firstAttribute="top" secondItem="Tt2-nc-mSp" secondAttribute="bottom" constant="7" id="IDR-vh-iJF"/>
                             <constraint firstItem="aJh-LK-4av" firstAttribute="top" secondItem="xrJ-jx-ufI" secondAttribute="top" constant="30" id="IcM-rY-F5s"/>
                             <constraint firstAttribute="trailing" secondItem="Tt2-nc-mSp" secondAttribute="trailing" constant="10" id="Icd-uY-Aea"/>
-                            <constraint firstAttribute="bottom" secondItem="b0z-eh-cgI" secondAttribute="bottom" constant="46" id="Lxb-pZ-8bL"/>
                             <constraint firstItem="gxQ-LL-O5h" firstAttribute="leading" secondItem="xrJ-jx-ufI" secondAttribute="leading" constant="10" id="M2g-Gc-CNY"/>
                             <constraint firstItem="fGX-iX-XPy" firstAttribute="leading" secondItem="Mwb-VI-Zek" secondAttribute="trailing" constant="7" id="M4y-hS-QI8"/>
-                            <constraint firstAttribute="height" constant="168" id="PpP-Pk-Rae"/>
                             <constraint firstItem="HaN-2G-y21" firstAttribute="leading" secondItem="ZPM-kN-5Wa" secondAttribute="trailing" constant="5" id="PwY-Ag-j3Q"/>
-                            <constraint firstItem="gxQ-LL-O5h" firstAttribute="top" secondItem="xrJ-jx-ufI" secondAttribute="top" constant="10" id="SPW-oc-eI0"/>
-                            <constraint firstAttribute="bottom" secondItem="gxQ-LL-O5h" secondAttribute="bottom" constant="15" id="VWV-B2-dlX"/>
+                            <constraint firstItem="gxQ-LL-O5h" firstAttribute="top" secondItem="xrJ-jx-ufI" secondAttribute="top" constant="5" id="SPW-oc-eI0"/>
                             <constraint firstAttribute="trailing" secondItem="ffL-gf-0B6" secondAttribute="trailing" constant="10" id="XHf-oE-fF4"/>
                             <constraint firstAttribute="trailing" secondItem="b0z-eh-cgI" secondAttribute="trailing" constant="15" id="ZbC-ty-avP"/>
                             <constraint firstItem="ZPM-kN-5Wa" firstAttribute="leading" secondItem="gxQ-LL-O5h" secondAttribute="trailing" constant="10" id="a0n-Pv-xAh"/>
@@ -232,6 +230,7 @@
                             <constraint firstItem="1Sa-Z9-r9D" firstAttribute="leading" secondItem="gdE-WZ-9tw" secondAttribute="trailing" constant="5" id="sBm-DK-Fej"/>
                             <constraint firstItem="gdE-WZ-9tw" firstAttribute="leading" secondItem="HaN-2G-y21" secondAttribute="trailing" constant="5" id="u2X-mf-Tne"/>
                             <constraint firstItem="VEO-8r-r5P" firstAttribute="centerY" secondItem="gdE-WZ-9tw" secondAttribute="centerY" id="usR-ZP-JwG"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="b0z-eh-cgI" secondAttribute="bottom" constant="5" id="zso-nB-tR6"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -242,13 +241,16 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="xrJ-jx-ufI" secondAttribute="trailing" constant="10" id="Gjd-jP-XtA"/>
-                    <constraint firstAttribute="bottom" secondItem="xrJ-jx-ufI" secondAttribute="bottom" constant="7" id="bRp-Nz-lWZ"/>
                     <constraint firstItem="xrJ-jx-ufI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="csT-Ma-pMx"/>
                     <constraint firstItem="xrJ-jx-ufI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="jXV-fA-btt"/>
+                    <constraint firstAttribute="bottom" secondItem="xrJ-jx-ufI" secondAttribute="bottom" constant="5" id="lrW-OZ-25S"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="162.59541984732823" y="66.901408450704224"/>
+            <connections>
+                <outlet property="bgDataView" destination="xrJ-jx-ufI" id="ocv-s5-D9W"/>
+            </connections>
+            <point key="canvasLocation" x="162.59541984732823" y="52.464788732394368"/>
         </tableViewCell>
     </objects>
     <resources>

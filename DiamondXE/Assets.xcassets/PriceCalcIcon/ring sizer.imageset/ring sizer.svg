@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="ring_sizer" data-name="ring sizer" transform="translate(-4122 -904)">
+    <rect id="Rectangle_602" data-name="Rectangle 602" width="30" height="30" rx="9" transform="translate(4122 904)" fill="#37083b"/>
+    <g id="Group_766" data-name="Group 766" transform="translate(-678 188)">
+      <path id="Path_1271" data-name="Path 1271" d="M15.868,6a9.868,9.868,0,1,0,9.868,9.868A9.868,9.868,0,0,0,15.868,6Zm0,19.063a9.2,9.2,0,1,1,9.2-9.2A9.208,9.208,0,0,1,15.868,25.063Z" transform="translate(4799 715)" fill="#fff" stroke="#fff" stroke-width="0.4"/>
+      <path id="Path_1272" data-name="Path 1272" d="M37.791,28.1c-.045-.09-.09-.157-.179-.179h0A.244.244,0,0,0,37.5,27.9H32.722a.336.336,0,1,0,0,.673h3.947l-8.1,8.1V32.722a.336.336,0,1,0-.673,0v4.755a.168.168,0,0,0,.022.112h0c.045.09.09.157.179.179h0a.244.244,0,0,0,.112.022h4.755a.336.336,0,1,0,0-.673H29.044l8.1-8.074v3.947a.336.336,0,1,0,.673,0V28.236a.284.284,0,0,0-.022-.135Z" transform="translate(4782.012 698.012)" fill="#fff" stroke="#fff" stroke-width="0.4"/>
+    </g>
+  </g>
+</svg>

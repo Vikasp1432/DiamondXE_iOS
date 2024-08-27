@@ -9,9 +9,11 @@ import UIKit
 import WebKit
 
 
+var url_Certificate = String()
+
 class WKWebViewVC: BaseViewController , DataReceiver{
     var vcTag =  VCTags()
-    
+   
     
     func receiveData(_ data: VCTags) {
         // Use the received data here
@@ -31,6 +33,8 @@ class WKWebViewVC: BaseViewController , DataReceiver{
     @IBAction func btnActionBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    
     
 
     func loadURL(){
@@ -81,7 +85,8 @@ class WKWebViewVC: BaseViewController , DataReceiver{
         case 20:
             url = URL(string:SideBarURLs().termandCondition)
         default:
-            print(vcTag.tagVC)
+            print("")
+           // url = URL(string: url_Certificate)
         }
         
         //let web_url = url

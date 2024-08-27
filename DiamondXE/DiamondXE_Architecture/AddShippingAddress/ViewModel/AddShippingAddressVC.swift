@@ -63,6 +63,8 @@ class AddShippingAddressVC: BaseViewController, DataReceiver {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        SwipeGestureUtility.addSwipeGesture(to: self.view, navigationController: self.navigationController)
 
         // Do any additional setup after loading the view.
         self.btnVerify.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])

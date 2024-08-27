@@ -15,57 +15,79 @@ class ShippingItemsTVCell: UITableViewCell {
     @IBOutlet var btnDropdownExpand:UIButton!
     @IBOutlet var viewTopDrpDn:UIView!
     @IBOutlet var itemsTableView:UITableView!
-    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var viewHeightConstraint: NSLayoutConstraint!
 
+    
+    @IBOutlet var viewDataTable:UIView!
+    
+    @IBOutlet var bgDataView:UIView!
+    
     var isHideItems = false
+    var itemIndex : Int?
     
     var btnExpand : (() -> Void) = {  }
     
-    var innerData: [Int] = [] {
-           didSet {
-               itemsTableView.reloadData()
-               updateTableViewHeight()
-           }
-       }
-       
-       var isExpanded: Bool = false {
-           didSet {
-               itemsTableView.isHidden = !isExpanded
-               updateTableViewHeight()
-           }
-       }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         itemsTableView.delegate = self
         itemsTableView.dataSource = self
-//        itemsTableView.isHidden = true
-        itemsTableView.isHidden = !isExpanded
+       
 
         
         itemsTableView.register(UINib(nibName: ShippingItemsListCell.cellIdentifierShippingItemsList, bundle: nil), forCellReuseIdentifier: ShippingItemsListCell.cellIdentifierShippingItemsList)
         
-//
+        itemsTableView.tableHeaderView = UIView(frame: .zero)
+
+        itemsTableView.contentInset = UIEdgeInsets.zero
+        itemsTableView.scrollIndicatorInsets = UIEdgeInsets.zero
 
     }
     
     
     @IBAction func expandCollapseButtonTapped(_ sender: UIButton) {
-        isExpanded.toggle()
-        if let tableView = self.superview as? UITableView {
-                tableView.beginUpdates()
-                tableView.endUpdates()
-            }
+        btnExpand()
+//        isExpanded.toggle()
+//        if isExpanded{
+//            self.itemsTableView.isHidden = false
+//        }else{
+//            self.itemsTableView.isHidden = true
+//        }
+        
+//        if let tableView = self.superview as? UITableView {
+//                tableView.beginUpdates()
+//                tableView.endUpdates()
+//            }
     }
     
-    private func updateTableViewHeight() {
-        if isExpanded {
-            tableViewHeightConstraint.constant = 500
-        } else {
-            tableViewHeightConstraint.constant = 0
+    
+    func setupData(isExpand:Bool, itemIdexs:Int ,completion: @escaping (Bool) -> Void){
+        if isExpand{
+            viewDataTable.isHidden = true
+            btnDropdownExpand.setImage( UIImage(named: "d_down"), for: .normal)
+            self.viewHeightConstraint.constant = 0
+
         }
+        else{
+            viewDataTable.isHidden = false
+            btnDropdownExpand.setImage(UIImage(named: "d_up"), for: .normal)
+            self.viewHeightConstraint.constant = CGFloat(140*itemIdexs)
+            
+        }
+        self.itemIndex = itemIdexs
+        itemsTableView.reloadData()
+        completion(true)
     }
+    
+    
+//    private func updateTableViewHeight() {
+//        if isExpanded {
+//            tableViewHeightConstraint.constant = 500
+//        } else {
+//            tableViewHeightConstraint.constant = 0
+//        }
+//    }
     
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -80,7 +102,7 @@ class ShippingItemsTVCell: UITableViewCell {
 
 extension ShippingItemsTVCell:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return innerData.count
+        return self.itemIndex ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,10 +113,7 @@ extension ShippingItemsTVCell:UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//       
-////           // Or your desired cell height
-//      }
+  
     
 }
 

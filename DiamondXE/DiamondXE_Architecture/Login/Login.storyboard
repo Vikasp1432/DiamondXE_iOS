@@ -174,6 +174,11 @@
                                                                 <color key="textColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                        <color key="value" name="ABB0BA"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVU-px-vKd">
                                                                 <rect key="frame" x="10" y="12.000000000000028" width="92" height="22"/>
@@ -256,6 +261,11 @@
                                                                 <color key="textColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                        <color key="value" name="ABB0BA"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
@@ -393,6 +403,11 @@
                                                         <color key="textColor" name="themeClr"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                <color key="value" name="ABB0BA"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -425,6 +440,11 @@
                                                         <color key="textColor" name="themeClr"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                <color key="value" name="ABB0BA"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6B-Ug-KmC">
                                                         <rect key="frame" x="313" y="8" width="30" height="30"/>
@@ -1305,7 +1325,7 @@ login into your account!</string>
                                                     <constraint firstAttribute="height" constant="18" id="qsD-W1-HjK"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jgl-tU-qgK" customClass="FloatingTextField" customModule="DiamondXE" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jgl-tU-qgK" customClass="DTTextField" customModule="DTTextField">
                                                 <rect key="frame" x="38" y="5" width="305" height="50"/>
                                                 <color key="backgroundColor" name="viewBGClr"/>
                                                 <color key="textColor" name="themeClr"/>
@@ -1466,7 +1486,7 @@ login into your account!</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqX-p8-wgD" userLabel="MobileView">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="60"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PUF-6I-7w4">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PUF-6I-7w4" customClass="DTTextField" customModule="DTTextField">
                                                         <rect key="frame" x="112" y="5" width="231" height="50"/>
                                                         <color key="backgroundColor" name="viewBGClr"/>
                                                         <color key="textColor" name="themeClr"/>
@@ -1556,7 +1576,7 @@ login into your account!</string>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aw2-VV-ucW" userLabel="OTPView">
                                                 <rect key="frame" x="0.0" y="90.000000000000028" width="353" height="60"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter OTP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e5a-wu-NCs" customClass="FloatingTextField" customModule="DiamondXE" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter OTP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e5a-wu-NCs" customClass="DTTextField" customModule="DTTextField">
                                                         <rect key="frame" x="10" y="5" width="333" height="50"/>
                                                         <color key="textColor" name="themeClr"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -1757,6 +1777,9 @@ login into your account!</string>
         </designable>
         <designable name="KfG-j8-4wc">
             <size key="intrinsicContentSize" width="50.333333333333336" height="43"/>
+        </designable>
+        <designable name="PUF-6I-7w4">
+            <size key="intrinsicContentSize" width="101.66666666666667" height="18"/>
         </designable>
         <designable name="R5a-El-aSI">
             <size key="intrinsicContentSize" width="108.33333333333333" height="43"/>
@@ -2810,6 +2833,9 @@ d0x3T3dcd2F3aXdsd3F3eQAAAAAAAAIBAAAAAAAAAGgAAAAAAAAAAAAAAAAAAHd8A
 </mutableData>
         </image>
         <image name="splashS.jpg" width="1242" height="2688"/>
+        <namedColor name="ABB0BA">
+            <color red="0.6705882352941176" green="0.69019607843137254" blue="0.72941176470588232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="DEDEDE">
             <color red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

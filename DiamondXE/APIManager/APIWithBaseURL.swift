@@ -8,6 +8,19 @@
 import Foundation
 import Alamofire
 
+
+// calc api
+let privateKey = "k5tmjiqqhjkcoe85zq7lccdybg0mwz"
+let privateKeyPass = "DR4v4E60"
+
+let apiLogin = URL(string: "https://technet.rapaport.com/HTTP/Authenticate.aspx")
+let apiGetPrice = "https://technet.rapaport.com/HTTP/JSON/Prices/GetPriceSheet.aspx"
+let apiCurrencyValue = "https://api.exchangerate.host/live?access_key=b0c77183d8b05bf58c91106f2f39a3a1&latest?base=usd"
+let giaURL = "https://www.gia.edu/report-check-landing"
+let igiURL = "https://www.igi.org/verify-your-report/en"
+let inrInfoURL = "https://api.exchangerate.host/convert?access_key=b0c77183d8b05bf58c91106f2f39a3a1&from=USD&to=INR&amount=1" //"https://api.exchangerate.host/convert?from=USD&to=INR"
+
+
 struct APIs {
     //staging = app-uat.diamondxe.com/
     //live = admin.diamondxe.com/
@@ -87,6 +100,16 @@ struct APIs {
     let buyProductUpdate_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/place-order"
     
     let deleteAccount_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/delete-user-account"
+    
+    let getBankInfo_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-dxe-bank-details"
+    
+    let getPaymentMode_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/phonepe-payment-options"
+    
+    let proceedPayment_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/custom-payment/init"
+    
+    let historyPayment_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/custom-payment/history"
+    
+    let getBankCharges_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-bank-charges"
     
 }
 
@@ -179,5 +202,9 @@ struct SideBarURLs {
     let viewALL = "https://diamondxe.com/media-gallery"
     
     let termandCondition = "https://diamondxe.com/policy/terms-conditions"
+    
+    
+    
+   
     
 }

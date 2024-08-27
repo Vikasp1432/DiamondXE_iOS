@@ -562,7 +562,7 @@
                                                                             <constraint firstAttribute="height" constant="30" id="tiA-9A-qfn"/>
                                                                         </constraints>
                                                                         <attributedString key="attributedText">
-                                                                            <fragment content="value">
+                                                                            <fragment content="-">
                                                                                 <attributes>
                                                                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                                     <font key="NSFont" size="15" name="Lato-Medium"/>

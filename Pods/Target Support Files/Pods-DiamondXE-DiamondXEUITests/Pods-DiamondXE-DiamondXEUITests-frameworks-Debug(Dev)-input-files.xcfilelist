@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/DTTextField/DTTextField.framework
 ${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/PhonePePayment/PhonePePayment.framework/PhonePePayment

@@ -113,13 +113,13 @@ var nv_contactICN = [UIImage(named: "Email")!,UIImage(named: "Contact Us")!]
 
 // var nv_mainICN = [UIImage(named: "Home")!,UIImage(named: "Search Diamonds")!,UIImage(named: "Create Demand")!,UIImage(named: "jewellery")!,UIImage(named: "DXE LUXE")!,UIImage(named: "Diamond Education")!,UIImage(named: "Explore Now")!,UIImage(named: "Price Calculator")!,UIImage(named: "More")!,UIImage(named: "Support")!,UIImage(named: "Rate us")!,UIImage(named: "logout")!]
 
-var nv_mainICN = [UIImage(named: "Home")!,UIImage(named: "Search Diamonds")!,UIImage(named: "Diamond Education")!,UIImage(named: "Explore Now")!,UIImage(named: "More")!,UIImage(named: "Support")!,UIImage(named: "Rate us")!,UIImage(named: "logout")!]
+var nv_mainICN = [UIImage(named: "Home")!,UIImage(named: "Search Diamonds")!,UIImage(named: "Diamond Education")!,UIImage(named: "Explore Now")!,UIImage(named: "Price Calculator")!,UIImage(named: "More")!,UIImage(named: "Support")!,UIImage(named: "Rate us")!,UIImage(named: "logout")!]
 
 
 
 //var account_icons = [UIImage(named: "myAccount")!,UIImage(named: "myOrder")!,UIImage(named: "wallet")!,UIImage(named: "acution")!,UIImage(named: "dealerMarkup")!,UIImage(named: "referAFriend")!,UIImage(named: "loyaltyProgram")!,UIImage(named: "customPayment")!,UIImage(named: "apiSolutions")!,UIImage(named: "delteAccount")!]
 
-var account_icons = [UIImage(named: "myAccount")!,UIImage(named: "delteAccount")!]
+var account_icons = [UIImage(named: "myAccount")!,UIImage(named: "customPayment")!,UIImage(named: "delteAccount")!]
 
 var account_Profileicons = [UIImage(named: "profile")!,UIImage(named: "address")!,UIImage(named: "kvcVerification")!,UIImage(named: "Change Password")!]
 
@@ -194,3 +194,10 @@ var attributeTypeShade = "SHADE"
 var attributeTypeLuster = "LUSTER"
 
 
+
+
+// calc DXE ConstentVal
+
+var diamondShapes = ["Round","Pear", "Princess", "Marqise", "Sq. Emerald", "Oval", "Radiant", "Emerald","Trilliant", "Heart", "European Cut", "Old Miner", "Flanders", "Cushion Brilliant", "Cushion Modified","Baguette", "Kite", "Star", "Other", "Half Moon", "Trapezoid", "Bullets", "Hexagonal", "Lozenge", "Pentagonal", "Rose", "Shield", "Square", "Triangular", "Briolette", "Octagonal", "Tapered Baguette", "Calf", "Circular", "Circular Brilliant"]
+var diamondColor = ["D","E", "F", "G", "H", "I", "J", "K","L", "M"]
+var diamondClarity = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2","SI3", "I1", "I2", "I3"]

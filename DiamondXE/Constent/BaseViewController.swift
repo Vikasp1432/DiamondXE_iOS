@@ -71,7 +71,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
             //  Sections(mainCellTitle: nv_DXELUX, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
             Sections(mainCellTitle: nv_diamondEducation, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
             Sections(mainCellTitle: nv_explore, expandableCellOptions: [nv_jeweller, nv_supplier], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_exploreICN, isExpandableCellsHidden: true, isExpanded: true),
-            //  Sections(mainCellTitle: nv_priceCalc, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+              Sections(mainCellTitle: nv_priceCalc, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
             Sections(mainCellTitle: nv_more, expandableCellOptions: [nv_aboutUS, nv_whyUS, nv_blogs, nv_mediaGalley, nv_support, nv_termCondition, nv_privacyPolicy], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_moreICN, isExpandableCellsHidden: true,isExpanded: true),
             Sections(mainCellTitle: nv_contactUS, expandableCellOptions: [nv_emial, nv_whatsapp], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: nv_contactICN, isExpandableCellsHidden: true,isExpanded: true),
             Sections(mainCellTitle: nv_rateUS, expandableCellOptions: [], mainCellOptionsIcons: nv_mainICN, expandableCellOptionsIcons: [], isExpandableCellsHidden: true,isExpanded: true),
@@ -98,7 +98,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
        // SectionsAccount(mainCellTitle: account_markup, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
        // SectionsAccount(mainCellTitle: account_refer, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
        // SectionsAccount(mainCellTitle: account_program, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
-       // SectionsAccount(mainCellTitle: account_payment, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+        SectionsAccount(mainCellTitle: account_payment, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
       //  SectionsAccount(mainCellTitle: account_solution, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
         SectionsAccount(mainCellTitle: account_delete, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true)
     
@@ -288,6 +288,10 @@ extension UIViewController{
             }
         }
     }
+    
+    
+ 
+    
 }
 
 
@@ -435,5 +439,166 @@ extension String {
     
     mutating func capitalizeFirstLetter() {
         self = self.capitalizingFirstLetter()
+    }
+}
+
+
+extension UIButton {
+    
+//    func applyVerticalGradientBackground(colors: [UIColor]) {
+//          // Remove any existing gradient layer to avoid stacking
+//          if let oldGradientLayer = self.layer.sublayers?.first(where: { $0 is CAGradientLayer }) {
+//              oldGradientLayer.removeFromSuperlayer()
+//          }
+//          
+//          // Create a new gradient layer
+//          let gradientLayer = CAGradientLayer()
+//          gradientLayer.frame = self.bounds
+//          gradientLayer.colors = colors.map { $0.cgColor }
+//          
+//          // Set the gradient direction from top to bottom (90 degrees)
+//          gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+//          gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+//          
+//          // Add the gradient layer to the button's background
+//          self.layer.insertSublayer(gradientLayer, at: 0)
+//      }
+    
+    func applyVerticalGradientBackground(colors: [UIColor], image: UIImage?) {
+           // Remove any existing gradient layer to avoid stacking
+           if let oldGradientLayer = self.layer.sublayers?.first(where: { $0 is CAGradientLayer }) {
+               oldGradientLayer.removeFromSuperlayer()
+           }
+           
+           // Create a new gradient layer
+           let gradientLayer = CAGradientLayer()
+           gradientLayer.frame = self.bounds
+           gradientLayer.colors = colors.map { $0.cgColor }
+           
+           // Set the gradient direction from top to bottom (90 degrees)
+           gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+           gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+           
+           // Insert the gradient layer at the back of the view
+           self.layer.insertSublayer(gradientLayer, at: 0)
+           
+           // Set the image, if provided
+           if let buttonImage = image {
+               self.setImage(buttonImage, for: .normal)
+               self.imageView?.contentMode = .scaleAspectFit
+               self.bringSubviewToFront(self.imageView!) // Ensure the image is in front of the gradient
+           }
+       }
+    
+    
+    func applyVerticalGradientBackgroundWithImageURL(colors: [UIColor], imageURL: URL?) {
+           // Remove any existing gradient layer to avoid stacking
+           if let oldGradientLayer = self.layer.sublayers?.first(where: { $0 is CAGradientLayer }) {
+               oldGradientLayer.removeFromSuperlayer()
+           }
+           
+           // Create a new gradient layer
+           let gradientLayer = CAGradientLayer()
+           gradientLayer.frame = self.bounds
+           gradientLayer.colors = colors.map { $0.cgColor }
+           
+           // Set the gradient direction from top to bottom (90 degrees)
+           gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+           gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+           
+           // Insert the gradient layer at the back of the view
+           self.layer.insertSublayer(gradientLayer, at: 0)
+           
+           // Load the image from the URL using SDWebImage
+        if let imageURL = imageURL {
+                  self.sd_setImage(with: imageURL, for: .normal, completed: { [weak self] image, error, _, _ in
+                      guard let self = self else { return }
+                      if let image = image {
+                          self.setImage(image, for: .normal)
+                          self.imageView?.contentMode = .scaleAspectFit
+                          self.bringSubviewToFront(self.imageView!) // Ensure the image is in front of the gradient
+                      } else if let error = error {
+                          print("Error loading image: \(error.localizedDescription)")
+                      }
+                  })
+              }
+       }
+}
+
+
+class PlaceholderTextView: UITextView {
+
+    // Placeholder properties
+    var placeholder: String? {
+        didSet {
+            placeholderLabel.text = placeholder
+        }
+    }
+    
+    private let placeholderLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .lightGray
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 14)
+        return label
+    }()
+    
+    override var text: String! {
+        didSet {
+            textChanged()
+        }
+    }
+    
+    override var font: UIFont? {
+        didSet {
+            placeholderLabel.font = font
+        }
+    }
+    
+    override var textAlignment: NSTextAlignment {
+        didSet {
+            placeholderLabel.textAlignment = textAlignment
+        }
+    }
+    
+    // Initializer
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupPlaceholder()
+    }
+    
+    override init(frame: CGRect, textContainer: NSTextContainer?) {
+        super.init(frame: frame, textContainer: textContainer)
+        setupPlaceholder()
+    }
+    
+    private func setupPlaceholder() {
+        NotificationCenter.default.addObserver(self, selector: #selector(textChanged), name: UITextView.textDidChangeNotification, object: nil)
+        addSubview(placeholderLabel)
+        placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
+        placeholderLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
+        placeholderLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5).isActive = true
+        placeholderLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5).isActive = true
+        placeholderLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+    }
+    
+    @objc private func textChanged() {
+        placeholderLabel.isHidden = !text.isEmpty
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+
+extension UIView {
+    func roundTopCorners(radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds,
+                                byRoundingCorners: [.topLeft, .topRight],
+                                cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
     }
 }

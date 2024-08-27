@@ -15,7 +15,7 @@ class ShippingModuleVC: BaseViewController {
     
     @IBOutlet var shippingTableView:UITableView!
 
-    
+    var isExpand = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,29 +62,27 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ShippingItemsTVCell.cellIdentifierShippingItems, for: indexPath) as! ShippingItemsTVCell
         cell.selectionStyle = .none
-        cell.innerData = [1,2,4,5,6,7]
+       // cell.innerData = [1,2,4,5,6,7]
         
 //        cell.innerData = data[indexPath.row]
-        cell.isExpanded = false
+       // cell.isExpanded.toggle()
+        
+        cell.btnExpand =  {
+            self.isExpand.toggle()
+            cell.setupData(isExpand: self.isExpand, itemIdexs: 2, completion: {_ in
+                self.shippingTableView.reloadSections([0], with: .fade)
+            })
+            
+       }
+        
 
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//          return 170 // Or your desired cell height
-//      }
     
-     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ShippingItemsTVCell.cellIdentifierShippingItems) as? ShippingItemsTVCell else {
-                return UITableView.automaticDimension
-            }
-            
-            if cell.isExpanded {
-                return cell.itemsTableView.contentSize.height + 70
-            } else {
-                return 70
-            }
-        }
-    
+    @IBAction func btnActionPayment(_ sender:UIButton){
+        self.navigationManager(storybordName: "PaymentModule", storyboardID: "PaymentModuleVC", controller: PaymentModuleVC())
+    }
+
     
 }

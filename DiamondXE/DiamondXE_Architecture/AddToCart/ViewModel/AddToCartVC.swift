@@ -48,6 +48,8 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        SwipeGestureUtility.addSwipeGesture(to: self.view, navigationController: self.navigationController)
         self.navigationController?.isNavigationBarHidden = true
         emipityView.isHidden  = true
         btnBuyNow.clearGradient()
@@ -134,6 +136,9 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
                 if data.status == 1{
                     let placeOrder = CustomPlaceOrderView()
                     placeOrder.appear(sender: self)
+                    self.cartDataStruct.details?.removeAll()
+                    self.cartTableView.reloadData()
+                    self.checkToDataCount()
                 }
                 else{
                     self.toastMessage(msg ?? "")

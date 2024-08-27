@@ -36,11 +36,44 @@
 			</array>
 		</dict>
 	</dict>
-    
-    <key>UISupportedInterfaceOrientations</key>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+	</array>
+    <key>CFBundleURLTypes</key>
     <array>
-        <string>UIInterfaceOrientationPortrait</string>
-        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>phonepe</string>
+                <string>gpay</string>
+            </array>
+        </dict>
     </array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+    
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app requires access to your location for better service.</string>
+    
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>We need access to your photo library to save screenshots.</string>
+    
+    
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>phonepe</string>
+        <string>paytmUPI</string>
+        <string>gpay</string>
+        <string>upi</string>
+    </array>
+    
 </dict>
 </plist>

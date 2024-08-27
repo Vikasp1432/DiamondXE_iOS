@@ -41,6 +41,8 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        SwipeGestureUtility.addSwipeGesture(to: self.view, navigationController: self.navigationController)
 
         // define uitableview cell
         tbleViewDetails.register(UINib(nibName: DiamondImagesTVC.cellIdentifierDiaDetailsTVC, bundle: nil), forCellReuseIdentifier: DiamondImagesTVC.cellIdentifierDiaDetailsTVC)
@@ -74,7 +76,7 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
                 self.cut = self.diamondDetails.details?.cutGrade ?? ""
                 self.polish = self.diamondDetails.details?.polish ?? ""
                 self.symmetry = self.diamondDetails.details?.symmetry ?? ""
-                self.flouro = self.diamondDetails.details?.fluorescenceColor ?? ""
+                self.flouro = self.diamondDetails.details?.fluorescenceIntensity ?? ""
                 self.certificate  = self.diamondDetails.details?.certificateName ?? ""
                 self.discount = "\(self.diamondDetails.details?.discountAmout ?? "")%"
 //                print(self.cut, self.polish, self.symmetry, self.certificate, self.flouro, self.discount)
@@ -82,10 +84,6 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
             }
             else{
                 self.toastMessage(msg ?? "")
-                self.navigationController?.popViewController(animated: true)
-                
-
-                
             }
             self.isLoading = false
             CustomActivityIndicator2.shared.hide()
@@ -316,7 +314,7 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: DiamondImagesTVC.cellIdentifierDiaDetailsTVC, for: indexPath) as! DiamondImagesTVC
             cell.selectionStyle = .none
-            cell.lblTypeDia.text = self.diamondDetails.details?.category
+           // cell.lblTypeDia.text = self.diamondDetails.details?.category
             
             if let availibility = self.diamondDetails.details?.status{
                 if availibility == "On Hold"{
@@ -328,6 +326,16 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
                 else{
                     cell.btnAvailable.isHidden = true
                 }
+            }
+            
+            
+            if  self.diamondDetails.details?.category == "Natural"{
+                cell.viewCategoryBG.backgroundColor = .themeGoldenClr
+                cell.lblTypeDia.text = "NATURAL"
+            }
+            else if  self.diamondDetails.details?.category == "Lab Grown"{
+                cell.viewCategoryBG.backgroundColor = .green2
+                cell.lblTypeDia.text = "LAB"
             }
             
             
@@ -350,6 +358,10 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
                     if let data = loginData?.details?.userRole{
                         let sizesXIB = CertificateViewVC()
                         sizesXIB.appear(sender: self, tag: tag, url:  self.diamondDetails.details?.certificateFile ?? "")
+                        
+//                        url_Certificate = self.diamondDetails.details?.certificateFile ?? ""
+//                        self.navigationManager(storybordName: "Dashboard", storyboardID: "WKWebViewVC", controller: WKWebViewVC())
+                       
                     }
                     else{
                         self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
@@ -367,7 +379,7 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
             cell.lblDocNumber.text = self.diamondDetails.details?.stockNO ?? ""
             cell.lblLotID.text = "ID:\(self.diamondDetails.details?.supplierID ?? "")"
             cell.lblShape.text = self.diamondDetails.details?.shape ?? ""
-            cell.lblCarat.text = self.diamondDetails.details?.carat ?? ""
+            cell.lblCarat.text = "\(self.diamondDetails.details?.carat ?? "")Ct"
             cell.lblClr.text = self.diamondDetails.details?.color ?? ""
             cell.lblClarity.text = self.diamondDetails.details?.clarity ?? ""
            
@@ -466,7 +478,7 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
                         self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
                     }
                     
-                   // self.navigationManager(storybordName: "BillingAddress", storyboardID: "AddBillingAddress", controller: AddBillingAddress())
+                    //self.navigationManager(storybordName: "ShippingModule", storyboardID: "ShippingModuleVC", controller: ShippingModuleVC())
                 }
             }
             
@@ -584,8 +596,25 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
                 cell.lblKeytoSymbole.text = "-"
             }
             
-//            if self.diamondDetails.details?.currencyMarkup?.count ?? 0 > 0{
-                cell.lblRemark.text = "\(self.diamondDetails.details?.supplierComment ?? ""), \(self.diamondDetails.details?.shade ?? ""), \(self.diamondDetails.details?.luster ?? ""), \(self.diamondDetails.details?.milky ?? ""), \(self.diamondDetails.details?.eyeClean ?? "")"
+            let supplierComment = diamondDetails.details?.supplierComment?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            let shade = diamondDetails.details?.shade?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            let luster = diamondDetails.details?.luster?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            let milky = diamondDetails.details?.milky?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            let eyeClean = diamondDetails.details?.eyeClean?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            
+            // Create an array of the optional strings
+            let remarks = [supplierComment, shade, luster, milky, eyeClean]
+            
+            // Filter out empty strings
+            let filteredRemarks = remarks.filter { !$0.isEmpty }
+            
+            // Join the non-empty strings with a comma, or show "-" if all are empty
+            let remarksText = filteredRemarks.isEmpty ? "-" : filteredRemarks.joined(separator: ", ")
+            
+            // Assign to the label
+            cell.lblRemark.text = remarksText
+            
+//                cell.lblRemark.text = "\(self.diamondDetails.details?.supplierComment ?? ""), \(self.diamondDetails.details?.shade ?? ""), \(self.diamondDetails.details?.luster ?? ""), \(self.diamondDetails.details?.milky ?? ""), \(self.diamondDetails.details?.eyeClean ?? "")"
 //            }
 //            else{
 //                cell.lblRemark.text = "-"

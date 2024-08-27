@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="KGk-i7-Jjw" customClass="RingSiZerTableCell" customModule="DXE_Price" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="407" height="55"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="407" height="55"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXc-kf-mj2">
+                        <rect key="frame" x="10" y="10" width="387" height="35"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vgy-GB-t7q">
+                                <rect key="frame" x="0.0" y="0.0" width="387" height="35"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xv7-ZH-aek">
+                                        <rect key="frame" x="0.0" y="7.9999999999999982" width="77.333333333333329" height="19.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                                        <color key="textColor" name="lblHeading"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="US" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9p-zc-J80">
+                                        <rect key="frame" x="77.333333333333343" y="7.9999999999999982" width="77.333333333333343" height="19.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                                        <color key="textColor" name="lblHeading"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sz-fI-Uw3">
+                                        <rect key="frame" x="154.66666666666666" y="7.9999999999999982" width="77.666666666666657" height="19.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                                        <color key="textColor" name="lblHeading"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tD4-G7-6EQ">
+                                        <rect key="frame" x="232.33333333333334" y="7.9999999999999982" width="77.333333333333343" height="19.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                                        <color key="textColor" name="lblHeading"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IND" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR9-xj-aX8">
+                                        <rect key="frame" x="309.66666666666669" y="7.9999999999999982" width="77.333333333333314" height="19.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                                        <color key="textColor" name="lblHeading"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Vgy-GB-t7q" secondAttribute="trailing" id="0e9-aE-Mma"/>
+                            <constraint firstItem="Vgy-GB-t7q" firstAttribute="top" secondItem="fXc-kf-mj2" secondAttribute="top" id="EpE-fV-ujE"/>
+                            <constraint firstItem="Vgy-GB-t7q" firstAttribute="leading" secondItem="fXc-kf-mj2" secondAttribute="leading" id="F7Z-fc-hqf"/>
+                            <constraint firstAttribute="bottom" secondItem="Vgy-GB-t7q" secondAttribute="bottom" id="zPu-cR-5qO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="fXc-kf-mj2" secondAttribute="bottom" constant="10" id="J3m-B6-B2U"/>
+                    <constraint firstItem="fXc-kf-mj2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Stw-Qo-Vmr"/>
+                    <constraint firstAttribute="trailing" secondItem="fXc-kf-mj2" secondAttribute="trailing" constant="10" id="fFy-vy-djD"/>
+                    <constraint firstItem="fXc-kf-mj2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="sDb-ge-iS9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblIEUR" destination="3Sz-fI-Uw3" id="hoI-Cb-eGV"/>
+                <outlet property="lblIND" destination="CR9-xj-aX8" id="knC-bL-rhT"/>
+                <outlet property="lblIUK" destination="tD4-G7-6EQ" id="Tf2-ym-2lE"/>
+                <outlet property="lblMM" destination="Xv7-ZH-aek" id="o9K-3P-F1Z"/>
+                <outlet property="lblUS" destination="f9p-zc-J80" id="A8x-9V-JyT"/>
+            </connections>
+            <point key="canvasLocation" x="161.06870229007632" y="23.591549295774648"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="lblHeading">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

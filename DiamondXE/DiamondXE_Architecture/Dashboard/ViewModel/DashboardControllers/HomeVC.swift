@@ -337,6 +337,7 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
                 if self.topDealsTag == 1{
                     
                     self.dashBoardVC.diamondDetailsDocID = self.topDealsStruct.details?.labGrown?[tag].certificateNo ?? ""
+                    self.dashBoardVC.byTopDeals = true
                     self.dashBoardVC.loadViewController(withIdentifier: "DiamondDetailsVC", fromStoryboard: "DiamondDetails")
                 }
                 else{

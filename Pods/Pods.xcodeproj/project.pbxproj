@@ -6,154 +6,186 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		F6A43AC75024799F4CE9B382496CA5C5 /* PhonePePayment */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3A4442342DA6AF81DA6440B16D927F3D /* Build configuration list for PBXAggregateTarget "PhonePePayment" */;
+			buildPhases = (
+				4BC64EBEC34EDF1D4DCB7396145484D1 /* [CP] Copy XCFrameworks */,
+			);
+			dependencies = (
+			);
+			name = PhonePePayment;
+			productName = PhonePePayment;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1ADC9ABFF09BACAADFD89E7C62F509BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
-		1D4C8F5E0C7C56B2AE3B286C6C7A3CBC /* DropDown+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2567D42D11E8C30B866103E6CD7F36 /* DropDown+Appearance.swift */; };
-		26ACB45A04267AFCBE46A26E1EE5D737 /* Pods-DiamondXE-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB4E6B6CA7180B787DD46D3669AE76A /* Pods-DiamondXE-dummy.m */; };
-		40797B5209301C641949CE00A1F29F14 /* Pods-DiamondXE-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD272F583545B91F2715DF8BCE99615 /* Pods-DiamondXE-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D4C8F5E0C7C56B2AE3B286C6C7A3CBC /* DropDown+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E20BCA9B254933245DB74B979301C1 /* DropDown+Appearance.swift */; };
+		30C33AA2C4F16032DCD02B2C64C4F174 /* Pods-DiamondXE-DiamondXEUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB75B6E4389DC884DD0F619AF36B813 /* Pods-DiamondXE-DiamondXEUITests-dummy.m */; };
 		4350615ADC60D8555A5ECA1694F525DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		48A89B2533FC2225058D1A7353675985 /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF1AAE97B9A1BEC739983440D702B4F6 /* DropDownCell.xib */; };
-		4DFB4B4718FCA0C4E0AD1B4D87DC6F14 /* DropDown-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5443CAA5DEB0383C2EC2CC18FC078E6D /* DropDown-dummy.m */; };
-		562EEA0D5B13BF57362F67259339CE9E /* Pods-DiamondXE-DiamondXEUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB75B6E4389DC884DD0F619AF36B813 /* Pods-DiamondXE-DiamondXEUITests-dummy.m */; };
+		48A89B2533FC2225058D1A7353675985 /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B81952B2A455EF6F38976B5E0AA13B6A /* DropDownCell.xib */; };
+		4DFB4B4718FCA0C4E0AD1B4D87DC6F14 /* DropDown-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE09B200BCC4A72696C2CAEDC8B21A3E /* DropDown-dummy.m */; };
 		7631C280422AB0B6D92AB6E2DC2BEF8D /* Pods-DiamondXETests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 70CB8705D4725A914AA4547236319FA5 /* Pods-DiamondXETests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		796DCCAD6DE1EBBD6C138A58CB9D20AE /* DropDown-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AF8AAF525F4DB8BC9AC8E1B398A492EF /* DropDown-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D6729EABE2EE16AD193465CD6C40456 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		796DCCAD6DE1EBBD6C138A58CB9D20AE /* DropDown-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BD8AD7AD959CDD3DFE227F3D5DED534 /* DropDown-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F7F30F50DEA65D1FD41684D0E1044D5 /* Pods-DiamondXETests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E75749C1DAF6614F0A5760705AA4C2A /* Pods-DiamondXETests-dummy.m */; };
-		808FC5318FE27F74A8B800C24D0E1284 /* DPDKeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44F420EDD1CBCA337750AF7EB052A01 /* DPDKeyboardListener.swift */; };
-		85BB6489A56A2E37015DF8DD7A4629CD /* DTTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB483B7E143D7C5523DF62B841D41050 /* DTTextField.swift */; };
-		8AF8029BAF0A539FDAFD8D6A880A735A /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A21C737F9FC624B4FECF3DB65627D /* DropDownCell.swift */; };
-		8B76703D291771430FAF6643751C098C /* DPDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B180B366EF526D6BC83004893EFBBF02 /* DPDConstants.swift */; };
-		98F0916FBE56B8EE9CC0875FBAF18DDB /* DTTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDF936C29759C13A469D63EF71D670A /* DTTextField-dummy.m */; };
-		9E910CC755978F2F97F5B243E0C92968 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		A36B01A77504660FBD0C9BEFED62AA50 /* Pods-DiamondXE-DiamondXEUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BC3F319568D962DBCFC68C872A36CEC /* Pods-DiamondXE-DiamondXEUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		808FC5318FE27F74A8B800C24D0E1284 /* DPDKeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC2BFFB9FC24C2D094795B7A7F9E433 /* DPDKeyboardListener.swift */; };
+		85BB6489A56A2E37015DF8DD7A4629CD /* DTTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61910FF2A7CDEBF6AFC82C73120D46D9 /* DTTextField.swift */; };
+		8AF8029BAF0A539FDAFD8D6A880A735A /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E070E96896AD6D1DA363EB8554200607 /* DropDownCell.swift */; };
+		8B76703D291771430FAF6643751C098C /* DPDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F412AB48A59A1DA67DF699A0D20B6A23 /* DPDConstants.swift */; };
+		8F3178E797B0264905A5C53D7AF1066A /* Pods-DiamondXE-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB4E6B6CA7180B787DD46D3669AE76A /* Pods-DiamondXE-dummy.m */; };
+		98F0916FBE56B8EE9CC0875FBAF18DDB /* DTTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9029925952C2F7AA66795A9EB56A868F /* DTTextField-dummy.m */; };
+		A461581642C4668168684DF2700BD959 /* Pods-DiamondXE-DiamondXEUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BC3F319568D962DBCFC68C872A36CEC /* Pods-DiamondXE-DiamondXEUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7D2BE4F2846ACD3CF47788B7545A2E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		B4CAC52577A83455F1B609BFB1A9B6B3 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FF73CABE604C70B681BDE9CC70274E /* DropDown.swift */; };
+		B4CAC52577A83455F1B609BFB1A9B6B3 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB170BE7BFF669082AC059DE614323 /* DropDown.swift */; };
 		C347DA3C2D54EA657F491FA605020BF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		D18016555A8C3565773B6C2C82CD7F6E /* DTTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E10835884F67C43E4F0ADB8F66DECEB4 /* DTTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FBD244A46F90ABBDAA7B4ABAA94B916B /* DPDUIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53059371577EC0C4FB39594969A3CD93 /* DPDUIView+Extension.swift */; };
+		D18016555A8C3565773B6C2C82CD7F6E /* DTTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 12CF25152D3BFCAA3BFD8E6323F7F7F3 /* DTTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D60F408654216150732C72A9D54A2C5C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		DD1EA3E02698BB1A80572B52239FE565 /* Pods-DiamondXE-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD272F583545B91F2715DF8BCE99615 /* Pods-DiamondXE-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E61E90B4276FFDF38D410CF16F14C90E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		FBD244A46F90ABBDAA7B4ABAA94B916B /* DPDUIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA30C4D9B6FA0669FB4035BA58BE44 /* DPDUIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		216E97AA388DCC31CE2E0205817AF0FD /* PBXContainerItemProxy */ = {
+		249D49F3A892E426969FCC1E327013C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E9F9401E9C74C0C393164FD8D86D0068;
-			remoteInfo = DropDown;
+			remoteGlobalIDString = 66802D2DB565AB26B03BBF87DB94F22F;
+			remoteInfo = DTTextField;
 		};
-		820802EF01E7298A2E0EF89767C41BB1 /* PBXContainerItemProxy */ = {
+		4444E46C8F4C36BE20940241AE88574E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7DF84BE890F41E4A28E2765CE3001F81;
 			remoteInfo = "Pods-DiamondXE";
 		};
-		9B68C3717EF636DDE4F1FBB30691E1FA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 66802D2DB565AB26B03BBF87DB94F22F;
-			remoteInfo = DTTextField;
-		};
-		DD0D5FFEDB66095CF7C70F66117F9CA1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 66802D2DB565AB26B03BBF87DB94F22F;
-			remoteInfo = DTTextField;
-		};
-		F1690D93FC642E59E561297A6F0D6F3A /* PBXContainerItemProxy */ = {
+		5CA8E6A60B32DBDEB2278E80AE8F8341 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E9F9401E9C74C0C393164FD8D86D0068;
 			remoteInfo = DropDown;
 		};
+		75968352E1C608D1B4F451CF99EB9963 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9F9401E9C74C0C393164FD8D86D0068;
+			remoteInfo = DropDown;
+		};
+		8E1BE8D3C9A281B71641DBFB1EC640D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66802D2DB565AB26B03BBF87DB94F22F;
+			remoteInfo = DTTextField;
+		};
+		ECECE10C458B4ED72C727452C86D8724 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6A43AC75024799F4CE9B382496CA5C5;
+			remoteInfo = PhonePePayment;
+		};
+		FC8F8D62FB761A331BD41A9ECD4E84A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6A43AC75024799F4CE9B382496CA5C5;
+			remoteInfo = PhonePePayment;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03C63861540EFDA83CD4BCA9141AA320 /* DropDown.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DropDown.modulemap; sourceTree = "<group>"; };
-		13D311D423113FAB21585EDA5D4C395D /* DropDown-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DropDown-prefix.pch"; sourceTree = "<group>"; };
+		12CF25152D3BFCAA3BFD8E6323F7F7F3 /* DTTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DTTextField-umbrella.h"; sourceTree = "<group>"; };
+		133EA8F0D05C3F53B91D5FC457BFBCAC /* DTTextField-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DTTextField-Info.plist"; sourceTree = "<group>"; };
 		1542B93C75378C369B42D92CFD9E13DA /* Pods-DiamondXE-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DiamondXE-frameworks.sh"; sourceTree = "<group>"; };
 		1B548AEE4179622FE4F4449D678B7E65 /* Pods-DiamondXE.debug(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE.debug(production).xcconfig"; sourceTree = "<group>"; };
 		1BC3F319568D962DBCFC68C872A36CEC /* Pods-DiamondXE-DiamondXEUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DiamondXE-DiamondXEUITests-umbrella.h"; sourceTree = "<group>"; };
 		1D20EAE0CD9A9FFD54EC6E2A3E73B53A /* Pods-DiamondXE-DiamondXEUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DiamondXE-DiamondXEUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		1FDF936C29759C13A469D63EF71D670A /* DTTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DTTextField-dummy.m"; sourceTree = "<group>"; };
 		21018293F0F459B95BF6911294324EB1 /* Pods-DiamondXE.debug(staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE.debug(staging).xcconfig"; sourceTree = "<group>"; };
 		2F4CD544B52B9C5EEA95D828F58297E4 /* Pods-DiamondXE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE.release.xcconfig"; sourceTree = "<group>"; };
 		32692E89549F68CB6B41F0C9DA0E524F /* Pods-DiamondXE-DiamondXEUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE-DiamondXEUITests.release.xcconfig"; sourceTree = "<group>"; };
+		34294AF68604148DC1D8FE6D30914313 /* DTTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DTTextField.modulemap; sourceTree = "<group>"; };
 		36626C9D838AF90DC3384AC3491996A1 /* Pods-DiamondXE-DiamondXEUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-DiamondXE-DiamondXEUITests"; path = Pods_DiamondXE_DiamondXEUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB4E6B6CA7180B787DD46D3669AE76A /* Pods-DiamondXE-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DiamondXE-dummy.m"; sourceTree = "<group>"; };
+		41DB170BE7BFF669082AC059DE614323 /* DropDown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropDown.swift; path = DropDown/src/DropDown.swift; sourceTree = "<group>"; };
 		4201795413839222D96B4D1939705A05 /* Pods-DiamondXE.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DiamondXE.modulemap"; sourceTree = "<group>"; };
+		468178D0862D900BBE312CA6271651F2 /* DropDown.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DropDown.release.xcconfig; sourceTree = "<group>"; };
+		4816D3AEBFDBDBCC7597FD9508585CA2 /* PhonePePayment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PhonePePayment.debug.xcconfig; sourceTree = "<group>"; };
 		4E75749C1DAF6614F0A5760705AA4C2A /* Pods-DiamondXETests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DiamondXETests-dummy.m"; sourceTree = "<group>"; };
-		4ED05D2D41F1A238E1F380C64BA94E32 /* DTTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DTTextField.modulemap; sourceTree = "<group>"; };
-		53059371577EC0C4FB39594969A3CD93 /* DPDUIView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DPDUIView+Extension.swift"; path = "DropDown/helpers/DPDUIView+Extension.swift"; sourceTree = "<group>"; };
+		51409031DC6B71DDACEB645368E4E97A /* DTTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DTTextField-prefix.pch"; sourceTree = "<group>"; };
 		53797BF75EE809493052F66231B7A6B4 /* Pods-DiamondXE-DiamondXEUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DiamondXE-DiamondXEUITests-Info.plist"; sourceTree = "<group>"; };
-		5443CAA5DEB0383C2EC2CC18FC078E6D /* DropDown-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DropDown-dummy.m"; sourceTree = "<group>"; };
-		56AAE18FD1CD1F7F7EAF94F4A110EE3D /* DropDown-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DropDown-Info.plist"; sourceTree = "<group>"; };
 		5B8119BB2D309C8E5645A60996463DE4 /* Pods-DiamondXETests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-DiamondXETests"; path = Pods_DiamondXETests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B99C6D1E4BC837DD8A8D33B3A045BF7 /* Pods-DiamondXETests.release(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXETests.release(production).xcconfig"; sourceTree = "<group>"; };
 		5C9B0547BA39FD6CE55E6D6611FE5CC2 /* DTTextField */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DTTextField; path = DTTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D728919EEB95E87A22CDD171A58B483 /* PhonePePayment.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; path = PhonePePayment.xcframework; sourceTree = "<group>"; };
 		601EBB9C3E733307E1C680357C4716F2 /* Pods-DiamondXE.release(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE.release(production).xcconfig"; sourceTree = "<group>"; };
-		6D6E2AC6B58F1540DCBD89147E98013E /* DTTextField-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DTTextField-Info.plist"; sourceTree = "<group>"; };
+		61910FF2A7CDEBF6AFC82C73120D46D9 /* DTTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DTTextField.swift; path = Sources/DTTextField/DTTextField.swift; sourceTree = "<group>"; };
+		6381564F4C30B9EA126F2BA553E2A32E /* DropDown.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DropDown.debug.xcconfig; sourceTree = "<group>"; };
+		67AB6DF345218112E43D58C5312468DC /* DTTextField.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DTTextField.debug.xcconfig; sourceTree = "<group>"; };
+		6BD8AD7AD959CDD3DFE227F3D5DED534 /* DropDown-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DropDown-umbrella.h"; sourceTree = "<group>"; };
 		70CB8705D4725A914AA4547236319FA5 /* Pods-DiamondXETests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DiamondXETests-umbrella.h"; sourceTree = "<group>"; };
+		71AA30C4D9B6FA0669FB4035BA58BE44 /* DPDUIView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DPDUIView+Extension.swift"; path = "DropDown/helpers/DPDUIView+Extension.swift"; sourceTree = "<group>"; };
+		72C807C6146611DCA92C66AA961EF67A /* DTTextField.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DTTextField.release.xcconfig; sourceTree = "<group>"; };
 		795423FC65B72F0F160BFC26D1A06A92 /* Pods-DiamondXE-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DiamondXE-Info.plist"; sourceTree = "<group>"; };
 		7B35C03E1B2A305766009F4E0CE7631D /* Pods-DiamondXE-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DiamondXE-acknowledgements.plist"; sourceTree = "<group>"; };
-		7C41DA36380A2898C4336E4491F2E6EA /* DTTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DTTextField-prefix.pch"; sourceTree = "<group>"; };
 		7D028B36B541B695CC6422B206F4C2BF /* Pods-DiamondXE.release(staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE.release(staging).xcconfig"; sourceTree = "<group>"; };
 		81CAF71217E558C5CA0DAEA4BD1FF463 /* Pods-DiamondXETests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXETests.debug.xcconfig"; sourceTree = "<group>"; };
-		8227580F12F4D9C171A76AF78B9A7F94 /* DTTextField.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DTTextField.release.xcconfig; sourceTree = "<group>"; };
 		84C28355E36539EE8E2309ED8EB1D68E /* Pods-DiamondXE-DiamondXEUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE-DiamondXEUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		86A3EB5EC95DC9ACDD66E01E3A588735 /* Pods-DiamondXE */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-DiamondXE"; path = Pods_DiamondXE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A18198ED1EF9CA46EC3C911156F706 /* Pods-DiamondXE-DiamondXEUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DiamondXE-DiamondXEUITests-frameworks.sh"; sourceTree = "<group>"; };
+		9029925952C2F7AA66795A9EB56A868F /* DTTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DTTextField-dummy.m"; sourceTree = "<group>"; };
 		920CA4CAC1672802063C6F759D9B0D4E /* Pods-DiamondXETests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DiamondXETests-acknowledgements.plist"; sourceTree = "<group>"; };
 		95862B4AC1B20DA40BED33E79CB0BF29 /* Pods-DiamondXETests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DiamondXETests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9649FC99CC8A25B3D90D1072119E391B /* Pods-DiamondXE.release(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE.release(dev).xcconfig"; sourceTree = "<group>"; };
 		969E6460C8677164474C7BA76CD62A1B /* Pods-DiamondXE-DiamondXEUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DiamondXE-DiamondXEUITests.modulemap"; sourceTree = "<group>"; };
 		9B6725B782188F18CB76A740433F14E4 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9FA97C692316BDF2E92A0B79950B57D2 /* DropDown.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DropDown.modulemap; sourceTree = "<group>"; };
 		A2475323B647424EA571BDC0E6A9D9B7 /* Pods-DiamondXE-DiamondXEUITests.release(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE-DiamondXEUITests.release(production).xcconfig"; sourceTree = "<group>"; };
 		A51B8E7A8B0E262824F0FA0C76BF6C04 /* Pods-DiamondXE-DiamondXEUITests.debug(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE-DiamondXEUITests.debug(dev).xcconfig"; sourceTree = "<group>"; };
 		A64D79234DA012270E5149FFB5C99851 /* Pods-DiamondXETests.release(staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXETests.release(staging).xcconfig"; sourceTree = "<group>"; };
+		A7FFFD2FD43180F97D1C6D293B7C9F3E /* PhonePePayment-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "PhonePePayment-xcframeworks.sh"; sourceTree = "<group>"; };
 		AD2E8EC96290872BC01C27490F57E60E /* Pods-DiamondXE-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DiamondXE-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AF71A772BB84F0D0CACA720EA47F1975 /* Pods-DiamondXETests.debug(staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXETests.debug(staging).xcconfig"; sourceTree = "<group>"; };
-		AF8AAF525F4DB8BC9AC8E1B398A492EF /* DropDown-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DropDown-umbrella.h"; sourceTree = "<group>"; };
 		AFD272F583545B91F2715DF8BCE99615 /* Pods-DiamondXE-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DiamondXE-umbrella.h"; sourceTree = "<group>"; };
-		B180B366EF526D6BC83004893EFBBF02 /* DPDConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DPDConstants.swift; path = DropDown/helpers/DPDConstants.swift; sourceTree = "<group>"; };
-		B36A21C737F9FC624B4FECF3DB65627D /* DropDownCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropDownCell.swift; path = DropDown/src/DropDownCell.swift; sourceTree = "<group>"; };
-		B44F420EDD1CBCA337750AF7EB052A01 /* DPDKeyboardListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DPDKeyboardListener.swift; path = DropDown/helpers/DPDKeyboardListener.swift; sourceTree = "<group>"; };
 		B7A2B0C91E220F05C89553D958FB582A /* Pods-DiamondXE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE.debug.xcconfig"; sourceTree = "<group>"; };
-		BB2567D42D11E8C30B866103E6CD7F36 /* DropDown+Appearance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DropDown+Appearance.swift"; path = "DropDown/src/DropDown+Appearance.swift"; sourceTree = "<group>"; };
+		B81952B2A455EF6F38976B5E0AA13B6A /* DropDownCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DropDownCell.xib; path = DropDown/resources/DropDownCell.xib; sourceTree = "<group>"; };
+		BB59D12C39D957FDE97B057DDDA0D663 /* DropDown-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DropDown-prefix.pch"; sourceTree = "<group>"; };
+		BE09B200BCC4A72696C2CAEDC8B21A3E /* DropDown-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DropDown-dummy.m"; sourceTree = "<group>"; };
+		C091C7774A9E77E968D14F86160DEF9B /* PhonePePayment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PhonePePayment.release.xcconfig; sourceTree = "<group>"; };
 		C1CA304370749751375F2550871B85C3 /* Pods-DiamondXE-DiamondXEUITests.release(staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE-DiamondXEUITests.release(staging).xcconfig"; sourceTree = "<group>"; };
 		C2645CFF5E211D7D0FCF8A6D7C574FA5 /* Pods-DiamondXETests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DiamondXETests-Info.plist"; sourceTree = "<group>"; };
-		C7FF73CABE604C70B681BDE9CC70274E /* DropDown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropDown.swift; path = DropDown/src/DropDown.swift; sourceTree = "<group>"; };
 		C8C852F9D4716544E1817EF443918FEC /* Pods-DiamondXE-DiamondXEUITests.release(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE-DiamondXEUITests.release(dev).xcconfig"; sourceTree = "<group>"; };
 		C8CE142C880A8A8BCA6D43DD9DA206F4 /* Pods-DiamondXE-DiamondXEUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DiamondXE-DiamondXEUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		CF1AAE97B9A1BEC739983440D702B4F6 /* DropDownCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DropDownCell.xib; path = DropDown/resources/DropDownCell.xib; sourceTree = "<group>"; };
+		CAC2BFFB9FC24C2D094795B7A7F9E433 /* DPDKeyboardListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DPDKeyboardListener.swift; path = DropDown/helpers/DPDKeyboardListener.swift; sourceTree = "<group>"; };
 		D125FAA1A58C50BDAA3817FB3B6D50C0 /* Pods-DiamondXETests.release(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXETests.release(dev).xcconfig"; sourceTree = "<group>"; };
 		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D256E01958F88832BEFCDBB3C081FD0C /* Pods-DiamondXETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXETests.release.xcconfig"; sourceTree = "<group>"; };
 		DBBAD38A2F8273F174872966F8B2E0E5 /* Pods-DiamondXETests.debug(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXETests.debug(dev).xcconfig"; sourceTree = "<group>"; };
-		DE61B762C6006924B783F8287592C351 /* DropDown.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DropDown.release.xcconfig; sourceTree = "<group>"; };
 		E032363A82C50DD56A0FF0A72CC28135 /* Pods-DiamondXETests.debug(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXETests.debug(production).xcconfig"; sourceTree = "<group>"; };
+		E070E96896AD6D1DA363EB8554200607 /* DropDownCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropDownCell.swift; path = DropDown/src/DropDownCell.swift; sourceTree = "<group>"; };
 		E0D791482AF5580866E81B0D87381F0E /* Pods-DiamondXE.debug(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE.debug(dev).xcconfig"; sourceTree = "<group>"; };
-		E10835884F67C43E4F0ADB8F66DECEB4 /* DTTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DTTextField-umbrella.h"; sourceTree = "<group>"; };
 		E23309C5B8769416721844E99473FF80 /* Pods-DiamondXE-DiamondXEUITests.debug(staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE-DiamondXEUITests.debug(staging).xcconfig"; sourceTree = "<group>"; };
 		E64E6735D70C7D52FDC4D84AB7CC62C9 /* Pods-DiamondXE-DiamondXEUITests.debug(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE-DiamondXEUITests.debug(production).xcconfig"; sourceTree = "<group>"; };
-		E77FE870568FB42CC39BDB445BB2C312 /* DTTextField.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DTTextField.debug.xcconfig; sourceTree = "<group>"; };
 		EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		EB483B7E143D7C5523DF62B841D41050 /* DTTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DTTextField.swift; path = Sources/DTTextField/DTTextField.swift; sourceTree = "<group>"; };
 		EB8E06BD99DDAA3F165E6AF420645D88 /* Pods-DiamondXETests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DiamondXETests.modulemap"; sourceTree = "<group>"; };
 		EDB75B6E4389DC884DD0F619AF36B813 /* Pods-DiamondXE-DiamondXEUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DiamondXE-DiamondXEUITests-dummy.m"; sourceTree = "<group>"; };
-		F43320BB4F87B68B75EA19BCCCC86A4C /* DropDown.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DropDown.debug.xcconfig; sourceTree = "<group>"; };
+		F3E20BCA9B254933245DB74B979301C1 /* DropDown+Appearance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DropDown+Appearance.swift"; path = "DropDown/src/DropDown+Appearance.swift"; sourceTree = "<group>"; };
+		F412AB48A59A1DA67DF699A0D20B6A23 /* DPDConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DPDConstants.swift; path = DropDown/helpers/DPDConstants.swift; sourceTree = "<group>"; };
+		F4EDB959809680ECDB4F97F93C3D3991 /* DropDown-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DropDown-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		17A65FAA908225AD00910CC929512CDA /* Frameworks */ = {
+		3087A9C1D71A1BD36FAFFA42519FFDC1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D6729EABE2EE16AD193465CD6C40456 /* Foundation.framework in Frameworks */,
+				E61E90B4276FFDF38D410CF16F14C90E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,11 +206,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A5C1CC2A72B0F209143352F539DEB2FD /* Frameworks */ = {
+		A520F2562E69D4B814FE3CF623F9224C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E910CC755978F2F97F5B243E0C92968 /* Foundation.framework in Frameworks */,
+				D60F408654216150732C72A9D54A2C5C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,36 +225,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		058873AC35CBD9665E12FC78E217B283 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				4ED05D2D41F1A238E1F380C64BA94E32 /* DTTextField.modulemap */,
-				1FDF936C29759C13A469D63EF71D670A /* DTTextField-dummy.m */,
-				6D6E2AC6B58F1540DCBD89147E98013E /* DTTextField-Info.plist */,
-				7C41DA36380A2898C4336E4491F2E6EA /* DTTextField-prefix.pch */,
-				E10835884F67C43E4F0ADB8F66DECEB4 /* DTTextField-umbrella.h */,
-				E77FE870568FB42CC39BDB445BB2C312 /* DTTextField.debug.xcconfig */,
-				8227580F12F4D9C171A76AF78B9A7F94 /* DTTextField.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/DTTextField";
-			sourceTree = "<group>";
-		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		21AB3D7E021C8EFF90AC10A569ADD9A9 /* DTTextField */ = {
-			isa = PBXGroup;
-			children = (
-				EB483B7E143D7C5523DF62B841D41050 /* DTTextField.swift */,
-				058873AC35CBD9665E12FC78E217B283 /* Support Files */,
-			);
-			path = DTTextField;
 			sourceTree = "<group>";
 		};
 		3A5DF901E4273433953604AE6DFB1D4B /* Pods-DiamondXE */ = {
@@ -258,19 +266,30 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		596D20458067D1B4A80C06832B51278C /* Support Files */ = {
+		4A8D6E31997D04949EF9E6B10EFD96BF /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				03C63861540EFDA83CD4BCA9141AA320 /* DropDown.modulemap */,
-				5443CAA5DEB0383C2EC2CC18FC078E6D /* DropDown-dummy.m */,
-				56AAE18FD1CD1F7F7EAF94F4A110EE3D /* DropDown-Info.plist */,
-				13D311D423113FAB21585EDA5D4C395D /* DropDown-prefix.pch */,
-				AF8AAF525F4DB8BC9AC8E1B398A492EF /* DropDown-umbrella.h */,
-				F43320BB4F87B68B75EA19BCCCC86A4C /* DropDown.debug.xcconfig */,
-				DE61B762C6006924B783F8287592C351 /* DropDown.release.xcconfig */,
+				A7FFFD2FD43180F97D1C6D293B7C9F3E /* PhonePePayment-xcframeworks.sh */,
+				4816D3AEBFDBDBCC7597FD9508585CA2 /* PhonePePayment.debug.xcconfig */,
+				C091C7774A9E77E968D14F86160DEF9B /* PhonePePayment.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/DropDown";
+			path = "../Target Support Files/PhonePePayment";
+			sourceTree = "<group>";
+		};
+		4DDC8BB5449490106FD6EBA1B112833D /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				F412AB48A59A1DA67DF699A0D20B6A23 /* DPDConstants.swift */,
+				CAC2BFFB9FC24C2D094795B7A7F9E433 /* DPDKeyboardListener.swift */,
+				71AA30C4D9B6FA0669FB4035BA58BE44 /* DPDUIView+Extension.swift */,
+				41DB170BE7BFF669082AC059DE614323 /* DropDown.swift */,
+				F3E20BCA9B254933245DB74B979301C1 /* DropDown+Appearance.swift */,
+				E070E96896AD6D1DA363EB8554200607 /* DropDownCell.swift */,
+				615E286DC91B3952959ADD9255CD1460 /* Resources */,
+				D98E247DA5C4124BE6EE6E48A4C4C0AE /* Support Files */,
+			);
+			path = DropDown;
 			sourceTree = "<group>";
 		};
 		59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */ = {
@@ -282,12 +301,37 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		808800433DD3FB805802AD5F6249CAC7 /* Resources */ = {
+		615E286DC91B3952959ADD9255CD1460 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CF1AAE97B9A1BEC739983440D702B4F6 /* DropDownCell.xib */,
+				B81952B2A455EF6F38976B5E0AA13B6A /* DropDownCell.xib */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		708D5F90A60533BBE21D8EF1811441F8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4DDC8BB5449490106FD6EBA1B112833D /* DropDown */,
+				AD3CAE1880A995B1334F70AC7F1DAC91 /* DTTextField */,
+				E44605F6BCF2CB8C45264852BCBD6071 /* PhonePePayment */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		712339E62E54552404815D6E91ED1468 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				34294AF68604148DC1D8FE6D30914313 /* DTTextField.modulemap */,
+				9029925952C2F7AA66795A9EB56A868F /* DTTextField-dummy.m */,
+				133EA8F0D05C3F53B91D5FC457BFBCAC /* DTTextField-Info.plist */,
+				51409031DC6B71DDACEB645368E4E97A /* DTTextField-prefix.pch */,
+				12CF25152D3BFCAA3BFD8E6323F7F7F3 /* DTTextField-umbrella.h */,
+				67AB6DF345218112E43D58C5312468DC /* DTTextField.debug.xcconfig */,
+				72C807C6146611DCA92C66AA961EF67A /* DTTextField.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DTTextField";
 			sourceTree = "<group>";
 		};
 		9427155C28CDAD3AD0AC212DDF370CDF /* Pods-DiamondXETests */ = {
@@ -310,21 +354,6 @@
 			);
 			name = "Pods-DiamondXETests";
 			path = "Target Support Files/Pods-DiamondXETests";
-			sourceTree = "<group>";
-		};
-		A148B932A05CE1344BCB727B8C7D2480 /* DropDown */ = {
-			isa = PBXGroup;
-			children = (
-				B180B366EF526D6BC83004893EFBBF02 /* DPDConstants.swift */,
-				B44F420EDD1CBCA337750AF7EB052A01 /* DPDKeyboardListener.swift */,
-				53059371577EC0C4FB39594969A3CD93 /* DPDUIView+Extension.swift */,
-				C7FF73CABE604C70B681BDE9CC70274E /* DropDown.swift */,
-				BB2567D42D11E8C30B866103E6CD7F36 /* DropDown+Appearance.swift */,
-				B36A21C737F9FC624B4FECF3DB65627D /* DropDownCell.swift */,
-				808800433DD3FB805802AD5F6249CAC7 /* Resources */,
-				596D20458067D1B4A80C06832B51278C /* Support Files */,
-			);
-			path = DropDown;
 			sourceTree = "<group>";
 		};
 		A2897E9E7FFDDF40502A870775BFC061 /* Products */ = {
@@ -362,34 +391,66 @@
 			path = "Target Support Files/Pods-DiamondXE-DiamondXEUITests";
 			sourceTree = "<group>";
 		};
+		AD3CAE1880A995B1334F70AC7F1DAC91 /* DTTextField */ = {
+			isa = PBXGroup;
+			children = (
+				61910FF2A7CDEBF6AFC82C73120D46D9 /* DTTextField.swift */,
+				712339E62E54552404815D6E91ED1468 /* Support Files */,
+			);
+			path = DTTextField;
+			sourceTree = "<group>";
+		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				FDA6A19ED68E4A21A6715380520F7549 /* Pods */,
+				708D5F90A60533BBE21D8EF1811441F8 /* Pods */,
 				A2897E9E7FFDDF40502A870775BFC061 /* Products */,
 				4377591FC18799A3A3469EDB686898D4 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		FDA6A19ED68E4A21A6715380520F7549 /* Pods */ = {
+		D98E247DA5C4124BE6EE6E48A4C4C0AE /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				A148B932A05CE1344BCB727B8C7D2480 /* DropDown */,
-				21AB3D7E021C8EFF90AC10A569ADD9A9 /* DTTextField */,
+				9FA97C692316BDF2E92A0B79950B57D2 /* DropDown.modulemap */,
+				BE09B200BCC4A72696C2CAEDC8B21A3E /* DropDown-dummy.m */,
+				F4EDB959809680ECDB4F97F93C3D3991 /* DropDown-Info.plist */,
+				BB59D12C39D957FDE97B057DDDA0D663 /* DropDown-prefix.pch */,
+				6BD8AD7AD959CDD3DFE227F3D5DED534 /* DropDown-umbrella.h */,
+				6381564F4C30B9EA126F2BA553E2A32E /* DropDown.debug.xcconfig */,
+				468178D0862D900BBE312CA6271651F2 /* DropDown.release.xcconfig */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/DropDown";
+			sourceTree = "<group>";
+		};
+		E44605F6BCF2CB8C45264852BCBD6071 /* PhonePePayment */ = {
+			isa = PBXGroup;
+			children = (
+				FC4B269BF854958D8C9E181315E8F823 /* Frameworks */,
+				4A8D6E31997D04949EF9E6B10EFD96BF /* Support Files */,
+			);
+			path = PhonePePayment;
+			sourceTree = "<group>";
+		};
+		FC4B269BF854958D8C9E181315E8F823 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D728919EEB95E87A22CDD171A58B483 /* PhonePePayment.xcframework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		68A3D76642ADE0DF3928606E5D1A97E8 /* Headers */ = {
+		05D2E98DEBA1EE5C9AAC9F7E0DAE48EB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A36B01A77504660FBD0C9BEFED62AA50 /* Pods-DiamondXE-DiamondXEUITests-umbrella.h in Headers */,
+				DD1EA3E02698BB1A80572B52239FE565 /* Pods-DiamondXE-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,11 +462,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91326A0FF766BB959B022A1DA1A3A6A9 /* Headers */ = {
+		95D38C52A8B0D4736A8FCB67AD2A460A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40797B5209301C641949CE00A1F29F14 /* Pods-DiamondXE-umbrella.h in Headers */,
+				A461581642C4668168684DF2700BD959 /* Pods-DiamondXE-DiamondXEUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,18 +509,19 @@
 		};
 		7DF84BE890F41E4A28E2765CE3001F81 /* Pods-DiamondXE */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3C0821FFAEBBB630C8644B2D545A4C13 /* Build configuration list for PBXNativeTarget "Pods-DiamondXE" */;
+			buildConfigurationList = 593D373A29C3DDC141237BB61A6BACEA /* Build configuration list for PBXNativeTarget "Pods-DiamondXE" */;
 			buildPhases = (
-				91326A0FF766BB959B022A1DA1A3A6A9 /* Headers */,
-				05057D0AD15E0512BDEE151AF74C00C9 /* Sources */,
-				A5C1CC2A72B0F209143352F539DEB2FD /* Frameworks */,
-				4F8DFC411C514DE2EEFB18FA774CC787 /* Resources */,
+				05D2E98DEBA1EE5C9AAC9F7E0DAE48EB /* Headers */,
+				7C543BE8A5F2F9E2D1A782EA36EB8EC1 /* Sources */,
+				3087A9C1D71A1BD36FAFFA42519FFDC1 /* Frameworks */,
+				AA8A06C1879BA360AE2EA9B412CCA9F9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				82F99D03B4A016068AC29E2C8A552347 /* PBXTargetDependency */,
-				A91F9EA7F104A7DEF9DA498A69C761A1 /* PBXTargetDependency */,
+				A7F54EE6896F899E7BC9459A3273B123 /* PBXTargetDependency */,
+				1B21EF87C5BD9D5A05C1EF7D347D6C18 /* PBXTargetDependency */,
+				600C851B4885BC2C7BAC3685C4C851A3 /* PBXTargetDependency */,
 			);
 			name = "Pods-DiamondXE";
 			productName = Pods_DiamondXE;
@@ -468,18 +530,19 @@
 		};
 		894E3E9B9AC95FD9C8426361B1701AB4 /* Pods-DiamondXE-DiamondXEUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43776B1E5BC8E024191E812D6EB8F6D0 /* Build configuration list for PBXNativeTarget "Pods-DiamondXE-DiamondXEUITests" */;
+			buildConfigurationList = FAF9C8EA08958B3E1396EC011A2991D6 /* Build configuration list for PBXNativeTarget "Pods-DiamondXE-DiamondXEUITests" */;
 			buildPhases = (
-				68A3D76642ADE0DF3928606E5D1A97E8 /* Headers */,
-				95861BEACC8D3959B70F0E4BD6ED731C /* Sources */,
-				17A65FAA908225AD00910CC929512CDA /* Frameworks */,
-				4F6A5139A1A7BB7011DB0B5710AD31F7 /* Resources */,
+				95D38C52A8B0D4736A8FCB67AD2A460A /* Headers */,
+				938FDC3E31CA82EA637719AED22FE9EF /* Sources */,
+				A520F2562E69D4B814FE3CF623F9224C /* Frameworks */,
+				BFA66166555715FB825E438364A40FA0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				30CE059ECA367D586E18A027FDDA6CDC /* PBXTargetDependency */,
-				D5A1E3254A180282522EC906AFE90A92 /* PBXTargetDependency */,
+				1336849A74F54B64B9C0D47D16EF2E40 /* PBXTargetDependency */,
+				F89DCB7C4D608E556A6955167AD3B379 /* PBXTargetDependency */,
+				8887ECD115C0E5F000FB73DE26B26052 /* PBXTargetDependency */,
 			);
 			name = "Pods-DiamondXE-DiamondXEUITests";
 			productName = Pods_DiamondXE_DiamondXEUITests;
@@ -498,7 +561,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				F202AB9413E2123DD1F4E10CD2A40852 /* PBXTargetDependency */,
+				3B9563B4A203A7660B6E9162CDD20EAF /* PBXTargetDependency */,
 			);
 			name = "Pods-DiamondXETests";
 			productName = Pods_DiamondXETests;
@@ -547,6 +610,7 @@
 			targets = (
 				E9F9401E9C74C0C393164FD8D86D0068 /* DropDown */,
 				66802D2DB565AB26B03BBF87DB94F22F /* DTTextField */,
+				F6A43AC75024799F4CE9B382496CA5C5 /* PhonePePayment */,
 				7DF84BE890F41E4A28E2765CE3001F81 /* Pods-DiamondXE */,
 				894E3E9B9AC95FD9C8426361B1701AB4 /* Pods-DiamondXE-DiamondXEUITests */,
 				DF2B3DAADE125C7C6F1DEBBA257C8A0F /* Pods-DiamondXETests */,
@@ -569,20 +633,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F6A5139A1A7BB7011DB0B5710AD31F7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4F8DFC411C514DE2EEFB18FA774CC787 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		96FA7C474709CB8A486C62F1F89B5FAA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -591,17 +641,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		05057D0AD15E0512BDEE151AF74C00C9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		AA8A06C1879BA360AE2EA9B412CCA9F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26ACB45A04267AFCBE46A26E1EE5D737 /* Pods-DiamondXE-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BFA66166555715FB825E438364A40FA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4BC64EBEC34EDF1D4DCB7396145484D1 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/PhonePePayment/PhonePePayment-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/PhonePePayment/PhonePePayment-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/PhonePePayment/PhonePePayment-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		444E56370D181E12C3E117F2C1E5950D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -610,11 +686,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95861BEACC8D3959B70F0E4BD6ED731C /* Sources */ = {
+		7C543BE8A5F2F9E2D1A782EA36EB8EC1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				562EEA0D5B13BF57362F67259339CE9E /* Pods-DiamondXE-DiamondXEUITests-dummy.m in Sources */,
+				8F3178E797B0264905A5C53D7AF1066A /* Pods-DiamondXE-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		938FDC3E31CA82EA637719AED22FE9EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30C33AA2C4F16032DCD02B2C64C4F174 /* Pods-DiamondXE-DiamondXEUITests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,42 +728,70 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		30CE059ECA367D586E18A027FDDA6CDC /* PBXTargetDependency */ = {
+		1336849A74F54B64B9C0D47D16EF2E40 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = DTTextField;
 			target = 66802D2DB565AB26B03BBF87DB94F22F /* DTTextField */;
-			targetProxy = 9B68C3717EF636DDE4F1FBB30691E1FA /* PBXContainerItemProxy */;
+			targetProxy = 249D49F3A892E426969FCC1E327013C6 /* PBXContainerItemProxy */;
 		};
-		82F99D03B4A016068AC29E2C8A552347 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = DTTextField;
-			target = 66802D2DB565AB26B03BBF87DB94F22F /* DTTextField */;
-			targetProxy = DD0D5FFEDB66095CF7C70F66117F9CA1 /* PBXContainerItemProxy */;
-		};
-		A91F9EA7F104A7DEF9DA498A69C761A1 /* PBXTargetDependency */ = {
+		1B21EF87C5BD9D5A05C1EF7D347D6C18 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = DropDown;
 			target = E9F9401E9C74C0C393164FD8D86D0068 /* DropDown */;
-			targetProxy = 216E97AA388DCC31CE2E0205817AF0FD /* PBXContainerItemProxy */;
+			targetProxy = 5CA8E6A60B32DBDEB2278E80AE8F8341 /* PBXContainerItemProxy */;
 		};
-		D5A1E3254A180282522EC906AFE90A92 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = DropDown;
-			target = E9F9401E9C74C0C393164FD8D86D0068 /* DropDown */;
-			targetProxy = F1690D93FC642E59E561297A6F0D6F3A /* PBXContainerItemProxy */;
-		};
-		F202AB9413E2123DD1F4E10CD2A40852 /* PBXTargetDependency */ = {
+		3B9563B4A203A7660B6E9162CDD20EAF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-DiamondXE";
 			target = 7DF84BE890F41E4A28E2765CE3001F81 /* Pods-DiamondXE */;
-			targetProxy = 820802EF01E7298A2E0EF89767C41BB1 /* PBXContainerItemProxy */;
+			targetProxy = 4444E46C8F4C36BE20940241AE88574E /* PBXContainerItemProxy */;
+		};
+		600C851B4885BC2C7BAC3685C4C851A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PhonePePayment;
+			target = F6A43AC75024799F4CE9B382496CA5C5 /* PhonePePayment */;
+			targetProxy = FC8F8D62FB761A331BD41A9ECD4E84A9 /* PBXContainerItemProxy */;
+		};
+		8887ECD115C0E5F000FB73DE26B26052 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PhonePePayment;
+			target = F6A43AC75024799F4CE9B382496CA5C5 /* PhonePePayment */;
+			targetProxy = ECECE10C458B4ED72C727452C86D8724 /* PBXContainerItemProxy */;
+		};
+		A7F54EE6896F899E7BC9459A3273B123 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DTTextField;
+			target = 66802D2DB565AB26B03BBF87DB94F22F /* DTTextField */;
+			targetProxy = 8E1BE8D3C9A281B71641DBFB1EC640D5 /* PBXContainerItemProxy */;
+		};
+		F89DCB7C4D608E556A6955167AD3B379 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DropDown;
+			target = E9F9401E9C74C0C393164FD8D86D0068 /* DropDown */;
+			targetProxy = 75968352E1C608D1B4F451CF99EB9963 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		03F39CB8D1E21644FC6E6808E8A4A2EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4816D3AEBFDBDBCC7597FD9508585CA2 /* PhonePePayment.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		0C23B2D284B6F9DF8F2F8CA5035B0350 /* Debug(Staging) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE61B762C6006924B783F8287592C351 /* DropDown.release.xcconfig */;
+			baseConfigurationReference = 468178D0862D900BBE312CA6271651F2 /* DropDown.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -712,82 +824,9 @@
 			};
 			name = "Debug(Staging)";
 		};
-		147A54CEFB8D76EFD8364FD840CCFDA1 /* Debug(Dev) */ = {
+		0F07539852D421DC411A12960AD0A175 /* Debug(Dev) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0D791482AF5580866E81B0D87381F0E /* Pods-DiamondXE.debug(dev).xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Debug(Dev)";
-		};
-		191566CF75BBBB24C7F761CF47A305FD /* Debug(Production) */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE61B762C6006924B783F8287592C351 /* DropDown.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/DropDown/DropDown-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DropDown/DropDown-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/DropDown/DropDown.modulemap";
-				PRODUCT_MODULE_NAME = DropDown;
-				PRODUCT_NAME = DropDown;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Debug(Production)";
-		};
-		19DDF074EC3B9D4FA0A32F122B44E0CC /* Debug(Staging) */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E23309C5B8769416721844E99473FF80 /* Pods-DiamondXE-DiamondXEUITests.debug(staging).xcconfig */;
+			baseConfigurationReference = A51B8E7A8B0E262824F0FA0C76BF6C04 /* Pods-DiamondXE-DiamondXEUITests.debug(dev).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -821,7 +860,42 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = "Debug(Staging)";
+			name = "Debug(Dev)";
+		};
+		191566CF75BBBB24C7F761CF47A305FD /* Debug(Production) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 468178D0862D900BBE312CA6271651F2 /* DropDown.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DropDown/DropDown-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DropDown/DropDown-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/DropDown/DropDown.modulemap";
+				PRODUCT_MODULE_NAME = DropDown;
+				PRODUCT_NAME = DropDown;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = "Debug(Production)";
 		};
 		1F3398653BC83F545021C2153AF8F28F /* Debug(Dev) */ = {
 			isa = XCBuildConfiguration;
@@ -884,6 +958,44 @@
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = "Debug(Dev)";
+		};
+		21CA49FF27CEF42EACEB9507E13A2D1D /* Release(Production) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2475323B647424EA571BDC0E6A9D9B7 /* Pods-DiamondXE-DiamondXEUITests.release(production).xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = "Release(Production)";
 		};
 		220C02FEA8BEB74D2C4B86621E0EB7D6 /* Debug(Staging) */ = {
 			isa = XCBuildConfiguration;
@@ -986,7 +1098,7 @@
 		};
 		28A22FED61E7E8BD07F1355B86370004 /* Release(Dev) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE61B762C6006924B783F8287592C351 /* DropDown.release.xcconfig */;
+			baseConfigurationReference = 468178D0862D900BBE312CA6271651F2 /* DropDown.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1019,9 +1131,9 @@
 			};
 			name = "Release(Dev)";
 		};
-		45B69911D8A4702129E265CCA9AB12EA /* Release */ = {
+		384AC0D09A69C8E334E55EC45D77C618 /* Release(Staging) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F4CD544B52B9C5EEA95D828F58297E4 /* Pods-DiamondXE.release.xcconfig */;
+			baseConfigurationReference = 7D028B36B541B695CC6422B206F4C2BF /* Pods-DiamondXE.release(staging).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1055,11 +1167,49 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = "Release(Staging)";
+		};
+		408498C8599C224015A219C86654FB1D /* Release(Staging) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1CA304370749751375F2550871B85C3 /* Pods-DiamondXE-DiamondXEUITests.release(staging).xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = "Release(Staging)";
 		};
 		4781D32EA8E6B4FF2F6FEB2BC37EC1EF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8227580F12F4D9C171A76AF78B9A7F94 /* DTTextField.release.xcconfig */;
+			baseConfigurationReference = 72C807C6146611DCA92C66AA961EF67A /* DTTextField.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1091,6 +1241,23 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		4988A1BD937A2E91C36B4BA7DEF99CBD /* Release(Dev) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C091C7774A9E77E968D14F86160DEF9B /* PhonePePayment.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release(Dev)";
 		};
 		4C3368B15BD03862F99412C1720CB964 /* Debug(Dev) */ = {
 			isa = XCBuildConfiguration;
@@ -1130,9 +1297,9 @@
 			};
 			name = "Debug(Dev)";
 		};
-		4D759F9407E1CC05098641494372590E /* Debug(Production) */ = {
+		4C96C7D2B485064736A2003BED87CA1E /* Debug(Staging) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B548AEE4179622FE4F4449D678B7E65 /* Pods-DiamondXE.debug(production).xcconfig */;
+			baseConfigurationReference = E23309C5B8769416721844E99473FF80 /* Pods-DiamondXE-DiamondXEUITests.debug(staging).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1144,7 +1311,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1153,7 +1320,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -1166,7 +1333,7 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = "Debug(Production)";
+			name = "Debug(Staging)";
 		};
 		4FFAB1A59870B7CED06D8FB92F8116BF /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1208,7 +1375,7 @@
 		};
 		59066199129F73D93C665862D58F76A6 /* Release(Staging) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8227580F12F4D9C171A76AF78B9A7F94 /* DTTextField.release.xcconfig */;
+			baseConfigurationReference = 72C807C6146611DCA92C66AA961EF67A /* DTTextField.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1243,7 +1410,7 @@
 		};
 		5ACB4AD72A799DBF02C609637EDD6059 /* Release(Staging) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE61B762C6006924B783F8287592C351 /* DropDown.release.xcconfig */;
+			baseConfigurationReference = 468178D0862D900BBE312CA6271651F2 /* DropDown.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1278,7 +1445,7 @@
 		};
 		5EADC96C94E2E727496B4895473F8F82 /* Debug(Staging) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8227580F12F4D9C171A76AF78B9A7F94 /* DTTextField.release.xcconfig */;
+			baseConfigurationReference = 72C807C6146611DCA92C66AA961EF67A /* DTTextField.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1311,9 +1478,101 @@
 			};
 			name = "Debug(Staging)";
 		};
-		65E454C62093596EC1AAD910704A2DE9 /* Debug(Dev) */ = {
+		5EC67FF9281B43BEC9E038473E8352F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A51B8E7A8B0E262824F0FA0C76BF6C04 /* Pods-DiamondXE-DiamondXEUITests.debug(dev).xcconfig */;
+			baseConfigurationReference = 84C28355E36539EE8E2309ED8EB1D68E /* Pods-DiamondXE-DiamondXEUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		650C16964CBF0FEB5955C81A8B538F5A /* Debug(Dev) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0D791482AF5580866E81B0D87381F0E /* Pods-DiamondXE.debug(dev).xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = "Debug(Dev)";
+		};
+		6578D5E1E652A11DF6915FB314FB0259 /* Release(Staging) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C091C7774A9E77E968D14F86160DEF9B /* PhonePePayment.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release(Staging)";
+		};
+		669676DCE83EE67C4C364EEE43091101 /* Release(Dev) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8C852F9D4716544E1817EF443918FEC /* Pods-DiamondXE-DiamondXEUITests.release(dev).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1347,11 +1606,11 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = "Debug(Dev)";
+			name = "Release(Dev)";
 		};
-		6AEFF9A5C3D70D70B11C246FC11CE0A3 /* Debug(Production) */ = {
+		6836F8F14535918E63F40EDBEF870844 /* Debug(Production) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E64E6735D70C7D52FDC4D84AB7CC62C9 /* Pods-DiamondXE-DiamondXEUITests.debug(production).xcconfig */;
+			baseConfigurationReference = 1B548AEE4179622FE4F4449D678B7E65 /* Pods-DiamondXE.debug(production).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1363,7 +1622,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1372,7 +1631,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -1389,7 +1648,7 @@
 		};
 		6EB37F541528C05329BB7A1E90CEDFBE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE61B762C6006924B783F8287592C351 /* DropDown.release.xcconfig */;
+			baseConfigurationReference = 468178D0862D900BBE312CA6271651F2 /* DropDown.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1421,81 +1680,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		7030D70812E55D37CEC3A549A1B866D0 /* Release(Staging) */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D028B36B541B695CC6422B206F4C2BF /* Pods-DiamondXE.release(staging).xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Release(Staging)";
-		};
-		710A542EBDCA66E830A1CE1C5D86B185 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7A2B0C91E220F05C89553D958FB582A /* Pods-DiamondXE.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		75231E696EC79842198599A777800E31 /* Release(Production) */ = {
 			isa = XCBuildConfiguration;
@@ -1535,6 +1719,44 @@
 			};
 			name = "Release(Production)";
 		};
+		77913D7C85E70CAF58FFA0DBD931B1BA /* Release(Dev) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9649FC99CC8A25B3D90D1072119E391B /* Pods-DiamondXE.release(dev).xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = "Release(Dev)";
+		};
 		7AA0C597B66E55DEB43C9309E3654A68 /* Release(Dev) */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D125FAA1A58C50BDAA3817FB3B6D50C0 /* Pods-DiamondXETests.release(dev).xcconfig */;
@@ -1573,9 +1795,47 @@
 			};
 			name = "Release(Dev)";
 		};
+		80788D4B4D7510A89E988F803A0DAB4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32692E89549F68CB6B41F0C9DA0E524F /* Pods-DiamondXE-DiamondXEUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		83E418B281142F4DE2773EE273FC14CB /* Release(Production) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE61B762C6006924B783F8287592C351 /* DropDown.release.xcconfig */;
+			baseConfigurationReference = 468178D0862D900BBE312CA6271651F2 /* DropDown.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1670,7 +1930,24 @@
 			};
 			name = "Release(Staging)";
 		};
-		8C10E75CBEBC70085660DB7DF0677852 /* Release(Production) */ = {
+		868BF57F326D7261B24A6FAC5FBF8C70 /* Debug(Dev) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C091C7774A9E77E968D14F86160DEF9B /* PhonePePayment.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Debug(Dev)";
+		};
+		86E8D2847D1A93239C9FD62228007520 /* Release(Production) */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 601EBB9C3E733307E1C680357C4716F2 /* Pods-DiamondXE.release(production).xcconfig */;
 			buildSettings = {
@@ -1776,7 +2053,7 @@
 		};
 		8E9948A5A8C790A4694ECCDB4D8D5755 /* Release(Dev) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8227580F12F4D9C171A76AF78B9A7F94 /* DTTextField.release.xcconfig */;
+			baseConfigurationReference = 72C807C6146611DCA92C66AA961EF67A /* DTTextField.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1809,9 +2086,47 @@
 			};
 			name = "Release(Dev)";
 		};
+		8F5CDA0B36D4F929B532987795EB639E /* Debug(Production) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E64E6735D70C7D52FDC4D84AB7CC62C9 /* Pods-DiamondXE-DiamondXEUITests.debug(production).xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = "Debug(Production)";
+		};
 		947CD69BC7B985598A2EDB9C04CAFFF2 /* Debug(Production) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8227580F12F4D9C171A76AF78B9A7F94 /* DTTextField.release.xcconfig */;
+			baseConfigurationReference = 72C807C6146611DCA92C66AA961EF67A /* DTTextField.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1846,7 +2161,7 @@
 		};
 		957FA3931D9B3DE1B901F0364DF46429 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F43320BB4F87B68B75EA19BCCCC86A4C /* DropDown.debug.xcconfig */;
+			baseConfigurationReference = 6381564F4C30B9EA126F2BA553E2A32E /* DropDown.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1980,7 +2295,7 @@
 		};
 		A72C8690AABB3D7DFA1EB4694098543A /* Debug(Dev) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8227580F12F4D9C171A76AF78B9A7F94 /* DTTextField.release.xcconfig */;
+			baseConfigurationReference = 72C807C6146611DCA92C66AA961EF67A /* DTTextField.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2012,44 +2327,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = "Debug(Dev)";
-		};
-		A7F6AD3F2FBC60BA77FA1044F4D99D89 /* Release(Production) */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2475323B647424EA571BDC0E6A9D9B7 /* Pods-DiamondXE-DiamondXEUITests.release(production).xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Release(Production)";
 		};
 		AAB2A187ABA94B527DC42C00BBA14CB7 /* Release(Staging) */ = {
 			isa = XCBuildConfiguration;
@@ -2091,7 +2368,7 @@
 		};
 		AAD043F13AB991A34AF99BCF25718610 /* Release(Production) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8227580F12F4D9C171A76AF78B9A7F94 /* DTTextField.release.xcconfig */;
+			baseConfigurationReference = 72C807C6146611DCA92C66AA961EF67A /* DTTextField.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2124,47 +2401,26 @@
 			};
 			name = "Release(Production)";
 		};
-		AEEFB0CC35646F3CFE125FEC15DDE0C0 /* Release(Dev) */ = {
+		AB876EA266CFA203478F92C164C8CD3E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8C852F9D4716544E1817EF443918FEC /* Pods-DiamondXE-DiamondXEUITests.release(dev).xcconfig */;
+			baseConfigurationReference = C091C7774A9E77E968D14F86160DEF9B /* PhonePePayment.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
-			name = "Release(Dev)";
+			name = Release;
 		};
-		B0E3C8B05A49FF13BFCB64C31D513565 /* Release(Staging) */ = {
+		B0EFD4578026181905C1CE17F767B1D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1CA304370749751375F2550871B85C3 /* Pods-DiamondXE-DiamondXEUITests.release(staging).xcconfig */;
+			baseConfigurationReference = B7A2B0C91E220F05C89553D958FB582A /* Pods-DiamondXE.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2176,7 +2432,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2185,7 +2441,44 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B5957D3BC4967899C151F66A3E270DD2 /* Debug(Staging) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21018293F0F459B95BF6911294324EB1 /* Pods-DiamondXE.debug(staging).xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2198,7 +2491,45 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = "Release(Staging)";
+			name = "Debug(Staging)";
+		};
+		B7BEB0BBD25EBC8E6901A18678AD424F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F4CD544B52B9C5EEA95D828F58297E4 /* Pods-DiamondXE.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		B8B2941CA5271EE5CE57CC246CBA314D /* Debug(Production) */ = {
 			isa = XCBuildConfiguration;
@@ -2264,7 +2595,7 @@
 		};
 		BC7973893BF838674541592FDF2CDEEE /* Debug(Dev) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE61B762C6006924B783F8287592C351 /* DropDown.release.xcconfig */;
+			baseConfigurationReference = 468178D0862D900BBE312CA6271651F2 /* DropDown.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2297,47 +2628,9 @@
 			};
 			name = "Debug(Dev)";
 		};
-		C264F8104A5E24DF8BA9469AA644DF3C /* Release(Dev) */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9649FC99CC8A25B3D90D1072119E391B /* Pods-DiamondXE.release(dev).xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = "Release(Dev)";
-		};
 		C4E8FFB91E7C9F3E8314EC73318CD325 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E77FE870568FB42CC39BDB445BB2C312 /* DTTextField.debug.xcconfig */;
+			baseConfigurationReference = 67AB6DF345218112E43D58C5312468DC /* DTTextField.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2430,44 +2723,6 @@
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = "Release(Dev)";
-		};
-		D418042CB8713CFA2DFEF52F791294BC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32692E89549F68CB6B41F0C9DA0E524F /* Pods-DiamondXE-DiamondXEUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		D42CC8643933831206CAA6550C0BF4D4 /* Debug(Production) */ = {
 			isa = XCBuildConfiguration;
@@ -2569,110 +2824,71 @@
 			};
 			name = "Release(Production)";
 		};
-		DBC0575B7DAFE07CBF4872C92571499D /* Debug */ = {
+		E40931BA2D0FBD891217FD02641F4A47 /* Debug(Staging) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84C28355E36539EE8E2309ED8EB1D68E /* Pods-DiamondXE-DiamondXEUITests.debug.xcconfig */;
+			baseConfigurationReference = C091C7774A9E77E968D14F86160DEF9B /* PhonePePayment.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE-DiamondXEUITests/Pods-DiamondXE-DiamondXEUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		E6B4F42F693720B08781F3F254228AB9 /* Debug(Staging) */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21018293F0F459B95BF6911294324EB1 /* Pods-DiamondXE.debug(staging).xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DiamondXE/Pods-DiamondXE.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = "Debug(Staging)";
+		};
+		EC70A3C811F5AC336B7A5CF219DC7B75 /* Release(Production) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C091C7774A9E77E968D14F86160DEF9B /* PhonePePayment.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release(Production)";
+		};
+		F270CECCB4C18915F14C15FB221B30B7 /* Debug(Production) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C091C7774A9E77E968D14F86160DEF9B /* PhonePePayment.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Debug(Production)";
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3C0821FFAEBBB630C8644B2D545A4C13 /* Build configuration list for PBXNativeTarget "Pods-DiamondXE" */ = {
+		3A4442342DA6AF81DA6440B16D927F3D /* Build configuration list for PBXAggregateTarget "PhonePePayment" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				710A542EBDCA66E830A1CE1C5D86B185 /* Debug */,
-				147A54CEFB8D76EFD8364FD840CCFDA1 /* Debug(Dev) */,
-				4D759F9407E1CC05098641494372590E /* Debug(Production) */,
-				E6B4F42F693720B08781F3F254228AB9 /* Debug(Staging) */,
-				45B69911D8A4702129E265CCA9AB12EA /* Release */,
-				C264F8104A5E24DF8BA9469AA644DF3C /* Release(Dev) */,
-				8C10E75CBEBC70085660DB7DF0677852 /* Release(Production) */,
-				7030D70812E55D37CEC3A549A1B866D0 /* Release(Staging) */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		43776B1E5BC8E024191E812D6EB8F6D0 /* Build configuration list for PBXNativeTarget "Pods-DiamondXE-DiamondXEUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DBC0575B7DAFE07CBF4872C92571499D /* Debug */,
-				65E454C62093596EC1AAD910704A2DE9 /* Debug(Dev) */,
-				6AEFF9A5C3D70D70B11C246FC11CE0A3 /* Debug(Production) */,
-				19DDF074EC3B9D4FA0A32F122B44E0CC /* Debug(Staging) */,
-				D418042CB8713CFA2DFEF52F791294BC /* Release */,
-				AEEFB0CC35646F3CFE125FEC15DDE0C0 /* Release(Dev) */,
-				A7F6AD3F2FBC60BA77FA1044F4D99D89 /* Release(Production) */,
-				B0E3C8B05A49FF13BFCB64C31D513565 /* Release(Staging) */,
+				03F39CB8D1E21644FC6E6808E8A4A2EA /* Debug */,
+				868BF57F326D7261B24A6FAC5FBF8C70 /* Debug(Dev) */,
+				F270CECCB4C18915F14C15FB221B30B7 /* Debug(Production) */,
+				E40931BA2D0FBD891217FD02641F4A47 /* Debug(Staging) */,
+				AB876EA266CFA203478F92C164C8CD3E /* Release */,
+				4988A1BD937A2E91C36B4BA7DEF99CBD /* Release(Dev) */,
+				EC70A3C811F5AC336B7A5CF219DC7B75 /* Release(Production) */,
+				6578D5E1E652A11DF6915FB314FB0259 /* Release(Staging) */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2688,6 +2904,21 @@
 				D05CB31F9E0750012BB5DF30759BB768 /* Release(Dev) */,
 				D945170E63893EDB293BB7B9323C9DEE /* Release(Production) */,
 				849DB2CC4759798DC19F551B6D164FDA /* Release(Staging) */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		593D373A29C3DDC141237BB61A6BACEA /* Build configuration list for PBXNativeTarget "Pods-DiamondXE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0EFD4578026181905C1CE17F767B1D6 /* Debug */,
+				650C16964CBF0FEB5955C81A8B538F5A /* Debug(Dev) */,
+				6836F8F14535918E63F40EDBEF870844 /* Debug(Production) */,
+				B5957D3BC4967899C151F66A3E270DD2 /* Debug(Staging) */,
+				B7BEB0BBD25EBC8E6901A18678AD424F /* Release */,
+				77913D7C85E70CAF58FFA0DBD931B1BA /* Release(Dev) */,
+				86E8D2847D1A93239C9FD62228007520 /* Release(Production) */,
+				384AC0D09A69C8E334E55EC45D77C618 /* Release(Staging) */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2733,6 +2964,21 @@
 				8E9948A5A8C790A4694ECCDB4D8D5755 /* Release(Dev) */,
 				AAD043F13AB991A34AF99BCF25718610 /* Release(Production) */,
 				59066199129F73D93C665862D58F76A6 /* Release(Staging) */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAF9C8EA08958B3E1396EC011A2991D6 /* Build configuration list for PBXNativeTarget "Pods-DiamondXE-DiamondXEUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EC67FF9281B43BEC9E038473E8352F9 /* Debug */,
+				0F07539852D421DC411A12960AD0A175 /* Debug(Dev) */,
+				8F5CDA0B36D4F929B532987795EB639E /* Debug(Production) */,
+				4C96C7D2B485064736A2003BED87CA1E /* Debug(Staging) */,
+				80788D4B4D7510A89E988F803A0DAB4B /* Release */,
+				669676DCE83EE67C4C364EEE43091101 /* Release(Dev) */,
+				21CA49FF27CEF42EACEB9507E13A2D1D /* Release(Production) */,
+				408498C8599C224015A219C86654FB1D /* Release(Staging) */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

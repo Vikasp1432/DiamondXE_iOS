@@ -1,20 +1,24 @@
 PODS:
   - DropDown (2.3.13)
   - DTTextField (0.7.0)
+  - PhonePePayment (4.0.0)
 
 DEPENDENCIES:
   - DropDown
   - DTTextField
+  - PhonePePayment
 
 SPEC REPOS:
   trunk:
     - DropDown
     - DTTextField
+    - PhonePePayment
 
 SPEC CHECKSUMS:
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   DTTextField: 768d5991211599145f289971e5936f8bb29990bb
+  PhonePePayment: c720ada91c0976d6888a44571ced348ed8cd7d83
 
-PODFILE CHECKSUM: 7f1ae067fb7644f2b9faf6675e9960ac8e4db9d8
+PODFILE CHECKSUM: b73db7d9ed2f3ca2d63a28fa17d8e4d6a5fdb782
 
 COCOAPODS: 1.15.2

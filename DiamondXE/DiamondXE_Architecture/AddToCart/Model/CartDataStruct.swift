@@ -195,7 +195,7 @@ struct CardDataDetail: Codable {
     var status: String?
     var onHold: Int?
     var dxeMarkup: String?
-    var dealerMarkupCommission, platformFeeTax, shippingChargeTax, totalAmount: Int?
+    var  platformFeeTax, shippingChargeTax, totalAmount: Int?//dealerMarkupCommission,
     var totalTax, totalCharges: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -230,7 +230,7 @@ struct CardDataDetail: Codable {
         case status
         case onHold = "on_hold"
         case dxeMarkup = "dxe_markup"
-        case dealerMarkupCommission = "dealer_markup_commission"
+      //  case dealerMarkupCommission = "dealer_markup_commission"
         case platformFeeTax = "platform_fee_tax"
         case shippingChargeTax = "shipping_charge_tax"
         case totalAmount = "total_amount"

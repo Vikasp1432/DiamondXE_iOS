@@ -189,6 +189,12 @@ extension SearchDiamondVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchDiamondTVC.cellIdentifierSearchDiamondTVC, for: indexPath) as! SearchDiamondTVC
         cell.delegate = self
+        
+        cell.clearAll = {
+            self.txtSearchKeyword.text = ""
+            DataManager.shared.keyWordSearch = ""
+        }
+        
         cell.setGradientBtn(string: self.strTitle ?? "")
         cell.filterDataStruct(searchAttributeStruct: self.searchAttributeStruct)
         cell.btnActionAdvanceFilter = { selectedMake in

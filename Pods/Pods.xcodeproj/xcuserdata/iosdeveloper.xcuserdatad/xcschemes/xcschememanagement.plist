@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PhonePePayment.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-DiamondXE-DiamondXEUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>

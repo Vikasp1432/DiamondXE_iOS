@@ -433,16 +433,16 @@
     </objects>
     <designables>
         <designable name="XMP-Pf-Tr6">
-            <size key="intrinsicContentSize" width="205" height="34"/>
+            <size key="intrinsicContentSize" width="193" height="41.333333333333329"/>
         </designable>
         <designable name="biB-7z-4Hj">
-            <size key="intrinsicContentSize" width="172" height="15.666666666666666"/>
+            <size key="intrinsicContentSize" width="188" height="40.666666666666664"/>
         </designable>
         <designable name="gQG-0X-BsN">
-            <size key="intrinsicContentSize" width="90.666666666666671" height="15.666666666666666"/>
+            <size key="intrinsicContentSize" width="106.66666666666667" height="40.666666666666664"/>
         </designable>
         <designable name="yf5-G3-e9o">
-            <size key="intrinsicContentSize" width="152" height="34"/>
+            <size key="intrinsicContentSize" width="140" height="41.333333333333329"/>
         </designable>
     </designables>
     <resources>

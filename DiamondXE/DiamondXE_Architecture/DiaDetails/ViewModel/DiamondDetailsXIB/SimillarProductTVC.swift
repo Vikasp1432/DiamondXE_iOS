@@ -178,10 +178,10 @@ class SimillarProductTVC: UITableViewCell {
              cell.lblCirtificateNum.text = self.diaDataObj[indexPath.row].stockNO
              cell.lblLotID.text = "ID: \(self.diaDataObj[indexPath.row].supplierID ?? "")"
              cell.btnShape.text = self.diaDataObj[indexPath.row].shape
-             cell.lblCarat.text = "Ct\(self.diaDataObj[indexPath.row].carat ?? "")"
+             cell.lblCarat.text = "\(self.diaDataObj[indexPath.row].carat ?? "")Ct"
              cell.lblClor.text = self.diaDataObj[indexPath.row].color
              cell.lblClarity.text = self.diaDataObj[indexPath.row].clarity
-             cell.lblCarat.text = self.diaDataObj[indexPath.row].carat
+            // cell.lblCarat.text = self.diaDataObj[indexPath.row].carat
              
              
              if let availibility = self.diaDataObj[indexPath.row].status{

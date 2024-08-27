@@ -107,6 +107,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         CurrencyRatesManager.shareInstence.getCurrencyRates()
+        SwipeGestureUtility.addSwipeGesture(to: self.view, navigationController: self.navigationController)
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
         // Do any additional setup after loading the view.
@@ -495,7 +496,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
     
     
     func fetchDamondData(page: Int, limit: Int, param:[String:Any]) {
-        
+        self.dataNotFound.isHidden = true
         isLoading = true
         let url = APIs().get_Diamond_API
         
@@ -566,7 +567,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
                 
                 if let cell = self.tableViewList.cellForRow(at: indexPath) as? B2CSearchResultCardListingCell {
                     cell.btnCard.setTitleColor(.themeClr, for: .normal)
-                   // cell.btnCard.setTitle("", for: .normal)
+                    cell.btnCard.setTitle("Go to cart", for: .normal)
                     cartVCIsComeFromHome = false
                 }
                 
@@ -667,7 +668,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
         let string = titleArr[indexPth.row]
         let components = string.components(separatedBy: ":")
 
-        print(self.colorArr)
+        //print(Remove Filter Call)
         switch components[0] {
         case "Color":
             self.colorArr.removeAll { $0 == components[1] }
@@ -745,12 +746,15 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
             self.lotID.removeAll { $0 == components[1] }
         case "Location":
             self.location.removeAll { $0 == components[1] }
-        
+            
+        case "Keyword":
+            DataManager.shared.keyWordSearch = ""
         default:
             print("key")
            
 
         }
+        
         self.setParamAndAPICalling()
         titleArr.remove(at: indexPth.row)
         filterCollectionView.reloadData()
@@ -1075,7 +1079,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                     cell.lblCirtificateNum.text = self.diamondListDetails[indexPath.row].stockNO
                     cell.lblLotID.text = "ID: \(self.diamondListDetails[indexPath.row].supplierID ?? "")"
                     cell.lblShape.text = self.diamondListDetails[indexPath.row].shape
-                    cell.lblCarat.text = "Ct\(self.diamondListDetails[indexPath.row].carat ?? "")"
+                    cell.lblCarat.text = "\(self.diamondListDetails[indexPath.row].carat ?? "")Ct"
                     cell.lblClor.text = self.diamondListDetails[indexPath.row].color
                     cell.lblClarity.text = self.diamondListDetails[indexPath.row].clarity
                    // cell.lblCarat.text = self.diamondListDetails[indexPath.row].carat
@@ -1422,7 +1426,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 cell.lblCirtificateNum.text = self.diamondListDetails[indexPath.row].stockNO
                 cell.lblLotID.text = "ID: \(self.diamondListDetails[indexPath.row].supplierID ?? "")"
                 cell.btnShape.text = self.diamondListDetails[indexPath.row].shape
-                cell.lblCarat.text = "Ct\(self.diamondListDetails[indexPath.row].carat ?? "")"
+                cell.lblCarat.text = "\(self.diamondListDetails[indexPath.row].carat ?? "")Ct"
                 cell.lblClor.text = self.diamondListDetails[indexPath.row].color
                 cell.lblClarity.text = self.diamondListDetails[indexPath.row].clarity
                 //cell.lblCarat.text = self.diamondListDetails[indexPath.row].carat

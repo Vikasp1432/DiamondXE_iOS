@@ -29,6 +29,8 @@ class AddToWishListVC: BaseViewController, ChildViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SwipeGestureUtility.addSwipeGesture(to: self.view, navigationController: self.navigationController)
+        
         if isComeFromHome {
             headerViewHeight.constant = 0
         }else{

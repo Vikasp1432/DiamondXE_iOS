@@ -40,6 +40,9 @@ class ProductDetailsTVC: UITableViewCell,  ShimmeringViewProtocol{
     @IBOutlet var viewCertificate :UIView!
     @IBOutlet var viewDiscount :UIView!
     
+    @IBOutlet var StockNoView :UIView!
+    @IBOutlet var ShapeInfoView :UIView!
+    
     @IBOutlet var lblDevidr1: UILabel!
     @IBOutlet var lblDevidr2: UILabel!
     @IBOutlet var lblDevidr3 :UILabel!
@@ -50,6 +53,8 @@ class ProductDetailsTVC: UITableViewCell,  ShimmeringViewProtocol{
     
     var shimmeringAnimatedItems: [UIView] {
         [
+            StockNoView,
+            ShapeInfoView,
             lblDocNumber,
             lblLotID,
             lblShape,

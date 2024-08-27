@@ -52,6 +52,9 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
     var home = CGAffineTransform()
     var diamondDetails = DiamondListingDetail()
     var diamondDetailsDocID = String()
+    var byTopDeals = false
+    var isByCard = false
+    var isBydWish = false
     
     
     @IBOutlet var viewTabBar:UIView!
@@ -516,6 +519,8 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             self.gotoSearchDiamondVC(title: "Solitaires")
         default:
             self.navigationManager(storybordName: "CategoriesVC", storyboardID: "CommingSoonVC", controller: CommingSoonVC())
+            
+//            self.navigationManager(storybordName: "PaymentModule", storyboardID: "PaymentModuleVC", controller: PaymentModuleVC())
         }
        
        }
@@ -525,6 +530,10 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             return
         }
         cartVCIsComeFromHome = true
+//        self.byTopDeals = false
+//        self.isByCard = false
+//        self.isBydWish = false
+       
         let direction: SlideDirection = {
             if let currentIdentifier = currentViewControllerIdentifier,
                let currentIndex = viewControllerIdentifiers.firstIndex(of: currentIdentifier),
@@ -538,22 +547,32 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
         guard let newViewController = storyboard.instantiateViewController(withIdentifier: identifier) as? ChildViewControllerProtocol else { return }
         if let diamondDetailsVC = newViewController as? HomeVC {
             diamondDetailsVC.dashBoardVC = self
+            byTopDeals = true
             self.btnSearch.setImage(UIImage(named: "SearchI"), for: .normal)
             
         }
         if let diamondDetailsVC = newViewController as? SearchDiamondVC {
             self.diamondDetailsDocID = String()
+            self.byTopDeals = false
+            self.isByCard = false
+            self.isBydWish = false
             self.btnSearch.setImage(UIImage(named: "SearchI"), for: .normal)
         }
         
         
         if let addToCartVC = newViewController as? AddToCartVC{
             addToCartVC.dashboardVC = self
+            self.isByCard = true
+            self.byTopDeals = false
+            self.isBydWish = false
             addToCartVC.currencyRateDetailObj = self.currencySelectObj
         }
         
         if let addToWishListVC = newViewController as? AddToWishListVC{
             addToWishListVC.dashboardVC = self
+            self.isBydWish = true
+            self.byTopDeals = false
+            self.isByCard = false
             addToWishListVC.currencyRateDetailObj = self.currencySelectObj
         }
         
@@ -565,11 +584,17 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             diamondDetailsVC.currencyRateDetailObj = self.currencySelectObj
             diamondDetailsVC.diamondInfo = self.diamondDetails
             self.btnSearch.setImage(UIImage(named: "plus"), for: .normal)
+            self.sideMenuBtnTag = 1
+            self.btnSideMenu.setImage(UIImage(named: "backButton"), for: .normal)
+            self.lblTitle.isHidden = false
+            self.imgLOGO.isHidden = true
+            self.stackIcons.isHidden = true
         }
         
         if let b2bSearchDiamondVC = newViewController as? B2BSearchResultVC {
             b2bSearchDiamondVC.dashboardVC = self
             b2bSearchDiamondVC.updateCurreny(currncyOBJ: self.currencySelectObj)
+            self.byTopDeals = false
             self.btnSearch.setImage(UIImage(named: "plus"), for: .normal)
         }
         self.currncyValChange(currncyValObj: self.currencySelectObj)
@@ -715,6 +740,82 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
     }
     
     
+    func homeVCManage(){
+        let identifier = viewControllerIdentifiers[0]
+        let storyboardName = storyboardNames[0]
+        loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
+        self.sideMenuBtnTag = 0
+        updateHeaderBG(setUpTag: 1)
+        self.btnSideMenu.setImage(UIImage(named: "sideMenu"), for: .normal)
+        self.lblTitle.isHidden = true
+        self.imgLOGO.isHidden = false
+        self.stackIcons.isHidden = false
+        isComeFromHome = true
+        cartVCIsComeFromHome = true
+        
+        self.btnHome.tintColor = .themeClr
+        self.btnCategory.tintColor = .clrGray
+        self.btnWish.tintColor = .clrGray
+        self.btnCart.tintColor = .clrGray
+        self.btnLogin.tintColor = .clrGray
+        self.btnTitleHome.setTitleColor(UIColor.themeClr, for: .normal)
+        self.btnTitleCategory.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
+    }
+    
+    func WishListManage(){
+        let identifier = viewControllerIdentifiers[2]
+        let storyboardName = storyboardNames[2]
+        loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
+        self.sideMenuBtnTag = 0
+        updateHeaderBG(setUpTag: 1)
+        self.btnSideMenu.setImage(UIImage(named: "sideMenu"), for: .normal)
+        self.lblTitle.isHidden = true
+        self.imgLOGO.isHidden = false
+        self.stackIcons.isHidden = false
+        isComeFromHome = true
+        cartVCIsComeFromHome = true
+        
+        self.btnHome.tintColor = .clrGray
+        self.btnCategory.tintColor = .clrGray
+        self.btnWish.tintColor = .themeClr
+        self.btnCart.tintColor = .clrGray
+        self.btnLogin.tintColor = .clrGray
+        self.btnTitleHome.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleCategory.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleWish.setTitleColor(UIColor.themeClr, for: .normal)
+        self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
+    }
+    
+    func cardListManage(){
+        let identifier = viewControllerIdentifiers[3]
+        let storyboardName = storyboardNames[3]
+        loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
+        self.sideMenuBtnTag = 0
+        updateHeaderBG(setUpTag: 1)
+        self.btnSideMenu.setImage(UIImage(named: "sideMenu"), for: .normal)
+        self.lblTitle.isHidden = true
+        self.imgLOGO.isHidden = false
+        self.stackIcons.isHidden = false
+        isComeFromHome = true
+        cartVCIsComeFromHome = true
+        
+        self.btnHome.tintColor = .clrGray
+        self.btnCategory.tintColor = .clrGray
+        self.btnWish.tintColor = .clrGray
+        self.btnCart.tintColor = .themeClr
+        self.btnLogin.tintColor = .clrGray
+        self.btnTitleHome.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleCategory.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
+        self.btnTitleCart.setTitleColor(UIColor.themeClr, for: .normal)
+        self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
+    }
+    
+    
     @IBAction func btnActionTapped(_ sender: UIButton) {
         let identifier = viewControllerIdentifiers[sender.tag]
         let storyboardName = storyboardNames[sender.tag]
@@ -810,8 +911,21 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             gotoSearchDiamondVC(title: "Search Diamond")
             
         case is DiamondDetailsVC:
-            updateHeaderBG(setUpTag: 1)
-            gotoSearchResultB2BVC(title: "Search Diamond")
+            
+            if byTopDeals{
+                homeVCManage()
+            }
+            else if isByCard{
+                cardListManage()
+            }
+            else if isBydWish{
+                WishListManage()
+            }
+            else{
+               
+                updateHeaderBG(setUpTag: 1)
+                gotoSearchResultB2BVC(title: "Search Diamond")
+            }
             
         default:
             updateHeaderBG(setUpTag: 1)
@@ -1200,6 +1314,12 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
             print(sectionStr)
             self.tagV.tagVC = 10
             gotoWKWebView()
+            
+        }
+        
+        else if nv_priceCalc == sectionStr{
+            
+            self.navigationManager(storybordName: "DXECalc", storyboardID: "CalcDashboardVC", controller: CalcDashboardVC())
             
         }
         

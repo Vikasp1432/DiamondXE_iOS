@@ -180,6 +180,19 @@ extension DashboardLoginVC: UITableViewDelegate, UITableViewDataSource{
                 self.showLogoutAlert()
             }
         }
+        else if account_payment == sectionStr{
+            
+//            let loginData = UserDefaultManager().retrieveLoginData()
+//            if let authToken = loginData?.details?.authToken{
+//                self.navigationManager(storybordName: "CustomPayment", storyboardID: "CustomPaymentVC", controller: CustomPaymentVC())
+//            }
+//            else{
+//                self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
+//            }
+            
+        }
+        
+        
     }
     
     

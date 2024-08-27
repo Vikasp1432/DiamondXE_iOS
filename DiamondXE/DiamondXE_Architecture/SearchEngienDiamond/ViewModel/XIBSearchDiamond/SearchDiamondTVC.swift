@@ -128,7 +128,7 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
    // var searchAttributeStruct = SearchOptionDataStruct()
     var colorDiaWhiteShow = true
     
-    
+    var clearAll : (() -> Void) = {}
     
 
 
@@ -224,6 +224,8 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
        }
     
     @IBAction func btnActionClearAll(_ sender:UIButton){
+        
+        self.clearAll()
         DataManager.shared.isReturnabl = Int()
         DataManager.shared.advanceFilterDictionaryOfSets.removeAll()
         DataManager.shared.manualFilterDictionaryOfSets.removeAll()
@@ -266,11 +268,13 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
         self.shapeArr.removeAll()
         
         
+        
+        
         self.txtCaratTo.text = ""
         self.txtCaratFrom.text = ""
         self.txtPriceTo.text = ""
         self.txtPriceFrom.text = ""
-        setupIsreturnable()
+       // setupIsreturnable()
         
         self.collectionShap.reloadData()
         self.collectionColors.reloadData()
@@ -937,21 +941,50 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
     
     @IBAction func btnActionYES_No(_ sender:UIButton){
 
-        if sender.tag == 0{
-            btnYes.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
-            btnYes.setTitleColor(.whitClr, for: .normal)
-            btnNo.clearGradient()
-            btnNo.setTitleColor(.themeClr, for: .normal)
-            DataManager.shared.isReturnabl = 1
-        }
-        else{
-            btnNo.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
-            btnNo.setTitleColor(.whitClr, for: .normal)
-            btnYes.clearGradient()
-            btnYes.setTitleColor(.themeClr, for: .normal)
-            DataManager.shared.isReturnabl = 0
-        }
+//        if sender.tag == 0{
+//            btnYes.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+//            btnYes.setTitleColor(.whitClr, for: .normal)
+//            btnNo.clearGradient()
+//            btnNo.setTitleColor(.themeClr, for: .normal)
+//            DataManager.shared.isReturnabl = 1
+//        }
+//        else{
+//            btnNo.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+//            btnNo.setTitleColor(.whitClr, for: .normal)
+//            btnYes.clearGradient()
+//            btnYes.setTitleColor(.themeClr, for: .normal)
+//            DataManager.shared.isReturnabl = 0
+//        }
         
+        if sender.tag == 0 {
+               if DataManager.shared.isReturnabl == 1 {
+                   // Unselect the Yes button
+                   btnYes.clearGradient()
+                   btnYes.setTitleColor(.themeClr, for: .normal)
+                   DataManager.shared.isReturnabl = -1 // Reset or use any default value
+               } else {
+                   // Select the Yes button
+                   btnYes.setGradientLayer(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+                   btnYes.setTitleColor(.whitClr, for: .normal)
+                   btnNo.clearGradient()
+                   btnNo.setTitleColor(.themeClr, for: .normal)
+                   DataManager.shared.isReturnabl = 1
+               }
+           } else {
+               if DataManager.shared.isReturnabl == 0 {
+                   // Unselect the No button
+                   btnNo.clearGradient()
+                   btnNo.setTitleColor(.themeClr, for: .normal)
+                   DataManager.shared.isReturnabl = -1 // Reset or use any default value
+               } else {
+                   // Select the No button
+                   btnNo.setGradientLayer(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+                   btnNo.setTitleColor(.whitClr, for: .normal)
+                   btnYes.clearGradient()
+                   btnYes.setTitleColor(.themeClr, for: .normal)
+                   DataManager.shared.isReturnabl = 0
+               }
+           }
     }
     
     
@@ -1348,6 +1381,8 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
                 DataManager.shared.defaultSelectedIndicesMake = selectedIndicesMake
                 
                 DataManager.shared.defaultSelectedDataArrMake = selectedDataArrMake
+                
+                self.setupGetDataDIA(attributID: (selectedIndicesMake?.row ?? 0) + 1)
                 
                 delegate?.didselectOption(searchTitle: "Make", details: selectedDataArrMake, shapeArr: [""])
             }
