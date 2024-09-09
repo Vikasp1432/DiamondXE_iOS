@@ -12,6 +12,9 @@ protocol CustomCellInfoDelegate: AnyObject {
     func textFieldDidEndEditing(cell: CustomInfoTVC, text: String)
 }
 
+var nameDefault = String()
+var coNameDefault = String()
+
 class CustomInfoTVC: UITableViewCell, UITextViewDelegate, UITextFieldDelegate {
     static let cellIdentifierCustomInfoTVC = String(describing: CustomInfoTVC.self)
 
@@ -26,7 +29,10 @@ class CustomInfoTVC: UITableViewCell, UITextViewDelegate, UITextFieldDelegate {
     
     var customPymnt = CustomPaymentVC()
     weak var delegate: CustomCellInfoDelegate?
-
+    
+    
+    @IBOutlet weak var viewName: UIView!
+    @IBOutlet weak var viewComName: UIView!
     
     
     override func awakeFromNib() {
@@ -41,6 +47,23 @@ class CustomInfoTVC: UITableViewCell, UITextViewDelegate, UITextFieldDelegate {
         txtName.delegate = self
         txtComopanyName.delegate = self
         txtAmount.delegate = self
+        
+        if !coNameDefault.isEmpty {
+            self.txtComopanyName.text = coNameDefault
+        }
+        if !nameDefault.isEmpty {
+            self.txtName.text = nameDefault
+        }
+        
+//        let loginData = UserDefaultManager().retrieveLoginData()
+//        if let userRole = loginData?.details?.userRole{
+//            if  userRole == "BUYER"{
+//                self.viewComName.isHidden = true
+//            }else{
+//                self.viewComName.isHidden = false
+//            }
+//            
+//        }
      
     }
     
@@ -65,7 +88,15 @@ class CustomInfoTVC: UITableViewCell, UITextViewDelegate, UITextFieldDelegate {
         
         if let  txtfield = txtAmount {
             delegate?.textFieldDidEndEditing(cell: self, text: txtfield.text ?? "")
+            
 
+        }
+        
+        if let  txtfield = txtName {
+            nameDefault = txtName.text ?? ""
+        }
+        if let  txtfield = txtComopanyName {
+            coNameDefault = txtComopanyName.text ?? ""
         }
         
     }
@@ -118,6 +149,7 @@ class CustomInfoTVC: UITableViewCell, UITextViewDelegate, UITextFieldDelegate {
             txtAmount.showError(message: "Enter amount")
             return false
         }
+        
         return true
     }
     

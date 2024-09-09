@@ -61,8 +61,6 @@ class PaymentOptionTVC: UITableViewCell {
     
     var customPymnt = CustomPaymentVC()
     var selectedIndexPath: IndexPath?
-
-    
     
     @IBOutlet var viewPaymtOptnBG:UIView!
     
@@ -255,23 +253,25 @@ extension PaymentOptionTVC : UICollectionViewDelegate, UICollectionViewDataSourc
         
         
         cell.tapAction = {
-            self.bnkCellTap(indexPath.row)
+            
             // self.tapAction(upiApp.appName)
             
             if let previousIndexPath = self.selectedIndexPath {
                 let previousCell = collectionView.cellForItem(at: previousIndexPath) as? PopularBanksCVC
                 previousCell?.imgView.borderWidth = 0
                 previousCell?.imgView.borderColor = UIColor.clear
+                self.bnkCellTap(0)
             }
-
+            
             // Select the new cell
             let cell = collectionView.cellForItem(at: indexPath) as? PopularBanksCVC
-          cell?.imgView.borderColor = UIColor.tabSelectClr
-          cell?.imgView.borderWidth = 1.5
-          cell?.imgView.cornerRadius = 3
-
+            cell?.imgView.borderColor = UIColor.tabSelectClr
+            cell?.imgView.borderWidth = 1.5
+            cell?.imgView.cornerRadius = 3
+            
             // Update the selected index path
             self.selectedIndexPath = indexPath
+            self.bnkCellTap(indexPath.row)
             
         }
         
@@ -365,8 +365,8 @@ protocol SingleSelectionButtonGroupDelegate: AnyObject {
 }
 
 class SingleSelectionButtonGroup {
-    private var buttons: [UIButton] = []
-    private var selectedButton: UIButton?
+     var buttons: [UIButton] = []
+     var selectedButton: UIButton?
     weak var delegate: SingleSelectionButtonGroupDelegate?
 
     // Initialize with an array of buttons
@@ -390,7 +390,7 @@ class SingleSelectionButtonGroup {
     }
 
     // Toggle button selection and deselection
-    private func toggleButtonSelection(_ button: UIButton) {
+     func toggleButtonSelection(_ button: UIButton) {
         if selectedButton == button {
             // If the same button is tapped again, deselect it
             button.layer.borderColor = UIColor.clear.cgColor
@@ -406,6 +406,12 @@ class SingleSelectionButtonGroup {
             delegate?.didSelectButton(withTag: button.tag) // Send the selected button's tag
         }
     }
+    
+    func clearSelection() {
+            selectedButton?.layer.borderColor = UIColor.clear.cgColor
+            selectedButton = nil
+            delegate?.didSelectButton(withTag: nil) 
+        }
 }
 
 

@@ -53,6 +53,9 @@ class CustomPaymentVC: BaseViewController {
     
     var selectedBankID = String()
     
+    var selectedUPIName = String()
+    var selectedUPIBundl = String()
+    
     var refreshControl = UIRefreshControl()
 
 
@@ -64,6 +67,7 @@ class CustomPaymentVC: BaseViewController {
     var customDatePicker = CustomDatePicker()
     var customPaymentStruct = CustomPaymentDataStruct()
     var paymentINProcessStruct = PaymentINProcessStruct()
+    var paymentStatusDataStruct = PaymentStatusStruct()
     
     var isCustomPaymentHistory = false
 
@@ -307,13 +311,23 @@ class CustomPaymentVC: BaseViewController {
         case "CreditCard":
             PaymentManager.shared.upiName = name.uppercased()
             PaymentManager.shared.paymentType = "CreditCard"
-            PaymentManager.shared.initiatePhonePeTransaction(from: self)
-            
+            PaymentManager.shared.delegate = self
+//            PaymentManager.shared.initiatePhonePeTransaction(from: self)
+            self.callAPIWithPhonePeProceedPayment()
         case "NetBanking":
             PaymentManager.shared.paymentType = "NetBanking"
             PaymentManager.shared.paymentInstrumentbnkID = self.selectedBankID
             PaymentManager.shared.delegate = self
-            PaymentManager.shared.initiatePhonePeTransaction(from: self)
+//            PaymentManager.shared.initiatePhonePeTransaction(from: self)
+            self.callAPIWithPhonePeProceedPayment()
+            
+        case "UPI":
+            
+            PaymentManager.shared.upiName = self.selectedUPIName.uppercased()
+            PaymentManager.shared.paymentType = "UPI"
+            PaymentManager.shared.upiPackageName = self.selectedUPIBundl
+            self.callAPIWithPhonePeProceedPayment()
+            
         default:
            print("")
         }
@@ -322,6 +336,45 @@ class CustomPaymentVC: BaseViewController {
         
     }
     
+    
+    func callAPIWithPhonePeProceedPayment(){
+        var dataCollect = false
+        let indexPath = IndexPath(row: 0, section: 0)
+        if let cell = self.customPaymentTV.cellForRow(at: indexPath) as? CustomInfoTVC {
+            cell.customPymnt = self
+            self.remark = cell.textView.text
+            self.amount = cell.txtAmount.text ?? ""
+            
+        }
+      
+        let url = APIs().proceedPayment_API
+        let param :[String:Any] = [
+            "amount": self.amount,
+            "paymentMode": paymentModeSelected,
+            "remark": self.remark,
+            "submit": 1
+        
+        ]
+        
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+        
+        CustomPaymentModel.shareInstence.proceedPaymentAPI(url: url, requestParam: param, completion: { data, msg in
+            CustomActivityIndicator2.shared.hide()
+            if data.status == 1{
+                self.paymentINProcessStruct = data
+                PaymentManager.shared.paymentINProcessStruct = data
+                PaymentManager.shared.initiatePhonePeTransaction(from: self)
+            }
+            else{
+                self.toastMessage(msg ?? "")
+            }
+           
+            
+        })
+        
+        
+        
+    }
     
     func callAPIProceedPayment(){
       
@@ -412,14 +465,75 @@ class CustomPaymentVC: BaseViewController {
 
 
 extension CustomPaymentVC : TransactionIDDelegate{
-    func paymentTransactionID(transectionID: String) {
-        print(transectionID)
+    func paymentTransactionID(transectionID: String, paymentStatus: String) {
+        
+        //print(paymentStatus)
+        if let extractedMessage = extractMessage(from: paymentStatus) {
+            print("Extracted message: \(extractedMessage)")
+            
+            if extractedMessage == "Request failed."{
+                toastMessage(extractedMessage)
+            }
+            else{
+                self.getPaymentStatus(orderID: transectionID)
+            }
+            
+        } else {
+            toastMessage("Request failed.")
+        }
+        
+       
+    }
+    
+  
+    func getPaymentStatus(orderID : String){
+      
+        let url = APIs().customPayment_Status_API
+        let param :[String:Any] = [
+            "orderId": orderID
+        ]
+        
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+        
+        CustomPaymentModel.shareInstence.getpaymentStatusApi(url: url, requestParam: param, completion: { data, msg in
+            CustomActivityIndicator2.shared.hide()
+            if data.status == 1{
+                self.paymentStatusDataStruct = data
+                
+                let storyBoard: UIStoryboard = UIStoryboard(name: "CustomPayment", bundle: nil)
+                let vc = storyBoard.instantiateViewController(withIdentifier: "PaymentStatusVC") as! PaymentStatusVC
+                vc.paymentStatusDataStruct = self.paymentStatusDataStruct
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else{
+                self.toastMessage(msg ?? "")
+            }
+           
+            
+        })
+        
+        
+        
+    }
+    
+    func extractMessage(from input: String) -> String? {
+        let pattern = #"message: \"(.*?)\""# // Regular expression pattern to find the message
+        if let regex = try? NSRegularExpression(pattern: pattern, options: []) {
+            let nsString = input as NSString
+            let results = regex.matches(in: input, options: [], range: NSRange(location: 0, length: nsString.length))
+            
+            if let match = results.first {
+                return nsString.substring(with: match.range(at: 1))
+            }
+        }
+        return nil
     }
     
     
 }
 
 extension CustomPaymentVC : UITableViewDataSource, UITableViewDelegate, CustomCellInfoDelegate, SingleSelectionButtonGroupDelegate{
+  
     func didSelectButton(withTag tag: Int?) {
         
         //'NEFT','DebitCard','CreditCard','NetBanking','UPI'
@@ -518,15 +632,18 @@ extension CustomPaymentVC : UITableViewDataSource, UITableViewDelegate, CustomCe
                 }
                 
                 cell.bnkCellTap = { tag in
-                    if let netBankInfo = self.bankingInfoStruct.details?.netBanking?.popularBanks {
-                       // var selectedIndex = netBankInfo.popularBanks?[indexPath.row].img
-                        self.selectedBankID  = netBankInfo[tag].bankID ?? ""
-                        cell.txtSelectedBnk.text = netBankInfo[tag].bankName
-                    }
+                   
+                        if let netBankInfo = self.bankingInfoStruct.details?.netBanking?.popularBanks {
+                            // var selectedIndex = netBankInfo.popularBanks?[indexPath.row].img
+                            self.selectedBankID  = netBankInfo[tag].bankID ?? ""
+                            cell.txtSelectedBnk.text = netBankInfo[tag].bankName
+                        }
+                    
                 }
                 
                 cell.btnAction = { tag in
                     self.isCellExpandedTag = tag
+                  
                     if tag == 0 {
                         
                         self.isCellExpandedPaymentOption.toggle()
@@ -539,12 +656,13 @@ extension CustomPaymentVC : UITableViewDataSource, UITableViewDelegate, CustomCe
                         cell.paymentOptionBG.isHidden = true
                         self.isCellExpandedPaymentOption = false
                         self.isCellExpandedPaymentOption2.toggle()
-                        
                         cell.bnkViewHideShow(isShow: self.isCellExpandedPaymentOption2)
 //                        if let netBankInfo = self.bankingInfoStruct.details?.netBanking {
 //                            cell.netBankingData = netBankInfo
 //                            cell.banksCollectionView.reloadData()
 //                        }
+                        
+                       
                         self.customPaymentTV.reloadData()
                     }
                     else{
@@ -552,12 +670,17 @@ extension CustomPaymentVC : UITableViewDataSource, UITableViewDelegate, CustomCe
                         cell.paymentOptionBG.isHidden = true
                         self.isCellExpandedPaymentOption = false
                         self.isCellExpandedPaymentOption2 = false
+                       
                         cell.banksViewBG.isHidden = true
                         self.customPaymentTV.reloadData()
                     }
+                    
+                    let UPIIndexPath = IndexPath(row: 0, section: 2)
+                    if let cell = self.customPaymentTV.cellForRow(at: UPIIndexPath) as? UPITVC {
+                        cell.selectedIndexPath = nil
+                        cell.collectionUPIApps.reloadData()
+                    }
                 }
-                
-                
                 
                 cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
                 cell.lblSWIFT.text = self.bankInfoStruct.details?.first?.swift
@@ -617,11 +740,36 @@ extension CustomPaymentVC : UITableViewDataSource, UITableViewDelegate, CustomCe
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: UPITVC.cellIdentifierUPITVC, for: indexPath) as! UPITVC
                 cell.selectionStyle = .none
-                cell.tapAction = { name in
-                    PaymentManager.shared.upiName = name.uppercased()
-                    PaymentManager.shared.paymentType = "UPI"
-                    PaymentManager.shared.initiatePhonePeTransaction(from: self)
-
+                cell.tapAction = { name, package in
+                    self.lblTotalAmount.text = self.amount
+                    
+                    let payIndexPath = IndexPath(row: 0, section: 1)
+                    if let cell = self.customPaymentTV.cellForRow(at: payIndexPath) as? PaymentOptionTVC {
+                        cell.buttonGroup.clearSelection()
+                        cell.btnNetBankSBG.borderColor = .clear
+                        cell.btnRTGSBG.borderColor = .clear
+                        cell.btnDebitCSBG.borderColor = .clear
+                        cell.paymentOptionBG.isHidden = true
+                        cell.banksViewBG.isHidden = true
+                        self.isCellExpandedPaymentOption = false
+                        self.isCellExpandedPaymentOption2 = false
+                        self.customPaymentTV.reloadData()
+                        
+                       // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
+                    }
+                    
+                    ///
+                    self.paymentModeSelected = "UPI"
+                    self.selectedUPIName = name
+                    self.selectedUPIBundl = package
+                    self.amountCalculation()
+                    
+                    if name == ""{
+                        
+                        self.lblTotalAmount.text = self.amount
+                        self.customPaymentTV.reloadData()
+                        // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
+                    }
                 }
                 return cell
             case 3:

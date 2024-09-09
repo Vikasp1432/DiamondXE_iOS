@@ -32,6 +32,7 @@ class AdvanceFilterVC: BaseViewController , DataReceiver2{
         super.viewDidLoad()
 
         tableViewAdvanceFilter.register(UINib(nibName: AdvanceFilterTVC.cellIdentifierAdvanceFilTVC, bundle: nil), forCellReuseIdentifier: AdvanceFilterTVC.cellIdentifierAdvanceFilTVC)
+        
     }
     
     
@@ -47,9 +48,6 @@ class AdvanceFilterVC: BaseViewController , DataReceiver2{
         
     }
     
-
-    
-   
 
 
 }
@@ -129,35 +127,35 @@ extension AdvanceFilterVC : SearchOptionSelecteDelegate {
             
         case "LengthFrom":
             DataManager.shared.manualFilterDictionaryOfSets.removeValue(forKey: "LengthFrom")
-            DataManager.shared.addManualFIlterAttribute(toKey: searchTitle, element: filterAtribut)
+            DataManager.shared.addAdvanceFIlterAttribute(toKey: searchTitle, element: filterAtribut)
             
         case "LengthTo":
             DataManager.shared.manualFilterDictionaryOfSets.removeValue(forKey: "LengthTo")
-            DataManager.shared.addManualFIlterAttribute(toKey: searchTitle, element: filterAtribut)
+            DataManager.shared.addAdvanceFIlterAttribute(toKey: searchTitle, element: filterAtribut)
             
         case "WidthFrom":
             DataManager.shared.manualFilterDictionaryOfSets.removeValue(forKey: "WidthFrom")
-            DataManager.shared.addManualFIlterAttribute(toKey: searchTitle, element: filterAtribut)
+            DataManager.shared.addAdvanceFIlterAttribute(toKey: searchTitle, element: filterAtribut)
             
         case "WidthTo":
             DataManager.shared.manualFilterDictionaryOfSets.removeValue(forKey: "WidthTo")
-            DataManager.shared.addManualFIlterAttribute(toKey: searchTitle, element: filterAtribut)
+            DataManager.shared.addAdvanceFIlterAttribute(toKey: searchTitle, element: filterAtribut)
             
         case "DepthFrom":
             DataManager.shared.manualFilterDictionaryOfSets.removeValue(forKey: "DepthFrom")
-            DataManager.shared.addManualFIlterAttribute(toKey: searchTitle, element: filterAtribut)
+            DataManager.shared.addAdvanceFIlterAttribute(toKey: searchTitle, element: filterAtribut)
             
         case "DepthTo":
             DataManager.shared.manualFilterDictionaryOfSets.removeValue(forKey: "DepthTo")
-            DataManager.shared.addManualFIlterAttribute(toKey: searchTitle, element: filterAtribut)
+            DataManager.shared.addAdvanceFIlterAttribute(toKey: searchTitle, element: filterAtribut)
             
         case "LotID":
             DataManager.shared.manualFilterDictionaryOfSets.removeValue(forKey: "LotID")
-            DataManager.shared.addManualFIlterAttribute(toKey: searchTitle, element: filterAtribut)
+            DataManager.shared.addAdvanceFIlterAttribute(toKey: searchTitle, element: filterAtribut)
             
         case "Location":
             DataManager.shared.manualFilterDictionaryOfSets.removeValue(forKey: "Location")
-            DataManager.shared.addManualFIlterAttribute(toKey: searchTitle, element: filterAtribut)
+            DataManager.shared.addAdvanceFIlterAttribute(toKey: searchTitle, element: filterAtribut)
             
             
         default:

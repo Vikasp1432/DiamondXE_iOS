@@ -20,6 +20,9 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
         print(str)
     }
     
+    var delegateCount: CountUpdateDelegate?
+
+    
     var delegate : BaseViewControllerDelegate?
     var backDelegate : BackVCDelegate?
     var currencyRateDetailObj = CurrencyRateDetail()
@@ -113,8 +116,17 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
     @IBAction func btnActionPlace(_ sender: UIButton){
         let loginData = UserDefaultManager().retrieveLoginData()
         if let data = loginData?.details?.userRole{
+           
+           // self.callAPIBuyNowUpdate()
             
-            self.callAPIBuyNowUpdate()
+            let storyboard = UIStoryboard(name: "ShippingModule", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "ShippingModuleVC") as? ShippingModuleVC {
+                if let dataObj = self.cartDataStruct.details {
+                    vc.CartDataObj = dataObj
+                    vc.currencyRateDetailObj = self.currencyRateDetailObj
+                }
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
             
 //            let placeOrder = CustomPlaceOrderView()
 //            placeOrder.appear(sender: self)
@@ -161,6 +173,10 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
             
             if data.status == 1{
                  self.cartDataStruct = data
+                
+//                self.delegateCount?.updateCount(crdCnt: self.cartDataStruct.cart_count ?? 0, wishCnt: self.cartDataStruct.wishlist_count ?? 0)
+//                
+                
                 DataManager.shared.cartDataHolder = self.cartDataStruct
                 self.cartDataStruct.details?.enumerated().forEach{ int, val in
                     self.grandTotal += self.cartDataStruct.details?[int].totalPrice ?? 0
@@ -238,6 +254,8 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
         CartDataModel().removeItemFromCart(url: url, requestParam: param, completion: { data, msg in
             
             if data.status == 1{
+                
+                self.delegateCount?.updateCount(crdCnt: data.details?.cartCount ?? 0, wishCnt: data.details?.wishlistCount ?? 0)
                 
                 let item = self.cartDataStruct.details?.filter { $0.certificateNo == certificateNo }
                 

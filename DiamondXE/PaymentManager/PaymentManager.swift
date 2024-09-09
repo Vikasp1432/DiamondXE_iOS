@@ -11,6 +11,16 @@ import CryptoKit
 import UIKit
 import PhonePePayment
 
+// live credential PhionePay
+
+//MERCHANT_ID  :   DIAMONDXEONLINE
+//SALT_KEY     :   b74e2a4c-7d13-43c5-a115-c0372ed85dbd
+//SALT_INDEX   :   1
+//HOST_URL     :   https://api.phonepe.com/apis/hermes/
+
+
+
+
 #if os(iOS) && swift(>=5.0)
 import CryptoKit
 
@@ -43,7 +53,7 @@ func sha256(_ string: String) -> String {
 
 
 protocol TransactionIDDelegate {
-    func paymentTransactionID(transectionID: String)
+    func paymentTransactionID(transectionID: String, paymentStatus:String)
 }
 
 
@@ -54,8 +64,10 @@ class PaymentManager {
     
     var paymentType = String()
     var upiName = String()
+    var upiPackageName = String()
     var paymentInstrumentbnkID = String()
     var paymentInstrumentTargetApp = String()
+    var paymentINProcessStruct = PaymentINProcessStruct()
     
 
     func initiatePhonePeTransaction(from viewController: UIViewController) {
@@ -65,7 +77,7 @@ class PaymentManager {
         switch paymentType {
         case "UPI":
             paymentInstrument =  ["type": "UPI_INTENT",
-                                  "targetApp": "\(upiName)".uppercased()]
+                                  "targetApp": "\(upiName)".replacingOccurrences(of: " ", with: "").uppercased()]
         case "CreditCard":
             paymentInstrument =  ["type": "PAY_PAGE"]
         case "NetBanking":
@@ -74,27 +86,28 @@ class PaymentManager {
         default:
             print("")
         }
-        
-        
-        // Product details
-        let productId = "BHD1234511"
-        let amount = 1000 // amount in paise
-        
-        
-        
+    
         // Construct the API endpoint
         let apiEndPoint = "/pg/v1/pay" //"https://api-preprod.phonepe.com/apis/pg-sandbox/v1/pay"
+        var updatedAmt = Double()
+        if let amount = paymentINProcessStruct.details?.totalAmount{
+             updatedAmt = Double(amount) * 100
+        }
+        
         
         // Construct the request payload
         let requestBody: [String: Any] = [
-            "merchantId": "DIAMONDUAT",
-            "merchantTransactionId": generateTransactionId(),
-            "amount": amount,
-            "productId": productId,
-            "merchantUserId": "MUID123",
-            "callbackUrl": "https://webhook.site/callback-url",
-            "mobileNumber": "9999999999",
-          //  "paymentInstrument": ["type": "PAY_PAGE"]
+            "merchantId": "DIAMONDUAT",//"DIAMONDXEONLINE",
+            "merchantTransactionId": paymentINProcessStruct.details?.orderID ?? "",
+            "amount": updatedAmt,
+            "productId": "b74e2a4c-7d13-43c5-a115-c0372ed85dbd",
+            "merchantUserId": paymentINProcessStruct.details?.userID ?? "",
+            "callbackUrl": "\(APIs().callBackURL)",
+            "mobileNumber": paymentINProcessStruct.details?.userData?.mobile ?? "",
+            "deviceContext": [
+               "deviceOS": "IOS",
+               "merchantCallBackScheme": "iOSIntentIntegration"
+             ],
             "paymentInstrument": paymentInstrument
             
         ]
@@ -124,16 +137,21 @@ class PaymentManager {
         )
         
         // Check if PhonePe app is installed
-        if isPhonePeAppInstalled() {
+//        if isPhonePeAppInstalled() {
             // Initialize the payment with the app
             PPPayment(environment: .sandbox, enableLogging: true, appId: nil)
                 .startPG(transactionRequest: request, on: viewController, animated: true) { _, result in
                     let text = "\(result)"
                     print("Transaction result: \(text)")
                     
+                    if self.paymentType == "UPI"{
+                        self.openUPIApp(with: self.upiPackageName)
+                    }
+                    
+                    
                    /// self.verifyTransactionStatus(transactionId: requestBody["merchantTransactionId"] as! String)
                     
-                    self.delegate?.paymentTransactionID(transectionID: requestBody["merchantTransactionId"] as! String)
+                    self.delegate?.paymentTransactionID(transectionID: requestBody["merchantTransactionId"] as! String, paymentStatus: "\(result)")
                     
                     
                     if case let .failure(error) = result {
@@ -142,23 +160,23 @@ class PaymentManager {
                     }
                     
                 }
-        } else {
-            // Redirect to the PhonePe web payment page
-            if let url = URL(string: "https://www.phonepe.com/en-in/upi-payments/") {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
-        }
+//        } else {
+//            // Redirect to the PhonePe web payment page
+//            if let url = URL(string: "https://www.phonepe.com/en-in/upi-payments/") {
+//                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//            }
+//        }
         
     }
     
-    // Check if PhonePe app is installed
-    private func isPhonePeAppInstalled() -> Bool {
-        if let url = URL(string: "phonepe://"), UIApplication.shared.canOpenURL(url) {
-            return true
-        } else {
-            return false
+    func openUPIApp(with urlScheme: String) {
+            if let url = URL(string: urlScheme) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                print("Invalid URL scheme.")
+            }
         }
-    }
+    
     
     // Generate a unique transaction ID
     private func generateTransactionId() -> String {

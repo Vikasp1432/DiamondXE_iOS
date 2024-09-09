@@ -13,6 +13,8 @@ class UPIAppsCVC: UICollectionViewCell {
     @IBOutlet var iconIMG:UIImageView!
     @IBOutlet var lblName:UILabel!
     
+    @IBOutlet var viewBG:UIView!
+    
     var tapAction : (() -> Void) = { }
 
     override func awakeFromNib() {

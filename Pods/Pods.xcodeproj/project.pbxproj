@@ -121,7 +121,7 @@
 		53797BF75EE809493052F66231B7A6B4 /* Pods-DiamondXE-DiamondXEUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DiamondXE-DiamondXEUITests-Info.plist"; sourceTree = "<group>"; };
 		5B8119BB2D309C8E5645A60996463DE4 /* Pods-DiamondXETests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-DiamondXETests"; path = Pods_DiamondXETests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B99C6D1E4BC837DD8A8D33B3A045BF7 /* Pods-DiamondXETests.release(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXETests.release(production).xcconfig"; sourceTree = "<group>"; };
-		5C9B0547BA39FD6CE55E6D6611FE5CC2 /* DTTextField */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DTTextField; path = DTTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C9B0547BA39FD6CE55E6D6611FE5CC2 /* DTTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DTTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D728919EEB95E87A22CDD171A58B483 /* PhonePePayment.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; path = PhonePePayment.xcframework; sourceTree = "<group>"; };
 		601EBB9C3E733307E1C680357C4716F2 /* Pods-DiamondXE.release(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE.release(production).xcconfig"; sourceTree = "<group>"; };
 		61910FF2A7CDEBF6AFC82C73120D46D9 /* DTTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DTTextField.swift; path = Sources/DTTextField/DTTextField.swift; sourceTree = "<group>"; };
@@ -360,7 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				9B6725B782188F18CB76A740433F14E4 /* DropDown.framework */,
-				5C9B0547BA39FD6CE55E6D6611FE5CC2 /* DTTextField */,
+				5C9B0547BA39FD6CE55E6D6611FE5CC2 /* DTTextField.framework */,
 				86A3EB5EC95DC9ACDD66E01E3A588735 /* Pods-DiamondXE */,
 				36626C9D838AF90DC3384AC3491996A1 /* Pods-DiamondXE-DiamondXEUITests */,
 				5B8119BB2D309C8E5645A60996463DE4 /* Pods-DiamondXETests */,
@@ -504,7 +504,7 @@
 			);
 			name = DTTextField;
 			productName = DTTextField;
-			productReference = 5C9B0547BA39FD6CE55E6D6611FE5CC2 /* DTTextField */;
+			productReference = 5C9B0547BA39FD6CE55E6D6611FE5CC2 /* DTTextField.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		7DF84BE890F41E4A28E2765CE3001F81 /* Pods-DiamondXE */ = {
@@ -1222,7 +1222,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DTTextField/DTTextField-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DTTextField/DTTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1388,7 +1388,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DTTextField/DTTextField-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DTTextField/DTTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1458,7 +1458,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DTTextField/DTTextField-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DTTextField/DTTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2066,7 +2066,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DTTextField/DTTextField-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DTTextField/DTTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2139,7 +2139,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DTTextField/DTTextField-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DTTextField/DTTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2308,7 +2308,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DTTextField/DTTextField-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DTTextField/DTTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2381,7 +2381,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DTTextField/DTTextField-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DTTextField/DTTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2643,7 +2643,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DTTextField/DTTextField-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DTTextField/DTTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

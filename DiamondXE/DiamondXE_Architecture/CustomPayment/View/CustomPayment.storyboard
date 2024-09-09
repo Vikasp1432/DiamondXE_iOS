@@ -45,7 +45,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tkg-3b-x6N">
                                                 <rect key="frame" x="0.0" y="0.0" width="156.66666666666666" height="65"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₹0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYQ-yy-63s">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₹0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYQ-yy-63s">
                                                         <rect key="frame" x="10" y="8" width="136.66666666666666" height="24"/>
                                                         <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="20"/>
                                                         <color key="textColor" name="themeClr"/>
@@ -589,6 +589,357 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mPN-SE-HUp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="700" y="3.5211267605633805"/>
+        </scene>
+        <!--Payment StatusVC-->
+        <scene sceneID="32j-l9-rSC">
+            <objects>
+                <viewController storyboardIdentifier="PaymentStatusVC" id="BMv-uS-Pdo" customClass="PaymentStatusVC" customModule="DiamondXE" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ot5-YX-bEJ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCz-M1-rTA">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNb-Ry-Z4c" customClass="CenterGradientView" customModule="DiamondXE" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="100" width="353" height="444"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="payment_processing" translatesAutoresizingMaskIntoConstraints="NO" id="yqb-nw-aYz">
+                                                <rect key="frame" x="30" y="15" width="293" height="104"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUV-sW-ETl">
+                                                <rect key="frame" x="10" y="134" width="333" height="21.666666666666657"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Payment processing!">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="18" name="Lato-Semibold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9UU-qW-XQl">
+                                                <rect key="frame" x="40" y="170.66666666666669" width="273" height="32.666666666666657"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Your payment is under review, details of the transaction are mentioned below">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="14" name="Lato-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnD-vf-ad3">
+                                                <rect key="frame" x="20" y="321.33333333333331" width="313" height="32.666666666666686"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Order has been placed successfully Availability of diamond(s) is subject to confirmation.">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="14" name="Lato-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ENY-9a-4Fv">
+                                                <rect key="frame" x="15" y="218.33333333333331" width="323" height="34"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hb4-jf-vWB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="141.66666666666666" height="34"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmE-fg-6Q6">
+                                                                <rect key="frame" x="0.0" y="0.0" width="141.66666666666666" height="16.333333333333332"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="order ID">
+                                                                        <attributes>
+                                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                            <font key="NSFont" size="14" name="Lato-Medium"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKQ-Sv-cwk">
+                                                                <rect key="frame" x="0.0" y="16.333333333333371" width="141.66666666666666" height="17.666666666666671"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="---">
+                                                                        <attributes>
+                                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                            <font key="NSFont" size="15" name="Lato-Medium"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NXY-J4-vag">
+                                                        <rect key="frame" x="181.66666666666663" y="0.0" width="141.33333333333337" height="34"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="em0-tU-NcK">
+                                                                <rect key="frame" x="0.0" y="0.0" width="141.33333333333334" height="16.333333333333332"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="Amount">
+                                                                        <attributes>
+                                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                            <font key="NSFont" size="14" name="Lato-Medium"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bb0-x5-dgL">
+                                                                <rect key="frame" x="0.0" y="16.333333333333371" width="141.33333333333334" height="17.666666666666671"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="---">
+                                                                        <attributes>
+                                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                            <font key="NSFont" size="15" name="Lato-Medium"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="nh5-r5-jHw">
+                                                <rect key="frame" x="15" y="267.33333333333331" width="323" height="34"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bx6-3J-xTS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="141.66666666666666" height="34"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mad-06-wLv">
+                                                                <rect key="frame" x="0.0" y="0.0" width="141.66666666666666" height="16.333333333333332"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="UTR/Cheque no">
+                                                                        <attributes>
+                                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                            <font key="NSFont" size="14" name="Lato-Medium"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBe-yT-tiQ">
+                                                                <rect key="frame" x="0.0" y="16.333333333333371" width="141.66666666666666" height="17.666666666666671"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="---">
+                                                                        <attributes>
+                                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                            <font key="NSFont" size="15" name="Lato-Medium"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mkq-Sk-VSX">
+                                                        <rect key="frame" x="181.66666666666663" y="0.0" width="141.33333333333337" height="34"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mq-Jj-YF9">
+                                                                <rect key="frame" x="0.0" y="0.0" width="141.33333333333334" height="16.333333333333332"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="Payments Mode">
+                                                                        <attributes>
+                                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                            <font key="NSFont" size="14" name="Lato-Medium"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ege-0g-KYh">
+                                                                <rect key="frame" x="0.0" y="16.333333333333371" width="141.33333333333334" height="17.666666666666671"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="---">
+                                                                        <attributes>
+                                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                            <font key="NSFont" size="15" name="Lato-Medium"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jyw-Zn-Rao">
+                                                <rect key="frame" x="30" y="374" width="293" height="50"/>
+                                                <subviews>
+                                                    <stackView clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="E8T-2e-Itf">
+                                                        <rect key="frame" x="5" y="5" width="283" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNr-Ot-VE0">
+                                                                <rect key="frame" x="0.0" y="0.0" width="81" height="40"/>
+                                                                <color key="backgroundColor" name="themeClr"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="My Order">
+                                                                    <color key="titleColor" name="whitClr"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="themeClr"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="btnActionMyOrderBacktoHome:" destination="BMv-uS-Pdo" eventType="touchUpInside" id="lKz-aF-Omq"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IfS-at-zK3">
+                                                                <rect key="frame" x="101" y="0.0" width="81" height="40"/>
+                                                                <color key="backgroundColor" name="themeClr"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Back To Home">
+                                                                    <color key="titleColor" name="whitClr"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="themeClr"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="btnActionMyOrderBacktoHome:" destination="BMv-uS-Pdo" eventType="touchUpInside" id="1PU-XE-eHz"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0g-bY-VSc">
+                                                                <rect key="frame" x="202" y="0.0" width="81" height="40"/>
+                                                                <color key="backgroundColor" name="themeClr"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Retry Payment">
+                                                                    <color key="titleColor" name="whitClr"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="themeClr"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="btnActionMyOrderBacktoHome:" destination="BMv-uS-Pdo" eventType="touchUpInside" id="b20-ay-Kc7"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="zGa-gG-CBH"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="E8T-2e-Itf" secondAttribute="bottom" constant="5" id="86g-6s-QwE"/>
+                                                    <constraint firstItem="E8T-2e-Itf" firstAttribute="top" secondItem="Jyw-Zn-Rao" secondAttribute="top" constant="5" id="LoN-7b-x4F"/>
+                                                    <constraint firstItem="E8T-2e-Itf" firstAttribute="leading" secondItem="Jyw-Zn-Rao" secondAttribute="leading" constant="5" id="h3y-hQ-7lk"/>
+                                                    <constraint firstAttribute="trailing" secondItem="E8T-2e-Itf" secondAttribute="trailing" constant="5" id="kfk-tO-4qk"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" name="viewBGClr"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ZUV-sW-ETl" secondAttribute="trailing" constant="10" id="1EN-96-dmt"/>
+                                            <constraint firstItem="AnD-vf-ad3" firstAttribute="leading" secondItem="CNb-Ry-Z4c" secondAttribute="leading" constant="20" id="2YG-1m-GlI"/>
+                                            <constraint firstItem="Jyw-Zn-Rao" firstAttribute="top" secondItem="AnD-vf-ad3" secondAttribute="bottom" constant="20" id="5WN-nf-22M"/>
+                                            <constraint firstItem="ENY-9a-4Fv" firstAttribute="leading" secondItem="CNb-Ry-Z4c" secondAttribute="leading" constant="15" id="9RG-k5-B1b"/>
+                                            <constraint firstItem="yqb-nw-aYz" firstAttribute="leading" secondItem="CNb-Ry-Z4c" secondAttribute="leading" constant="30" id="9Zz-eZ-ACM"/>
+                                            <constraint firstAttribute="trailing" secondItem="9UU-qW-XQl" secondAttribute="trailing" constant="40" id="Bl9-DE-n3D"/>
+                                            <constraint firstItem="ENY-9a-4Fv" firstAttribute="top" secondItem="9UU-qW-XQl" secondAttribute="bottom" constant="15" id="HgC-cF-Kfv"/>
+                                            <constraint firstAttribute="trailing" secondItem="Jyw-Zn-Rao" secondAttribute="trailing" constant="30" id="IcN-hZ-kK9"/>
+                                            <constraint firstAttribute="trailing" secondItem="yqb-nw-aYz" secondAttribute="trailing" constant="30" id="O2p-ck-b7c"/>
+                                            <constraint firstItem="AnD-vf-ad3" firstAttribute="top" secondItem="nh5-r5-jHw" secondAttribute="bottom" constant="20" id="OKf-hv-AyF"/>
+                                            <constraint firstItem="9UU-qW-XQl" firstAttribute="leading" secondItem="CNb-Ry-Z4c" secondAttribute="leading" constant="40" id="VYa-lT-Bvx"/>
+                                            <constraint firstItem="yqb-nw-aYz" firstAttribute="top" secondItem="CNb-Ry-Z4c" secondAttribute="top" constant="15" id="Xrk-sx-ULg"/>
+                                            <constraint firstItem="9UU-qW-XQl" firstAttribute="top" secondItem="ZUV-sW-ETl" secondAttribute="bottom" constant="15" id="gbw-Ub-FEO"/>
+                                            <constraint firstAttribute="trailing" secondItem="nh5-r5-jHw" secondAttribute="trailing" constant="15" id="h79-I0-pDz"/>
+                                            <constraint firstItem="nh5-r5-jHw" firstAttribute="top" secondItem="ENY-9a-4Fv" secondAttribute="bottom" constant="15" id="i5e-R7-PFe"/>
+                                            <constraint firstItem="ZUV-sW-ETl" firstAttribute="leading" secondItem="CNb-Ry-Z4c" secondAttribute="leading" constant="10" id="kgk-Xo-6FR"/>
+                                            <constraint firstAttribute="trailing" secondItem="AnD-vf-ad3" secondAttribute="trailing" constant="20" id="nIf-uP-ycM"/>
+                                            <constraint firstAttribute="bottom" secondItem="Jyw-Zn-Rao" secondAttribute="bottom" constant="20" id="rjF-WB-x9X"/>
+                                            <constraint firstAttribute="trailing" secondItem="ENY-9a-4Fv" secondAttribute="trailing" constant="15" id="vHo-ox-Xbw"/>
+                                            <constraint firstItem="ZUV-sW-ETl" firstAttribute="top" secondItem="yqb-nw-aYz" secondAttribute="bottom" constant="15" id="xzR-FU-3LS"/>
+                                            <constraint firstItem="nh5-r5-jHw" firstAttribute="leading" secondItem="CNb-Ry-Z4c" secondAttribute="leading" constant="15" id="yk1-WW-MMz"/>
+                                            <constraint firstItem="Jyw-Zn-Rao" firstAttribute="leading" secondItem="CNb-Ry-Z4c" secondAttribute="leading" constant="30" id="ypT-Mt-FEq"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="ABB0BA"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.29803921570000003" green="0.047058823530000002" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="CNb-Ry-Z4c" secondAttribute="trailing" constant="20" id="UB6-55-ibs"/>
+                                    <constraint firstItem="CNb-Ry-Z4c" firstAttribute="top" secondItem="jCz-M1-rTA" secondAttribute="top" constant="100" id="jcL-sd-fre"/>
+                                    <constraint firstItem="CNb-Ry-Z4c" firstAttribute="leading" secondItem="jCz-M1-rTA" secondAttribute="leading" constant="20" id="uEY-P5-fxB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RXz-Wf-eCg"/>
+                        <color key="backgroundColor" name="gradient1"/>
+                        <constraints>
+                            <constraint firstItem="jCz-M1-rTA" firstAttribute="top" secondItem="RXz-Wf-eCg" secondAttribute="top" id="Tau-6q-w4h"/>
+                            <constraint firstItem="jCz-M1-rTA" firstAttribute="leading" secondItem="RXz-Wf-eCg" secondAttribute="leading" id="Tgy-HP-gB4"/>
+                            <constraint firstItem="jCz-M1-rTA" firstAttribute="trailing" secondItem="RXz-Wf-eCg" secondAttribute="trailing" id="YTt-XE-00C"/>
+                            <constraint firstAttribute="bottom" secondItem="jCz-M1-rTA" secondAttribute="bottom" id="iKf-Uh-cRc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnBackTohome" destination="IfS-at-zK3" id="rtT-pn-frD"/>
+                        <outlet property="btnMyOrder" destination="eNr-Ot-VE0" id="FDW-bY-Eir"/>
+                        <outlet property="btnRetryPayment" destination="q0g-bY-VSc" id="XXg-5j-IA1"/>
+                        <outlet property="imgViewLogoBG" destination="yqb-nw-aYz" id="myh-7R-X5u"/>
+                        <outlet property="lblAmount" destination="Bb0-x5-dgL" id="WDj-dv-i4U"/>
+                        <outlet property="lblDec" destination="9UU-qW-XQl" id="XhM-Kb-S3v"/>
+                        <outlet property="lblHeadingAmount" destination="em0-tU-NcK" id="sFq-f4-xcy"/>
+                        <outlet property="lblHeadingOrderID" destination="LmE-fg-6Q6" id="OVD-He-sKx"/>
+                        <outlet property="lblHeadingPaymentMode" destination="8mq-Jj-YF9" id="BPu-vW-fCt"/>
+                        <outlet property="lblHeadingUTRCHequeNo" destination="Mad-06-wLv" id="tEF-96-4bm"/>
+                        <outlet property="lblInfoSummry" destination="AnD-vf-ad3" id="kSH-ne-rmc"/>
+                        <outlet property="lblOrderID" destination="MKQ-Sv-cwk" id="Iij-c5-f8a"/>
+                        <outlet property="lblPaymentMode" destination="Ege-0g-KYh" id="mxT-qa-cbZ"/>
+                        <outlet property="lblStatus" destination="ZUV-sW-ETl" id="dcW-C0-tWM"/>
+                        <outlet property="lblUTRCHequeNo" destination="mBe-yT-tiQ" id="2LE-6u-6GC"/>
+                        <outlet property="stackData1" destination="ENY-9a-4Fv" id="mYW-Mu-KTD"/>
+                        <outlet property="stackData2" destination="nh5-r5-jHw" id="aMO-Ua-8vb"/>
+                        <outlet property="viewBG" destination="CNb-Ry-Z4c" id="veX-X9-kut"/>
+                        <outlet property="viewSuperBG" destination="jCz-M1-rTA" id="oZI-9f-gej"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rvq-eX-5W3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1442" y="4"/>
         </scene>
     </scenes>
     <resources>

@@ -9,7 +9,7 @@ import UIKit
 import SDWebImage
 import Alamofire
 import DTTextField
-
+import FirebaseCrashlytics
 
 enum SlideDirection {
        case left
@@ -29,7 +29,18 @@ struct Sections {
 struct ResultStruct: Codable {
     var status: Int?
     var msg: String?
-}
+    var details: CountDetails?
+ }
+
+ // MARK: - Details
+ struct CountDetails: Codable {
+     let cartCount, wishlistCount: Int
+
+     enum CodingKeys: String, CodingKey {
+         case cartCount = "cart_count"
+         case wishlistCount = "wishlist_count"
+     }
+ }
 
 
 
@@ -124,6 +135,8 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
+
         self.navigationController?.isNavigationBarHidden = true
 
 

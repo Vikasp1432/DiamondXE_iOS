@@ -14,6 +14,7 @@ class SearchDiamondVC: BaseViewController , ChildViewControllerProtocol {
     
     var delegate : BaseViewControllerDelegate?
     var strTitle : String?
+    var dashboardVC = DashboardVC()
 
     
     @IBOutlet var shadowedView:InnerDropShadowView!
@@ -78,7 +79,7 @@ class SearchDiamondVC: BaseViewController , ChildViewControllerProtocol {
            textField.resignFirstResponder()
         
         DataManager.shared.keyWordSearch = textField.text ?? "".uppercased()
-        
+        dashboardVC.searcItemhWithKeyWord()
         
         
            return true
@@ -169,6 +170,10 @@ extension SearchDiamondVC : SearchOptionSelecteDelegate {
             if shapeArr.count > 0{
                 DataManager.shared.shapeArr.removeAll()
                 DataManager.shared.shapeArr = shapeArr
+            }
+            else{
+                DataManager.shared.defaultSelectedIndicesShaps.removeAll()
+                DataManager.shared.shapeArr.removeAll()
             }
             
         default:

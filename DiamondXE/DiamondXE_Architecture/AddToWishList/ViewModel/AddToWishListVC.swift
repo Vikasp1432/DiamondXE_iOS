@@ -15,6 +15,8 @@ class AddToWishListVC: BaseViewController, ChildViewControllerProtocol {
         print(str)
     }
     
+    var delegateCount: CountUpdateDelegate?
+    
     var delegate : BaseViewControllerDelegate?
     
     @IBOutlet var wishlistTableView:UITableView!
@@ -114,6 +116,9 @@ class AddToWishListVC: BaseViewController, ChildViewControllerProtocol {
         CartDataModel().removeItemFromCart(url: url, requestParam: param, completion: { data, msg in
             
             if data.status == 1{
+                
+                self.delegateCount?.updateCount(crdCnt: data.details?.cartCount ?? 0, wishCnt: data.details?.wishlistCount ?? 0)
+                
                 self.wishlistDataStruct.details = self.wishlistDataStruct.details?.filter { $0.certificateNo != certificateNo }
                 
                 if  let count = self.wishlistDataStruct.details?.count {
@@ -149,6 +154,9 @@ class AddToWishListVC: BaseViewController, ChildViewControllerProtocol {
         CartDataModel().removeItemFromCart(url: url, requestParam: param, completion: { data, msg in
             
             if data.status == 1{
+                
+                self.delegateCount?.updateCount(crdCnt: data.details?.cartCount ?? 0, wishCnt: data.details?.wishlistCount ?? 0)
+                
                 self.wishlistDataStruct.details = self.wishlistDataStruct.details?.filter { $0.certificateNo != certificateNo }
                 if  let count = self.wishlistDataStruct.details?.count {
                     if count > 0{

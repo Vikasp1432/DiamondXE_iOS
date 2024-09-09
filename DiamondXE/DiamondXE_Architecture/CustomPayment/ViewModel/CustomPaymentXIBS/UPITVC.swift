@@ -15,7 +15,9 @@ class UPITVC: UITableViewCell {
     @IBOutlet var collectionUPIApps:UICollectionView!
     var upiApps: [UPIAppInfo] = []
     
-    var tapAction : ((String) -> Void) = { _ in }
+    var selectedIndexPath: IndexPath?
+    
+    var tapAction : ((String, String) -> Void) = { _,_  in }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,14 +52,37 @@ extension UPITVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UPIAppsCVC.cellIdentifierUPIAppsCVC, for: indexPath) as! UPIAppsCVC
         let upiApp = upiApps[indexPath.row]
-              
-              cell.lblName?.text = upiApp.appName
-              cell.iconIMG?.image = upiApp.appIcon
+        
+        cell.lblName?.text = upiApp.appName
+        cell.iconIMG?.image = upiApp.appIcon
+        
+       
         
         cell.tapAction = {
-            self.tapAction(upiApp.appName)
+           
+            
+            if self.selectedIndexPath == indexPath {
+                self.selectedIndexPath = nil
+                self.tapAction("", "")
+            } else {
+                self.selectedIndexPath = indexPath
+                self.tapAction(upiApp.appName, upiApp.packageName)
+            }
+            
+          //  collectionView.reloadItems(at: [indexPath])
+            collectionView.reloadData()
+            
         }
-
+        
+        if indexPath == self.selectedIndexPath {
+            cell.viewBG.borderWidth = 1.5
+            cell.viewBG.borderColor = UIColor.tabSelectClr
+          
+        } else {
+            cell.viewBG.borderWidth = 0
+            cell.viewBG.borderColor = UIColor.clear
+        }
+        
         return cell
     }
     
@@ -82,6 +107,8 @@ extension UPITVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0) // Adjust the left padding
     }
     
+    
+  
     
     
 //    func fetchInstalledUPIApps() -> [String] {

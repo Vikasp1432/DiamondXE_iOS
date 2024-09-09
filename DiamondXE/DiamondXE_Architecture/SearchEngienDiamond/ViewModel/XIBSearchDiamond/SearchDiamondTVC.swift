@@ -145,6 +145,8 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
             self.searchAttributeStruct = searchOptionData
         }
         
+        self.setupButtonIMG()
+        
      
         collectionShap.register(UINib(nibName: SearchDiamondCVC.cellIdentifierShapeDiamondCVC, bundle: nil), forCellWithReuseIdentifier: SearchDiamondCVC.cellIdentifierShapeDiamondCVC)
         
@@ -226,19 +228,20 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
     @IBAction func btnActionClearAll(_ sender:UIButton){
         
         self.clearAll()
-        DataManager.shared.isReturnabl = Int()
+        DataManager.shared.isReturnabl = -1
         DataManager.shared.advanceFilterDictionaryOfSets.removeAll()
         DataManager.shared.manualFilterDictionaryOfSets.removeAll()
         DataManager.shared.dictionaryOfSets.removeAll()
         DataManager.shared.shapeArr.removeAll()
         DataManager.shared.keyWordSearch = String()
+        DataManager.shared.defaultSelectedShowColor = Bool()
         
         DataManager.shared.defaultSelectedIndicesShaps.removeAll()
         DataManager.shared.defaultSelectedIndicesColor.removeAll()
         DataManager.shared.defaultSelectedIndicesClarity.removeAll()
         DataManager.shared.defaultSelectedIndicesCertificate.removeAll()
         DataManager.shared.defaultSelectedIndicesFluorescence.removeAll()
-        DataManager.shared.defaultSelectedIndicesMake =  IndexPath()
+        DataManager.shared.defaultSelectedIndicesMake =  nil
         DataManager.shared.defaultSelectedDataArrColorWhite.removeAll()
         DataManager.shared.defaultSelectedDataArrColorFancy .removeAll()
         DataManager.shared.defaultSelectedDataArrClarity.removeAll()
@@ -251,7 +254,6 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
         DataManager.shared.cartTo = String()
         DataManager.shared.cartFrom = String()
         DataManager.shared.btnTagSelect = Int()
-        
         
         self.selectedIndicesShaps.removeAll()
         self.selectedIndicesColor.removeAll()
@@ -267,9 +269,6 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
         self.selectedDataArrMake.removeAll()
         self.shapeArr.removeAll()
         
-        
-        
-        
         self.txtCaratTo.text = ""
         self.txtCaratFrom.text = ""
         self.txtPriceTo.text = ""
@@ -282,7 +281,6 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
         self.collectionCertificate.reloadData()
         self.collectionFluorescence.reloadData()
         self.collectionMake.reloadData()
-        
         
     }
     
@@ -359,23 +357,23 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
        }
     
     func setGradientBtn(string:String){
-        if string == "Lab Grown Diamonds"{
-            self.btnLabGrownDia.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
-            self.btnLabGrownDia.setTitleColor(.whitClr, for: .normal)
-            self.btnNaturalDia.clearGradient()
-            self.btnNaturalDia.setTitleColor(.themeClr, for: .normal)
-            DataManager.shared.diaType = "labgrown"
-            
-        }
-        else{
-            self.btnNaturalDia.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
-            self.btnNaturalDia.setTitleColor(.whitClr, for: .normal)
-            self.btnLabGrownDia.clearGradient()
-            self.btnLabGrownDia.setTitleColor(.themeClr, for: .normal)
-            DataManager.shared.diaType = "natural"
-        }
-        
-       
+//        if string == "Lab Grown Diamonds"{
+//            self.btnLabGrownDia.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+//            self.btnLabGrownDia.setTitleColor(.whitClr, for: .normal)
+//            self.btnNaturalDia.clearGradient()
+//            self.btnNaturalDia.setTitleColor(.themeClr, for: .normal)
+//            DataManager.shared.diaType = "labgrown"
+//            
+//        }
+//        else{
+//            self.btnNaturalDia.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+//            self.btnNaturalDia.setTitleColor(.whitClr, for: .normal)
+//            self.btnLabGrownDia.clearGradient()
+//            self.btnLabGrownDia.setTitleColor(.themeClr, for: .normal)
+//            DataManager.shared.diaType = "natural"
+//        }
+//        
+        setupTopBTN()
         DataManager.shared.color = "white"
         
     }
@@ -549,15 +547,22 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
     
     //btnActionTag
     func setupGetDataDIA(attributID:Int){
+       
+        selectedDataArrCut.removeAll()
+        selectedDataArrPolish.removeAll()
+        selectedDataArrSymmetry.removeAll()
         
             switch attributID {
             case 1:
+                
                 self.dataArrCut?.enumerated().forEach { (index, detail) in
                     if index == 0 || index == 1  {
                         self.selectedDataArrCut.append(detail)
                         let itemIndex = index
                         let indexPath = IndexPath(item: itemIndex, section: 0)
                         selectedIndicesCut.insert(indexPath)
+                        
+                        DataManager.shared.defaultSelectedIndicesCut.insert(indexPath)
                         
                     }
                     self.setupDefaultTabs(searchTitle: "Cut", dataArr: selectedDataArrCut)
@@ -569,6 +574,7 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                         let itemIndex = index
                         let indexPath = IndexPath(item: itemIndex, section: 0)
                         selectedIndicesPolish.insert(indexPath)
+                        DataManager.shared.defaultSelectedIndicesPolish.insert(indexPath)
                         
                     }
                     
@@ -582,6 +588,7 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                         let itemIndex = index
                         let indexPath = IndexPath(item: itemIndex, section: 0)
                         selectedIndicesSymmetry.insert(indexPath)
+                        DataManager.shared.defaultSelectedIndicesSymmetry.insert(indexPath)
                         
                     }
                     
@@ -596,6 +603,7 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                         let itemIndex = index
                         let indexPath = IndexPath(item: itemIndex, section: 0)
                         selectedIndicesCut.insert(indexPath)
+                        DataManager.shared.defaultSelectedIndicesCut.insert(indexPath)
                         
                     }
                     self.setupDefaultTabs(searchTitle: "Cut", dataArr: selectedDataArrCut)
@@ -607,7 +615,7 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                         let itemIndex = index
                         let indexPath = IndexPath(item: itemIndex, section: 0)
                         selectedIndicesPolish.insert(indexPath)
-                        
+                        DataManager.shared.defaultSelectedIndicesPolish.insert(indexPath)
                     }
                     
                     self.setupDefaultTabs(searchTitle: "Polish", dataArr: selectedDataArrPolish)
@@ -621,6 +629,7 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                         let itemIndex = index
                         let indexPath = IndexPath(item: itemIndex, section: 0)
                         selectedIndicesSymmetry.insert(indexPath)
+                        DataManager.shared.defaultSelectedIndicesSymmetry.insert(indexPath)
                         
                     }
                     self.setupDefaultTabs(searchTitle: "Symmetry", dataArr: selectedDataArrSymmetry)
@@ -634,6 +643,7 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                         let itemIndex = index
                         let indexPath = IndexPath(item: itemIndex, section: 0)
                         selectedIndicesCut.insert(indexPath)
+                        DataManager.shared.defaultSelectedIndicesCut.insert(indexPath)
                         
                     }
                     
@@ -647,6 +657,7 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                         let itemIndex = index
                         let indexPath = IndexPath(item: itemIndex, section: 0)
                         selectedIndicesPolish.insert(indexPath)
+                        DataManager.shared.defaultSelectedIndicesPolish.insert(indexPath)
                         
                     }
                     
@@ -661,6 +672,7 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
                         let itemIndex = index
                         let indexPath = IndexPath(item: itemIndex, section: 0)
                         selectedIndicesSymmetry.insert(indexPath)
+                        DataManager.shared.defaultSelectedIndicesSymmetry.insert(indexPath)
                         
                     }
                     
@@ -703,9 +715,6 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
            print(shapeArr)
         }
     }
-    
-    
-    
     
     
     
@@ -897,6 +906,13 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
             btnNaturalDia.clearGradient()
             btnNaturalDia.setTitleColor(.themeClr, for: .normal)
         }
+        else{
+            self.btnNaturalDia.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+            self.btnNaturalDia.setTitleColor(.whitClr, for: .normal)
+            self.btnLabGrownDia.clearGradient()
+            self.btnLabGrownDia.setTitleColor(.themeClr, for: .normal)
+            DataManager.shared.diaType = "natural"
+        }
     }
     
     @IBAction func btnActionNaturalLabD(_ sender:UIButton){
@@ -988,11 +1004,12 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
     }
     
     
-    
-    
-    @IBAction func btnActioColor(_ sender:UIButton){
-        if sender.tag == 0{
-            colorDiaWhiteShow = true
+    func setupButtonIMG(){
+        
+        colorDiaWhiteShow =  DataManager.shared.defaultSelectedShowColor ?? Bool()
+        
+        if colorDiaWhiteShow {
+            DataManager.shared.defaultSelectedShowColor = true
             self.btnClorWhite.setImage(UIImage(named: "radioButtonSelected"), for: .normal)
             self.btnClorFancy.setImage(UIImage(named: "radioButtonDeselected"), for: .normal)
 
@@ -1002,6 +1019,31 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
             self.selectedDataArrColorWhite.removeAll()
             self.selectedIndicesColor.removeAll()
             colorDiaWhiteShow = false
+            DataManager.shared.defaultSelectedShowColor = false
+            self.btnClorWhite.setImage(UIImage(named: "radioButtonDeselected"), for: .normal)
+            self.btnClorFancy.setImage(UIImage(named: "radioButtonSelected"), for: .normal)
+            DataManager.shared.color = "fancy"
+        }
+        self.collectionColors.reloadData()
+    }
+    
+    
+    
+    
+    @IBAction func btnActioColor(_ sender:UIButton){
+        if sender.tag == 0{
+            colorDiaWhiteShow = true
+            DataManager.shared.defaultSelectedShowColor = true
+            self.btnClorWhite.setImage(UIImage(named: "radioButtonSelected"), for: .normal)
+            self.btnClorFancy.setImage(UIImage(named: "radioButtonDeselected"), for: .normal)
+
+            DataManager.shared.color = "white"
+        }
+        else{
+            self.selectedDataArrColorWhite.removeAll()
+            self.selectedIndicesColor.removeAll()
+            colorDiaWhiteShow = false
+            DataManager.shared.defaultSelectedShowColor = false
             self.btnClorWhite.setImage(UIImage(named: "radioButtonDeselected"), for: .normal)
             self.btnClorFancy.setImage(UIImage(named: "radioButtonSelected"), for: .normal)
             DataManager.shared.color = "fancy"
@@ -1201,44 +1243,96 @@ extension SearchDiamondTVC: UICollectionViewDelegate, UICollectionViewDataSource
 
 extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionViewCellDelegate{
     func btnTappedCell(in cell: SearchesOptionCVC) {
+        
+        
         if let indexPath = collectionColors.indexPath(for: cell) {
-            if selectedIndicesColor.contains(indexPath) {
-                selectedIndicesColor.remove(indexPath)
-                if let selectData = dataArrColorWhite?[indexPath.row]{
-                    self.selectedDataArrColorWhite.enumerated().forEach { index, item in
-                        if selectData.attribID == item.attribID{
-                            self.selectedDataArrColorWhite.remove(at: index)
+            
+            
+            if self.colorDiaWhiteShow {
+                
+                if selectedIndicesColor.contains(indexPath) {
+                    selectedIndicesColor.remove(indexPath)
+                    if let selectData = dataArrColorWhite?[indexPath.row]{
+                        self.selectedDataArrColorWhite.enumerated().forEach { index, item in
+                            if selectData.attribID == item.attribID{
+                                self.selectedDataArrColorWhite.remove(at: index)
+                            }
                         }
-                        
                     }
+                    cell.isGradientApplied = false
+                } else {
+                    selectedIndicesColor.insert(indexPath)
+                    if let selectData = dataArrColorWhite?[indexPath.row]{
+                        self.selectedDataArrColorWhite.append(selectData)
+                    }
+                    cell.isGradientApplied = true
                 }
-                cell.isGradientApplied = false
-            } else {
-                selectedIndicesColor.insert(indexPath)
-                if let selectData = dataArrColorWhite?[indexPath.row]{
-                    self.selectedDataArrColorWhite.append(selectData)
+                
+                
+                
+                
+                if self.selectedDataArrColorWhite.count > 0{
+                    selectedDataArrColorFancy.removeAll()
+                    self.delegate?.didselectOption(searchTitle: "Color-Fancy", details: selectedDataArrColorFancy, shapeArr: [""])
+                    DataManager.shared.defaultSelectedDataArrColorFancy.removeAll()
+                    
+                    DataManager.shared.defaultSelectedIndicesColor =  selectedIndicesColor
+                    
+                    DataManager.shared.defaultSelectedDataArrColorWhite = selectedDataArrColorWhite
+                   
+                    self.delegate?.didselectOption(searchTitle: "Color", details: selectedDataArrColorWhite, shapeArr: [""])
                 }
-                cell.isGradientApplied = true
+                else{
+                    selectedDataArrColorWhite.removeAll()
+                    self.delegate?.didselectOption(searchTitle: "Color", details: selectedDataArrColorWhite, shapeArr: [""])
+                    DataManager.shared.defaultSelectedIndicesColor.removeAll()
+                    DataManager.shared.defaultSelectedDataArrColorWhite.removeAll()
+                     
+                }
             }
-            
-           
-            if self.selectedDataArrColorWhite.count > 0{
+            else{
                 
-                DataManager.shared.defaultSelectedIndicesColor =  selectedIndicesColor
+                if selectedIndicesColor.contains(indexPath) {
+                    selectedIndicesColor.remove(indexPath)
+                    if let selectData = dataArrColorFancy?[indexPath.row]{
+                        self.selectedDataArrColorFancy.enumerated().forEach { index, item in
+                            if selectData.attribID == item.attribID{
+                                self.selectedDataArrColorFancy.remove(at: index)
+                            }
+                        }
+                    }
+                    cell.isGradientApplied = false
+                } else {
+                    selectedIndicesColor.insert(indexPath)
+                    if let selectData = dataArrColorFancy?[indexPath.row]{
+                        self.selectedDataArrColorFancy.append(selectData)
+                    }
+                    cell.isGradientApplied = true
+                }
                 
-                DataManager.shared.defaultSelectedDataArrColorWhite = selectedDataArrColorWhite
-               
-                self.delegate?.didselectOption(searchTitle: "Color", details: selectedDataArrColorWhite, shapeArr: [""])
+                
+                
+                if self.selectedDataArrColorFancy.count > 0{
+                   
+                   selectedDataArrColorWhite.removeAll()
+                   self.delegate?.didselectOption(searchTitle: "Color", details: selectedDataArrColorWhite, shapeArr: [""])
+                   
+                   DataManager.shared.defaultSelectedDataArrColorWhite.removeAll()
+                    
+                    DataManager.shared.defaultSelectedIndicesColor =  selectedIndicesColor
+                    
+                    DataManager.shared.defaultSelectedDataArrColorFancy = selectedDataArrColorFancy
+                    
+                    self.delegate?.didselectOption(searchTitle: "Color-Fancy", details: selectedDataArrColorFancy, shapeArr: [""])
+                }
+                else{
+                    selectedDataArrColorFancy.removeAll()
+                    self.delegate?.didselectOption(searchTitle: "Color-Fancy", details: selectedDataArrColorFancy, shapeArr: [""])
+                    
+                    DataManager.shared.defaultSelectedIndicesColor.removeAll()
+                    DataManager.shared.defaultSelectedDataArrColorFancy.removeAll()
+                }
             }
-            if self.selectedDataArrColorFancy.count > 0{
-                
-                DataManager.shared.defaultSelectedIndicesColor =  selectedIndicesColor
-                
-                DataManager.shared.defaultSelectedDataArrColorFancy = selectedDataArrColorFancy
-                
-                self.delegate?.didselectOption(searchTitle: "Color-Fancy", details: selectedDataArrColorFancy, shapeArr: [""])
-            }
-            
             
             
         }
@@ -1275,6 +1369,15 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
                 
                 self.delegate?.didselectOption(searchTitle: "Clarity", details: selectedDataArrClarity, shapeArr: [""])
             }
+            else{
+                DataManager.shared.defaultSelectedIndicesClarity.removeAll()
+                
+                DataManager.shared.defaultSelectedDataArrClarity.removeAll()
+                
+                selectedDataArrClarity.removeAll()
+                
+                self.delegate?.didselectOption(searchTitle: "Clarity", details: selectedDataArrClarity, shapeArr: [""])
+            }
         }
         
         if let indexPath = collectionCertificate.indexPath(for: cell) {
@@ -1307,6 +1410,15 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
                 DataManager.shared.defaultSelectedDataArrCertificate = selectedDataArrCertificate
                 
                 self.delegate?.didselectOption(searchTitle: "Certificate", details: selectedDataArrCertificate, shapeArr: [""])
+            }
+            else{
+                DataManager.shared.defaultSelectedIndicesCertificate.removeAll()
+                
+                DataManager.shared.defaultSelectedDataArrCertificate.removeAll()
+                
+                selectedDataArrCertificate.removeAll()
+                self.delegate?.didselectOption(searchTitle: "Certificate", details: selectedDataArrCertificate, shapeArr: [""])
+                
             }
         }
         
@@ -1342,10 +1454,17 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
                 
                 self.delegate?.didselectOption(searchTitle: "Fluorescence", details: selectedDataArrFluorescence, shapeArr: [""])
             }
+            else{
+                DataManager.shared.defaultSelectedIndicesFluorescence.removeAll()
+                
+                DataManager.shared.defaultSelectedDataArrFluorescence.removeAll()
+                selectedDataArrFluorescence.removeAll()
+                self.delegate?.didselectOption(searchTitle: "Fluorescence", details: selectedDataArrFluorescence, shapeArr: [""])
+            }
         }
         
         if let indexPath = collectionMake.indexPath(for: cell) {
-            
+               
             if selectedIndicesMake == indexPath {
                 // Deselect the currently selected cell
                 selectedIndicesMake = nil
@@ -1355,6 +1474,7 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
                 cell.isGradientApplied = false
                 
             } else {
+                
                 // Deselect the previously selected cell
                 if let previousIndex = selectedIndicesMake {
                     if let previousCell = collectionMake.cellForItem(at: previousIndex) as? SearchesOptionCVC {
@@ -1388,6 +1508,38 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
             }
             else{
                 delegate?.didselectOption(searchTitle: "Make", details: [], shapeArr: [""])
+                
+                DataManager.shared.defaultSelectedDataArrMake.removeAll()
+                DataManager.shared.defaultSelectedIndicesMake = nil
+                DataManager.shared.defaultSelectedIndicesCut.removeAll()
+                DataManager.shared.defaultSelectedIndicesPolish.removeAll()
+                DataManager.shared.defaultSelectedIndicesSymmetry.removeAll()
+                self.selectedIndicesMake = nil
+                self.selectedDataArrCut.removeAll()
+                self.selectedDataArrPolish.removeAll()
+                self.selectedDataArrSymmetry.removeAll()
+                
+                
+               var advanceFilterDataDic = DataManager.shared.advanceFilterDictionaryOfSets
+                
+                let keyToRemoveCut = "Cut"
+                let keyToRemovePolish = "Polish"
+                let keyToRemoveSymtry = "Symmetry"
+                
+                if advanceFilterDataDic[keyToRemoveCut] != nil {
+                    advanceFilterDataDic.removeValue(forKey: keyToRemoveCut)
+                }
+                
+                if advanceFilterDataDic[keyToRemovePolish] != nil {
+                    advanceFilterDataDic.removeValue(forKey: keyToRemovePolish)
+                }
+                
+                if advanceFilterDataDic[keyToRemoveSymtry] != nil {
+                    advanceFilterDataDic.removeValue(forKey: keyToRemoveSymtry)
+                }
+                
+                DataManager.shared.advanceFilterDictionaryOfSets = advanceFilterDataDic
+
             }
             
             
@@ -1501,6 +1653,9 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
                  DataManager.shared.defaultSelectedIndicesShaps = selectedIndicesShaps
                 DataManager.shared.defaultShapeArr = shapeArr
                 self.delegate?.didselectOption(searchTitle: "Shape", details: [], shapeArr: shapeArr)
+            }
+            else{
+                self.delegate?.didselectOption(searchTitle: "Shape", details: [], shapeArr: [])
             }
         }
     }

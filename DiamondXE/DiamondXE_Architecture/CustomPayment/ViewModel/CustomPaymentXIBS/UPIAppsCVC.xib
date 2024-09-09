@@ -51,6 +51,11 @@
                             <constraint firstAttribute="bottom" secondItem="cj1-PL-cN7" secondAttribute="bottom" constant="2" id="rXF-if-cEg"/>
                             <constraint firstItem="Hu3-0d-WXA" firstAttribute="centerX" secondItem="g7a-ON-exO" secondAttribute="centerX" id="tQz-HW-j1G"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -65,6 +70,7 @@
             <connections>
                 <outlet property="iconIMG" destination="Hu3-0d-WXA" id="sgl-iY-vH8"/>
                 <outlet property="lblName" destination="cj1-PL-cN7" id="JUc-nm-hh8"/>
+                <outlet property="viewBG" destination="g7a-ON-exO" id="RMg-nd-Ygo"/>
             </connections>
             <point key="canvasLocation" x="78.625954198473281" y="35.211267605633807"/>
         </collectionViewCell>

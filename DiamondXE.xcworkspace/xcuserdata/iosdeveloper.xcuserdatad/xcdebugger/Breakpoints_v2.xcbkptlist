@@ -7,32 +7,94 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "12A96755-FE07-4FD6-BB73-621052B73B03"
+            uuid = "6B167559-2A1B-4715-8AC7-79146E1265D0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DiamondXE/DiamondXE_Architecture/SearchEngienDiamond/ViewModel/XIBSearchDiamond/SearchDiamondTVC.swift"
+            filePath = "DiamondXE/DiamondXE_Architecture/ShippingModule/ViewModel/ShippingModuleVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1385"
-            endingLineNumber = "1385"
-            landmarkName = "btnTappedCell(in:)"
+            startingLineNumber = "1057"
+            endingLineNumber = "1057"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F94ED8C7-D86A-4564-BBE2-389F867EA5AF"
+            uuid = "EAAD5B7E-CB25-4938-9DCF-B7D5C4EBCA03"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DiamondXE/DiamondXE_Architecture/SearchEngienDiamond/ViewModel/XIBSearchDiamond/SearchDiamondTVC.swift"
+            filePath = "DiamondXE/DiamondXE_Architecture/ShippingModule/ViewModel/ShippingModuleVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "553"
-            endingLineNumber = "553"
-            landmarkName = "setupGetDataDIA(attributID:)"
+            startingLineNumber = "743"
+            endingLineNumber = "743"
+            landmarkName = "applyCouponCode(couponCode:waletPoint:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A818C559-2FBA-4771-93EA-CE9B81E41E11"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DiamondXE/DiamondXE_Architecture/ShippingModule/ViewModel/ShippingModuleVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "371"
+            endingLineNumber = "371"
+            landmarkName = "getCheckOutDetailsAPI(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A818C559-2FBA-4771-93EA-CE9B81E41E11 - f5640d1bb618baf1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DiamondXE.ShippingModuleVC.getCheckOutDetailsAPI(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "DiamondXE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iosdeveloper/Documents/Raman_iOS/DiamondXE_MainProjectSource/DiamondXE/DiamondXE/DiamondXE_Architecture/ShippingModule/ViewModel/ShippingModuleVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "371"
+                  endingLineNumber = "371">
+               </Location>
+               <Location
+                  uuid = "A818C559-2FBA-4771-93EA-CE9B81E41E11 - 8961da909f3dd42b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (DiamondXE.CheckOutDataStruct, Swift.Optional&lt;Swift.String&gt;) -&gt; () in DiamondXE.ShippingModuleVC.getCheckOutDetailsAPI(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "DiamondXE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iosdeveloper/Documents/Raman_iOS/DiamondXE_MainProjectSource/DiamondXE/DiamondXE/DiamondXE_Architecture/ShippingModule/ViewModel/ShippingModuleVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "371"
+                  endingLineNumber = "371">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B160CCE4-3098-4785-907D-0D31C2F68E93"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DiamondXE/DiamondXE_Architecture/ShippingModule/ViewModel/ShippingModuleVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "372"
+            endingLineNumber = "372"
+            landmarkName = "getCheckOutDetailsAPI(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -28,6 +28,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
     var delegateDiamond: B2BSearchResultVCDelegate?
     var dashboardVC: DashboardVC?
 
+    var delegateCount: CountUpdateDelegate?
     
     @IBOutlet var filterCollectionView:UICollectionView!
     @IBOutlet var tableViewList:UITableView!
@@ -107,6 +108,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         CurrencyRatesManager.shareInstence.getCurrencyRates()
+        
         SwipeGestureUtility.addSwipeGesture(to: self.view, navigationController: self.navigationController)
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
@@ -363,7 +365,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
         }
         
         
-        if titleArr.count < 1{
+        if titleArr.count < 0{
             ishideFilters = true
             
             self.btnHideShowFilter.setImage(UIImage(named: "arrowDown"), for: .normal)
@@ -373,8 +375,13 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
         }
         else{
             
-            ishideFilters = false
-            filterCollectionView.isHidden = false
+            ishideFilters = true
+            
+            self.btnHideShowFilter.setImage(UIImage(named: "arrowDown"), for: .normal)
+            filterCollectionView.isHidden = true
+            
+           // ishideFilters = false
+           // filterCollectionView.isHidden = false
             filterCollectionView.reloadData()
         }
         
@@ -432,6 +439,20 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
     }
     
     
+    func formatStringArray(_ array: [String]) -> String {
+        
+        let trimmedArray = array.compactMap { $0.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty }
+        
+        if trimmedArray.count > 1 {
+            return trimmedArray.joined(separator: ", ")
+        } else if let firstElement = trimmedArray.first {
+            return firstElement
+        } else {
+            return ""
+        }
+    }
+    
+    
     
     func setParamAndAPICalling(){
         self.sessionID = self.getSessionUniqID()
@@ -445,6 +466,10 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
             sortBy = DataManager.shared.sortingBy ?? "PriceLow"
         }
         
+      
+        let valueToSend = DataManager.shared.isReturnabl == nil ? "" : "\(DataManager.shared.isReturnabl!)"
+
+        
         
         param = ["page": page, "limit": limit, "isLuxe":self.isLuxe, "sessionId" : self.sessionID,
                  
@@ -457,14 +482,14 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
                  "fancyColorIntencity":self.fancyclrIntensityArr.joined(separator: ","),
                  "fancyColorOvertone":self.fancyclrOvertoneArr.joined(separator: ","),
                  "clarity":self.clarityArr.joined(separator: ","),
-                 "lengthFrom":self.lengthFromArr.joined(separator: ","),
-                 "lengthTo":self.lengthToArr.joined(separator: ","),
-                 "widthFrom":self.widthFromArr.joined(separator: ","),
-                 "widthTo":self.widthToArr.joined(separator: ","),
-                 "depthFrom":self.depthMMFromArr.joined(separator: ","),
-                 "depthTo":self.depthMMToArr.joined(separator: ","),
-                 "lotId":self.lotID.joined(separator: ","),
-                 "searchLocation":self.location.joined(separator: ","),
+                 "lengthFrom":formatStringArray(self.lengthFromArr),//self.lengthFromArr.joined(separator: ","),
+                 "lengthTo":formatStringArray(self.lengthToArr),//self.lengthToArr.joined(separator: ","),
+                 "widthFrom":formatStringArray(self.widthFromArr),//self.widthFromArr.joined(separator: ","),
+                 "widthTo":formatStringArray(self.widthToArr),//self.widthToArr.joined(separator: ","),
+                 "depthFrom":formatStringArray(self.depthMMFromArr),//self.depthMMFromArr.joined(separator: ","),
+                 "depthTo":formatStringArray(self.depthMMToArr),//self.depthMMToArr.joined(separator: ","),
+                 "lotId":formatStringArray(self.lotID),//self.lotID.joined(separator: ","),
+                 "searchLocation": formatStringArray(self.location),//self.location.joined(separator: ","),
                  "certificate":self.certificateArr.joined(separator: ","),
                  "fluorescence":self.fluoreseArr.joined(separator: ","),
                  "cut":self.cutArr.joined(separator: ","),
@@ -474,7 +499,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
                  "eyeClean":self.eyeClean.joined(separator: ","),
                  "shade":self.shade.joined(separator: ","),
                  "luster":self.luster.joined(separator: ","),
-                 "returnable":DataManager.shared.isReturnabl ?? Int(),                 // (0/1)
+                 "returnable":valueToSend,                 // (0/1)
                  "caratFrom":self.caratFrom,
                  "caratTo":self.caratTo,
                  "priceFrom":self.priceFrom,
@@ -505,6 +530,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
             
             if data.status == 1{
                 self.diamondListResult = data
+                
                 if let listDetials = self.diamondListResult.details{
                     self.diamondListDetails.append(contentsOf: listDetials)
                     if self.diamondListResult.details?.count ?? 0 > 0{
@@ -547,6 +573,9 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
         ModelGetDiamond().addToWishCart(url: url, requestParam: param, completion: { data, msg in
             if data.status == 1{
 //                self.isDataListingView
+                
+                self.delegateCount?.updateCount(crdCnt: data.details?.cartCount ?? 0, wishCnt: data.details?.wishlistCount ?? 0)
+                
                 self.diamondListDetails[indexPath.row].isCart = 1
                 if let cell = self.tableViewList.cellForRow(at: indexPath) as? B2BSearchResultCardListingTVC {
                     cell.btnCard.setTitleColor(.themeClr, for: .normal)
@@ -590,6 +619,9 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
         ModelGetDiamond().addToWishCart(url: url, requestParam: param, completion: { data, msg in
             if data.status == 1{
 //                self.isDataListingView
+                
+                self.delegateCount?.updateCount(crdCnt: data.details?.cartCount ?? 0, wishCnt: data.details?.wishlistCount ?? 0)
+                
                 self.diamondListDetails[indexPath.row].isWishlist = 1
                 if let cell = self.tableViewList.cellForRow(at: indexPath) as? B2BSearchResultCardListingTVC {
                     cell.btnWhshlist.setImage(UIImage(named: "heartFilled"), for: .normal)

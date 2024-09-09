@@ -10,7 +10,19 @@ import Foundation
 struct RemoveCartItemStruct: Codable {
     var status: Int?
     var msg: String?
-}
+    var details: ContDetails?
+ }
+
+ // MARK: - Details
+ struct ContDetails: Codable {
+     var cartCount, wishlistCount: Int?
+
+     enum CodingKeys: String, CodingKey {
+         case cartCount = "cart_count"
+         case wishlistCount = "wishlist_count"
+     }
+ }
+
 
 class CartDataModel{
     static var shareInstence = CartDataModel()

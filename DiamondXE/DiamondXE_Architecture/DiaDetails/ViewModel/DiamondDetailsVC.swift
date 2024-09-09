@@ -18,6 +18,8 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
     var isCellExpandedDetails = false
     var isAddtoCartItem = false
     var currencyRateDetailObj = CurrencyRateDetail()
+    var delegateCount: CountUpdateDelegate?
+
    
     @IBOutlet var tbleViewDetails:UITableView!
     
@@ -127,6 +129,9 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
         ModelGetDiamond().addToWishCart(url: url, requestParam: param, completion: { data, msg in
             print(data)
             if data.status == 1{
+                
+                self.delegateCount?.updateCount(crdCnt: data.details?.cartCount ?? 0, wishCnt: data.details?.wishlistCount ?? 0)
+                
                 if let cell = self.tbleViewDetails.cellForRow(at: indexPath) as? ProductDetailsTVC {
                     cell.btnBuyNow.setTitle("Go to cart", for: .normal)
                     self.isAddtoCartItem = true
@@ -148,7 +153,9 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
                      "sessionId":deviceID]
         ModelGetDiamond().addToWishCart(url: url, requestParam: param, completion: { data, msg in
             if data.status == 1{
-
+                
+                self.delegateCount?.updateCount(crdCnt: data.details?.cartCount ?? 0, wishCnt: data.details?.wishlistCount ?? 0)
+                
                 self.recommendentDataStruct.details?.enumerated().forEach{ index, val in
                     if val.stockNO == certificateNo{
                         self.recommendentDataStruct.details?[index].isCart = 1
@@ -187,6 +194,8 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
         ModelGetDiamond().addToWishCart(url: url, requestParam: param, completion: { data, msg in
             if data.status == 1{
 //                self.isDataListingView
+                self.delegateCount?.updateCount(crdCnt: data.details?.cartCount ?? 0, wishCnt: data.details?.wishlistCount ?? 0)
+                
                 self.recommendentDataStruct.details?.enumerated().forEach{ index, val in
                     if val.stockNO == certificateNo{
                         self.recommendentDataStruct.details?[index].isWishlist = 1
@@ -223,6 +232,9 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
         ModelGetDiamond().addToWishCart(url: url, requestParam: param, completion: { data, msg in
             if data.status == 1{
 //                self.isDataListingView
+                
+                self.delegateCount?.updateCount(crdCnt: data.details?.cartCount ?? 0, wishCnt: data.details?.wishlistCount ?? 0)
+                
                 self.recommendentDataStruct.details?.enumerated().forEach{ index, val in
                     if val.stockNO == certificateNo{
                         self.recommendentDataStruct.details?[index].isWishlist = 0
@@ -262,8 +274,8 @@ extension DiamondDetailsVC : CustomRcommCellDelegate{
         case 0:
             
             self.recommendentDataStruct.details?.enumerated().forEach{ index, val in
-                if val.stockNO == certificateNO{
-                    var cart = self.recommendentDataStruct.details?[index].isCart ?? 0
+                if val.certificateNo == certificateNO{
+                    let cart = self.recommendentDataStruct.details?[index].isCart ?? 0
                     if cart == 0{
                         self.addToCartRecommendent(certificateNo: certificateNO, cell: cell)
                     }
@@ -279,8 +291,8 @@ extension DiamondDetailsVC : CustomRcommCellDelegate{
             
         case 1:
             self.recommendentDataStruct.details?.enumerated().forEach{ index, val in
-                if val.stockNO == certificateNO{
-                    var wishList = self.recommendentDataStruct.details?[index].isWishlist ?? 0
+                if val.certificateNo == certificateNO{
+                    let wishList = self.recommendentDataStruct.details?[index].isWishlist ?? 0
                     if wishList == 0{
                         self.addToWishList(certificateNo: certificateNO, cell: cell)
                     }
@@ -470,15 +482,27 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
                     
                 }
                 else{
-                    let loginData = UserDefaultManager().retrieveLoginData()
-                    if let data = loginData?.details?.userRole{
-                        self.callAPIBuyNowUpdate(certificateNum: self.diamondDetails.details?.certificateNo ?? "")
-                    }
-                    else{
-                        self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
-                    }
+//                    let loginData = UserDefaultManager().retrieveLoginData()
+//                    if let data = loginData?.details?.userRole{
+//                        self.callAPIBuyNowUpdate(certificateNum: self.diamondDetails.details?.certificateNo ?? "")
+//                    }
+//                    else{
+//                        self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
+//                    }
                     
+                    
+                    let storyboard = UIStoryboard(name: "ShippingModule", bundle: nil)
+                    if let vc = storyboard.instantiateViewController(withIdentifier: "ShippingModuleVC") as? ShippingModuleVC {
+                        if let dataObj = self.diamondDetails.details {
+                            vc.diamondDetailsOBJ = dataObj
+                            vc.currencyRateDetailObj = self.currencyRateDetailObj
+                        }
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                  
                     //self.navigationManager(storybordName: "ShippingModule", storyboardID: "ShippingModuleVC", controller: ShippingModuleVC())
+                   
+                    
                 }
             }
             

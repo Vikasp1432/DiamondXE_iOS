@@ -14,6 +14,9 @@ struct DiamondSearchDataStructB2B: Codable {
     var totalRecords, avgDiamondPrice: Int?
     var details: [DiamondListingDetail]?
     
+    var cart_count : Int?
+    var wishlist_count : Int?
+    
     enum CodingKeys: String, CodingKey {
         case status, msg
         case totalRecords = "total_records"

@@ -92,6 +92,83 @@ class AlamofireManager {
         }
     }
     
+    
+    func makePostAPIRequestWithLocation2(url : String,param: [String: Any], completion: @escaping (Result<Data?, CustomError>) -> Void) {
+        
+        
+        guard let reachability = NetworkReachabilityManager(), reachability.isReachable else {
+               // Return a custom error if no internet connection is available
+               let error = CustomError(message: "No Internet Connection.")
+               completion(.failure(error))
+               return
+           }
+        
+        
+        let headers: HTTPHeaders = HeaderInfoLocation().headers
+        // Define your API endpoint and parameters
+        print("Print Final URL ----------->\(url)")
+        print("Print Final Psram ----------->\(param)")
+        print("Print Final Header ----------->\(headers)")
+        AF.request(url, method: .post, parameters: param, encoding:  JSONEncoding.prettyPrinted, headers: headers).response { response in
+            switch response.result {
+            case .success:
+                let data = response.data
+                
+                if data != nil{
+                    let str = String(decoding: data!, as: UTF8.self)
+                    print(str)
+                }
+                completion(.success(data))
+                // OnResultBlock(data as Any, true)
+                
+            case let .failure(CustomError):
+               // print(error)
+                completion(.failure(.init(message: "")))
+                //OnResultBlock(error, false)
+            }
+        }
+    }
+    
+    
+    
+    func makePostAPIRequestWithQuringSTR(url : String,param: [String: Any], completion: @escaping (Result<Data?, CustomError>) -> Void) {
+        
+        
+        guard let reachability = NetworkReachabilityManager(), reachability.isReachable else {
+               // Return a custom error if no internet connection is available
+               let error = CustomError(message: "No Internet Connection.")
+               completion(.failure(error))
+               return
+           }
+        
+        
+        let headers: HTTPHeaders = HeaderInfoLocation().headers
+        // Define your API endpoint and parameters
+        print("Print Final URL ----------->\(url)")
+        print("Print Final Psram ----------->\(param)")
+        print("Print Final Header ----------->\(headers)")
+        AF.request(url, method: .post, parameters: param, encoding:  URLEncoding.queryString, headers: headers).response { response in
+            switch response.result {
+            case .success:
+                let data = response.data
+                
+                if data != nil{
+                    let str = String(decoding: data!, as: UTF8.self)
+                    print(str)
+                }
+                completion(.success(data))
+                // OnResultBlock(data as Any, true)
+                
+            case let .failure(CustomError):
+               // print(error)
+                completion(.failure(.init(message: "")))
+                //OnResultBlock(error, false)
+            }
+        }
+    }
+    
+    
+    
     // get API
     func makeGETAPIRequest(url : String, completion: @escaping (Result<Data?, CustomError>) -> Void) {
         

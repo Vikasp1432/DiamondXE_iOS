@@ -63,9 +63,9 @@ struct PymtInProcessDetails: Codable {
     var orderID: String?
     var userID: Int?
     var currencyCode, currencySymbol: String?
-    var exchangeRate: Int?
+    var exchangeRate: Double?
     var paymentMode: String?
-    var amount, bankCharge, bankChargePerc, totalAmount: Int?
+    var amount, bankCharge, bankChargePerc, totalAmount: Double?
     var description, paymentStatus: String?
     var userData: UserData?
     var createdAt: String?

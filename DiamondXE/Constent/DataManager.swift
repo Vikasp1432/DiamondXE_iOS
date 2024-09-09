@@ -54,7 +54,7 @@ class DataManager {
     var diaQualityTap: [String]?
     
     
-    
+    var defaultSelectedShowColor : Bool?
     
     
     var searchTitle: String? = ""

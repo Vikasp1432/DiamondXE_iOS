@@ -54,14 +54,14 @@
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="ogb-SY-e6G">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ogb-SY-e6G">
                                                 <rect key="frame" x="8" y="48" width="387" height="100"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kLu-Z5-SJf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="99" height="100"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="109" height="100"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHe-h8-xsf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="99" height="80"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="109" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="9iX-ki-POr"/>
                                                                 </constraints>
@@ -78,7 +78,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzA-nl-q4a">
-                                                                <rect key="frame" x="0.0" y="80" width="99" height="20"/>
+                                                                <rect key="frame" x="0.0" y="80" width="109" height="20"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="RTGS/NEFT">
                                                                         <attributes>
@@ -104,10 +104,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CP6-2I-40G">
-                                                        <rect key="frame" x="144" y="0.0" width="99" height="100"/>
+                                                        <rect key="frame" x="139" y="0.0" width="109" height="100"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pee-ex-Z3t">
-                                                                <rect key="frame" x="0.0" y="0.0" width="99" height="80"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="109" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="t90-BI-ypM"/>
                                                                 </constraints>
@@ -124,7 +124,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HW-bv-W16">
-                                                                <rect key="frame" x="0.0" y="80" width="99" height="20"/>
+                                                                <rect key="frame" x="0.0" y="80" width="109" height="20"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="Debit/Credit Card">
                                                                         <attributes>
@@ -150,10 +150,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oa4-XW-fDd">
-                                                        <rect key="frame" x="288" y="0.0" width="99" height="100"/>
+                                                        <rect key="frame" x="278" y="0.0" width="109" height="100"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22m-IE-gSg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="99" height="80"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="109" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="moG-NY-8zX"/>
                                                                 </constraints>
@@ -170,7 +170,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n71-wb-zo7">
-                                                                <rect key="frame" x="0.0" y="80" width="99" height="20"/>
+                                                                <rect key="frame" x="0.0" y="80" width="109" height="20"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="Net Banking">
                                                                         <attributes>

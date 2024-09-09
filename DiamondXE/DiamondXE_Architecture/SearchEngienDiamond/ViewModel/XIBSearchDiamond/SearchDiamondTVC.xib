@@ -739,8 +739,9 @@
                                     <attributedString key="attributedTitle">
                                         <fragment content="Clear All">
                                             <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <font key="NSFont" size="14" name="Lato-Semibold"/>
+                                                <integer key="NSUnderline" value="1"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>

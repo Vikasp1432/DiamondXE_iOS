@@ -111,6 +111,12 @@ struct APIs {
     
     let getBankCharges_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-bank-charges"
     
+    var callBackURL = "https://\(DiamondXEEnvironment.rootURL)payments/phonepe-custom-payment-callback"
+    
+    var customPayment_Status_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/custom-payment/status"
+    
+    var checkOutDetails_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-checkout-details"
+    
 }
 
 //struct HeaderInfo {

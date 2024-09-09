@@ -12,6 +12,8 @@ class OrderSummaryTVC: UITableViewCell {
     static let cellIdentifierOrderSummary = String(describing: OrderSummaryTVC.self)
 
     @IBOutlet var viewBG:UIView!
+    
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

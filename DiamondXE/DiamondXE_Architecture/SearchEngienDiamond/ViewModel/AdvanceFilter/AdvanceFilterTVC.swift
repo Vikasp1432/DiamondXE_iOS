@@ -143,6 +143,17 @@ class AdvanceFilterTVC: UITableViewCell, UITextFieldDelegate {
         configureCollectionView(collectionEyeClan)
         configureCollectionView(collectionLuster)
         
+        
+        selectedIndicesCut =   DataManager.shared.defaultSelectedIndicesCut
+        selectedIndicesPolish  =    DataManager.shared.defaultSelectedIndicesPolish
+        selectedIndicesSymmetry =  DataManager.shared.defaultSelectedIndicesSymmetry
+//         selectedIndicesCertificate = DataManager.shared.defaultSelectedIndicesCertificate
+//         selectedIndicesFluorescence = DataManager.shared.defaultSelectedIndicesFluorescence
+//        selectedIndicesMake =  DataManager.shared.defaultSelectedIndicesMake
+        
+        
+        
+        
         collectionCut.register(UINib(nibName: FilterCVC.cellIdentifierAdvanceFilCVC, bundle: nil), forCellWithReuseIdentifier: FilterCVC.cellIdentifierAdvanceFilCVC)
         collectionPlolish.register(UINib(nibName: FilterCVC.cellIdentifierAdvanceFilCVC, bundle: nil), forCellWithReuseIdentifier: FilterCVC.cellIdentifierAdvanceFilCVC)
         collectionSymmetry.register(UINib(nibName: FilterCVC.cellIdentifierAdvanceFilCVC, bundle: nil), forCellWithReuseIdentifier: FilterCVC.cellIdentifierAdvanceFilCVC)
@@ -197,7 +208,85 @@ class AdvanceFilterTVC: UITableViewCell, UITextFieldDelegate {
 
         //cler all data
 //        clerAll()
+        setUpDefaultVal()
     }
+    
+    
+    func setUpDefaultVal(){
+        var advanceFilterDataDic = DataManager.shared.advanceFilterDictionaryOfSets
+         
+         if advanceFilterDataDic.count > 0{
+             advanceFilterDataDic.forEach { key, valueSet in
+                 valueSet.enumerated().forEach { (index, array) in
+                     array.forEach { detail in
+                         if let attribCode = detail.attribCode {
+                            
+                             
+                             switch key {
+//                             case "Cut":
+//                                 self.cutArr.append(attribCode)
+//                             case "Polish":
+//                                 self.polishFancyArr.append(attribCode)
+//                             case "Symmetry":
+//                                 self.symmetryArr.append(attribCode)
+//                             case "Technology":
+//                                 self.techeArr.append(attribCode)
+//                             case "FCIntencity":
+//                                 self.fancyclrIntensityArr.append(attribCode)
+//                             case "FCOvertone":
+//                                 self.fancyclrOvertoneArr.append(attribCode)
+//                             case "TabplePerFrom":
+//                                 self.tableFromArr.append(attribCode)
+//                             case "TablePerTo":
+//                                 self.tableToArr.append(attribCode)
+//                             case "DepthPerFrom":
+//                                 self.depthFromArr.append(attribCode)
+//                             case "DepthPerTo":
+//                                 self.depthToArr.append(attribCode)
+//                             case "CrownFrom":
+//                                 self.crownFromArr.append(attribCode)
+//                             case "CrownTo":
+//                                 self.crownToArr.append(attribCode)
+//                             case "PavllionFrom":
+//                                 self.pavllionFromArr.append(attribCode)
+//                             case "PavllionTo":
+//                                 self.pavllionToArr.append(attribCode)
+//                             case "EyeClean":
+//                                 self.eyeClean.append(attribCode)
+//                             case "Shade":
+//                                 self.shade.append(attribCode)
+//                             case "Luster":
+//                                 self.luster.append(attribCode)
+                             case "LengthFrom":
+                                 self.txtlengthFrom.text = attribCode
+                             case "LengthTo":
+                                 self.txtlengthTo.text = attribCode
+                             case "WidthFrom":
+                                 self.txtWidthFrom.text = attribCode
+                             case "WidthTo":
+                                 self.txtWidthTo.text = attribCode
+                             case "DepthFrom":
+                                 self.txtDepthFrom.text = attribCode
+                             case "DepthTo":
+                                 self.txtDepthTo.text = attribCode
+                             case "LotID":
+                                 self.txtLotID.text = attribCode
+                             case "Location":
+                                 self.txtLocation.text = attribCode
+                             
+                             default:
+                                 print(key)
+                             }
+                             
+                         }
+                     }
+                 }
+             }
+             
+         }
+    }
+    
+    
     
     func textFieldDidEndEditing(_ textField: UITextField) {
 //           if let text = textField.tag {
@@ -205,42 +294,42 @@ class AdvanceFilterTVC: UITableViewCell, UITextFieldDelegate {
         switch textField.tag {
         case 1:
             var dataArr = SearchAttribDetail()
-            dataArr.displayAttr = textField.text ?? ""
+            dataArr.attribCode = textField.text ?? ""
             self.textData.append(dataArr)
             self.delegate?.didselectOption(searchTitle: "LengthFrom", details: self.textData, shapeArr: [])
         case 2:
             var dataArr = SearchAttribDetail()
-            dataArr.displayAttr = textField.text ?? ""
+            dataArr.attribCode = textField.text ?? ""
             self.textData.append(dataArr)
             self.delegate?.didselectOption(searchTitle: "LengthTo", details: self.textData, shapeArr: [])
         case 3:
             var dataArr = SearchAttribDetail()
-            dataArr.displayAttr = textField.text ?? ""
+            dataArr.attribCode = textField.text ?? ""
             self.textData.append(dataArr)
             self.delegate?.didselectOption(searchTitle: "WidthFrom", details: self.textData, shapeArr: [])
         case 4:
             var dataArr = SearchAttribDetail()
-            dataArr.displayAttr = textField.text ?? ""
+            dataArr.attribCode = textField.text ?? ""
             self.textData.append(dataArr)
             self.delegate?.didselectOption(searchTitle: "WidthTo", details: self.textData, shapeArr: [])
         case 5:
             var dataArr = SearchAttribDetail()
-            dataArr.displayAttr = textField.text ?? ""
+            dataArr.attribCode = textField.text ?? ""
             self.textData.append(dataArr)
             self.delegate?.didselectOption(searchTitle: "DepthFrom", details: self.textData, shapeArr: [])
         case 6:
             var dataArr = SearchAttribDetail()
-            dataArr.displayAttr = textField.text ?? ""
+            dataArr.attribCode = textField.text ?? ""
             self.textData.append(dataArr)
             self.delegate?.didselectOption(searchTitle: "DepthTo ", details: self.textData, shapeArr: [])
         case 7:
             var dataArr = SearchAttribDetail()
-            dataArr.displayAttr = textField.text ?? ""
+            dataArr.attribCode = textField.text ?? ""
             self.textData.append(dataArr)
             self.delegate?.didselectOption(searchTitle: "LotID", details: self.textData, shapeArr: [])
         case 8:
             var dataArr = SearchAttribDetail()
-            dataArr.displayAttr = textField.text ?? ""
+            dataArr.attribCode = textField.text ?? ""
             self.textData.append(dataArr)
             self.delegate?.didselectOption(searchTitle: "Location", details: self.textData, shapeArr: [])
         default:

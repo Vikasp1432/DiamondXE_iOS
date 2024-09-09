@@ -139,6 +139,7 @@ struct CartDataStruct: Codable {
     var totalChargeWithTax, totalTaxes, totalAmount, taxPerOnCharges: Int?
     var finalAmount, bankCharge, bankChargePerc: Int?
     var details: [CardDataDetail]?
+  
 
     enum CodingKeys: String, CodingKey {
         case isCoupanApplied = "is_coupan_applied"

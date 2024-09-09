@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LATO-REGULAR.TTF">
+            <string>Lato-Regular</string>
+        </array>
+        <array key="LATO.SEMIBOLD.TTF">
+            <string>Lato-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ShippingAddressListingCVC" customModule="DiamondXE" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="364" height="173"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="364" height="173"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0P-N8-vgi">
+                        <rect key="frame" x="0.0" y="0.0" width="364" height="173"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iKG-H7-NnB">
+                                <rect key="frame" x="7" y="5" width="350" height="160"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsR-By-ftz">
+                                        <rect key="frame" x="15" y="15" width="235" height="18"/>
+                                        <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="15"/>
+                                        <color key="textColor" name="blackClr"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Nad  uhef rjhbjf ebfjhbej whbfjwhe bfme" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPa-ck-usp">
+                                        <rect key="frame" x="15" y="37" width="320" height="18"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                        <color key="textColor" name="blackClr"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone: +91 9999999999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlE-x0-FhG">
+                                        <rect key="frame" x="15" y="59" width="320" height="18"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                        <color key="textColor" name="blackClr"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: sample@gmail.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mw8-4M-Lbq">
+                                        <rect key="frame" x="15" y="81" width="320" height="18"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                        <color key="textColor" name="blackClr"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Type: Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TH-CO-Hob">
+                                        <rect key="frame" x="15" y="103" width="320" height="18"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                        <color key="textColor" name="blackClr"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Qi2-Ic-dCq">
+                                        <rect key="frame" x="260" y="9" width="75" height="30"/>
+                                        <subviews>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WaZ-3f-4rh">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
+                                                <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="13"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="delteAccount">
+                                                    <color key="titleColor" name="TabSelectClr"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4D-2L-Iwt">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="30"/>
+                                                <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="13"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="edit">
+                                                    <color key="titleColor" name="TabSelectClr"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnActionS:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Ogt-zy-nIG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CE-Mg-Nm7">
+                                                <rect key="frame" x="40" y="0.0" width="35" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="35" id="NgN-dQ-XO5"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="radioButtonDeselected"/>
+                                                <connections>
+                                                    <action selector="btnActionS:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Pgv-7e-Vco"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="NBc-BG-zGC"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp8-I9-qkw">
+                                        <rect key="frame" x="292" y="139" width="55" height="18"/>
+                                        <color key="backgroundColor" name="TabSelectClr"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="RAT-mT-Avr"/>
+                                            <constraint firstAttribute="height" constant="18" id="hYC-yF-olh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="11"/>
+                                        <color key="textColor" name="whitClr"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="whitClr"/>
+                                <constraints>
+                                    <constraint firstItem="gsR-By-ftz" firstAttribute="leading" secondItem="iKG-H7-NnB" secondAttribute="leading" constant="15" id="2J6-Sn-8zm"/>
+                                    <constraint firstItem="Mw8-4M-Lbq" firstAttribute="leading" secondItem="iKG-H7-NnB" secondAttribute="leading" constant="15" id="3gz-Ki-Fc3"/>
+                                    <constraint firstItem="Bp8-I9-qkw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6TH-CO-Hob" secondAttribute="bottom" constant="8" id="Brn-aX-DA0"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bp8-I9-qkw" secondAttribute="bottom" constant="3" id="Eso-rr-Rbr"/>
+                                    <constraint firstAttribute="trailing" secondItem="YPa-ck-usp" secondAttribute="trailing" constant="15" id="FCI-IU-Rwt"/>
+                                    <constraint firstItem="Qi2-Ic-dCq" firstAttribute="leading" secondItem="gsR-By-ftz" secondAttribute="trailing" constant="10" id="JhR-Tm-Nb0"/>
+                                    <constraint firstItem="gsR-By-ftz" firstAttribute="top" secondItem="iKG-H7-NnB" secondAttribute="top" constant="15" id="Ro9-y5-Zrk"/>
+                                    <constraint firstItem="RlE-x0-FhG" firstAttribute="top" secondItem="YPa-ck-usp" secondAttribute="bottom" constant="4" id="VdM-1W-74Q"/>
+                                    <constraint firstItem="6TH-CO-Hob" firstAttribute="top" secondItem="Mw8-4M-Lbq" secondAttribute="bottom" constant="4" id="W8n-56-zhl"/>
+                                    <constraint firstItem="6TH-CO-Hob" firstAttribute="leading" secondItem="iKG-H7-NnB" secondAttribute="leading" constant="15" id="ag9-fW-tGX"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mw8-4M-Lbq" secondAttribute="trailing" constant="15" id="azk-Gl-yt4"/>
+                                    <constraint firstItem="YPa-ck-usp" firstAttribute="leading" secondItem="iKG-H7-NnB" secondAttribute="leading" constant="15" id="b1t-FH-r64"/>
+                                    <constraint firstItem="RlE-x0-FhG" firstAttribute="leading" secondItem="iKG-H7-NnB" secondAttribute="leading" constant="15" id="efX-g1-6tK"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qi2-Ic-dCq" secondAttribute="trailing" constant="15" id="exL-tD-giI"/>
+                                    <constraint firstItem="YPa-ck-usp" firstAttribute="top" secondItem="gsR-By-ftz" secondAttribute="bottom" constant="4" id="gIb-qx-X6p"/>
+                                    <constraint firstItem="Mw8-4M-Lbq" firstAttribute="top" secondItem="RlE-x0-FhG" secondAttribute="bottom" constant="4" id="hf3-Ki-AWc"/>
+                                    <constraint firstItem="Qi2-Ic-dCq" firstAttribute="centerY" secondItem="gsR-By-ftz" secondAttribute="centerY" id="iJk-m3-jZG"/>
+                                    <constraint firstAttribute="trailing" secondItem="6TH-CO-Hob" secondAttribute="trailing" constant="15" id="jcT-au-udR"/>
+                                    <constraint firstAttribute="trailing" secondItem="RlE-x0-FhG" secondAttribute="trailing" constant="15" id="jhM-Zr-B9H"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bp8-I9-qkw" secondAttribute="trailing" constant="3" id="l77-Cs-3Lu"/>
+                                    <constraint firstAttribute="height" constant="160" id="vCM-DH-UPc"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="viewBGClr"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iKG-H7-NnB" secondAttribute="trailing" constant="7" id="Jy9-7N-o7U"/>
+                            <constraint firstItem="iKG-H7-NnB" firstAttribute="top" secondItem="U0P-N8-vgi" secondAttribute="top" constant="5" id="L0u-3u-UxZ"/>
+                            <constraint firstAttribute="bottom" secondItem="iKG-H7-NnB" secondAttribute="bottom" constant="8" id="RdN-qP-f6S"/>
+                            <constraint firstItem="iKG-H7-NnB" firstAttribute="leading" secondItem="U0P-N8-vgi" secondAttribute="leading" constant="7" id="tb9-7W-vDa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="U0P-N8-vgi" secondAttribute="bottom" id="Cma-sW-qmG"/>
+                <constraint firstAttribute="trailing" secondItem="U0P-N8-vgi" secondAttribute="trailing" id="Ofb-w1-WeA"/>
+                <constraint firstItem="U0P-N8-vgi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="SMv-HJ-YrP"/>
+                <constraint firstItem="U0P-N8-vgi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ha2-EQ-gNx"/>
+            </constraints>
+            <size key="customSize" width="242" height="164"/>
+            <connections>
+                <outlet property="btnEdit" destination="b4D-2L-Iwt" id="DPc-fW-UED"/>
+                <outlet property="btnRadioSelect" destination="2CE-Mg-Nm7" id="dKr-zc-0YX"/>
+                <outlet property="lblAddress" destination="YPa-ck-usp" id="FvY-EP-E6K"/>
+                <outlet property="lblAddressType" destination="6TH-CO-Hob" id="w8P-tJ-YnD"/>
+                <outlet property="lblDefaut" destination="Bp8-I9-qkw" id="acn-KJ-XE8"/>
+                <outlet property="lblEmail" destination="Mw8-4M-Lbq" id="IAb-hP-rv6"/>
+                <outlet property="lblName" destination="gsR-By-ftz" id="nxR-1x-QmP"/>
+                <outlet property="lblPhone" destination="RlE-x0-FhG" id="XDs-3k-1Xh"/>
+                <outlet property="viewData" destination="iKG-H7-NnB" id="AFL-qv-3aW"/>
+            </connections>
+            <point key="canvasLocation" x="241.22137404580153" y="58.802816901408455"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="delteAccount" width="14.720000267028809" height="15.479999542236328"/>
+        <image name="edit" width="16.010000228881836" height="15.930000305175781"/>
+        <image name="radioButtonDeselected" width="14.699999809265137" height="14"/>
+        <namedColor name="TabSelectClr">
+            <color red="0.49399998784065247" green="0.18799999356269836" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blackClr">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="viewBGClr">
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="whitClr">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -10,7 +10,34 @@ import DropDown
 import SDWebImage
 
 
-class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCountryPopupViewDelegate, PinCodeDelegate {
+protocol CountUpdateDelegate: AnyObject {
+    func updateCount(crdCnt: Int, wishCnt : Int)
+}
+
+
+class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCountryPopupViewDelegate, PinCodeDelegate, CountUpdateDelegate {
+    
+    
+    
+    func updateCount(crdCnt: Int, wishCnt: Int) {
+        if crdCnt > 0{
+            self.lblCrdCnt.isHidden = false
+            self.lblCrdCnt.text = "\(crdCnt)"
+        }
+        else{
+            self.lblCrdCnt.isHidden = true
+        }
+        
+        if wishCnt > 0{
+            self.lblWishlstCnt.isHidden = false
+            self.lblWishlstCnt.text = "\(wishCnt)"
+        }
+        else{
+            self.lblWishlstCnt.isHidden = true
+        }
+        
+    }
+    
    
  
     @IBOutlet var containerViewSideMenu: UIView!
@@ -18,6 +45,9 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
     @IBOutlet var swipeGesture: UISwipeGestureRecognizer!
     @IBOutlet var menuTableView: UITableView!
     @IBOutlet var lblVersion: UILabel!
+    
+    @IBOutlet var lblCrdCnt: UILabel!
+    @IBOutlet var lblWishlstCnt: UILabel!
     
     @IBOutlet var imgLOGO: UIImageView!
     @IBOutlet var stackIcons: UIStackView!
@@ -90,13 +120,15 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
            print("Screen tapped at: \(location)")
        }
     
- 
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         // get currency
+        CurrencyRatesManager.shareInstence.delegate = self
         CurrencyRatesManager.shareInstence.getCurrencyRates()
-       
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         viewSideMnu.addGestureRecognizer(tapGesture)
@@ -133,6 +165,78 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
         setupPopupView()
         defineCountryPopupView()
         defineDIADetailsPopupView()
+        
+        getCurrentLocation()
+        
+    }
+    
+    
+    func getCurrentLocation(){
+        let locationCode = HeaderInfoLocation().timeZoneInfo.countryCode ?? "US"
+        print(locationCode)
+        var updateCode = String()
+        
+        switch locationCode {
+        case "IN":
+            updateCode = "INR"
+            self.btnSelectC0untry.setImage(UIImage(named: "Flag"), for: .normal)
+        case "US":
+            updateCode = "USD"
+            self.btnSelectC0untry.setImage(UIImage(named: "usd"), for: .normal)
+        case "EU":
+            updateCode = "EUR"
+            self.btnSelectC0untry.setImage(UIImage(named: "eur"), for: .normal)
+        case "GB":
+            updateCode = "GBD"
+            self.btnSelectC0untry.setImage(UIImage(named: "gbp"), for: .normal)
+        case "AU":
+            updateCode = "AUD"
+            self.btnSelectC0untry.setImage(UIImage(named: "aud"), for: .normal)
+        case "CA":
+            updateCode = "CAD"
+            self.btnSelectC0untry.setImage(UIImage(named: "cad"), for: .normal)
+        case "NZ":
+            updateCode = "NZD"
+            self.btnSelectC0untry.setImage(UIImage(named: "nzd"), for: .normal)
+        case "SG":
+            updateCode = "SGD"
+            self.btnSelectC0untry.setImage(UIImage(named: "sgd"), for: .normal)
+        case "AE":
+            updateCode = "AED"
+            self.btnSelectC0untry.setImage(UIImage(named: "aed"), for: .normal)
+        default:
+            print("")
+        }
+       // self.counrtyDropDownView.isHidden.toggle()
+       
+        var getCurrnyRate = CurrencyRatesManager.shareInstence.currencyRateStruct
+        for (index, value) in getCurrnyRate.enumerated() {
+            if updateCode == value.currency {
+                self.currencySelectObj = value
+                print(value)
+                break
+            }
+        }
+        
+//        switch self.currentViewController {
+//        case is AddToCartVC:
+//            if let addTocart = self.currentViewController as? AddToCartVC {
+//                addTocart.updateCurreny(currncyOBJ: self.currencySelectObj)
+//                break
+//            }
+//        case is AddToWishListVC:
+//            if let addTocart = self.currentViewController as? AddToWishListVC {
+//                addTocart.updateCurreny(currncyOBJ: self.currencySelectObj)
+//                break
+//            }
+//        case is HomeVC:
+//            if let homeVC = self.currentViewController as? HomeVC {
+//                homeVC.currencySelectObj =  currencySelectObj
+//                homeVC.homeTableView.reloadSections([4], with: .none)
+//            }
+//        default:
+//            print("")
+//        }
         
     }
     
@@ -180,6 +284,15 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(overlayViewTapped))
         overlayView.addGestureRecognizer(tapGestureRecognizer)
     }
+    
+    
+    // search wirth keyword
+    func searcItemhWithKeyWord(){
+        updateHeaderBG(setUpTag: 0)
+        gotoSearchResultB2BVC(title: "Search Result")
+    }
+    
+    
  
     @objc private func floatingButtonTapped() {
         
@@ -189,7 +302,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             
            // navigationManager(storybordName: "GlobleSearch", storyboardID: "GlobleSearchVC", controller: GlobleSearchVC())
         case is SearchDiamondVC:
-            updateHeaderBG(setUpTag: 0)
+           updateHeaderBG(setUpTag: 0)
            gotoSearchResultB2BVC(title: "Search Result")
         case is B2BSearchResultVC:
             print("B2BDetails")
@@ -556,6 +669,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             self.byTopDeals = false
             self.isByCard = false
             self.isBydWish = false
+            diamondDetailsVC.dashboardVC = self
             self.btnSearch.setImage(UIImage(named: "SearchI"), for: .normal)
         }
         
@@ -565,6 +679,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             self.isByCard = true
             self.byTopDeals = false
             self.isBydWish = false
+            addToCartVC.delegateCount = self
             addToCartVC.currencyRateDetailObj = self.currencySelectObj
         }
         
@@ -573,6 +688,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             self.isBydWish = true
             self.byTopDeals = false
             self.isByCard = false
+            addToWishListVC.delegateCount = self
             addToWishListVC.currencyRateDetailObj = self.currencySelectObj
         }
         
@@ -589,12 +705,15 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             self.lblTitle.isHidden = false
             self.imgLOGO.isHidden = true
             self.stackIcons.isHidden = true
+            
+            diamondDetailsVC.delegateCount = self
         }
         
         if let b2bSearchDiamondVC = newViewController as? B2BSearchResultVC {
             b2bSearchDiamondVC.dashboardVC = self
             b2bSearchDiamondVC.updateCurreny(currncyOBJ: self.currencySelectObj)
             self.byTopDeals = false
+            b2bSearchDiamondVC.delegateCount = self
             self.btnSearch.setImage(UIImage(named: "plus"), for: .normal)
         }
         self.currncyValChange(currncyValObj: self.currencySelectObj)

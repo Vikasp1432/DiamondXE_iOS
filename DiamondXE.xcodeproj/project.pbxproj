@@ -63,10 +63,18 @@
 		4440C59D2BD9110100C00975 /* FooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4440C59B2BD9110100C00975 /* FooterCell.xib */; };
 		444124512C75DC67006AEC86 /* WalletPointTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4441244F2C75DC67006AEC86 /* WalletPointTVC.swift */; };
 		444124522C75DC67006AEC86 /* WalletPointTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444124502C75DC67006AEC86 /* WalletPointTVC.xib */; };
+		44417B382C830A790020A2AA /* ShippingAddressListingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44417B362C830A790020A2AA /* ShippingAddressListingTVC.swift */; };
+		44417B392C830A790020A2AA /* ShippingAddressListingTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44417B372C830A790020A2AA /* ShippingAddressListingTVC.xib */; };
+		44417B412C830FA20020A2AA /* ShippingAddressListingCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44417B3F2C830FA20020A2AA /* ShippingAddressListingCVC.swift */; };
+		44417B422C830FA20020A2AA /* ShippingAddressListingCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44417B402C830FA20020A2AA /* ShippingAddressListingCVC.xib */; };
+		44417B452C834CEE0020A2AA /* BillingAddressSameAsShippingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44417B432C834CEE0020A2AA /* BillingAddressSameAsShippingTVC.swift */; };
+		44417B462C834CEE0020A2AA /* BillingAddressSameAsShippingTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44417B442C834CEE0020A2AA /* BillingAddressSameAsShippingTVC.xib */; };
 		44417EE02C579EF0008C6AA6 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44417EDF2C579EF0008C6AA6 /* ChangePasswordVC.swift */; };
 		44417EE32C57A9F7008C6AA6 /* KYCVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44417EE22C57A9F7008C6AA6 /* KYCVerification.swift */; };
 		44417EE52C57B2C8008C6AA6 /* KYCDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44417EE42C57B2C8008C6AA6 /* KYCDataStruct.swift */; };
 		444243932C05D473001E976B /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444243922C05D473001E976B /* UserDefaultManager.swift */; };
+		4444DFB72C81A2E700097CDB /* PaymentStatusStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444DFB62C81A2E700097CDB /* PaymentStatusStruct.swift */; };
+		4444DFB92C81A59300097CDB /* PaymentStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444DFB82C81A59300097CDB /* PaymentStatusVC.swift */; };
 		44457F782C241B9D008B1D9C /* DiamondDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44457F772C241B9D008B1D9C /* DiamondDetails.storyboard */; };
 		44457F7C2C241BF1008B1D9C /* DiamondDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44457F7B2C241BF1008B1D9C /* DiamondDetailsVC.swift */; };
 		44457F842C241E14008B1D9C /* DiamondImagesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44457F822C241E14008B1D9C /* DiamondImagesTVC.swift */; };
@@ -89,6 +97,11 @@
 		445222F52C0082CB00EA79B2 /* SuggestedCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445222F22C0082CB00EA79B2 /* SuggestedCVC.swift */; };
 		445222FC2C00830D00EA79B2 /* SuggestedTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445222FB2C00830D00EA79B2 /* SuggestedTVC.xib */; };
 		445222FD2C00830D00EA79B2 /* SuggestedTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445222FA2C00830D00EA79B2 /* SuggestedTVC.swift */; };
+		445274142C82F896002C77A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 445274132C82F896002C77A4 /* GoogleService-Info.plist */; };
+		445274172C82F939002C77A4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 445274162C82F938002C77A4 /* FirebaseAnalytics */; };
+		445274192C82F939002C77A4 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 445274182C82F939002C77A4 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		4452741B2C82F939002C77A4 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 4452741A2C82F939002C77A4 /* FirebaseAppCheck */; };
+		4452741D2C82F939002C77A4 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4452741C2C82F939002C77A4 /* FirebaseCrashlytics */; };
 		445276832C50DFAD006D2F64 /* ShippingItemsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445276812C50DFAD006D2F64 /* ShippingItemsTVCell.swift */; };
 		445276842C50DFAD006D2F64 /* ShippingItemsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445276822C50DFAD006D2F64 /* ShippingItemsTVCell.xib */; };
 		445276872C50F1CD006D2F64 /* ShippingItemsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445276852C50F1CD006D2F64 /* ShippingItemsListCell.swift */; };
@@ -149,7 +162,21 @@
 		4458B8772BFE02360018AB4A /* PromisesDXETVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4458B8742BFE02360018AB4A /* PromisesDXETVC.swift */; };
 		445A78DE2C257A390088463D /* OverLayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445A78DC2C257A380088463D /* OverLayerView.xib */; };
 		445A78DF2C257A390088463D /* OverLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445A78DD2C257A380088463D /* OverLayerView.swift */; };
+		445B94202C859DD9008A39B9 /* OrderSummeryWithItemTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445B941E2C859DD9008A39B9 /* OrderSummeryWithItemTVC.swift */; };
+		445B94212C859DD9008A39B9 /* OrderSummeryWithItemTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445B941F2C859DD9008A39B9 /* OrderSummeryWithItemTVC.xib */; };
+		445B94242C85ABB3008A39B9 /* OrderSummeryItemsCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445B94222C85ABB3008A39B9 /* OrderSummeryItemsCVC.swift */; };
+		445B94252C85ABB3008A39B9 /* OrderSummeryItemsCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445B94232C85ABB3008A39B9 /* OrderSummeryItemsCVC.xib */; };
+		445B942A2C85CAF0008A39B9 /* KYCDocStatusTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445B94282C85CAF0008A39B9 /* KYCDocStatusTVC.swift */; };
+		445B942B2C85CAF0008A39B9 /* KYCDocStatusTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445B94292C85CAF0008A39B9 /* KYCDocStatusTVC.xib */; };
+		445B942E2C85CE1E008A39B9 /* KYCDocResubmittedTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445B942C2C85CE1E008A39B9 /* KYCDocResubmittedTVC.swift */; };
+		445B942F2C85CE1E008A39B9 /* KYCDocResubmittedTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445B942D2C85CE1E008A39B9 /* KYCDocResubmittedTVC.xib */; };
+		445B94322C85E2D9008A39B9 /* PointsInfoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445B94302C85E2D9008A39B9 /* PointsInfoTVC.swift */; };
+		445B94332C85E2D9008A39B9 /* PointsInfoTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445B94312C85E2D9008A39B9 /* PointsInfoTVC.xib */; };
+		445B94362C85E30D008A39B9 /* CouponInfoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445B94342C85E30D008A39B9 /* CouponInfoTVC.swift */; };
+		445B94372C85E30D008A39B9 /* CouponInfoTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445B94352C85E30D008A39B9 /* CouponInfoTVC.xib */; };
 		445BD7632C20330200DB7DAF /* ModelGetDiamond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BD7622C20330200DB7DAF /* ModelGetDiamond.swift */; };
+		445C69EB2C8AD57A0090255B /* CheckOutDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C69EA2C8AD57A0090255B /* CheckOutDataStruct.swift */; };
+		445C69ED2C8ADEDB0090255B /* ShippingModuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C69EC2C8ADEDB0090255B /* ShippingModuleModel.swift */; };
 		44624D9E2C2D5E6C002D5757 /* MakeDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44624D9D2C2D5E6C002D5757 /* MakeDropDown.swift */; };
 		44624DA32C2D744A002D5757 /* CurrencyRatesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44624DA22C2D744A002D5757 /* CurrencyRatesManager.swift */; };
 		44624DA62C2D9C7B002D5757 /* SizesViewXIB.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44624DA52C2D9C7B002D5757 /* SizesViewXIB.xib */; };
@@ -223,9 +250,6 @@
 		447E728D2BCFAB4100AAEA57 /* DiamondXEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E728C2BCFAB4100AAEA57 /* DiamondXEUITests.swift */; };
 		447E728F2BCFAB4100AAEA57 /* DiamondXEUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E728E2BCFAB4100AAEA57 /* DiamondXEUITestsLaunchTests.swift */; };
 		447E729E2BCFAEED00AAEA57 /* APIWithBaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E729D2BCFAEED00AAEA57 /* APIWithBaseURL.swift */; };
-		447E72CE2BCFC84200AAEA57 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 447E72CD2BCFC84200AAEA57 /* Dev.xcconfig */; };
-		447E72D02BCFC85900AAEA57 /* Staging.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 447E72CF2BCFC85900AAEA57 /* Staging.xcconfig */; };
-		447E72D22BCFC87000AAEA57 /* Production.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 447E72D12BCFC87000AAEA57 /* Production.xcconfig */; };
 		447E72D42BCFCB3E00AAEA57 /* DiamondXE_Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E72D32BCFCB3E00AAEA57 /* DiamondXE_Environment.swift */; };
 		447E72D72BCFD0A600AAEA57 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447E72D62BCFD0A600AAEA57 /* Login.storyboard */; };
 		447E72DC2BCFD14300AAEA57 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E72DB2BCFD14300AAEA57 /* LoginVC.swift */; };
@@ -411,10 +435,18 @@
 		4440C59B2BD9110100C00975 /* FooterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterCell.xib; sourceTree = "<group>"; };
 		4441244F2C75DC67006AEC86 /* WalletPointTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPointTVC.swift; sourceTree = "<group>"; };
 		444124502C75DC67006AEC86 /* WalletPointTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletPointTVC.xib; sourceTree = "<group>"; };
+		44417B362C830A790020A2AA /* ShippingAddressListingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAddressListingTVC.swift; sourceTree = "<group>"; };
+		44417B372C830A790020A2AA /* ShippingAddressListingTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShippingAddressListingTVC.xib; sourceTree = "<group>"; };
+		44417B3F2C830FA20020A2AA /* ShippingAddressListingCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShippingAddressListingCVC.swift; path = ExpandableView/ShippingAddressListingCVC.swift; sourceTree = "<group>"; };
+		44417B402C830FA20020A2AA /* ShippingAddressListingCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShippingAddressListingCVC.xib; path = ExpandableView/ShippingAddressListingCVC.xib; sourceTree = "<group>"; };
+		44417B432C834CEE0020A2AA /* BillingAddressSameAsShippingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingAddressSameAsShippingTVC.swift; sourceTree = "<group>"; };
+		44417B442C834CEE0020A2AA /* BillingAddressSameAsShippingTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillingAddressSameAsShippingTVC.xib; sourceTree = "<group>"; };
 		44417EDF2C579EF0008C6AA6 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		44417EE22C57A9F7008C6AA6 /* KYCVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCVerification.swift; sourceTree = "<group>"; };
 		44417EE42C57B2C8008C6AA6 /* KYCDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCDataStruct.swift; sourceTree = "<group>"; };
 		444243922C05D473001E976B /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		4444DFB62C81A2E700097CDB /* PaymentStatusStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentStatusStruct.swift; sourceTree = "<group>"; };
+		4444DFB82C81A59300097CDB /* PaymentStatusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentStatusVC.swift; sourceTree = "<group>"; };
 		44457F772C241B9D008B1D9C /* DiamondDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiamondDetails.storyboard; sourceTree = "<group>"; };
 		44457F7B2C241BF1008B1D9C /* DiamondDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiamondDetailsVC.swift; sourceTree = "<group>"; };
 		44457F822C241E14008B1D9C /* DiamondImagesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiamondImagesTVC.swift; sourceTree = "<group>"; };
@@ -436,6 +468,7 @@
 		445222F32C0082CB00EA79B2 /* SuggestedCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedCVC.xib; sourceTree = "<group>"; };
 		445222FA2C00830D00EA79B2 /* SuggestedTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedTVC.swift; sourceTree = "<group>"; };
 		445222FB2C00830D00EA79B2 /* SuggestedTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedTVC.xib; sourceTree = "<group>"; };
+		445274132C82F896002C77A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		445276812C50DFAD006D2F64 /* ShippingItemsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingItemsTVCell.swift; sourceTree = "<group>"; };
 		445276822C50DFAD006D2F64 /* ShippingItemsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShippingItemsTVCell.xib; sourceTree = "<group>"; };
 		445276852C50F1CD006D2F64 /* ShippingItemsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingItemsListCell.swift; sourceTree = "<group>"; };
@@ -495,7 +528,21 @@
 		4458B8752BFE02360018AB4A /* PromisesDXETVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromisesDXETVC.xib; sourceTree = "<group>"; };
 		445A78DC2C257A380088463D /* OverLayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverLayerView.xib; sourceTree = "<group>"; };
 		445A78DD2C257A380088463D /* OverLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverLayerView.swift; sourceTree = "<group>"; };
+		445B941E2C859DD9008A39B9 /* OrderSummeryWithItemTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummeryWithItemTVC.swift; sourceTree = "<group>"; };
+		445B941F2C859DD9008A39B9 /* OrderSummeryWithItemTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSummeryWithItemTVC.xib; sourceTree = "<group>"; };
+		445B94222C85ABB3008A39B9 /* OrderSummeryItemsCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummeryItemsCVC.swift; sourceTree = "<group>"; };
+		445B94232C85ABB3008A39B9 /* OrderSummeryItemsCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSummeryItemsCVC.xib; sourceTree = "<group>"; };
+		445B94282C85CAF0008A39B9 /* KYCDocStatusTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCDocStatusTVC.swift; sourceTree = "<group>"; };
+		445B94292C85CAF0008A39B9 /* KYCDocStatusTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KYCDocStatusTVC.xib; sourceTree = "<group>"; };
+		445B942C2C85CE1E008A39B9 /* KYCDocResubmittedTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCDocResubmittedTVC.swift; sourceTree = "<group>"; };
+		445B942D2C85CE1E008A39B9 /* KYCDocResubmittedTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KYCDocResubmittedTVC.xib; sourceTree = "<group>"; };
+		445B94302C85E2D9008A39B9 /* PointsInfoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsInfoTVC.swift; sourceTree = "<group>"; };
+		445B94312C85E2D9008A39B9 /* PointsInfoTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointsInfoTVC.xib; sourceTree = "<group>"; };
+		445B94342C85E30D008A39B9 /* CouponInfoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponInfoTVC.swift; sourceTree = "<group>"; };
+		445B94352C85E30D008A39B9 /* CouponInfoTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CouponInfoTVC.xib; sourceTree = "<group>"; };
 		445BD7622C20330200DB7DAF /* ModelGetDiamond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGetDiamond.swift; sourceTree = "<group>"; };
+		445C69EA2C8AD57A0090255B /* CheckOutDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutDataStruct.swift; sourceTree = "<group>"; };
+		445C69EC2C8ADEDB0090255B /* ShippingModuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingModuleModel.swift; sourceTree = "<group>"; };
 		44624D9D2C2D5E6C002D5757 /* MakeDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeDropDown.swift; sourceTree = "<group>"; };
 		44624DA22C2D744A002D5757 /* CurrencyRatesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatesManager.swift; sourceTree = "<group>"; };
 		44624DA42C2D9C7B002D5757 /* SizesViewXIB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesViewXIB.swift; sourceTree = "<group>"; };
@@ -702,9 +749,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4452741B2C82F939002C77A4 /* FirebaseAppCheck in Frameworks */,
 				44546A432BD67F87007AFEF8 /* SDWebImageSwiftUI in Frameworks */,
 				44C09F572C1C68210031F390 /* UIView-Shimmer in Frameworks */,
+				445274172C82F939002C77A4 /* FirebaseAnalytics in Frameworks */,
 				444A1A642BD24D1900B8A6CA /* Alamofire in Frameworks */,
+				445274192C82F939002C77A4 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				4452741D2C82F939002C77A4 /* FirebaseCrashlytics in Frameworks */,
 				4420B97B2BD9333A00C156CF /* IQKeyboardManagerSwift in Frameworks */,
 				DD61260E63F0781539FA6490 /* Pods_DiamondXE.framework in Frameworks */,
 			);
@@ -912,6 +963,17 @@
 			path = PaymentSectionXIBS;
 			sourceTree = "<group>";
 		};
+		44417B3E2C830E0E0020A2AA /* ExpandableView */ = {
+			isa = PBXGroup;
+			children = (
+				445276812C50DFAD006D2F64 /* ShippingItemsTVCell.swift */,
+				445276822C50DFAD006D2F64 /* ShippingItemsTVCell.xib */,
+				445276852C50F1CD006D2F64 /* ShippingItemsListCell.swift */,
+				445276862C50F1CD006D2F64 /* ShippingItemsListCell.xib */,
+			);
+			path = ExpandableView;
+			sourceTree = "<group>";
+		};
 		44417EE12C57A997008C6AA6 /* KYCSection */ = {
 			isa = PBXGroup;
 			children = (
@@ -1039,6 +1101,8 @@
 		444F2D302C4FB8F000004857 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				445C69EA2C8AD57A0090255B /* CheckOutDataStruct.swift */,
+				445C69EC2C8ADEDB0090255B /* ShippingModuleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1056,6 +1120,8 @@
 			children = (
 				4441244E2C75DC04006AEC86 /* PaymentSectionXIBS */,
 				445276802C50DF7C006D2F64 /* ShippingXIBs */,
+				445B94262C85C5E1008A39B9 /* KYCXibs */,
+				445B94272C85C5FC008A39B9 /* PaymentXibs */,
 				444F2D352C4FB95500004857 /* ShippingModuleVC.swift */,
 			);
 			path = ViewModel;
@@ -1111,10 +1177,17 @@
 		445276802C50DF7C006D2F64 /* ShippingXIBs */ = {
 			isa = PBXGroup;
 			children = (
-				445276812C50DFAD006D2F64 /* ShippingItemsTVCell.swift */,
-				445276822C50DFAD006D2F64 /* ShippingItemsTVCell.xib */,
-				445276852C50F1CD006D2F64 /* ShippingItemsListCell.swift */,
-				445276862C50F1CD006D2F64 /* ShippingItemsListCell.xib */,
+				44417B3E2C830E0E0020A2AA /* ExpandableView */,
+				44417B362C830A790020A2AA /* ShippingAddressListingTVC.swift */,
+				44417B372C830A790020A2AA /* ShippingAddressListingTVC.xib */,
+				44417B3F2C830FA20020A2AA /* ShippingAddressListingCVC.swift */,
+				44417B402C830FA20020A2AA /* ShippingAddressListingCVC.xib */,
+				44417B432C834CEE0020A2AA /* BillingAddressSameAsShippingTVC.swift */,
+				44417B442C834CEE0020A2AA /* BillingAddressSameAsShippingTVC.xib */,
+				445B941E2C859DD9008A39B9 /* OrderSummeryWithItemTVC.swift */,
+				445B941F2C859DD9008A39B9 /* OrderSummeryWithItemTVC.xib */,
+				445B94222C85ABB3008A39B9 /* OrderSummeryItemsCVC.swift */,
+				445B94232C85ABB3008A39B9 /* OrderSummeryItemsCVC.xib */,
 			);
 			path = ShippingXIBs;
 			sourceTree = "<group>";
@@ -1264,6 +1337,28 @@
 				440807572C2FEB2C007410BD /* CertificateViewVC.xib */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		445B94262C85C5E1008A39B9 /* KYCXibs */ = {
+			isa = PBXGroup;
+			children = (
+				445B94282C85CAF0008A39B9 /* KYCDocStatusTVC.swift */,
+				445B94292C85CAF0008A39B9 /* KYCDocStatusTVC.xib */,
+				445B942C2C85CE1E008A39B9 /* KYCDocResubmittedTVC.swift */,
+				445B942D2C85CE1E008A39B9 /* KYCDocResubmittedTVC.xib */,
+			);
+			path = KYCXibs;
+			sourceTree = "<group>";
+		};
+		445B94272C85C5FC008A39B9 /* PaymentXibs */ = {
+			isa = PBXGroup;
+			children = (
+				445B94302C85E2D9008A39B9 /* PointsInfoTVC.swift */,
+				445B94312C85E2D9008A39B9 /* PointsInfoTVC.xib */,
+				445B94342C85E30D008A39B9 /* CouponInfoTVC.swift */,
+				445B94352C85E30D008A39B9 /* CouponInfoTVC.xib */,
+			);
+			path = PaymentXibs;
 			sourceTree = "<group>";
 		};
 		44624DA12C2D742B002D5757 /* SetCurrcyRates */ = {
@@ -1474,6 +1569,7 @@
 			isa = PBXGroup;
 			children = (
 				447580012C7CA83600B953B5 /* PrivacyInfo.xcprivacy */,
+				445274132C82F896002C77A4 /* GoogleService-Info.plist */,
 				447E72672BCFAB4000AAEA57 /* DiamondXE */,
 				447E72812BCFAB4100AAEA57 /* DiamondXETests */,
 				447E728B2BCFAB4100AAEA57 /* DiamondXEUITests */,
@@ -1696,6 +1792,7 @@
 				44A4C1DA2C76258100A1B871 /* CustomPaymentModel.swift */,
 				44A4C1DC2C7627F200A1B871 /* BankInfoDataStruct.swift */,
 				445650D12C77579800463C21 /* CustomPaymentDataStruct.swift */,
+				4444DFB62C81A2E700097CDB /* PaymentStatusStruct.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1706,6 +1803,7 @@
 				44A4C1D02C75F03B00A1B871 /* CustomPaymentXIBS */,
 				44A4C1CE2C75ED9300A1B871 /* CustomPaymentVC.swift */,
 				443D16622C787D710014A7FB /* PaymentInProgressVC.swift */,
+				4444DFB82C81A59300097CDB /* PaymentStatusVC.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1981,6 +2079,7 @@
 				447E72622BCFAB4000AAEA57 /* Frameworks */,
 				447E72632BCFAB4000AAEA57 /* Resources */,
 				F7478098FA0E287E484A6778 /* [CP] Embed Pods Frameworks */,
+				4487A5872C898AC2002FD699 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1992,6 +2091,10 @@
 				44546A422BD67F87007AFEF8 /* SDWebImageSwiftUI */,
 				4420B97A2BD9333A00C156CF /* IQKeyboardManagerSwift */,
 				44C09F562C1C68210031F390 /* UIView-Shimmer */,
+				445274162C82F938002C77A4 /* FirebaseAnalytics */,
+				445274182C82F939002C77A4 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				4452741A2C82F939002C77A4 /* FirebaseAppCheck */,
+				4452741C2C82F939002C77A4 /* FirebaseCrashlytics */,
 			);
 			productName = DiamondXE;
 			productReference = 447E72652BCFAB4000AAEA57 /* DiamondXE.app */;
@@ -2044,7 +2147,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					447E72642BCFAB4000AAEA57 = {
 						CreatedOnToolsVersion = 15.3;
@@ -2073,6 +2176,7 @@
 				44546A412BD67F7E007AFEF8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				4420B9792BD9330400C156CF /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				44C09F552C1C68120031F390 /* XCRemoteSwiftPackageReference "UIView-Shimmer" */,
+				445274152C82F938002C77A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 447E72662BCFAB4000AAEA57 /* Products */;
 			projectDirPath = "";
@@ -2091,6 +2195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44560D8F2C1AC49D003D8F18 /* FilterAppliedCVC.xib in Resources */,
+				445B942F2C85CE1E008A39B9 /* KYCDocResubmittedTVC.xib in Resources */,
 				443C54672BFE1BD000740C0D /* CustomerViewCVC.xib in Resources */,
 				44757FBC2C7C5FF500B953B5 /* PopularBanksCVC.xib in Resources */,
 				44560D992C1AFFA6003D8F18 /* B2BSearchResultCardListingTVC.xib in Resources */,
@@ -2099,14 +2204,17 @@
 				44E61DB42BFB41E4006E136E /* HomeVC_CateogiesCVC.xib in Resources */,
 				44F631252BEF3BA3003EE2BC /* LaunchScreen.storyboard in Resources */,
 				447580022C7CA83600B953B5 /* PrivacyInfo.xcprivacy in Resources */,
+				44417B422C830FA20020A2AA /* ShippingAddressListingCVC.xib in Resources */,
 				44556C222BF77EC600B5FBA4 /* LATO-BLACK.TTF in Resources */,
 				4440C5992BD9074400C00975 /* BuyerCell1.xib in Resources */,
 				440FE4D82BF395C100B11770 /* splashVD.mp4 in Resources */,
+				445B94372C85E30D008A39B9 /* CouponInfoTVC.xib in Resources */,
 				443B99842C2BF2CE00961B88 /* DiaDetailsPopupView.xib in Resources */,
 				44A81B572BDF6FB1008AB93A /* Dealer_OtherDocCell.xib in Resources */,
 				444ADAAF2C6892360053F17F /* PaymentModule.storyboard in Resources */,
 				44BA46FE2C52629E0054C550 /* SameAddressCell.xib in Resources */,
 				44CF42532C245D4200C20EAB /* ProductDetailsTVC.xib in Resources */,
+				445274142C82F896002C77A4 /* GoogleService-Info.plist in Resources */,
 				44757FDE2C7CA5EB00B953B5 /* RingSiZerTableCell.xib in Resources */,
 				44556C232BF77EC600B5FBA4 /* LATO-BLACKITALIC.TTF in Resources */,
 				44556C282BF77EC600B5FBA4 /* LATO-LIGHT.TTF in Resources */,
@@ -2120,6 +2228,8 @@
 				44C941442C4149F600B29D05 /* AuthorisedPersionKYCTVC.xib in Resources */,
 				44C94F862C11B7D0009E6B59 /* DropDownViewCell.xib in Resources */,
 				44A81B532BDF6F95008AB93A /* Dealer_BasicCell.xib in Resources */,
+				445B942B2C85CAF0008A39B9 /* KYCDocStatusTVC.xib in Resources */,
+				445B94252C85ABB3008A39B9 /* OrderSummeryItemsCVC.xib in Resources */,
 				44E61DA72BFB30F4006E136E /* CategoriesVC.storyboard in Resources */,
 				44D7F6A62BFDCB7F00C3F761 /* TopDealsCVC.xib in Resources */,
 				448A56602BFE0B0100F01591 /* MediaSpotlightTVCl.xib in Resources */,
@@ -2133,6 +2243,8 @@
 				44682C082C5A570300931398 /* CustomPlaceOrderView.xib in Resources */,
 				44725E1F2C394B330060B64F /* BillingAddress.storyboard in Resources */,
 				44A81B5B2BDF6FD8008AB93A /* Dealer_CompanyDetailsCell.xib in Resources */,
+				44417B392C830A790020A2AA /* ShippingAddressListingTVC.xib in Resources */,
+				44417B462C834CEE0020A2AA /* BillingAddressSameAsShippingTVC.xib in Resources */,
 				44556C242BF77EC600B5FBA4 /* LATO-LIGHTITALIC.TTF in Resources */,
 				44556C262BF77EC600B5FBA4 /* LATO-BOLDITALIC.TTF in Resources */,
 				440D7BFD2BFCCA3A005F8835 /* TopDealsTVC.xib in Resources */,
@@ -2165,13 +2277,12 @@
 				44A4C1C22C75E3B200A1B871 /* CouponTVC.xib in Resources */,
 				44A4C1D92C75FDEB00A1B871 /* UPITVC.xib in Resources */,
 				447E72D72BCFD0A600AAEA57 /* Login.storyboard in Resources */,
-				447E72CE2BCFC84200AAEA57 /* Dev.xcconfig in Resources */,
 				44C8A45A2BE11CCB006C9B06 /* Supplier_BankInfoCell.xib in Resources */,
-				447E72D02BCFC85900AAEA57 /* Staging.xcconfig in Resources */,
 				4408076A2C302987007410BD /* LocationPinAddTVC.xib in Resources */,
 				4458B8762BFE02360018AB4A /* PromisesDXETVC.xib in Resources */,
 				445650CF2C77469D00463C21 /* HistoryTVC.xib in Resources */,
 				444F2D342C4FB92400004857 /* ShippingModule.storyboard in Resources */,
+				445B94212C859DD9008A39B9 /* OrderSummeryWithItemTVC.xib in Resources */,
 				448A56642BFE16DD00F01591 /* CustomerReviewTVC.xib in Resources */,
 				4470B0982BF7919A00DC824B /* ExpandableCell.xib in Resources */,
 				44681F4E2BFF5660009BD156 /* GlobleSearchCVC.xib in Resources */,
@@ -2192,7 +2303,6 @@
 				447E72702BCFAB4000AAEA57 /* Base in Resources */,
 				44AB74332C10A53E00625FC2 /* FilterCVC.xib in Resources */,
 				4458B86E2BFDF60D0018AB4A /* DealerRegisterTVC.xib in Resources */,
-				447E72D22BCFC87000AAEA57 /* Production.xcconfig in Resources */,
 				4458B8722BFDF9620018AB4A /* DXELUXeTVC.xib in Resources */,
 				443D5DA32C09FF9500A6C15B /* SearchDiamondCVC.xib in Resources */,
 				44757FF42C7CA62100B953B5 /* CurrencyTVC.xib in Resources */,
@@ -2202,6 +2312,7 @@
 				44757FC62C7C97AB00B953B5 /* JewelleryCalc.storyboard in Resources */,
 				443886A22C09A43000F96AF5 /* SearchDiamond.storyboard in Resources */,
 				4455F42A2C4B8DEE009618DA /* B2CSearchResultTableListingCell.xib in Resources */,
+				445B94332C85E2D9008A39B9 /* PointsInfoTVC.xib in Resources */,
 				446A8A282C26CF47001DB644 /* SimillarProductCVC.xib in Resources */,
 				44CC38912BD7C371002B3597 /* Dashboard.storyboard in Resources */,
 				44757FC42C7C97AB00B953B5 /* RingSizer.storyboard in Resources */,
@@ -2229,6 +2340,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4487A5872C898AC2002FD699 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/upload-symbols\" -gsp \"${PROJECT_DIR}/GoogleService-Info.plist\" -p ios \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"\n";
+		};
 		778A998F62C241273A3103C9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2340,6 +2468,7 @@
 				445222FD2C00830D00EA79B2 /* SuggestedTVC.swift in Sources */,
 				44C7C1592BE3B8C4007E639A /* WKWebViewVC.swift in Sources */,
 				447E729E2BCFAEED00AAEA57 /* APIWithBaseURL.swift in Sources */,
+				44417B452C834CEE0020A2AA /* BillingAddressSameAsShippingTVC.swift in Sources */,
 				444F2D362C4FB95500004857 /* ShippingModuleVC.swift in Sources */,
 				44CC38932BD7C394002B3597 /* DashboardVC.swift in Sources */,
 				44757FBB2C7C5FF500B953B5 /* PopularBanksCVC.swift in Sources */,
@@ -2376,6 +2505,7 @@
 				44757FEA2C7CA5F600B953B5 /* RingSizeShareSheet.swift in Sources */,
 				4437BA922C6245AE006FC6C7 /* CommingSoonVC.swift in Sources */,
 				443051C42C04896A00A13ADF /* ModelHomeVC.swift in Sources */,
+				445B94242C85ABB3008A39B9 /* OrderSummeryItemsCVC.swift in Sources */,
 				440807652C302909007410BD /* CartItemTVC.swift in Sources */,
 				44D7F6A52BFDCB7F00C3F761 /* TopDealsCVC.swift in Sources */,
 				445551452C53B73100023CA7 /* BillingAddressStruct.swift in Sources */,
@@ -2388,6 +2518,7 @@
 				44C7C1572BE3AE18007E639A /* EmailValidation.swift in Sources */,
 				440807612C3026FE007410BD /* AddToCartVC.swift in Sources */,
 				44757FEF2C7CA60600B953B5 /* JewelleryCalcVC.swift in Sources */,
+				445B942A2C85CAF0008A39B9 /* KYCDocStatusTVC.swift in Sources */,
 				44457F842C241E14008B1D9C /* DiamondImagesTVC.swift in Sources */,
 				4457E2792C58F5A0006C1A7C /* KYCDOCResubmittedVC.swift in Sources */,
 				44757FCA2C7CA47A00B953B5 /* CalcAlamofireManager.swift in Sources */,
@@ -2419,6 +2550,8 @@
 				44A4C1CF2C75ED9300A1B871 /* CustomPaymentVC.swift in Sources */,
 				44C38ADD2C259D5D005AAF9A /* TimeZoneManager.swift in Sources */,
 				44BA46F52C525C440054C550 /* ShippingAddressCell.swift in Sources */,
+				4444DFB72C81A2E700097CDB /* PaymentStatusStruct.swift in Sources */,
+				445B942E2C85CE1E008A39B9 /* KYCDocResubmittedTVC.swift in Sources */,
 				4457E2722C58C6A3006C1A7C /* KYCDataModel.swift in Sources */,
 				446A8A272C26CF47001DB644 /* SimillarProductCVC.swift in Sources */,
 				44757FFE2C7CA67200B953B5 /* CalcWebVC.swift in Sources */,
@@ -2435,6 +2568,7 @@
 				44A4C1DD2C7627F200A1B871 /* BankInfoDataStruct.swift in Sources */,
 				44C941432C4149F600B29D05 /* AuthorisedPersionKYCTVC.swift in Sources */,
 				4402EE562BFC8181002556B2 /* BannerTVC.swift in Sources */,
+				445C69EB2C8AD57A0090255B /* CheckOutDataStruct.swift in Sources */,
 				44546A402BD667F6007AFEF8 /* CustomSearchBar.swift in Sources */,
 				447746912C0B1FAC001B051B /* BtnGradient.swift in Sources */,
 				443886A82C09A7F100F96AF5 /* SearchDiamondVC.swift in Sources */,
@@ -2453,9 +2587,11 @@
 				44D7FCA92BE2131800A5B3F3 /* SignupModel.swift in Sources */,
 				448A56652BFE16DD00F01591 /* CustomerReviewTVC.swift in Sources */,
 				44417EE32C57A9F7008C6AA6 /* KYCVerification.swift in Sources */,
+				445B94322C85E2D9008A39B9 /* PointsInfoTVC.swift in Sources */,
 				447E72DE2BCFD28E00AAEA57 /* LoginModel.swift in Sources */,
 				44B7383E2BE8E3EC005B9942 /* DealerDataStruct.swift in Sources */,
 				44757FE72C7CA5F600B953B5 /* DeviceType.swift in Sources */,
+				44417B382C830A790020A2AA /* ShippingAddressListingTVC.swift in Sources */,
 				44C9413F2C41341700B29D05 /* OutherCountryKYC.swift in Sources */,
 				44C7C1532BE3A99F007E639A /* VerifyEmailPopupVC.swift in Sources */,
 				4463200A2C5242990087AEFB /* PersonalProfileVC.swift in Sources */,
@@ -2464,6 +2600,7 @@
 				44757FE52C7CA5F600B953B5 /* RingSizerModel.swift in Sources */,
 				44757FC82C7C989900B953B5 /* CalcUserDefault.swift in Sources */,
 				44AB74262C10758D00625FC2 /* AdvanceFilterVC.swift in Sources */,
+				445B94362C85E30D008A39B9 /* CouponInfoTVC.swift in Sources */,
 				444124512C75DC67006AEC86 /* WalletPointTVC.swift in Sources */,
 				4438F9C02C0EF21A009906FF /* SearchesOptionCVC.swift in Sources */,
 				44AB74322C10A53E00625FC2 /* FilterCVC.swift in Sources */,
@@ -2475,6 +2612,7 @@
 				444A1A6A2BD25CDD00B8A6CA /* LoginDataStruct.swift in Sources */,
 				4440C5982BD9074400C00975 /* BuyerCell1.swift in Sources */,
 				44624D9E2C2D5E6C002D5757 /* MakeDropDown.swift in Sources */,
+				4444DFB92C81A59300097CDB /* PaymentStatusVC.swift in Sources */,
 				443EBFDD2C6A128A0022ABCE /* SwipeGestureUtility.swift in Sources */,
 				44C571F62BFCA9D6007B081F /* GiftOfChoiceTVC.swift in Sources */,
 				4408076D2C3029A2007410BD /* OrderSummaryTVC.swift in Sources */,
@@ -2484,6 +2622,7 @@
 				4452A0F82C3574D6004A39EA /* WishlistDataStruct.swift in Sources */,
 				44BA46F92C525C620054C550 /* AddAddressBTNCell.swift in Sources */,
 				44C8A45D2BE12145006C9B06 /* Supplier_AuthorisedPersonCell.swift in Sources */,
+				445B94202C859DD9008A39B9 /* OrderSummeryWithItemTVC.swift in Sources */,
 				444243932C05D473001E976B /* UserDefaultManager.swift in Sources */,
 				44BA46F12C5253700054C550 /* AddressesManageVC.swift in Sources */,
 				4455F42D2C4B8E01009618DA /* B2CSearchResultCardListingCell.swift in Sources */,
@@ -2500,6 +2639,7 @@
 				44CD7D4F2BD0F1CF0004153E /* Constent.swift in Sources */,
 				44A4C1C32C75E3B200A1B871 /* CouponTVC.swift in Sources */,
 				44C8A4592BE11CCB006C9B06 /* Supplier_BankInfoCell.swift in Sources */,
+				445C69ED2C8ADEDB0090255B /* ShippingModuleModel.swift in Sources */,
 				44757FE62C7CA5F600B953B5 /* ClassRingSizer.swift in Sources */,
 				4455F4362C4BE9BE009618DA /* DashboardCountryView.swift in Sources */,
 				445551432C53B71E00023CA7 /* BillingAddressModel.swift in Sources */,
@@ -2514,6 +2654,7 @@
 				44AB742E2C1092CF00625FC2 /* AdvanceFilterTVC.swift in Sources */,
 				443D16672C78990D0014A7FB /* UPIAppsCVC.swift in Sources */,
 				447E72732BCFAB4000AAEA57 /* DiamondXE.xcdatamodeld in Sources */,
+				44417B412C830FA20020A2AA /* ShippingAddressListingCVC.swift in Sources */,
 				44A4C1DB2C76258100A1B871 /* CustomPaymentModel.swift in Sources */,
 				444016332C6C8C380037EFA0 /* PaymentManager.swift in Sources */,
 				445276872C50F1CD006D2F64 /* ShippingItemsListCell.swift in Sources */,
@@ -2733,7 +2874,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.100;
+				MARKETING_VERSION = 1.02.102;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2777,7 +2918,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.100;
+				MARKETING_VERSION = 1.02.102;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2906,7 +3047,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -2965,7 +3106,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.100;
+				MARKETING_VERSION = 1.02.102;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3054,7 +3195,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -3113,7 +3254,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.100;
+				MARKETING_VERSION = 1.02.102;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3202,7 +3343,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -3261,7 +3402,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.100;
+				MARKETING_VERSION = 1.02.102;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3402,7 +3543,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.100;
+				MARKETING_VERSION = 1.02.102;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3543,7 +3684,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.100;
+				MARKETING_VERSION = 1.02.102;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3684,7 +3825,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.100;
+				MARKETING_VERSION = 1.02.102;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3820,6 +3961,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		445274152C82F938002C77A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.1.0;
+			};
+		};
 		44546A412BD67F7E007AFEF8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
@@ -3848,6 +3997,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 444A1A622BD24D0A00B8A6CA /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		445274162C82F938002C77A4 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 445274152C82F938002C77A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		445274182C82F939002C77A4 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 445274152C82F938002C77A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		4452741A2C82F939002C77A4 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 445274152C82F938002C77A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+		4452741C2C82F939002C77A4 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 445274152C82F938002C77A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 		44546A422BD67F87007AFEF8 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;

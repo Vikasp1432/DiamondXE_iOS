@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LATO-REGULAR.TTF">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="147" id="KGk-i7-Jjw" customClass="BillingAddressSameAsShippingTVC" customModule="DiamondXE" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="364" height="147"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="364" height="147"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZo-ya-qcy">
+                        <rect key="frame" x="10" y="0.0" width="344" height="147"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To save the shipping costs, you can collect from our Mumbai Hub." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCK-zz-VuC">
+                                <rect key="frame" x="40" y="10" width="289" height="37.333333333333336"/>
+                                <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
+                                <color key="textColor" name="lblHeading"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bc4-PO-GTx">
+                                <rect key="frame" x="10" y="57.333333333333336" width="324" height="79.666666666666657"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DiamondXE Private Limited, 904-A, B Wing, 9th floor, the Capital, BKL, Bandra East, Mumbi-400051, Maharashtra, INDIA." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUs-NT-sIU">
+                                        <rect key="frame" x="15" y="9.9999999999999929" width="304" height="54"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                        <color key="textColor" name="blackClr"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="whitClr"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OUs-NT-sIU" secondAttribute="bottom" constant="10" id="4mT-Wp-ihh"/>
+                                    <constraint firstItem="OUs-NT-sIU" firstAttribute="top" secondItem="Bc4-PO-GTx" secondAttribute="top" constant="10" id="7Ul-6z-f2s"/>
+                                    <constraint firstItem="OUs-NT-sIU" firstAttribute="leading" secondItem="Bc4-PO-GTx" secondAttribute="leading" constant="15" id="809-mV-ydJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="OUs-NT-sIU" secondAttribute="trailing" constant="5" id="tQL-ne-kB5"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.41176470590000003" green="0.1137254902" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uga-Na-L38">
+                                <rect key="frame" x="5" y="13.666666666666664" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QbC-gN-wmX"/>
+                                    <constraint firstAttribute="width" constant="30" id="w4x-Wg-c72"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="uncheck"/>
+                                <connections>
+                                    <action selector="btnActionS:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oBb-QV-rof"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="viewBGClr"/>
+                        <constraints>
+                            <constraint firstItem="Bc4-PO-GTx" firstAttribute="leading" secondItem="fZo-ya-qcy" secondAttribute="leading" constant="10" id="52K-rc-NZm"/>
+                            <constraint firstItem="uga-Na-L38" firstAttribute="centerY" secondItem="kCK-zz-VuC" secondAttribute="centerY" id="8TQ-Jv-5cx"/>
+                            <constraint firstAttribute="trailing" secondItem="Bc4-PO-GTx" secondAttribute="trailing" constant="10" id="AeD-00-jnk"/>
+                            <constraint firstItem="kCK-zz-VuC" firstAttribute="leading" secondItem="uga-Na-L38" secondAttribute="trailing" constant="5" id="Q4B-1c-93d"/>
+                            <constraint firstAttribute="trailing" secondItem="kCK-zz-VuC" secondAttribute="trailing" constant="15" id="TnO-L8-R52"/>
+                            <constraint firstItem="kCK-zz-VuC" firstAttribute="top" secondItem="fZo-ya-qcy" secondAttribute="top" constant="10" id="Z2T-Eg-Tsz"/>
+                            <constraint firstAttribute="bottom" secondItem="Bc4-PO-GTx" secondAttribute="bottom" constant="10" id="plz-dE-zcG"/>
+                            <constraint firstItem="Bc4-PO-GTx" firstAttribute="top" secondItem="kCK-zz-VuC" secondAttribute="bottom" constant="10" id="um2-FZ-zp4"/>
+                            <constraint firstItem="uga-Na-L38" firstAttribute="leading" secondItem="fZo-ya-qcy" secondAttribute="leading" constant="5" id="v4A-HT-QY5"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="viewBGClr"/>
+                <constraints>
+                    <constraint firstItem="fZo-ya-qcy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="5l1-67-Pml"/>
+                    <constraint firstAttribute="bottom" secondItem="fZo-ya-qcy" secondAttribute="bottom" id="EXK-ti-GSP"/>
+                    <constraint firstAttribute="trailing" secondItem="fZo-ya-qcy" secondAttribute="trailing" constant="10" id="VNp-zc-oMD"/>
+                    <constraint firstItem="fZo-ya-qcy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uFN-PT-dWy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnCheckSelect" destination="uga-Na-L38" id="VSA-wJ-67d"/>
+                <outlet property="lblDesc" destination="OUs-NT-sIU" id="Uvp-Ke-7ca"/>
+                <outlet property="viewData" destination="Bc4-PO-GTx" id="ptB-ey-wI1"/>
+            </connections>
+            <point key="canvasLocation" x="126.71755725190839" y="55.985915492957751"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="uncheck" width="19" height="19"/>
+        <namedColor name="blackClr">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lblHeading">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="viewBGClr">
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="whitClr">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
