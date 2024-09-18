@@ -16,6 +16,7 @@
 			dependencies = (
 			);
 			name = PhonePePayment;
+			productName = PhonePePayment;
 		};
 /* End PBXAggregateTarget section */
 
@@ -121,7 +122,7 @@
 		5B8119BB2D309C8E5645A60996463DE4 /* Pods-DiamondXETests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-DiamondXETests"; path = Pods_DiamondXETests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B99C6D1E4BC837DD8A8D33B3A045BF7 /* Pods-DiamondXETests.release(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXETests.release(production).xcconfig"; sourceTree = "<group>"; };
 		5C9B0547BA39FD6CE55E6D6611FE5CC2 /* DTTextField */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DTTextField; path = DTTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D728919EEB95E87A22CDD171A58B483 /* PhonePePayment.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = PhonePePayment.xcframework; sourceTree = "<group>"; };
+		5D728919EEB95E87A22CDD171A58B483 /* PhonePePayment.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; path = PhonePePayment.xcframework; sourceTree = "<group>"; };
 		601EBB9C3E733307E1C680357C4716F2 /* Pods-DiamondXE.release(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE.release(production).xcconfig"; sourceTree = "<group>"; };
 		61910FF2A7CDEBF6AFC82C73120D46D9 /* DTTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DTTextField.swift; path = Sources/DTTextField/DTTextField.swift; sourceTree = "<group>"; };
 		6381564F4C30B9EA126F2BA553E2A32E /* DropDown.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DropDown.debug.xcconfig; sourceTree = "<group>"; };
@@ -135,7 +136,7 @@
 		7D028B36B541B695CC6422B206F4C2BF /* Pods-DiamondXE.release(staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE.release(staging).xcconfig"; sourceTree = "<group>"; };
 		81CAF71217E558C5CA0DAEA4BD1FF463 /* Pods-DiamondXETests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXETests.debug.xcconfig"; sourceTree = "<group>"; };
 		84C28355E36539EE8E2309ED8EB1D68E /* Pods-DiamondXE-DiamondXEUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE-DiamondXEUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		86A3EB5EC95DC9ACDD66E01E3A588735 /* Pods-DiamondXE */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-DiamondXE"; path = Pods_DiamondXE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86A3EB5EC95DC9ACDD66E01E3A588735 /* Pods_DiamondXE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiamondXE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A18198ED1EF9CA46EC3C911156F706 /* Pods-DiamondXE-DiamondXEUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DiamondXE-DiamondXEUITests-frameworks.sh"; sourceTree = "<group>"; };
 		9029925952C2F7AA66795A9EB56A868F /* DTTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DTTextField-dummy.m"; sourceTree = "<group>"; };
 		920CA4CAC1672802063C6F759D9B0D4E /* Pods-DiamondXETests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DiamondXETests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -143,7 +144,7 @@
 		9649FC99CC8A25B3D90D1072119E391B /* Pods-DiamondXE.release(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE.release(dev).xcconfig"; sourceTree = "<group>"; };
 		969E6460C8677164474C7BA76CD62A1B /* Pods-DiamondXE-DiamondXEUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DiamondXE-DiamondXEUITests.modulemap"; sourceTree = "<group>"; };
 		9B6725B782188F18CB76A740433F14E4 /* DropDown */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DropDown; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9FA97C692316BDF2E92A0B79950B57D2 /* DropDown.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DropDown.modulemap; sourceTree = "<group>"; };
 		A2475323B647424EA571BDC0E6A9D9B7 /* Pods-DiamondXE-DiamondXEUITests.release(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE-DiamondXEUITests.release(production).xcconfig"; sourceTree = "<group>"; };
 		A51B8E7A8B0E262824F0FA0C76BF6C04 /* Pods-DiamondXE-DiamondXEUITests.debug(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DiamondXE-DiamondXEUITests.debug(dev).xcconfig"; sourceTree = "<group>"; };
@@ -288,7 +289,6 @@
 				615E286DC91B3952959ADD9255CD1460 /* Resources */,
 				D98E247DA5C4124BE6EE6E48A4C4C0AE /* Support Files */,
 			);
-			name = DropDown;
 			path = DropDown;
 			sourceTree = "<group>";
 		};
@@ -361,7 +361,7 @@
 			children = (
 				9B6725B782188F18CB76A740433F14E4 /* DropDown */,
 				5C9B0547BA39FD6CE55E6D6611FE5CC2 /* DTTextField */,
-				86A3EB5EC95DC9ACDD66E01E3A588735 /* Pods-DiamondXE */,
+				86A3EB5EC95DC9ACDD66E01E3A588735 /* Pods_DiamondXE.framework */,
 				36626C9D838AF90DC3384AC3491996A1 /* Pods-DiamondXE-DiamondXEUITests */,
 				5B8119BB2D309C8E5645A60996463DE4 /* Pods-DiamondXETests */,
 			);
@@ -397,7 +397,6 @@
 				61910FF2A7CDEBF6AFC82C73120D46D9 /* DTTextField.swift */,
 				712339E62E54552404815D6E91ED1468 /* Support Files */,
 			);
-			name = DTTextField;
 			path = DTTextField;
 			sourceTree = "<group>";
 		};
@@ -433,7 +432,6 @@
 				FC4B269BF854958D8C9E181315E8F823 /* Frameworks */,
 				4A8D6E31997D04949EF9E6B10EFD96BF /* Support Files */,
 			);
-			name = PhonePePayment;
 			path = PhonePePayment;
 			sourceTree = "<group>";
 		};
@@ -527,7 +525,7 @@
 			);
 			name = "Pods-DiamondXE";
 			productName = Pods_DiamondXE;
-			productReference = 86A3EB5EC95DC9ACDD66E01E3A588735 /* Pods-DiamondXE */;
+			productReference = 86A3EB5EC95DC9ACDD66E01E3A588735 /* Pods_DiamondXE.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		894E3E9B9AC95FD9C8426361B1701AB4 /* Pods-DiamondXE-DiamondXEUITests */ = {
