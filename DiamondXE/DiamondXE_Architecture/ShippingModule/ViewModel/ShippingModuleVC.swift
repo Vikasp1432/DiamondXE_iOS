@@ -53,6 +53,7 @@ class ShippingModuleVC: BaseViewController {
     var checkNum = String()
     var paymentMode = String()
     var selectedDate = String()
+    var neftID = Int()
     
     var paymentModeSelected = String()
     var amountTotal = String()
@@ -88,6 +89,14 @@ class ShippingModuleVC: BaseViewController {
     
     var checkOutDetails = CheckOutDataStruct()
     var isShippingByHub = 0
+    
+    var orderType =  String() // cart, buy now
+    var certificateNo = String()
+    
+    var walletPoints =  String()
+    var couponCode = String()
+    
+    var createOrderStruct = CreateOrderStruct()
     
     
     override func viewDidLoad() {
@@ -139,14 +148,13 @@ class ShippingModuleVC: BaseViewController {
         
         
         
-        self.fetchDataFromAPIs()
-        
+       
+        self.getTypeChekOut()
         self.getBankInfo()
         self.getPaymentModeInfo()
         self.getBankChargesInfo()
         self.getNetBankingInfo()
-        
-        self.setupPriceManage()
+       
         
     }
     
@@ -186,7 +194,7 @@ class ShippingModuleVC: BaseViewController {
         self.getCheckOutDetailsAPI { success in
             // Leave the group when the API call is complete
          // self.shippingTableView.reloadSections(IndexSet(integer: 4), with: .none)
-         
+            self.setupPriceManage()
             dispatchGroup.leave()
         }
         
@@ -321,13 +329,15 @@ class ShippingModuleVC: BaseViewController {
                 if data.status == 1{
                     self.bankingInfoStruct = data
                     
-                    let indexPath = IndexPath(row: 0, section: 1)
-                    if let cell = self.shippingTableView.cellForRow(at: indexPath) as? PaymentOptionTVC {
-                        if let netBankInfo = self.bankingInfoStruct.details?.netBanking {
-                            cell.netBankingData = netBankInfo
-                            cell.banksCollectionView.reloadData()
-                        }
-                    }
+                    self.shippingTableView.reloadData()
+                    
+//                    let indexPath = IndexPath(row: 0, section: 2)
+//                    if let cell = self.shippingTableView.cellForRow(at: indexPath) as? PaymentOptionTVC {
+//                        if let netBankInfo = self.bankingInfoStruct.details?.netBanking {
+//                            cell.netBankingData = netBankInfo
+//                            cell.banksCollectionView.reloadData()
+//                        }
+//                    }
 
                     
                 }
@@ -361,7 +371,9 @@ class ShippingModuleVC: BaseViewController {
             "walletPoints" : "",
             "paymentMode" : "",
             "deliveryPincode" : deliveryPin,
-            "collectFromHub" : self.isShippingByHub
+            "collectFromHub" : self.isShippingByHub,
+            "orderType": self.orderType,// cart, buy now
+            "certificateNo" : self.certificateNo
 
         ]
             
@@ -410,12 +422,13 @@ class ShippingModuleVC: BaseViewController {
 
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             txtField.text = item
+            self.neftID = index
 
             if let bnkID = self.bankingInfoStruct.details?.netBanking?.allBanks?[index].bankID {
                 self.selectedBankID  = bnkID
             }
           
-            let indexPath = IndexPath(row: 0, section: 1)
+            let indexPath = IndexPath(row: 0, section: 2)
 
             if let cell = self.shippingTableView.cellForRow(at: indexPath) as? PaymentOptionTVC {
                 if index < 2{
@@ -544,94 +557,91 @@ class ShippingModuleVC: BaseViewController {
     func callAPiForProceadPayment(){
         switch self.paymentModeSelected {
         case "NEFT":
-            var isDataCollect = false
-            //            let indexPath = IndexPath(row: 0, section: 0)
-            //            if let cell = self.shippingTableView.cellForRow(at: indexPath) as? CustomInfoTVC {
-            //                cell.customPymnt = self
-            //                isDataCollect = cell.dataCollect()
-            //
-            //            }
             
-            
-            //            let indexPath1 = IndexPath(row: 0, section: 1)
-            //            if let cell = self.shippingTableView.cellForRow(at: indexPath1) as? PaymentOptionTVC {
-            //               // cell.customPymnt = self
-            //                isDataCollect =  cell.dataCollect()
-            //
-            //            }
-            
-            if isDataCollect{
-                callAPIProceedPayment()
-            }
+            self.callAPICrerateOrder()
+
+//                        let indexPath1 = IndexPath(row: 0, section: 2)
+//                        if let cell = self.shippingTableView.cellForRow(at: indexPath1) as? PaymentOptionTVC {
+//                           // cell.customPymnt = self
+//                            isDataCollect =  cell.dataCollect()
+//            
+//                        }
+//            
+//            if isDataCollect{
+//                callAPIProceedPayment()
+//            }
         case "CreditCard":
             PaymentManager.shared.upiName = name.uppercased()
             PaymentManager.shared.paymentType = "CreditCard"
             PaymentManager.shared.delegate = self
             //            PaymentManager.shared.initiatePhonePeTransaction(from: self)
-            self.callAPIWithPhonePeProceedPayment()
+           // self.callAPIWithPhonePeProceedPayment()
+            
+            self.callAPICrerateOrder()
         case "NetBanking":
             PaymentManager.shared.paymentType = "NetBanking"
             PaymentManager.shared.paymentInstrumentbnkID = self.selectedBankID
             PaymentManager.shared.delegate = self
             //            PaymentManager.shared.initiatePhonePeTransaction(from: self)
-            self.callAPIWithPhonePeProceedPayment()
-            
+           // self.callAPIWithPhonePeProceedPayment()
+            self.callAPICrerateOrder()
         case "UPI":
             
             PaymentManager.shared.upiName = self.selectedUPIName.uppercased()
             PaymentManager.shared.paymentType = "UPI"
             PaymentManager.shared.upiPackageName = self.selectedUPIBundl
-            self.callAPIWithPhonePeProceedPayment()
+            self.callAPICrerateOrder()
+            //self.callAPIWithPhonePeProceedPayment()
             
         default:
             print("")
         }
     }
 
-    func callAPIWithPhonePeProceedPayment(){
-        var dataCollect = false
-        let indexPath = IndexPath(row: 0, section: 0)
-//        if let cell = self.customPaymentTV.cellForRow(at: indexPath) as? CustomInfoTVC {
-//            cell.customPymnt = self
-//            self.remark = cell.textView.text
-//            self.amount = cell.txtAmount.text ?? ""
+//    func callAPIWithPhonePeProceedPayment(){
+//        var dataCollect = false
+//        let indexPath = IndexPath(row: 0, section: 0)
+////        if let cell = self.customPaymentTV.cellForRow(at: indexPath) as? CustomInfoTVC {
+////            cell.customPymnt = self
+////            self.remark = cell.textView.text
+////            self.amount = cell.txtAmount.text ?? ""
+////            
+////        }
+//      
+//        let url = APIs().proceedPayment_API
+//        let param :[String:Any] = [
+//            "amount": self.amount,
+//            "paymentMode": paymentModeSelected,
+//            "remark": self.remark,
+//            "submit": 1
+//        
+//        ]
+//        
+//        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+//        
+//        CustomPaymentModel.shareInstence.proceedPaymentAPI(url: url, requestParam: param, completion: { data, msg in
+//            CustomActivityIndicator2.shared.hide()
+//            if data.status == 1{
+//                self.paymentINProcessStruct = data
+//                PaymentManager.shared.paymentINProcessStruct = data
+//                PaymentManager.shared.initiatePhonePeTransaction(from: self)
+//            }
+//            else{
+//                self.toastMessage(msg ?? "")
+//            }
+//           
 //            
-//        }
-      
-        let url = APIs().proceedPayment_API
-        let param :[String:Any] = [
-            "amount": self.amount,
-            "paymentMode": paymentModeSelected,
-            "remark": self.remark,
-            "submit": 1
-        
-        ]
-        
-        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
-        
-        CustomPaymentModel.shareInstence.proceedPaymentAPI(url: url, requestParam: param, completion: { data, msg in
-            CustomActivityIndicator2.shared.hide()
-            if data.status == 1{
-                self.paymentINProcessStruct = data
-                PaymentManager.shared.paymentINProcessStruct = data
-                PaymentManager.shared.initiatePhonePeTransaction(from: self)
-            }
-            else{
-                self.toastMessage(msg ?? "")
-            }
-           
-            
-        })
-        
-        
-        
-    }
+//        })
+//        
+//        
+//        
+//    }
     
     func callAPIProceedPayment(){
       
         let url = APIs().proceedPayment_API
         let param :[String:Any] = [
-            "amount": self.amount,
+            "amount": self.amountTotal,
             "paymentMode": paymentModeSelected, //'NEFT','DebitCard','CreditCard','NetBanking','UPI'
             "bankPaymentMethod": self.paymentMode,
             "bankUTRNo": self.checkNum,
@@ -732,7 +742,9 @@ class ShippingModuleVC: BaseViewController {
             "walletPoints" : "\(waletPoint)",
             "paymentMode" : "",
             "deliveryPincode" : deliveryPin,
-            "collectFromHub" : self.isShippingByHub
+            "collectFromHub" : self.isShippingByHub,
+            "orderType": self.orderType,// cart, buy now
+            "certificateNo" : self.certificateNo
             
         ]
         
@@ -762,6 +774,101 @@ class ShippingModuleVC: BaseViewController {
         
     }
     
+    
+    // call api for Procead payment
+    func callAPICrerateOrder(){
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+        
+        var deliveryPin = String()
+        var shippingAddssID = Int()
+        var billingAddssID = Int()
+        self.shippingAddressesStruct.details?.enumerated().forEach { index, itm in
+            
+            if itm.isDefault == 1{
+                deliveryPin = itm.pinCode ?? ""
+                shippingAddssID = itm.addressID ?? 0
+            }
+            
+        }
+        
+        self.billingAddressesStruct.details?.enumerated().forEach { index, itm in
+            
+            if itm.isDefault == 1{
+                deliveryPin = itm.pinCode ?? ""
+                billingAddssID = itm.addressID ?? 0
+            }
+            
+        }
+        
+        let indexPath = IndexPath(row: 0, section: 2)
+        if let cell = self.shippingTableView.cellForRow(at: indexPath) as? PaymentOptionTVC {
+          if cell.dataCollect() {
+                print("Dta\\get")
+            }
+            
+        }
+        
+        let param : [String : Any] = [
+               "billingAddress": billingAddssID,
+               "shippingAddress": shippingAddssID,
+               "specialInstructions": "",
+               "walletPoints": self.checkOutDetails.walletPoint ?? "",
+               "couponCode": self.couponCode,
+               "paymentMode": self.paymentModeSelected,
+               "bankPaymentMethod": self.paymentMode,
+               "bankUTRNo": self.checkNum,
+               "bankPaymentDate": self.selectedDate,
+               "bankNeftId": self.neftID,
+               "deliveryPincode": deliveryPin,
+               "collectFromHub": self.isShippingByHub,
+               "orderType": self.orderType,// cart, buy now
+               "certificateNo" : self.certificateNo
+            
+        ]
+        
+        let url = APIs().createOrder_API
+        
+        
+        var paymentProcessStruct = PaymentINProcessStruct()
+        ShippingModuleModel.shareInstence.createOrderAPI(url: url, requestParam: param, completion: { data, msg in
+            if data.status == 1{
+                self.createOrderStruct = data
+                
+                var details = PymtInProcessDetails()
+                //
+                details.totalAmount = self.createOrderStruct.details?.amount
+                details.orderID = self.createOrderStruct.details?.orderID
+                details.userID = self.createOrderStruct.details?.userDetails?.userID
+                details.userData?.mobile = self.createOrderStruct.details?.userDetails?.mobile
+                // print(details)
+                paymentProcessStruct.details = details
+                
+                if self.paymentMode == "NEFT" {
+                    let storyBoard: UIStoryboard = UIStoryboard(name: "CustomPayment", bundle: nil)
+                    let vc = storyBoard.instantiateViewController(withIdentifier: "PaymentInProgressVC") as! PaymentInProgressVC
+                    vc.checqNum = self.checkNum
+                    vc.paymentINProcessStruct = paymentProcessStruct
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                else{
+                    
+                    PaymentManager.shared.paymentINProcessStruct = paymentProcessStruct
+                    PaymentManager.shared.callBackURl = self.createOrderStruct.details?.callbackURL
+                    PaymentManager.shared.initiatePhonePeTransaction(from: self)
+                }
+                
+            }
+            else{
+                self.toastMessage(msg ?? "")
+                
+            }
+            
+            CustomActivityIndicator2.shared.hide()
+            
+        })
+        
+        
+    }
 
 
 }
@@ -769,19 +876,25 @@ class ShippingModuleVC: BaseViewController {
 extension ShippingModuleVC : TransactionIDDelegate{
     func paymentTransactionID(transectionID: String, paymentStatus: String) {
         
-        //print(paymentStatus)
-        if let extractedMessage = extractMessage(from: paymentStatus) {
-            print("Extracted message: \(extractedMessage)")
+        if paymentStatus == "success"{
+            self.getPaymentStatus(orderID: transectionID)
+        }
+        else{
             
-            if extractedMessage == "Request failed."{
-                toastMessage(extractedMessage)
+            //print(paymentStatus)
+            if let extractedMessage = extractMessage(from: paymentStatus) {
+                print("Extracted message: \(extractedMessage)")
+                
+                if extractedMessage == "Request failed."{
+                    toastMessage(extractedMessage)
+                }
+                else{
+                    self.getPaymentStatus(orderID: transectionID)
+                }
+                
+            } else {
+                toastMessage("Request failed.")
             }
-            else{
-                self.getPaymentStatus(orderID: transectionID)
-            }
-            
-        } else {
-            toastMessage("Request failed.")
         }
         
        
@@ -790,7 +903,7 @@ extension ShippingModuleVC : TransactionIDDelegate{
   
     func getPaymentStatus(orderID : String){
       
-        let url = APIs().customPayment_Status_API
+        let url = APIs().proceedPayment_Status_API
         let param :[String:Any] = [
             "orderId": orderID
         ]
@@ -831,37 +944,61 @@ extension ShippingModuleVC : TransactionIDDelegate{
         return nil
     }
     
+    
+//    override func viewDidDisappear(_ animated: Bool) {
+//        print("lasr")
+//        self.CartDataObj.removeAll()
+//        self.diamondDetailsOBJ = DiamondDetails()
+//    }
+    
+    func getTypeChekOut(){
+      
+        if self.CartDataObj.count > 0{
+            self.orderType = "cart"
+            self.certificateNo = String()
+            
+        }
+        else if self.diamondDetailsOBJ.certificateNo != nil{
+            self.orderType = "buy now"
+            self.certificateNo = self.diamondDetailsOBJ.certificateNo ?? ""
+           
+        }
+        
+        self.fetchDataFromAPIs()
+        
+    }
+    
+    
     func setupPriceManage(){
       
         if self.CartDataObj.count > 0{
-            var grandTotal = Double()
-            
-            CartDataObj.enumerated().forEach { (index, element) in
-                grandTotal += Double(element.totalPrice)
-                
-            }
             
             if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
-                let currncyVal = self.currencyRateDetailObj.value ?? 1
-                let finalVal = grandTotal * currncyVal
-                let formattedNumber = formatNumberWithoutDeciml(finalVal)
+            //let currncyVal = self.currencyRateDetailObj.value ?? 1
+               let finalVal = checkOutDetails.finalAmount ?? 0
+               let formattedNumber = formatNumberWithoutDeciml(Double(finalVal))
                 self.lblTotalAmount.text = "\(currncySimbol)\(formattedNumber)"
+                self.amountTotal = "\(finalVal)"
             }
             else{
-                let formattedNumber = formatNumberWithoutDeciml(grandTotal)
+                let formattedNumber = formatNumberWithoutDeciml(Double(checkOutDetails.finalAmount ?? 0))
+                self.amountTotal = "\(checkOutDetails.finalAmount ?? 0)"
                 self.lblTotalAmount.text = "₹\(formattedNumber)"
             }
             
         }
         else if self.diamondDetailsOBJ.certificateNo != nil{
+            
             if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
-                let currncyVal = self.currencyRateDetailObj.value ?? 1
-                let finalVal = Double((self.diamondDetailsOBJ.subtotal ?? 0)) * currncyVal
+                //let currncyVal = self.currencyRateDetailObj.value ?? 1
+                let finalVal = Double(checkOutDetails.finalAmount ?? 0)
                 let formattedNumber = formatNumberWithoutDeciml(finalVal)
                 self.lblTotalAmount.text = "\(currncySimbol)\(formattedNumber)"
+                self.amountTotal = "\(finalVal)"
             }
             else{
-                let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondDetailsOBJ.subtotal ?? 0))
+                let formattedNumber = formatNumberWithoutDeciml(Double(checkOutDetails.finalAmount ?? 0))
+                self.amountTotal = "\(checkOutDetails.finalAmount ?? 0)"
                 self.lblTotalAmount.text = "₹\(formattedNumber)"
             }
         }
@@ -950,6 +1087,8 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                     self.getCheckOutDetailsAPI { success in
                         // Leave the group when the API call is complete
                       //self.shippingTableView.reloadSections(IndexSet(integer: 4), with: .none)
+                        self.setupPriceManage()
+                       // self.shippingTableView.reloadData()
                         CustomActivityIndicator2.shared.hide()
                      
                     }
@@ -1064,6 +1203,7 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                 cell.btnActionApply = {
                     self.view.endEditing(true)
                     if cell.txtWalletPoint.text?.count ?? 0 > 0{
+                        self.walletPoints = cell.txtWalletPoint.text ?? ""
                         self.applyCouponCode(couponCode: "", waletPoint: cell.txtWalletPoint.text?.replacingOccurrences(of: " ", with: "") ?? "")
                     }
                     else{
@@ -1087,7 +1227,7 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                 cell.btnAction = {
                     self.view.endEditing(true)
                     if cell.txtCouponCode.text?.count ?? 0 > 0{
-                       
+                        self.couponCode = cell.txtCouponCode.text ?? ""
                         self.applyCouponCode(couponCode: cell.txtCouponCode.text?.replacingOccurrences(of: " ", with: "") ?? "", waletPoint: "")
                     }
                     else{
@@ -1099,6 +1239,14 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                 let cell = tableView.dequeueReusableCell(withIdentifier: PaymentOptionTVC.cellIdentifierPaymentOptionTVC, for: indexPath) as! PaymentOptionTVC
                 cell.selectionStyle = .none
                 cell.buttonGroup.delegate = self
+                
+                cell.shippingVC = self
+                
+                if let netBnk = bankingInfoStruct.details?.netBanking{
+                    cell.netBankingData = netBnk
+                    cell.banksCollectionView.reloadData()
+                }
+                
                 
                 cell.selectBankAction = {
                     if let allBnks = self.bankingInfoStruct.details?.netBanking?.allBanks {
@@ -1197,7 +1345,6 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                 }
                 
                 
-                
                 if  let imageURLfst = URL(string: self.bankInfoStruct.details?.first?.image ?? "") {
                     cell.btnBank1SBG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLfst)
                     cell.imgViewBnk1.sd_setImage(with: imageURLfst, placeholderImage: nil, options: .highPriority, completed: nil)
@@ -1216,14 +1363,16 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                 }
                 
                 
+                
                 return cell
             case 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: UPITVC.cellIdentifierUPITVC, for: indexPath) as! UPITVC
                 cell.selectionStyle = .none
                 cell.tapAction = { name, package in
-                    self.lblTotalAmount.text = self.amount
+                    let formattedNumber = self.formatNumberWithoutDeciml(Double(self.amount) ?? 0)
+                    self.lblTotalAmount.text = formattedNumber
                     
-                    let payIndexPath = IndexPath(row: 0, section: 1)
+                    let payIndexPath = IndexPath(row: 0, section: 2)
                     if let cell = self.shippingTableView.cellForRow(at: payIndexPath) as? PaymentOptionTVC {
                         cell.buttonGroup.clearSelection()
                         cell.btnNetBankSBG.borderColor = .clear
@@ -1245,8 +1394,10 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                     self.amountCalculation()
                     
                     if name == ""{
+                        let formattedNumber = self.formatNumberWithoutDeciml(Double(self.amount) ?? 0)
+                        self.lblTotalAmount.text = formattedNumber
                         
-                        self.lblTotalAmount.text = self.amount
+                      //  self.lblTotalAmount.text = self.amount
                         self.shippingTableView.reloadData()
                         // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
                     }
@@ -1287,9 +1438,9 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
     
 
     
-    @IBAction func btnActionPayment(_ sender:UIButton){
-        self.navigationManager(storybordName: "PaymentModule", storyboardID: "PaymentModuleVC", controller: PaymentModuleVC())
-    }
+//    @IBAction func btnActionPayment(_ sender:UIButton){
+//        self.navigationManager(storybordName: "PaymentModule", storyboardID: "PaymentModuleVC", controller: PaymentModuleVC())
+//    }
     
     func gotoAddAddress(index:Int){
         if index == 0{
@@ -1308,7 +1459,7 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
 extension ShippingModuleVC : SingleSelectionButtonGroupDelegate , CustomDatePickerDelegate{
     
     func didSelectDate(date: String) {
-            let indexPath = IndexPath(row: 0, section: 1)
+            let indexPath = IndexPath(row: 0, section: 2)
             if let cell = self.shippingTableView.cellForRow(at: indexPath) as? PaymentOptionTVC {
                 cell.txtChecqDate.text = date
                 
@@ -1335,11 +1486,11 @@ extension ShippingModuleVC : SingleSelectionButtonGroupDelegate , CustomDatePick
     
     
     
-    func textFieldDidEndEditing(cell: CustomInfoTVC, text: String) {
-          print(text)
-        self.amountTotal = text
-        self.lblTotalAmount.text = "₹\(self.amountTotal)"
-       }
+//    func textFieldDidEndEditing(cell: CustomInfoTVC, text: String) {
+//          print(text)
+//        self.amountTotal = text
+//        self.lblTotalAmount.text = "₹\(self.amountTotal)"
+//       }
     
     
     
@@ -1350,18 +1501,29 @@ extension ShippingModuleVC : SingleSelectionButtonGroupDelegate , CustomDatePick
         case "CreditCard":
            let percentage = self.bankChargesInfoStruct.details?.creditCard
             let calculatedAmount = baseAmount + (baseAmount * (percentage ?? 0)  / 100)
-            
-            self.lblTotalAmount.text = "₹\(calculatedAmount)"
+            let formattedNumber = self.formatNumberWithoutDeciml(Double(calculatedAmount))
+            //self.lblTotalAmount.text = formattedNumber
+            self.lblTotalAmount.text = "₹\(formattedNumber)"
         case "NetBanking":
             let percentage = self.bankChargesInfoStruct.details?.netBanking
             let calculatedAmount = baseAmount + (baseAmount * (percentage ?? 0) / 100)
-            self.lblTotalAmount.text = "₹\(calculatedAmount)"
+            //self.lblTotalAmount.text = "₹\(calculatedAmount)"
+            let formattedNumber = self.formatNumberWithoutDeciml(Double(calculatedAmount))
+            //self.lblTotalAmount.text = formattedNumber
+            self.lblTotalAmount.text = "₹\(formattedNumber)"
         case "UPI":
             let percentage = self.bankChargesInfoStruct.details?.upi
             let  calculatedAmount = baseAmount + (baseAmount * Double((percentage ?? 0 )) / 100)
-            self.lblTotalAmount.text = "₹\(calculatedAmount)"
+           // self.lblTotalAmount.text = "₹\(calculatedAmount)"
+            let formattedNumber = self.formatNumberWithoutDeciml(Double(calculatedAmount))
+            //self.lblTotalAmount.text = formattedNumber
+            self.lblTotalAmount.text = "₹\(formattedNumber)"
         default:
             self.lblTotalAmount.text = "₹\(self.amountTotal)"
+            
+            let formattedNumber = self.formatNumberWithoutDeciml(Double(self.amountTotal) ?? 0)
+            //self.lblTotalAmount.text = formattedNumber
+            self.lblTotalAmount.text = "₹\(formattedNumber)"
         }
     }
     

@@ -92,7 +92,7 @@ struct CheckOutDetail: Codable {
     var buyerMarkupPerc, dealerMarkupPerc: String?
     var onHold: Int?
     var dxeMarkup: String?
-    var dealerMarkupCommission: Int?
+    var dealerMarkupCommission: String?
     var rDiscount, rDiscountType: String?
     var platformFeeTax, shippingChargeTax, totalAmount, totalTax: Int?
     var totalCharges: Int?

@@ -192,6 +192,19 @@ extension DashboardLoginVC: UITableViewDelegate, UITableViewDataSource{
             
         }
         
+        else if account_order == sectionStr{
+            
+            let loginData = UserDefaultManager().retrieveLoginData()
+            if let authToken = loginData?.details?.authToken{
+                self.navigationManager(storybordName: "MyOrder", storyboardID: "MyOrderBaseVC", controller: MyOrderBaseVC())
+            }
+            else{
+                self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
+            }
+            
+          
+        }
+        
         
     }
     

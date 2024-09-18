@@ -182,6 +182,31 @@ struct UPIAppInfo {
 }
 
 
+//func fetchInstalledUPIApps() -> [UPIAppInfo] {
+//    var installedUPIApps = [UPIAppInfo]()
+//    
+//    // Define the UPI apps URL schemes and their icons
+//    let upiApps = [
+//        ("PhonePe", "phonepe://", "phonepeIcon"),
+//        ("Paytm", "paytmUPI://", "paytmIcon"),
+//        ("Google Pay", "gpay://", "gpayIcon")
+//        //("BHIM", "upi://", "bhimIcon")
+//    ]
+//    
+//    for (appName, urlScheme, iconName) in upiApps {
+//        if let url = URL(string: urlScheme), UIApplication.shared.canOpenURL(url) {
+//            let packageName = urlScheme // This can be adjusted if you have specific package names
+//            let appIcon = UIImage(named: iconName) // Load icon from assets
+//            
+//            installedUPIApps.append(UPIAppInfo(packageName: packageName, appName: appName, appIcon: appIcon))
+//        } else {
+//            print("\(appName) is not installed or cannot be opened.")
+//        }
+//    }
+//    
+//    return installedUPIApps
+//}
+
 func fetchInstalledUPIApps() -> [UPIAppInfo] {
     var installedUPIApps = [UPIAppInfo]()
     
@@ -189,18 +214,18 @@ func fetchInstalledUPIApps() -> [UPIAppInfo] {
     let upiApps = [
         ("PhonePe", "phonepe://", "phonepeIcon"),
         ("Paytm", "paytmUPI://", "paytmIcon"),
-        ("Google Pay", "gpay://", "gpayIcon"),
-        ("BHIM", "upi://", "bhimIcon")
+        ("Google Pay", "gpay://", "gpayIcon")
     ]
     
     for (appName, urlScheme, iconName) in upiApps {
-        if let url = URL(string: urlScheme), UIApplication.shared.canOpenURL(url) {
-            let packageName = urlScheme // This can be adjusted if you have specific package names
-            let appIcon = UIImage(named: iconName) // Load icon from assets
-            
-            installedUPIApps.append(UPIAppInfo(packageName: packageName, appName: appName, appIcon: appIcon))
-        } else {
-            print("\(appName) is not installed or cannot be opened.")
+        if let url = URL(string: urlScheme) {
+            if UIApplication.shared.canOpenURL(url) {
+                let appIcon = UIImage(named: iconName) // Load icon from assets
+                installedUPIApps.append(UPIAppInfo(packageName: urlScheme, appName: appName, appIcon: appIcon))
+                print("\(appName) is installed.")
+            } else {
+                print("\(appName) is not installed.")
+            }
         }
     }
     

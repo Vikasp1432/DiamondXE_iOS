@@ -949,6 +949,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
         cartVCIsComeFromHome = true
         switch sender.tag {
         case 0:
+            CurrencyRatesManager.shareInstence.getCurrencyRates()
             self.btnHome.tintColor = .themeClr
             self.btnCategory.tintColor = .clrGray
             self.btnWish.tintColor = .clrGray

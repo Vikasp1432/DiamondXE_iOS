@@ -33,37 +33,52 @@
                                 <rect key="frame" x="7" y="5" width="350" height="160"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsR-By-ftz">
-                                        <rect key="frame" x="15" y="15" width="235" height="18"/>
+                                        <rect key="frame" x="15" y="15" width="235" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="SlL-9F-YIc"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="15"/>
                                         <color key="textColor" name="blackClr"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Nad  uhef rjhbjf ebfjhbej whbfjwhe bfme" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPa-ck-usp">
-                                        <rect key="frame" x="15" y="37" width="320" height="18"/>
+                                        <rect key="frame" x="15" y="39" width="320" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="yh0-y0-wiN"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <color key="textColor" name="blackClr"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone: +91 9999999999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlE-x0-FhG">
-                                        <rect key="frame" x="15" y="59" width="320" height="18"/>
+                                        <rect key="frame" x="15" y="63" width="320" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="I0V-Df-QvC"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <color key="textColor" name="blackClr"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: sample@gmail.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mw8-4M-Lbq">
-                                        <rect key="frame" x="15" y="81" width="320" height="18"/>
+                                        <rect key="frame" x="15" y="87" width="320" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="TId-y5-EN1"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <color key="textColor" name="blackClr"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Type: Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TH-CO-Hob">
-                                        <rect key="frame" x="15" y="103" width="320" height="18"/>
+                                        <rect key="frame" x="15" y="111" width="320" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="oVy-za-ZRH"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <color key="textColor" name="blackClr"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Qi2-Ic-dCq">
-                                        <rect key="frame" x="260" y="9" width="75" height="30"/>
+                                        <rect key="frame" x="260" y="10" width="75" height="30"/>
                                         <subviews>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WaZ-3f-4rh">
                                                 <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
@@ -116,6 +131,7 @@
                                 <constraints>
                                     <constraint firstItem="gsR-By-ftz" firstAttribute="leading" secondItem="iKG-H7-NnB" secondAttribute="leading" constant="15" id="2J6-Sn-8zm"/>
                                     <constraint firstItem="Mw8-4M-Lbq" firstAttribute="leading" secondItem="iKG-H7-NnB" secondAttribute="leading" constant="15" id="3gz-Ki-Fc3"/>
+                                    <constraint firstAttribute="height" constant="160" id="4qK-7O-XmC"/>
                                     <constraint firstItem="Bp8-I9-qkw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6TH-CO-Hob" secondAttribute="bottom" constant="8" id="Brn-aX-DA0"/>
                                     <constraint firstAttribute="bottom" secondItem="Bp8-I9-qkw" secondAttribute="bottom" constant="3" id="Eso-rr-Rbr"/>
                                     <constraint firstAttribute="trailing" secondItem="YPa-ck-usp" secondAttribute="trailing" constant="15" id="FCI-IU-Rwt"/>
@@ -134,7 +150,6 @@
                                     <constraint firstAttribute="trailing" secondItem="6TH-CO-Hob" secondAttribute="trailing" constant="15" id="jcT-au-udR"/>
                                     <constraint firstAttribute="trailing" secondItem="RlE-x0-FhG" secondAttribute="trailing" constant="15" id="jhM-Zr-B9H"/>
                                     <constraint firstAttribute="trailing" secondItem="Bp8-I9-qkw" secondAttribute="trailing" constant="3" id="l77-Cs-3Lu"/>
-                                    <constraint firstAttribute="height" constant="160" id="vCM-DH-UPc"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

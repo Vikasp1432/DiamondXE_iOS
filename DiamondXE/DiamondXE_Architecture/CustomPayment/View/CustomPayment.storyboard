@@ -583,7 +583,6 @@
                         <outlet property="lblPaymentMode" destination="CIC-fv-zYV" id="Kdl-wG-BH5"/>
                         <outlet property="lblUTRCHequeNo" destination="82x-AI-JgP" id="IoO-cn-Gvf"/>
                         <outlet property="viewBG" destination="3j0-ex-JY4" id="Fxq-JM-NDW"/>
-                        <outlet property="viewMainBG" destination="wJv-EM-ums" id="XB2-4r-PKH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mPN-SE-HUp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

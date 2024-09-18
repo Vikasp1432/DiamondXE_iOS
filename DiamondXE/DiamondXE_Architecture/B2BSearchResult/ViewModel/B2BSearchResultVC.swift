@@ -174,8 +174,8 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
     
     func updateCurreny(currncyOBJ:CurrencyRateDetail){
         currencyRateDetailObj = currncyOBJ
-        print(currncyOBJ)
-        
+            //print(currncyOBJ)
+        UserDefaultManager.shareInstence.saveCurrencyData(topDelsObj: currncyOBJ)
        if self.diamondListDetails.count > 0 {
             self.tableViewList.reloadData()
         }

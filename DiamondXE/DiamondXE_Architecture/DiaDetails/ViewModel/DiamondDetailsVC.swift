@@ -482,23 +482,32 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
                     
                 }
                 else{
-//                    let loginData = UserDefaultManager().retrieveLoginData()
-//                    if let data = loginData?.details?.userRole{
-//                        self.callAPIBuyNowUpdate(certificateNum: self.diamondDetails.details?.certificateNo ?? "")
-//                    }
-//                    else{
-//                        self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
-//                    }
-                    
-                    
-                    let storyboard = UIStoryboard(name: "ShippingModule", bundle: nil)
-                    if let vc = storyboard.instantiateViewController(withIdentifier: "ShippingModuleVC") as? ShippingModuleVC {
-                        if let dataObj = self.diamondDetails.details {
-                            vc.diamondDetailsOBJ = dataObj
-                            vc.currencyRateDetailObj = self.currencyRateDetailObj
+                    let loginData = UserDefaultManager().retrieveLoginData()
+                    if let data = loginData?.details?.userRole{
+                       // self.callAPIBuyNowUpdate(certificateNum: self.diamondDetails.details?.certificateNo ?? "")
+                        
+                        let storyboard = UIStoryboard(name: "ShippingModule", bundle: nil)
+                        if let vc = storyboard.instantiateViewController(withIdentifier: "ShippingModuleVC") as? ShippingModuleVC {
+                            if let dataObj = self.diamondDetails.details {
+                                vc.diamondDetailsOBJ = dataObj
+                                vc.currencyRateDetailObj = self.currencyRateDetailObj
+                            }
+                            self.navigationController?.pushViewController(vc, animated: true)
                         }
-                        self.navigationController?.pushViewController(vc, animated: true)
                     }
+                    else{
+                        self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
+                    }
+                    
+                    
+//                    let storyboard = UIStoryboard(name: "ShippingModule", bundle: nil)
+//                    if let vc = storyboard.instantiateViewController(withIdentifier: "ShippingModuleVC") as? ShippingModuleVC {
+//                        if let dataObj = self.diamondDetails.details {
+//                            vc.diamondDetailsOBJ = dataObj
+//                            vc.currencyRateDetailObj = self.currencyRateDetailObj
+//                        }
+//                        self.navigationController?.pushViewController(vc, animated: true)
+//                    }
                   
                     //self.navigationManager(storybordName: "ShippingModule", storyboardID: "ShippingModuleVC", controller: ShippingModuleVC())
                    

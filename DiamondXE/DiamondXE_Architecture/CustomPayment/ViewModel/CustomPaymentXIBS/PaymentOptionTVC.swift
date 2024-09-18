@@ -59,8 +59,10 @@ class PaymentOptionTVC: UITableViewCell {
     
     var dateString = ""
     
-    var customPymnt = CustomPaymentVC()
+    var customPymnt : CustomPaymentVC?
     var selectedIndexPath: IndexPath?
+    
+    var shippingVC : ShippingModuleVC?
     
     @IBOutlet var viewPaymtOptnBG:UIView!
     
@@ -192,10 +194,18 @@ class PaymentOptionTVC: UITableViewCell {
     func dataCollect()  -> Bool{
         
         if self.validateData() {
-            customPymnt.paymentMode = self.txtPaymentMode.text ?? ""
-            customPymnt.checkNum = self.txtChecqNum.text ?? ""
-            customPymnt.selectedDate = self.txtChecqDate.text ?? ""
-            return true
+            if let cusmPymt = customPymnt{
+                cusmPymt.paymentMode = self.txtPaymentMode.text ?? ""
+                cusmPymt.checkNum = self.txtChecqNum.text ?? ""
+                cusmPymt.selectedDate = self.txtChecqDate.text ?? ""
+                return true
+            }
+            if let shippngPymt = shippingVC{
+                shippngPymt.paymentMode = self.txtPaymentMode.text ?? ""
+                shippngPymt.checkNum = self.txtChecqNum.text ?? ""
+                shippngPymt.selectedDate = self.txtChecqDate.text ?? ""
+                return true
+            }
         }
         
         return false

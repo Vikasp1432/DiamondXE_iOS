@@ -117,6 +117,18 @@ struct APIs {
     
     var checkOutDetails_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-checkout-details"
     
+    var createOrder_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/create-order"
+    
+    var proceedPayment_Status_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/order-payment-status"
+    
+    var getOrderList_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/orders-list"
+    
+    var getOrderDetails_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/order-details"
+    
+    var getOrderSummery_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/order-summary"
+    
+    var getORderTracking_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/order-tracking-details"
+    
 }
 
 //struct HeaderInfo {

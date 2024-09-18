@@ -11,11 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="768" id="KGk-i7-Jjw" customClass="OrderSummeryWithItemTVC" customModule="DiamondXE" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="412" height="768"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="806" id="KGk-i7-Jjw" customClass="OrderSummeryWithItemTVC" customModule="DiamondXE" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="412" height="806"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="412" height="768"/>
+                <rect key="frame" x="0.0" y="0.0" width="412" height="806"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSB-Qq-ufz">
@@ -50,7 +50,7 @@
                         <color key="currentPageIndicatorTintColor" name="themeClr"/>
                     </pageControl>
                     <view clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZqR-JH-vk3">
-                        <rect key="frame" x="15" y="205" width="382" height="548"/>
+                        <rect key="frame" x="15" y="205" width="382" height="593"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAq-IJ-2Ye">
                                 <rect key="frame" x="15" y="10" width="128" height="40"/>
@@ -69,10 +69,43 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="leQ-KO-wUW">
-                                <rect key="frame" x="15" y="65" width="352" height="80"/>
+                                <rect key="frame" x="15" y="65" width="352" height="125"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="oC8-G8-QVp">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="uoy-UT-KR3">
                                         <rect key="frame" x="0.0" y="0.0" width="352" height="35"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMb-d5-TAU">
+                                                <rect key="frame" x="0.0" y="0.0" width="151" height="35"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Diamond Price">
+                                                        <attributes>
+                                                            <color key="NSColor" name="lblHeading"/>
+                                                            <font key="NSFont" size="16" name="Lato-Semibold"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4v8-me-Zmc">
+                                                <rect key="frame" x="201" y="0.0" width="151" height="35"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="₹0">
+                                                        <attributes>
+                                                            <color key="NSColor" name="lblHeading"/>
+                                                            <font key="NSFont" size="16" name="Lato-Semibold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="QEQ-5Y-9tq"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="oC8-G8-QVp">
+                                        <rect key="frame" x="0.0" y="45" width="352" height="35"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coupon Discount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dq-YD-bFC">
                                                 <rect key="frame" x="0.0" y="0.0" width="151" height="35"/>
@@ -92,7 +125,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="W8I-NI-FNV">
-                                        <rect key="frame" x="0.0" y="45" width="352" height="35"/>
+                                        <rect key="frame" x="0.0" y="90" width="352" height="35"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping &amp; Handling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEh-Y3-1Xc">
                                                 <rect key="frame" x="0.0" y="0.0" width="151" height="35"/>
@@ -114,7 +147,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Ndu-Hg-t6M">
-                                <rect key="frame" x="15" y="155" width="349" height="35"/>
+                                <rect key="frame" x="15" y="200" width="349" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plateform Fees" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJ6-45-JTZ">
                                         <rect key="frame" x="0.0" y="0.0" width="149.66666666666666" height="35"/>
@@ -134,7 +167,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hlq-q3-ppA">
-                                <rect key="frame" x="3" y="200" width="376" height="35"/>
+                                <rect key="frame" x="3" y="245" width="376" height="35"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="tnF-aU-Kng">
                                         <rect key="frame" x="15" y="0.0" width="346" height="35"/>
@@ -164,7 +197,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="DS2-AO-xFK">
-                                <rect key="frame" x="15" y="245" width="349" height="35"/>
+                                <rect key="frame" x="15" y="290" width="349" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Taxes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgf-FJ-cIX">
                                         <rect key="frame" x="0.0" y="0.0" width="149.66666666666666" height="35"/>
@@ -184,7 +217,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="oGQ-Ih-lBH">
-                                <rect key="frame" x="15" y="290" width="349" height="35"/>
+                                <rect key="frame" x="15" y="335" width="349" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diamond(s) Tax" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rau-kh-Rg1">
                                         <rect key="frame" x="0.0" y="0.0" width="149.66666666666666" height="35"/>
@@ -204,7 +237,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7g-7u-sE8">
-                                <rect key="frame" x="3" y="335" width="376" height="35"/>
+                                <rect key="frame" x="3" y="380" width="376" height="35"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="AaO-bu-v0L">
                                         <rect key="frame" x="15" y="0.0" width="346" height="35"/>
@@ -234,7 +267,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGN-SM-Z0P">
-                                <rect key="frame" x="3" y="375" width="376" height="125"/>
+                                <rect key="frame" x="3" y="420" width="376" height="125"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyq-BA-ZeA">
                                         <rect key="frame" x="0.0" y="0.0" width="376" height="35"/>
@@ -321,7 +354,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYl-EV-czH">
-                                <rect key="frame" x="3" y="505" width="376" height="35"/>
+                                <rect key="frame" x="3" y="550" width="376" height="35"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="eBc-3h-05n">
                                         <rect key="frame" x="15" y="0.0" width="346" height="35"/>
@@ -406,6 +439,7 @@
             <connections>
                 <outlet property="lblBankCHarges" destination="4pw-pZ-eNr" id="fua-zn-RNb"/>
                 <outlet property="lblCouponP" destination="oeF-J7-WGA" id="kvK-VG-TXN"/>
+                <outlet property="lblDiamondPrice" destination="4v8-me-Zmc" id="aMg-cn-aRP"/>
                 <outlet property="lblDiamondTaxes" destination="GK6-GO-UdJ" id="jDf-Im-uY8"/>
                 <outlet property="lblGrandTotal" destination="JQc-Wf-3ul" id="mJA-AG-oVV"/>
                 <outlet property="lblOtherTaxes" destination="xzf-IF-t0e" id="9sV-ZG-GCl"/>
@@ -421,7 +455,7 @@
                 <outlet property="viewCouponP" destination="oC8-G8-QVp" id="BWP-Xi-fbV"/>
                 <outlet property="viewWallertPoint" destination="dMz-Id-hEL" id="A1E-Er-mdT"/>
             </connections>
-            <point key="canvasLocation" x="163.35877862595419" y="276.76056338028172"/>
+            <point key="canvasLocation" x="163.35877862595419" y="290.14084507042253"/>
         </tableViewCell>
     </objects>
     <resources>
@@ -430,6 +464,9 @@
         </namedColor>
         <namedColor name="blackClr">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lblHeading">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="themeClr">
             <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

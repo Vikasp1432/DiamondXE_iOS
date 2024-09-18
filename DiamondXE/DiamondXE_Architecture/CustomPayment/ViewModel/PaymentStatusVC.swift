@@ -147,8 +147,7 @@ class PaymentStatusVC: UIViewController {
    
     
     @IBAction func btnActionMyOrderBacktoHome(_ sender:UIButton){
-        
-        self.navigationController?.popToRootViewController(animated: true)
+       // self.navigationController?.popToRootViewController(animated: true)
 
         
         if sender.tag == 0{
@@ -158,8 +157,25 @@ class PaymentStatusVC: UIViewController {
         else{
 //       self.navigationController?.popViewController(animated: true)
         }
+        
+        for controller in self.navigationController!.viewControllers as Array {
+            if let dashboardVC = controller as? DashboardVC {
+                // Pop to the DashboardVC
+                self.navigationController!.popToViewController(dashboardVC, animated: true)
+                
+                // Ensure the first tab is selected in the tab bar controller
+                let button = UIButton()
+                 button.tag = 0
+                dashboardVC.btnActionTapped(button)
+                
+                break
+            }
+        }
+        
     }
 
+    
+  
 
 }
 

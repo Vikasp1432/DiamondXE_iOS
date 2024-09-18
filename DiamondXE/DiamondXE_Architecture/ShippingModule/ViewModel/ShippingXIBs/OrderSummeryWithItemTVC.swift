@@ -28,6 +28,8 @@ class OrderSummeryWithItemTVC: UITableViewCell {
     @IBOutlet var lblWallertPoint :UILabel!
     @IBOutlet var lblBankCHarges :UILabel!
     
+    @IBOutlet var lblDiamondPrice :UILabel!
+    
     @IBOutlet var viewCouponP :UIStackView!
     @IBOutlet var viewWallertPoint :UIStackView!
     @IBOutlet var viewBankCHarges :UIStackView!
@@ -135,6 +137,8 @@ class OrderSummeryWithItemTVC: UITableViewCell {
         self.lblTotalTaxes.text = "\(currency)\(checkOutData.totalTaxes ?? 0)"
         self.lblSubTotal.text = "\(currency)\(checkOutData.totalAmount ?? 0)"
         self.lblGrandTotal.text = "\(currency)\(checkOutData.finalAmount ?? 0)"
+        
+        self.lblDiamondPrice.text = "\(currency)\(checkOutData.subTotal ?? 0)"
         
         if let vc = self.baseVC{
             let formattedNumber = formatNumberWithoutDeciml(Double(checkOutData.finalAmount ?? 0))

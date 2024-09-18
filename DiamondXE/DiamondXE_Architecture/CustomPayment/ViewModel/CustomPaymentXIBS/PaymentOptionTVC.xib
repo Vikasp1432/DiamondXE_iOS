@@ -740,16 +740,16 @@
     </objects>
     <designables>
         <designable name="5Ux-cY-cKd">
-            <size key="intrinsicContentSize" width="138" height="18"/>
+            <size key="intrinsicContentSize" width="154" height="43"/>
         </designable>
         <designable name="EWV-aD-Zua">
-            <size key="intrinsicContentSize" width="75.333333333333329" height="18"/>
+            <size key="intrinsicContentSize" width="91.333333333333329" height="43"/>
         </designable>
         <designable name="PQl-AR-4Br">
-            <size key="intrinsicContentSize" width="90" height="18"/>
+            <size key="intrinsicContentSize" width="106" height="43"/>
         </designable>
         <designable name="PcU-Og-yDl">
-            <size key="intrinsicContentSize" width="136.66666666666666" height="18"/>
+            <size key="intrinsicContentSize" width="152.66666666666666" height="43"/>
         </designable>
     </designables>
     <resources>

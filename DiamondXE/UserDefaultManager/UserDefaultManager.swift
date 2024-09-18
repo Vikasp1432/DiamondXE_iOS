@@ -82,6 +82,23 @@ class UserDefaultManager {
         return nil
     }
     
+    func saveCurrencyData(topDelsObj: CurrencyRateDetail) {
+        let encoder = JSONEncoder()
+        if let encodedUser = try? encoder.encode(topDelsObj) {
+            UserDefaults.standard.set(encodedUser, forKey: "CurrencyObj")
+        }
+    }
+    
+    func retrieveCurrencyData() -> CurrencyRateDetail? {
+        if let savedUserData = UserDefaults.standard.data(forKey: "CurrencyObj") {
+            let decoder = JSONDecoder()
+            if let savedUser = try? decoder.decode(CurrencyRateDetail.self, from: savedUserData) {
+                return savedUser
+            }
+        }
+        return nil
+    }
+    
     
     func saveLocation(location: String) {
         UserDefaults.standard.set(location, forKey: "location")

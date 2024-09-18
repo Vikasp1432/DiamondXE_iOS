@@ -68,10 +68,19 @@ class PaymentManager {
     var paymentInstrumentbnkID = String()
     var paymentInstrumentTargetApp = String()
     var paymentINProcessStruct = PaymentINProcessStruct()
+    var callBackURl : String?
     
 
     func initiatePhonePeTransaction(from viewController: UIViewController) {
         
+        if let calURL = callBackURl {
+            print(calURL)
+        }
+        else{
+            callBackURl = "\(APIs().callBackURL)"
+        }
+        
+      
         var paymentInstrument : [String:Any] = [:]
     
         switch paymentType {
@@ -102,7 +111,7 @@ class PaymentManager {
             "amount": updatedAmt,
             "productId": "b74e2a4c-7d13-43c5-a115-c0372ed85dbd",
             "merchantUserId": paymentINProcessStruct.details?.userID ?? "",
-            "callbackUrl": "\(APIs().callBackURL)",
+            "callbackUrl": callBackURl,
             "mobileNumber": paymentINProcessStruct.details?.userData?.mobile ?? "",
             "deviceContext": [
                "deviceOS": "IOS",

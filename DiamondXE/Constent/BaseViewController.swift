@@ -103,7 +103,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
     
     var sectionsAccountProfile: [SectionsAccount] = [
         SectionsAccount(mainCellTitle: account_, expandableCellOptions: [account_profile,account_address,account_kycV,account_password], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: account_Profileicons, isExpandableCellsHidden: true, isExpanded: true),
-       // SectionsAccount(mainCellTitle: account_order, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+        SectionsAccount(mainCellTitle: account_order, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
        // SectionsAccount(mainCellTitle: account_wallet, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
        // SectionsAccount(mainCellTitle: account_auction, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
        // SectionsAccount(mainCellTitle: account_markup, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),

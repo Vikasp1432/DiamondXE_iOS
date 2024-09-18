@@ -47,6 +47,7 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
     @IBOutlet var btnBuyNow:UIButton!
     
     var cartDataStruct = CartDataStruct()
+    var selectedCartDataStruct = [CardDataDetail]()
     var grandTotal = 000
 
     override func viewDidLoad() {
@@ -121,10 +122,10 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
             
             let storyboard = UIStoryboard(name: "ShippingModule", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "ShippingModuleVC") as? ShippingModuleVC {
-                if let dataObj = self.cartDataStruct.details {
-                    vc.CartDataObj = dataObj
+               // if self.selectedCartDataStruct.count > {
+                    vc.CartDataObj = self.selectedCartDataStruct
                     vc.currencyRateDetailObj = self.currencyRateDetailObj
-                }
+               // }
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             
@@ -174,11 +175,13 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
             if data.status == 1{
                  self.cartDataStruct = data
                 
+                
 //                self.delegateCount?.updateCount(crdCnt: self.cartDataStruct.cart_count ?? 0, wishCnt: self.cartDataStruct.wishlist_count ?? 0)
 //                
                 
                 DataManager.shared.cartDataHolder = self.cartDataStruct
                 self.cartDataStruct.details?.enumerated().forEach{ int, val in
+                    self.selectedCartDataStruct.append(val)
                     self.grandTotal += self.cartDataStruct.details?[int].totalPrice ?? 0
                 }
                 
@@ -462,6 +465,12 @@ extension AddToCartVC : UITableViewDelegate, UITableViewDataSource{
                 
                 if self.cartDataStruct.details?.count ?? 0 > 1{
                     if cell.isSelectedItem{
+                        if let currentItem = self.cartDataStruct.details?[indexPath.row]{
+                            if !self.selectedCartDataStruct.contains(where: { $0.stockID == currentItem.stockID }) {
+                                self.selectedCartDataStruct.append(currentItem)
+                            }
+                        }
+                       
                         let itemPrice = self.cartDataStruct.details?[indexPath.row].totalPrice ?? 0
                         self.grandTotal = self.grandTotal + itemPrice
                         
@@ -482,6 +491,16 @@ extension AddToCartVC : UITableViewDelegate, UITableViewDataSource{
                         
                     }
                     else{
+                        
+                        if let currentItem = self.cartDataStruct.details?[indexPath.row]{
+                            if let index = self.selectedCartDataStruct.firstIndex(where: { $0.stockID == currentItem.stockID }) {
+                                self.selectedCartDataStruct.remove(at: index)
+                            }
+                        }
+                        
+                        
+                        
+                        
                         let itemPrice = self.cartDataStruct.details?[indexPath.row].totalPrice ?? 0
                         self.grandTotal = self.grandTotal - itemPrice
                         
