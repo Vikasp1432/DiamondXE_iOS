@@ -4,6 +4,17 @@
 <dict>
 	<key>Root_URL</key>
 	<string>$(Root_URL)</string>
+    <key>Marchant_ID</key>
+    <string>DIAMONDXEONLINE</string>
+    <key>Salt_KEY</key>
+    <string>b74e2a4c-7d13-43c5-a115-c0372ed85dbd</string>
+<!--    marchant_ID = DIAMONDXEONLINE-->
+<!--    salt_Key = b74e2a4c-7d13-43c5-a115-c0372ed85dbd-->
+<!--    Marchant_ID = DIAMONDUAT-->
+<!--    Salt_KEY = 1c560f14-86f2-4317-86bf-658f92554b58-->
+
+    
+    
 	<key>UIAppFonts</key>
 	<array>
 		<string>LATO-LIGHTITALIC.TTF</string>

@@ -22,16 +22,17 @@ struct MyOrderDataStruct: Codable {
 
 // MARK: - Detail
 struct MyOrderDetail: Codable {
-    var orderID: Int?
+    var orderID, cancleOrderID: Int?
     var orderDate, currencyCode, totalAmount, orderStatus: String?
     var paymentStatus, createdAt: String?
-    var deliveryDate: String?
+    var deliveryDate, reason, comment, cancel_by: String?
     var isCancelable, isReturnable, isReserveOrder: Int?
-    var paymentReceivedDate, timeLeftForCancel: String?
+    var  timeLeftForCancel: String?//paymentReceivedDate,
     var diamonds: [MyOrderDiamond]?
 
     enum CodingKeys: String, CodingKey {
         case orderID = "order_id"
+        case cancleOrderID = "cancel_return_order_id"
         case orderDate = "order_date"
         case currencyCode = "currency_code"
         case totalAmount = "total_amount"
@@ -42,9 +43,9 @@ struct MyOrderDetail: Codable {
         case isCancelable = "is_cancelable"
         case isReturnable = "is_returnable"
         case isReserveOrder = "is_reserve_order"
-        case paymentReceivedDate = "payment_received_date"
+       // case paymentReceivedDate = "payment_received_date"
         case timeLeftForCancel = "time_left_for_cancel"
-        case diamonds
+        case diamonds, reason, comment, cancel_by
     }
 }
 

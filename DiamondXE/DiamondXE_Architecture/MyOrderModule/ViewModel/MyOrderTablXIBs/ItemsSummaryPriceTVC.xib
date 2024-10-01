@@ -249,6 +249,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="dataStackView" destination="cjw-cP-rEl" id="euF-0f-RMV"/>
+                <outlet property="lblDiaPrice" destination="BRr-1I-Azf" id="61m-0q-DVi"/>
+                <outlet property="lblGrandTotal" destination="ZCj-vU-cOC" id="z6k-RB-bCh"/>
+                <outlet property="lblSubTotal" destination="noF-0B-qoD" id="hML-31-TjB"/>
                 <outlet property="viewDataBG" destination="bIX-pz-1NS" id="Veb-8f-Ti9"/>
             </connections>
             <point key="canvasLocation" x="176.33587786259542" y="98.239436619718319"/>

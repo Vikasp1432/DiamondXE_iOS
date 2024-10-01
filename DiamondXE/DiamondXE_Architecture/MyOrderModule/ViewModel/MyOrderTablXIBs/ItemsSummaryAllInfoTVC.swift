@@ -28,6 +28,7 @@ class ItemsSummaryAllInfoTVC: UITableViewCell , ShimmeringViewProtocol{
     @IBOutlet var lblBNKCharges : UILabel!
     @IBOutlet var lblFinalAmount : UILabel!
     
+    @IBOutlet var lblTitle : UILabel!
     
     @IBOutlet var stackViewDiaPrice : UIStackView!
     @IBOutlet var stackViewCouponDis : UIStackView!

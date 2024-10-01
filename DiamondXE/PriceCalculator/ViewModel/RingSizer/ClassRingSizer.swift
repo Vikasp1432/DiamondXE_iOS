@@ -378,7 +378,7 @@ class RingSizer : UIView
                         for jsonObject in jsonArray
                         {
                             let ringSizeModel : RingSizeModel = RingSizeModel.init(diameter_mm: CGFloat((jsonObject["diameter_mm"]! as NSString).floatValue), usaCode: jsonObject["usa"]!, inrCode: jsonObject["india"]!, diameter_eur: CGFloat((jsonObject["diameter_EUR"]! as NSString).floatValue), ukCode: jsonObject["diameter_UK"]!)
-                            ringSizes.add(ringSizeModel)
+                                ringSizes.add(ringSizeModel)
                         }
                     }
                 }

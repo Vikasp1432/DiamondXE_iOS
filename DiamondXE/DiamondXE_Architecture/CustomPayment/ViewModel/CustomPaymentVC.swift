@@ -58,7 +58,6 @@ class CustomPaymentVC: BaseViewController {
     
     var refreshControl = UIRefreshControl()
 
-
     
     var bankInfoStruct = BankInfoDataStruct()
     var bankChargesInfoStruct = BankChargesStruct()
@@ -105,6 +104,7 @@ class CustomPaymentVC: BaseViewController {
     @objc private func refreshData(_ sender: Any) {
         // Refresh your data here
         if isCustomPaymentHistory{
+            self.page = 1
             self.callAPIHistoryPayment()
         }
     }
@@ -154,8 +154,9 @@ class CustomPaymentVC: BaseViewController {
             
         let url = APIs().getBankInfo_API
       
+        var param : [String :Any] = ["countryName" : "India"]
             
-        CustomPaymentModel.shareInstence.getBankInfoData(url: url, completion: { data, msg in
+        CustomPaymentModel.shareInstence.getBankInfoData(url: url, requestParam: param, completion: { data, msg in
                 if data.status == 1{
                     self.bankInfoStruct = data
                     self.customPaymentTV.reloadData()
@@ -347,12 +348,15 @@ class CustomPaymentVC: BaseViewController {
             
         }
       
+        var uniqDeviceID = self.getSessionUniqID()
         let url = APIs().proceedPayment_API
         let param :[String:Any] = [
             "amount": self.amount,
             "paymentMode": paymentModeSelected,
             "remark": self.remark,
-            "submit": 1
+            "submit": 1,
+            "deviceId" : uniqDeviceID,
+            "deviceType" : "iOS"
         
         ]
         
@@ -377,9 +381,12 @@ class CustomPaymentVC: BaseViewController {
     }
     
     func callAPIProceedPayment(){
-      
+        var uniqDeviceID = self.getSessionUniqID()
         let url = APIs().proceedPayment_API
         let param :[String:Any] = [
+         
+            "deviceId" : uniqDeviceID,
+            "deviceType" : "iOS",
             "amount": self.amount,
             "paymentMode": paymentModeSelected, //'NEFT','DebitCard','CreditCard','NetBanking','UPI'
             "bankPaymentMethod": self.paymentMode,

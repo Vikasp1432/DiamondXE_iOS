@@ -86,7 +86,7 @@ class PaymentManager {
         switch paymentType {
         case "UPI":
             paymentInstrument =  ["type": "UPI_INTENT",
-                                  "targetApp": "\(upiName)".replacingOccurrences(of: " ", with: "").uppercased()]
+                                  "targetApp": "\(upiName)"]
         case "CreditCard":
             paymentInstrument =  ["type": "PAY_PAGE"]
         case "NetBanking":
@@ -105,13 +105,14 @@ class PaymentManager {
         
         
         // Construct the request payload
+        //https://api-preprod.phonepe.com/apis/pg-sandbox
         let requestBody: [String: Any] = [
-            "merchantId": "DIAMONDUAT",//"DIAMONDXEONLINE",
+            "merchantId": "DIAMONDXEONLINE", //"\(DiamondXEEnvironment.marchantID)",//"DIAMONDXEONLINE",DIAMONDUAT
             "merchantTransactionId": paymentINProcessStruct.details?.orderID ?? "",
             "amount": updatedAmt,
-            "productId": "b74e2a4c-7d13-43c5-a115-c0372ed85dbd",
+            "productId": "b74e2a4c-7d13-43c5-a115-c0372ed85dbd",//"\(DiamondXEEnvironment.saltKey)",
             "merchantUserId": paymentINProcessStruct.details?.userID ?? "",
-            "callbackUrl": callBackURl,
+            "callbackUrl": callBackURl ?? "",
             "mobileNumber": paymentINProcessStruct.details?.userData?.mobile ?? "",
             "deviceContext": [
                "deviceOS": "IOS",
@@ -121,6 +122,8 @@ class PaymentManager {
             
         ]
         
+//        print(DiamondXEEnvironment.marchantID)
+//        print(DiamondXEEnvironment.saltKey)
         print(requestBody)
         
         // Convert request body to JSON and then to base64
@@ -128,7 +131,8 @@ class PaymentManager {
         let base64EncodedString = jsonData.base64EncodedString()
 
         // Generate checksum (should be generated on the server)
-        let payloadChecksum = generateChecksum(base64EncodedString: base64EncodedString, saltKey: "1c560f14-86f2-4317-86bf-658f92554b58", apiEndPoint: "\(apiEndPoint)")
+        // saltkey = live - b74e2a4c-7d13-43c5-a115-c0372ed85dbd, test - 1c560f14-86f2-4317-86bf-658f92554b58
+        let payloadChecksum = generateChecksum(base64EncodedString: base64EncodedString, saltKey: "b74e2a4c-7d13-43c5-a115-c0372ed85dbd", apiEndPoint: "\(apiEndPoint)")
 
         // Define headers
         let headers: [String: String] = [
@@ -148,20 +152,27 @@ class PaymentManager {
         // Check if PhonePe app is installed
 //        if isPhonePeAppInstalled() {
             // Initialize the payment with the app
-            PPPayment(environment: .sandbox, enableLogging: true, appId: nil)
-                .startPG(transactionRequest: request, on: viewController, animated: true) { _, result in
+            PPPayment(environment: .production, enableLogging: true, appId: "b74e2a4c-7d13-43c5-a115-c0372ed85dbd")
+                .startPG(transactionRequest: request, on: viewController, animated: true) { data, result in
                     let text = "\(result)"
                     print("Transaction result: \(text)")
+                  
                     
                     if self.paymentType == "UPI"{
+                        
+                        
+//                       let transactionID =  requestBody["merchantTransactionId"] as! String
+//                        let urlString = "\(self.upiPackageName)pay?amount=\(1.0)&cu=INR&tid=\(transactionID)&merchantId=DIAMONDXEONLINE"
+
                         self.openUPIApp(with: self.upiPackageName)
+                        
+                        self.delegate?.paymentTransactionID(transectionID: requestBody["merchantTransactionId"] as! String, paymentStatus: "\(result)")
+                        
                     }
-                    
                     
                    /// self.verifyTransactionStatus(transactionId: requestBody["merchantTransactionId"] as! String)
                     
                     self.delegate?.paymentTransactionID(transectionID: requestBody["merchantTransactionId"] as! String, paymentStatus: "\(result)")
-                    
                     
                     if case let .failure(error) = result {
                         print("Transaction failed with error: \(error.localizedDescription)")

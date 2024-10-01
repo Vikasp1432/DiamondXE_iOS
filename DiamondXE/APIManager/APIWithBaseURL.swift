@@ -110,7 +110,7 @@ struct APIs {
     let historyPayment_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/custom-payment/history"
     
     let getBankCharges_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/get-bank-charges"
-    
+    //
     var callBackURL = "https://\(DiamondXEEnvironment.rootURL)payments/phonepe-custom-payment-callback"
     
     var customPayment_Status_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/custom-payment/status"
@@ -128,6 +128,21 @@ struct APIs {
     var getOrderSummery_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/order-summary"
     
     var getORderTracking_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/order-tracking-details"
+    
+    var getCancelResion_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/order-cancel-reasons"
+    
+    var getReturnResion_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/order-return-reasons"
+    
+    var cancelledOrdrDetails_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/cancel-order-details"
+    
+    var canceleOrdrSubmit_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/cancel-order-checkout"
+    
+    var canceleOrdr_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/cancel-order"
+    
+    
+    var getDealerMrkupInfo_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/dealer/settings"
+    
+    var updateDealerMrkupInfo_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/dealer/update-settings"
     
 }
 

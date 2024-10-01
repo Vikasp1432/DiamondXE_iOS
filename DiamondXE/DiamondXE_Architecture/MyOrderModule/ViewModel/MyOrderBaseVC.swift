@@ -41,23 +41,32 @@ class MyOrderBaseVC: ButtonBarPagerTabStripViewController {
     @IBAction func btnActionBack(_ sender: UIButton){
         self.navigationController?.popViewController(animated: true)
     }
+    
+    func callCalcelTab(){
+        DispatchQueue.main.async {
+            self.moveToViewController(at: 4, animated: false)
+            //let child_1 = UIStoryboard(name: "MyOrder", bundle: nil).instantiateViewController(withIdentifier: String(describing: "RecentIListVC")) as! RecentIListVC
+            //child_1.getOrderListAPI()
+        }
+    }
   
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         
         
         let child_1 = UIStoryboard(name: "MyOrder", bundle: nil).instantiateViewController(withIdentifier: String(describing: "RecentIListVC")) as! RecentIListVC
+      
         
-        let child_2 = UIStoryboard(name: "MyOrder", bundle: nil).instantiateViewController(withIdentifier: String(describing: "ReturnListVC")) as! ReturnListVC
+       // let child_2 = UIStoryboard(name: "MyOrder", bundle: nil).instantiateViewController(withIdentifier: String(describing: "ReturnListVC")) as! ReturnListVC
 
         
-        let child_3 = UIStoryboard(name: "MyOrder", bundle: nil).instantiateViewController(withIdentifier: String(describing: "ReservedListVC")) as! ReservedListVC
+      //  let child_3 = UIStoryboard(name: "MyOrder", bundle: nil).instantiateViewController(withIdentifier: String(describing: "ReservedListVC")) as! ReservedListVC
         
         let child_4 = UIStoryboard(name: "MyOrder", bundle: nil).instantiateViewController(withIdentifier: String(describing: "PastListVC")) as! PastListVC
         
         let child_5 = UIStoryboard(name: "MyOrder", bundle: nil).instantiateViewController(withIdentifier: String(describing: "CancelledListVC")) as! CancelledListVC
         
-        let array :  [UIViewController] = [child_1,child_2,child_3,child_4,child_5]
+        let array :  [UIViewController] = [child_1,child_4,child_5]//child_2,child_3
         return array
        
     }

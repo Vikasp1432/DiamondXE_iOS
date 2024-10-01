@@ -28,7 +28,11 @@ class DiamondDetailsView: BaseViewController {
     var count = Int()
     
     var orderDetails = OrderDetailsStruct()
+    var cancelOrderDetails = CancelOrderSummaryStruct()
+    
     var currencyRateDetailObj = UserDefaultManager.shareInstence.retrieveCurrencyData()
+    
+    var titleManage = String()
     
     private var isLoading = true {
         didSet {
@@ -85,7 +89,14 @@ class DiamondDetailsView: BaseViewController {
         sender.present(self, animated: false) {
             self.show()
             
-            self.getOrderDetailsAPI(orderID: tag)
+            if self.titleManage == "Cancelled"{
+                self.getCancelOrderDetailsAPI(orderID: tag)
+            }
+            else{
+                self.getOrderDetailsAPI(orderID: tag)
+            }
+            
+           
             //self.tableViewItems.isScrollEnabled = false
             self.tableViewItemsHeightContraint.constant = 250
           
@@ -155,24 +166,82 @@ class DiamondDetailsView: BaseViewController {
         
     }
     
-
+    
+    
+    func getCancelOrderDetailsAPI(orderID : Int){
+        
+       // CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+        self.isLoading = true
+        let param : [String : Any] = [
+            "cancelOrderId": orderID
+            
+        ]
+        
+        let url = APIs().cancelledOrdrDetails_API
+        
+        MyOrderDataModel.shareInstence.getCancelOrderSummaryAPI(url: url, requestParam: param, completion: { data, msg in
+            if data.status == 1{
+                self.cancelOrderDetails = data
+                self.isLoading = false
+               
+                if self.orderDetails.details?.diamonds?.count == 1{
+                    self.tableViewItems.isScrollEnabled = false
+                    self.tableViewItemsHeightContraint.constant = 250
+                }
+                else if self.orderDetails.details?.diamonds?.count ?? 0 > 1{
+                    self.tableViewItems.isScrollEnabled = true
+                    self.tableViewItemsHeightContraint.constant = 500
+                }
+                self.tableViewItems.reloadData()
+            }
+            else{
+                self.isLoading = false
+                self.toastMessage(msg ?? "")
+                
+            }
+            
+            //CustomActivityIndicator2.shared.hide()
+            
+        })
+        
+        
+    }
+    
+  
 
 }
 
 
 extension DiamondDetailsView : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let  count = self.orderDetails.details?.diamonds {
-            return count.count
-        }
-        else{
-            if isLoading{
-                return 1
+        
+        if titleManage == "Cancelled"{
+            if let  count = self.cancelOrderDetails.details?.diamonds {
+                return count.count
             }
             else{
-                return 0
+                if isLoading{
+                    return 1
+                }
+                else{
+                    return 0
+                }
             }
         }
+        else{
+            if let  count = self.orderDetails.details?.diamonds {
+                return count.count
+            }
+            else{
+                if isLoading{
+                    return 1
+                }
+                else{
+                    return 0
+                }
+            }
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -180,48 +249,112 @@ extension DiamondDetailsView : UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
         
-        let diamndInfo = self.orderDetails.details?.diamonds?[indexPath.row]
-        
-        cell.imgDiamond.sd_setImage(with: URL(string: diamndInfo?.diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
-        
-        self.lblOrderID.text = "Order-ID : \(self.orderDetails.details?.orderID ?? Int())"
-        self.lblDateTime.text = self.orderDetails.details?.createdAt
-        cell.lblShape.text = diamndInfo?.shape
-        cell.lblShapeTop.text = diamndInfo?.shape
-        cell.lblCarat.text = diamndInfo?.carat
-        cell.lblColor.text = diamndInfo?.color
-        cell.lblClarity.text = diamndInfo?.clarity
-        cell.lblCertificateNo.text = diamndInfo?.stockID
-        
-        if diamndInfo?.category == "Natural"{
-            cell.lblDiaType.text = diamndInfo?.category
-            cell.viewDiaType.backgroundColor = UIColor.goldenClr
+        if titleManage == "Cancelled"{
+            let diamndInfo = self.cancelOrderDetails.details?.diamonds?[indexPath.row]
+            
+            cell.imgDiamond.sd_setImage(with: URL(string: diamndInfo?.diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
+            
+            self.lblOrderID.text = "Order-ID : \(self.cancelOrderDetails.details?.orderID ?? Int())"
+            
+            if let localDateString = convertUTCToLocal(dateString: self.cancelOrderDetails.details?.orderCreatedAt ?? "") {
+                self.lblDateTime.text = localDateString
+            } else {
+                print("Conversion failed")
+            }
+            
+            
+           // self.lblDateTime.text = self.cancelOrderDetails.details?.orderCreatedAt
+            cell.lblShape.text = diamndInfo?.shape
+            cell.lblShapeTop.text = diamndInfo?.shape
+            cell.lblCarat.text = diamndInfo?.carat
+            cell.lblColor.text = diamndInfo?.color
+            cell.lblClarity.text = diamndInfo?.clarity
+            cell.lblCertificateNo.text = "Certificate No : \(diamndInfo?.certificateNo ?? "")"
+            
+            if diamndInfo?.category == "Natural"{
+                cell.lblDiaType.text = diamndInfo?.category
+                cell.viewDiaType.backgroundColor = UIColor.goldenClr
+            }
+            else{
+                cell.lblDiaType.text = diamndInfo?.category
+                cell.viewDiaType.backgroundColor = UIColor.green2
+            }
+            
+            
+            cell.lblType.text = diamndInfo?.growthType
+            cell.lblCut.text = diamndInfo?.cutGrade
+            cell.lblPolish.text = diamndInfo?.polish
+            cell.lblSYM.text = diamndInfo?.symmetry
+            cell.lblFLR.text = diamndInfo?.fluorescenceIntensity
+            cell.lblLAB.text = diamndInfo?.certificateName
+            cell.lblTable.text = diamndInfo?.tablePerc
+            cell.lblDepth.text = diamndInfo?.depthPerc
+            cell.lblLAB.text = diamndInfo?.certificateName
+
+            if let currncySimbol = self.currencyRateDetailObj?.currencySymbol{
+                let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.subTotal ?? "") ?? 0)
+                cell.lblTotalAmnt.text = "\(currncySimbol)\(formattedNumber)"
+                
+            }
+            else{
+                let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.subTotal ?? "") ?? 0)
+                cell.lblTotalAmnt.text = "₹\(formattedNumber)"
+            }
         }
         else{
-            cell.lblDiaType.text = diamndInfo?.category
-            cell.viewDiaType.backgroundColor = UIColor.green2
-        }
-        
-        
-        cell.lblType.text = diamndInfo?.growthType
-        cell.lblCut.text = diamndInfo?.cutGrade
-        cell.lblPolish.text = diamndInfo?.polish
-        cell.lblSYM.text = diamndInfo?.symmetry
-        cell.lblFLR.text = diamndInfo?.fluorescenceIntensity
-        cell.lblLAB.text = diamndInfo?.certificateName
-        cell.lblTable.text = diamndInfo?.tablePerc
-        cell.lblDepth.text = diamndInfo?.depthPerc
-        cell.lblLAB.text = diamndInfo?.certificateName
+            
+            let diamndInfo = self.orderDetails.details?.diamonds?[indexPath.row]
+            
+            cell.imgDiamond.sd_setImage(with: URL(string: diamndInfo?.diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
+            
+            self.lblOrderID.text = "Order-ID : \(self.orderDetails.details?.orderID ?? Int())"
+            if let localDateString = convertUTCToLocal(dateString: self.orderDetails.details?.createdAt ?? "") {
+                self.lblDateTime.text = localDateString
+            } else {
+                print("Conversion failed")
+            }
+            
+           //self.lblDateTime.text = self.orderDetails.details?.createdAt
+            cell.lblShape.text = diamndInfo?.shape
+            cell.lblShapeTop.text = diamndInfo?.shape
+            cell.lblCarat.text = diamndInfo?.carat
+            cell.lblColor.text = diamndInfo?.color
+            cell.lblClarity.text = diamndInfo?.clarity
+            cell.lblCertificateNo.text = "StockID : \(diamndInfo?.stockID ?? "")"
+            
+            if diamndInfo?.category == "Natural"{
+                cell.lblDiaType.text = diamndInfo?.category
+                cell.viewDiaType.backgroundColor = UIColor.goldenClr
+            }
+            else{
+                cell.lblDiaType.text = diamndInfo?.category
+                cell.viewDiaType.backgroundColor = UIColor.green2
+            }
+            
+            
+            cell.lblType.text = diamndInfo?.growthType
+            cell.lblCut.text = diamndInfo?.cutGrade
+            cell.lblPolish.text = diamndInfo?.polish
+            cell.lblSYM.text = diamndInfo?.symmetry
+            cell.lblFLR.text = diamndInfo?.fluorescenceIntensity
+            cell.lblLAB.text = diamndInfo?.certificateName
+            cell.lblTable.text = diamndInfo?.tablePerc
+            cell.lblDepth.text = diamndInfo?.depthPerc
+            cell.lblLAB.text = diamndInfo?.certificateName
 
-        if let currncySimbol = self.currencyRateDetailObj?.currencySymbol{
-            let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.totalPrice ?? "") ?? 0)
-            cell.lblTotalAmnt.text = "\(currncySimbol)\(formattedNumber)"
+            if let currncySimbol = self.currencyRateDetailObj?.currencySymbol{
+                let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.subTotal ?? "") ?? 0)
+                cell.lblTotalAmnt.text = "\(currncySimbol)\(formattedNumber)"
+                
+            }
+            else{
+                let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.subTotal ?? "") ?? 0)
+                cell.lblTotalAmnt.text = "₹\(formattedNumber)"
+            }
             
         }
-        else{
-            let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.totalPrice ?? "") ?? 0)
-            cell.lblTotalAmnt.text = "₹\(formattedNumber)"
-        }
+        
+      
 
         
         return cell

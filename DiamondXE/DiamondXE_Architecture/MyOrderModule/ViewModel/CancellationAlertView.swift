@@ -9,6 +9,25 @@ import UIKit
 import DTTextField
 import DropDown
 
+
+struct CancelOrderProcessStruct: Codable {
+    var status: Int?
+    var msg: String?
+    //var details: CanOrderDetails?
+}
+
+// MARK: - Details
+struct CanOrderDetails: Codable {
+    var orderID: Int?
+    var cancelOrderID: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case orderID = "order_id"
+        case cancelOrderID = "cancel_order_id"
+    }
+}
+
+
 class CancellationAlertView: UIViewController , UITextViewDelegate{
 
     @IBOutlet weak var backView: UIView!
@@ -26,11 +45,21 @@ class CancellationAlertView: UIViewController , UITextViewDelegate{
     @IBOutlet weak var btnProcesses: UIButton!
     @IBOutlet weak var textView: UITextView!
 
+    
+    var navController: CancelOrderWithResionViewController?
     var isWallet = true
     var isPaymntMode = false
-    
+    var resionsStruct = ResionsDataStruct()
     let placeholderText = "Enter your resion here..."
-  
+    var resionStrArr = [String]()
+    
+    var orderID = Int()
+    var cancellationType = "full"
+    var cnDiamonsList = [String]()
+    var refundMode = String()
+    
+    var cancelOrderStruct = CancelOrderProcessStruct()
+    
     
     init() {
         super.init(nibName: "CancellationAlertView", bundle: nil)
@@ -43,6 +72,8 @@ class CancellationAlertView: UIViewController , UITextViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       // print(navController)
 
         configView()
         txtselectResion.isUserInteractionEnabled = false
@@ -53,6 +84,9 @@ class CancellationAlertView: UIViewController , UITextViewDelegate{
         self.btnProcesses.setGradientLayerWithoutShadow(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
 
         
+        self.resionsStruct.details?.enumerated().forEach { val, indx in
+            resionStrArr.append(indx.reason ?? "")
+        }
     }
     
     func setupTextView() {
@@ -85,9 +119,9 @@ class CancellationAlertView: UIViewController , UITextViewDelegate{
     
     
     func openDropDown(){
-       var dropDown = DropDown()
+        let dropDown = DropDown()
         dropDown.anchorView = self.selectResionView
-        dropDown.dataSource = ["Resion 1","Resion 2","Resion 3","Resion 4","Resion 5"]
+        dropDown.dataSource = resionStrArr
         dropDown.backgroundColor = UIColor.whitClr
         dropDown.selectionBackgroundColor = UIColor.themeClr.withAlphaComponent(0.2)
         dropDown.shadowColor = UIColor(white: 0.6, alpha: 1)
@@ -149,6 +183,7 @@ class CancellationAlertView: UIViewController , UITextViewDelegate{
         
         if sender.tag == 0{
             isWallet = true
+            refundMode = "wallet"
             self.isPaymntMode = false
             self.btnWallet.setImage(UIImage(named: "radioButtonSelected"), for: .normal)
             self.btnPaymentMode.setImage(UIImage(named: "radioButtonDeselected"), for: .normal)
@@ -156,6 +191,7 @@ class CancellationAlertView: UIViewController , UITextViewDelegate{
         }
         else if sender.tag == 1{
             isWallet = false
+            refundMode = "source"
             self.isPaymntMode = true
             self.btnWallet.setImage(UIImage(named: "radioButtonDeselected"), for: .normal)
             self.btnPaymentMode.setImage(UIImage(named: "radioButtonSelected"), for: .normal)
@@ -165,12 +201,54 @@ class CancellationAlertView: UIViewController , UITextViewDelegate{
             hide()
         }
         else if sender.tag == 3{
-            hide()
+           // self.hide()
+            self.getCancelOrderProcessedAPI()
         }
         
       
        
     }
+    
+    
+    
+    func getCancelOrderProcessedAPI(){
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+        let param : [String : Any] = [
+            "orderId":self.orderID,
+            "type":self.cancellationType,
+            "diamonds": cnDiamonsList.joined(separator: ","),
+            "reason": self.txtselectResion.text ?? "",
+            "comment": self.textView.text ?? "",
+            "refundMode": self.refundMode
+         
+        ]
+        
+        let url = APIs().canceleOrdr_API
+        
+        MyOrderDataModel.shareInstence.cancelOrderAPI(url: url, requestParam: param, completion: { data, msg in
+            if data.status == 1 {
+               //self.hide()
+                self.cancelOrderStruct = data
+                let showView = CancellationDoneAlertView()
+                showView.navController = self.navController
+                showView.vcView = self
+                showView.appear(sender: self, tag: 1)
+            }
+            else{
+                self.toastMessage(msg ?? "")
+                
+            }
+           // self.hide()
+            CustomActivityIndicator2.shared.hide()
+            
+        })
+        
+        
+    }
+    
+    
+    
+    
 }
    
 

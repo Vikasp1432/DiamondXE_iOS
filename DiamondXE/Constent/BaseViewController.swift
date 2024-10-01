@@ -67,7 +67,22 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
     
     
     // uitableviewSections //, nv_fancyDiamond
-   
+    func convertUTCToLocal(dateString: String, dateFormat: String = "yyyy-MM-dd HH:mm:ss") -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC") // Set time zone to UTC
+
+        // Convert the string to a Date object
+        if let utcDate = dateFormatter.date(from: dateString) {
+            dateFormatter.timeZone = TimeZone.current // Change to local time zone
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Adjust the output format if needed
+
+            // Convert the Date object back to a string in local time zone
+            return dateFormatter.string(from: utcDate)
+        }
+        
+        return nil // Return nil if the conversion fails
+    }
  
     
     
@@ -106,7 +121,7 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
         SectionsAccount(mainCellTitle: account_order, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
        // SectionsAccount(mainCellTitle: account_wallet, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
        // SectionsAccount(mainCellTitle: account_auction, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
-       // SectionsAccount(mainCellTitle: account_markup, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
+        SectionsAccount(mainCellTitle: account_markup, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
        // SectionsAccount(mainCellTitle: account_refer, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
        // SectionsAccount(mainCellTitle: account_program, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),
         SectionsAccount(mainCellTitle: account_payment, expandableCellOptions: [], mainCellOptionsIcons: account_icons, expandableCellOptionsIcons: [], isExpandableCellsHidden: true, isExpanded: true),

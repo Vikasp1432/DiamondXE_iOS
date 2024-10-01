@@ -56,7 +56,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.49411764705882355" green="0.18799999356269836" blue="0.50199997425079346" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.49411764705882355" green="0.18823529411764706" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="ftg-I3-qoS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ss4-c0-ak4" secondAttribute="trailing" constant="10" id="2Fb-wu-Ojk"/>
                                     <constraint firstItem="ss4-c0-ak4" firstAttribute="leading" secondItem="TAK-ob-9yz" secondAttribute="leading" constant="10" id="50s-Z4-ji6"/>
@@ -393,6 +393,19 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGv-LT-6HW">
+                                <rect key="frame" x="10" y="155" width="3" height="11.666666666666657"/>
+                                <attributedString key="attributedText">
+                                    <fragment content=".">
+                                        <attributes>
+                                            <color key="NSColor" red="0.98942854020979021" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="10" name="Lato-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="whitClr"/>
                         <constraints>
@@ -405,10 +418,12 @@
                             <constraint firstItem="CDU-EK-lwt" firstAttribute="leading" secondItem="cmk-Sy-4Fy" secondAttribute="trailing" constant="10" id="FOx-PC-d7e"/>
                             <constraint firstAttribute="trailing" secondItem="0Qo-7q-kAC" secondAttribute="trailing" constant="10" id="IaL-i0-JRy"/>
                             <constraint firstItem="kI6-pH-fyz" firstAttribute="leading" secondItem="8Q9-SU-Db1" secondAttribute="trailing" constant="5" id="KrA-cE-XO5"/>
+                            <constraint firstItem="EGv-LT-6HW" firstAttribute="leading" secondItem="jXo-ZQ-Yw9" secondAttribute="leading" id="L1T-Qa-Ubh"/>
                             <constraint firstAttribute="trailing" secondItem="jXo-ZQ-Yw9" secondAttribute="trailing" constant="10" id="MOg-B2-mRk"/>
                             <constraint firstItem="DaS-UO-YSw" firstAttribute="top" secondItem="PLu-fi-49V" secondAttribute="bottom" constant="7" id="Mc0-aO-cK3"/>
                             <constraint firstItem="TAK-ob-9yz" firstAttribute="width" secondItem="yHE-gh-8uu" secondAttribute="width" id="Onj-4y-cuq"/>
                             <constraint firstItem="cmk-Sy-4Fy" firstAttribute="top" secondItem="TAK-ob-9yz" secondAttribute="bottom" constant="10" id="Pb3-an-G2q"/>
+                            <constraint firstItem="EGv-LT-6HW" firstAttribute="top" secondItem="cmk-Sy-4Fy" secondAttribute="bottom" constant="5" id="QYY-bv-DYY"/>
                             <constraint firstItem="8Q9-SU-Db1" firstAttribute="centerY" secondItem="DaS-UO-YSw" secondAttribute="centerY" id="Tgz-UV-tMv"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jXo-ZQ-Yw9" secondAttribute="bottom" constant="7.6699999999999999" id="UdQ-XJ-REI"/>
                             <constraint firstItem="xDf-wz-h0l" firstAttribute="centerY" secondItem="DaS-UO-YSw" secondAttribute="centerY" id="b85-bt-sMy"/>
@@ -454,6 +469,7 @@
                 <outlet property="lblCarat" destination="DaS-UO-YSw" id="efw-Mo-Efa"/>
                 <outlet property="lblCertificateNo" destination="CDU-EK-lwt" id="gle-at-eC8"/>
                 <outlet property="lblClarity" destination="Emi-84-6x6" id="mP3-RE-cSA"/>
+                <outlet property="lblCnclBy" destination="EGv-LT-6HW" id="VSl-OL-KJE"/>
                 <outlet property="lblColor" destination="8Q9-SU-Db1" id="2cj-J8-35l"/>
                 <outlet property="lblDateTime" destination="ftg-I3-qoS" id="0nP-RF-P3m"/>
                 <outlet property="lblDiaType" destination="Hds-ts-eFj" id="4Qq-lO-4CQ"/>

@@ -17,6 +17,8 @@ class CouponInfoTVC: UITableViewCell, UITextFieldDelegate {
     @IBOutlet var btnPointVeryfied:UIButton!
     
     @IBOutlet var txtCouponCode:DTTextField!
+    
+    weak var delegate: TextFieldUpdateDelegate?
   
     var btnAction : (() -> Void) = { }
 
@@ -52,14 +54,16 @@ class CouponInfoTVC: UITableViewCell, UITextFieldDelegate {
            // Change border color or perform any other actions
            if let customTextField = textField as? DTTextField {
                customTextField.borderColor = UIColor.tabSelectClr
-               self.btnPointVeryfy.isHidden = false
-               self.btnPointVeryfied.isHidden = true
+              
+               
+               //delegate?.didUpdateText(textField.text ?? "", tag: 1)
            }
        }
        
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let customTextField = textField as? DTTextField {
             customTextField.borderColor = UIColor.borderClr
+            delegate?.didUpdateText(textField.text ?? "", tag: 1)
         }
     }
     

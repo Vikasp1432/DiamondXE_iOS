@@ -212,9 +212,9 @@ func fetchInstalledUPIApps() -> [UPIAppInfo] {
     
     // Define the UPI apps URL schemes and their icons
     let upiApps = [
-        ("PhonePe", "phonepe://", "phonepeIcon"),
-        ("Paytm", "paytmUPI://", "paytmIcon"),
-        ("Google Pay", "gpay://", "gpayIcon")
+        ("PHONEPE", "phonepe://", "phonepeIcon"),
+        ("PAYTM", "paytmUPI://", "paytmIcon"),
+        ("GPAY", "gpay://", "gpayIcon")
     ]
     
     for (appName, urlScheme, iconName) in upiApps {

@@ -184,6 +184,7 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
        // setUpMediumBestBTN()
         //setupTopBTN()
         setupIsreturnable()
+       // DataManager.shared.color = "white"
         
         // filter datya
 //        self.filterDataStruct()

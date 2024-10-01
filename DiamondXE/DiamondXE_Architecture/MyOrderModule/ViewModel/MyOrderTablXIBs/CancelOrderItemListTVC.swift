@@ -34,7 +34,7 @@ class CancelOrderItemListTVC: UITableViewCell , ShimmeringViewProtocol{
     
     var btnActionsManage : ((Int) -> Void) = { _ in}
     
-    var btnActionsCancel : (([MyOrderDiamond]) -> Void) = { _ in}
+    var btnActionsCancel : (([MyOrderDiamond], [Bool]) -> Void) = { _,_  in}
     
     var btnActionsProcesses : ((Int) -> Void) = { _ in}
 
@@ -128,10 +128,10 @@ class CancelOrderItemListTVC: UITableViewCell , ShimmeringViewProtocol{
             self.btnPartialCancel.setImage(UIImage(named: "radioButtonSelected"), for: .normal)
             
         }
-        else{
-            self.btnActionsProcesses(sender.tag)
-        }
-        
+//        else{
+//            self.btnActionsProcesses(sender.tag)
+//        }
+        self.btnActionsProcesses(sender.tag)
       
         tableViewMultiItem.reloadData()
        
@@ -190,7 +190,7 @@ extension CancelOrderItemListTVC : UITableViewDelegate, UITableViewDataSource {
         cell.checkboxButtonAction = { [weak self] in
             guard let self = self else { return }
             self.toggleSelection(at: indexPath)
-            self.btnActionsCancel(selectedItemsArray)
+            self.btnActionsCancel(selectedItemsArray, self.selectedState)
         }
         
      

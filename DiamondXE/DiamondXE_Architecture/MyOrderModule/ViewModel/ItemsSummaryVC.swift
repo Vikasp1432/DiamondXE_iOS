@@ -107,7 +107,15 @@ extension ItemsSummaryVC: UITableViewDelegate, UITableViewDataSource{
            
            
             cell.lblOrderID.text = "Order ID : \(self.orderSummryData.details?.orderID ?? 0)"
-            cell.lblDateTime.text = self.orderSummryData.details?.createdAt
+            
+            
+            if let localDateString = convertUTCToLocal(dateString: self.orderSummryData.details?.createdAt ?? "") {
+                cell.lblDateTime.text = localDateString
+            } else {
+                print("Conversion failed")
+            }
+            
+          //  cell.lblDateTime.text = self.orderSummryData.details?.createdAt
 
             
             return cell
@@ -123,30 +131,30 @@ extension ItemsSummaryVC: UITableViewDelegate, UITableViewDataSource{
             
             if let currencySymbol = self.currencyRateDetailObj?.currencySymbol {
                 // Set all labels with formatted values using the provided currency symbol
-                cell.lblDiamondPrice.text = "\(currencySymbol)\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.totalAmount ?? "") ?? 0))"
+                cell.lblDiamondPrice.text = "\(currencySymbol)\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.subTotal ?? "") ?? 0))"
                 cell.lblCouponDiscount.text = "\(currencySymbol)\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.couponDiscount ?? "") ?? 0))"
                 cell.lblShippingHandling.text = "\(currencySymbol)\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.shippingCharge ?? "") ?? 0))"
                 cell.lblPlatformFee.text = "\(currencySymbol)\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.platformFee ?? "") ?? 0))"
                 cell.lblTotalCharges.text = "\(currencySymbol)\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.totalCharge ?? "") ?? 0))"
                 cell.lblOtherTaxes.text = "\(currencySymbol)\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.totalChargeTax ?? "") ?? 0))"
-                cell.lblDiamondsTAX.text = "\(currencySymbol)\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.crTotalTax ?? "") ?? 0))"
+                cell.lblDiamondsTAX.text = "\(currencySymbol)\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.tax ?? "") ?? 0))"
                 cell.lblTotalTaxes.text = "\(currencySymbol)\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.totalTaxes ?? "") ?? 0))"
-                cell.lblSubTotal.text = "\(currencySymbol)\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.subTotal ?? "") ?? 0))"
+                cell.lblSubTotal.text = "\(currencySymbol)\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.totalAmount ?? "") ?? 0))"
                 cell.lblWalletPoints.text = "\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.walletPoints ?? "") ?? 0))"
                 cell.lblBNKCharges.text = "\(currencySymbol)\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.bankCharge ?? "") ?? 0))"
                 cell.lblFinalAmount.text = "\(currencySymbol)\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.finalAmount ?? "") ?? 0))"
                 
             } else {
                 // Set all labels with formatted values using default currency symbol "₹"
-                cell.lblDiamondPrice.text = "₹\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.totalAmount ?? "") ?? 0))"
+                cell.lblDiamondPrice.text = "₹\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.subTotal ?? "") ?? 0))"
                 cell.lblCouponDiscount.text = "₹\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.couponDiscount ?? "") ?? 0))"
                 cell.lblShippingHandling.text = "₹\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.shippingCharge ?? "") ?? 0))"
                 cell.lblPlatformFee.text = "₹\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.platformFee ?? "") ?? 0))"
                 cell.lblTotalCharges.text = "₹\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.totalCharge ?? "") ?? 0))"
                 cell.lblOtherTaxes.text = "₹\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.totalChargeTax ?? "") ?? 0))"
-                cell.lblDiamondsTAX.text = "₹\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.crTotalTax ?? "") ?? 0))"
+                cell.lblDiamondsTAX.text = "₹\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.tax ?? "") ?? 0))"
                 cell.lblTotalTaxes.text = "₹\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.totalTaxes ?? "") ?? 0))"
-                cell.lblSubTotal.text = "₹\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.subTotal ?? "") ?? 0))"
+                cell.lblSubTotal.text = "₹\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.totalAmount ?? "") ?? 0))"
                 cell.lblWalletPoints.text = "\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.walletPoints ?? "") ?? 0))"
                 cell.lblBNKCharges.text = "₹\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.bankCharge ?? "") ?? 0))"
                 cell.lblFinalAmount.text = "₹\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.finalAmount ?? "") ?? 0))"
@@ -157,7 +165,7 @@ extension ItemsSummaryVC: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: ItemsSummaryAddressesInfoTVC.cellIdentifierItemsSummaryAddressesInfoTVC, for: indexPath) as! ItemsSummaryAddressesInfoTVC
             cell.selectionStyle = .none
             cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
-            cell.lblUTRCheckNo.text = self.orderSummryData.details?.specialInstruction
+            cell.lblUTRCheckNo.text = self.orderSummryData.details?.transactionID
             cell.lblOrderStatus.text = self.orderSummryData.details?.orderStatus
            
             if let currncySimbol = self.currencyRateDetailObj?.currencySymbol{
@@ -170,7 +178,7 @@ extension ItemsSummaryVC: UITableViewDelegate, UITableViewDataSource{
                 cell.lblAmount.text = "₹\(formattedNumber)"
             }
             
-            cell.lblOrderPlaced.text = self.orderSummryData.details?.paymentReceivedDate
+            cell.lblOrderPlaced.text = self.orderSummryData.details?.createdAt
             cell.lblDeliveryDate.text = self.orderSummryData.details?.deliveryDate
             cell.lblPaymentMode.text = self.orderSummryData.details?.paymentMode
             cell.lblShippingAddress.text = self.orderSummryData.details?.userDetails?.shippingAddress

@@ -52,3 +52,18 @@ struct History: Codable {
         case status, note, datetime, image
     }
 }
+
+
+
+struct ResionsDataStruct: Codable {
+    var status: Int?
+    var msg: String?
+    var details: [ResionsDetail]?
+}
+
+// MARK: - Detail
+struct ResionsDetail: Codable {
+    var id: Int?
+    var reason: String?
+}
+

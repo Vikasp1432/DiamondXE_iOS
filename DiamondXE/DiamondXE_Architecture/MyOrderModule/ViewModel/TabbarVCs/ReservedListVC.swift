@@ -16,7 +16,8 @@ class ReservedListVC: BaseViewController, IndicatorInfoProvider {
     }
     
     @IBOutlet var tableViewReserved: UITableView!
-    
+    @IBOutlet var imgNoDataFnd: UIImageView!
+
     var currencyRateDetailObj = UserDefaultManager.shareInstence.retrieveCurrencyData()
     private var isLoading = true {
         didSet {
@@ -36,6 +37,7 @@ class ReservedListVC: BaseViewController, IndicatorInfoProvider {
         tableViewReserved.register(UINib(nibName: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC, bundle: nil), forCellReuseIdentifier: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC)
         tableViewReserved.register(UINib(nibName: MultiItemListTVC.cellIdentifierMultiItemListTVC, bundle: nil), forCellReuseIdentifier: MultiItemListTVC.cellIdentifierMultiItemListTVC)
         
+        self.imgNoDataFnd.isHidden = true
         getOrderListAPI()
         
         
@@ -59,7 +61,12 @@ class ReservedListVC: BaseViewController, IndicatorInfoProvider {
                 self.orderListData = data
                 self.isLoading = false
                 self.tableViewReserved.reloadData()
-                
+                if self.orderListData.details?.count ?? 0 < 1 {
+                    self.imgNoDataFnd.isHidden = false
+                }
+                else{
+                    self.imgNoDataFnd.isHidden = true
+                }
                 if self.orderListData.details?.count ?? 0 > 14 {
                      self.page += 1
                  }
@@ -166,7 +173,7 @@ extension ReservedListVC : UITableViewDelegate, UITableViewDataSource {
                
                 cell.lblColor.text = diamndInfo?.diamonds?.first?.color
                 cell.lblClarity.text = diamndInfo?.diamonds?.first?.clarity
-                cell.lblCertificateNo.text = diamndInfo?.diamonds?.first?.stockID
+                cell.lblCertificateNo.text = "StockID : \(diamndInfo?.diamonds?.first?.stockID ?? "")"
                 
                 if let currncySimbol = self.currencyRateDetailObj?.currencySymbol{
                     let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.diamonds?.first?.totalPrice ?? "") ?? 0)

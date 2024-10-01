@@ -15,7 +15,7 @@ class ShippingAddressListingTVC: UITableViewCell {
     @IBOutlet var lblHeaderTitle:UILabel!
     
     var addressData = GetAddressStruct()
-    var btnActionCell : ((Int) -> Void) = {_ in }
+    var btnActionCell22 : ((IndexPath) -> Void) = {_ in }
     var btnActionEdit : ((Int) -> Void) = {_ in }
     
     var btnActionAddAddress : (() -> Void) = { }
@@ -23,7 +23,7 @@ class ShippingAddressListingTVC: UITableViewCell {
     
     var selectedIndexPath : IndexPath?
     
-  
+   var ischangeAddress = false
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -67,23 +67,34 @@ extension ShippingAddressListingTVC:UICollectionViewDataSource, UICollectionView
         cell.lblName.text = "City Name: \(addressData.details?[indexPath.row].cityNameS ?? "")"
 
         cell.isSelectedCell = (indexPath == selectedIndexPath)
-        
-         let isDefault = addressData.details?[indexPath.row].isDefault ?? -1
+        if !self.ischangeAddress{
+            let isDefault = addressData.details?[indexPath.row].isDefault ?? -1
             if isDefault == 0{
                 cell.lblDefaut.isHidden = true
                 cell.isSelectedCell = false
             }
             else{
-                cell.lblDefaut.isHidden = false
+                
                 cell.isSelectedCell = true
+                self.selectedIndexPath = indexPath
             }
+        }
+        else{
+            if selectedIndexPath == indexPath {
+                cell.lblDefaut.isHidden = false
+            } else {
+                cell.lblDefaut.isHidden = true
+            }
+        }
         
-       
+      
 
         cell.btnActionCell = { tag in
             if tag == 2 {
+                
+                self.ischangeAddress = true
                 self.selectedIndexPath = indexPath
-                self.btnActionCell(tag)
+                self.btnActionCell22(indexPath)
             }
             else{
                 self.btnActionEdit(indexPath.row)

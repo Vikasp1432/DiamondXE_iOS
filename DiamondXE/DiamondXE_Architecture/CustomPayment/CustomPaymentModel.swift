@@ -12,9 +12,9 @@ import Foundation
 class CustomPaymentModel{
     static var shareInstence = CustomPaymentModel()
     
-    func getBankInfoData(url : String, completion: @escaping (BankInfoDataStruct, String?) -> Void) {
+    func getBankInfoData(url : String, requestParam: [String:Any], completion: @escaping (BankInfoDataStruct, String?) -> Void) {
         var dataObj = BankInfoDataStruct()
-        AlamofireManager().makePostAPIRequestWithLocation(url: url, param: [:], completion: { result in
+        AlamofireManager().makePostAPIRequestWithLocation2(url: url, param: [:], completion: { result in
             switch result {
             case .success(let data):
                 // Handle the response data

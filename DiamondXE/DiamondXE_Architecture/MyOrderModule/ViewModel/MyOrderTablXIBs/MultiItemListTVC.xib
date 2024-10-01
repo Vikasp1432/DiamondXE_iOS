@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -69,13 +68,13 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AXJ-CY-uJa">
                                 <rect key="frame" x="0.0" y="30" width="466" height="110"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="whitClr"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="TwS-sL-dO0"/>
                                 </constraints>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fPa-Zq-dDr">
-                                <rect key="frame" x="10" y="167" width="446" height="38"/>
+                                <rect key="frame" x="10" y="166.33333333333334" width="446" height="38"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nya-XK-IGJ">
                                         <rect key="frame" x="0.0" y="0.0" width="123.66666666666667" height="38"/>
@@ -232,7 +231,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7s-Te-OOG">
-                                <rect key="frame" x="445.66666666666669" y="150" width="10.333333333333314" height="11"/>
+                                <rect key="frame" x="445.66666666666669" y="145" width="10.333333333333314" height="15.333333333333343"/>
                                 <attributedString key="attributedText">
                                     <fragment content="--">
                                         <attributes>
@@ -244,20 +243,36 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2K-oS-1SM">
+                                <rect key="frame" x="20" y="145" width="3.3333333333333321" height="13"/>
+                                <attributedString key="attributedText">
+                                    <fragment content=".">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99704982517482521" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="Lato-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="whiteBG"/>
                         <constraints>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fPa-Zq-dDr" secondAttribute="bottom" constant="13" id="25B-jW-2uP"/>
                             <constraint firstItem="b9V-RS-FmE" firstAttribute="top" secondItem="h2z-Fn-m2Z" secondAttribute="top" id="4As-GE-3oP"/>
-                            <constraint firstItem="z7s-Te-OOG" firstAttribute="top" secondItem="AXJ-CY-uJa" secondAttribute="bottom" constant="10" id="Bae-FY-Q24"/>
+                            <constraint firstItem="z7s-Te-OOG" firstAttribute="top" secondItem="AXJ-CY-uJa" secondAttribute="bottom" constant="5" id="Bae-FY-Q24"/>
                             <constraint firstAttribute="trailing" secondItem="b9V-RS-FmE" secondAttribute="trailing" id="CFb-fA-HGu"/>
                             <constraint firstAttribute="trailing" secondItem="AXJ-CY-uJa" secondAttribute="trailing" id="Ewq-oG-5EQ"/>
                             <constraint firstItem="b9V-RS-FmE" firstAttribute="leading" secondItem="h2z-Fn-m2Z" secondAttribute="leading" id="FEX-tY-O5G"/>
+                            <constraint firstItem="d2K-oS-1SM" firstAttribute="top" secondItem="AXJ-CY-uJa" secondAttribute="bottom" constant="5" id="M9h-Z5-Pem"/>
                             <constraint firstItem="fPa-Zq-dDr" firstAttribute="leading" secondItem="h2z-Fn-m2Z" secondAttribute="leading" constant="10" id="ODC-IE-IGV"/>
                             <constraint firstAttribute="trailing" secondItem="fPa-Zq-dDr" secondAttribute="trailing" constant="10" id="YYi-BB-a5G"/>
                             <constraint firstItem="AXJ-CY-uJa" firstAttribute="leading" secondItem="h2z-Fn-m2Z" secondAttribute="leading" id="a8l-nU-C22"/>
                             <constraint firstItem="fPa-Zq-dDr" firstAttribute="top" secondItem="z7s-Te-OOG" secondAttribute="bottom" constant="6" id="cqS-SF-lrt"/>
+                            <constraint firstItem="d2K-oS-1SM" firstAttribute="leading" secondItem="h2z-Fn-m2Z" secondAttribute="leading" constant="20" id="mZ9-Ps-3eg"/>
                             <constraint firstAttribute="trailing" secondItem="z7s-Te-OOG" secondAttribute="trailing" constant="10" id="mlx-gx-awn"/>
+                            <constraint firstItem="z7s-Te-OOG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d2K-oS-1SM" secondAttribute="trailing" constant="15" id="tF3-4D-JcM"/>
                             <constraint firstItem="AXJ-CY-uJa" firstAttribute="top" secondItem="b9V-RS-FmE" secondAttribute="bottom" id="ukc-J2-sXk"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -277,9 +292,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="lblCnclBy" destination="d2K-oS-1SM" id="qMC-Bl-90H"/>
                 <outlet property="lblDateTime" destination="VAF-Vj-5dT" id="IVe-DM-qaR"/>
                 <outlet property="lblOrderCnclTime" destination="z7s-Te-OOG" id="z6x-Rd-iey"/>
                 <outlet property="lblOrderID" destination="cwB-ih-zEC" id="ksk-ye-NuF"/>
+                <outlet property="stackViewBG" destination="fPa-Zq-dDr" id="5nt-9K-mvr"/>
                 <outlet property="tableViewMultiItem" destination="AXJ-CY-uJa" id="2db-Y5-GXy"/>
                 <outlet property="tableViewMultiItemContraint" destination="TwS-sL-dO0" id="TZF-T0-J0m"/>
                 <outlet property="viewCancelOrder" destination="Qmt-oz-nLh" id="sob-So-RL7"/>
@@ -308,8 +325,5 @@
         <namedColor name="whiteBG">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

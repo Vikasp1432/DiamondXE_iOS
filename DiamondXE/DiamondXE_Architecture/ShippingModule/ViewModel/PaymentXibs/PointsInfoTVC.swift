@@ -8,9 +8,16 @@
 import UIKit
 import DTTextField
 
+protocol TextFieldUpdateDelegate: AnyObject {
+    func didUpdateText(_ text: String, tag:Int)
+}
+
 class PointsInfoTVC: UITableViewCell, UITextFieldDelegate {
     
     static let cellIdentifierPointsInfoTVC = String(describing: PointsInfoTVC.self)
+    
+    
+    weak var delegate: TextFieldUpdateDelegate?
     
     @IBOutlet var viewData:UIView!
     
@@ -30,6 +37,8 @@ class PointsInfoTVC: UITableViewCell, UITextFieldDelegate {
     
     var btnAction : ((Int) -> Void) = {_ in }
     var btnActionApply : (() -> Void) = { }
+    
+   // var ifUpdatePoint = false
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,6 +58,7 @@ class PointsInfoTVC: UITableViewCell, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let dtTextField = textField as? DTTextField {
             dtTextField.borderColor = UIColor.tabSelectClr
+                
         }
         return true
     }
@@ -57,14 +67,16 @@ class PointsInfoTVC: UITableViewCell, UITextFieldDelegate {
            // Change border color or perform any other actions
            if let customTextField = textField as? DTTextField {
                customTextField.borderColor = UIColor.tabSelectClr
-               self.btnWalletPointVerify.isHidden = false
-               self.btnWalletPointVerified.isHidden = true
+              
+              // delegate?.didUpdateText(textField.text ?? "", tag: 0)
            }
        }
        
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let customTextField = textField as? DTTextField {
             customTextField.borderColor = UIColor.borderClr
+            delegate?.didUpdateText(textField.text ?? "", tag: 0)
+            
         }
     }
     

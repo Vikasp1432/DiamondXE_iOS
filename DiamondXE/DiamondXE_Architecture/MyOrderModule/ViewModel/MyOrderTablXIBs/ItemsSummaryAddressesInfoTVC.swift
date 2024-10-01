@@ -26,6 +26,12 @@ class ItemsSummaryAddressesInfoTVC: UITableViewCell, ShimmeringViewProtocol {
     @IBOutlet var lblContactNo : UILabel!
     @IBOutlet var lblEmail : UILabel!
     
+    @IBOutlet var lblTtlDeliveryDate : UILabel!
+    
+    @IBOutlet var ViewCmtResion : UIView!
+    @IBOutlet var lblCmt : UILabel!
+    @IBOutlet var lblResion : UILabel!
+    
     var shimmeringAnimatedItems: [UIView] {
            [
             self.lblUTRCheckNo,

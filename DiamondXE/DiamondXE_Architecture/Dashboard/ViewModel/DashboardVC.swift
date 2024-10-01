@@ -120,12 +120,17 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
            print("Screen tapped at: \(location)")
        }
     
-    
+    @IBAction func btnNoti(_ sender:UIButton){
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "CustomPayment", bundle: nil)
+//        let vc = storyBoard.instantiateViewController(withIdentifier: "PaymentStatusVC") as! PaymentStatusVC
+//      //  vc.paymentStatusDataStruct = self.paymentStatusDataStruct
+//        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+      
         // get currency
         CurrencyRatesManager.shareInstence.delegate = self
         CurrencyRatesManager.shareInstence.getCurrencyRates()

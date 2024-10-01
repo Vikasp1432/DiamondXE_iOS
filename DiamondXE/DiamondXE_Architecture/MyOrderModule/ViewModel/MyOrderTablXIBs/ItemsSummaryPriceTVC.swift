@@ -6,15 +6,26 @@
 //
 
 import UIKit
+import UIView_Shimmer
 
-class ItemsSummaryPriceTVC: UITableViewCell {
+class ItemsSummaryPriceTVC: UITableViewCell, ShimmeringViewProtocol {
     
     static let cellIdentifierItemsSummaryPriceTVC = String(describing: ItemsSummaryPriceTVC.self)
     
     @IBOutlet var viewDataBG : UIView!
    
+    @IBOutlet var lblDiaPrice : UILabel!
+    @IBOutlet var lblSubTotal : UILabel!
+    @IBOutlet var lblGrandTotal : UILabel!
     
-
+    @IBOutlet var dataStackView : UIStackView!
+    
+    var shimmeringAnimatedItems: [UIView] {
+        [
+            dataStackView
+        ]
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

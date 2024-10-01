@@ -23,8 +23,8 @@ class CustomInfoTVC: UITableViewCell, UITextViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var textView: UITextView!
     private let placeholderLabel = UILabel()
     
-    @IBOutlet weak var txtName: DTTextField!
-    @IBOutlet weak var txtComopanyName: DTTextField!
+    @IBOutlet weak var txtName: UITextField!
+    @IBOutlet weak var txtComopanyName: UITextField!
     @IBOutlet weak var txtAmount: DTTextField!
     
     var customPymnt = CustomPaymentVC()
@@ -38,7 +38,7 @@ class CustomInfoTVC: UITableViewCell, UITextViewDelegate, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-       // viewBG.applyShadow()
+        // viewBG.applyShadow()
         setupPlaceholder()
         textView.delegate = self
         
@@ -48,23 +48,28 @@ class CustomInfoTVC: UITableViewCell, UITextViewDelegate, UITextFieldDelegate {
         txtComopanyName.delegate = self
         txtAmount.delegate = self
         
-        if !coNameDefault.isEmpty {
-            self.txtComopanyName.text = coNameDefault
-        }
-        if !nameDefault.isEmpty {
-            self.txtName.text = nameDefault
+        //        if !coNameDefault.isEmpty {
+        //            self.txtComopanyName.text = coNameDefault
+        //        }
+        //        if !nameDefault.isEmpty {
+        //            self.txtName.text = nameDefault
+        //        }
+        
+        let loginData = UserDefaultManager().retrieveLoginData()
+        if let userRole = loginData?.details?.userRole{
+            if  userRole == "BUYER"{
+                self.viewComName.isHidden = true
+            }else{
+                self.viewComName.isHidden = false
+            }
+            
         }
         
-//        let loginData = UserDefaultManager().retrieveLoginData()
-//        if let userRole = loginData?.details?.userRole{
-//            if  userRole == "BUYER"{
-//                self.viewComName.isHidden = true
-//            }else{
-//                self.viewComName.isHidden = false
-//            }
-//            
-//        }
-     
+        self.txtName.text = "\(loginData?.details?.firstName ?? "")\(" ")\(loginData?.details?.lastName ?? "")"
+        
+        self.txtComopanyName.text = loginData?.details?.companyName
+        
+        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -137,14 +142,14 @@ class CustomInfoTVC: UITableViewCell, UITextViewDelegate, UITextFieldDelegate {
     
     func validateData() -> Bool {
         
-        guard !txtName.text!.isEmptyStr else {
-            txtName.showError(message: "Enter Name")
-            return false
-        }
-        guard !txtComopanyName.text!.isEmptyStr else {
-            txtComopanyName.showError(message: "Enter company name")
-            return false
-        }
+//        guard !txtName.text!.isEmptyStr else {
+//            txtName.showError(message: "Enter Name")
+//            return false
+//        }
+//        guard !txtComopanyName.text!.isEmptyStr else {
+//            txtComopanyName.showError(message: "Enter company name")
+//            return false
+//        }
         guard !txtAmount.text!.isEmptyStr else {
             txtAmount.showError(message: "Enter amount")
             return false

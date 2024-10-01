@@ -30,38 +30,60 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cF-xA-a29" userLabel="email">
                                 <rect key="frame" x="0.0" y="0.0" width="311" height="45"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x3u-KU-4Cy" customClass="DTTextField" customModule="DTTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="311" height="45"/>
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x3u-KU-4Cy">
+                                        <rect key="frame" x="8" y="0.0" width="303" height="45"/>
                                         <color key="textColor" name="themeClr"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
+                                <color key="backgroundColor" name="borderClr"/>
                                 <constraints>
-                                    <constraint firstItem="x3u-KU-4Cy" firstAttribute="leading" secondItem="9cF-xA-a29" secondAttribute="leading" id="CJN-9y-9fn"/>
+                                    <constraint firstItem="x3u-KU-4Cy" firstAttribute="leading" secondItem="9cF-xA-a29" secondAttribute="leading" constant="8" id="CJN-9y-9fn"/>
                                     <constraint firstAttribute="height" constant="45" id="FwF-At-aJX"/>
                                     <constraint firstItem="x3u-KU-4Cy" firstAttribute="top" secondItem="9cF-xA-a29" secondAttribute="top" id="c3z-hL-Lp7"/>
                                     <constraint firstAttribute="trailing" secondItem="x3u-KU-4Cy" secondAttribute="trailing" id="o4X-2n-Yy1"/>
                                     <constraint firstAttribute="bottom" secondItem="x3u-KU-4Cy" secondAttribute="bottom" id="zm9-nn-9OH"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lkd-7W-q8e" userLabel="email">
                                 <rect key="frame" x="0.0" y="55" width="311" height="45"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g2h-GX-Ab9" customClass="DTTextField" customModule="DTTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="311" height="45"/>
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g2h-GX-Ab9">
+                                        <rect key="frame" x="8" y="0.0" width="303" height="45"/>
                                         <color key="textColor" name="themeClr"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
+                                <color key="backgroundColor" name="borderClr"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="1LF-KW-roy"/>
-                                    <constraint firstItem="g2h-GX-Ab9" firstAttribute="leading" secondItem="lkd-7W-q8e" secondAttribute="leading" id="4kS-F6-srb"/>
+                                    <constraint firstItem="g2h-GX-Ab9" firstAttribute="leading" secondItem="lkd-7W-q8e" secondAttribute="leading" constant="8" id="4kS-F6-srb"/>
                                     <constraint firstItem="g2h-GX-Ab9" firstAttribute="top" secondItem="lkd-7W-q8e" secondAttribute="top" id="bDy-jm-qM5"/>
                                     <constraint firstAttribute="bottom" secondItem="g2h-GX-Ab9" secondAttribute="bottom" id="dis-D9-U4C"/>
                                     <constraint firstAttribute="trailing" secondItem="g2h-GX-Ab9" secondAttribute="trailing" id="rZo-vu-9zu"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                     </stackView>
@@ -134,6 +156,7 @@
                 <outlet property="txtAmount" destination="BGq-mi-DPP" id="99d-nV-qRU"/>
                 <outlet property="txtComopanyName" destination="g2h-GX-Ab9" id="hNQ-TD-08V"/>
                 <outlet property="txtName" destination="x3u-KU-4Cy" id="D5D-Gq-79C"/>
+                <outlet property="viewComName" destination="lkd-7W-q8e" id="ALQ-AN-aSB"/>
             </connections>
             <point key="canvasLocation" x="23.664122137404579" y="108.80281690140846"/>
         </tableViewCell>

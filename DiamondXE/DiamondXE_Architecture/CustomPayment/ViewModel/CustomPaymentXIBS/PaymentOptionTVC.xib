@@ -731,6 +731,8 @@
                 <outlet property="txtPaymentMode" destination="5Ux-cY-cKd" id="cQz-Fa-K1g"/>
                 <outlet property="txtSelectedBnk" destination="EWV-aD-Zua" id="YFT-vX-mU5"/>
                 <outlet property="viewBG" destination="cfM-9c-rAC" id="6TZ-0i-Fwb"/>
+                <outlet property="viewCreditCrdBG" destination="CP6-2I-40G" id="A1W-oN-Bsp"/>
+                <outlet property="viewNetBnkBG" destination="oa4-XW-fDd" id="cMD-de-Bzq"/>
                 <outlet property="viewPaymtOptnBG" destination="V57-om-P7E" id="MnH-Xd-jeM"/>
                 <outlet property="viewSelectDate" destination="p7y-zX-KMZ" id="jmc-fo-520"/>
                 <outlet property="viewSelectedBnkBG" destination="uGy-aQ-LRR" id="6F1-YQ-gTe"/>
@@ -740,16 +742,16 @@
     </objects>
     <designables>
         <designable name="5Ux-cY-cKd">
-            <size key="intrinsicContentSize" width="154" height="43"/>
+            <size key="intrinsicContentSize" width="138" height="18"/>
         </designable>
         <designable name="EWV-aD-Zua">
-            <size key="intrinsicContentSize" width="91.333333333333329" height="43"/>
+            <size key="intrinsicContentSize" width="75.333333333333329" height="18"/>
         </designable>
         <designable name="PQl-AR-4Br">
-            <size key="intrinsicContentSize" width="106" height="43"/>
+            <size key="intrinsicContentSize" width="90" height="18"/>
         </designable>
         <designable name="PcU-Og-yDl">
-            <size key="intrinsicContentSize" width="152.66666666666666" height="43"/>
+            <size key="intrinsicContentSize" width="136.66666666666666" height="18"/>
         </designable>
     </designables>
     <resources>

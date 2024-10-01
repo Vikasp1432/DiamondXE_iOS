@@ -125,20 +125,39 @@ class OrderSummeryWithItemTVC: UITableViewCell {
         }
         
         if checkOutData.shippingCharge ?? 0 == 0 {
+            
             self.lblShippingHandling.text = "Free Shipping"
         }
         else{
-            self.lblShippingHandling.text = "\(checkOutData.shippingCharge ?? 0)"
+           // self.lblShippingHandling.textColor = .green2
+            
+            let shippngFee = formatNumberWithoutDeciml(Double(checkOutData.shippingCharge ?? 0))
+            self.lblShippingHandling.text = "\(currency)\(shippngFee)"
         }
-        self.lblPlatformFee.text = "\(currency)\(checkOutData.platformFee ?? 0)"
-        self.lblTotalCharges.text = "\(currency)\(checkOutData.totalCharge ?? 0)"
-        self.lblOtherTaxes.text = "\(currency)\(checkOutData.totalChargeTax ?? 0)"
-        self.lblDiamondTaxes.text = "\(currency)\(checkOutData.tax ?? 0)"
-        self.lblTotalTaxes.text = "\(currency)\(checkOutData.totalTaxes ?? 0)"
-        self.lblSubTotal.text = "\(currency)\(checkOutData.totalAmount ?? 0)"
-        self.lblGrandTotal.text = "\(currency)\(checkOutData.finalAmount ?? 0)"
         
-        self.lblDiamondPrice.text = "\(currency)\(checkOutData.subTotal ?? 0)"
+        let platFmFee = formatNumberWithoutDeciml(Double(checkOutData.platformFee ?? 0))
+        self.lblPlatformFee.text = "\(currency)\(platFmFee)"
+        
+        let totalChrgs = formatNumberWithoutDeciml(Double(checkOutData.totalCharge ?? 0))
+        self.lblTotalCharges.text = "\(currency)\(totalChrgs)"
+        
+        let otherChrgs = formatNumberWithoutDeciml(Double(checkOutData.totalChargeTax ?? 0))
+        self.lblOtherTaxes.text = "\(currency)\(otherChrgs)"
+        
+        let diaTACX = formatNumberWithoutDeciml(Double(checkOutData.tax ?? 0))
+        self.lblDiamondTaxes.text = "\(currency)\(diaTACX)"
+        
+        let totlTax = formatNumberWithoutDeciml(Double(checkOutData.totalTaxes ?? 0))
+        self.lblTotalTaxes.text = "\(currency)\(totlTax)"
+        
+        let subTotl = formatNumberWithoutDeciml(Double(checkOutData.totalAmount ?? 0))
+        self.lblSubTotal.text = "\(currency)\(subTotl)"
+        
+        let granTotl = formatNumberWithoutDeciml(Double(checkOutData.finalAmount ?? 0))
+        self.lblGrandTotal.text = "\(currency)\(granTotl)"
+        
+        let diaPrice = formatNumberWithoutDeciml(Double(checkOutData.subTotal ?? 0))
+        self.lblDiamondPrice.text = "\(currency)\(diaPrice)"
         
         if let vc = self.baseVC{
             let formattedNumber = formatNumberWithoutDeciml(Double(checkOutData.finalAmount ?? 0))
@@ -146,10 +165,16 @@ class OrderSummeryWithItemTVC: UITableViewCell {
         }
        
         
+        let cupnDis = formatNumberWithoutDeciml(Double(checkOutData.couponDiscount ?? 0))
+        self.lblCouponP.text = "-\(currency)\(cupnDis)"
+        self.lblCouponP.textColor = .green2
         
-        self.lblCouponP.text = "-\(currency)\(checkOutData.couponDiscount ?? 0)"
-        self.lblWallertPoint.text = "-\(currency)\(checkOutData.walletPoint ?? 0)"
-        self.lblBankCHarges.text = "\(currency)\(checkOutData.bankCharge ?? 0)"
+        let walletDis = formatNumberWithoutDeciml(Double(checkOutData.walletPoint ?? 0))
+        self.lblWallertPoint.text = "-\(currency)\(walletDis)"
+        self.lblWallertPoint.textColor = .green2
+        
+        let bnkCharges = formatNumberWithoutDeciml(Double(checkOutData.bankCharge ?? 0))
+        self.lblBankCHarges.text = "\(currency)\(bnkCharges)"
     }
     
     

@@ -409,6 +409,7 @@
                 <outlet property="lblPlatformFee" destination="0Ge-wn-UVP" id="aJM-gm-W5h"/>
                 <outlet property="lblShippingHandling" destination="HMf-eg-j4H" id="lW4-s8-GYM"/>
                 <outlet property="lblSubTotal" destination="iwy-QG-zM5" id="gv9-Gz-FOq"/>
+                <outlet property="lblTitle" destination="hIw-bw-sDy" id="uxL-RW-aPg"/>
                 <outlet property="lblTotalCharges" destination="7sc-lN-hnx" id="t9x-Jw-Fqz"/>
                 <outlet property="lblTotalTaxes" destination="NUm-WI-U3b" id="nsN-3E-tqK"/>
                 <outlet property="lblWalletPoints" destination="Ud6-ls-TNB" id="cON-IR-VRh"/>

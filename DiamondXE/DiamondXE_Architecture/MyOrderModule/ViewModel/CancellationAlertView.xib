@@ -325,7 +325,7 @@
     </objects>
     <designables>
         <designable name="vm7-MV-wul">
-            <size key="intrinsicContentSize" width="102.33333333333333" height="43"/>
+            <size key="intrinsicContentSize" width="86.333333333333329" height="18"/>
         </designable>
     </designables>
     <resources>

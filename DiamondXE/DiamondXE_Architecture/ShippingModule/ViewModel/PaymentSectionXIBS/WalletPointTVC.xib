@@ -300,10 +300,10 @@
     </objects>
     <designables>
         <designable name="2gX-mv-6ca">
-            <size key="intrinsicContentSize" width="127.33333333333333" height="43"/>
+            <size key="intrinsicContentSize" width="111.33333333333333" height="18"/>
         </designable>
         <designable name="4Ey-Lm-Acj">
-            <size key="intrinsicContentSize" width="40" height="43"/>
+            <size key="intrinsicContentSize" width="23.666666666666668" height="18"/>
         </designable>
     </designables>
     <resources>

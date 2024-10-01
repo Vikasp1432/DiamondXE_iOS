@@ -10,3 +10,8 @@
 
 
 Root_URL = app.diamondxe.com/
+
+
+// for payment getway
+marchant_ID = DIAMONDXEONLINE
+salt_Key = b74e2a4c-7d13-43c5-a115-c0372ed85dbd

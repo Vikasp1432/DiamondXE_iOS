@@ -22,7 +22,7 @@ struct CheckOutDataStruct: Codable {
     var subTotalWithTax: Double?
     var shippingCharge, platformFee, totalCharge, totalChargeTax: Int?
     var totalChargeWithTax, totalTaxes, totalAmount, taxPerOnCharges: Int?
-    var finalAmount, bankCharge, bankChargePerc: Int?
+    var finalAmount, bankCharge: Int?//bankChargePerc
     var availableWalletPoints: String?
     var details: [CheckOutDetail]?
 
@@ -52,7 +52,7 @@ struct CheckOutDataStruct: Codable {
         case taxPerOnCharges = "tax_per_on_charges"
         case finalAmount = "final_amount"
         case bankCharge = "bank_charge"
-        case bankChargePerc = "bank_charge_perc"
+        //case bankChargePerc = "bank_charge_perc"
         case availableWalletPoints = "available_wallet_points"
         case details
         case walletPoint = "wallet_points"
@@ -92,7 +92,7 @@ struct CheckOutDetail: Codable {
     var buyerMarkupPerc, dealerMarkupPerc: String?
     var onHold: Int?
     var dxeMarkup: String?
-    var dealerMarkupCommission: String?
+   // var dealerMarkupCommission: String?
     var rDiscount, rDiscountType: String?
     var platformFeeTax, shippingChargeTax, totalAmount, totalTax: Int?
     var totalCharges: Int?
@@ -155,7 +155,7 @@ struct CheckOutDetail: Codable {
         case dealerMarkupPerc = "dealer_markup_perc"
         case onHold = "on_hold"
         case dxeMarkup = "dxe_markup"
-        case dealerMarkupCommission = "dealer_markup_commission"
+       // case dealerMarkupCommission = "dealer_markup_commission"
         case rDiscount = "r_discount"
         case rDiscountType = "r_discount_type"
         case platformFeeTax = "platform_fee_tax"

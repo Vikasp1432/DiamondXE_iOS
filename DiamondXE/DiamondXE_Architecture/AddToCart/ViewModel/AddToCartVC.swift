@@ -182,7 +182,7 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
                 DataManager.shared.cartDataHolder = self.cartDataStruct
                 self.cartDataStruct.details?.enumerated().forEach{ int, val in
                     self.selectedCartDataStruct.append(val)
-                    self.grandTotal += self.cartDataStruct.details?[int].totalPrice ?? 0
+                    self.grandTotal += self.cartDataStruct.details?[int].subtotal ?? 0
                 }
                 
                 let gTotal = self.formatNumberWithoutDeciml(Double(self.grandTotal))
@@ -265,7 +265,7 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
                 self.cartDataStruct.details = self.cartDataStruct.details?.filter { $0.certificateNo != certificateNo }
                 
                 
-                self.grandTotal = self.grandTotal - (item?.first?.totalPrice ?? 0)
+                self.grandTotal = self.grandTotal - (item?.first?.subtotal ?? 0)
                 
                 let grandTotal = self.formatNumberWithoutDeciml(Double(self.grandTotal))
                 
@@ -317,7 +317,7 @@ class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
                
                 self.cartDataStruct.details = self.cartDataStruct.details?.filter { $0.certificateNo != certificateNo }
                 
-                self.grandTotal = self.grandTotal - (item?.first?.totalPrice ?? 0)
+                self.grandTotal = self.grandTotal - (item?.first?.subtotal ?? 0)
                 
                 let grandTotal = self.formatNumberWithoutDeciml(Double(self.grandTotal))
                 
@@ -447,13 +447,13 @@ extension AddToCartVC : UITableViewDelegate, UITableViewDataSource{
             
             if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
                 let currncyVal = self.currencyRateDetailObj.value ?? 1
-                let finalVal = Double((self.cartDataStruct.details?[indexPath.row].totalPrice ?? 0)) * currncyVal
+                let finalVal = Double((self.cartDataStruct.details?[indexPath.row].subtotal ?? 0)) * currncyVal
                 let formattedNumber = formatNumberWithoutDeciml(finalVal)
                 cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
             }
             else{
 
-                let formattedNumber = formatNumberWithoutDeciml(Double(self.cartDataStruct.details?[indexPath.row].totalPrice ?? 0))
+                let formattedNumber = formatNumberWithoutDeciml(Double(self.cartDataStruct.details?[indexPath.row].subtotal ?? 0))
                 cell.lblPrice.text = "₹\(formattedNumber)"
                 
             }
@@ -471,7 +471,7 @@ extension AddToCartVC : UITableViewDelegate, UITableViewDataSource{
                             }
                         }
                        
-                        let itemPrice = self.cartDataStruct.details?[indexPath.row].totalPrice ?? 0
+                        let itemPrice = self.cartDataStruct.details?[indexPath.row].subtotal ?? 0
                         self.grandTotal = self.grandTotal + itemPrice
                         
                         let grandTotal = self.formatNumberWithoutDeciml(Double(self.grandTotal))
@@ -501,7 +501,7 @@ extension AddToCartVC : UITableViewDelegate, UITableViewDataSource{
                         
                         
                         
-                        let itemPrice = self.cartDataStruct.details?[indexPath.row].totalPrice ?? 0
+                        let itemPrice = self.cartDataStruct.details?[indexPath.row].subtotal ?? 0
                         self.grandTotal = self.grandTotal - itemPrice
                         
                         let grandTotal = self.formatNumberWithoutDeciml(Double(self.grandTotal))

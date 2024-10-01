@@ -205,6 +205,16 @@ extension DashboardLoginVC: UITableViewDelegate, UITableViewDataSource{
           
         }
         
+        else if account_markup == sectionStr{
+            let loginData = UserDefaultManager().retrieveLoginData()
+            if let authToken = loginData?.details?.authToken{
+                self.navigationManager(storybordName: "Dashboard", storyboardID: "DealerMarkupVC", controller: DealerMarkupVC())
+            }
+            else{
+                self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
+            }
+        }
+        
         
     }
     

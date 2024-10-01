@@ -29,4 +29,30 @@ enum DiamondXEEnvironment {
         return url
     }()
     
+//    static let saltKey : URL  = {
+//        guard let urlString = DiamondXEEnvironment.infoDict["Salt_KEY"] as? String else {
+//            fatalError("plist is not fount")
+//
+//        }
+//        
+//        guard let url = URL(string: urlString) else {
+//            fatalError("plist is not fount")
+//
+//        }
+//        return url
+//    }()
+//    
+//    static let marchantID : URL  = {
+//        guard let urlString = DiamondXEEnvironment.infoDict["Marchant_ID"] as? String else {
+//            fatalError("plist is not fount")
+//
+//        }
+//        
+//        guard let url = URL(string: urlString) else {
+//            fatalError("plist is not fount")
+//
+//        }
+//        return url
+//    }()
+    
 }

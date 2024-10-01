@@ -10,3 +10,7 @@
 // https://app-uat.diamondxe.com/
 
 Root_URL = app-uat.diamondxe.com/
+
+// for payment getway
+Marchant_ID = DIAMONDUAT
+Salt_KEY = 1c560f14-86f2-4317-86bf-658f92554b58

@@ -43,7 +43,7 @@ class BuyItemInfoTVC: UITableViewCell, ShimmeringViewProtocol {
     
     var btnActionsManage : ((Int) -> Void) = { _ in}
     
-    
+    @IBOutlet var lblCnclBy : UILabel!
     
     var shimmeringAnimatedItems: [UIView] {
            [

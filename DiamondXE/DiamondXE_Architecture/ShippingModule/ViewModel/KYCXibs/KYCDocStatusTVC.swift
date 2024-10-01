@@ -31,7 +31,7 @@ class KYCDocStatusTVC: UITableViewCell {
     
     @IBOutlet var lblDrivingLicenceStatus:UILabel!
     @IBOutlet var lblDrivingLicenceSubmitDate:UILabel!
-    
+    @IBOutlet var btnSubmiited:UIButton!
     
     @IBOutlet var viewAAdharFrount:UIView!
     @IBOutlet var viewAAdharBacK:UIView!
@@ -39,7 +39,12 @@ class KYCDocStatusTVC: UITableViewCell {
     @IBOutlet var viewPassportPront:UIView!
     @IBOutlet var viewPassportBack:UIView!
     @IBOutlet var viewDrivingLicence:UIView!
-    
+    @IBOutlet var viewCompanyPAN:UIView!
+    @IBOutlet var viewCompanyGST:UIView!
+    @IBOutlet var viewIEC:UIView!
+    @IBOutlet var stackViewCompanyPAN:UIView!
+    @IBOutlet var stackViewCompanyGST:UIView!
+    @IBOutlet var stackViewIEC:UIView!
     @IBOutlet var stackViewAAdharFrount:UIView!
     @IBOutlet var stackViewAAdharBacK:UIView!
     @IBOutlet var stackViewPANCad:UIView!
@@ -48,7 +53,7 @@ class KYCDocStatusTVC: UITableViewCell {
     @IBOutlet var stackViewDrivingLicence:UIView!
     
   
-    
+   
     
     var isDocGST = false
     var isDocIEC = false
@@ -81,6 +86,8 @@ class KYCDocStatusTVC: UITableViewCell {
     
     @IBOutlet var viewData:UIView!
     var btnActionResubmit : (() -> Void) = { }
+    
+    var reloadTBLE : ((KYCDataStruct) -> Void) = { _ in }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -91,7 +98,24 @@ class KYCDocStatusTVC: UITableViewCell {
         viewData.layer.shadowOpacity = 0.5
         viewData.layer.masksToBounds = false
         
-        
+        self.viewAAdharFrount.isHidden = true
+        self.viewAAdharBacK.isHidden = true
+        self.viewPANCad.isHidden = true
+        self.viewPassportPront.isHidden = true
+        self.viewPassportBack.isHidden = true
+        self.viewDrivingLicence.isHidden = true
+        self.viewCompanyPAN.isHidden = true
+        self.viewCompanyGST.isHidden = true
+        self.viewIEC.isHidden = true
+        self.stackViewCompanyPAN.isHidden = true
+        self.stackViewCompanyGST.isHidden = true
+        self.stackViewIEC.isHidden = true
+        self.stackViewAAdharFrount.isHidden = true
+        self.stackViewAAdharBacK.isHidden = true
+        self.stackViewPANCad.isHidden = true
+        self.stackViewPassportPront.isHidden = true
+        self.stackViewPassportBack.isHidden = true
+        self.stackViewDrivingLicence.isHidden = true
         
     }
 
@@ -128,7 +152,15 @@ class KYCDocStatusTVC: UITableViewCell {
         
         
         self.objectVC = vc
-        callingAPIGetKYCDocs()
+        
+        
+        if let data = kycDocDataStruct.details{
+            
+        }
+        else{
+            callingAPIGetKYCDocs()
+        }
+       
         
     }
     
@@ -144,22 +176,27 @@ class KYCDocStatusTVC: UITableViewCell {
         
         
         KYCDataModel().getKYCDocumentStatus(url: url, completion: { data, msg in
+            CustomActivityIndicator2.shared.hide()
             if data.status == 1{
                 self.kycDocDataStruct = data
                 if data.details?.allDocument?.count ?? 0 > 0{
+                   // CustomActivityIndicator2.shared.hide()
                     self.sataSetup()
+                    vc.btnProceadPayment.setTitle("Continue", for: .normal)
+                    vc.isresubmitTag = false
+                    //vc.shippingTableView.reloadSections(IndexSet(integer: 0), with: .none)
                 }
                 else{
                     vc.btnProceadPayment.setTitle("Submit", for: .normal)
                     vc.isresubmitTag = true
-                    vc.shippingTableView.reloadSections(IndexSet(integer: 0), with: .none)
+                   // vc.shippingTableView.reloadSections(IndexSet(integer: 0), with: .none)
                 }
                
             }
             else{
                 vc.toastMessage(msg ?? "")
             }
-            CustomActivityIndicator2.shared.hide()
+           //CustomActivityIndicator2.shared.hide()
             
         })
     }
@@ -222,13 +259,16 @@ class KYCDocStatusTVC: UITableViewCell {
         else{
             
             if self.kycDocDataStruct.documentStatus == 2{
-//                self.btnSubmiited.isHidden = true
+                self.btnSubmiited.isHidden = true
             }
-         
             
             self.kycDocDataStruct.details?.allDocument?.enumerated().forEach { (index, value) in
+                
                 switch value.attachmentType {
                 case "IEC Card":
+                    self.viewIEC.isHidden = false
+                    self.stackViewIEC.isHidden = false
+                    
                     switch value.verifiedInd {
                     case 0:
                         self.lblIECCardStatus.text = "Pending"
@@ -244,10 +284,12 @@ class KYCDocStatusTVC: UITableViewCell {
                         self.lblIECCardStatus.backgroundColor = UIColor(named: "red_")
                         self.isDocIEC = false
                     }
-                    self.lblIECCardSubmitDate.text = value.attachmentDate
+                    self.lblIECCardSubmitDate.text = extractDate(from: value.attachmentDate ?? "")
                     self.IECDocID = value.attachmentID ?? 0
                     
                 case "PAN Card":
+                    self.viewPANCad.isHidden = false
+                    self.stackViewPANCad.isHidden = false
                     
                     if self.isUserIndian{
                         self.viewPANCad.isHidden = false
@@ -273,9 +315,12 @@ class KYCDocStatusTVC: UITableViewCell {
                         self.lblPanCardStatus.backgroundColor = UIColor(named: "red_")
                         self.isDocPAN = false
                     }
-                    self.lblPanCardSubmitDate.text = value.attachmentDate
+                    self.lblPanCardSubmitDate.text = extractDate(from: value.attachmentDate ?? "")
                     self.pANDocID = value.attachmentID ?? 0
                 case "Aadhaar Card Back":
+                    
+                    self.stackViewAAdharBacK.isHidden = false
+                    self.viewAAdharBacK.isHidden = false
                     
                     if self.isUserIndian{
                         self.viewAAdharBacK.isHidden = false
@@ -300,10 +345,11 @@ class KYCDocStatusTVC: UITableViewCell {
                         self.lblAdahrBackStatus.backgroundColor = UIColor(named: "red_")
                         self.isDocAAdhaarBack = false
                     }
-                    self.lblAdahrBackSubmitDate.text = value.attachmentDate
+                    self.lblAdahrBackSubmitDate.text = extractDate(from: value.attachmentDate ?? "")
                     self.aadhaarBackDocID = value.attachmentID ?? 0
                 case "Aadhaar Card Front":
-                    
+                    self.viewAAdharFrount.isHidden = false
+                    self.stackViewAAdharFrount.isHidden = false
                     if self.isUserIndian{
                         self.viewAAdharFrount.isHidden = false
                         self.stackViewAAdharFrount.isHidden = false
@@ -327,9 +373,13 @@ class KYCDocStatusTVC: UITableViewCell {
                         self.lblAdahrFrontStatus.backgroundColor = UIColor(named: "red_")
                         self.isDocAAdhaarFront = false
                     }
-                    self.lblAdahrFrontSubmitDate.text = value.attachmentDate
+                    self.lblAdahrFrontSubmitDate.text = extractDate(from: value.attachmentDate ?? "")
                     self.aadhaarFrontDocID = value.attachmentID ?? 0
                 case "Passport Front":
+                    
+                    self.viewPassportPront.isHidden = false
+                    self.stackViewPassportPront.isHidden = false
+                    
                     switch value.verifiedInd {
                     case 0:
                         self.lblPassportFrontStatus.text = "Pending"
@@ -345,9 +395,14 @@ class KYCDocStatusTVC: UITableViewCell {
                         self.isDocPassportFront = false
                     }
                     
-                    self.lblPassportFrontSubmitDate.text = value.attachmentDate
+                    self.lblPassportFrontSubmitDate.text = extractDate(from: value.attachmentDate ?? "")
                     self.passportFrontDocID = value.attachmentID ?? 0
                 case "Passport Back":
+                    
+                    self.viewPassportBack.isHidden = false
+                    self.stackViewPassportBack.isHidden = false
+                    
+                    
                     switch value.verifiedInd {
                     case 0:
                         self.lblPassportBackStatus.text = "Pending"
@@ -362,9 +417,15 @@ class KYCDocStatusTVC: UITableViewCell {
                         self.lblPassportBackStatus.backgroundColor = UIColor(named: "red_")
                         self.isDocPassportBack = false
                     }
-                    self.lblPassportBackSubmitDate.text = value.attachmentDate
+                    self.lblPassportBackSubmitDate.text = extractDate(from: value.attachmentDate ?? "")
                     self.passportBackDocID = value.attachmentID ?? 0
                 case "Company GST Certificate":
+                    
+                    
+                    self.viewCompanyGST.isHidden = false
+                    self.stackViewCompanyGST.isHidden = false
+                    
+                    
                     switch value.verifiedInd {
                     case 0:
                         self.lblCompanyGSTStatus.text = "Pending"
@@ -379,11 +440,15 @@ class KYCDocStatusTVC: UITableViewCell {
                         self.lblCompanyGSTStatus.backgroundColor = UIColor(named: "red_")
                         self.isDocCompanyGST = false
                     }
-                    self.lblCompanyGSTSubmitDate.text = value.attachmentDate
+                    self.lblCompanyGSTSubmitDate.text = extractDate(from: value.attachmentDate ?? "")
                     self.companyGSTDocID = value.attachmentID ?? 0
 
                     
                 case "Driving License":
+                    
+                    self.viewDrivingLicence.isHidden = false
+                    self.stackViewDrivingLicence.isHidden = false
+                    
                     switch value.verifiedInd {
                     case 0:
                         self.lblDrivingLicenceStatus.text = "Pending"
@@ -399,11 +464,15 @@ class KYCDocStatusTVC: UITableViewCell {
                         self.isDocDrivingLicence = false
                     }
                     
-                    self.lblDrivingLicenceSubmitDate.text = value.attachmentDate
+                    self.lblDrivingLicenceSubmitDate.text = extractDate(from: value.attachmentDate ?? "")
                     self.DrivingLincDocID = value.attachmentID ?? 0
 
                     
                 case "Company PAN Card":
+                    
+                    self.viewCompanyPAN.isHidden = false
+                    self.stackViewCompanyPAN.isHidden = false
+                    
                     switch value.verifiedInd {
                     case 0:
                         self.lblComPanCardStatus.text = "Pending"
@@ -419,7 +488,7 @@ class KYCDocStatusTVC: UITableViewCell {
                         self.isDocComapnyPAN = false
                     }
                     
-                    self.lblComPanCardSubmitDate.text = value.attachmentDate
+                    self.lblComPanCardSubmitDate.text = extractDate(from: value.attachmentDate ?? "")
                     self.companyPANDocID = value.attachmentID ?? 0
 
 
@@ -430,6 +499,30 @@ class KYCDocStatusTVC: UITableViewCell {
             }
         }
         
+        self.reloadTBLE(self.kycDocDataStruct)
+        
     }
     
+    func extractDate(from dateTimeString: String) -> String? {
+        // Input date-time string format
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Format of your input string
+        
+        // Convert the string to a Date object
+        if let date = inputFormatter.date(from: dateTimeString) {
+            // Output date format (only date part)
+            let outputFormatter = DateFormatter()
+            outputFormatter.dateFormat = "yyyy-MM-dd" // Desired output format (only date)
+            
+            // Convert the Date object back to string (only date)
+            let dateString = outputFormatter.string(from: date)
+            return dateString
+        }
+        
+        return nil // Return nil if conversion fails
+    }
+    
+    
 }
+
+

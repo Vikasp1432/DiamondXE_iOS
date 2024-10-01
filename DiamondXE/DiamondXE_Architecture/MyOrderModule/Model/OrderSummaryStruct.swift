@@ -29,7 +29,7 @@ struct OrderSummaryDetails: Codable {
     let couponCode, couponValue, couponDiscount, walletPoints: String
     let giftcardDiscount, loyaltyPoint, finalAmount, bankChargePerc: String
     let specialInstruction, paymentMode, transactionID, taxPerOnCharges: String
-    let paymentReceivedDate: String
+  //  let paymentReceivedDate: String
     let isCROrder: Int
     ////
     var courierID, waybill: String?
@@ -77,7 +77,7 @@ struct OrderSummaryDetails: Codable {
         case paymentMode = "payment_mode"
         case transactionID = "transaction_id"
         case taxPerOnCharges = "tax_per_on_charges"
-        case paymentReceivedDate = "payment_received_date"
+      //  case paymentReceivedDate = "payment_received_date"
         case isCROrder = "is_cr_order"
         case crSubTotal = "cr_sub_total"
         case crCouponDiscount = "cr_coupon_discount"
@@ -108,7 +108,7 @@ struct OrderSummaryDetails: Codable {
 struct OrderSummaryUserDetails: Codable {
     var userRole, userName, userEmail, userMobile: String?
     var billingAddress, shippingAddress: String?
-    var collectFromHub: Int?
+    var collectFromHub: String?
     var billingAddressGstNo, billingAddressBusinessName, shippingAddressGstNo, shippingAddressBusinessName: String?
 
     enum CodingKeys: String, CodingKey {

@@ -26,6 +26,10 @@ class MultiItemListTVC: UITableViewCell, ShimmeringViewProtocol{
     @IBOutlet var lblOrderID : UILabel!
     @IBOutlet var lblDateTime : UILabel!
     @IBOutlet var lblOrderCnclTime : UILabel!
+    
+    @IBOutlet var stackViewBG : UIStackView!
+    
+    @IBOutlet var lblCnclBy : UILabel!
 
     var btnActionsManage : ((Int) -> Void) = { _ in}
     
@@ -107,15 +111,15 @@ extension MultiItemListTVC : UITableViewDelegate, UITableViewDataSource {
         cell.lblColor.text = diamondsInfo[indexPath.row].color
         cell.lblClarity.text = diamondsInfo[indexPath.row].clarity
         if let currncySimbol = self.currencyRateDetailObj?.currencySymbol{
-            let formattedNumber = formatNumberWithoutDeciml(Double(diamondsInfo[indexPath.row].totalPrice ?? "") ?? 0)
+            let formattedNumber = formatNumberWithoutDeciml(Double(diamondsInfo[indexPath.row].subTotal ?? "") ?? 0)
             cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
             
         }
         else{
-            let formattedNumber = formatNumberWithoutDeciml(Double(diamondsInfo[indexPath.row].totalPrice ?? "") ?? 0)
+            let formattedNumber = formatNumberWithoutDeciml(Double(diamondsInfo[indexPath.row].subTotal ?? "") ?? 0)
             cell.lblPrice.text = "₹\(formattedNumber)"
         }
-        cell.lblCertificateNo.text = diamondsInfo[indexPath.row].stockID
+        cell.lblCertificateNo.text = "Certificate No : \(diamondsInfo[indexPath.row].certificateNo ?? "")"
         if diamondsInfo[indexPath.row].category == "Natural"{
             cell.lblDiaType.text = diamondsInfo[indexPath.row].category
             cell.viewDiaType.backgroundColor = UIColor.goldenClr

@@ -361,10 +361,10 @@
     </objects>
     <designables>
         <designable name="71R-1s-L6z">
-            <size key="intrinsicContentSize" width="117.66666666666667" height="40.666666666666664"/>
+            <size key="intrinsicContentSize" width="101.66666666666667" height="15.666666666666666"/>
         </designable>
         <designable name="fLs-xf-ONT">
-            <size key="intrinsicContentSize" width="81.666666666666671" height="40.666666666666664"/>
+            <size key="intrinsicContentSize" width="65.666666666666671" height="15.666666666666666"/>
         </designable>
     </designables>
     <resources>

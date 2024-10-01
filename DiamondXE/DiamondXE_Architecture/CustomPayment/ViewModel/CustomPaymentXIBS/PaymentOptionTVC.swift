@@ -45,6 +45,9 @@ class PaymentOptionTVC: UITableViewCell {
     @IBOutlet var imgViewBnk1:UIImageView!
     @IBOutlet var imgViewBnk2:UIImageView!
     
+    @IBOutlet var viewNetBnkBG:UIView!
+    @IBOutlet var viewCreditCrdBG:UIView!
+    
      var buttonGroup: SingleSelectionButtonGroup!
     
      var buttonGroup2: SingleSelectionButtonGroup2!

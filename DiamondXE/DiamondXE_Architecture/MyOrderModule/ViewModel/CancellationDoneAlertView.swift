@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CancellationDoneAlertView: UIViewController {
+class CancellationDoneAlertView: BaseViewController {
 
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var contentView: UIView!
@@ -21,11 +21,11 @@ class CancellationDoneAlertView: UIViewController {
 
     var isWallet = true
     var isPaymntMode = false
-    
-  
+    var navController: CancelOrderWithResionViewController?
+    var vcView = CancellationAlertView()
     
     init() {
-        super.init(nibName: "CancellationAlertView", bundle: nil)
+        super.init(nibName: "CancellationDoneAlertView", bundle: nil)
         self.modalPresentationStyle = .overFullScreen
     }
     
@@ -86,9 +86,18 @@ class CancellationDoneAlertView: UIViewController {
     
     @IBAction func btnactionsDone(_ sender : UIButton){
        
-            hide()
-       
-       
+        self.hide()
+        self.vcView.hide()
+        
+        for controller in (self.navController?.navigationController!.viewControllers)! as Array {
+            if let dashboardVC = controller as? MyOrderBaseVC {
+                // Pop to the DashboardVC
+                self.navController?.navigationController!.popToViewController(dashboardVC, animated: true)
+                dashboardVC.callCalcelTab()
+                
+                break
+            }
+        }
     }
 }
    

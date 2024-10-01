@@ -16,7 +16,9 @@ class RecentIListVC: BaseViewController, IndicatorInfoProvider {
         return IndicatorInfo(title: "Recent")
         
     }
+    @IBOutlet var tableViewRecent: UITableView!
     
+    var navController: UINavigationController?
     private var isLoading = true {
         didSet {
             tableViewRecent.isUserInteractionEnabled = !isLoading
@@ -26,7 +28,9 @@ class RecentIListVC: BaseViewController, IndicatorInfoProvider {
     var orderListData  = MyOrderDataStruct()
     var page = 1
     
-    @IBOutlet var tableViewRecent: UITableView!
+  
+    
+    @IBOutlet var imgNoDataFnd: UIImageView!
     
     var currencyRateDetailObj = UserDefaultManager.shareInstence.retrieveCurrencyData()
     
@@ -42,8 +46,13 @@ class RecentIListVC: BaseViewController, IndicatorInfoProvider {
         tableViewRecent.register(UINib(nibName: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC, bundle: nil), forCellReuseIdentifier: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC)
         tableViewRecent.register(UINib(nibName: MultiItemListTVC.cellIdentifierMultiItemListTVC, bundle: nil), forCellReuseIdentifier: MultiItemListTVC.cellIdentifierMultiItemListTVC)
         
+        self.imgNoDataFnd.isHidden = true
         getOrderListAPI()
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//       
+//    }
     
     
     func getOrderListAPI(){
@@ -65,6 +74,13 @@ class RecentIListVC: BaseViewController, IndicatorInfoProvider {
                 self.isLoading = false
                 self.tableViewRecent.reloadData()
                 
+                if self.orderListData.details?.count ?? 0 < 1 {
+                    self.imgNoDataFnd.isHidden = false
+                }
+                else{
+                    self.imgNoDataFnd.isHidden = true
+                }
+                
                 if self.orderListData.details?.count ?? 0 > 14 {
                      self.page += 1
                  }
@@ -82,6 +98,7 @@ class RecentIListVC: BaseViewController, IndicatorInfoProvider {
         
     }
     
+   
  
 
 }
@@ -127,12 +144,18 @@ extension RecentIListVC : UITableViewDelegate, UITableViewDataSource, TimerDeleg
             if diamonds.count > 1{
                 let cell = tableView.dequeueReusableCell(withIdentifier: MultiItemListTVC.cellIdentifierMultiItemListTVC, for: indexPath) as! MultiItemListTVC
                 cell.selectionStyle = .none
-                
+                cell.lblCnclBy.isHidden = true
                 cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
                 
                 let diamndInfo = self.orderListData.details?[indexPath.row]
                 cell.lblOrderID.text = "Order-ID : \(diamndInfo?.orderID ?? Int())"
-                cell.lblDateTime.text = diamndInfo?.createdAt
+                
+                if let localDateString = convertUTCToLocal(dateString: diamndInfo?.createdAt ?? "") {
+                    cell.lblDateTime.text = localDateString
+                } else {
+                    print("Conversion failed")
+                }
+               // cell.lblDateTime.text = diamndInfo?.createdAt
                 
                 
                 if (diamndInfo?.timeLeftForCancel) == nil || diamndInfo?.timeLeftForCancel == ""{
@@ -150,8 +173,7 @@ extension RecentIListVC : UITableViewDelegate, UITableViewDataSource, TimerDeleg
                    
                     
                 }
-                
-                cell.viewCancelOrder.isHidden = false
+                //cell.viewCancelOrder.isHidden = false
                 
                 cell.btnActionsManage = { tag in
                     switch tag {
@@ -171,8 +193,10 @@ extension RecentIListVC : UITableViewDelegate, UITableViewDataSource, TimerDeleg
                     case 3:
                         //self.navigationManager(storybordName: "MyOrder", storyboardID: "ItemsSummaryVC", controller: ItemsSummaryVC())
                         if let diamonds = diamndInfo?.diamonds{
-                            self.navigationManager(CancelOrderSummaryVC.self, storyboardName: "MyOrder", storyboardID: "CancelOrderSummaryVC", data: [diamndInfo?.orderID ?? Int() : diamonds])
+                           // self.navigationManager(CancelOrderSummaryVC.self, storyboardName: "MyOrder", storyboardID: "CancelOrderSummaryVC", data: [diamndInfo?.orderID ?? Int() : diamonds])
+                            self.navigationManager(CancelOrderWithResionViewController.self, storyboardName: "MyOrder", storyboardID: "CancelOrderWithResionViewController", data: [diamndInfo?.orderID ?? Int() : diamonds])
                         }
+                        
                     default:
                         print(tag)
                     }
@@ -188,28 +212,36 @@ extension RecentIListVC : UITableViewDelegate, UITableViewDataSource, TimerDeleg
             else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC, for: indexPath) as! BuyItemInfoTVC
                 cell.selectionStyle = .none
+                cell.lblCnclBy.isHidden = true
                 cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
                 let diamndInfo = self.orderListData.details?[indexPath.row]
                 
                 cell.imgDiamond.sd_setImage(with: URL(string: diamndInfo?.diamonds?.first?.diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
                 
                 cell.lblOrderID.text = "Order-ID : \(diamndInfo?.orderID ?? Int())"
-                cell.lblDateTime.text = diamndInfo?.createdAt
+                if let localDateString = convertUTCToLocal(dateString: diamndInfo?.createdAt ?? "") {
+                    cell.lblDateTime.text = localDateString
+                } else {
+                    print("Conversion failed")
+                }
+                
+                
+               // cell.lblDateTime.text = diamndInfo?.createdAt
                 cell.lblOrderStatus.text = diamndInfo?.orderStatus
                 cell.lblShape.text = diamndInfo?.diamonds?.first?.shape
                 cell.lblCarat.text = diamndInfo?.diamonds?.first?.carat
                
                 cell.lblColor.text = diamndInfo?.diamonds?.first?.color
                 cell.lblClarity.text = diamndInfo?.diamonds?.first?.clarity
-                cell.lblCertificateNo.text = diamndInfo?.diamonds?.first?.stockID
+                cell.lblCertificateNo.text = "Certificate No : \(diamndInfo?.diamonds?.first?.certificateNo ?? "")"
                 
                 if let currncySimbol = self.currencyRateDetailObj?.currencySymbol{
-                    let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.diamonds?.first?.totalPrice ?? "") ?? 0)
+                    let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.diamonds?.first?.subTotal ?? "") ?? 0)
                     cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
                     
                 }
                 else{
-                    let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.diamonds?.first?.totalPrice ?? "") ?? 0)
+                    let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.diamonds?.first?.subTotal ?? "") ?? 0)
                     cell.lblPrice.text = "₹\(formattedNumber)"
                 }
                 
@@ -240,8 +272,7 @@ extension RecentIListVC : UITableViewDelegate, UITableViewDataSource, TimerDeleg
                     
                 }
                 
-                cell.viewCancelOrder.isHidden = false
-                
+              //  cell.viewCancelOrder.isHidden = false
                 cell.btnActionsManage = { tag in
                     switch tag {
                     case 0:
@@ -261,7 +292,11 @@ extension RecentIListVC : UITableViewDelegate, UITableViewDataSource, TimerDeleg
                     case 3:
                         //self.navigationManager(storybordName: "MyOrder", storyboardID: "ItemsSummaryVC", controller: ItemsSummaryVC())
                         if let diamonds = diamndInfo?.diamonds{
-                            self.navigationManager(CancelOrderSummaryVC.self, storyboardName: "MyOrder", storyboardID: "CancelOrderSummaryVC", data: [diamndInfo?.orderID ?? Int() : diamonds])
+//                            self.navigationManager(CancelOrderSummaryVC.self, storyboardName: "MyOrder", storyboardID: "CancelOrderSummaryVC", data1: [diamndInfo?.orderID ?? Int() : diamonds], data2: "Recent")
+                            
+                            
+                            self.navigationManager(CancelOrderWithResionViewController.self, storyboardName: "MyOrder", storyboardID: "CancelOrderWithResionViewController", data: [diamndInfo?.orderID ?? Int() : diamonds])
+                            
                         }
                         
                     default:
@@ -285,7 +320,7 @@ extension RecentIListVC : UITableViewDelegate, UITableViewDataSource, TimerDeleg
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        if self.orderListData.details?.count ?? 0 > 14{
+        if self.orderListData.details?.count ?? 0 > 13{
             
             if indexPath.row == self.orderListData.details?.count ?? 0 - 1 && !isLoading {
                 getOrderListAPI()

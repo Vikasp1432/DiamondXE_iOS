@@ -221,5 +221,49 @@ class HomeDataModel {
         })
     }
     
+    
+    
+    func getDealerMarkup(url : String, completion: @escaping (DealerMarkupStruct, String?) -> Void) {
+        var resultData = DealerMarkupStruct()
+        
+        AlamofireManager().makePostAPIRequestWithLocation(url: url, param: [:],  completion: { result in
+            switch result {
+            case .success(let data):
+                // Handle the response data
+                do {
+                    resultData = try JsonParsingManagar.parse(jsonData: data!, type: DealerMarkupStruct.self)
+                    completion(resultData, resultData.msg)
+                } catch {
+                    completion(resultData, resultData.msg)
+                }
+            case .failure(let error):
+                // Handle the error
+                completion(resultData, error.localizedDescription)
+            }
+        })
+    }
+    
+    
+    func getUpdateDealerMarkup(param:[String:Any],url : String, completion: @escaping (LogoutDataStruct, String?) -> Void) {
+        var deleteProfile = LogoutDataStruct()
+        
+        AlamofireManager().makePostAPIRequest(url: url, param: param,  completion: { result in
+            switch result {
+            case .success(let data):
+                // Handle the response data
+                do {
+                    deleteProfile = try JsonParsingManagar.parse(jsonData: data!, type: LogoutDataStruct.self)
+                    completion(deleteProfile, deleteProfile.msg)
+                } catch {
+                    completion(deleteProfile, deleteProfile.msg)
+                }
+            case .failure(let error):
+                // Handle the error
+                completion(deleteProfile, error.localizedDescription)
+            }
+        })
+    }
+    
+    
 }
     

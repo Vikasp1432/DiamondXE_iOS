@@ -15,6 +15,8 @@ class PastListVC: BaseViewController, IndicatorInfoProvider {
     }
    
     @IBOutlet var tableViewPast: UITableView!
+    @IBOutlet var imgNoDataFnd: UIImageView!
+
     var currencyRateDetailObj = UserDefaultManager.shareInstence.retrieveCurrencyData()
     private var isLoading = true {
         didSet {
@@ -31,7 +33,7 @@ class PastListVC: BaseViewController, IndicatorInfoProvider {
         
         tableViewPast.register(UINib(nibName: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC, bundle: nil), forCellReuseIdentifier: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC)
         tableViewPast.register(UINib(nibName: MultiItemListTVC.cellIdentifierMultiItemListTVC, bundle: nil), forCellReuseIdentifier: MultiItemListTVC.cellIdentifierMultiItemListTVC)
-        
+        self.imgNoDataFnd.isHidden = true
         getOrderListAPI()
     }
     
@@ -53,7 +55,12 @@ class PastListVC: BaseViewController, IndicatorInfoProvider {
                 self.orderListData = data
                 self.isLoading = false
                 self.tableViewPast.reloadData()
-                
+                if self.orderListData.details?.count ?? 0 < 1 {
+                    self.imgNoDataFnd.isHidden = false
+                }
+                else{
+                    self.imgNoDataFnd.isHidden = true
+                }
                 if self.orderListData.details?.count ?? 0 > 14 {
                      self.page += 1
                  }
@@ -96,12 +103,17 @@ extension PastListVC : UITableViewDelegate, UITableViewDataSource {
             if diamonds.count > 1{
                 let cell = tableView.dequeueReusableCell(withIdentifier: MultiItemListTVC.cellIdentifierMultiItemListTVC, for: indexPath) as! MultiItemListTVC
                 cell.selectionStyle = .none
-                
+                cell.lblCnclBy.isHidden = true
                 cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
                 
                 let diamndInfo = self.orderListData.details?[indexPath.row]
                 cell.lblOrderID.text = "Order-ID : \(diamndInfo?.orderID ?? Int())"
-                cell.lblDateTime.text = diamndInfo?.createdAt
+                if let localDateString = convertUTCToLocal(dateString: diamndInfo?.createdAt ?? "") {
+                    cell.lblDateTime.text = localDateString
+                } else {
+                    print("Conversion failed")
+                }
+                //cell.lblDateTime.text = diamndInfo?.createdAt
                 
                 
                 if (diamndInfo?.timeLeftForCancel) == nil || diamndInfo?.timeLeftForCancel == ""{
@@ -120,6 +132,9 @@ extension PastListVC : UITableViewDelegate, UITableViewDataSource {
                     
                 }
                 
+                cell.viewCancelOrder.isHidden = true
+                cell.viewTrackOrder.isHidden = true
+                
                 cell.btnActionsManage = { tag in
                     switch tag {
                     case 0:
@@ -128,7 +143,8 @@ extension PastListVC : UITableViewDelegate, UITableViewDataSource {
                     case 1:
                       
                         if let diamonds = diamndInfo?.diamonds{
-                            self.navigationManager(ItemsSummaryVC.self, storyboardName: "MyOrder", storyboardID: "ItemsSummaryVC", data: [diamndInfo?.orderID ?? Int() : diamonds])
+                            self.navigationManager(ItemsSummaryVC.self, storyboardName: "MyOrder", storyboardID: "ItemsSummaryVC", data: 
+                                                    [diamndInfo?.orderID ?? Int() : diamonds])
                         }
                         
                    
@@ -149,26 +165,33 @@ extension PastListVC : UITableViewDelegate, UITableViewDataSource {
                 cell.selectionStyle = .none
                 cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
                 let diamndInfo = self.orderListData.details?[indexPath.row]
-                
+                cell.lblCnclBy.isHidden = true
                 cell.imgDiamond.sd_setImage(with: URL(string: diamndInfo?.diamonds?.first?.diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
                 
                 cell.lblOrderID.text = "Order-ID : \(diamndInfo?.orderID ?? Int())"
-                cell.lblDateTime.text = diamndInfo?.createdAt
+                
+                if let localDateString = convertUTCToLocal(dateString: diamndInfo?.createdAt ?? "") {
+                    cell.lblDateTime.text = localDateString
+                } else {
+                    print("Conversion failed")
+                }
+                
+              //  cell.lblDateTime.text = diamndInfo?.createdAt
                 cell.lblOrderStatus.text = diamndInfo?.orderStatus
                 cell.lblShape.text = diamndInfo?.diamonds?.first?.shape
                 cell.lblCarat.text = diamndInfo?.diamonds?.first?.carat
                
                 cell.lblColor.text = diamndInfo?.diamonds?.first?.color
                 cell.lblClarity.text = diamndInfo?.diamonds?.first?.clarity
-                cell.lblCertificateNo.text = diamndInfo?.diamonds?.first?.stockID
+                cell.lblCertificateNo.text = "Certificate No : \(diamndInfo?.diamonds?.first?.certificateNo ?? "")"
                 
                 if let currncySimbol = self.currencyRateDetailObj?.currencySymbol{
-                    let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.diamonds?.first?.totalPrice ?? "") ?? 0)
+                    let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.diamonds?.first?.subTotal ?? "") ?? 0)
                     cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
                     
                 }
                 else{
-                    let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.diamonds?.first?.totalPrice ?? "") ?? 0)
+                    let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.diamonds?.first?.subTotal ?? "") ?? 0)
                     cell.lblPrice.text = "₹\(formattedNumber)"
                 }
                 
@@ -198,7 +221,8 @@ extension PastListVC : UITableViewDelegate, UITableViewDataSource {
                     
                 }
                 
-                
+                cell.viewCancelOrder.isHidden = true
+                cell.viewTrackOrder.isHidden = true
                 cell.btnActionsManage = { tag in
                     switch tag {
                     case 0:
