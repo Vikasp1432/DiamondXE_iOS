@@ -247,7 +247,7 @@ extension DiamondDetailsView : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DiamondDetailsViewTVC.cellIdentifierDiamondDetailsViewTVC, for: indexPath) as! DiamondDetailsViewTVC
         cell.selectionStyle = .none
-        cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+        cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
         
         if titleManage == "Cancelled"{
             let diamndInfo = self.cancelOrderDetails.details?.diamonds?[indexPath.row]

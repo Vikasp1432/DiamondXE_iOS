@@ -26,7 +26,7 @@ struct OrderSummaryDetails: Codable {
     var bankCharge, totalCharge, totalChargeTax, totalChargeWithTax: String?
     let totalTaxes: String
     let isCouponApplied: Int
-    let couponCode, couponValue, couponDiscount, walletPoints: String
+    let couponCode, couponDiscount, walletPoints: String
     let giftcardDiscount, loyaltyPoint, finalAmount, bankChargePerc: String
     let specialInstruction, paymentMode, transactionID, taxPerOnCharges: String
   //  let paymentReceivedDate: String
@@ -66,7 +66,7 @@ struct OrderSummaryDetails: Codable {
         case totalTaxes = "total_taxes"
         case isCouponApplied = "is_coupon_applied"
         case couponCode = "coupon_code"
-        case couponValue = "coupon_value"
+       // case couponValue = "coupon_value"
         case couponDiscount = "coupon_discount"
         case walletPoints = "wallet_points"
         case giftcardDiscount = "giftcard_discount"

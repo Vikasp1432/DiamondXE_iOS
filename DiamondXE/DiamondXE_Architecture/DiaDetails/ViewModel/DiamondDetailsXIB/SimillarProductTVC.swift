@@ -31,7 +31,7 @@ class SimillarProductTVC: UITableViewCell {
     var delegate : CustomRcommCellDelegate?
     var timer = Timer()
     var counter = 0
-
+    var currencyRateDetailObj = CurrencyRateDetail()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -60,9 +60,9 @@ class SimillarProductTVC: UITableViewCell {
     }
     
     
-    func setupRecommendentData(dataObj:[RecommendedDiamdDetail]){
+    func setupRecommendentData(dataObj:[RecommendedDiamdDetail], currncuObj : CurrencyRateDetail){
         self.diaDataObj = dataObj
-        
+        self.currencyRateDetailObj = currncuObj
         if self.diaDataObj.count < 1 {
             bgDataView.isHidden = true
         }
@@ -135,7 +135,7 @@ class SimillarProductTVC: UITableViewCell {
 //         cell.selectionStyle = .default
          cell.contentView.isUserInteractionEnabled = true
 
-         cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+         cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
          
         
          
@@ -178,7 +178,7 @@ class SimillarProductTVC: UITableViewCell {
              cell.lblCirtificateNum.text = self.diaDataObj[indexPath.row].stockNO
              cell.lblLotID.text = "ID: \(self.diaDataObj[indexPath.row].supplierID ?? "")"
              cell.btnShape.text = self.diaDataObj[indexPath.row].shape
-             cell.lblCarat.text = "\(self.diaDataObj[indexPath.row].carat ?? "")Ct"
+             cell.lblCarat.text = "\(self.diaDataObj[indexPath.row].carat ?? "")ct"
              cell.lblClor.text = self.diaDataObj[indexPath.row].color
              cell.lblClarity.text = self.diaDataObj[indexPath.row].clarity
             // cell.lblCarat.text = self.diaDataObj[indexPath.row].carat
@@ -247,18 +247,45 @@ class SimillarProductTVC: UITableViewCell {
              cell.lblDepPer.text = "D: \(self.diaDataObj[indexPath.row].depthPerc ?? "")"
              cell.lblMasurments.text = "M: \(self.diaDataObj[indexPath.row].measurement ?? "")"
              
-             
-                 
-                 let formattedNumber = formatNumberWithoutDeciml(Double(self.diaDataObj[indexPath.row].totalPrice ?? 0))
-                 cell.lblPrice.text = "₹\(formattedNumber)"
-            
-             
              cell.imgDiamond.sd_setImage(with: URL(string: self.diaDataObj[indexPath.row].diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
              
              cell.diamondSelect = {
                  self.delegate?.cellViewTapped(in: self.diaDataObj[indexPath.row].certificateNo ?? "", cell, tag: -1)
              }
              
+             if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+                 let currncyVal = self.currencyRateDetailObj.value ?? 1
+                 let finalVal = Double((self.diaDataObj[indexPath.row].subtotalAfterCouponDiscount ?? 0)) * currncyVal
+                 let formattedNumber = formatNumberWithoutDeciml(finalVal)
+                 cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
+                 
+                 
+                 
+                 if self.diaDataObj[indexPath.row].couponDesPer ?? 0 > 0{
+                     cell.lblDiscountPrice.isHidden = false
+                     var finalVal2 = Double((self.diaDataObj[indexPath.row].subtotal ?? 0)) * currncyVal
+                     
+                     let formattedNumber2 = formatNumberWithoutDeciml(finalVal2)
+                     cell.lblDiscountPrice.applyStrikeThrough(to: "\(currncySimbol)\(formattedNumber2)")
+                 }
+                 else{
+                     cell.lblDiscountPrice.isHidden = true
+                 }
+             }
+             else{
+                 let formattedNumber = formatNumberWithoutDeciml(Double(self.diaDataObj[indexPath.row].subtotalAfterCouponDiscount ?? 0))
+                 cell.lblPrice.text = "₹\(formattedNumber)"
+                 
+                 if self.diaDataObj[indexPath.row].couponDesPer ?? 0 > 0{
+                     cell.lblDiscountPrice.isHidden = false
+                     let formattedNumber2 = formatNumberWithoutDeciml(Double((self.diaDataObj[indexPath.row].subtotal ?? 0)))
+                     cell.lblDiscountPrice.applyStrikeThrough(to: "₹\(formattedNumber2)")
+                 }
+                 else{
+                     cell.lblDiscountPrice.isHidden = true
+                 }
+                 
+             }
              
          }
          return cell

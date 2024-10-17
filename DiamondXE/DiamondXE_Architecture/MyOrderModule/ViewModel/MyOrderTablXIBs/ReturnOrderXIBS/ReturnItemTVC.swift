@@ -20,12 +20,10 @@ class ReturnItemTVC: UITableViewCell ,ShimmeringViewProtocol{
     @IBOutlet var viewDetails : UIView!
     @IBOutlet var viewSummary : UIView!
     @IBOutlet var viewTrackOrder : UIView!
-    @IBOutlet var viewCancelOrder : UIView!
     
     
     @IBOutlet var lblOrderID : UILabel!
     @IBOutlet var lblDateTime : UILabel!
-    @IBOutlet var lblOrderCnclTime : UILabel!
     
     @IBOutlet var lblDeliveryDate : UILabel!
     @IBOutlet var lblEligibleReturnDate : UILabel!
@@ -34,6 +32,8 @@ class ReturnItemTVC: UITableViewCell ,ShimmeringViewProtocol{
 
     var btnActionsManage : ((Int) -> Void) = { _ in}
     
+    var btnActionsPolicy : ((Int) -> Void) = { _ in}
+    
     var diamondsInfo = [MyOrderDiamond]()
     var currencyRateDetailObj = UserDefaultManager.shareInstence.retrieveCurrencyData()
     
@@ -41,15 +41,12 @@ class ReturnItemTVC: UITableViewCell ,ShimmeringViewProtocol{
            [
             lblOrderID,
             lblDateTime,
-            lblOrderCnclTime,
             viewDetails,
             viewSummary,
             viewTrackOrder,
-            viewCancelOrder,
             tableViewMultiItem,
             lblDeliveryDate,
             lblEligibleReturnDate
-          
             
            ]
        }
@@ -89,8 +86,19 @@ class ReturnItemTVC: UITableViewCell ,ShimmeringViewProtocol{
         self.tableViewMultiItem.reloadData()
     }
     
+//    func reloadData(){
+//       
+//        self.tableViewMultiItemContraint.constant = CGFloat(130 * 2)
+//        self.tableViewMultiItem.reloadData()
+//    }
+    
     @IBAction func btnactionsInfo(_ sender : UIButton){
         self.btnActionsManage(sender.tag)
+    }
+    
+    @IBAction func btnactionsPolicy(_ sender : UIButton){
+        btnActionsPolicy(sender.tag)
+     
     }
     
 }
@@ -99,39 +107,39 @@ class ReturnItemTVC: UITableViewCell ,ShimmeringViewProtocol{
 extension ReturnItemTVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 5//self.diamondsInfo.count
+        return self.diamondsInfo.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellMultiItemTV.cellIdentifierCellMultiItemTV, for: indexPath) as! CellMultiItemTV
         cell.selectionStyle = .none
         
-//        cell.imgDiamond.sd_setImage(with: URL(string: diamondsInfo[indexPath.row].diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
-//      
-//        cell.lblOrderStatus.text = diamondsInfo[indexPath.row].status
-//        cell.lblShape.text = diamondsInfo[indexPath.row].shape
-//        cell.lblCarat.text = diamondsInfo[indexPath.row].carat
-//        cell.lblColor.text = diamondsInfo[indexPath.row].color
-//        cell.lblClarity.text = diamondsInfo[indexPath.row].clarity
-//        if let currncySimbol = self.currencyRateDetailObj?.currencySymbol{
-//            let formattedNumber = formatNumberWithoutDeciml(Double(diamondsInfo[indexPath.row].totalPrice ?? "") ?? 0)
-//            cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
-//            
-//        }
-//        else{
-//            let formattedNumber = formatNumberWithoutDeciml(Double(diamondsInfo[indexPath.row].totalPrice ?? "") ?? 0)
-//            cell.lblPrice.text = "₹\(formattedNumber)"
-//        }
-//        cell.lblCertificateNo.text = "StockID : \(diamondsInfo[indexPath.row].stockID ?? "")"
-//        if diamondsInfo[indexPath.row].category == "Natural"{
-//            cell.lblDiaType.text = diamondsInfo[indexPath.row].category
-//            cell.viewDiaType.backgroundColor = UIColor.goldenClr
-//        }
-//        else{
-//            cell.lblDiaType.text = diamondsInfo[indexPath.row].category
-//            cell.viewDiaType.backgroundColor = UIColor.green2
-//        }
-//        
+        cell.imgDiamond.sd_setImage(with: URL(string: diamondsInfo[indexPath.row].diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
+      
+        cell.lblOrderStatus.text = diamondsInfo[indexPath.row].status
+        cell.lblShape.text = diamondsInfo[indexPath.row].shape
+        cell.lblCarat.text = diamondsInfo[indexPath.row].carat
+        cell.lblColor.text = diamondsInfo[indexPath.row].color
+        cell.lblClarity.text = diamondsInfo[indexPath.row].clarity
+        if let currncySimbol = self.currencyRateDetailObj?.currencySymbol{
+            let formattedNumber = formatNumberWithoutDeciml(Double(diamondsInfo[indexPath.row].subTotal ?? "") ?? 0)
+            cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
+            
+        }
+        else{
+            let formattedNumber = formatNumberWithoutDeciml(Double(diamondsInfo[indexPath.row].subTotal ?? "") ?? 0)
+            cell.lblPrice.text = "₹\(formattedNumber)"
+        }
+        cell.lblCertificateNo.text = "Certificate No : \(diamondsInfo[indexPath.row].certificateNo ?? "")"
+        if diamondsInfo[indexPath.row].category == "Natural"{
+            cell.lblDiaType.text = diamondsInfo[indexPath.row].category
+            cell.viewDiaType.backgroundColor = UIColor.goldenClr
+        }
+        else{
+            cell.lblDiaType.text = diamondsInfo[indexPath.row].category
+            cell.viewDiaType.backgroundColor = UIColor.green2
+        }
+        
         
         
         return cell

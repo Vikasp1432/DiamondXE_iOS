@@ -57,7 +57,7 @@ class MyOrderBaseVC: ButtonBarPagerTabStripViewController {
         let child_1 = UIStoryboard(name: "MyOrder", bundle: nil).instantiateViewController(withIdentifier: String(describing: "RecentIListVC")) as! RecentIListVC
       
         
-       // let child_2 = UIStoryboard(name: "MyOrder", bundle: nil).instantiateViewController(withIdentifier: String(describing: "ReturnListVC")) as! ReturnListVC
+        let child_2 = UIStoryboard(name: "MyOrder", bundle: nil).instantiateViewController(withIdentifier: String(describing: "ReturnListVC")) as! ReturnListVC
 
         
       //  let child_3 = UIStoryboard(name: "MyOrder", bundle: nil).instantiateViewController(withIdentifier: String(describing: "ReservedListVC")) as! ReservedListVC
@@ -66,7 +66,7 @@ class MyOrderBaseVC: ButtonBarPagerTabStripViewController {
         
         let child_5 = UIStoryboard(name: "MyOrder", bundle: nil).instantiateViewController(withIdentifier: String(describing: "CancelledListVC")) as! CancelledListVC
         
-        let array :  [UIViewController] = [child_1,child_4,child_5]//child_2,child_3
+        let array :  [UIViewController] = [child_1,child_2,child_4,child_5]//child_2,child_3
         return array
        
     }

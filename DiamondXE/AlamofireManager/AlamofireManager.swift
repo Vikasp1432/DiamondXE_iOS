@@ -239,6 +239,74 @@ class AlamofireManager {
     }
     
     
+    
+    
+    func makeMultipartRequest(url : String,param: [String: Any], completion: @escaping (Result<Data?, CustomError>) -> Void) {
+        
+        guard let reachability = NetworkReachabilityManager(), reachability.isReachable else {
+            // Return a custom error if no internet connection is available
+            let error = CustomError(message: "No Internet Connection.")
+            completion(.failure(error))
+            return
+        }
+        
+        let headers: HTTPHeaders = HeaderInfoLocation().headers
+        // Define your API endpoint and parameters
+        print("Print Final URL ----------->\(url)")
+        print("Print Final Psram ----------->\(param)")
+        print("Print Final Header ----------->\(headers)")
+  
+        AF.upload(
+            multipartFormData: { multipartFormData in
+                // Append other parameters
+                for (key, value) in param {
+                    if let stringValue = value as? String {
+                        multipartFormData.append(stringValue.data(using: .utf8)!, withName: key)
+                    } else if let arrayValue = value as? [[String: Any]] {
+                        // Handle diamonds array
+                        for (index, item) in arrayValue.enumerated() {
+                            if let certificateNo = item["certificate_no"] as? String {
+                                multipartFormData.append(certificateNo.data(using: .utf8) ?? Data(), withName: "diamonds[\(index)][certificate_no]")
+                            }
+                            if let reason = item["reason"] as? String {
+                                multipartFormData.append(reason.data(using: .utf8) ?? Data(), withName: "diamonds[\(index)][reason]")
+                            }
+                            if let remark = item["remark"] as? String {
+                                multipartFormData.append(remark.data(using: .utf8) ?? Data(), withName: "diamonds[\(index)][remark]")
+                            }
+                            if let base64Video = item["video"] as? String, !base64Video.isEmpty {
+                                if let videoData = Data(base64Encoded: base64Video) {
+                                    multipartFormData.append(videoData, withName: "diamonds[\(index)][video]", fileName: "video\(index).mp4", mimeType: "video/mp4")
+                                }
+                            }
+                            if let base64Image = item["image"] as? String, !base64Image.isEmpty {
+                                if let imageData = Data(base64Encoded: base64Image) {
+                                    multipartFormData.append(imageData, withName: "diamonds[\(index)][image]", fileName: "image\(index).jpg", mimeType: "image/jpeg")
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            },
+            to: url, method: .post, headers: headers)
+        .responseDecodable(of: ReturnOrderSubmmitedStruct.self) { response in
+            switch response.result {
+            case .success(let json):
+                let data = response.data
+                
+                if data != nil{
+                    let str = String(decoding: data!, as: UTF8.self)
+                    print(str)
+                }
+                completion(.success(data))
+            case .failure(let error):
+                print("Error during upload: \(error)")
+                completion(.failure(.init(message: "")))
+            }
+           
+        }
+    }
   
     
 }

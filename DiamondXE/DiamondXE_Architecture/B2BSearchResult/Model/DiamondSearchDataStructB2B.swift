@@ -40,8 +40,12 @@ struct DiamondSearchDataStructB2B: Codable {
        var totalPrice, isReturnable, dxePrefered, isCart: Int?
        var isWishlist, onHold: Int?
        var rDiscount, rDiscountType, status: String?
+       var couponDesPer : Double?
+       var subtotalAfterCouponDiscount : Double?
 
        enum CodingKeys: String, CodingKey {
+           case couponDesPer = "coupon_discount_perc"
+           case subtotalAfterCouponDiscount = "subtotal_after_coupon_discount"
            case stockID = "stock_id"
            case itemName = "item_name"
            case stockNO = "stock_no"

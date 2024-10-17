@@ -1683,7 +1683,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="whitClr"/>
                                 <constraints>
                                     <constraint firstItem="FbS-UY-U9Z" firstAttribute="leading" secondItem="TvG-0l-LV1" secondAttribute="leading" id="Vek-EH-dC5"/>
                                     <constraint firstAttribute="height" constant="100" id="Z70-q1-6gK"/>
@@ -1771,10 +1771,10 @@
             <size key="intrinsicContentSize" width="110.33333333333333" height="18"/>
         </designable>
         <designable name="FHL-tk-WJw">
-            <size key="intrinsicContentSize" width="123" height="34"/>
+            <size key="intrinsicContentSize" width="122" height="34"/>
         </designable>
         <designable name="Fcv-WY-4zz">
-            <size key="intrinsicContentSize" width="141" height="34"/>
+            <size key="intrinsicContentSize" width="138" height="34"/>
         </designable>
         <designable name="JlD-T9-u2J">
             <size key="intrinsicContentSize" width="114.33333333333333" height="15.666666666666666"/>
@@ -1789,34 +1789,34 @@
             <size key="intrinsicContentSize" width="163.33333333333334" height="18"/>
         </designable>
         <designable name="a3L-Qd-zuf">
-            <size key="intrinsicContentSize" width="140" height="34"/>
+            <size key="intrinsicContentSize" width="136" height="34"/>
         </designable>
         <designable name="cLU-SI-lK8">
-            <size key="intrinsicContentSize" width="149" height="34"/>
+            <size key="intrinsicContentSize" width="144" height="34"/>
         </designable>
         <designable name="dTa-qI-43L">
             <size key="intrinsicContentSize" width="167.66666666666666" height="18"/>
         </designable>
         <designable name="hYq-8C-wPr">
-            <size key="intrinsicContentSize" width="149" height="34"/>
+            <size key="intrinsicContentSize" width="146" height="34"/>
         </designable>
         <designable name="l2Y-PL-nCk">
-            <size key="intrinsicContentSize" width="150" height="34"/>
+            <size key="intrinsicContentSize" width="147" height="34"/>
         </designable>
         <designable name="lsW-fc-shy">
             <size key="intrinsicContentSize" width="150.33333333333334" height="15.666666666666666"/>
         </designable>
         <designable name="sBT-Go-rUX">
-            <size key="intrinsicContentSize" width="153" height="34"/>
+            <size key="intrinsicContentSize" width="152" height="34"/>
         </designable>
         <designable name="vXz-FA-SIZ">
-            <size key="intrinsicContentSize" width="153" height="34"/>
+            <size key="intrinsicContentSize" width="151" height="34"/>
         </designable>
         <designable name="wOB-Dn-GQi">
             <size key="intrinsicContentSize" width="119" height="18"/>
         </designable>
         <designable name="zgU-z3-qxL">
-            <size key="intrinsicContentSize" width="153" height="34"/>
+            <size key="intrinsicContentSize" width="150" height="34"/>
         </designable>
     </designables>
     <resources>

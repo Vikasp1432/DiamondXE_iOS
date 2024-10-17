@@ -172,18 +172,32 @@
                                 <attributedString key="attributedText"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqv-kq-rVl">
-                                <rect key="frame" x="152" y="94" width="267" height="24"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="₹18,72,50481">
-                                        <attributes>
-                                            <color key="NSColor" name="gradient2"/>
-                                            <font key="NSFont" size="20" name="Lato-Semibold"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="yUv-yV-6gA">
+                                <rect key="frame" x="152" y="94" width="272" height="24"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqv-kq-rVl">
+                                        <rect key="frame" x="0.0" y="0.0" width="272" height="24"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="₹18,72,50481">
+                                                <attributes>
+                                                    <color key="NSColor" name="gradient2"/>
+                                                    <font key="NSFont" size="20" name="Lato-Semibold"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6v-Y8-OoA">
+                                        <rect key="frame" x="0.0" y="8.3333333333333286" width="0.0" height="15.666666666666664"/>
+                                        <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="13"/>
+                                        <color key="textColor" name="757677"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="n6v-Y8-OoA" firstAttribute="top" secondItem="yUv-yV-6gA" secondAttribute="top" constant="10" id="qYV-hq-hMq"/>
+                                </constraints>
+                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewB-jj-Deu">
                                 <rect key="frame" x="406" y="35.333333333333336" width="18" height="20"/>
                                 <subviews>
@@ -320,13 +334,15 @@
                             <constraint firstItem="qWN-2k-1hP" firstAttribute="leading" secondItem="yuM-ju-8sp" secondAttribute="trailing" constant="5" id="B9K-ex-sF8"/>
                             <constraint firstItem="I5B-jg-OcX" firstAttribute="centerY" secondItem="893-eu-KHl" secondAttribute="centerY" id="EIj-4o-cT7"/>
                             <constraint firstItem="VxT-v1-nfg" firstAttribute="centerY" secondItem="yuM-ju-8sp" secondAttribute="centerY" id="FpS-oP-Pbu"/>
+                            <constraint firstAttribute="trailing" secondItem="yUv-yV-6gA" secondAttribute="trailing" constant="10" id="GWO-mX-VoP"/>
                             <constraint firstAttribute="bottom" secondItem="79y-Ij-PFh" secondAttribute="bottom" constant="11" id="GbJ-cS-xrf"/>
+                            <constraint firstItem="79y-Ij-PFh" firstAttribute="top" secondItem="yUv-yV-6gA" secondAttribute="bottom" constant="7" id="GjM-Ha-aTn"/>
                             <constraint firstItem="0Gl-Xh-Y9n" firstAttribute="leading" secondItem="iOx-Cx-P1S" secondAttribute="leading" constant="10" id="H2N-aH-IdX"/>
                             <constraint firstItem="aEl-KC-eQX" firstAttribute="leading" secondItem="fah-g2-e3u" secondAttribute="trailing" constant="7" id="IIu-2W-8Rw"/>
+                            <constraint firstItem="yUv-yV-6gA" firstAttribute="leading" secondItem="0Gl-Xh-Y9n" secondAttribute="trailing" constant="12" id="JiX-x7-BzF"/>
                             <constraint firstItem="fah-g2-e3u" firstAttribute="leading" secondItem="0Gl-Xh-Y9n" secondAttribute="trailing" constant="10" id="MEZ-HZ-Gq1"/>
                             <constraint firstItem="893-eu-KHl" firstAttribute="leading" secondItem="aEl-KC-eQX" secondAttribute="trailing" constant="7" id="Mth-le-fJM"/>
                             <constraint firstItem="Ejn-IM-ik8" firstAttribute="top" secondItem="fah-g2-e3u" secondAttribute="bottom" constant="7" id="OW7-ot-OLJ"/>
-                            <constraint firstItem="Lqv-kq-rVl" firstAttribute="top" secondItem="Te7-bc-2ug" secondAttribute="bottom" constant="5" id="Osz-6d-7Ld"/>
                             <constraint firstAttribute="trailing" secondItem="Ejn-IM-ik8" secondAttribute="trailing" constant="100" id="Q6G-Ju-J7T"/>
                             <constraint firstItem="79y-Ij-PFh" firstAttribute="leading" secondItem="0Gl-Xh-Y9n" secondAttribute="trailing" constant="12" id="Qsn-PB-IpH"/>
                             <constraint firstItem="0Gl-Xh-Y9n" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iOx-Cx-P1S" secondAttribute="top" constant="10" id="RnV-IB-XWH"/>
@@ -335,16 +351,14 @@
                             <constraint firstItem="qzH-Yo-QGo" firstAttribute="centerY" secondItem="VxT-v1-nfg" secondAttribute="centerY" id="bcs-LB-UM9"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Te7-bc-2ug" secondAttribute="trailing" constant="50" id="dDg-jA-GfH"/>
                             <constraint firstItem="2u3-n4-NH4" firstAttribute="top" secondItem="iOx-Cx-P1S" secondAttribute="top" constant="30" id="gcO-vX-4m1"/>
-                            <constraint firstItem="79y-Ij-PFh" firstAttribute="top" secondItem="Lqv-kq-rVl" secondAttribute="bottom" constant="7" id="iQz-J1-iBq"/>
-                            <constraint firstAttribute="trailing" secondItem="Lqv-kq-rVl" secondAttribute="trailing" constant="15" id="icR-I7-VTy"/>
                             <constraint firstItem="VxT-v1-nfg" firstAttribute="leading" secondItem="qWN-2k-1hP" secondAttribute="trailing" constant="5" id="icf-O9-GpI"/>
-                            <constraint firstItem="Lqv-kq-rVl" firstAttribute="leading" secondItem="0Gl-Xh-Y9n" secondAttribute="trailing" constant="12" id="km1-K1-zva"/>
                             <constraint firstItem="I5B-jg-OcX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="893-eu-KHl" secondAttribute="trailing" id="l4i-7w-cZg"/>
                             <constraint firstItem="M0X-9s-l5o" firstAttribute="centerY" secondItem="VxT-v1-nfg" secondAttribute="centerY" id="lRn-4h-Zla"/>
                             <constraint firstItem="0Gl-Xh-Y9n" firstAttribute="bottom" secondItem="79y-Ij-PFh" secondAttribute="bottom" id="pvQ-f4-Qx2"/>
                             <constraint firstItem="Te7-bc-2ug" firstAttribute="leading" secondItem="Ejn-IM-ik8" secondAttribute="leading" id="q7A-uO-odN"/>
                             <constraint firstItem="fah-g2-e3u" firstAttribute="top" secondItem="iOx-Cx-P1S" secondAttribute="top" constant="10" id="r8i-Xz-QUb"/>
                             <constraint firstItem="Ejn-IM-ik8" firstAttribute="leading" secondItem="0Gl-Xh-Y9n" secondAttribute="trailing" constant="10" id="t1e-cJ-mbk"/>
+                            <constraint firstItem="yUv-yV-6gA" firstAttribute="top" secondItem="Te7-bc-2ug" secondAttribute="bottom" constant="5" id="tww-hk-aOL"/>
                             <constraint firstItem="qWN-2k-1hP" firstAttribute="centerY" secondItem="yuM-ju-8sp" secondAttribute="centerY" id="vAW-4g-8m0"/>
                             <constraint firstItem="3H9-qD-2j8" firstAttribute="leading" secondItem="2u3-n4-NH4" secondAttribute="trailing" constant="-25" id="xTD-Qo-DJJ"/>
                             <constraint firstItem="yuM-ju-8sp" firstAttribute="top" secondItem="Ejn-IM-ik8" secondAttribute="bottom" constant="7" id="xhV-H8-WeE"/>
@@ -377,6 +391,7 @@
                 <outlet property="lblCirtificateNum" destination="fah-g2-e3u" id="vtU-BM-0Gb"/>
                 <outlet property="lblClarity" destination="M0X-9s-l5o" id="CSv-G9-jKV"/>
                 <outlet property="lblClor" destination="VxT-v1-nfg" id="kvv-ay-WEm"/>
+                <outlet property="lblDiscountPrice" destination="n6v-Y8-OoA" id="TWK-u8-hNc"/>
                 <outlet property="lblFullNameView" destination="aDP-FD-i4f" id="oIs-29-hIw"/>
                 <outlet property="lblLotID" destination="893-eu-KHl" id="6Pq-oT-G2E"/>
                 <outlet property="lblPrice" destination="Lqv-kq-rVl" id="irK-gu-0n9"/>

@@ -301,7 +301,7 @@ extension UIViewController{
         let textSize:CGSize = messageLbl.intrinsicContentSize
         let labelWidth = min(textSize.width, window.frame.width - 40)
         
-        messageLbl.frame = CGRect(x: 20, y: window.frame.height - 90, width: labelWidth + 30, height: textSize.height + 20)
+        messageLbl.frame = CGRect(x: 20, y: window.frame.height - 140, width: labelWidth + 30, height: textSize.height + 20)
         messageLbl.center.x = window.center.x
         messageLbl.layer.cornerRadius = messageLbl.frame.height/2
         messageLbl.layer.masksToBounds = true
@@ -360,6 +360,10 @@ extension UITextField {
    @objc func cancelPressed() {
      self.resignFirstResponder()
    }
+    
+    
+    
+    
 }
 
 

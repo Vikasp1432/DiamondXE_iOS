@@ -38,6 +38,9 @@ class LoginVC: BaseViewController, ChildViewControllerProtocol {
     
     @IBOutlet weak var btnFlag: UIButton!
     @IBOutlet weak var btnContryCode: UIButton!
+    
+    @IBOutlet weak var btnShowPassword: UIButton!
+
 
     
     @IBOutlet weak var btnLoginWithEmail: UIButton!
@@ -190,6 +193,13 @@ class LoginVC: BaseViewController, ChildViewControllerProtocol {
     
     @IBAction func btnActionShowPass(_ sender: UIButton) {
         self.txtPassword.isSecureTextEntry.toggle()
+        if self.txtPassword.isSecureTextEntry{
+            self.btnShowPassword.setImage(UIImage(named: "eye_close"), for: .normal)
+        }
+        else{
+            self.btnShowPassword.setImage(UIImage(named: "eye_open"), for: .normal)
+        }
+            
     }
     
     @IBAction func btnActionForgotPassword(_ sender: UIButton) {

@@ -144,6 +144,10 @@ struct APIs {
     
     var updateDealerMrkupInfo_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/dealer/update-settings"
     
+    var returnChekout_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/return-order-checkout"
+    
+    var returnOrderRequest_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/return-order"
+    
 }
 
 //struct HeaderInfo {
@@ -237,7 +241,7 @@ struct SideBarURLs {
     let termandCondition = "https://diamondxe.com/policy/terms-conditions"
     
     
-    
+    let returnPolicy = "https://diamondxe.com/return-policy"
    
     
 }

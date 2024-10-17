@@ -128,7 +128,6 @@ extension DashboardLoginVC: UITableViewDelegate, UITableViewDataSource{
                     }
                 }
                 
-                
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableCell.cellIdentifier, for: indexPath) as! ExpandableCell
@@ -207,6 +206,11 @@ extension DashboardLoginVC: UITableViewDelegate, UITableViewDataSource{
         
         else if account_markup == sectionStr{
             let loginData = UserDefaultManager().retrieveLoginData()
+            if let userType = loginData?.details?.userRole{
+                if userType.lowercased() == "buyer"{
+                    return
+                }
+            }
             if let authToken = loginData?.details?.authToken{
                 self.navigationManager(storybordName: "Dashboard", storyboardID: "DealerMarkupVC", controller: DealerMarkupVC())
             }

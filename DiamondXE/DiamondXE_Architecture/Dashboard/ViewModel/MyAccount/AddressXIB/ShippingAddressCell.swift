@@ -13,6 +13,7 @@ class ShippingAddressCell: UITableViewCell {
     
     @IBOutlet var viewNoData:UIView!
     @IBOutlet var viewData:UIView!
+    @IBOutlet var lblDefault:UILabel!
     
     @IBOutlet var lblName:UILabel!
     @IBOutlet var lblAddress:UILabel!
@@ -46,6 +47,19 @@ class ShippingAddressCell: UITableViewCell {
         viewNoData.layer.shadowOpacity = 0.3
         viewNoData.layer.masksToBounds = false
         
+        roundSpecificCorners(label: self.lblDefault, corners: [.topLeft, .bottomRight], radius: 10)
+
+    }
+    
+    
+    func roundSpecificCorners(label: UILabel, corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: label.bounds,
+                                byRoundingCorners: corners,
+                                cornerRadii: CGSize(width: radius, height: radius))
+        
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        label.layer.mask = mask
     }
     
     private func updateRadioButton() {

@@ -184,10 +184,17 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
        // setUpMediumBestBTN()
         //setupTopBTN()
         setupIsreturnable()
-       // DataManager.shared.color = "white"
+       //DataManager.shared.color = "white"
         
         // filter datya
 //        self.filterDataStruct()
+        
+        colorDiaWhiteShow = true
+        DataManager.shared.defaultSelectedShowColor = true
+        self.btnClorWhite.setImage(UIImage(named: "radioButtonSelected"), for: .normal)
+        self.btnClorFancy.setImage(UIImage(named: "radioButtonDeselected"), for: .normal)
+
+        DataManager.shared.color = "white"
 
     }
     
@@ -1630,15 +1637,7 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
                     cell.isShadowApplied = true
                 }
                 
-                // Handle the case where individual items are selected/deselected and "All" should be updated
-                if selectedIndicesShaps.count == shapeDataArr.count - 1, let allIndex = shapeDataArr.firstIndex(of: "All") {
-                    let allIndexPath = IndexPath(row: allIndex, section: 0)
-                    selectedIndicesShaps.insert(allIndexPath)
-                    shapeArr.append("All")
-                    if let allCell = collectionShap.cellForItem(at: allIndexPath) as? SearchDiamondCVC {
-                        allCell.isShadowApplied = true
-                    }
-                } else if let allIndex = shapeDataArr.firstIndex(of: "All") {
+                if let allIndex = shapeDataArr.firstIndex(of: "All") {
                     let allIndexPath = IndexPath(row: allIndex, section: 0)
                     selectedIndicesShaps.remove(allIndexPath)
                     if let index = shapeArr.firstIndex(of: "All") {
@@ -1647,6 +1646,24 @@ extension SearchDiamondTVC: CustomCollectionViewCellDelegate, OptionsCollectionV
                     if let allCell = collectionShap.cellForItem(at: allIndexPath) as? SearchDiamondCVC {
                         allCell.isShadowApplied = false
                     }
+                
+                // Handle the case where individual items are selected/deselected and "All" should be updated
+//                if selectedIndicesShaps.count == shapeDataArr.count - 1, let allIndex = shapeDataArr.firstIndex(of: "All") {
+//                    let allIndexPath = IndexPath(row: allIndex, section: 0)
+//                    selectedIndicesShaps.insert(allIndexPath)
+//                    shapeArr.append("All")
+//                    if let allCell = collectionShap.cellForItem(at: allIndexPath) as? SearchDiamondCVC {
+//                        allCell.isShadowApplied = true
+//                    }
+//                } else if let allIndex = shapeDataArr.firstIndex(of: "All") {
+//                    let allIndexPath = IndexPath(row: allIndex, section: 0)
+//                    selectedIndicesShaps.remove(allIndexPath)
+//                    if let index = shapeArr.firstIndex(of: "All") {
+//                        shapeArr.remove(at: index)
+//                    }
+//                    if let allCell = collectionShap.cellForItem(at: allIndexPath) as? SearchDiamondCVC {
+//                        allCell.isShadowApplied = false
+//                    }
                 }
             }
             

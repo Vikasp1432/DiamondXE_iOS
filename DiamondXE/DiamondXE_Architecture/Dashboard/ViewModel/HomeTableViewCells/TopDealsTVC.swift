@@ -121,17 +121,38 @@ extension TopDealsTVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             
             if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
                 let currncyVal = self.currencyRateDetailObj.value ?? 1
-                let finalVal = Double((naturalDia[indexPath.row].subtotal ?? 0)) * currncyVal
+                let finalVal = Double((naturalDia[indexPath.row].subtotalAfterCouponDiscount ?? 0)) * currncyVal
                 
                 let formattedNumber = BaseViewController().formatNumberWithoutDeciml(finalVal)
                 
                 
                 cell.lblDiaPrice.text = "\(currncySimbol)\(formattedNumber)"
                 
+                if naturalDia[indexPath.row].couponDesPer ?? 0 > 0{
+                    cell.lblDiscountPrice.isHidden = false
+                    var finalVal2 = Double((self.naturalDia[indexPath.row].subtotal ?? 0)) * currncyVal
+                    
+                    let formattedNumber2 = formatNumberWithoutDeciml(finalVal2)
+                    cell.lblDiscountPrice.applyStrikeThrough(to: "\(currncySimbol)\(formattedNumber2)")
+                }
+                else{
+                    cell.lblDiscountPrice.isHidden = true
+                }
+                
+                
             }
             else{
-                let formattedNumber = BaseViewController().formatNumberWithoutDeciml(Double(naturalDia[indexPath.row].subtotal ?? 0))
-                cell.lblDiaPrice.text = "₹\(naturalDia[indexPath.row].subtotal ?? 0)"
+                let formattedNumber = BaseViewController().formatNumberWithoutDeciml(Double(naturalDia[indexPath.row].subtotalAfterCouponDiscount ?? 0))
+                cell.lblDiaPrice.text = "₹\(formattedNumber)"
+                
+                if naturalDia[indexPath.row].couponDesPer ?? 0 > 0{
+                    cell.lblDiscountPrice.isHidden = false
+                    let formattedNumber2 = formatNumberWithoutDeciml(Double((self.naturalDia[indexPath.row].subtotal ?? 0)))
+                    cell.lblDiscountPrice.applyStrikeThrough(to: "₹\(formattedNumber2)")
+                }
+                else{
+                    cell.lblDiscountPrice.isHidden = true
+                }
             }
             
             
@@ -154,17 +175,38 @@ extension TopDealsTVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             
             if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
                 let currncyVal = self.currencyRateDetailObj.value ?? 1
-                let finalVal = Double((labGlDia[indexPath.row].subtotal ?? 0)) * currncyVal
+                let finalVal = Double((labGlDia[indexPath.row].subtotalAfterCouponDiscount ?? 0)) * currncyVal
                 
                 let formattedNumber = BaseViewController().formatNumberWithoutDeciml(finalVal)
                 
                 
                 cell.lblDiaPrice.text = "\(currncySimbol)\(formattedNumber)"
                 
+                if labGlDia[indexPath.row].couponDesPer ?? 0 > 0{
+                    cell.lblDiscountPrice.isHidden = false
+                    var finalVal2 = Double((self.labGlDia[indexPath.row].subtotal ?? 0)) * currncyVal
+                    
+                    let formattedNumber2 = formatNumberWithoutDeciml(finalVal2)
+                    cell.lblDiscountPrice.applyStrikeThrough(to: "\(currncySimbol)\(formattedNumber2)")
+                }
+                else{
+                    cell.lblDiscountPrice.isHidden = true
+                }
+                
             }
             else{
-                let formattedNumber = BaseViewController().formatNumberWithoutDeciml(Double(labGlDia[indexPath.row].subtotal ?? 0))
-                cell.lblDiaPrice.text = "₹\(labGlDia[indexPath.row].subtotal ?? 0)"
+                let formattedNumber = BaseViewController().formatNumberWithoutDeciml(Double(labGlDia[indexPath.row].subtotalAfterCouponDiscount ?? 0))
+                cell.lblDiaPrice.text = "₹\(formattedNumber)"
+                
+                if labGlDia[indexPath.row].couponDesPer ?? 0 > 0{
+                    cell.lblDiscountPrice.isHidden = false
+                    let formattedNumber2 = formatNumberWithoutDeciml(Double((self.labGlDia[indexPath.row].subtotal ?? 0)))
+                    cell.lblDiscountPrice.applyStrikeThrough(to: "₹\(formattedNumber2)")
+                }
+                else{
+                    cell.lblDiscountPrice.isHidden = true
+                }
+                
             }
             
             
@@ -203,5 +245,17 @@ extension TopDealsTVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
             return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0) // Adjust the left padding
         }
-
+    
+    
+    func formatNumberWithoutDeciml(_ number: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 0
+        formatter.minimumFractionDigits = 0
+        formatter.groupingSeparator = ","
+        formatter.usesGroupingSeparator = true
+        
+        return formatter.string(from: NSNumber(value: number)) ?? ""
+    }
+    
 }

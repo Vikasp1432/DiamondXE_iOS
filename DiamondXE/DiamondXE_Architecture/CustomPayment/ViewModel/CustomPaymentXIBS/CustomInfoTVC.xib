@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -92,7 +91,7 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BGq-mi-DPP" customClass="DTTextField" customModule="DTTextField">
                                 <rect key="frame" x="0.0" y="0.0" width="311" height="45"/>
-                                <color key="textColor" name="themeClr"/>
+                                <color key="textColor" red="0.29803921568627451" green="0.047058823529411764" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -108,10 +107,11 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZu-9J-xuh" userLabel="email">
                         <rect key="frame" x="15" y="175" width="311" height="112"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cuw-HH-rng">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cuw-HH-rng">
                                 <rect key="frame" x="5" y="5" width="301" height="102"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <attributedString key="attributedText"/>
+                                <color key="backgroundColor" name="whitClr"/>
+                                <color key="textColor" name="ThemeClr"/>
+                                <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -136,7 +136,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
-                <color key="backgroundColor" name="viewBGClr"/>
+                <color key="backgroundColor" red="0.94901960784313721" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="QBK-pb-cbh" secondAttribute="trailing" constant="15" id="4U1-0i-oFd"/>
                     <constraint firstAttribute="trailing" secondItem="WZu-9J-xuh" secondAttribute="trailing" constant="15" id="6f2-Ui-LLr"/>
@@ -165,28 +165,19 @@
         <designable name="BGq-mi-DPP">
             <size key="intrinsicContentSize" width="49.333333333333336" height="18"/>
         </designable>
-        <designable name="g2h-GX-Ab9">
-            <size key="intrinsicContentSize" width="102" height="18"/>
-        </designable>
-        <designable name="x3u-KU-4Cy">
-            <size key="intrinsicContentSize" width="37.333333333333336" height="18"/>
-        </designable>
     </designables>
     <resources>
+        <namedColor name="ThemeClr">
+            <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="borderClr">
             <color red="0.83099997043609619" green="0.83099997043609619" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="themeClr">
             <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="viewBGClr">
-            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

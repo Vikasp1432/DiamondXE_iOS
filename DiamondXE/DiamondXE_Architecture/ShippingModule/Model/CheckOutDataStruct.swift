@@ -13,12 +13,12 @@ struct CheckOutDataStruct: Codable {
     var couponCode: String?
     var couponValue: Double?
     var couponDiscount, status, coupenStatus, walletPoint: Int?
-    var msg: String?
-    var subTotal, cgst: Int?
-    var cgstPerc: Double?
-    var sgst: Int?
-    var sgstPerc, discountPerc: Double?
-    var igst, igstPerc , tax: Int?
+    var msg, couperMSG: String?
+    var subTotal: Int?
+   // var cgstPerc: Double?
+    //var sgst: Int?
+    var  discountPerc: Double?
+    var  tax: Int?
     var subTotalWithTax: Double?
     var shippingCharge, platformFee, totalCharge, totalChargeTax: Int?
     var totalChargeWithTax, totalTaxes, totalAmount, taxPerOnCharges: Int?
@@ -29,16 +29,16 @@ struct CheckOutDataStruct: Codable {
     enum CodingKeys: String, CodingKey {
         case isCoupanApplied = "is_coupan_applied"
         case couponCode = "coupon_code"
-        case couponValue = "coupon_value"
+       // case couponValue = "coupon_value"
         case couponDiscount = "coupon_discount"
         case status, msg
         case subTotal = "sub_total"
-        case cgst
-        case cgstPerc = "cgst_perc"
-        case sgst
-        case sgstPerc = "sgst_perc"
-        case igst
-        case igstPerc = "igst_perc"
+        case couperMSG = "coupon_msg"
+//        case cgstPerc = "cgst_perc"
+//        case sgst
+//        case sgstPerc = "sgst_perc"
+//        case igst
+//        case igstPerc = "igst_perc"
         case discountPerc = "discount_perc"
         case tax
         case subTotalWithTax = "sub_total_with_tax"
@@ -71,12 +71,12 @@ struct CheckOutDetail: Codable {
     var rapaportPricePerCT, discount: Int?
     var totalGstPerc: String?
     var pricePerCT, subtotal: Int?
-    var cgstPer: String?
-    var cgstAmt: Int?
-    var sgstPer: String?
-    var sgstAmt: Int?
-    var igstPer: String?
-    var igstAmt, tax, totalPrice, isReturnable: Int?
+//    var cgstPer: String?
+//    var cgstAmt: Int?
+//    var sgstPer: String?
+//    var sgstAmt: Int?igstAmt
+//    var igstPer: String?
+    var  tax, totalPrice, isReturnable: Int?
     var dxePrefered: Int?
     var status: String?
     var labGrownDiaPrice, naturalDiaPrice: Int?
@@ -116,12 +116,12 @@ struct CheckOutDetail: Codable {
         case totalGstPerc = "total_gst_perc"
         case pricePerCT = "price_per_ct"
         case subtotal
-        case cgstPer = "cgst_per"
-        case cgstAmt = "cgst_amt"
-        case sgstPer = "sgst_per"
-        case sgstAmt = "sgst_amt"
-        case igstPer = "igst_per"
-        case igstAmt = "igst_amt"
+//        case cgstPer = "cgst_per"
+//        case cgstAmt = "cgst_amt"
+//        case sgstPer = "sgst_per"
+//        case sgstAmt = "sgst_amt"
+//        case igstPer = "igst_per"
+//        case igstAmt = "igst_amt"
         case tax
         case totalPrice = "total_price"
         case isReturnable = "is_returnable"

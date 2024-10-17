@@ -27,7 +27,7 @@ class CancelledListVC: BaseViewController, IndicatorInfoProvider {
     }
     var orderListData  = MyOrderDataStruct()
     var page = 1
-
+    let refreshControl = UIRefreshControl()
     override func viewDidLoad() {
         super.viewDidLoad()
      //   tableViewCancelled.register(UINib(nibName: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC, bundle: nil), forCellReuseIdentifier: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC)
@@ -38,6 +38,22 @@ class CancelledListVC: BaseViewController, IndicatorInfoProvider {
         self.imgNoDataFnd.isHidden = true
         getOrderListAPI()
         
+        self.configureRefreshControl()
+    }
+    
+    
+    // pull to refresh
+    func configureRefreshControl() {
+            // Add the refresh control to your table view
+            tableViewCancelled.refreshControl = refreshControl
+        self.page = 1
+            //refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        }
+    
+    @objc private func refreshData(_ sender: Any) {
+        // Refresh your data here
+        getOrderListAPI()
     }
     
     func getOrderListAPI(){
@@ -75,7 +91,7 @@ class CancelledListVC: BaseViewController, IndicatorInfoProvider {
             }
             
             //CustomActivityIndicator2.shared.hide()
-            
+            self.refreshControl.endRefreshing()
         })
         
         
@@ -107,11 +123,11 @@ extension CancelledListVC : UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: MultiItemListTVC.cellIdentifierMultiItemListTVC, for: indexPath) as! MultiItemListTVC
                 cell.selectionStyle = .none
                 cell.viewTrackOrder.isHidden = true
-                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
                 
                 let diamndInfo = self.orderListData.details?[indexPath.row]
                 cell.lblOrderID.text = "Order-ID : \(diamndInfo?.orderID ?? Int())"
-                if let localDateString = convertUTCToLocal(dateString: diamndInfo?.createdAt ?? "") {
+                if let localDateString = convertUTCToLocal(dateString: diamndInfo?.cancelled_at ?? "") {
                     cell.lblDateTime.text = localDateString
                 } else {
                     print("Conversion failed")
@@ -164,13 +180,13 @@ extension CancelledListVC : UITableViewDelegate, UITableViewDataSource {
                 cell.selectionStyle = .none
                 cell.viewTrackOrder.isHidden = true
                 
-                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
                 let diamndInfo = self.orderListData.details?[indexPath.row]
                 
                 cell.imgDiamond.sd_setImage(with: URL(string: diamndInfo?.diamonds?.first?.diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
                 cell.lblCnclBy.text = "Cancle By : \(diamndInfo?.cancel_by ?? "")"
                 cell.lblOrderID.text = "Order-ID : \(diamndInfo?.orderID ?? Int())"
-                if let localDateString = convertUTCToLocal(dateString: diamndInfo?.createdAt ?? "") {
+                if let localDateString = convertUTCToLocal(dateString: diamndInfo?.cancelled_at ?? "") {
                     cell.lblDateTime.text = localDateString
                 } else {
                     print("Conversion failed")
@@ -249,7 +265,7 @@ extension CancelledListVC : UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC, for: indexPath) as! BuyItemInfoTVC
             cell.selectionStyle = .none
             cell.contentView.isUserInteractionEnabled = true
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
             return cell
         }
         

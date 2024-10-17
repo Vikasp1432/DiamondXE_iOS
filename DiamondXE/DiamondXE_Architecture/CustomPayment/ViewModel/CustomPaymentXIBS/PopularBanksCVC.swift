@@ -13,6 +13,7 @@ class PopularBanksCVC: UICollectionViewCell {
     
     
     @IBOutlet var imgView:UIImageView!
+    @IBOutlet var lblBnkName:UILabel!
 
     var tapAction : (() -> Void) = { }
 

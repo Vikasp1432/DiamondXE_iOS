@@ -15,6 +15,9 @@ class PaymentOptionTVC: UITableViewCell {
     @IBOutlet var btnRTGSBG : UIButton!
     @IBOutlet var btnDebitCSBG : UIButton!
     @IBOutlet var btnNetBankSBG : UIButton!
+    
+    @IBOutlet var btnUPISBG : UIButton!
+    
     @IBOutlet var btnBank1SBG : UIButton!
     @IBOutlet var btnBank2BG : UIButton!
     @IBOutlet var paymentOptionBG : UIView!
@@ -47,6 +50,8 @@ class PaymentOptionTVC: UITableViewCell {
     
     @IBOutlet var viewNetBnkBG:UIView!
     @IBOutlet var viewCreditCrdBG:UIView!
+    
+    @IBOutlet var viewUPIBG:UIView!
     
      var buttonGroup: SingleSelectionButtonGroup!
     
@@ -81,6 +86,9 @@ class PaymentOptionTVC: UITableViewCell {
       
         btnDebitCSBG.applyVerticalGradientBackground(colors: [UIColor.btnGradient1, UIColor.btnGradient2], image: UIImage(named: "dabitCard"))
         btnNetBankSBG.applyVerticalGradientBackground(colors: [UIColor.btnGradient1, UIColor.btnGradient2], image: UIImage(named: "netBanking"))
+        
+        btnUPISBG.applyVerticalGradientBackground(colors: [UIColor.btnGradient1, UIColor.btnGradient2], image: UIImage(named: "UPIIc"))
+        
 //        btnBank1SBG.applyVerticalGradientBackground(colors: [UIColor.btnGradient1, UIColor.btnGradient2])
 //        btnBank2BG.applyVerticalGradientBackground(colors: [UIColor.btnGradient1, UIColor.btnGradient2])
         banksCollectionView.delegate = self
@@ -312,7 +320,7 @@ extension PaymentOptionTVC : UICollectionViewDelegate, UICollectionViewDataSourc
         + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
         
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
-        return CGSize(width: size + 20 , height: size  )
+        return CGSize(width: size + 20 , height: size + 10 )
        }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

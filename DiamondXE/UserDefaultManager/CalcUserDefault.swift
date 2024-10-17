@@ -138,4 +138,34 @@ class CalcUserDefaultManager{
         return userDefaults.double(forKey: "ct14Value") as? Double ?? 0.0
     }
     
+    
+    
+    
+    // Save quotation data to UserDefaults
+    func saveQuotationData(_ newQuotation: Quotationstruct) {
+        var savedQuotations = getSavedQuotations()
+        
+        if let index = savedQuotations.firstIndex(where: { $0.productName == newQuotation.productName }) {
+            savedQuotations[index] = newQuotation
+        } else {
+            savedQuotations.append(newQuotation)
+            
+            if savedQuotations.count > 10 {
+                savedQuotations.removeFirst()
+            }
+        }
+        
+        if let encodedData = try? JSONEncoder().encode(savedQuotations) {
+            UserDefaults.standard.set(encodedData, forKey: "savedQuotations")
+        }
+    }
+    
+    func getSavedQuotations() -> [Quotationstruct] {
+        if let data = UserDefaults.standard.data(forKey: "savedQuotations"),
+           let quotations = try? JSONDecoder().decode([Quotationstruct].self, from: data) {
+            return quotations
+        }
+        return []
+    }
+    
 }

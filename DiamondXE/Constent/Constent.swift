@@ -14,6 +14,9 @@ var getAppVersion = "Version - \(Bundle.main.infoDictionary?["CFBundleShortVersi
 struct ConstentString {
     static let emailErr = "Email is required."
     static let passErr = "Password is required."
+    static let oldpassErr = "Old Password is required."
+    static let newpassErr = "New Password is required."
+    static let confirmpassErr = "Confirm Password is required."
     
     static let firestNErr = "First name is required."
     static let lastNErr = "Last name is required."

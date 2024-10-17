@@ -386,24 +386,46 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailsTVC.cellIdentifierProductDetailsTVC, for: indexPath) as! ProductDetailsTVC
             cell.selectionStyle = .none
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
             
             cell.lblDocNumber.text = self.diamondDetails.details?.stockNO ?? ""
             cell.lblLotID.text = "ID:\(self.diamondDetails.details?.supplierID ?? "")"
             cell.lblShape.text = self.diamondDetails.details?.shape ?? ""
-            cell.lblCarat.text = "\(self.diamondDetails.details?.carat ?? "")Ct"
+            cell.lblCarat.text = "\(self.diamondDetails.details?.carat ?? "")ct"
             cell.lblClr.text = self.diamondDetails.details?.color ?? ""
             cell.lblClarity.text = self.diamondDetails.details?.clarity ?? ""
            
             if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
                 let currncyVal = self.currencyRateDetailObj.value ?? 1
-                let finalVal = Double((self.diamondDetails.details?.subtotal ?? 0)) * currncyVal
+                let finalVal = Double((self.diamondDetails.details?.subtotalAfterCouponDiscount ?? 0)) * currncyVal
                 let formattedNumber = formatNumberWithoutDeciml(finalVal)
                 cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
+                
+                
+                if self.diamondDetails.details?.couponDesPer ?? 0 > 0{
+                    cell.lblDiscountPrice.isHidden = false
+                    var finalVal2 = Double((self.diamondDetails.details?.subtotal ?? 0)) * currncyVal
+                    
+                    let formattedNumber2 = formatNumberWithoutDeciml(finalVal2)
+                    cell.lblDiscountPrice.applyStrikeThrough(to: "\(currncySimbol)\(formattedNumber2)")
+                }
+                else{
+                    cell.lblDiscountPrice.isHidden = true
+                }
+                
             }
             else{
-                let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondDetails.details?.subtotal ?? 0))
+                let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondDetails.details?.subtotalAfterCouponDiscount ?? 0))
                 cell.lblPrice.text = "₹\(formattedNumber)"
+                
+                if self.diamondDetails.details?.couponDesPer ?? 0 > 0{
+                    cell.lblDiscountPrice.isHidden = false
+                    let formattedNumber2 = formatNumberWithoutDeciml(Double((self.diamondDetails.details?.subtotal ?? 0)))
+                    cell.lblDiscountPrice.applyStrikeThrough(to: "₹\(formattedNumber2)")
+                }
+                else{
+                    cell.lblDiscountPrice.isHidden = true
+                }
             }
             
             
@@ -672,7 +694,7 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
             cell.selectionStyle = .none
             cell.isLoading = true
             cell.delegate = self
-            cell.setupRecommendentData(dataObj: RecommendentDiamondDataManager.shareInstence.recommendentDataObj)
+            cell.setupRecommendentData(dataObj: RecommendentDiamondDataManager.shareInstence.recommendentDataObj, currncuObj: self.currencyRateDetailObj)
             return cell
             
         default:

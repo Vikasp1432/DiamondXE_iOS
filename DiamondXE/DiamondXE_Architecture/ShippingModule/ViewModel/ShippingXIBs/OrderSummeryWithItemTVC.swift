@@ -241,10 +241,10 @@ extension OrderSummeryWithItemTVC:UICollectionViewDataSource, UICollectionViewDe
         
         if self.isFromCart == 1{
             
-             cell.lblCirtificateNum.text = self.CartDataObj[indexPath.row].stockID
-            cell.lblLotID.text = "ID: \(self.CartDataObj[indexPath.row].supplierID)"
+             cell.lblCirtificateNum.text = self.CartDataObj[indexPath.row].stockNo
+            cell.lblLotID.text = "\(self.CartDataObj[indexPath.row].supplierID)"
              cell.lblShape.text = self.CartDataObj[indexPath.row].shape
-            cell.lblCarat.text = "\(self.CartDataObj[indexPath.row].carat)Ct"
+            cell.lblCarat.text = "\(self.CartDataObj[indexPath.row].carat)ct"
              cell.lblClor.text = self.CartDataObj[indexPath.row].color
              cell.lblClarity.text = self.CartDataObj[indexPath.row].clarity
             
@@ -269,9 +269,9 @@ extension OrderSummeryWithItemTVC:UICollectionViewDataSource, UICollectionViewDe
         else{
             
              cell.lblCirtificateNum.text = self.diamondDetailsOBJ.stockNO
-             cell.lblLotID.text = "ID: \(self.diamondDetailsOBJ.supplierID ?? "")"
+             cell.lblLotID.text = "\(self.diamondDetailsOBJ.supplierID ?? "")"
              cell.lblShape.text = self.diamondDetailsOBJ.shape
-             cell.lblCarat.text = "\(self.diamondDetailsOBJ.carat ?? "")Ct"
+             cell.lblCarat.text = "\(self.diamondDetailsOBJ.carat ?? "")ct"
              cell.lblClor.text = self.diamondDetailsOBJ.color
              cell.lblClarity.text = self.diamondDetailsOBJ.clarity
             
@@ -320,7 +320,7 @@ extension OrderSummeryWithItemTVC:UICollectionViewDataSource, UICollectionViewDe
         + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
         
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
-        return CGSize(width: size - 15, height: size - 215 )
+        return CGSize(width: size - 10, height: size - 200 )
     }
     
     //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

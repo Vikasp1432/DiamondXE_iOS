@@ -48,6 +48,8 @@ class QuotatiosVC: UIViewController {
     @IBOutlet weak var lblGrandTotal: UILabel!
     @IBOutlet weak var lblCurrency: UILabel!
     
+    @IBOutlet weak var lblDate: UILabel!
+    
     @IBOutlet weak var viewTable: UIView!
     @IBOutlet weak var viewNotes: UIView!
     @IBOutlet weak var viewTopbar: UIView!
@@ -91,6 +93,7 @@ class QuotatiosVC: UIViewController {
     var otherCharges = String()
     var productName = String()
     var purityType = String()
+    var date = String()
     
     var grandTotal = String()
     var priceWitCurr = String()
@@ -111,6 +114,44 @@ class QuotatiosVC: UIViewController {
     
     @IBAction func btnActionBack(_ sender : UIButton){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    @IBAction func btnActionEditQuatation(_ sender : UIButton){
+        let vc = UIStoryboard(name: "JewelleryCalc", bundle: Bundle.main).instantiateViewController(withIdentifier: "JewelleryCalcVC") as? JewelleryCalcVC
+        vc?.isEditQuatation = true
+        vc?.metalwt = self.metalwt
+            vc?.metalRatePGm = self.metalRatePGm
+            vc?.metalwtTotal = self.metalwtTotal
+            vc?.labourChar = self.labourChar
+            vc?.labourCharRatePGm = self.labourCharRatePGm
+            vc?.labourCharTotal = self.labourCharTotal
+            vc?.solitairwt = self.solitairwt
+            vc?.solitairRatePCt = self.solitairRatePCt
+            vc?.solitairTotal = self.solitairTotal
+            vc?.sideDIA = self.sideDIA
+            vc?.sideDIARatePCt = self.sideDIARatePCt
+            vc?.sideDIATotal = self.sideDIATotal
+            vc?.colStoneWt = self.colStoneWt
+            vc?.colStonePCt = self.colStonePCt
+            vc?.colStoneTotal = self.colStoneTotal
+            vc?.extraCharges = self.extraCharges
+            vc?.taxCharges = self.taxCharges
+            vc?.taxCalculation = self.taxCalculation
+            vc?.currncyVal = self.currncyVal
+            vc?.currencyType = self.currencyType
+            vc?.natualOrLabGrown = self.natualOrLabGrown
+            vc?.solitaierNotes = self.solitaierNotes
+            vc?.sideDiaNotes = self.sideDiaNotes
+            vc?.otherCharges = self.otherCharges
+            vc?.productName = self.productName
+            vc?.purityType = self.purityType
+            vc?.grandTotal = self.grandTotal
+            vc?.priceWitCurr = self.priceWitCurr
+        
+            //vc?.date = self.dateStr
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     @IBAction func btnActionShareScreenshots(_ sender : UIButton){
@@ -151,6 +192,7 @@ class QuotatiosVC: UIViewController {
     // set Data
     func setData(){
         
+        self.lblDate.text = "Price Estimate , Date : \(date)"
         self.lblDiamondType.text = "\(natualOrLabGrown)"
         self.lblSolitairDNots.text = "Solitaire: \(solitaierNotes)"
         self.lblSideDIADNots.text = "Side DIA: \(sideDiaNotes)"

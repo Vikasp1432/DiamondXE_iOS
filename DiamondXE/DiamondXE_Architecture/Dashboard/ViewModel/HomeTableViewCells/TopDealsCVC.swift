@@ -12,7 +12,7 @@ class TopDealsCVC: UICollectionViewCell {
     @IBOutlet var lblDiaName:UILabel!
     @IBOutlet var lblDiaPrice:UILabel!
     @IBOutlet var imgDiamond:UIImageView!
-
+    @IBOutlet var lblDiscountPrice:UILabel!
     @IBOutlet var bgView:UIView!
     var diamondSelect : (() -> Void) = { }
 

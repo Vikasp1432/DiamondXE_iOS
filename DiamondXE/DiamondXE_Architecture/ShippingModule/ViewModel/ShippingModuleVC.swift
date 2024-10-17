@@ -29,6 +29,12 @@ class ShippingModuleVC: BaseViewController {
     var billingAddressesStruct = GetAddressStruct()
     var shippingAddressesStruct = GetAddressStruct()
     
+    var shippingCountry = String()
+    var billingCountry = String()
+    
+    var shippingAddUpdate = false
+    var billingAddUpdate = false
+   
     var selectedIndexPathBilling: IndexPath?
     var selectedIndexPathShipping: IndexPath?
     
@@ -56,6 +62,8 @@ class ShippingModuleVC: BaseViewController {
     var paymentMode = String()
     var selectedDate = String()
     var neftID = Int()
+    
+    
     
     var paymentModeSelected = String()
     var amountTotal = String()
@@ -212,6 +220,7 @@ class ShippingModuleVC: BaseViewController {
             // Hide activity indicator when checkout API call is done
             dispatchGroup.notify(queue: .main) {
                 CustomActivityIndicator2.shared.hide()
+               // self.shippingTableView.reloadData()
                 print("All API calls completed")
             }
         }
@@ -276,9 +285,11 @@ class ShippingModuleVC: BaseViewController {
         
         var countryNm = String()
         
+        if selectedIndexPathShipping != nil {
+
         
-        if let isInterNatl = self.shippingAddressesStruct.details?[self.selectedIndexPathShipping?.row ?? 0]{
-            countryNm = isInterNatl.countryNameS ?? ""
+         let isInterNatl = self.shippingAddressesStruct.details?[self.selectedIndexPathShipping?.row ?? 0]
+            countryNm = isInterNatl?.countryNameS ?? ""
            
         }
         else{
@@ -386,10 +397,21 @@ class ShippingModuleVC: BaseViewController {
 //        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
         
         var deliveryPin = String()
+        
         self.shippingAddressesStruct.details?.enumerated().forEach { index, itm in
             
             if itm.isDefault == 1{
                 deliveryPin = itm.pinCode ?? ""
+                self.shippingCountry = itm.countryNameS ?? ""
+            }
+            
+        }
+        
+        self.billingAddressesStruct.details?.enumerated().forEach { index, itm in
+            
+            if itm.isDefault == 1{
+                
+                self.billingCountry = itm.countryNameS ?? ""
             }
             
         }
@@ -401,7 +423,9 @@ class ShippingModuleVC: BaseViewController {
             "deliveryPincode" : deliveryPin,
             "collectFromHub" : self.isShippingByHub,
             "orderType": self.orderType,// cart, buy now
-            "certificateNo" : self.certificateNo
+            "certificateNo" : self.certificateNo,
+            "billingCountry" : self.billingCountry,
+            "shippingCountry" : self.shippingCountry
 
         ]
             
@@ -455,22 +479,23 @@ class ShippingModuleVC: BaseViewController {
             if !isOpenNEFT{
                 if let bnkID = self.bankingInfoStruct.details?.netBanking?.allBanks?[index].bankID {
                     self.selectedBankID  = bnkID
+                   // self.shippingTableView.reloadSections(IndexSet(integer: 2), with: .none)
                 }
                 
                 
                 let indexPath = IndexPath(row: 0, section: 2)
                 if let cell = self.shippingTableView.cellForRow(at: indexPath) as? PaymentOptionTVC {
-                    if index < 2{
+                   // if index < 2{
                         
                         let indexPath = IndexPath(row: index, section: 0)
                         cell.selectedIndex(index: indexPath)
                         
-                    }
-                    else{
-                        cell.selectedIndexPath = IndexPath()
-                        cell.banksCollectionView.reloadData()
-                    }
-                    
+//                    }
+//                    else{
+//                        cell.selectedIndexPath = IndexPath()
+//                        cell.banksCollectionView.reloadData()
+//                    }
+//                    
                     
                 }
             }
@@ -482,47 +507,105 @@ class ShippingModuleVC: BaseViewController {
     }
     
     
+    func checkAddressSelectedShipping() -> Bool{
+       
+        var isShippingAddress = false
+
+        
+        if selectedIndexPathShipping != nil {
+
+         let isInterNatl = self.shippingAddressesStruct.details?[self.selectedIndexPathShipping?.row ?? 0]
+            isShippingAddress = true
+         
+        }
+        
+        else {  self.shippingAddressesStruct.details?.enumerated().forEach { index, itm in
+            if itm.isDefault == 1{
+                isShippingAddress = true
+            }
+            
+          }
+            
+        }
+        
+      
+        return isShippingAddress
+    }
+    
+    func checkAddressSelectedBilling() -> Bool{
+       
+        var isBillingAddress = false
+       
+
+        if selectedIndexPathBilling != nil {
+       
+            let isInterNatl = self.billingAddressesStruct.details?[self.selectedIndexPathBilling?.row ?? 0]
+            isBillingAddress = true
+            
+        }
+        else {
+            self.billingAddressesStruct.details?.enumerated().forEach { index, itm in
+                if itm.isDefault == 1{
+                    isBillingAddress = true
+                }
+                
+            }
+        }
+        return isBillingAddress
+    }
     
     
     @IBAction func btnActionProceedPayment(_ sender:UIButton){
         
-        if self.manageTopButtonTag == 0 {
-            self.manageTopButtonTag = 1
-            self.btnKYC.backgroundColor = UIColor.tabSelectClr
-            self.btnKYC.tintColor = .whitClr
-            self.btnProceadPayment.setTitle("Continue", for: .normal)
-            self.shippingTableView.reloadData()
+        if !checkAddressSelectedShipping() {
+            self.toastMessage("Addn Shipping Address")
+            return
         }
-        else if self.manageTopButtonTag == 1 {
+      
+        if !checkAddressSelectedBilling() {
+            self.toastMessage("Addn Billing Address")
+            return
+        }
+      
+        if checkAddressSelectedShipping() && checkAddressSelectedBilling(){
             
-            if self.btnProceadPayment.titleLabel?.text == "Submit"{
-                self.callAPiForUploadDoc()
-            }
-            else{
-                self.manageTopButtonTag = 2
-                self.btnPayment.backgroundColor = UIColor.tabSelectClr
-                self.btnPayment.tintColor = .whitClr
-                
-                self.btnProceadPayment.setTitle("Place To payment", for: .normal)
-                
+            if self.manageTopButtonTag == 0 {
+                self.manageTopButtonTag = 1
+                self.btnKYC.backgroundColor = UIColor.tabSelectClr
+                self.btnKYC.tintColor = .whitClr
+                self.btnProceadPayment.setTitle("Continue", for: .normal)
                 self.shippingTableView.reloadData()
             }
-            
+            else if self.manageTopButtonTag == 1 {
+                
+                if self.btnProceadPayment.titleLabel?.text == "Submit"{
+                    self.callAPiForUploadDoc()
+                }
+                else{
+                    self.manageTopButtonTag = 2
+                    self.btnPayment.backgroundColor = UIColor.tabSelectClr
+                    self.btnPayment.tintColor = .whitClr
+                    
+                    self.btnProceadPayment.setTitle("Tap To Pay", for: .normal)
+                    
+                    self.shippingTableView.reloadData()
+                }
+                
+            }
+            else{
+                // self.btnProceadPayment.setTitle("Place To payment", for: .normal)
+                // payment method
+                self.callAPiForProceadPayment()
+                
+                //            if self.btnProceadPayment.titleLabel?.text == "Submit"{
+                //                self.callAPiForUploadDoc()
+                //            }
+                //            else{
+                //                //self.callAPiForProceadPayment()
+                //            }
+                
+            }
         }
-        else{
-           // self.btnProceadPayment.setTitle("Place To payment", for: .normal)
-            // payment method
-            self.callAPiForProceadPayment()
-            
-//            if self.btnProceadPayment.titleLabel?.text == "Submit"{
-//                self.callAPiForUploadDoc()
-//            }
-//            else{
-//                //self.callAPiForProceadPayment()
-//            }
-
-        }
-        
     }
     
     
@@ -633,7 +716,9 @@ class ShippingModuleVC: BaseViewController {
             //self.callAPIWithPhonePeProceedPayment()
             
         default:
-            print("")
+            let topOffset = CGPoint(x: 0, y: 0)
+            self.shippingTableView.setContentOffset(topOffset, animated: true)
+            self.toastMessage("Select payment method first")
         }
     }
 
@@ -738,27 +823,55 @@ class ShippingModuleVC: BaseViewController {
             self.btnPayment.backgroundColor = UIColor.whitClr
             self.btnPayment.tintColor = .tabSelectClr
             self.btnProceadPayment.setTitle("Continue", for: .normal)
+            //self.applyCouponCode(couponCode: "", waletPoint: "", paymentMode: "")
         case 1:
-            self.manageTopButtonTag = sender.tag
-            self.btnShipping.backgroundColor = UIColor.tabSelectClr
-            self.btnShipping.tintColor = .whitClr
             
-            self.btnKYC.backgroundColor = UIColor.tabSelectClr
-            self.btnKYC.tintColor = .whitClr
+            if !checkAddressSelectedShipping() {
+                self.toastMessage("Addn Shipping Address")
+                return
+            }
+          
+            if !checkAddressSelectedBilling() {
+                self.toastMessage("Addn Billing Address")
+                return
+            }
             
-            self.btnPayment.backgroundColor = UIColor.whitClr
-            self.btnPayment.tintColor = .tabSelectClr
-            self.btnProceadPayment.setTitle("Continue", for: .normal)
-            
+            if checkAddressSelectedBilling() && checkAddressSelectedShipping() {
+                
+                self.manageTopButtonTag = sender.tag
+                self.btnShipping.backgroundColor = UIColor.tabSelectClr
+                self.btnShipping.tintColor = .whitClr
+                
+                self.btnKYC.backgroundColor = UIColor.tabSelectClr
+                self.btnKYC.tintColor = .whitClr
+                
+                self.btnPayment.backgroundColor = UIColor.whitClr
+                self.btnPayment.tintColor = .tabSelectClr
+                self.btnProceadPayment.setTitle("Continue", for: .normal)
+            }
+            //self.applyCouponCode(couponCode: "", waletPoint: "", paymentMode: "")
         case 2:
-            self.manageTopButtonTag = sender.tag
-            self.btnShipping.backgroundColor = UIColor.tabSelectClr
-            self.btnShipping.tintColor = .whitClr
-            self.btnKYC.backgroundColor = UIColor.tabSelectClr
-            self.btnKYC.tintColor = .whitClr
-            self.btnPayment.backgroundColor = UIColor.tabSelectClr
-            self.btnPayment.tintColor = .whitClr
-            self.btnProceadPayment.setTitle("Procead To Payment", for: .normal)
+            if !checkAddressSelectedShipping() {
+                self.toastMessage("Addn Shipping Address")
+                return
+            }
+          
+            if !checkAddressSelectedBilling() {
+                self.toastMessage("Addn Billing Address")
+                return
+            }
+            
+            if checkAddressSelectedBilling() && checkAddressSelectedShipping() {
+                
+                self.manageTopButtonTag = sender.tag
+                self.btnShipping.backgroundColor = UIColor.tabSelectClr
+                self.btnShipping.tintColor = .whitClr
+                self.btnKYC.backgroundColor = UIColor.tabSelectClr
+                self.btnKYC.tintColor = .whitClr
+                self.btnPayment.backgroundColor = UIColor.tabSelectClr
+                self.btnPayment.tintColor = .whitClr
+                self.btnProceadPayment.setTitle("Tap to Pay", for: .normal)
+            }
         default:
             print("")
         }
@@ -771,13 +884,58 @@ class ShippingModuleVC: BaseViewController {
         CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
         
         var deliveryPin = String()
-        self.shippingAddressesStruct.details?.enumerated().forEach { index, itm in
+
+        if selectedIndexPathShipping != nil {
+
+         let isInterNatl = self.shippingAddressesStruct.details?[self.selectedIndexPathShipping?.row ?? 0]
+            self.shippingCountry = isInterNatl?.countryNameS ?? ""
+            deliveryPin = isInterNatl?.pinCode ?? ""
             
-            if itm.isDefault == 1{
-                deliveryPin = itm.pinCode ?? ""
+    
+            if self.shippingAddUpdate{
+                self.shippingAddressesStruct.details?.enumerated().forEach { index, itm in
+                    if itm.isDefault == 1{
+                        deliveryPin = itm.pinCode ?? ""
+                        self.shippingCountry = itm.countryNameS ?? ""
+                    }
+                }
             }
             
         }
+        
+        else {  self.shippingAddressesStruct.details?.enumerated().forEach { index, itm in
+            if itm.isDefault == 1{
+                deliveryPin = itm.pinCode ?? ""
+                self.shippingCountry = itm.countryNameS ?? ""
+            }
+            
+          }
+            
+        }
+        
+        if selectedIndexPathBilling != nil {
+
+         let isInterNatl = self.billingAddressesStruct.details?[self.selectedIndexPathBilling?.row ?? 0]
+            self.billingCountry = isInterNatl?.countryNameS ?? ""
+            
+            if billingAddUpdate{
+                self.billingAddressesStruct.details?.enumerated().forEach { index, itm in
+                    if itm.isDefault == 1{
+                        self.billingCountry = itm.countryNameS ?? ""
+                    }
+                    
+                }
+            }
+        }
+        else {
+            self.billingAddressesStruct.details?.enumerated().forEach { index, itm in
+                if itm.isDefault == 1{
+                    self.billingCountry = itm.countryNameS ?? ""
+                }
+                
+            }
+        }
+        
         
         let param : [String : Any] = [
             "couponCode" : "\(couponCode)",
@@ -786,7 +944,9 @@ class ShippingModuleVC: BaseViewController {
             "deliveryPincode" : deliveryPin,
             "collectFromHub" : self.isShippingByHub,
             "orderType": self.orderType,// cart, buy now
-            "certificateNo" : self.certificateNo
+            "certificateNo" : self.certificateNo,
+            "billingCountry" : self.billingCountry,
+            "shippingCountry" : self.shippingCountry
             
         ]
         
@@ -796,10 +956,34 @@ class ShippingModuleVC: BaseViewController {
         ShippingModuleModel.shareInstence.getCheckOutDetailsAPI(url: url, requestParam: param, completion: { data, msg in
             if data.status == 1{
                 self.checkOutDetails = data
-                self.shippingTableView.reloadData()
-                //self.shippingTableView.reloadData()
                 
-                //                let indexPath = IndexPath(row: 0, section: 4)
+                if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+                //let currncyVal = self.currencyRateDetailObj.value ?? 1
+                    let finalVal = self.checkOutDetails.finalAmount ?? 0
+                    let formattedNumber = self.formatNumberWithoutDeciml(Double(finalVal))
+                    self.lblTotalAmount.text = "\(currncySimbol)\(formattedNumber)"
+                    self.amountTotal = "\(finalVal)"
+                }
+                else{
+                    let formattedNumber = self.formatNumberWithoutDeciml(Double(self.checkOutDetails.finalAmount ?? 0))
+                    self.amountTotal = "\(self.checkOutDetails.finalAmount ?? 0)"
+                    self.lblTotalAmount.text = "₹\(formattedNumber)"
+                }
+                
+                if self.manageTopButtonTag == 0{
+                    DispatchQueue.main.async {
+                           let sectionIndices = IndexSet(integersIn: 2...3)
+                           self.shippingTableView.reloadSections(sectionIndices, with: .automatic)
+                       }
+                }
+                else{
+                    self.shippingTableView.reloadData()
+                }
+                
+                
+                
+                
+                //  let indexPath = IndexPath(row: 0, section: 4)
                 //                if let cell = self.shippingTableView.cellForRow(at: indexPath) as? OrderSummeryWithItemTVC {
                 //                    cell.setupData(checkOutData: self.checkOutDetails)
                 //                }
@@ -850,7 +1034,7 @@ class ShippingModuleVC: BaseViewController {
             
         }
         
-        var uniqDeviceID = self.getSessionUniqID()
+        let uniqDeviceID = self.getSessionUniqID()
         
         let param : [String : Any] = [
                "billingAddress": billingAddssID,
@@ -1082,8 +1266,12 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
             }
         case 2:
             
-            if let isInterNatl = self.shippingAddressesStruct.details?[self.selectedIndexPathShipping?.row ?? 0]{
-                if isInterNatl.countryNameS == "United Arab Emirates"{
+            
+            if selectedIndexPathShipping != nil {
+
+            
+             let isInterNatl = self.shippingAddressesStruct.details?[self.selectedIndexPathShipping?.row ?? 0]
+                if isInterNatl?.countryNameS == "United Arab Emirates"{
                     indexSectionCnt = 4
                 }
                 else{
@@ -1142,14 +1330,30 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                 let cell = tableView.dequeueReusableCell(withIdentifier: ShippingAddressListingTVC.cellIdentifierShippingAddressListingTVc, for: indexPath) as! ShippingAddressListingTVC
                 cell.selectionStyle = .none
                 cell.lblHeaderTitle.text = "Shipping Address"
+              
                 cell.updateDataIncell(cellData: self.shippingAddressesStruct)
+                
                 cell.btnActionAddAddress = {
                     self.gotoAddAddress(index: 1)
                 }
                 
+                if let selected = self.selectedIndexPathShipping {
+                    cell.selectedIndexPath = selected
+                    cell.ischangeAddress = true
+                }
+                
                 
                 cell.btnActionEdit = { index in
-                    if let data = self.shippingAddressesStruct.details{                        self.navigationManager(AddShippingAddressVC.self, storyboardName: "ShippingAddress", storyboardID: "AddShippingAddressVC", data: data[index])
+                    if let data = self.shippingAddressesStruct.details{ 
+                        
+                        let storyBoard: UIStoryboard = UIStoryboard(name: "ShippingAddress", bundle: nil)
+                        let vc = storyBoard.instantiateViewController(withIdentifier: "AddShippingAddressVC") as! AddShippingAddressVC
+                        vc.delegate = self
+                        vc.isEdit = true
+                        vc.dataObj = data[index]
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        
+                       // self.navigationManager(AddShippingAddressVC.self, storyboardName: "ShippingAddress", storyboardID: "AddShippingAddressVC", data: data[index])
                     }
                 }
               
@@ -1158,7 +1362,9 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                             tableView.deselectRow(at: selected, animated: true)
                         }
                         
+                    
                         self.selectedIndexPathShipping = tag
+                        self.applyCouponCode(couponCode: "", waletPoint: "", paymentMode: "")
                         cell.shippingAddressCollectionView.reloadData()
 //
                 }
@@ -1201,9 +1407,23 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                 }
                 
                 
+                if let selected = self.selectedIndexPathBilling {
+                    cell.selectedIndexPath = selected
+                    cell.ischangeAddress = true
+                }
+                
                 cell.btnActionEdit = { index in
                     if  let data = self.billingAddressesStruct.details{
-                        self.navigationManager(AddBillingAddress.self, storyboardName: "BillingAddress", storyboardID: "AddBillingAddress", data: data[index])
+                        
+                        let storyBoard: UIStoryboard = UIStoryboard(name: "BillingAddress", bundle: nil)
+                        let vc = storyBoard.instantiateViewController(withIdentifier: "AddBillingAddress") as! AddBillingAddress
+                        vc.delegate = self
+                        vc.isEdit = true
+                     
+                        vc.dataObj = data[index]
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        
+                       // self.navigationManager(AddBillingAddress.self, storyboardName: "BillingAddress", storyboardID: "AddBillingAddress", data: data[index])
                     }
                 }
                 
@@ -1216,15 +1436,18 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                         }
                         
                         self.selectedIndexPathBilling = tag
+                        self.applyCouponCode(couponCode: "", waletPoint: "", paymentMode: "")
                         cell.shippingAddressCollectionView.reloadData()
                 }
                 return cell
             case 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: OrderSummeryWithItemTVC.cellIdentifierOrderSummeryWithItemTVC, for: indexPath) as! OrderSummeryWithItemTVC
                 cell.selectionStyle = .none
+                cell.baseVC = self
                 cell.currencyRateDetailObj = currencyRateDetailObj
                 cell.setupData(checkOutData: self.checkOutDetails, isPaymentSection: self.manageTopButtonTag)
                 cell.reloadCollection(cartData: self.CartDataObj, singleDimd: self.diamondDetailsOBJ)
+              
                 return cell
             default:
                 return UITableViewCell()
@@ -1326,8 +1549,18 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                     cell.delegate = self
                    if self.checkOutDetails.isCoupanApplied == 1{
                        // if self.checkOutDetails. == 1 {
+                      if self.checkOutDetails.coupenStatus == 1 {
                            cell.btnPointVeryfy.isHidden = true
                            cell.btnPointVeryfied.isHidden = false
+                       }
+                       else{
+                           cell.btnPointVeryfy.isHidden = false
+                           cell.btnPointVeryfied.isHidden = true
+                           self.toastMessage(self.checkOutDetails.couperMSG ?? "")
+                       }
+                       
+                       
+                          
                       // }
                     }
                     
@@ -1374,7 +1607,7 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                     cell.bnkCellTap = { tag in
                        
                             if let netBankInfo = self.bankingInfoStruct.details?.netBanking?.popularBanks {
-                                // var selectedIndex = netBankInfo.popularBanks?[indexPath.row].img
+                                //var selectedIndex = netBankInfo.popularBanks?[indexPath.row].img
                                 self.selectedBankID  = netBankInfo[tag].bankID ?? ""
                                 cell.txtSelectedBnk.text = netBankInfo[tag].bankName
                             }
@@ -1389,6 +1622,7 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                             self.isCellExpandedPaymentOption.toggle()
                             cell.paymentOptionViewHideShow(isShow: self.isCellExpandedPaymentOption)
                             cell.banksViewBG.isHidden = true
+                            self.isCellExpandedPaymentOption2 = false
                            // self.shippingTableView.reloadData()
                             
                         }
@@ -1434,20 +1668,20 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                     
                     cell.btnActionBanks = { tag in
                         self.seletedBankInt = tag
-                        if tag == 0{
-                            cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
-                            cell.lblSWIFT.text = self.bankInfoStruct.details?.first?.swift
-                            cell.lblBranchName.text = self.bankInfoStruct.details?.first?.branchName
-                            cell.lblBankName.text = self.bankInfoStruct.details?.first?.bankName
-                            cell.lblAccountNum.text = self.bankInfoStruct.details?.first?.accountNumber
-                        }
-                        else{
-                            cell.lblIFSC.text = self.bankInfoStruct.details?.last?.ifsc
-                            cell.lblSWIFT.text = self.bankInfoStruct.details?.last?.swift
-                            cell.lblBranchName.text = self.bankInfoStruct.details?.last?.branchName
-                            cell.lblBankName.text = self.bankInfoStruct.details?.last?.bankName
-                            cell.lblAccountNum.text = self.bankInfoStruct.details?.last?.accountNumber
-                        }
+                       // if tag == 0{
+                            cell.lblIFSC.text = self.bankInfoStruct.details?[tag].ifsc
+                            cell.lblSWIFT.text = self.bankInfoStruct.details?[tag].swift
+                            cell.lblBranchName.text = self.bankInfoStruct.details?[tag].branchName
+                            cell.lblBankName.text = self.bankInfoStruct.details?[tag].bankName
+                            cell.lblAccountNum.text = self.bankInfoStruct.details?[tag].accountNumber
+//                        }
+//                        else{
+//                            cell.lblIFSC.text = self.bankInfoStruct.details?.last?.ifsc
+//                            cell.lblSWIFT.text = self.bankInfoStruct.details?.last?.swift
+//                            cell.lblBranchName.text = self.bankInfoStruct.details?.last?.branchName
+//                            cell.lblBankName.text = self.bankInfoStruct.details?.last?.bankName
+//                            cell.lblAccountNum.text = self.bankInfoStruct.details?.last?.accountNumber
+//                        }
                     }
                     
                     cell.btnDate = {
@@ -1457,18 +1691,18 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                     }
                     
                     
-                    if  let imageURLfst = URL(string: self.bankInfoStruct.details?.first?.image ?? "") {
+                    if  let imageURLfst = URL(string: self.bankInfoStruct.details?[self.seletedBankInt].image ?? "") {
                         cell.btnBank1SBG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLfst)
                         cell.imgViewBnk1.sd_setImage(with: imageURLfst, placeholderImage: nil, options: .highPriority, completed: nil)
                     }
                     
                     
-                    if  let imageURLlst = URL(string: self.bankInfoStruct.details?.last?.image ?? "") {
-                        cell.btnBank2BG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLlst)
-                        
-                        cell.imgViewBnk2.sd_setImage(with: imageURLlst, placeholderImage: nil, options: .highPriority, completed: nil)
-                        
-                    }
+//                    if  let imageURLlst = URL(string: self.bankInfoStruct.details?.last?.image ?? "") {
+//                        cell.btnBank2BG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLlst)
+//                        
+//                        cell.imgViewBnk2.sd_setImage(with: imageURLlst, placeholderImage: nil, options: .highPriority, completed: nil)
+//                        
+//                    }
                     
                     cell.paymentModeAction = {
                         self.isOpenNEFT = true
@@ -1566,9 +1800,19 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                     cell.delegate = self
                     
                    if self.checkOutDetails.isCoupanApplied == 1{
+                       
+                       if self.checkOutDetails.coupenStatus == 1 {
+                            cell.btnPointVeryfy.isHidden = true
+                            cell.btnPointVeryfied.isHidden = false
+                        }
+                        else{
+                            cell.btnPointVeryfy.isHidden = false
+                            cell.btnPointVeryfied.isHidden = true
+                            self.toastMessage(self.checkOutDetails.couperMSG ?? "")
+                        }
                        // if self.checkOutDetails. == 1 {
-                           cell.btnPointVeryfy.isHidden = true
-                           cell.btnPointVeryfied.isHidden = false
+//                           cell.btnPointVeryfy.isHidden = true
+//                           cell.btnPointVeryfied.isHidden = false
                       // }
                     }
                     
@@ -1638,6 +1882,7 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                             self.isCellExpandedPaymentOption.toggle()
                             cell.paymentOptionViewHideShow(isShow: self.isCellExpandedPaymentOption)
                             cell.banksViewBG.isHidden = true
+                            self.isCellExpandedPaymentOption2 = false
                             //self.shippingTableView.reloadData()
                             
                           
@@ -1811,13 +2056,60 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
     
     func gotoAddAddress(index:Int){
         if index == 0{
-            self.navigationManager(storybordName: "BillingAddress", storyboardID: "AddBillingAddress", controller: AddBillingAddress())
+           // self.navigationManager(storybordName: "BillingAddress", storyboardID: "AddBillingAddress", controller: AddBillingAddress())
+            
+            let storyBoard: UIStoryboard = UIStoryboard(name: "BillingAddress", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "AddBillingAddress") as! AddBillingAddress
+            vc.delegate = self
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+            
         }
         else{
-            self.navigationManager(storybordName: "ShippingAddress", storyboardID: "AddShippingAddressVC", controller: AddShippingAddressVC())
+            
+            let storyBoard: UIStoryboard = UIStoryboard(name: "ShippingAddress", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "AddShippingAddressVC") as! AddShippingAddressVC
+            vc.delegate = self
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+          //  self.navigationManager(storybordName: "ShippingAddress", storyboardID: "AddShippingAddressVC", controller: AddShippingAddressVC())
         }
     }
 
+    
+}
+
+extension ShippingModuleVC :  AddAddressDelegate{
+    func didUpdateAPISuccessfully(message: String) {
+        print(message)
+        if message == "Shipping"{
+            self.getShippingAddressAPICalling { success in
+                if isDefalutShipping {
+                    self.shippingAddUpdate = true
+                }
+                self.shippingCountry = String()
+                self.selectedIndexPathShipping = nil
+                self.shippingTableView.reloadSections(IndexSet(integer: 0), with: .none)
+                self.applyCouponCode(couponCode: "", waletPoint: "", paymentMode: "")
+            }
+            
+        }
+        else{
+            self.getBillingAddressAPICalling { success in
+                if isDefalutBilling {
+                    self.billingAddUpdate = true
+                }
+                
+                self.billingCountry = String()
+                self.selectedIndexPathBilling = nil
+                self.shippingTableView.reloadSections(IndexSet(integer: 1), with: .none)
+                self.applyCouponCode(couponCode: "", waletPoint: "", paymentMode: "")
+            }
+           
+        }
+       
+    }
+    
     
 }
 

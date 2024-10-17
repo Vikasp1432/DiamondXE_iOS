@@ -6,12 +6,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="LATO-REGULAR.TTF">
             <string>Lato-Regular</string>
+        </array>
+        <array key="LATO.SEMIBOLD.TTF">
+            <string>Lato-Semibold</string>
         </array>
     </customFonts>
     <objects>
@@ -70,7 +72,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="w43-NU-eYo" secondAttribute="bottom" constant="5" id="5F4-aR-XMU"/>
                                             <constraint firstAttribute="trailing" secondItem="w43-NU-eYo" secondAttribute="trailing" constant="5" id="FpC-ai-2sf"/>
@@ -166,7 +168,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstItem="2Bn-iI-keI" firstAttribute="centerY" secondItem="9wC-yg-dgS" secondAttribute="centerY" id="57y-dd-zV7"/>
                                             <constraint firstAttribute="bottom" secondItem="mpa-4n-cgv" secondAttribute="bottom" constant="5" id="6Na-uq-EC1"/>
@@ -203,7 +205,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ka3-nl-MxG">
-                                        <rect key="frame" x="362" y="83.333333333333329" width="61" height="24"/>
+                                        <rect key="frame" x="362" y="85.666666666666671" width="61" height="24"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udM-g2-eU5">
                                                 <rect key="frame" x="7" y="5" width="47" height="14"/>
@@ -392,22 +394,30 @@
                                             <constraint firstAttribute="height" constant="30" id="0VY-en-lJ1"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lI-T3-nkT">
-                                        <rect key="frame" x="283" y="117.33333333333331" width="140" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="F03-V1-1jJ"/>
-                                        </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="₹18,72,50481">
-                                                <attributes>
-                                                    <color key="NSColor" name="gradient2"/>
-                                                    <font key="NSFont" size="20" name="Lato-Semibold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="YI4-ef-uTG">
+                                        <rect key="frame" x="265" y="119.66666666666667" width="158" height="21.666666666666671"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lI-T3-nkT">
+                                                <rect key="frame" x="0.0" y="0.0" width="158" height="21.666666666666668"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="₹18,72,50481">
+                                                        <attributes>
+                                                            <color key="NSColor" name="gradient2"/>
+                                                            <font key="NSFont" size="18" name="Lato-Semibold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwT-ih-jrO">
+                                                <rect key="frame" x="0.0" y="21.666666666666686" width="158" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
+                                                <color key="textColor" name="757677"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVl-fc-cJ2">
                                         <rect key="frame" x="341" y="143.33333333333334" width="82" height="11"/>
                                         <attributedString key="attributedText">
@@ -427,19 +437,19 @@
                                     <constraint firstItem="ka3-nl-MxG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m4F-B9-0ks" secondAttribute="trailing" constant="10" id="1AL-Nv-CXR"/>
                                     <constraint firstItem="m4F-B9-0ks" firstAttribute="leading" secondItem="BZy-zx-Y3F" secondAttribute="leading" constant="15" id="1Av-Fq-15E"/>
                                     <constraint firstItem="m4F-B9-0ks" firstAttribute="top" secondItem="2DY-oO-uwY" secondAttribute="bottom" constant="5" id="1TA-kS-DUl"/>
-                                    <constraint firstItem="pVl-fc-cJ2" firstAttribute="top" secondItem="3lI-T3-nkT" secondAttribute="bottom" constant="2" id="1ZE-7a-ZpT"/>
-                                    <constraint firstItem="3lI-T3-nkT" firstAttribute="top" secondItem="ka3-nl-MxG" secondAttribute="bottom" constant="10" id="3Pe-Be-OuQ"/>
                                     <constraint firstItem="2DY-oO-uwY" firstAttribute="top" secondItem="R2P-tN-V5A" secondAttribute="bottom" constant="5" id="9x1-ed-cwM"/>
-                                    <constraint firstItem="3lI-T3-nkT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7nv-lS-iJY" secondAttribute="trailing" constant="10" id="Au7-bT-mPJ"/>
-                                    <constraint firstItem="3lI-T3-nkT" firstAttribute="centerY" secondItem="7nv-lS-iJY" secondAttribute="centerY" id="JR7-Pm-ew8"/>
+                                    <constraint firstAttribute="trailing" secondItem="YI4-ef-uTG" secondAttribute="trailing" constant="10" id="BuV-oo-r0K"/>
+                                    <constraint firstItem="pVl-fc-cJ2" firstAttribute="top" secondItem="YI4-ef-uTG" secondAttribute="bottom" constant="2" id="IsL-eg-GJN"/>
+                                    <constraint firstAttribute="bottom" secondItem="pVl-fc-cJ2" secondAttribute="bottom" constant="10" id="PLW-XG-jpV"/>
+                                    <constraint firstItem="YI4-ef-uTG" firstAttribute="top" secondItem="ka3-nl-MxG" secondAttribute="bottom" constant="10" id="Qtd-F5-dkU"/>
+                                    <constraint firstItem="YI4-ef-uTG" firstAttribute="leading" secondItem="7nv-lS-iJY" secondAttribute="trailing" constant="5" id="Rvb-e5-0Oo"/>
                                     <constraint firstItem="R2P-tN-V5A" firstAttribute="leading" secondItem="BZy-zx-Y3F" secondAttribute="leading" constant="15" id="Vdo-ub-CZF"/>
-                                    <constraint firstItem="pVl-fc-cJ2" firstAttribute="trailing" secondItem="3lI-T3-nkT" secondAttribute="trailing" id="Xt7-2G-B25"/>
                                     <constraint firstItem="7nv-lS-iJY" firstAttribute="leading" secondItem="BZy-zx-Y3F" secondAttribute="leading" constant="15" id="YwO-g9-2PG"/>
                                     <constraint firstItem="2DY-oO-uwY" firstAttribute="leading" secondItem="BZy-zx-Y3F" secondAttribute="leading" constant="15" id="dk8-cG-tqz"/>
-                                    <constraint firstItem="ka3-nl-MxG" firstAttribute="trailing" secondItem="3lI-T3-nkT" secondAttribute="trailing" id="fTS-Zn-m6l"/>
                                     <constraint firstItem="R2P-tN-V5A" firstAttribute="top" secondItem="BZy-zx-Y3F" secondAttribute="top" constant="10" id="hag-Sn-v6q"/>
                                     <constraint firstAttribute="bottom" secondItem="7nv-lS-iJY" secondAttribute="bottom" constant="20" id="jLb-A6-9fj"/>
-                                    <constraint firstAttribute="trailing" secondItem="3lI-T3-nkT" secondAttribute="trailing" constant="10" id="sY2-UO-6dd"/>
+                                    <constraint firstAttribute="trailing" secondItem="pVl-fc-cJ2" secondAttribute="trailing" constant="10" id="nss-Z9-sM2"/>
+                                    <constraint firstAttribute="trailing" secondItem="ka3-nl-MxG" secondAttribute="trailing" constant="10" id="oiS-0C-UUU"/>
                                     <constraint firstItem="7nv-lS-iJY" firstAttribute="top" secondItem="m4F-B9-0ks" secondAttribute="bottom" constant="10" id="tNp-dT-PUA"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -635,6 +645,7 @@
                 <outlet property="lblDevidr2" destination="2Bn-iI-keI" id="REb-M7-HVw"/>
                 <outlet property="lblDevidr3" destination="jyT-en-DeQ" id="ynQ-7i-n7Z"/>
                 <outlet property="lblDiscount" destination="udM-g2-eU5" id="jld-j8-yrj"/>
+                <outlet property="lblDiscountPrice" destination="wwT-ih-jrO" id="CMP-RD-aqx"/>
                 <outlet property="lblDocNumber" destination="q2L-h0-RZJ" id="Nx2-jY-XeT"/>
                 <outlet property="lblFlouro" destination="boo-6y-2Tb" id="8Ag-vg-vYH"/>
                 <outlet property="lblLotID" destination="w43-NU-eYo" id="u7A-6h-piK"/>
@@ -678,8 +689,5 @@
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

@@ -8,6 +8,11 @@
 import UIKit
 import DTTextField
 
+var isDefalutShipping = Bool()
+protocol AddAddressDelegate: AnyObject {
+    func didUpdateAPISuccessfully(message: String)
+}
+
 class AddShippingAddressVC: BaseViewController, DataReceiver {
     
     func receiveData(_ data: AddressDetail) {
@@ -16,6 +21,8 @@ class AddShippingAddressVC: BaseViewController, DataReceiver {
     }
     
     var dataObj = AddressDetail()
+    
+    @IBOutlet var lblTitleTop:UILabel!
     
     @IBOutlet var btnHomeTime:UIButton!
     @IBOutlet var btnOfficeTime:UIButton!
@@ -55,10 +62,14 @@ class AddShippingAddressVC: BaseViewController, DataReceiver {
     var cityID : Int?
     var cityName : String?
     
+    var isEdit = false
+    
     var isSetDefault = false
     
     var isEmailVerified = 1
     var addressID = Int()
+    
+    var delegate : AddAddressDelegate?
 
 
     override func viewDidLoad() {
@@ -75,6 +86,12 @@ class AddShippingAddressVC: BaseViewController, DataReceiver {
         txtMobile.paddingX = 100
         txEmail.paddingX = 70
         self.setupData()
+        
+        if isEdit {
+            self.lblTitleTop.text = "Edit Shipping Address"
+        }
+        
+        
     }
     
     
@@ -94,6 +111,17 @@ class AddShippingAddressVC: BaseViewController, DataReceiver {
             self.countryId = self.dataObj.countryName ?? 0
             self.stateID = self.dataObj.stateName
             self.addressID = addID
+            
+            if dataObj.isDefault == 1{
+                self.isSetDefault = true
+                btnSetDefault.setImage(UIImage(named: "checked"), for: .normal)
+               
+                
+            }
+            else{
+                
+                btnSetDefault.setImage(UIImage(named: "uncheck"), for: .normal)
+            }
             
         }
     }
@@ -217,7 +245,10 @@ class AddShippingAddressVC: BaseViewController, DataReceiver {
                  url = APIs().get_AddAddress_API
             }
             
-            
+            var defaultAddress = 0
+            if self.isSetDefault{
+                defaultAddress = 1
+            }
             let param :[String:Any] = ["addressId" : "\(addressID)",
                 "emailId" :          self.txEmail.text ?? "",
                                        "mobileNo" : "\(self.countryId) \(self.txtMobile.text ?? "")",
@@ -225,7 +256,7 @@ class AddShippingAddressVC: BaseViewController, DataReceiver {
                                        "address1" : self.txAddress1.text ?? "",
                                        "address2" : self.txtAddress2.text ?? "",
                                        "pinCode" : self.txPincode.text ?? "",
-                                       "isDefault" : self.isEmailVerified,
+                                       "isDefault" : defaultAddress,
                                        "GSTNo" : "",
                                        "businessName" : "",
                                        "country" : "\(self.countryId)",
@@ -234,6 +265,7 @@ class AddShippingAddressVC: BaseViewController, DataReceiver {
           
             ShippingAddressModel().addShippingAddress(url: url, requestParam: param, completion: { data, msg in
                 if data.status == 1{
+                    self.delegate?.didUpdateAPISuccessfully(message: "Shipping")
                     self.navigationController?.popViewController(animated: true)
                     self.toastMessage(msg ?? "")
                 }
@@ -339,9 +371,11 @@ class AddShippingAddressVC: BaseViewController, DataReceiver {
     
     @IBAction func btnActionSelectChekBox(_ sender: UIButton){
         isSetDefault.toggle()
+        isDefalutShipping = isSetDefault
         if isSetDefault {
             btnSetDefault.setImage(UIImage(named: "checked"), for: .normal)
         } else {
+            
             btnSetDefault.setImage(UIImage(named: "uncheck"), for: .normal)
         }
         

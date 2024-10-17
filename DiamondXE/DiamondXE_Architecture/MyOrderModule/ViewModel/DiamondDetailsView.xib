@@ -84,13 +84,13 @@
                                 </view>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="m6I-Wg-rQu">
                                     <rect key="frame" x="0.0" y="30" width="363" height="500"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" name="whitClr"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="500" id="iMw-TL-ZMd"/>
                                     </constraints>
                                 </tableView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" name="whitClr"/>
                             <constraints>
                                 <constraint firstItem="m6I-Wg-rQu" firstAttribute="top" secondItem="xJR-6a-3Ns" secondAttribute="bottom" id="6Dw-LI-A1s"/>
                                 <constraint firstItem="xJR-6a-3Ns" firstAttribute="top" secondItem="iAX-ag-t0O" secondAttribute="top" id="HnL-Bh-Gy7"/>
@@ -107,7 +107,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" name="whitClr"/>
                     <constraints>
                         <constraint firstItem="F7N-AR-gWm" firstAttribute="centerX" secondItem="1UL-LL-Aiv" secondAttribute="centerX" id="03L-25-tfG"/>
                         <constraint firstItem="iAX-ag-t0O" firstAttribute="top" secondItem="F7N-AR-gWm" secondAttribute="bottom" constant="15" id="3WB-Da-m1D"/>
@@ -141,6 +141,9 @@
         </namedColor>
         <namedColor name="viewBGClr">
             <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="whitClr">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

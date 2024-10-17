@@ -29,6 +29,7 @@ struct MyOrderDetail: Codable {
     var isCancelable, isReturnable, isReserveOrder: Int?
     var  timeLeftForCancel: String?//paymentReceivedDate,
     var diamonds: [MyOrderDiamond]?
+    var returnEligbleDate, return_date, cancelled_at : String?
 
     enum CodingKeys: String, CodingKey {
         case orderID = "order_id"
@@ -43,9 +44,9 @@ struct MyOrderDetail: Codable {
         case isCancelable = "is_cancelable"
         case isReturnable = "is_returnable"
         case isReserveOrder = "is_reserve_order"
-       // case paymentReceivedDate = "payment_received_date"
+        case returnEligbleDate = "return_eligible_date"
         case timeLeftForCancel = "time_left_for_cancel"
-        case diamonds, reason, comment, cancel_by
+        case diamonds, reason, comment, cancel_by, return_date, cancelled_at
     }
 }
 

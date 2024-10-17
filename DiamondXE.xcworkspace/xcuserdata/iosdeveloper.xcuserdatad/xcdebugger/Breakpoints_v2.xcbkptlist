@@ -15,12 +15,42 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1236"
+<<<<<<< Updated upstream
             endingLineNumber = "1236">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "2C5AAE92-A788-4AC5-B685-3C67B4021C72"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DiamondXE/DiamondXE_Architecture/CustomPayment/ViewModel/CustomPaymentVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "465"
+            endingLineNumber = "465"
+            landmarkName = "callAPIHistoryPayment()"
+=======
+            endingLineNumber = "1236"
+            landmarkName = "tableView(_:willDisplay:forRowAt:)"
+>>>>>>> Stashed changes
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+<<<<<<< Updated upstream
+            uuid = "6FBF3F60-106B-455E-ABFB-53BB1CDEF31B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DiamondXE/DiamondXE_Architecture/Dashboard/ViewModel/MyAccount/PersonalProfileVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+=======
             uuid = "2C5AAE92-A788-4AC5-B685-3C67B4021C72"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -44,6 +74,7 @@
             filePath = "DiamondXE/DiamondXE_Architecture/Dashboard/ViewModel/MyAccount/PersonalProfileVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+>>>>>>> Stashed changes
             startingLineNumber = "78"
             endingLineNumber = "78"
             landmarkName = "companyType(_:)"
@@ -207,6 +238,8 @@
             startingLineNumber = "173"
             endingLineNumber = "173"
             landmarkName = "btnActionRTGS(_:)"
+<<<<<<< Updated upstream
+=======
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -220,6 +253,28 @@
             filePath = "DiamondXE/DiamondXE_Architecture/CustomPayment/ViewModel/CustomPaymentVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "867"
+            endingLineNumber = "867"
+            landmarkName = "tableView(_:cellForRowAt:)"
+>>>>>>> Stashed changes
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+<<<<<<< Updated upstream
+            uuid = "D9A740F6-D1F6-42F5-88E0-5153BD86C3B7"
+=======
+            uuid = "4659537C-30A9-4DD8-9069-FFFEA5238AB9"
+>>>>>>> Stashed changes
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DiamondXE/DiamondXE_Architecture/CustomPayment/ViewModel/CustomPaymentVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+<<<<<<< Updated upstream
             startingLineNumber = "867"
             endingLineNumber = "867"
             landmarkName = "convertDateString(_:)"
@@ -239,6 +294,11 @@
             startingLineNumber = "833"
             endingLineNumber = "833"
             landmarkName = "tableView(_:heightForRowAt:)"
+=======
+            startingLineNumber = "833"
+            endingLineNumber = "833"
+            landmarkName = "tableView(_:cellForRowAt:)"
+>>>>>>> Stashed changes
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

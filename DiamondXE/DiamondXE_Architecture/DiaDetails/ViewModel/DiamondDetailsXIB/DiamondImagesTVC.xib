@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -102,7 +101,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="whitClr"/>
                                                 <constraints>
                                                     <constraint firstItem="DP6-HN-aUY" firstAttribute="top" secondItem="Zqb-3P-DbG" secondAttribute="top" id="4CN-fb-RIN"/>
                                                     <constraint firstAttribute="bottom" secondItem="3Q2-bc-Blf" secondAttribute="bottom" id="5jT-dl-hr8"/>
@@ -136,12 +135,15 @@
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfE-Tb-cd3">
                                                         <rect key="frame" x="0.0" y="0.0" width="69" height="44"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" name="blackClr"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="btnViewAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jjo-ap-j8V"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="whitClr"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="7Iu-2d-IBY" secondAttribute="trailing" constant="5" id="43z-W5-2NN"/>
                                                     <constraint firstAttribute="bottom" secondItem="CfE-Tb-cd3" secondAttribute="bottom" id="91N-Hl-lQk"/>
@@ -175,12 +177,15 @@
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDR-X8-3of">
                                                         <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="44"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" name="blackClr"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="btnViewAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1TW-Yl-ONP"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="whitClr"/>
                                                 <constraints>
                                                     <constraint firstItem="DDR-X8-3of" firstAttribute="leading" secondItem="qb5-Yv-MwS" secondAttribute="leading" id="51i-Z0-tZ6"/>
                                                     <constraint firstItem="DDR-X8-3of" firstAttribute="top" secondItem="qb5-Yv-MwS" secondAttribute="top" id="7NV-Vl-miw"/>
@@ -214,12 +219,15 @@
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFa-FZ-wO3">
                                                         <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="44"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" name="blackClr"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="btnViewAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VER-jj-VXO"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="whitClr"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="KAK-JD-chp" secondAttribute="bottom" id="A1X-nZ-Cti"/>
                                                     <constraint firstItem="JJV-eQ-Enf" firstAttribute="leading" secondItem="Bth-Mh-UHz" secondAttribute="leading" constant="15" id="Cty-pt-SPa"/>
@@ -463,11 +471,11 @@
         <namedColor name="VideBGClr">
             <color red="0.94099998474121094" green="0.90200001001358032" blue="0.89399999380111694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="blackClr">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

@@ -111,8 +111,13 @@ class ForgotPasswordVC: BaseViewController {
             
             let pass = self.txtNewPassword.text ?? ""
             let CNpass = self.txtConfirmPassword.text ?? ""
+            if isValidPassword(password: pass, confirmPassword: CNpass) {
+                print("Password is valid")
+            } else {
+                return
+            }
              
-            if pass == CNpass{
+            //if pass == CNpass{
                 
                 self.resetPassParam.email = self.txtEmail.text ?? ""
                 self.resetPassParam.otp =  Int(self.txtOTP.text ?? "")
@@ -130,9 +135,9 @@ class ForgotPasswordVC: BaseViewController {
                 if let param = parameters{
                     self.resetPass(param: param)
                 }
-            }else{
-                self.toastMessage("Password and confirm password not same")
-            }
+//            }else{
+//                self.toastMessage("Password and confirm password not same")
+//            }
            
         }
             
@@ -172,6 +177,38 @@ class ForgotPasswordVC: BaseViewController {
             
             return true
         }
+    
+    func isValidPassword(password: String, confirmPassword: String) -> Bool {
+        if password != confirmPassword {
+            self.toastMessage("Passwords do not match")
+                return false
+            }
+            
+            // Check if the password is at least 6 characters long
+            if password.count < 8 {
+                self.toastMessage("Password must be at least 8 characters long")
+                return false
+            }
+            
+            // Regular expression for at least one uppercase letter
+            let uppercaseLetterRegex = ".*[A-Z]+.*"
+            let uppercaseLetterTest = NSPredicate(format: "SELF MATCHES %@", uppercaseLetterRegex)
+            if !uppercaseLetterTest.evaluate(with: password) {
+                self.toastMessage("Password must contain at least one uppercase letter")
+                return false
+            }
+            
+            // Regular expression for at least one special character
+            let specialCharacterRegex = ".*[!@#$%^&*(),.?\":{}|<>]+.*"
+            let specialCharacterTest = NSPredicate(format: "SELF MATCHES %@", specialCharacterRegex)
+            if !specialCharacterTest.evaluate(with: password) {
+                self.toastMessage("Password must contain at least one special character")
+                return false
+            }
+            
+            // All conditions are satisfied
+            return true
+    }
         
         
         

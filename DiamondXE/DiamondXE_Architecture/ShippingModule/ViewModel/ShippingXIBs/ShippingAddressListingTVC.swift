@@ -23,7 +23,7 @@ class ShippingAddressListingTVC: UITableViewCell {
     
     var selectedIndexPath : IndexPath?
     
-   var ischangeAddress = false
+    var ischangeAddress = false
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -67,24 +67,30 @@ extension ShippingAddressListingTVC:UICollectionViewDataSource, UICollectionView
         cell.lblName.text = "City Name: \(addressData.details?[indexPath.row].cityNameS ?? "")"
 
         cell.isSelectedCell = (indexPath == selectedIndexPath)
+        
+       
         if !self.ischangeAddress{
+            
             let isDefault = addressData.details?[indexPath.row].isDefault ?? -1
             if isDefault == 0{
                 cell.lblDefaut.isHidden = true
                 cell.isSelectedCell = false
             }
             else{
-                
+                cell.lblDefaut.isHidden = false
                 cell.isSelectedCell = true
                 self.selectedIndexPath = indexPath
             }
+            
         }
         else{
+            
             if selectedIndexPath == indexPath {
                 cell.lblDefaut.isHidden = false
             } else {
                 cell.lblDefaut.isHidden = true
             }
+            
         }
         
       
@@ -119,7 +125,7 @@ extension ShippingAddressListingTVC:UICollectionViewDataSource, UICollectionView
             + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
 
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
-        return CGSize(width: size - 15, height: size - 215 )
+        return CGSize(width: size - 15, height: 190 )
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

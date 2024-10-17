@@ -407,22 +407,22 @@
     </objects>
     <designables>
         <designable name="XPO-qJ-Lof">
-            <size key="intrinsicContentSize" width="107" height="43"/>
+            <size key="intrinsicContentSize" width="91" height="18"/>
         </designable>
         <designable name="eHf-IN-DbE">
-            <size key="intrinsicContentSize" width="88.666666666666671" height="43"/>
+            <size key="intrinsicContentSize" width="72.666666666666671" height="18"/>
         </designable>
         <designable name="eix-ug-0xp">
-            <size key="intrinsicContentSize" width="136" height="43"/>
+            <size key="intrinsicContentSize" width="120" height="18"/>
         </designable>
         <designable name="g7q-yq-ptF">
-            <size key="intrinsicContentSize" width="89.333333333333329" height="43"/>
+            <size key="intrinsicContentSize" width="73.333333333333329" height="18"/>
         </designable>
         <designable name="iwe-2p-0np">
-            <size key="intrinsicContentSize" width="122.33333333333333" height="43"/>
+            <size key="intrinsicContentSize" width="106.33333333333333" height="18"/>
         </designable>
         <designable name="wEe-CR-Qik">
-            <size key="intrinsicContentSize" width="117.66666666666667" height="43"/>
+            <size key="intrinsicContentSize" width="101.66666666666667" height="18"/>
         </designable>
     </designables>
     <resources>

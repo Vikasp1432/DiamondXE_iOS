@@ -68,7 +68,7 @@
                                                     <fragment content="--">
                                                         <attributes>
                                                             <color key="NSColor" name="blackClr"/>
-                                                            <font key="NSFont" size="15" name="Lato-Semibold"/>
+                                                            <font key="NSFont" size="12" name="Lato-Semibold"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -105,7 +105,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="EKe-NN-Sd4"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                 <color key="textColor" name="blackClr"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -138,7 +138,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="VFg-SZ-8Ln"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
                                                 <color key="textColor" name="blackClr"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -171,7 +171,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="9v5-iX-zfF"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                 <color key="textColor" name="blackClr"/>
                                                 <nil key="highlightedColor"/>
                                             </label>

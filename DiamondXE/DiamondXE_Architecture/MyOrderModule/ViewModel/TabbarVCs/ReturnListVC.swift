@@ -29,7 +29,7 @@ class ReturnListVC: BaseViewController, IndicatorInfoProvider {
     }
     var orderListData  = MyOrderDataStruct()
     var page = 1
-    
+    let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,22 @@ class ReturnListVC: BaseViewController, IndicatorInfoProvider {
         tableViewReturn.register(UINib(nibName: MultiItemListTVC.cellIdentifierMultiItemListTVC, bundle: nil), forCellReuseIdentifier: MultiItemListTVC.cellIdentifierMultiItemListTVC)
         self.imgNoDataFnd.isHidden = true
         getOrderListAPI()
-        
+        self.configureRefreshControl()
+    }
+    
+    
+    // pull to refresh
+    func configureRefreshControl() {
+            // Add the refresh control to your table view
+            tableViewReturn.refreshControl = refreshControl
+        self.page = 1
+            //refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        }
+    
+    @objc private func refreshData(_ sender: Any) {
+        // Refresh your data here
+        getOrderListAPI()
     }
     
 
@@ -52,7 +67,6 @@ class ReturnListVC: BaseViewController, IndicatorInfoProvider {
             "limit": "15",
             "page" : self.page,
             "orderType" : "Return"
-            
         ]
         
         let url = APIs().getOrderList_API
@@ -79,7 +93,7 @@ class ReturnListVC: BaseViewController, IndicatorInfoProvider {
             }
             
             //CustomActivityIndicator2.shared.hide()
-            
+            self.refreshControl.endRefreshing()
         })
         
         
@@ -110,28 +124,36 @@ extension ReturnListVC : UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: MultiItemListTVC.cellIdentifierMultiItemListTVC, for: indexPath) as! MultiItemListTVC
                 cell.selectionStyle = .none
                 
-                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
                 
                 let diamndInfo = self.orderListData.details?[indexPath.row]
                 cell.lblOrderID.text = "Order-ID : \(diamndInfo?.orderID ?? Int())"
-                cell.lblDateTime.text = diamndInfo?.createdAt
+                //cell.lblDateTime.text = diamndInfo?.return_date
                 
-                
-                if (diamndInfo?.timeLeftForCancel) == nil || diamndInfo?.timeLeftForCancel == ""{
-                    cell.lblOrderCnclTime.isHidden = true
-                    cell.viewCancelOrder.isHidden = true
+                if let localDateString = convertUTCToLocal(dateString: diamndInfo?.return_date ?? "") {
+                    cell.lblDateTime.text = localDateString
+                } else {
+                    print("Conversion failed")
                 }
-                else{
-//                    self.timerManager = TimerForCancelItem(timeString: diamndInfo?.timeLeftForCancel ?? "", label: cell.lblOrderCnclTime)
-//                    self.timerManager?.delegate = self
+                
+                
+                cell.viewCancelOrder.isHidden = true
+                cell.viewTrackOrder.isHidden = true
+//                if (diamndInfo?.timeLeftForCancel) == nil || diamndInfo?.timeLeftForCancel == ""{
+//                    cell.lblOrderCnclTime.isHidden = true
+//                    cell.viewCancelOrder.isHidden = true
+//                }
+//                else{
+////                    self.timerManager = TimerForCancelItem(timeString: diamndInfo?.timeLeftForCancel ?? "", label: cell.lblOrderCnclTime)
+////                    self.timerManager?.delegate = self
+////                    cell.lblOrderCnclTime.isHidden = false
+//                    
 //                    cell.lblOrderCnclTime.isHidden = false
-                    
-                    cell.lblOrderCnclTime.isHidden = false
-                    cell.lblOrderCnclTime.text = diamndInfo?.timeLeftForCancel ?? ""
-                    cell.viewCancelOrder.isHidden = false
-                   
-                    
-                }
+//                    cell.lblOrderCnclTime.text = diamndInfo?.timeLeftForCancel ?? ""
+//                    cell.viewCancelOrder.isHidden = false
+//                   
+//                    
+//                }
                 
                 cell.btnActionsManage = { tag in
                     switch tag {
@@ -160,32 +182,45 @@ extension ReturnListVC : UITableViewDelegate, UITableViewDataSource {
             else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC, for: indexPath) as! BuyItemInfoTVC
                 cell.selectionStyle = .none
-                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+                cell.lblCnclBy.isHidden = true
+                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
                 let diamndInfo = self.orderListData.details?[indexPath.row]
                 
                 cell.imgDiamond.sd_setImage(with: URL(string: diamndInfo?.diamonds?.first?.diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
                 
                 cell.lblOrderID.text = "Order-ID : \(diamndInfo?.orderID ?? Int())"
-                cell.lblDateTime.text = diamndInfo?.createdAt
+                if let localDateString = convertUTCToLocal(dateString: diamndInfo?.return_date ?? "") {
+                    cell.lblDateTime.text = localDateString
+                } else {
+                    print("Conversion failed")
+                }
+                
+                
+               // cell.lblDateTime.text = diamndInfo?.createdAt
                 cell.lblOrderStatus.text = diamndInfo?.orderStatus
                 cell.lblShape.text = diamndInfo?.diamonds?.first?.shape
                 cell.lblCarat.text = diamndInfo?.diamonds?.first?.carat
                
                 cell.lblColor.text = diamndInfo?.diamonds?.first?.color
                 cell.lblClarity.text = diamndInfo?.diamonds?.first?.clarity
-                cell.lblCertificateNo.text = "StockID : \(diamndInfo?.diamonds?.first?.stockID ?? "")"
+                cell.lblCertificateNo.text = "Certificate No : \(diamndInfo?.diamonds?.first?.certificateNo ?? "")"
+                
+                
+                if let localDateString = convertUTCToLocal(dateString: diamndInfo?.return_date ?? "") {
+                    cell.lblDateTime.text = localDateString
+                } else {
+                    print("Conversion failed")
+                }
                 
                 if let currncySimbol = self.currencyRateDetailObj?.currencySymbol{
-                    let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.diamonds?.first?.totalPrice ?? "") ?? 0)
+                    let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.diamonds?.first?.subTotal ?? "") ?? 0)
                     cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
                     
                 }
                 else{
-                    let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.diamonds?.first?.totalPrice ?? "") ?? 0)
+                    let formattedNumber = formatNumberWithoutDeciml(Double(diamndInfo?.diamonds?.first?.subTotal ?? "") ?? 0)
                     cell.lblPrice.text = "₹\(formattedNumber)"
                 }
-                
-                
                 
                 if diamndInfo?.diamonds?.first?.category == "Natural"{
                     cell.lblDiaType.text = diamndInfo?.diamonds?.first?.category
@@ -196,22 +231,24 @@ extension ReturnListVC : UITableViewDelegate, UITableViewDataSource {
                     cell.viewDiaType.backgroundColor = UIColor.green2
                 }
 
+                cell.viewCancelOrder.isHidden = true
+                cell.viewTrackOrder.isHidden = true
+//                if (diamndInfo?.timeLeftForCancel) == nil || diamndInfo?.timeLeftForCancel == ""{
+//                    cell.lblOrderCnclTime.isHidden = true
+//                    cell.viewCancelOrder.isHidden = true
+//                }
+//                else{
+////                    self.timerManager = TimerForCancelItem(minutes: diamndInfo?.timeLeftForCancel ?? "", label: cell.lblOrderCnclTime)
+////                    self.timerManager?.delegate = self
+//                    cell.lblOrderCnclTime.isHidden = false
+//                    cell.lblOrderCnclTime.text = diamndInfo?.timeLeftForCancel ?? ""
+//                    
+//                    cell.viewCancelOrder.isHidden = false
+//                  
+//                    
+//                }
                 
-                if (diamndInfo?.timeLeftForCancel) == nil || diamndInfo?.timeLeftForCancel == ""{
-                    cell.lblOrderCnclTime.isHidden = true
-                    cell.viewCancelOrder.isHidden = true
-                }
-                else{
-
-                    cell.lblOrderCnclTime.isHidden = false
-                    cell.lblOrderCnclTime.text = diamndInfo?.timeLeftForCancel ?? ""
-                    
-                    cell.viewCancelOrder.isHidden = false
-                  
-                    
-                }
-                
-                
+              //  cell.viewCancelOrder.isHidden = false
                 cell.btnActionsManage = { tag in
                     switch tag {
                     case 0:
@@ -222,9 +259,7 @@ extension ReturnListVC : UITableViewDelegate, UITableViewDataSource {
                         if let diamonds = diamndInfo?.diamonds{
                             self.navigationManager(ItemsSummaryVC.self, storyboardName: "MyOrder", storyboardID: "ItemsSummaryVC", data: [diamndInfo?.orderID ?? Int() : diamonds])
                         }
-                        
-                        
-                   
+                  
                     default:
                         print(tag)
                     }
@@ -237,7 +272,7 @@ extension ReturnListVC : UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC, for: indexPath) as! BuyItemInfoTVC
             cell.selectionStyle = .none
             cell.contentView.isUserInteractionEnabled = true
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
             return cell
         }
         

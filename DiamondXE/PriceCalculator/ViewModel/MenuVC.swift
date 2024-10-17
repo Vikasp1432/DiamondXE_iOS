@@ -27,10 +27,10 @@ class MenuVC: UIViewController, BottomSheetActionDelegate, UITextFieldDelegate {
     let calculation = Calculation()
 
     
-    var rate22K = 75.0
-    var rate18K = 58.5
+    var rate22K = 91.6
+    var rate18K = 75
     var rate9K = 37.5
-    var rate14K = 60.0
+    var rate14K = 58.3
     var goldRatePrice = GoldRatePrice()
 
 
@@ -56,16 +56,12 @@ class MenuVC: UIViewController, BottomSheetActionDelegate, UITextFieldDelegate {
     @IBOutlet weak var lblCalcu9k: UILabel!
     @IBOutlet weak var lblBaseCurrency: UILabel!
 
-
-
+    @IBOutlet weak var viewQuatation: UIView!
+    
     var set22KValue  = Double()
     var set18KValue  = Double()
     var set9KValue = Double()
     var set14KValue = Double()
-
-
-    
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +81,21 @@ class MenuVC: UIViewController, BottomSheetActionDelegate, UITextFieldDelegate {
         appVersion()
         
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        viewQuatation.isUserInteractionEnabled = true
+        viewQuatation.addGestureRecognizer(tapGesture)
+
+        
+    }
+    
+    @objc func viewTapped() {
+        let vc = UIStoryboard(name: "DXECalc", bundle: Bundle.main).instantiateViewController(withIdentifier: "QuatationHistoryVC") as? QuatationHistoryVC
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    @IBAction func btnActionQutnHistory(_ sender: UIButton){
+        let vc = UIStoryboard(name: "DXECalc", bundle: Bundle.main).instantiateViewController(withIdentifier: "QuatationHistoryVC") as? QuatationHistoryVC
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     func appVersion(){
@@ -151,7 +162,7 @@ class MenuVC: UIViewController, BottomSheetActionDelegate, UITextFieldDelegate {
         }
         if let ct18K = CalcUserDefaultManager().get18KValue(){
             if ct18K > 0{
-                rate18K = ct18K
+                rate18K = Int(ct18K)
             }
             
         }
@@ -185,7 +196,7 @@ class MenuVC: UIViewController, BottomSheetActionDelegate, UITextFieldDelegate {
         let purity22k = self.calculation.calculatePercentage(value: self.metalRateVal, percentageVal: rate22K)
         self.lblCalcu22k.text = self.calculation.totalPriceFormatter(value: purity22k)
         
-        let purity18k = self.calculation.calculatePercentage(value: self.metalRateVal, percentageVal: rate18K)
+        let purity18k = self.calculation.calculatePercentage(value: self.metalRateVal, percentageVal: Double(rate18K))
         self.lblCalcu18k.text = self.calculation.totalPriceFormatter(value: purity18k)
         
         let purity14k = self.calculation.calculatePercentage(value: self.metalRateVal, percentageVal: rate14K)
@@ -338,7 +349,7 @@ class MenuVC: UIViewController, BottomSheetActionDelegate, UITextFieldDelegate {
                 CalcUserDefaultManager().set18KValue(ct18Value: self.set18KValue)
             }
             else{
-                CalcUserDefaultManager().set18KValue(ct18Value: rate18K)
+                CalcUserDefaultManager().set18KValue(ct18Value: Double(rate18K))
 
             }
             if self.set9KValue > 0{

@@ -131,7 +131,6 @@
                                 <constraints>
                                     <constraint firstItem="gsR-By-ftz" firstAttribute="leading" secondItem="iKG-H7-NnB" secondAttribute="leading" constant="15" id="2J6-Sn-8zm"/>
                                     <constraint firstItem="Mw8-4M-Lbq" firstAttribute="leading" secondItem="iKG-H7-NnB" secondAttribute="leading" constant="15" id="3gz-Ki-Fc3"/>
-                                    <constraint firstAttribute="height" constant="160" id="4qK-7O-XmC"/>
                                     <constraint firstItem="Bp8-I9-qkw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6TH-CO-Hob" secondAttribute="bottom" constant="8" id="Brn-aX-DA0"/>
                                     <constraint firstAttribute="bottom" secondItem="Bp8-I9-qkw" secondAttribute="bottom" constant="3" id="Eso-rr-Rbr"/>
                                     <constraint firstAttribute="trailing" secondItem="YPa-ck-usp" secondAttribute="trailing" constant="15" id="FCI-IU-Rwt"/>

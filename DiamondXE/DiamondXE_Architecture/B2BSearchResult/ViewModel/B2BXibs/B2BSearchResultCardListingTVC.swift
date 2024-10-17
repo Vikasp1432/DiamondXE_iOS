@@ -20,7 +20,7 @@ class B2BSearchResultCardListingTVC: UITableViewCell, ShimmeringViewProtocol {
     @IBOutlet var refundViewToast :UIView!
     @IBOutlet var nameViewToast :UIView!
     @IBOutlet var lblFullNameView :UILabel!
-    
+    @IBOutlet var lblDiscountPrice :UILabel!
     @IBOutlet var imgDiamond :UIImageView!
     @IBOutlet var lblCirtificateNum :UILabel!
     @IBOutlet var lblLotID :UILabel!
@@ -85,7 +85,8 @@ class B2BSearchResultCardListingTVC: UITableViewCell, ShimmeringViewProtocol {
             lblMasurments,
             btnWhshlist,
             stacViewkBTN,
-            btnCard
+            btnCard,
+            lblDiscountPrice
            ]
        }
 

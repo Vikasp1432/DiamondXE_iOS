@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -39,29 +38,23 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZE4-NB-qN9">
                                         <rect key="frame" x="0.0" y="0.0" width="403" height="158"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfi-BS-LBr">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Option" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfi-BS-LBr">
                                                 <rect key="frame" x="8" y="8" width="387" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="zB3-Zb-9vS"/>
                                                 </constraints>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Payment Option">
-                                                        <attributes>
-                                                            <font key="NSFont" size="18" name="Lato-Medium"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="18"/>
+                                                <color key="textColor" name="blackClr"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ogb-SY-e6G">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ogb-SY-e6G">
                                                 <rect key="frame" x="8" y="48" width="387" height="100"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kLu-Z5-SJf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="109" height="100"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="122.33333333333333" height="100"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHe-h8-xsf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="109" height="80"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="122.33333333333333" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="9iX-ki-POr"/>
                                                                 </constraints>
@@ -78,7 +71,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzA-nl-q4a">
-                                                                <rect key="frame" x="0.0" y="80" width="109" height="20"/>
+                                                                <rect key="frame" x="0.0" y="80" width="122.33333333333333" height="20"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="RTGS/NEFT">
                                                                         <attributes>
@@ -104,10 +97,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CP6-2I-40G">
-                                                        <rect key="frame" x="139" y="0.0" width="109" height="100"/>
+                                                        <rect key="frame" x="132.33333333333334" y="0.0" width="122.33333333333334" height="100"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pee-ex-Z3t">
-                                                                <rect key="frame" x="0.0" y="0.0" width="109" height="80"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="122.33333333333333" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="t90-BI-ypM"/>
                                                                 </constraints>
@@ -124,9 +117,9 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HW-bv-W16">
-                                                                <rect key="frame" x="0.0" y="80" width="109" height="20"/>
+                                                                <rect key="frame" x="0.0" y="80" width="122.33333333333333" height="20"/>
                                                                 <attributedString key="attributedText">
-                                                                    <fragment content="Debit/Credit Card">
+                                                                    <fragment content="Debit/Credit">
                                                                         <attributes>
                                                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                             <font key="NSFont" size="13" name="Lato-Regular"/>
@@ -150,10 +143,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oa4-XW-fDd">
-                                                        <rect key="frame" x="278" y="0.0" width="109" height="100"/>
+                                                        <rect key="frame" x="264.66666666666669" y="0.0" width="122.33333333333331" height="100"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22m-IE-gSg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="109" height="80"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="122.33333333333333" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="moG-NY-8zX"/>
                                                                 </constraints>
@@ -170,7 +163,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n71-wb-zo7">
-                                                                <rect key="frame" x="0.0" y="80" width="109" height="20"/>
+                                                                <rect key="frame" x="0.0" y="80" width="122.33333333333333" height="20"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="Net Banking">
                                                                         <attributes>
@@ -193,6 +186,52 @@
                                                             <constraint firstItem="22m-IE-gSg" firstAttribute="leading" secondItem="oa4-XW-fDd" secondAttribute="leading" id="RdU-uh-dNv"/>
                                                             <constraint firstAttribute="trailing" secondItem="22m-IE-gSg" secondAttribute="trailing" id="drB-Mg-Bra"/>
                                                             <constraint firstItem="22m-IE-gSg" firstAttribute="top" secondItem="oa4-XW-fDd" secondAttribute="top" id="hFb-qH-OXR"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccE-Wl-bLC">
+                                                        <rect key="frame" x="387" y="0.0" width="0.0" height="100"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPX-Pn-37G">
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="80"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="80" id="AfV-SS-quZ"/>
+                                                                </constraints>
+                                                                <color key="tintColor" name="TabSelectClr"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" image="UPIIc"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="8"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="btnActionRTGS:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2Hf-JS-RLy"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jT-E1-JcV">
+                                                                <rect key="frame" x="0.0" y="80" width="0.0" height="20"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="UPI">
+                                                                        <attributes>
+                                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                            <font key="NSFont" size="13" name="Lato-Regular"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" name="whitClr"/>
+                                                        <constraints>
+                                                            <constraint firstItem="WPX-Pn-37G" firstAttribute="leading" secondItem="ccE-Wl-bLC" secondAttribute="leading" id="0KC-wC-zfj"/>
+                                                            <constraint firstAttribute="height" constant="100" id="6cf-r1-Iwl"/>
+                                                            <constraint firstItem="WPX-Pn-37G" firstAttribute="top" secondItem="ccE-Wl-bLC" secondAttribute="top" id="YAr-xv-9Lp"/>
+                                                            <constraint firstAttribute="bottom" secondItem="7jT-E1-JcV" secondAttribute="bottom" id="ZT0-r6-asF"/>
+                                                            <constraint firstAttribute="trailing" secondItem="WPX-Pn-37G" secondAttribute="trailing" id="bkF-4D-gc1"/>
+                                                            <constraint firstItem="7jT-E1-JcV" firstAttribute="top" secondItem="WPX-Pn-37G" secondAttribute="bottom" id="fmb-qB-Jbb"/>
+                                                            <constraint firstAttribute="trailing" secondItem="7jT-E1-JcV" secondAttribute="trailing" id="n4X-Yp-Q96"/>
+                                                            <constraint firstItem="7jT-E1-JcV" firstAttribute="leading" secondItem="ccE-Wl-bLC" secondAttribute="leading" id="xO1-bs-bmQ"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -509,6 +548,11 @@
                                                                 <color key="textColor" name="themeClr"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                        <color key="value" name="clrGray"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
@@ -617,7 +661,7 @@
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NMy-rb-Y95">
                                                 <rect key="frame" x="5" y="2" width="393" height="80"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="whitClr"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="ihI-ld-ysB"/>
                                                 </constraints>
@@ -668,7 +712,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstItem="NMy-rb-Y95" firstAttribute="leading" secondItem="2Lo-Nc-djX" secondAttribute="leading" constant="5" id="5Vh-ql-f60"/>
                                             <constraint firstItem="NMy-rb-Y95" firstAttribute="top" secondItem="2Lo-Nc-djX" secondAttribute="top" constant="2" id="P00-l6-eR1"/>
@@ -716,6 +760,7 @@
                 <outlet property="btnDebitCSBG" destination="pee-ex-Z3t" id="j8c-PJ-n4m"/>
                 <outlet property="btnNetBankSBG" destination="22m-IE-gSg" id="PyH-pk-cE2"/>
                 <outlet property="btnRTGSBG" destination="HHe-h8-xsf" id="bwc-FW-i3t"/>
+                <outlet property="btnUPISBG" destination="WPX-Pn-37G" id="58h-Oh-ET4"/>
                 <outlet property="imgViewBnk1" destination="gYn-w8-HAU" id="nns-Hl-ziF"/>
                 <outlet property="imgViewBnk2" destination="0oE-bP-iee" id="LMt-HJ-Ceu"/>
                 <outlet property="lblAccountNum" destination="no6-Kg-zGG" id="Mt0-qv-Nqb"/>
@@ -736,6 +781,7 @@
                 <outlet property="viewPaymtOptnBG" destination="V57-om-P7E" id="MnH-Xd-jeM"/>
                 <outlet property="viewSelectDate" destination="p7y-zX-KMZ" id="jmc-fo-520"/>
                 <outlet property="viewSelectedBnkBG" destination="uGy-aQ-LRR" id="6F1-YQ-gTe"/>
+                <outlet property="viewUPIBG" destination="ccE-Wl-bLC" id="hVb-ch-e1Y"/>
             </connections>
             <point key="canvasLocation" x="101.5267175572519" y="282.3943661971831"/>
         </tableViewCell>
@@ -755,6 +801,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="UPIIc" width="24" height="36"/>
         <image name="calendar" width="18.489999771118164" height="19.409999847412109"/>
         <image name="dabitCard" width="29.819999694824219" height="26.549999237060547"/>
         <image name="dropDown" width="34" height="34"/>
@@ -769,6 +816,9 @@
         <namedColor name="blackClr">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="clrGray">
+            <color red="0.42699998617172241" green="0.42399999499320984" blue="0.42699998617172241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="themeClr">
             <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -778,8 +828,5 @@
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

@@ -43,7 +43,7 @@ class CustomInfoTVC: UITableViewCell, UITextViewDelegate, UITextFieldDelegate {
         textView.delegate = self
         
         txtAmount.keyboardType = .decimalPad
-        
+        txtAmount.placeholderColor = .clrGray
         txtName.delegate = self
         txtComopanyName.delegate = self
         txtAmount.delegate = self
@@ -117,7 +117,7 @@ class CustomInfoTVC: UITableViewCell, UITextViewDelegate, UITextFieldDelegate {
           placeholderLabel.font = UIFont.systemFont(ofSize: 14)
           placeholderLabel.sizeToFit()
           placeholderLabel.frame.origin = CGPoint(x: 5, y: textView.font?.pointSize ?? 14 / 2)
-          placeholderLabel.textColor = UIColor.lightGray
+          placeholderLabel.textColor = .clrGray
           placeholderLabel.isHidden = !textView.text.isEmpty
           
           textView.addSubview(placeholderLabel)

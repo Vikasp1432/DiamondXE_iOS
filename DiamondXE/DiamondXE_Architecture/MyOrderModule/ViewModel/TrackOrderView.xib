@@ -553,7 +553,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" name="whiteBG"/>
                     <constraints>
                         <constraint firstItem="Bc5-lB-7Tt" firstAttribute="leading" secondItem="JIO-Xu-4wL" secondAttribute="leading" constant="15" id="Eh1-gf-ikK"/>
                         <constraint firstAttribute="trailing" secondItem="Bc5-lB-7Tt" secondAttribute="trailing" constant="15" id="KEE-pG-rVn"/>

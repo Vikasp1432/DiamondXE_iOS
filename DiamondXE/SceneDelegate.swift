@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         // Goto loginVC
+        
            DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
                // Get the main storyboard
                let storyboard = UIStoryboard(name: "Login", bundle: nil)

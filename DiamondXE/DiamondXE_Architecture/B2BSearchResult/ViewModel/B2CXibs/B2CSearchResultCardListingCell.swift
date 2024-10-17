@@ -20,7 +20,7 @@ class B2CSearchResultCardListingCell: UITableViewCell, ShimmeringViewProtocol {
     @IBOutlet var btnRefendable :UIButton!
     @IBOutlet var btnAvailable :UIButton!
     @IBOutlet var viewCart :UIView!
-
+    @IBOutlet var lblDiscountPrice :UILabel!
     @IBOutlet var refundViewToast :UIView!
     
     @IBOutlet var stacViewkBTN :UIStackView!
@@ -65,7 +65,8 @@ class B2CSearchResultCardListingCell: UITableViewCell, ShimmeringViewProtocol {
             viewCart,
             stacViewkBTN,
             btnWhshlist,
-            btnCard
+            btnCard,
+            lblDiscountPrice
            ]
        }
 

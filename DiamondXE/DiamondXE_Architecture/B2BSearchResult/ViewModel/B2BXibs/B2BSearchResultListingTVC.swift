@@ -16,7 +16,7 @@ class B2BSearchResultListingTVC: UITableViewCell , ShimmeringViewProtocol{
     @IBOutlet var btnCard :UIButton!
     @IBOutlet var btnRefendable :UIButton!
     @IBOutlet var btnAvailable :UIButton!
-    
+    @IBOutlet var lblDiscountPrice :UILabel!
     @IBOutlet var refundViewToast :UIView!
     
     @IBOutlet var nameViewToast :UIView!
@@ -76,7 +76,8 @@ class B2BSearchResultListingTVC: UITableViewCell , ShimmeringViewProtocol{
             lblDiscount ,
             lblTablePer ,
             lblDepPer ,
-            lblMasurments
+            lblMasurments,
+            lblDiscountPrice
            ]
        }
     
@@ -165,5 +166,21 @@ class B2BSearchResultListingTVC: UITableViewCell , ShimmeringViewProtocol{
                 self.refundViewToast.isHidden = true // Hide after animation completes
                 self.refundViewToast.alpha = 1.0 // Reset alpha for next use
             }
+    }
+}
+
+
+extension UILabel {
+    
+    func applyStrikeThrough(to text: String) {
+        let attributedString = NSMutableAttributedString(string: text)
+        
+        // Apply strike-through attribute
+        attributedString.addAttribute(NSAttributedString.Key.strikethroughStyle,
+                                      value: NSUnderlineStyle.single.rawValue,
+                                      range: NSMakeRange(0, attributedString.length))
+        
+        // Set the attributed text to the label
+        self.attributedText = attributedString
     }
 }

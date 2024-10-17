@@ -7,6 +7,7 @@
 
 import UIKit
 import DTTextField
+var isDefalutBilling = Bool()
 
 class AddBillingAddress: BaseViewController, DataReceiver {
     
@@ -17,6 +18,9 @@ class AddBillingAddress: BaseViewController, DataReceiver {
     }
     
     var dataObj = AddressDetail()
+    
+    @IBOutlet var lblTitleTop:UILabel!
+    @IBOutlet var viewSameAsShipping:UIView!
     
     @IBOutlet var viewCity:UIView!
     @IBOutlet var viewCountry:UIView!
@@ -49,6 +53,7 @@ class AddBillingAddress: BaseViewController, DataReceiver {
     var btnTag = 0
     var stateID : Int?
     var stateName : String?
+    var isEdit = false
     
     var cityID : Int?
     var cityName : String?
@@ -58,6 +63,8 @@ class AddBillingAddress: BaseViewController, DataReceiver {
     var isGSTInvoice = false
     var isEmailVerified = 1
     var addressID = Int()
+    
+    var delegate : AddAddressDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +79,12 @@ class AddBillingAddress: BaseViewController, DataReceiver {
         txtMobile.delegate = self
         txtMobile.paddingX = 100
         txEmail.paddingX = 70
+        
+        if isEdit{
+            self.lblTitleTop.text = "Edit Billing Address"
+            self.btnSameAsShipping.isHidden = true
+            self.viewSameAsShipping.isHidden = true
+        }
         
         self.setupData()
 //        let tapCountry = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
@@ -103,6 +116,17 @@ class AddBillingAddress: BaseViewController, DataReceiver {
             self.countryId = self.dataObj.countryName ?? 0
             self.stateID = self.dataObj.stateName
             self.addressID = addID
+            
+            if dataObj.isDefault == 1{
+                self.isSetDefault = true
+                btnSetasDefault.setImage(UIImage(named: "checked"), for: .normal)
+               
+                
+            }
+            else{
+                
+                btnSetasDefault.setImage(UIImage(named: "uncheck"), for: .normal)
+            }
             
         }
     }
@@ -223,6 +247,7 @@ class AddBillingAddress: BaseViewController, DataReceiver {
         switch sender.tag {
         case 0:
             isSetDefault.toggle()
+            isDefalutBilling = isSetDefault
             if isSetDefault {
                     btnSetasDefault.setImage(UIImage(named: "checked"), for: .normal)
                 } else {
@@ -328,6 +353,12 @@ class AddBillingAddress: BaseViewController, DataReceiver {
             else{
                  url = APIs().get_AddAddress_API
             }
+            
+            var defaultAddress = 0
+            if self.isSetDefault{
+                defaultAddress = 1
+            }
+           
            
             
             let param :[String:Any] = ["addressId" : "\(addressID)",
@@ -337,7 +368,7 @@ class AddBillingAddress: BaseViewController, DataReceiver {
                                        "address1" : self.txAddress1.text ?? "",
                                        "address2" : self.txtAddress2.text ?? "",
                                        "pinCode" : self.txPincode.text ?? "",
-                                       "isDefault" : self.isEmailVerified,
+                                       "isDefault" : defaultAddress,
                                        "sameAsShipping" : "",
                                        "GSTNo" : self.txtGST.text ?? "",
                                        "businessName" : self.txBusinessName.text ?? "",
@@ -347,6 +378,7 @@ class AddBillingAddress: BaseViewController, DataReceiver {
           
             BillingAddressModel().addBillingAddress(url: url, requestParam: param, completion: { data, msg in
                 if data.status == 1{
+                    self.delegate?.didUpdateAPISuccessfully(message: "Billing")
                     self.navigationController?.popViewController(animated: true)
                     self.toastMessage(msg ?? "")
                 }

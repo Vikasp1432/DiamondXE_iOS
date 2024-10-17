@@ -31,3 +31,4 @@ struct CommissionRange: Codable {
         case labGrown = "lab_grown"
     }
 }
+

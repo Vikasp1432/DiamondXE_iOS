@@ -24,7 +24,7 @@ struct CancelManageDetails: Codable {
     var platformFee, bankCharge, totalCharge, totalChargeTax: String?
     var totalChargeWithTax, totalTaxes: String?
     var isCouponApplied: Int?
-    var couponCode, couponValue, couponDiscount, walletPoints: String?
+    var couponCode, couponDiscount, walletPoints: String?
     var giftcardDiscount, loyaltyPoint, finalAmount, bankChargePerc: String?
     var specialInstruction, paymentMode, transactionID, taxPerOnCharges: String?
    // var paymentReceivedDate: String?
@@ -59,7 +59,7 @@ struct CancelManageDetails: Codable {
         case totalTaxes = "total_taxes"
         case isCouponApplied = "is_coupon_applied"
         case couponCode = "coupon_code"
-        case couponValue = "coupon_value"
+       // case couponValue = "coupon_value"
         case couponDiscount = "coupon_discount"
         case walletPoints = "wallet_points"
         case giftcardDiscount = "giftcard_discount"

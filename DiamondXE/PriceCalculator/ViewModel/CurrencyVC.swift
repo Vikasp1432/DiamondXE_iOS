@@ -151,7 +151,7 @@ class CurrencyVC: UIViewController , UITableViewDelegate, UITableViewDataSource,
 
         let viewControllers = self.navigationController!.viewControllers as [UIViewController];
         for aViewController:UIViewController in viewControllers {
-            if aViewController.isKind(of: DashboardVC.self) {
+            if aViewController.isKind(of: CalcDashboardVC.self) {
                 CalcUserDefaultManager().setCurrencyType(currencyValue: self.lblCurrencyName.text ?? "")
                 if currencyDefaultVal != nil{
                     CalcUserDefaultManager().setCurrencyValue(currencyValue: self.currencyDefaultVal ?? 0.0)

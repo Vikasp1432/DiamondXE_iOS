@@ -60,20 +60,25 @@ class PersonalProfileVC: BaseViewController {
 //        self.txtMobile.textColor = UIColor.lightGray
 //        self.txtEmail.textColor = UIColor.lightGray
 
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(companyType(_:)))
+        txtCompanyType.addGestureRecognizer(tapGesture)
         
-        txtCompanyType.addInputViewDatePicker(target: self, selector: #selector(companyType))
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(natureOfbusiness(_:)))
+        txtCompanyNatureBusiness.addGestureRecognizer(tapGesture2)
         
-        txtCompanyNatureBusiness.addInputViewDatePicker(target: self, selector: #selector(natureOfbusiness))
+//        txtCompanyType.addInputViewDatePicker(target: self, selector: #selector(companyType))
+//        
+//        txtCompanyNatureBusiness.addInputViewDatePicker(target: self, selector: #selector(natureOfbusiness))
         
         self.getProfileInfo()
         // Do any additional setup after loading the view.
     }
     
-    @objc func companyType() {
+    @objc func companyType(_ sender: UITapGestureRecognizer) {
         self.openDropDown(dataArr: self.compaanyTypes, anchorView: viewCompanyType, titleLabel: txtCompanyType, refr: "")
    
     }
-    @objc func natureOfbusiness() {
+    @objc func natureOfbusiness(_ sender: UITapGestureRecognizer) {
         self.openDropDown(dataArr: self.businessNature, anchorView: viewCompanyType, titleLabel: txtCompanyType, refr: "")
     }
     

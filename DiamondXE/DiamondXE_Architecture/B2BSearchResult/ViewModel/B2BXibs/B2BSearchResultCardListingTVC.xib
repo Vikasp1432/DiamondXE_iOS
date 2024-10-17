@@ -411,18 +411,30 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoU-Gq-vSO">
-                                <rect key="frame" x="284.66666666666669" y="180" width="125.33333333333331" height="24"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="₹18,72,50481">
-                                        <attributes>
-                                            <color key="NSColor" name="gradient2"/>
-                                            <font key="NSFont" size="20" name="Lato-Semibold"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UfX-n0-3LG">
+                                <rect key="frame" x="289.66666666666669" y="180" width="125.33333333333331" height="24"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoU-Gq-vSO">
+                                        <rect key="frame" x="0.0" y="0.0" width="125.33333333333333" height="24"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="₹18,72,50481">
+                                                <attributes>
+                                                    <color key="NSColor" name="gradient2"/>
+                                                    <font key="NSFont" size="20" name="Lato-Semibold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFm-Cu-LwR">
+                                        <rect key="frame" x="0.0" y="24" width="125.33333333333333" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
+                                        <color key="textColor" name="757677"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ezs-LT-pEu">
                                 <rect key="frame" x="10" y="173" width="147" height="38"/>
                                 <subviews>
@@ -573,7 +585,6 @@
                             <constraint firstItem="J1c-6b-kbM" firstAttribute="leading" secondItem="2fc-F1-n52" secondAttribute="trailing" constant="7" id="MVX-YF-atm"/>
                             <constraint firstItem="5i6-2q-O1V" firstAttribute="leading" secondItem="s4u-9z-mnZ" secondAttribute="leading" id="MgT-Hm-6rt"/>
                             <constraint firstItem="J1c-6b-kbM" firstAttribute="centerY" secondItem="WPf-GQ-R8W" secondAttribute="centerY" id="N6X-ti-gv0"/>
-                            <constraint firstItem="ezs-LT-pEu" firstAttribute="centerY" secondItem="VoU-Gq-vSO" secondAttribute="centerY" id="Pf0-Vy-ui0"/>
                             <constraint firstItem="e7k-PJ-X1P" firstAttribute="centerY" secondItem="WPf-GQ-R8W" secondAttribute="centerY" id="Q3Q-98-e27"/>
                             <constraint firstItem="5i6-2q-O1V" firstAttribute="firstBaseline" secondItem="s4u-9z-mnZ" secondAttribute="firstBaseline" id="RWu-P2-1rV"/>
                             <constraint firstItem="EsD-2T-ILe" firstAttribute="centerY" secondItem="SKb-xM-wAZ" secondAttribute="centerY" id="Scz-9O-jLO"/>
@@ -592,9 +603,11 @@
                             <constraint firstItem="ezs-LT-pEu" firstAttribute="top" secondItem="w2j-M1-gpz" secondAttribute="bottom" constant="15" id="k6w-Fv-Gde"/>
                             <constraint firstItem="jpV-kD-BnR" firstAttribute="leading" secondItem="SPH-he-GwH" secondAttribute="trailing" constant="5" id="l4M-hj-aSU"/>
                             <constraint firstItem="QRi-Zh-ivT" firstAttribute="top" secondItem="SKb-xM-wAZ" secondAttribute="bottom" constant="7" id="lCs-PQ-bpb"/>
+                            <constraint firstItem="UfX-n0-3LG" firstAttribute="centerY" secondItem="ezs-LT-pEu" secondAttribute="centerY" id="m7k-Em-7qX"/>
                             <constraint firstItem="TpR-RJ-5Q6" firstAttribute="leading" secondItem="EsD-2T-ILe" secondAttribute="trailing" constant="5" id="ncL-V7-5hl"/>
-                            <constraint firstAttribute="trailing" secondItem="VoU-Gq-vSO" secondAttribute="trailing" constant="15" id="oSH-gA-ueM"/>
                             <constraint firstItem="TZG-Td-sdx" firstAttribute="leading" secondItem="v5d-9o-GQ1" secondAttribute="leading" constant="10" id="pqC-fE-cWd"/>
+                            <constraint firstItem="UfX-n0-3LG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ezs-LT-pEu" secondAttribute="trailing" constant="10" id="qvm-8a-jhV"/>
+                            <constraint firstAttribute="trailing" secondItem="UfX-n0-3LG" secondAttribute="trailing" constant="10" id="vQ8-bU-ugC"/>
                             <constraint firstItem="s4u-9z-mnZ" firstAttribute="leading" secondItem="TZG-Td-sdx" secondAttribute="trailing" constant="10" id="wia-Ca-7HW"/>
                             <constraint firstItem="TZG-Td-sdx" firstAttribute="top" secondItem="v5d-9o-GQ1" secondAttribute="top" constant="10" id="xgn-rD-Q8u"/>
                             <constraint firstItem="q0f-iG-LO7" firstAttribute="leading" secondItem="TpR-RJ-5Q6" secondAttribute="trailing" constant="5" id="yZa-PL-QuB"/>
@@ -632,6 +645,7 @@
                 <outlet property="lblCut" destination="zSl-gQ-h43" id="ozQ-nG-AOw"/>
                 <outlet property="lblDepPer" destination="G1h-1l-AZY" id="qJR-xm-W9z"/>
                 <outlet property="lblDiscount" destination="GUO-GA-Tee" id="F9N-5f-dRq"/>
+                <outlet property="lblDiscountPrice" destination="LFm-Cu-LwR" id="vVh-eX-w6W"/>
                 <outlet property="lblFlouro" destination="tVG-1t-VfY" id="Hjp-GC-7cp"/>
                 <outlet property="lblFullNameView" destination="F42-GQ-9ha" id="A3f-26-0gx"/>
                 <outlet property="lblLotID" destination="J1c-6b-kbM" id="Wg5-4C-8F3"/>

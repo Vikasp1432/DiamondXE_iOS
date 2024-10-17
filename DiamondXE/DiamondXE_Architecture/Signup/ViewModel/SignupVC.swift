@@ -618,15 +618,22 @@ class SignupVC: BaseViewController {
             
             let pass = self.buyerDataParam?.password ?? ""
             let CNpass = self.buyerDataParam?.confirmPassword ?? ""
-            if pass != CNpass{
-                self.toastMessage("password or confirm password are not same")
+            
+            if isValidPassword(password: pass, confirmPassword: CNpass) {
+                print("Password is valid")
+            } else {
                 return
             }
             
-            if pass.count < 6 && CNpass.count < 6{
-                self.toastMessage("Password Character should be minimum 6 digit")
-                return
-            }
+//            if pass != CNpass{
+//                self.toastMessage("password or confirm password are not same")
+//                return
+//            }
+//            
+//            if pass.count < 6 && CNpass.count < 6{
+//                self.toastMessage("Password Character should be minimum 6 digit")
+//                return
+//            }
             
           
             if self.countryId == 0 && self.stateID == 0 && self.cityID == 0{
@@ -665,15 +672,22 @@ class SignupVC: BaseViewController {
             
             let pass = self.dealerDataStruct.password ?? ""
             let CNpass = self.dealerDataStruct.confirmPassword ?? ""
-            if pass != CNpass{
-                self.toastMessage("password or confirm password are not same")
+            
+            if isValidPassword(password: pass, confirmPassword: CNpass) {
+                print("Password is valid")
+            } else {
                 return
             }
             
-            if pass.count < 6 && CNpass.count < 6{
-                self.toastMessage("Password Character should be minimum 6 digit")
-                return
-            }
+//            if pass != CNpass{
+//                self.toastMessage("password or confirm password are not same")
+//                return
+//            }
+//            
+//            if pass.count < 6 && CNpass.count < 6{
+//                self.toastMessage("Password Character should be minimum 6 digit")
+//                return
+//            }
             
             if self.countryId == 0 && self.stateID == 0 && self.cityID == 0{
                 self.toastMessage("Country, State and ceity are mandatory")
@@ -746,13 +760,10 @@ class SignupVC: BaseViewController {
             
             let pass = self.suplierDataStruct.password ?? ""
             let CNpass = self.suplierDataStruct.confirmPassword ?? ""
-            if pass != CNpass{
-                self.toastMessage("password or confirm password are not same")
-                return
-            }
-            
-            if pass.count < 6 && CNpass.count < 6{
-                self.toastMessage("Password Character should be minimum 6 digit")
+           
+            if isValidPassword(password: pass, confirmPassword: CNpass) {
+                print("Password is valid")
+            } else {
                 return
             }
             
@@ -830,6 +841,41 @@ class SignupVC: BaseViewController {
             
         }
     }
+    
+    func isValidPassword(password: String, confirmPassword: String) -> Bool {
+        if password != confirmPassword {
+            self.toastMessage("Passwords do not match")
+                return false
+            }
+            
+            // Check if the password is at least 6 characters long
+            if password.count < 8 {
+                self.toastMessage("Password must be at least 8 characters long")
+                return false
+            }
+            
+            // Regular expression for at least one uppercase letter
+            let uppercaseLetterRegex = ".*[A-Z]+.*"
+            let uppercaseLetterTest = NSPredicate(format: "SELF MATCHES %@", uppercaseLetterRegex)
+            if !uppercaseLetterTest.evaluate(with: password) {
+                self.toastMessage("Password must contain at least one uppercase letter")
+                return false
+            }
+            
+            // Regular expression for at least one special character
+            let specialCharacterRegex = ".*[!@#$%^&*(),.?\":{}|<>]+.*"
+            let specialCharacterTest = NSPredicate(format: "SELF MATCHES %@", specialCharacterRegex)
+            if !specialCharacterTest.evaluate(with: password) {
+                self.toastMessage("Password must contain at least one special character")
+                return false
+            }
+            
+            // All conditions are satisfied
+            return true
+    }
+    
+    
+    
     
     func signupUser(param:[String:Any]){
         switch self.userType {

@@ -22,9 +22,9 @@
                         <rect key="frame" x="5" y="8" width="425" height="127"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_Holder" translatesAutoresizingMaskIntoConstraints="NO" id="Ogs-Pb-TSO">
-                                <rect key="frame" x="10" y="5" width="130" height="117"/>
+                                <rect key="frame" x="10" y="5" width="90" height="117"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="iZM-Rh-ycW"/>
+                                    <constraint firstAttribute="width" constant="90" id="iZM-Rh-ycW"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -33,7 +33,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfp-aN-Bpg">
-                                <rect key="frame" x="150" y="9.9999999999999982" width="101.33333333333331" height="16.333333333333329"/>
+                                <rect key="frame" x="110" y="9.9999999999999982" width="101.33333333333331" height="16.333333333333329"/>
                                 <attributedString key="attributedText">
                                     <fragment content="#123456789000">
                                         <attributes>
@@ -46,7 +46,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXi-ao-hex">
-                                <rect key="frame" x="258.33333333333331" y="10.666666666666668" width="1" height="15"/>
+                                <rect key="frame" x="218.33333333333334" y="10.666666666666668" width="1" height="15"/>
                                 <color key="backgroundColor" name="757677"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="XCs-kX-HSk"/>
@@ -56,7 +56,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6c1-Uk-PDk">
-                                <rect key="frame" x="266.33333333333331" y="9.9999999999999982" width="49.333333333333314" height="16.333333333333329"/>
+                                <rect key="frame" x="226.33333333333334" y="9.9999999999999982" width="49.333333333333343" height="16.333333333333329"/>
                                 <attributedString key="attributedText">
                                     <fragment content="ID: M74">
                                         <attributes>
@@ -92,7 +92,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oz5-SU-aYn">
-                                <rect key="frame" x="150" y="33.333333333333336" width="265" height="24"/>
+                                <rect key="frame" x="110" y="33.333333333333336" width="305" height="24"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Princess">
                                         <attributes>
@@ -105,7 +105,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Boh-oR-Ca6">
-                                <rect key="frame" x="150" y="64.333333333333329" width="48" height="18.666666666666671"/>
+                                <rect key="frame" x="110" y="64.333333333333329" width="48" height="18.666666666666671"/>
                                 <attributedString key="attributedText">
                                     <fragment content="0.30Ct">
                                         <attributes>
@@ -118,7 +118,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGy-AD-vTo">
-                                <rect key="frame" x="209" y="64.333333333333329" width="11.333333333333343" height="18.666666666666671"/>
+                                <rect key="frame" x="169" y="64.333333333333329" width="11.333333333333343" height="18.666666666666671"/>
                                 <attributedString key="attributedText">
                                     <fragment content="D">
                                         <attributes>
@@ -131,7 +131,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWQ-kE-x0s">
-                                <rect key="frame" x="225.33333333333334" y="66.333333333333329" width="1" height="15"/>
+                                <rect key="frame" x="185.33333333333334" y="66.333333333333329" width="1" height="15"/>
                                 <color key="backgroundColor" name="757677"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="Wpp-uE-YcJ"/>
@@ -141,7 +141,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4v-FG-mlL">
-                                <rect key="frame" x="231.33333333333334" y="64.333333333333329" width="39.000000000000028" height="18.666666666666671"/>
+                                <rect key="frame" x="191.33333333333334" y="64.333333333333329" width="39" height="18.666666666666671"/>
                                 <attributedString key="attributedText">
                                     <fragment content="VVS2">
                                         <attributes>
@@ -154,7 +154,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5a-5P-XWN">
-                                <rect key="frame" x="203" y="66.333333333333329" width="1" height="15"/>
+                                <rect key="frame" x="163" y="66.333333333333329" width="1" height="15"/>
                                 <color key="backgroundColor" name="757677"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="DHQ-4a-YvI"/>
@@ -164,7 +164,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zy-ed-JDi">
-                                <rect key="frame" x="152" y="98" width="258" height="24"/>
+                                <rect key="frame" x="112" y="98" width="298" height="24"/>
                                 <attributedString key="attributedText">
                                     <fragment content="₹18,72,50481">
                                         <attributes>

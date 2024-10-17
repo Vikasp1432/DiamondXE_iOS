@@ -110,7 +110,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="whitClr"/>
                                 <constraints>
                                     <constraint firstItem="lI5-k3-iEt" firstAttribute="leading" secondItem="o2j-jz-WI3" secondAttribute="leading" id="1rD-OE-hZJ"/>
                                     <constraint firstItem="Ae4-IE-gPc" firstAttribute="top" secondItem="o2j-jz-WI3" secondAttribute="top" constant="15" id="6T5-Rp-Ezr"/>

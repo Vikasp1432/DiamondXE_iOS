@@ -410,6 +410,7 @@
                                     <fragment>
                                         <string key="content">904A, 9th Floor, The Capital, G Block BKC, Bandra Kurla Complex,Bandra East, Mumbai, Maharahshtra 400051, Mumbai,Maharashtra, INDIA, 450051</string>
                                         <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="14" name="Lato-Semibold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>

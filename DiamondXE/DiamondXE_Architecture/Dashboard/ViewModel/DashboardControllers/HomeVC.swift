@@ -296,7 +296,7 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: TopDealsTVC.cellIdentifierTopDealsTVC, for: indexPath) as! TopDealsTVC
             cell.selectionStyle = .none
-            if self.topDealsTag == 0{
+            if self.topDealsTag == 0 {
                 if let topDeals = self.topDealsStruct.details?.natural{
                     cell.naturalDia = topDeals
                     cell.labGlDia = [LabGDiamond]()
@@ -336,9 +336,16 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
                
                 if self.topDealsTag == 1{
                     
-                    self.dashBoardVC.diamondDetailsDocID = self.topDealsStruct.details?.labGrown?[tag].certificateNo ?? ""
-                    self.dashBoardVC.byTopDeals = true
-                    self.dashBoardVC.loadViewController(withIdentifier: "DiamondDetailsVC", fromStoryboard: "DiamondDetails")
+                    if  self.topDealsStruct.details?.labGrown?.count ?? 0 > 0 {
+                        
+                        self.dashBoardVC.diamondDetailsDocID = self.topDealsStruct.details?.labGrown?[tag].certificateNo ?? ""
+                        self.dashBoardVC.byTopDeals = true
+                        self.dashBoardVC.loadViewController(withIdentifier: "DiamondDetailsVC", fromStoryboard: "DiamondDetails")
+                    } else {
+                        // Handle the case where `certificateNo` is nil
+                        self.toastMessage("Diamond not available")
+                    }
+                    
                 }
                 else{
                     self.dashBoardVC.diamondDetailsDocID = self.topDealsStruct.details?.natural?[tag].certificateNo ?? ""

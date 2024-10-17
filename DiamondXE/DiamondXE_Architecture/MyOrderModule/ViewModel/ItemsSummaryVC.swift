@@ -99,7 +99,7 @@ extension ItemsSummaryVC: UITableViewDelegate, UITableViewDataSource{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ItemSummaryDiamondsList.cellIdentifierItemSummaryDiamondsList, for: indexPath) as! ItemSummaryDiamondsList
             cell.selectionStyle = .none
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
             
             if let dataArr = self.orderDIC.values.first{
                 cell.reloadData(diamonds: dataArr)
@@ -126,7 +126,7 @@ extension ItemsSummaryVC: UITableViewDelegate, UITableViewDataSource{
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: ItemsSummaryAllInfoTVC.cellIdentifierItemsSummaryAllInfoTVC, for: indexPath) as! ItemsSummaryAllInfoTVC
             cell.selectionStyle = .none
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
             
             
             if let currencySymbol = self.currencyRateDetailObj?.currencySymbol {
@@ -164,7 +164,7 @@ extension ItemsSummaryVC: UITableViewDelegate, UITableViewDataSource{
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: ItemsSummaryAddressesInfoTVC.cellIdentifierItemsSummaryAddressesInfoTVC, for: indexPath) as! ItemsSummaryAddressesInfoTVC
             cell.selectionStyle = .none
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
             cell.lblUTRCheckNo.text = self.orderSummryData.details?.transactionID
             cell.lblOrderStatus.text = self.orderSummryData.details?.orderStatus
            

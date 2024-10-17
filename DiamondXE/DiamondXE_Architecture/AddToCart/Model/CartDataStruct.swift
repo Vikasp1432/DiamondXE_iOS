@@ -125,13 +125,13 @@ import Foundation
 struct CartDataStruct: Codable {
     var isCoupanApplied: Int?
     var couponCode, stockNO: String?
-    var couponValue, couponDiscount, status: Int?
+    var couponDiscount, status: Int?
     var msg: String?
     var subTotal, cgst: Int?
-    var cgstPerc: Double?
-    var sgst: Int?
-    var sgstPerc: Double?
-    var igst, igstPerc: Int?
+    //var cgstPerc: Double?
+   // var sgst: Int?
+   // var sgstPerc: Double?
+   // var igst, igstPerc: Int?
     var discountPerc: Double?
     var tax: Int?
     var subTotalWithTax: Double?
@@ -144,17 +144,17 @@ struct CartDataStruct: Codable {
     enum CodingKeys: String, CodingKey {
         case isCoupanApplied = "is_coupan_applied"
         case couponCode = "coupon_code"
-        case couponValue = "coupon_value"
+      //  case couponValue = "coupon_value"
         case couponDiscount = "coupon_discount"
         case status, msg
         case subTotal = "sub_total"
         case stockNO = "stock_no"
         case cgst
-        case cgstPerc = "cgst_perc"
-        case sgst
-        case sgstPerc = "sgst_perc"
-        case igst
-        case igstPerc = "igst_perc"
+       // case cgstPerc = "cgst_perc"
+      //  case sgst
+      //  case sgstPerc = "sgst_perc"
+//        case igst
+//        case igstPerc = "igst_perc"
         case discountPerc = "discount_perc"
         case tax
         case subTotalWithTax = "sub_total_with_tax"
@@ -185,12 +185,12 @@ struct CardDataDetail: Codable {
     var discount: Int
     var totalGstPerc: String
     var pricePerCT, subtotal: Int
-    var cgstPer: String
-    var cgstAmt: Int
-    var sgstPer: String
-    var sgstAmt: Int
-    var igstPer: String
-    var igstAmt, tax, totalPrice, labGrownDiaPrice: Int
+  //  var cgstPer: String
+   // var cgstAmt: Int
+   // var sgstPer: String
+   // var sgstAmt: Int
+    //var igstPer: String
+    var  tax, totalPrice, labGrownDiaPrice: Int
     var naturalDiaPrice, shippingCharge, platformFeeAmt, isAvailableForSale: Int?
     var isReturnable, dxePrefered: Int?
     var status: String?
@@ -213,12 +213,12 @@ struct CardDataDetail: Codable {
         case totalGstPerc = "total_gst_perc"
         case pricePerCT = "price_per_ct"
         case subtotal
-        case cgstPer = "cgst_per"
-        case cgstAmt = "cgst_amt"
-        case sgstPer = "sgst_per"
-        case sgstAmt = "sgst_amt"
-        case igstPer = "igst_per"
-        case igstAmt = "igst_amt"
+       // case cgstPer = "cgst_per"
+       // case cgstAmt = "cgst_amt"
+       // case sgstPer = "sgst_per"
+//        case sgstAmt = "sgst_amt"
+//        case igstPer = "igst_per"
+//        case igstAmt = "igst_amt"
         case tax
         case totalPrice = "total_price"
         case labGrownDiaPrice = "lab_grown_dia_price"

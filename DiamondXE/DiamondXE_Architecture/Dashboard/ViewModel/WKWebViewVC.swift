@@ -84,6 +84,8 @@ class WKWebViewVC: BaseViewController , DataReceiver{
             url = URL(string:SideBarURLs().viewALL)
         case 20:
             url = URL(string:SideBarURLs().termandCondition)
+        case 21:
+            url = URL(string:SideBarURLs().returnPolicy)
         default:
             print("")
            // url = URL(string: url_Certificate)

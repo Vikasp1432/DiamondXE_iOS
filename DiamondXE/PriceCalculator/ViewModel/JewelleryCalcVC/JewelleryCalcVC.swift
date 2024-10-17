@@ -94,12 +94,17 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
     var solitaierNotes = String()
     var sideDiaNotes = String()
     var otherCharges = String()
+    
+    var productName = String()
+    var grandTotal = String()
+    var priceWitCurr = String()
+    var isEditQuatation = false
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dropDownSetup()
-        self.natualOrLabGrown = "Natural Diamond"
+        
 //        let curencyType = UserDefaultManager().getCurrencyType()
 //        self.currencyType = curencyType
         self.lblCurrency.text = "Total Price (\(self.currencyType))"
@@ -145,11 +150,63 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
         self.txtTaxCharges.delegate = self
         
         // setDefault
-        setDefaultValue()
         
         
+        if isEditQuatation{
+            setDataForEditQuatation()
+            
+        }
+        else{
+            self.natualOrLabGrown = "Natural Diamond"
+            setDefaultValue()
+        }
        
     }
+    
+    
+    func setDataForEditQuatation(){
+     
+        self.txtProducName.text = self.productName
+        
+        self.txtMetalWt.text = "\(self.metalwt)"
+        self.txtMetalRatePG.text = "\(self.metalRatePGm)"
+        self.txtMetalTotalAmt.text = "\(self.metalwtTotal)"
+      
+        self.txtLabour.text = "\(self.labourChar)"
+        self.txtLabourRatePG.text = "\(self.labourCharRatePGm)"
+        self.txtLabourTotalAmt.text = "\(self.labourCharTotal)"
+        
+        self.txtSolitairWt.text = "\(self.solitairwt)"
+        self.txtSolitairRatePC.text = "\(self.solitairRatePCt)"
+        self.txtSolitairTatoalAmt.text = "\(self.solitairTotal)"
+    
+        self.txtSideDIA.text = "\(self.sideDIA)"
+        self.txtSideDIARatePC.text = "\(self.sideDIARatePCt)"
+        self.txtSideDIATotalAmt.text = "\(self.sideDIATotal)"
+        
+        self.txtColStoneWt.text = "\(self.colStoneWt)"
+        self.txtColStoneWtPC.text = "\(self.colStonePCt)"
+        self.txtColStoneTotalAmt.text = "\(self.colStoneTotal)"
+        
+        self.txtExtraCharges.text = "\(self.extraCharges)"
+        self.txtTaxCharges.text = "\(self.taxCharges)"
+        
+        self.lblGrandTotal.text = "\(self.grandTotal)"
+        
+        if self.natualOrLabGrown ==  "Lab Grown Diamond"{
+           // self.natualOrLabGrown =  "Lab Grown Diamond"
+            isNatural = false
+            self.btnNatural.setImage(UIImage(named: "RadioOff"), for: .normal)
+            self.btnLabGrown.setImage(UIImage(named: "RadioOn"), for: .normal)
+        }else{
+            //self.natualOrLabGrown = "Natural Diamond"
+            isNatural = true
+            self.btnNatural.setImage(UIImage(named: "RadioOn"), for: .normal)
+            self.btnLabGrown.setImage(UIImage(named: "RadioOff"), for: .normal)
+        }
+      
+    }
+    
     
     
     
@@ -226,7 +283,6 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
         else if textField.tag == 3{
             if newString == "" {
                 self.metalwtTotal = 0  
@@ -281,7 +337,6 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
         else if textField.tag == 5{
             if newString == "" {
                 self.labourCharRatePGm = 0  
@@ -300,7 +355,6 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
         else if textField.tag == 6 {
             if newString == "" {
                 self.labourCharTotal = 0
@@ -322,7 +376,6 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
         else if textField.tag == 7{
             if newString == "" {
                 self.solitairwt = 0 
@@ -343,7 +396,6 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
         else if textField.tag == 8{
             if newString == "" {
                 self.solitairRatePCt = 0 
@@ -362,7 +414,6 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
         else if textField.tag == 9 {
             if newString == "" {
                 self.solitairTotal = 0 
@@ -381,8 +432,6 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
-        
         else if textField.tag == 10{
             if newString == "" {
                 self.sideDIA = 0
@@ -403,7 +452,6 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
         else if textField.tag == 11{
             if newString == "" {
                 self.sideDIARatePCt = 0 
@@ -422,7 +470,6 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
         else if textField.tag == 12 {
             if newString == "" {
                 self.sideDIATotal = 0  
@@ -442,8 +489,6 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
-        
         else if textField.tag == 13{
             if newString == "" {
                 self.colStoneWt = 0
@@ -464,7 +509,6 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
         else if textField.tag == 14{
             if newString == "" {
                 self.colStonePCt = 0
@@ -483,7 +527,6 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
         else if textField.tag == 15{
             if newString == "" {
                 self.colStoneTotal = 0
@@ -506,7 +549,6 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
         else if textField.tag == 16{
             if newString == "" {
                 self.extraCharges = 0
@@ -520,7 +562,6 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
         else if textField.tag == 17{
             if newString == "" {
                 self.taxCharges = 0
@@ -537,8 +578,6 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
-       
         else{
             print(textField.tag)
         }
@@ -616,8 +655,10 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
             self.txtLabourRatePG.text = calculation.decimalManage(value: labourPricePG)//"\(labourPricePG)"
             self.labourCharRatePGm = labourPricePG
         }
-
     }
+    
+    
+  
     
     
     func setCalculationWithPurityK() {
@@ -774,6 +815,18 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
         
     }
     
+    
+    // get current Date
+    func getCurrentDateInIndianFormat() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd, hh:mm:ss a"
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Kolkata")
+        let currentDate = Date()
+        let dateString = dateFormatter.string(from: currentDate)
+        
+        return dateString
+    }
+    
     @IBAction func btnActionBack(_ sender : UIButton){
         self.navigationController?.popViewController(animated: true)
     }
@@ -784,46 +837,128 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func btnActionQuotation(_ sender : UIButton){
-        DispatchQueue.main.async {
-            let vc = UIStoryboard.init(name: "JewelleryCalc", bundle: Bundle.main).instantiateViewController(withIdentifier: "QuotatiosVC") as? QuotatiosVC
-            vc?.metalwt = self.metalwt
-            vc?.metalRatePGm = self.metalRatePGm
-            vc?.metalwtTotal = self.metalwtTotal
+//        DispatchQueue.main.async {
+//            let vc = UIStoryboard.init(name: "JewelleryCalc", bundle: Bundle.main).instantiateViewController(withIdentifier: "QuotatiosVC") as? QuotatiosVC
+//            vc?.metalwt = self.metalwt
+//            vc?.metalRatePGm = self.metalRatePGm
+//            vc?.metalwtTotal = self.metalwtTotal
+//            
+//            vc?.labourChar = self.labourChar
+//            vc?.labourCharRatePGm = self.labourCharRatePGm
+//            vc?.labourCharTotal = self.labourCharTotal
+//            
+//            vc?.solitairwt = self.solitairwt
+//            vc?.solitairRatePCt = self.solitairRatePCt
+//            vc?.solitairTotal = self.solitairTotal
+//            
+//            vc?.sideDIA = self.sideDIA
+//            vc?.sideDIARatePCt = self.sideDIARatePCt
+//            vc?.sideDIATotal = self.sideDIATotal
+//            
+//            vc?.colStoneWt = self.colStoneWt
+//            vc?.colStonePCt = self.colStonePCt
+//            vc?.colStoneTotal = self.colStoneTotal
+//            
+//            vc?.extraCharges = self.extraCharges
+//            vc?.taxCharges = self.taxCharges
+//            vc?.taxCalculation = self.taxCalculation
+//            vc?.currncyVal  = self.currncyVal
+//            vc?.currencyType  = self.currencyType
+//            
+//            vc?.natualOrLabGrown = self.natualOrLabGrown
+//            vc?.solitaierNotes = self.solitaierNotes
+//            vc?.sideDiaNotes = self.sideDiaNotes
+//            vc?.otherCharges = self.otherCharges
+//            vc?.productName = self.txtProducName.text ?? ""
+//            vc?.purityType = self.purityType
+//            
+//            
+//            vc?.grandTotal = self.lblGrandTotal.text ?? ""
+//            vc?.priceWitCurr = self.lblCurrency.text ?? ""
+//            
+//            
+//            
+//            self.navigationController?.pushViewController(vc!, animated: true)
+//        }
+        
+        if let grandTotalText = self.lblGrandTotal.text, !grandTotalText.isEmpty, grandTotalText != "0" {
+        
+        let currentQuotation = Quotationstruct(
+                metalwt: self.metalwt,
+                metalRatePGm: self.metalRatePGm,
+                metalwtTotal: self.metalwtTotal,
+                labourChar: self.labourChar,
+                labourCharRatePGm: self.labourCharRatePGm,
+                labourCharTotal: self.labourCharTotal,
+                solitairwt: self.solitairwt,
+                solitairRatePCt: self.solitairRatePCt,
+                solitairTotal: self.solitairTotal,
+                sideDIA: self.sideDIA,
+                sideDIARatePCt: self.sideDIARatePCt,
+                sideDIATotal: self.sideDIATotal,
+                colStoneWt: self.colStoneWt,
+                colStonePCt: self.colStonePCt,
+                colStoneTotal: self.colStoneTotal,
+                extraCharges: self.extraCharges,
+                taxCharges: self.taxCharges,
+                taxCalculation: self.taxCalculation,
+                currncyVal: self.currncyVal,
+                currencyType: self.currencyType,
+                natualOrLabGrown: self.natualOrLabGrown,
+                solitaierNotes: self.solitaierNotes,
+                sideDiaNotes: self.sideDiaNotes,
+                otherCharges: self.otherCharges,
+                productName: self.txtProducName.text ?? "",
+                purityType: self.purityType,
+                grandTotal: self.lblGrandTotal.text ?? "",
+                priceWitCurr: self.lblCurrency.text ?? "",
+                dateStr: self.getCurrentDateInIndianFormat()
+            )
             
-            vc?.labourChar = self.labourChar
-            vc?.labourCharRatePGm = self.labourCharRatePGm
-            vc?.labourCharTotal = self.labourCharTotal
-            
-            vc?.solitairwt = self.solitairwt
-            vc?.solitairRatePCt = self.solitairRatePCt
-            vc?.solitairTotal = self.solitairTotal
-            
-            vc?.sideDIA = self.sideDIA
-            vc?.sideDIARatePCt = self.sideDIARatePCt
-            vc?.sideDIATotal = self.sideDIATotal
-            
-            vc?.colStoneWt = self.colStoneWt
-            vc?.colStonePCt = self.colStonePCt
-            vc?.colStoneTotal = self.colStoneTotal
-            
-            vc?.extraCharges = self.extraCharges
-            vc?.taxCharges = self.taxCharges
-            vc?.taxCalculation = self.taxCalculation
-            vc?.currncyVal  = self.currncyVal
-            vc?.currencyType  = self.currencyType
-            
-            vc?.natualOrLabGrown = self.natualOrLabGrown
-            vc?.solitaierNotes = self.solitaierNotes
-            vc?.sideDiaNotes = self.sideDiaNotes
-            vc?.otherCharges = self.otherCharges
-            vc?.productName = self.txtProducName.text ?? ""
-            vc?.purityType = self.purityType
-            
-            
-            vc?.grandTotal = self.lblGrandTotal.text ?? ""
-            vc?.priceWitCurr = self.lblCurrency.text ?? ""
-            self.navigationController?.pushViewController(vc!, animated: true)
+        CalcUserDefaultManager().saveQuotationData(currentQuotation)
+            // Push to the next view controller
+            DispatchQueue.main.async {
+                let vc = UIStoryboard(name: "JewelleryCalc", bundle: Bundle.main).instantiateViewController(withIdentifier: "QuotatiosVC") as? QuotatiosVC
+                
+                // Fetch the latest quotation and pass it to the next VC
+                if let latestQuotation =  CalcUserDefaultManager().getSavedQuotations().last {
+                    vc?.metalwt = latestQuotation.metalwt ?? 0
+                    vc?.metalRatePGm = latestQuotation.metalRatePGm ?? 0
+                    vc?.metalwtTotal = latestQuotation.metalwtTotal ?? 0
+                    vc?.labourChar = latestQuotation.labourChar ?? 0
+                    vc?.labourCharRatePGm = latestQuotation.labourCharRatePGm ?? 0
+                    vc?.labourCharTotal = latestQuotation.labourCharTotal ?? 0
+                    vc?.solitairwt = latestQuotation.solitairwt ?? 0
+                    vc?.solitairRatePCt = latestQuotation.solitairRatePCt ?? 0
+                    vc?.solitairTotal = latestQuotation.solitairTotal ?? 0
+                    vc?.sideDIA = latestQuotation.sideDIA ?? 0
+                    vc?.sideDIARatePCt = latestQuotation.sideDIARatePCt ?? 0
+                    vc?.sideDIATotal = latestQuotation.sideDIATotal ?? 0
+                    vc?.colStoneWt = latestQuotation.colStoneWt ?? 0
+                    vc?.colStonePCt = latestQuotation.colStonePCt ?? 0
+                    vc?.colStoneTotal = latestQuotation.colStoneTotal ?? 0
+                    vc?.extraCharges = latestQuotation.extraCharges ?? 0
+                    vc?.taxCharges = latestQuotation.taxCharges ?? 0
+                    vc?.taxCalculation = latestQuotation.taxCalculation ?? 0
+                    vc?.currncyVal = latestQuotation.currncyVal ?? 0
+                    vc?.currencyType = latestQuotation.currencyType ?? ""
+                    vc?.natualOrLabGrown = latestQuotation.natualOrLabGrown ?? ""
+                    vc?.solitaierNotes = latestQuotation.solitaierNotes ?? ""
+                    vc?.sideDiaNotes = latestQuotation.sideDiaNotes ?? ""
+                    vc?.otherCharges = latestQuotation.otherCharges ?? ""
+                    vc?.productName = latestQuotation.productName ?? ""
+                    vc?.purityType = latestQuotation.purityType ?? ""
+                    vc?.grandTotal = latestQuotation.grandTotal ?? ""
+                    vc?.priceWitCurr = latestQuotation.priceWitCurr ?? ""
+                    vc?.date = latestQuotation.dateStr ?? ""
+                }
+                
+                self.navigationController?.pushViewController(vc!, animated: true)
+            }
+        } else {
+            self.toastMessage("Please add some data")
         }
+        
     }
     
     @IBAction func btnActionNaturalVSLabGrown(_ sender : UIButton){

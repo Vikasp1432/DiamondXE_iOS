@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -138,7 +137,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="9fi-qW-bcI" secondAttribute="bottom" constant="5" id="59e-c0-xeH"/>
                                             <constraint firstItem="9fi-qW-bcI" firstAttribute="top" secondItem="lSN-A4-RhX" secondAttribute="bottom" constant="3" id="BPj-06-QXQ"/>
@@ -185,7 +184,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstItem="kMO-cp-UHZ" firstAttribute="top" secondItem="a1E-GJ-f6Z" secondAttribute="bottom" constant="3" id="2ig-EI-7fa"/>
                                             <constraint firstItem="kMO-cp-UHZ" firstAttribute="leading" secondItem="OfA-T0-SeN" secondAttribute="leading" constant="5" id="KQo-8J-6jn"/>
@@ -232,7 +231,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstItem="R4s-Pe-JFW" firstAttribute="top" secondItem="xx5-R9-8Dz" secondAttribute="bottom" constant="3" id="3LZ-E0-czn"/>
                                             <constraint firstItem="xx5-R9-8Dz" firstAttribute="leading" secondItem="YEF-jK-bV7" secondAttribute="leading" constant="5" id="6M5-0d-CGx"/>
@@ -279,7 +278,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="AU7-Kh-qWC" secondAttribute="bottom" constant="5" id="9pV-Vl-DLb"/>
                                             <constraint firstItem="AU7-Kh-qWC" firstAttribute="top" secondItem="uiV-aR-3bP" secondAttribute="bottom" constant="3" id="LeQ-zl-yYM"/>
@@ -326,7 +325,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstItem="0rp-db-EhZ" firstAttribute="top" secondItem="cPf-lJ-pvk" secondAttribute="bottom" constant="3" id="DcP-Ko-ze2"/>
                                             <constraint firstItem="0rp-db-EhZ" firstAttribute="leading" secondItem="dpI-hb-cd9" secondAttribute="leading" constant="5" id="chE-D2-bfg"/>
@@ -378,7 +377,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="jYz-2d-utT" secondAttribute="bottom" constant="5" id="1aK-dg-Cge"/>
                                             <constraint firstItem="jYz-2d-utT" firstAttribute="leading" secondItem="2Ae-qt-leM" secondAttribute="leading" constant="5" id="8Ln-5g-21V"/>
@@ -425,7 +424,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstItem="PDV-RB-l5M" firstAttribute="leading" secondItem="HPl-fL-AWM" secondAttribute="leading" constant="5" id="Co5-62-Equ"/>
                                             <constraint firstItem="PDV-RB-l5M" firstAttribute="top" secondItem="HPl-fL-AWM" secondAttribute="top" constant="5" id="aME-Qv-J0m"/>
@@ -472,7 +471,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="SCs-WS-Mkf" secondAttribute="trailing" constant="5" id="3g0-gR-tpB"/>
                                             <constraint firstItem="iu4-AP-g6t" firstAttribute="leading" secondItem="Svm-pV-e0M" secondAttribute="leading" constant="5" id="4Lg-ze-V3V"/>
@@ -519,7 +518,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstItem="gbQ-Zc-Q6S" firstAttribute="leading" secondItem="aXa-7r-hYx" secondAttribute="leading" constant="5" id="56j-dO-IZM"/>
                                             <constraint firstAttribute="trailing" secondItem="gbQ-Zc-Q6S" secondAttribute="trailing" constant="5" id="6B6-YM-58y"/>
@@ -566,7 +565,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="RdY-8B-hkJ" secondAttribute="bottom" constant="5" id="Bav-s4-yA9"/>
                                             <constraint firstItem="Ewy-zX-Cgf" firstAttribute="top" secondItem="pcd-xe-gL0" secondAttribute="top" constant="5" id="Rci-Cf-1CV"/>
@@ -617,7 +616,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstItem="XZ1-OA-R5h" firstAttribute="top" secondItem="ERG-K0-5as" secondAttribute="bottom" constant="3" id="4fl-sQ-7Aa"/>
                                             <constraint firstAttribute="trailing" secondItem="ERG-K0-5as" secondAttribute="trailing" constant="5" id="FxI-CO-e7r"/>
@@ -664,7 +663,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="h4j-eB-9NC" secondAttribute="bottom" constant="5" id="8dA-Rh-kSH"/>
                                             <constraint firstItem="1He-XG-uKc" firstAttribute="leading" secondItem="feZ-4q-Rw1" secondAttribute="leading" constant="5" id="BAZ-1p-tkK"/>
@@ -711,7 +710,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Ey4-TU-OUC" secondAttribute="trailing" constant="5" id="2og-Sl-t6V"/>
                                             <constraint firstAttribute="bottom" secondItem="Ey4-TU-OUC" secondAttribute="bottom" constant="5" id="5BC-hr-AvM"/>
@@ -725,7 +724,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="whitClr"/>
                         <constraints>
                             <constraint firstItem="muS-Lw-1VU" firstAttribute="top" secondItem="syX-QT-06u" secondAttribute="top" constant="3" id="5Wh-3b-aMb"/>
                             <constraint firstItem="J3f-ao-Wve" firstAttribute="leading" secondItem="syX-QT-06u" secondAttribute="leading" id="HyS-0c-asB"/>
@@ -799,8 +798,5 @@
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

@@ -53,7 +53,15 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="0" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w6Z-pw-4sx" customClass="DTTextField" customModule="DTTextField">
                                                 <rect key="frame" x="0.0" y="0.0" width="104" height="51"/>
-                                                <attributedString key="attributedText"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="-">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" metaFont="smallSystem"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -70,7 +78,15 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="0" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Fk-Dc-e1R" customClass="DTTextField" customModule="DTTextField">
                                                 <rect key="frame" x="0.0" y="0.0" width="104" height="51"/>
-                                                <attributedString key="attributedText"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="-">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" metaFont="smallSystem"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -113,10 +129,10 @@
     </objects>
     <designables>
         <designable name="5Fk-Dc-e1R">
-            <size key="intrinsicContentSize" width="10.333333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="7" height="15"/>
         </designable>
         <designable name="w6Z-pw-4sx">
-            <size key="intrinsicContentSize" width="10.333333333333334" height="22"/>
+            <size key="intrinsicContentSize" width="7" height="15"/>
         </designable>
     </designables>
     <resources>

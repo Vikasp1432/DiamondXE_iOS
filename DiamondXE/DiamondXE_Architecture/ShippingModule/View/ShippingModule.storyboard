@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -241,7 +240,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" name="whitClr"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="boU-0g-I0z" secondAttribute="trailing" constant="10" id="2fd-In-YZj"/>
                                                             <constraint firstItem="boU-0g-I0z" firstAttribute="top" secondItem="aTb-OE-A9O" secondAttribute="top" constant="8" id="R2e-lC-gOm"/>
@@ -293,7 +292,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whiteBG"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="JW1-5k-dsX" secondAttribute="trailing" id="516-Az-6ff"/>
                                             <constraint firstItem="1I8-qw-3o5" firstAttribute="leading" secondItem="olW-Wr-sXU" secondAttribute="leading" constant="15" id="9Xc-Pv-k6l"/>
@@ -375,8 +374,8 @@
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="whiteBG">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

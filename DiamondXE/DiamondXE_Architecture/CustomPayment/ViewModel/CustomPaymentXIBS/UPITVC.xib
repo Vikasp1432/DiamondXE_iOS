@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -60,7 +59,7 @@
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cgr-YA-PwR">
                                         <rect key="frame" x="0.0" y="40" width="387" height="78"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="78" id="PLe-s5-EQp"/>
                                         </constraints>
@@ -78,13 +77,25 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No UPI apps available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Npu-pU-DvT">
+                                <rect key="frame" x="0.0" y="40" width="387" height="78"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="757677"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="whitClr"/>
                         <constraints>
+                            <constraint firstItem="Npu-pU-DvT" firstAttribute="leading" secondItem="cgr-YA-PwR" secondAttribute="leading" id="4Td-Lx-pN9"/>
                             <constraint firstAttribute="bottom" secondItem="OXZ-nG-jgY" secondAttribute="bottom" constant="8" id="EOa-z9-Wom"/>
+                            <constraint firstItem="Npu-pU-DvT" firstAttribute="height" secondItem="cgr-YA-PwR" secondAttribute="height" id="Jiz-fl-0lH"/>
                             <constraint firstItem="OXZ-nG-jgY" firstAttribute="top" secondItem="shb-v8-NZU" secondAttribute="top" id="Mej-ck-sWB"/>
                             <constraint firstAttribute="trailing" secondItem="OXZ-nG-jgY" secondAttribute="trailing" id="Nyb-2u-W9V"/>
+                            <constraint firstItem="Npu-pU-DvT" firstAttribute="width" secondItem="cgr-YA-PwR" secondAttribute="width" id="Yre-8J-HFs"/>
                             <constraint firstItem="OXZ-nG-jgY" firstAttribute="leading" secondItem="shb-v8-NZU" secondAttribute="leading" id="fxw-jx-cLx"/>
+                            <constraint firstItem="Npu-pU-DvT" firstAttribute="bottom" secondItem="cgr-YA-PwR" secondAttribute="bottom" id="itP-jH-zSZ"/>
+                            <constraint firstItem="Npu-pU-DvT" firstAttribute="top" secondItem="cgr-YA-PwR" secondAttribute="top" id="vu7-fX-Qix"/>
+                            <constraint firstItem="Npu-pU-DvT" firstAttribute="trailing" secondItem="cgr-YA-PwR" secondAttribute="trailing" id="ygX-2R-zHo"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -104,6 +115,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="collectionUPIApps" destination="cgr-YA-PwR" id="OZQ-G0-3ie"/>
+                <outlet property="lblNodata" destination="Npu-pU-DvT" id="4Xm-rm-2h7"/>
                 <outlet property="viewBG" destination="shb-v8-NZU" id="LQ2-i2-nm0"/>
             </connections>
             <point key="canvasLocation" x="168.70229007633588" y="52.816901408450704"/>
@@ -111,6 +123,9 @@
     </objects>
     <resources>
         <image name="arrowDown" width="10.079999923706055" height="6.2800002098083496"/>
+        <namedColor name="757677">
+            <color red="0.45882352941176469" green="0.46274509803921571" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="TabSelectClr">
             <color red="0.49399998784065247" green="0.18799999356269836" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -123,8 +138,5 @@
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -367,7 +366,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstItem="qfL-FI-f2y" firstAttribute="top" secondItem="C7y-15-DR5" secondAttribute="top" constant="10" id="3hF-Jb-XrK"/>
                                             <constraint firstAttribute="trailing" secondItem="uL2-tg-ECd" secondAttribute="trailing" constant="20" id="8WO-6M-Z2g"/>
@@ -538,7 +537,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="FQf-5y-BMZ" secondAttribute="bottom" constant="10" id="1PJ-5R-Zx4"/>
                                             <constraint firstItem="Mz7-F1-EEO" firstAttribute="top" secondItem="kwP-u1-3jK" secondAttribute="top" constant="10" id="3mi-KD-LZ3"/>
@@ -781,7 +780,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Hqc-w6-Mgs" secondAttribute="trailing" constant="20" id="3qX-hg-pMf"/>
                                             <constraint firstItem="djn-rH-icR" firstAttribute="top" secondItem="W1c-Vl-NHk" secondAttribute="bottom" constant="5" id="43m-p4-0LF"/>
@@ -958,7 +957,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="fY6-5K-nP7" secondAttribute="bottom" constant="10" id="4hD-4g-7uS"/>
                                             <constraint firstItem="fY6-5K-nP7" firstAttribute="top" secondItem="i5R-DU-Nng" secondAttribute="bottom" constant="5" id="5cf-qc-EWR"/>
@@ -1201,7 +1200,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstItem="Qrc-2o-prV" firstAttribute="leading" secondItem="fjq-7k-LCW" secondAttribute="leading" constant="20" id="6By-3n-gQU"/>
                                             <constraint firstItem="g0b-zX-p7w" firstAttribute="top" secondItem="fjq-7k-LCW" secondAttribute="top" constant="10" id="7KA-mE-35h"/>
@@ -1416,7 +1415,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstItem="xJD-bD-0iM" firstAttribute="leading" secondItem="Uou-lg-Zr6" secondAttribute="leading" constant="20" id="4lW-T1-14D"/>
                                             <constraint firstItem="OGY-nU-TdH" firstAttribute="leading" secondItem="Uou-lg-Zr6" secondAttribute="leading" constant="20" id="Jub-2W-sWe"/>
@@ -1576,10 +1575,10 @@
             <size key="intrinsicContentSize" width="113.33333333333333" height="18"/>
         </designable>
         <designable name="7xB-oO-8LE">
-            <size key="intrinsicContentSize" width="149" height="34"/>
+            <size key="intrinsicContentSize" width="146" height="34"/>
         </designable>
         <designable name="Bhs-p8-KzC">
-            <size key="intrinsicContentSize" width="153" height="34"/>
+            <size key="intrinsicContentSize" width="152" height="34"/>
         </designable>
         <designable name="FC0-6B-JUw">
             <size key="intrinsicContentSize" width="167.66666666666666" height="18"/>
@@ -1588,13 +1587,13 @@
             <size key="intrinsicContentSize" width="163.33333333333334" height="18"/>
         </designable>
         <designable name="S8W-gC-3tF">
-            <size key="intrinsicContentSize" width="140" height="34"/>
+            <size key="intrinsicContentSize" width="136" height="34"/>
         </designable>
         <designable name="ZpN-8F-Nqa">
             <size key="intrinsicContentSize" width="114.33333333333333" height="15.666666666666666"/>
         </designable>
         <designable name="dnp-Y2-7WL">
-            <size key="intrinsicContentSize" width="149" height="34"/>
+            <size key="intrinsicContentSize" width="144" height="34"/>
         </designable>
         <designable name="fwk-TT-GNE">
             <size key="intrinsicContentSize" width="150.33333333333334" height="15.666666666666666"/>
@@ -1606,22 +1605,22 @@
             <size key="intrinsicContentSize" width="119" height="18"/>
         </designable>
         <designable name="kfH-1H-8hE">
-            <size key="intrinsicContentSize" width="153" height="34"/>
+            <size key="intrinsicContentSize" width="151" height="34"/>
         </designable>
         <designable name="qZF-2T-LHm">
             <size key="intrinsicContentSize" width="110.33333333333333" height="18"/>
         </designable>
         <designable name="rdp-xQ-LsO">
-            <size key="intrinsicContentSize" width="150" height="34"/>
+            <size key="intrinsicContentSize" width="147" height="34"/>
         </designable>
         <designable name="rhF-qJ-Nyl">
-            <size key="intrinsicContentSize" width="123" height="34"/>
+            <size key="intrinsicContentSize" width="122" height="34"/>
         </designable>
         <designable name="tBc-zH-Rot">
-            <size key="intrinsicContentSize" width="141" height="34"/>
+            <size key="intrinsicContentSize" width="138" height="34"/>
         </designable>
         <designable name="zUP-os-Pcs">
-            <size key="intrinsicContentSize" width="153" height="34"/>
+            <size key="intrinsicContentSize" width="150" height="34"/>
         </designable>
     </designables>
     <resources>
@@ -1648,8 +1647,5 @@
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

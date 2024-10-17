@@ -17,7 +17,7 @@ class ProductDetailsTVC: UITableViewCell,  ShimmeringViewProtocol{
     @IBOutlet var btnBuyNow: UIButton!
     @IBOutlet var btnReserveDia: UIButton!
     @IBOutlet var viewLocationBG: UIView!
-    
+    @IBOutlet var lblDiscountPrice :UILabel!
     @IBOutlet var lblDocNumber: UILabel!
     @IBOutlet var lblLotID: UILabel!
     @IBOutlet var lblShape: UILabel!
@@ -71,7 +71,8 @@ class ProductDetailsTVC: UITableViewCell,  ShimmeringViewProtocol{
             lblPincode,
             lblDevidr1,
             lblDevidr2,
-            lblDevidr3
+            lblDevidr3,
+            lblDiscountPrice
         ]
     }
 

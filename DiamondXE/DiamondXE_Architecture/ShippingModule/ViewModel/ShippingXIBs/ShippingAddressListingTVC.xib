@@ -71,7 +71,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAx-oL-j6E">
-                        <rect key="frame" x="20" y="15" width="396" height="33"/>
+                        <rect key="frame" x="20" y="15" width="396" height="25"/>
                         <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="18"/>
                         <color key="textColor" name="lblHeading"/>
                         <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
                     <constraint firstAttribute="bottom" secondItem="nHi-DS-XQs" secondAttribute="bottom" constant="8" id="Lai-1Q-97a"/>
                     <constraint firstItem="nHi-DS-XQs" firstAttribute="centerX" secondItem="pDh-Nt-ZlY" secondAttribute="centerX" id="PM8-Ne-9lA"/>
                     <constraint firstItem="dAx-oL-j6E" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Yvb-Rl-Dyh"/>
-                    <constraint firstItem="pDh-Nt-ZlY" firstAttribute="top" secondItem="dAx-oL-j6E" secondAttribute="bottom" id="fvp-05-1gm"/>
+                    <constraint firstItem="pDh-Nt-ZlY" firstAttribute="top" secondItem="dAx-oL-j6E" secondAttribute="bottom" constant="8" id="fvp-05-1gm"/>
                     <constraint firstItem="dAx-oL-j6E" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="gCQ-43-vS0"/>
                     <constraint firstAttribute="trailing" secondItem="pDh-Nt-ZlY" secondAttribute="trailing" constant="5" id="gFd-ga-iNY"/>
                     <constraint firstItem="nHi-DS-XQs" firstAttribute="top" secondItem="pDh-Nt-ZlY" secondAttribute="bottom" constant="15" id="hk9-96-mMj"/>

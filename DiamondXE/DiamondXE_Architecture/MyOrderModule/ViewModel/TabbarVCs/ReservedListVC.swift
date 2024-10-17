@@ -110,7 +110,7 @@ extension ReservedListVC : UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: MultiItemListTVC.cellIdentifierMultiItemListTVC, for: indexPath) as! MultiItemListTVC
                 cell.selectionStyle = .none
                 
-                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
                 
                 let diamndInfo = self.orderListData.details?[indexPath.row]
                 cell.lblOrderID.text = "Order-ID : \(diamndInfo?.orderID ?? Int())"
@@ -160,7 +160,7 @@ extension ReservedListVC : UITableViewDelegate, UITableViewDataSource {
             else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC, for: indexPath) as! BuyItemInfoTVC
                 cell.selectionStyle = .none
-                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
                 let diamndInfo = self.orderListData.details?[indexPath.row]
                 
                 cell.imgDiamond.sd_setImage(with: URL(string: diamndInfo?.diamonds?.first?.diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
@@ -237,7 +237,7 @@ extension ReservedListVC : UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC, for: indexPath) as! BuyItemInfoTVC
             cell.selectionStyle = .none
             cell.contentView.isUserInteractionEnabled = true
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
             return cell
         }
         

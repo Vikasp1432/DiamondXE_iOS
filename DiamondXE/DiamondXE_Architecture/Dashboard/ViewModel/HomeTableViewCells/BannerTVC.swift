@@ -29,7 +29,7 @@ class BannerTVC: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        pageView.numberOfPages = imgArr.count
+       
         pageView.currentPage = 0
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
@@ -65,10 +65,13 @@ class BannerTVC: UITableViewCell {
         var count = 0
         if banners.content?.count ?? 0 > 0 {
             count = banners.content?.count ?? 0
+           
         }
         else{
             count = imgArr.count
         }
+        
+        pageView.numberOfPages = count
      
      if counter < count {
          let index = IndexPath.init(item: counter, section: 0)

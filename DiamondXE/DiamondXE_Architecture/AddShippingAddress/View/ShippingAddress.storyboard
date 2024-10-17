@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -70,7 +69,7 @@
                                         <rect key="frame" x="0.0" y="70" width="393" height="623"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="REY-c2-QKi">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="501.66666666666669"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="484"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Rs-sF-uRG">
                                                         <rect key="frame" x="25" y="20" width="353" height="21.666666666666671"/>
@@ -79,26 +78,29 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Addres Line 1*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5FI-Df-qGE" customClass="DTTextField" customModule="DTTextField">
-                                                        <rect key="frame" x="25" y="56.666666666666657" width="343" height="43.666666666666657"/>
+                                                        <rect key="frame" x="25" y="56.666666666666657" width="343" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="G8D-Hs-AKi"/>
                                                         </constraints>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Addres Line 2*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Uh-e5-1gZ" customClass="DTTextField" customModule="DTTextField">
-                                                        <rect key="frame" x="25" y="115.33333333333336" width="343" height="43.666666666666671"/>
+                                                        <rect key="frame" x="25" y="111.66666666666666" width="343" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Cqg-oY-Kl4"/>
                                                         </constraints>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter City name*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ySc-h7-cHZ" customClass="DTTextField" customModule="DTTextField">
-                                                        <rect key="frame" x="25" y="232.66666666666669" width="164" height="43.666666666666686"/>
+                                                        <rect key="frame" x="25" y="221.66666666666669" width="164" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="huz-Ln-w8l"/>
                                                         </constraints>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <userDefinedRuntimeAttributes>
@@ -108,14 +110,14 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NkV-QY-yxi">
-                                                        <rect key="frame" x="25" y="232.66666666666669" width="164" height="43.666666666666686"/>
+                                                        <rect key="frame" x="25" y="221.66666666666669" width="164" height="40"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <connections>
                                                             <action selector="btnActionCountryCode:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Xe5-uo-AvY"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78v-G7-1iH">
-                                                        <rect key="frame" x="169" y="243.66666666666669" width="10" height="22"/>
+                                                        <rect key="frame" x="169" y="230.66666666666669" width="10" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="7IG-Dc-RNP"/>
                                                             <constraint firstAttribute="width" constant="10" id="Qml-Km-tx3"/>
@@ -124,18 +126,20 @@
                                                         <state key="normal" image="arrowDown"/>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Pincode*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8mc-9f-RWB" customClass="DTTextField" customModule="DTTextField">
-                                                        <rect key="frame" x="204" y="232.66666666666669" width="164" height="43.666666666666686"/>
+                                                        <rect key="frame" x="204" y="221.66666666666669" width="164" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="jLa-Ma-2tH"/>
                                                         </constraints>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Country*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TMP-Ib-3R6" customClass="DTTextField" customModule="DTTextField">
-                                                        <rect key="frame" x="25" y="174" width="164" height="43.666666666666657"/>
+                                                        <rect key="frame" x="25" y="166.66666666666669" width="164" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="JWp-14-ink"/>
                                                         </constraints>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <userDefinedRuntimeAttributes>
@@ -145,17 +149,18 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBf-qS-iKz">
-                                                        <rect key="frame" x="25" y="174" width="164" height="43.666666666666657"/>
+                                                        <rect key="frame" x="25" y="166.66666666666669" width="164" height="40"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <connections>
                                                             <action selector="btnActionCountryCode:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="4C4-6C-Qeu"/>
                                                         </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select State*" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ic-D4-WwB" customClass="DTTextField" customModule="DTTextField">
-                                                        <rect key="frame" x="204" y="174" width="164" height="43.666666666666657"/>
+                                                        <rect key="frame" x="204" y="166.66666666666669" width="164" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Hh1-Kl-GMe"/>
                                                         </constraints>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <userDefinedRuntimeAttributes>
@@ -165,14 +170,14 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzF-7O-5me">
-                                                        <rect key="frame" x="204" y="174" width="164" height="43.666666666666657"/>
+                                                        <rect key="frame" x="204" y="166.66666666666669" width="164" height="40"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <connections>
                                                             <action selector="btnActionCountryCode:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nCh-Dl-RzV"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ge6-0r-bgh">
-                                                        <rect key="frame" x="169" y="185" width="10" height="22"/>
+                                                        <rect key="frame" x="169" y="175.66666666666669" width="10" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="L6M-65-vId"/>
                                                             <constraint firstAttribute="width" constant="10" id="yVr-y5-T2Q"/>
@@ -181,7 +186,7 @@
                                                         <state key="normal" image="arrowDown"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTh-If-Xz6">
-                                                        <rect key="frame" x="348" y="185" width="10" height="22"/>
+                                                        <rect key="frame" x="348" y="175.66666666666669" width="10" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="10" id="cPu-0Y-Ohv"/>
                                                             <constraint firstAttribute="height" constant="22" id="iqe-od-ueC"/>
@@ -190,7 +195,7 @@
                                                         <state key="normal" image="arrowDown"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npM-J6-OLs" userLabel="MobileView">
-                                                        <rect key="frame" x="25" y="291.33333333333331" width="343" height="40"/>
+                                                        <rect key="frame" x="25" y="276.66666666666669" width="343" height="40"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number *" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ux1-1Z-0a8" customClass="DTTextField" customModule="DTTextField">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
@@ -284,10 +289,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rao-im-HFr" userLabel="MobileView">
-                                                        <rect key="frame" x="25" y="346.33333333333331" width="343" height="43"/>
+                                                        <rect key="frame" x="25" y="331.66666666666669" width="343" height="40"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="abc@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PWu-5O-7No" customClass="DTTextField" customModule="DTTextField">
-                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="2hq-gg-mdY"/>
                                                                 </constraints>
@@ -394,13 +399,13 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preference will help us plan your delivery. However, shipments can sometimes arrive earlier than planned." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYe-lO-bbD">
-                                                        <rect key="frame" x="25" y="409.33333333333337" width="343" height="28"/>
+                                                        <rect key="frame" x="25" y="391.66666666666663" width="343" height="28"/>
                                                         <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="12"/>
                                                         <color key="textColor" name="blackClr"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Address type for delivery" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyB-Jg-qRx">
-                                                        <rect key="frame" x="25" y="409.33333333333337" width="343" height="0.0"/>
+                                                        <rect key="frame" x="25" y="391.66666666666663" width="343" height="0.0"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" id="8pe-oj-U14"/>
                                                         </constraints>
@@ -409,7 +414,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ypi-RP-OKb">
-                                                        <rect key="frame" x="20" y="409.33333333333337" width="353" height="0.0"/>
+                                                        <rect key="frame" x="20" y="391.66666666666663" width="353" height="0.0"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krM-Ag-CAi">
                                                                 <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="0.0"/>
@@ -484,7 +489,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQp-dY-I9K">
-                                                        <rect key="frame" x="20" y="447.33333333333337" width="30" height="30"/>
+                                                        <rect key="frame" x="20" y="429.66666666666663" width="30" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="VuZ-LB-K21"/>
                                                             <constraint firstAttribute="width" constant="30" id="YzM-nB-Tdt"/>
@@ -496,7 +501,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set as default address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAi-qp-XZ2">
-                                                        <rect key="frame" x="60.000000000000014" y="453" width="160.33333333333337" height="18.666666666666686"/>
+                                                        <rect key="frame" x="60.000000000000014" y="435.33333333333337" width="160.33333333333337" height="18.666666666666686"/>
                                                         <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="16"/>
                                                         <color key="textColor" name="blackClr"/>
                                                         <nil key="highlightedColor"/>
@@ -671,14 +676,14 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <constraints>
                                             <constraint firstItem="wVP-me-OIK" firstAttribute="centerY" secondItem="SoU-oT-M8C" secondAttribute="centerY" id="KUB-Er-7F0"/>
                                             <constraint firstItem="wVP-me-OIK" firstAttribute="centerX" secondItem="SoU-oT-M8C" secondAttribute="centerX" id="w3r-Yj-3bq"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="whitClr"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="AIp-d1-gv0"/>
                                     <constraint firstItem="SoU-oT-M8C" firstAttribute="leading" secondItem="JXM-rv-lri" secondAttribute="leading" id="Dzz-Xz-oka"/>
@@ -714,6 +719,7 @@
                         <outlet property="btnVerify" destination="M9S-Tf-Fix" id="uxU-Fh-YeU"/>
                         <outlet property="btnVerifyDone" destination="WS0-QQ-e0q" id="b49-DH-Uw5"/>
                         <outlet property="btnflag" destination="lBT-bf-aXW" id="04u-n1-cjh"/>
+                        <outlet property="lblTitleTop" destination="zSU-a9-4if" id="cbm-DO-O1j"/>
                         <outlet property="txAddress1" destination="5FI-Df-qGE" id="I1d-Yf-ExD"/>
                         <outlet property="txEmail" destination="PWu-5O-7No" id="8sp-Z3-YB6"/>
                         <outlet property="txPincode" destination="8mc-9f-RWB" id="2wb-6I-xfB"/>
@@ -731,28 +737,28 @@
     </scenes>
     <designables>
         <designable name="2ic-D4-WwB">
-            <size key="intrinsicContentSize" width="101" height="43.666666666666671"/>
+            <size key="intrinsicContentSize" width="113" height="34"/>
         </designable>
         <designable name="5FI-Df-qGE">
-            <size key="intrinsicContentSize" width="109.33333333333333" height="43.666666666666671"/>
+            <size key="intrinsicContentSize" width="121.33333333333333" height="34"/>
         </designable>
         <designable name="8Uh-e5-1gZ">
-            <size key="intrinsicContentSize" width="111.33333333333333" height="43.666666666666671"/>
+            <size key="intrinsicContentSize" width="123.33333333333333" height="34"/>
         </designable>
         <designable name="8mc-9f-RWB">
-            <size key="intrinsicContentSize" width="112.66666666666667" height="43.666666666666671"/>
+            <size key="intrinsicContentSize" width="124.66666666666667" height="34"/>
         </designable>
         <designable name="PWu-5O-7No">
-            <size key="intrinsicContentSize" width="115.66666666666667" height="43"/>
+            <size key="intrinsicContentSize" width="99.666666666666671" height="18"/>
         </designable>
         <designable name="TMP-Ib-3R6">
-            <size key="intrinsicContentSize" width="118.66666666666667" height="43.666666666666671"/>
+            <size key="intrinsicContentSize" width="131" height="34"/>
         </designable>
         <designable name="ux1-1Z-0a8">
-            <size key="intrinsicContentSize" width="121.33333333333333" height="43"/>
+            <size key="intrinsicContentSize" width="105.33333333333333" height="18"/>
         </designable>
         <designable name="ySc-h7-cHZ">
-            <size key="intrinsicContentSize" width="125.33333333333333" height="43.666666666666671"/>
+            <size key="intrinsicContentSize" width="137.33333333333334" height="34"/>
         </designable>
     </designables>
     <resources>
@@ -786,8 +792,5 @@
         <namedColor name="whitClr">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

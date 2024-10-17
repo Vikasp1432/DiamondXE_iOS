@@ -28,7 +28,7 @@ class RecentIListVC: BaseViewController, IndicatorInfoProvider {
     var orderListData  = MyOrderDataStruct()
     var page = 1
     
-  
+    let refreshControl = UIRefreshControl()
     
     @IBOutlet var imgNoDataFnd: UIImageView!
     
@@ -48,11 +48,23 @@ class RecentIListVC: BaseViewController, IndicatorInfoProvider {
         
         self.imgNoDataFnd.isHidden = true
         getOrderListAPI()
+        self.configureRefreshControl()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//       
-//    }
+    
+    // pull to refresh
+    func configureRefreshControl() {
+            // Add the refresh control to your table view
+            tableViewRecent.refreshControl = refreshControl
+        self.page = 1
+            //refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        }
+    
+    @objc private func refreshData(_ sender: Any) {
+        // Refresh your data here
+        getOrderListAPI()
+    }
     
     
     func getOrderListAPI(){
@@ -92,7 +104,7 @@ class RecentIListVC: BaseViewController, IndicatorInfoProvider {
             }
             
             //CustomActivityIndicator2.shared.hide()
-            
+            self.refreshControl.endRefreshing()
         })
         
         
@@ -145,7 +157,7 @@ extension RecentIListVC : UITableViewDelegate, UITableViewDataSource, TimerDeleg
                 let cell = tableView.dequeueReusableCell(withIdentifier: MultiItemListTVC.cellIdentifierMultiItemListTVC, for: indexPath) as! MultiItemListTVC
                 cell.selectionStyle = .none
                 cell.lblCnclBy.isHidden = true
-                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
                 
                 let diamndInfo = self.orderListData.details?[indexPath.row]
                 cell.lblOrderID.text = "Order-ID : \(diamndInfo?.orderID ?? Int())"
@@ -213,7 +225,7 @@ extension RecentIListVC : UITableViewDelegate, UITableViewDataSource, TimerDeleg
                 let cell = tableView.dequeueReusableCell(withIdentifier: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC, for: indexPath) as! BuyItemInfoTVC
                 cell.selectionStyle = .none
                 cell.lblCnclBy.isHidden = true
-                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
                 let diamndInfo = self.orderListData.details?[indexPath.row]
                 
                 cell.imgDiamond.sd_setImage(with: URL(string: diamndInfo?.diamonds?.first?.diamondImage ?? ""), placeholderImage: UIImage(named: "place_Holder"))
@@ -311,7 +323,7 @@ extension RecentIListVC : UITableViewDelegate, UITableViewDataSource, TimerDeleg
             let cell = tableView.dequeueReusableCell(withIdentifier: BuyItemInfoTVC.cellIdentifierBuyItemInfoTVC, for: indexPath) as! BuyItemInfoTVC
             cell.selectionStyle = .none
             cell.contentView.isUserInteractionEnabled = true
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
             return cell
         }
         

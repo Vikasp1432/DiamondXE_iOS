@@ -50,7 +50,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
     var allDiamondListDetails = [DiamondListingDetail]()
     var diamondListDetails = [DiamondListingDetail]()
     var sessionID = String()
-    var limit  = 15
+    var limit  = 20
     var page = 1
     var isLuxe = 0
     var filterDataDic = [String: Set<[FilterAttribDetail]>]()
@@ -193,6 +193,23 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
         dropDown.cellHeight = 40
         dropDown.height = 250
         dropDown.topOffset = CGPoint(x: 0, y:-(dropDown.anchorView?.plainView.bounds.height)!)
+        
+        switch DataManager.shared.sortingBy {
+        case "RecentlyAdd":
+            selectedIndex = 0
+        case "PriceLow":
+            selectedIndex = 1
+        case "PriceHigh":
+            selectedIndex = 2
+        case "SizeHigh":
+            selectedIndex = 3
+        case "SizeLow":
+            selectedIndex = 4
+            
+        default:
+            print(selectedIndex)
+        }
+        
         dropDown.selectRow(at: selectedIndex)
        
 
@@ -530,9 +547,16 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
             
             if data.status == 1{
                 self.diamondListResult = data
+                if data.details?.count ?? 0 > 19 {
+                     self.page += 1
+                 }
                 
-                if let listDetials = self.diamondListResult.details{
-                    self.diamondListDetails.append(contentsOf: listDetials)
+                data.details?.enumerated().forEach{ indx, list in
+                    self.diamondListDetails.append(list)
+                }
+                
+               // if let listDetials = self.diamondListResult.details{
+                    
                     if self.diamondListResult.details?.count ?? 0 > 0{
                         self.tableViewList.isHidden = false
                         self.dataNotFound.isHidden = true
@@ -545,11 +569,9 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
 
                     }
                     
-                }
+               // }
 //                print(self.diamondListDetails)
-               if self.diamondListResult.details?.count ?? 0 > 14 {
-                    self.page += 1
-                }
+              
                 
                 
                 
@@ -872,7 +894,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 let cell = tableView.dequeueReusableCell(withIdentifier: B2CSearchResultTableListingCell.cellIdentifierTableListingB2C, for: indexPath) as! B2CSearchResultTableListingCell
                 cell.selectionStyle = .default
                 cell.contentView.isUserInteractionEnabled = true
-                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
                 
                 
                 
@@ -936,10 +958,12 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                     cell.lblCirtificateNum.text = self.diamondListDetails[indexPath.row].stockNO
                     cell.lblLotID.text = "ID: \(self.diamondListDetails[indexPath.row].supplierID ?? "")"
                     cell.lblShape.text = self.diamondListDetails[indexPath.row].shape
-                    cell.lblCarat.text = "\(self.diamondListDetails[indexPath.row].carat ?? "")Ct"
+                    cell.lblCarat.text = "\(self.diamondListDetails[indexPath.row].carat ?? "")ct"
                     cell.lblClor.text = self.diamondListDetails[indexPath.row].color
                     cell.lblClarity.text = self.diamondListDetails[indexPath.row].clarity
                    // cell.lblCarat.text = self.diamondListDetails[indexPath.row].carat
+                    
+                  
                     
                     if let availibility = self.diamondListDetails[indexPath.row].status{
                         if availibility == "On Hold"{
@@ -1011,17 +1035,36 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                     
                     if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
                         let currncyVal = self.currencyRateDetailObj.value ?? 1
-                        let finalVal = Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)) * currncyVal
+                        let finalVal = Double((self.diamondListDetails[indexPath.row].subtotalAfterCouponDiscount ?? 0)) * currncyVal
                         
                         let formattedNumber = formatNumberWithoutDeciml(finalVal)
                         
                         
                         cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
                         
+                        if self.diamondListDetails[indexPath.row].couponDesPer ?? 0 > 0{
+                            cell.lblDiscountPrice.isHidden = false
+                            var finalVal2 = Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)) * currncyVal
+                            
+                            let formattedNumber2 = formatNumberWithoutDeciml(finalVal2)
+                            cell.lblDiscountPrice.applyStrikeThrough(to: "\(currncySimbol)\(formattedNumber2)")
+                        }
+                        else{
+                            cell.lblDiscountPrice.isHidden = true
+                        }
+                        
                     }
                     else{
-                        let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].subtotal ?? 0))
+                        let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].subtotalAfterCouponDiscount ?? 0))
                         cell.lblPrice.text = "₹\(formattedNumber)"
+                        if self.diamondListDetails[indexPath.row].couponDesPer ?? 0 > 0{
+                            cell.lblDiscountPrice.isHidden = false
+                            let formattedNumber2 = formatNumberWithoutDeciml(Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)))
+                            cell.lblDiscountPrice.applyStrikeThrough(to: "₹\(formattedNumber2)")
+                        }
+                        else{
+                            cell.lblDiscountPrice.isHidden = true
+                        }
                     }
                     
                     cell.shapeClick = {
@@ -1050,7 +1093,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 cell.selectionStyle = .default
                 cell.contentView.isUserInteractionEnabled = true
                
-                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+                cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
                 
                
                 cell.addToCart = {
@@ -1111,12 +1154,12 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                     cell.lblCirtificateNum.text = self.diamondListDetails[indexPath.row].stockNO
                     cell.lblLotID.text = "ID: \(self.diamondListDetails[indexPath.row].supplierID ?? "")"
                     cell.lblShape.text = self.diamondListDetails[indexPath.row].shape
-                    cell.lblCarat.text = "\(self.diamondListDetails[indexPath.row].carat ?? "")Ct"
+                    cell.lblCarat.text = "\(self.diamondListDetails[indexPath.row].carat ?? "")ct"
                     cell.lblClor.text = self.diamondListDetails[indexPath.row].color
                     cell.lblClarity.text = self.diamondListDetails[indexPath.row].clarity
                    // cell.lblCarat.text = self.diamondListDetails[indexPath.row].carat
                     
-                    
+                  
                     if let availibility = self.diamondListDetails[indexPath.row].status{
                         if availibility == "On Hold"{
                             cell.btnAvailable.setImage(UIImage(named: "onHold"), for: .normal)
@@ -1194,16 +1237,35 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                     
                     if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
                         let currncyVal = self.currencyRateDetailObj.value ?? 1
-                        var finalVal = Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)) * currncyVal
+                        let finalVal = Double((self.diamondListDetails[indexPath.row].subtotalAfterCouponDiscount ?? 0)) * currncyVal
                         
                         let formattedNumber = formatNumberWithoutDeciml(finalVal)
                         cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
                         
+                        if self.diamondListDetails[indexPath.row].couponDesPer ?? 0 > 0{
+                            cell.lblDiscountPrice.isHidden = false
+                            var finalVal2 = Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)) * currncyVal
+                            
+                            let formattedNumber2 = formatNumberWithoutDeciml(finalVal2)
+                            cell.lblDiscountPrice.applyStrikeThrough(to: "\(currncySimbol)\(formattedNumber2)")
+                        }
+                        else{
+                            cell.lblDiscountPrice.isHidden = true
+                        }
+                        
                     }
                     else{
                         
-                        let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].subtotal ?? 0))
+                        let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].subtotalAfterCouponDiscount ?? 0))
                         cell.lblPrice.text = "₹\(formattedNumber)"
+                        if self.diamondListDetails[indexPath.row].couponDesPer ?? 0 > 0{
+                            cell.lblDiscountPrice.isHidden = false
+                            let formattedNumber2 = formatNumberWithoutDeciml(Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)))
+                            cell.lblDiscountPrice.applyStrikeThrough(to: "₹\(formattedNumber2)")
+                        }
+                        else{
+                            cell.lblDiscountPrice.isHidden = true
+                        }
                     }
                     
                     
@@ -1226,7 +1288,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: B2BSearchResultListingTVC.cellIdentifierListingB2B, for: indexPath) as! B2BSearchResultListingTVC
             cell.selectionStyle = .default
             cell.contentView.isUserInteractionEnabled = true
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
          
             
             cell.addToCart = {
@@ -1294,11 +1356,10 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 cell.lblCirtificateNum.text = self.diamondListDetails[indexPath.row].stockNO
                 cell.lblLotID.text = "ID: \(self.diamondListDetails[indexPath.row].supplierID ?? "")"
                 cell.btnShape.text = self.diamondListDetails[indexPath.row].shape
-                cell.lblCarat.text = "\(self.diamondListDetails[indexPath.row].carat ?? "")Ct"
+                cell.lblCarat.text = "\(self.diamondListDetails[indexPath.row].carat ?? "")ct"
                 cell.lblClor.text = self.diamondListDetails[indexPath.row].color
                 cell.lblClarity.text = self.diamondListDetails[indexPath.row].clarity
                 //cell.lblCarat.text = self.diamondListDetails[indexPath.row].carat
-                
                 if let availibility = self.diamondListDetails[indexPath.row].status{
                     if availibility == "On Hold"{
                         cell.btnAvailable.setImage(UIImage(named: "onHold"), for: .normal)
@@ -1369,17 +1430,39 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 
                 if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
                     let currncyVal = self.currencyRateDetailObj.value ?? 1
-                    let finalVal = Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)) * currncyVal
+                    let finalVal = Double((self.diamondListDetails[indexPath.row].subtotalAfterCouponDiscount ?? 0)) * currncyVal
                     
                     let formattedNumber = formatNumberWithoutDeciml(finalVal)
                     
-                    
                     cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
+                    
+                    
+                    if self.diamondListDetails[indexPath.row].couponDesPer ?? 0 > 0{
+                        cell.lblDiscountPrice.isHidden = false
+                        var finalVal2 = Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)) * currncyVal
+                        
+                        let formattedNumber2 = formatNumberWithoutDeciml(finalVal2)
+                        cell.lblDiscountPrice.applyStrikeThrough(to: "\(currncySimbol)\(formattedNumber2)")
+                    }
+                    else{
+                        cell.lblDiscountPrice.isHidden = true
+                    }
+                    
+                    
                     
                 }
                 else{
-                    let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].subtotal ?? 0))
+                    let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].subtotalAfterCouponDiscount ?? 0))
                     cell.lblPrice.text = "₹\(formattedNumber)"
+                    
+                    if self.diamondListDetails[indexPath.row].couponDesPer ?? 0 > 0{
+                        cell.lblDiscountPrice.isHidden = false
+                        let formattedNumber2 = formatNumberWithoutDeciml(Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)))
+                        cell.lblDiscountPrice.applyStrikeThrough(to: "₹\(formattedNumber2)")
+                    }
+                    else{
+                        cell.lblDiscountPrice.isHidden = true
+                    }
                 }
                 
                 cell.shapeClick = {
@@ -1408,7 +1491,7 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
             cell.selectionStyle = .default
             cell.contentView.isUserInteractionEnabled = true
             
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
         
             cell.addToCart = {
                 if let isCart = self.diamondListDetails[indexPath.row].isCart{
@@ -1458,11 +1541,11 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 cell.lblCirtificateNum.text = self.diamondListDetails[indexPath.row].stockNO
                 cell.lblLotID.text = "ID: \(self.diamondListDetails[indexPath.row].supplierID ?? "")"
                 cell.btnShape.text = self.diamondListDetails[indexPath.row].shape
-                cell.lblCarat.text = "\(self.diamondListDetails[indexPath.row].carat ?? "")Ct"
+                cell.lblCarat.text = "\(self.diamondListDetails[indexPath.row].carat ?? "")ct"
                 cell.lblClor.text = self.diamondListDetails[indexPath.row].color
                 cell.lblClarity.text = self.diamondListDetails[indexPath.row].clarity
                 //cell.lblCarat.text = self.diamondListDetails[indexPath.row].carat
-                
+              
                 
                 if let availibility = self.diamondListDetails[indexPath.row].status{
                     if availibility == "On Hold"{
@@ -1540,16 +1623,39 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 
                 if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
                     let currncyVal = self.currencyRateDetailObj.value ?? 1
-                    var finalVal = Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)) * currncyVal
+                    var finalVal = Double((self.diamondListDetails[indexPath.row].subtotalAfterCouponDiscount ?? 0)) * currncyVal
                     
                     let formattedNumber = formatNumberWithoutDeciml(finalVal)
                     cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
                     
+                    if self.diamondListDetails[indexPath.row].couponDesPer ?? 0 > 0{
+                        cell.lblDiscountPrice.isHidden = false
+                        var finalVal2 = Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)) * currncyVal
+                        
+                        let formattedNumber2 = formatNumberWithoutDeciml(finalVal2)
+                        cell.lblDiscountPrice.applyStrikeThrough(to: "\(currncySimbol)\(formattedNumber2)")
+                    }
+                    else{
+                        cell.lblDiscountPrice.isHidden = true
+                    }
+                    
+                    
+                    
                 }
                 else{
                     
-                    let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].subtotal ?? 0))
+                    let formattedNumber = formatNumberWithoutDeciml(Double(self.diamondListDetails[indexPath.row].subtotalAfterCouponDiscount ?? 0))
                     cell.lblPrice.text = "₹\(formattedNumber)"
+                    
+                    if self.diamondListDetails[indexPath.row].couponDesPer ?? 0 > 0{
+                        cell.lblDiscountPrice.isHidden = false
+                        let formattedNumber2 = formatNumberWithoutDeciml(Double((self.diamondListDetails[indexPath.row].subtotal ?? 0)))
+                        cell.lblDiscountPrice.applyStrikeThrough(to: "₹\(formattedNumber2)")
+                    }
+                    else{
+                        cell.lblDiscountPrice.isHidden = true
+                    }
+                    
                 }
                 
                 
@@ -1578,17 +1684,30 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
     }
     
 
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        if self.diamondListDetails.count > 14{
-            
-            if indexPath.row == self.diamondListDetails.count - 1 && !isLoading {
-                fetchDamondData(page: page, limit: limit, param: self.param)
-            }
-            
-        }
-    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        
+//        if self.diamondListDetails.count > 19{
+//            
+//            if indexPath.row == self.diamondListDetails.count - 1 && !isLoading {
+//                fetchDamondData(page: page, limit: limit, param: self.param)
+//            }
+//            
+//        }
+//        
+//        
+//    }
     
    
-    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // Safely unwrap history count
+         let historyCount = self.diamondListDetails.count
+      
+        if historyCount >= 19 {
+     
+            if indexPath.row == historyCount - 1 && !isLoading {
+                self.setParamAndAPICalling()
+               //fetchDamondData(page: self.page, limit: limit, param: self.param)
+            }
+        }
+    }
 }

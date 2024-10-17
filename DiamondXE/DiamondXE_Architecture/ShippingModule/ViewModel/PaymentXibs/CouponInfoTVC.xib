@@ -43,6 +43,11 @@
                                 <color key="textColor" name="themeClr"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                        <color key="value" name="clrGray"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="BER-Qv-LCh">
                                 <rect key="frame" x="280" y="18.666666666666668" width="50" height="24.000000000000004"/>
@@ -134,6 +139,9 @@
     </designables>
     <resources>
         <image name="walletPoints" width="23.190000534057617" height="27.229999542236328"/>
+        <namedColor name="clrGray">
+            <color red="0.42699998617172241" green="0.42399999499320984" blue="0.42699998617172241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="green2">
             <color red="0.063000001013278961" green="0.58799999952316284" blue="0.38400000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

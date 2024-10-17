@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="227" id="KGk-i7-Jjw" customClass="ReturnOrderItemReasionsTVC" customModule="DiamondXE" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="478" height="227"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="478" height="227"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUp-Jm-Krv">
+                        <rect key="frame" x="10" y="5" width="458" height="217"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXK-3d-tDu">
+                                <rect key="frame" x="10" y="10" width="348" height="74"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGf-rw-DrF">
+                                        <rect key="frame" x="0.0" y="5" width="338" height="26"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Refund Mode">
+                                                <attributes>
+                                                    <color key="NSColor" name="blackClr"/>
+                                                    <font key="NSFont" size="15" name="Lato-Semibold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BNW-I6-Iol">
+                                        <rect key="frame" x="0.0" y="39" width="328" height="35"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACH-k8-nJF">
+                                                <rect key="frame" x="0.0" y="0.0" width="164" height="35"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Wallet" image="radioButtonSelected">
+                                                    <color key="titleColor" name="TabSelectClr"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnactionsReturnType:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Lo7-iN-AKa"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzO-dx-oeX">
+                                                <rect key="frame" x="164" y="0.0" width="164" height="35"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Orignal Payment " image="radioButtonDeselected">
+                                                    <color key="titleColor" name="TabSelectClr"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnactionsReturnType:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="iUL-Cp-Oru"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="Uom-VT-QYI"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="viewBGClr"/>
+                                <constraints>
+                                    <constraint firstItem="NGf-rw-DrF" firstAttribute="leading" secondItem="tXK-3d-tDu" secondAttribute="leading" id="9W0-0O-QbU"/>
+                                    <constraint firstItem="BNW-I6-Iol" firstAttribute="leading" secondItem="tXK-3d-tDu" secondAttribute="leading" id="DK1-pc-TuH"/>
+                                    <constraint firstAttribute="trailing" secondItem="NGf-rw-DrF" secondAttribute="trailing" constant="10" id="Ixi-Lo-Gke"/>
+                                    <constraint firstAttribute="bottom" secondItem="BNW-I6-Iol" secondAttribute="bottom" id="RJs-ad-DQO"/>
+                                    <constraint firstItem="BNW-I6-Iol" firstAttribute="top" secondItem="NGf-rw-DrF" secondAttribute="bottom" constant="8" id="hxL-ve-wAy"/>
+                                    <constraint firstItem="NGf-rw-DrF" firstAttribute="top" secondItem="tXK-3d-tDu" secondAttribute="top" constant="5" id="v19-YE-uPe"/>
+                                    <constraint firstAttribute="trailing" secondItem="BNW-I6-Iol" secondAttribute="trailing" constant="20" id="wey-Fb-lLQ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Fz-5g-zdw">
+                                <rect key="frame" x="0.0" y="99" width="458" height="118"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rtS-Zd-8Aq">
+                                        <rect key="frame" x="0.0" y="0.0" width="458" height="110"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="110" id="wdf-w0-VQ4"/>
+                                        </constraints>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" name="whiteBG"/>
+                                <constraints>
+                                    <constraint firstItem="rtS-Zd-8Aq" firstAttribute="leading" secondItem="3Fz-5g-zdw" secondAttribute="leading" id="CJ0-Ya-MDA"/>
+                                    <constraint firstAttribute="trailing" secondItem="rtS-Zd-8Aq" secondAttribute="trailing" id="cNT-su-Ade"/>
+                                    <constraint firstItem="rtS-Zd-8Aq" firstAttribute="top" secondItem="3Fz-5g-zdw" secondAttribute="top" id="iBp-Pf-5hD"/>
+                                    <constraint firstAttribute="bottom" secondItem="rtS-Zd-8Aq" secondAttribute="bottom" constant="8" id="sMM-ar-cmY"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="viewBGClr"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tXK-3d-tDu" secondAttribute="trailing" constant="100" id="1QB-tW-zNr"/>
+                            <constraint firstItem="tXK-3d-tDu" firstAttribute="top" secondItem="NUp-Jm-Krv" secondAttribute="top" constant="10" id="6hO-Kn-Nt9"/>
+                            <constraint firstItem="3Fz-5g-zdw" firstAttribute="top" secondItem="tXK-3d-tDu" secondAttribute="bottom" constant="15" id="GyI-E2-p8C"/>
+                            <constraint firstItem="tXK-3d-tDu" firstAttribute="leading" secondItem="NUp-Jm-Krv" secondAttribute="leading" constant="10" id="Z16-5g-Rkw"/>
+                            <constraint firstItem="3Fz-5g-zdw" firstAttribute="leading" secondItem="NUp-Jm-Krv" secondAttribute="leading" id="hZV-UC-wYH"/>
+                            <constraint firstAttribute="trailing" secondItem="3Fz-5g-zdw" secondAttribute="trailing" id="p3C-x3-deI"/>
+                            <constraint firstAttribute="bottom" secondItem="3Fz-5g-zdw" secondAttribute="bottom" id="pbC-I0-OQ3"/>
+                            <constraint firstAttribute="bottom" secondItem="3Fz-5g-zdw" secondAttribute="bottom" id="zo3-cR-Yi4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="viewBGClr"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="NUp-Jm-Krv" secondAttribute="bottom" constant="5" id="CfZ-hJ-rJ6"/>
+                    <constraint firstAttribute="trailing" secondItem="NUp-Jm-Krv" secondAttribute="trailing" constant="10" id="Tbh-aa-f9d"/>
+                    <constraint firstItem="NUp-Jm-Krv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="n3C-bu-BBS"/>
+                    <constraint firstItem="NUp-Jm-Krv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="tcQ-re-5M3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnPaymentSource" destination="XzO-dx-oeX" id="eBZ-hc-LJ3"/>
+                <outlet property="btnWallet" destination="ACH-k8-nJF" id="IHe-Gw-AOe"/>
+                <outlet property="tableViewMultiItem" destination="rtS-Zd-8Aq" id="Yda-WJ-smm"/>
+                <outlet property="tableViewMultiItemContraint" destination="wdf-w0-VQ4" id="WsM-Up-bT5"/>
+                <outlet property="viewDataBG" destination="3Fz-5g-zdw" id="UVT-a0-3yr"/>
+            </connections>
+            <point key="canvasLocation" x="204.58015267175571" y="84.154929577464799"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="radioButtonDeselected" width="14.699999809265137" height="14"/>
+        <image name="radioButtonSelected" width="14.699999809265137" height="14"/>
+        <namedColor name="TabSelectClr">
+            <color red="0.49399998784065247" green="0.18799999356269836" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blackClr">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="viewBGClr">
+            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="whiteBG">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

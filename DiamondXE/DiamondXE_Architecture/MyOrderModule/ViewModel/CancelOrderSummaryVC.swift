@@ -114,7 +114,7 @@ extension CancelOrderSummaryVC: UITableViewDelegate, UITableViewDataSource{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ItemSummaryDiamondsList.cellIdentifierItemSummaryDiamondsList, for: indexPath) as! ItemSummaryDiamondsList
             cell.selectionStyle = .none
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
             
             if let dataArr = self.orderDIC.values.first{
                 cell.reloadData(diamonds: dataArr)
@@ -136,7 +136,7 @@ extension CancelOrderSummaryVC: UITableViewDelegate, UITableViewDataSource{
         case 1:
 //            let cell = tableView.dequeueReusableCell(withIdentifier: ItemsSummaryPriceTVC.cellIdentifierItemsSummaryPriceTVC, for: indexPath) as! ItemsSummaryPriceTVC
 //            cell.selectionStyle = .none
-//            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+//            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
 //            
 //            cell.lblDiaPrice.text = "\(self.orderSummryData.details?.currencySymbol ?? "")\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.subTotal ?? "") ?? 0))"
 //            cell.lblGrandTotal.text = "\(self.orderSummryData.details?.currencySymbol ?? "")\(formatNumberWithoutDeciml(Double(self.orderSummryData.details?.totalAmount ?? "") ?? 0))"
@@ -147,7 +147,7 @@ extension CancelOrderSummaryVC: UITableViewDelegate, UITableViewDataSource{
             
             let cell = tableView.dequeueReusableCell(withIdentifier: ItemsSummaryAllInfoTVC.cellIdentifierItemsSummaryAllInfoTVC, for: indexPath) as! ItemsSummaryAllInfoTVC
             cell.selectionStyle = .none
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
             cell.lblTitle.text = "Cancel Order Summary"
             
             if let currencySymbol = self.currencyRateDetailObj?.currencySymbol {
@@ -189,7 +189,7 @@ extension CancelOrderSummaryVC: UITableViewDelegate, UITableViewDataSource{
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: ItemsSummaryAllInfoTVC.cellIdentifierItemsSummaryAllInfoTVC, for: indexPath) as! ItemsSummaryAllInfoTVC
             cell.selectionStyle = .none
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
             
             cell.lblTitle.text = "Order Summary"
             if let currencySymbol = self.currencyRateDetailObj?.currencySymbol {
@@ -227,7 +227,7 @@ extension CancelOrderSummaryVC: UITableViewDelegate, UITableViewDataSource{
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: ItemsSummaryAddressesInfoTVC.cellIdentifierItemsSummaryAddressesInfoTVC, for: indexPath) as! ItemsSummaryAddressesInfoTVC
             cell.selectionStyle = .none
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
             cell.lblUTRCheckNo.text = self.orderSummryData.details?.parentOrderSummery?.transaction_id
             if self.orderSummryData.details?.orderStatus ==  "Cancelled"{
                 cell.lblOrderStatus.textColor = UIColor.red

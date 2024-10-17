@@ -37,8 +37,12 @@ struct NaturalDiamond: Codable {
     var subtotal: Double?
     var totalPrice, isReturnable, dxePrefered, isAvailableForSale: Int?
     var isCart, isWishlist, onHold: Int?
+    var couponDesPer : Double?
+    var subtotalAfterCouponDiscount : Double?
 
     enum CodingKeys: String, CodingKey {
+        case couponDesPer = "coupon_discount_perc"
+        case subtotalAfterCouponDiscount = "subtotal_after_coupon_discount"
         case stockID = "stock_id"
         case itemName = "item_name"
         case category
@@ -77,8 +81,12 @@ struct LabGDiamond: Codable {
     var subtotal: Double?
     var totalPrice, isReturnable, dxePrefered, isAvailableForSale: Int?
     var isCart, isWishlist, onHold: Int?
+    var couponDesPer : Double?
+    var subtotalAfterCouponDiscount : Double?
 
     enum CodingKeys: String, CodingKey {
+        case couponDesPer = "coupon_discount_perc"
+        case subtotalAfterCouponDiscount = "subtotal_after_coupon_discount"
         case stockID = "stock_id"
         case itemName = "item_name"
         case category

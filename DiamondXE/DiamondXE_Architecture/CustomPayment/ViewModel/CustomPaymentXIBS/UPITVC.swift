@@ -11,7 +11,7 @@ class UPITVC: UITableViewCell {
 
     static let cellIdentifierUPITVC = String(describing: UPITVC.self)
     @IBOutlet var viewBG:UIView!
-    
+    @IBOutlet var lblNodata:UILabel!
     @IBOutlet var collectionUPIApps:UICollectionView!
     var upiApps: [UPIAppInfo] = []
     
@@ -29,7 +29,6 @@ class UPITVC: UITableViewCell {
         
         collectionUPIApps.register(UINib(nibName: UPIAppsCVC.cellIdentifierUPIAppsCVC, bundle: nil), forCellWithReuseIdentifier: UPIAppsCVC.cellIdentifierUPIAppsCVC)
         
-        
         upiApps = fetchInstalledUPIApps()
 
 
@@ -45,6 +44,12 @@ class UPITVC: UITableViewCell {
 
 extension UPITVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if upiApps.count <= 0{
+            self.lblNodata.isHidden = false
+        }
+        else{
+            self.lblNodata.isHidden = true
+        }
         return upiApps.count
     }
     
@@ -106,73 +111,9 @@ extension UPITVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0) // Adjust the left padding
     }
-    
-    
-  
-    
-    
-//    func fetchInstalledUPIApps() -> [String] {
-//        var installedUPIApps = [String]()
-//        
-//        // Check for PhonePe
-//        if UIApplication.shared.canOpenURL(URL(string: "phonepe://")!) {
-//            installedUPIApps.append("PhonePe")
-//        }
-//        
-//        // Check for Paytm
-//        if UIApplication.shared.canOpenURL(URL(string: "paytmUPI://")!) {
-//            installedUPIApps.append("Paytm")
-//        }
-//        
-//        // Check for Google Pay
-//        if UIApplication.shared.canOpenURL(URL(string: "gpay://")!) {
-//            installedUPIApps.append("Google Pay")
-//        }
-//        
-//        // Check for BHIM
-//        if UIApplication.shared.canOpenURL(URL(string: "upi://")!) {
-//            installedUPIApps.append("BHIM")
-//        }
-//        
-//        return installedUPIApps
-//    }
-    
+   
     
 }
-
-
-
-//struct UPIApp {
-//    let name: String
-//    let urlScheme: String
-//    let icon: UIImage?
-//}
-//
-//func fetchInstalledUPIApps() -> [UPIApp] {
-//    var installedUPIApps = [UPIApp]()
-//    
-//    // Check for PhonePe
-//    if UIApplication.shared.canOpenURL(URL(string: "phonepe://")!) {
-//        installedUPIApps.append(UPIApp(name: "PhonePe", urlScheme: "phonepe://", icon: UIImage(named: "phonepeIcon")))
-//    }
-//    
-//    // Check for Paytm
-//    if UIApplication.shared.canOpenURL(URL(string: "paytmUPI://")!) {
-//        installedUPIApps.append(UPIApp(name: "Paytm", urlScheme: "paytmUPI://", icon: UIImage(named: "phonepeIcon")))
-//    }
-//    
-//    // Check for Google Pay
-//    if UIApplication.shared.canOpenURL(URL(string: "gpay://")!) {
-//        installedUPIApps.append(UPIApp(name: "Google Pay", urlScheme: "gpay://", icon: UIImage(named: "phonepeIcon")))
-//    }
-//    
-//    // Check for BHIM
-//    if UIApplication.shared.canOpenURL(URL(string: "upi://")!) {
-//        installedUPIApps.append(UPIApp(name: "BHIM", urlScheme: "upi://", icon: UIImage(named: "phonepeIcon")))
-//    }
-//    
-//    return installedUPIApps
-//}
 
 
 struct UPIAppInfo {
@@ -181,40 +122,17 @@ struct UPIAppInfo {
     let appIcon: UIImage?
 }
 
-
-//func fetchInstalledUPIApps() -> [UPIAppInfo] {
-//    var installedUPIApps = [UPIAppInfo]()
-//    
-//    // Define the UPI apps URL schemes and their icons
-//    let upiApps = [
-//        ("PhonePe", "phonepe://", "phonepeIcon"),
-//        ("Paytm", "paytmUPI://", "paytmIcon"),
-//        ("Google Pay", "gpay://", "gpayIcon")
-//        //("BHIM", "upi://", "bhimIcon")
-//    ]
-//    
-//    for (appName, urlScheme, iconName) in upiApps {
-//        if let url = URL(string: urlScheme), UIApplication.shared.canOpenURL(url) {
-//            let packageName = urlScheme // This can be adjusted if you have specific package names
-//            let appIcon = UIImage(named: iconName) // Load icon from assets
-//            
-//            installedUPIApps.append(UPIAppInfo(packageName: packageName, appName: appName, appIcon: appIcon))
-//        } else {
-//            print("\(appName) is not installed or cannot be opened.")
-//        }
-//    }
-//    
-//    return installedUPIApps
-//}
-
 func fetchInstalledUPIApps() -> [UPIAppInfo] {
     var installedUPIApps = [UPIAppInfo]()
     
     // Define the UPI apps URL schemes and their icons
     let upiApps = [
-        ("PHONEPE", "phonepe://", "phonepeIcon"),
-        ("PAYTM", "paytmUPI://", "paytmIcon"),
-        ("GPAY", "gpay://", "gpayIcon")
+        ("PhonePe", "phonepe://", "phonepe"),
+        ("Paytm", "paytm://", "paytm"),
+        ("Google Pay", "gpay://", "google"),
+        ("Amazon Pay", "amazon://", "amazon"),
+        ("Bhim", "gpay://", "bhim"),
+        ("Cred", "cred://", "CredClub")
     ]
     
     for (appName, urlScheme, iconName) in upiApps {

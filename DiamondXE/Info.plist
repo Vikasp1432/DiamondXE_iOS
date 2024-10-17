@@ -2,19 +2,36 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<!--	<key>CFBundleURLTypes</key>-->
+<!--	<array>-->
+<!--		<dict>-->
+<!--			<key>CFBundleURLSchemes</key>-->
+<!--			<array>-->
+<!--				<string>phonepe</string>-->
+<!--				<string>gpay</string>-->
+<!--			</array>-->
+<!--		</dict>-->
+<!--	</array>-->
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>phonepe</string>
+		<string>gpay</string>
+        <string>paytm</string>
+        <string>amazon</string>
+        <string>bhim</string>
+        <string>cred</string>
+	</array>
+	<key>Marchant_ID</key>
+	<string>DIAMONDXEONLINE</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>Root_URL</key>
 	<string>$(Root_URL)</string>
-    <key>Marchant_ID</key>
-    <string>DIAMONDXEONLINE</string>
-    <key>Salt_KEY</key>
-    <string>b74e2a4c-7d13-43c5-a115-c0372ed85dbd</string>
-<!--    marchant_ID = DIAMONDXEONLINE-->
-<!--    salt_Key = b74e2a4c-7d13-43c5-a115-c0372ed85dbd-->
-<!--    Marchant_ID = DIAMONDUAT-->
-<!--    Salt_KEY = 1c560f14-86f2-4317-86bf-658f92554b58-->
-
-    
-    
+	<key>Salt_KEY</key>
+	<string>b74e2a4c-7d13-43c5-a115-c0372ed85dbd</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>LATO-LIGHTITALIC.TTF</string>
@@ -47,43 +64,7 @@
 			</array>
 		</dict>
 	</dict>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-	</array>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>phonepe</string>
-                <string>gpay</string>
-            </array>
-        </dict>
-    </array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-    
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>This app requires access to your location for better service.</string>
-    
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>We need access to your photo library to save screenshots.</string>
-    
-    
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>phonepe</string>
-        <string>paytmUPI</string>
-        <string>gpay</string>
-    </array>
-    
 </dict>
 </plist>
