@@ -243,15 +243,32 @@ extension AddToWishListVC: UITableViewDelegate , UITableViewDataSource{
         
         if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
             let currncyVal = self.currencyRateDetailObj.value ?? 1
-            let finalVal = Double((self.wishlistDataStruct.details?[indexPath.row].totalPrice ?? 0)) * currncyVal
+            let finalVal = Double((self.wishlistDataStruct.details?[indexPath.row].subtotalAfterCouponDiscount ?? 0)) * currncyVal
             let formattedNumber = formatNumberWithoutDeciml(finalVal)
             cell.lblPrice.text = "\(currncySimbol)\(formattedNumber)"
+            if self.wishlistDataStruct.details?[indexPath.row].couponDesPer ?? 0 > 0{
+                cell.lblDiscount.isHidden = false
+                var finalVal2 = Double((wishlistDataStruct.details?[indexPath.row].subtotal ?? 0)) * currncyVal
+                
+                let formattedNumber2 = formatNumberWithoutDeciml(finalVal2)
+                cell.lblDiscount.applyStrikeThrough(to: "\(currncySimbol)\(formattedNumber2)")
+            }
+            else{
+                cell.lblDiscount.isHidden = true
+            }
         }
         else{
 
-            let formattedNumber = formatNumberWithoutDeciml(Double(self.wishlistDataStruct.details?[indexPath.row].totalPrice ?? 0))
+            let formattedNumber = formatNumberWithoutDeciml(Double(self.wishlistDataStruct.details?[indexPath.row].subtotalAfterCouponDiscount ?? 0))
             cell.lblPrice.text = "₹\(formattedNumber)"
-            
+            if self.wishlistDataStruct.details?[indexPath.row].couponDesPer ?? 0 > 0{
+                cell.lblDiscount.isHidden = false
+                let formattedNumber2 = formatNumberWithoutDeciml(Double((self.self.wishlistDataStruct.details?[indexPath.row].subtotal ?? 0)))
+                cell.lblDiscount.applyStrikeThrough(to: "₹\(formattedNumber2)")
+            }
+            else{
+                cell.lblDiscount.isHidden = true
+            }
         }
         
         cell.alertAction = {

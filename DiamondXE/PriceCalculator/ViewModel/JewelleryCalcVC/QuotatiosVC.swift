@@ -97,20 +97,26 @@ class QuotatiosVC: UIViewController {
     
     var grandTotal = String()
     var priceWitCurr = String()
-    
-    
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+       
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         setData()
         self.view.CalcaddShadow(view: viewNotes)
         self.view.CalcaddShadow(view: viewTable)
         viewBGHeading.layer.cornerRadius = 18
         viewBGHeading.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-
     }
+    
+    
+    
+    
     
     @IBAction func btnActionBack(_ sender : UIButton){
         self.navigationController?.popViewController(animated: true)
@@ -120,6 +126,7 @@ class QuotatiosVC: UIViewController {
     @IBAction func btnActionEditQuatation(_ sender : UIButton){
         let vc = UIStoryboard(name: "JewelleryCalc", bundle: Bundle.main).instantiateViewController(withIdentifier: "JewelleryCalcVC") as? JewelleryCalcVC
         vc?.isEditQuatation = true
+        vc?.quatationVC = self
         vc?.metalwt = self.metalwt
             vc?.metalRatePGm = self.metalRatePGm
             vc?.metalwtTotal = self.metalwtTotal
@@ -190,8 +197,7 @@ class QuotatiosVC: UIViewController {
     }
     
     // set Data
-    func setData(){
-        
+    func setData(){        
         self.lblDate.text = "Price Estimate , Date : \(date)"
         self.lblDiamondType.text = "\(natualOrLabGrown)"
         self.lblSolitairDNots.text = "Solitaire: \(solitaierNotes)"

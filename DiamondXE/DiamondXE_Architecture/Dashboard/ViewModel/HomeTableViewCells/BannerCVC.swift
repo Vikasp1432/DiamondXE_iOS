@@ -13,10 +13,17 @@ class BannerCVC: UICollectionViewCell {
 
     
     @IBOutlet var images:UIImageView!
-
+    var tapAction : (() -> Void) = {}
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        images.isUserInteractionEnabled = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        images.addGestureRecognizer(tapGestureRecognizer)
     }
+    
+    @objc func imageTapped() {
+          tapAction()
+       }
 
 }

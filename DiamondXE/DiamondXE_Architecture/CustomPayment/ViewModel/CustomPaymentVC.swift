@@ -14,6 +14,7 @@ class CustomPaymentVC: BaseViewController {
     @IBOutlet var customPaymentTV:UITableView!
     var isCellExpandedPaymentOption = false
     var isCellExpandedPaymentOption2 = false
+    var isCellExpandedPaymentOption3 = false
     var isCellExpandedTag = 0
     
     
@@ -567,6 +568,8 @@ extension CustomPaymentVC : UITableViewDataSource, UITableViewDelegate, CustomCe
             self.paymentModeSelected = "CreditCard"
         case 2:
             self.paymentModeSelected = "NetBanking"
+        case 3:
+            self.paymentModeSelected = "UPI"
         default:
             self.paymentModeSelected = String()
         }
@@ -635,12 +638,12 @@ extension CustomPaymentVC : UITableViewDataSource, UITableViewDelegate, CustomCe
             return 1
         }
         else{
-            if isAmoutMoreThenRange{
+            //if isAmoutMoreThenRange{
                 return 2
-            }
-            else{
-                return 3
-            }
+//            }
+//            else{
+//                return 3
+//            }
             
         }
     }
@@ -656,7 +659,7 @@ extension CustomPaymentVC : UITableViewDataSource, UITableViewDelegate, CustomCe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if !isCustomPaymentHistory{
-            if isAmoutMoreThenRange{
+//            if isAmoutMoreThenRange{
                 switch indexPath.section {
                 case 0:
                     let cell = tableView.dequeueReusableCell(withIdentifier: CustomInfoTVC.cellIdentifierCustomInfoTVC, for: indexPath) as! CustomInfoTVC
@@ -690,21 +693,38 @@ extension CustomPaymentVC : UITableViewDataSource, UITableViewDelegate, CustomCe
                         
                     }
                     
+                    if isAmoutMoreThenRange{
+                        cell.viewUPIBG.isHidden = true
+                        self.paymentModeSelected = String()
+                        self.selectedUPIName = String()
+                        self.selectedUPIBundl = String()
+                        self.amountCalculation()
+                    }
+                    else{
+                        cell.viewUPIBG.isHidden = false
+                    }
+                    
+                    
                     cell.btnAction = { tag in
                         self.isCellExpandedTag = tag
                       
                         if tag == 0 {
-                            
+                            cell.selectedIndexPathUPI = nil
                             self.isCellExpandedPaymentOption.toggle()
                             cell.paymentOptionViewHideShow(isShow: self.isCellExpandedPaymentOption)
                             cell.banksViewBG.isHidden = true
+                            cell.viewUPIListBG.isHidden = true
                             self.isCellExpandedPaymentOption2 = false
+                            self.isCellExpandedPaymentOption3 = false
                             self.customPaymentTV.reloadData()
                             
                         }
                         else if tag == 2{
+                            cell.selectedIndexPathUPI = nil
                             cell.paymentOptionBG.isHidden = true
+                            cell.viewUPIListBG.isHidden = true
                             self.isCellExpandedPaymentOption = false
+                            self.isCellExpandedPaymentOption3 = false
                             self.isCellExpandedPaymentOption2.toggle()
                             cell.bnkViewHideShow(isShow: self.isCellExpandedPaymentOption2)
     //                        if let netBankInfo = self.bankingInfoStruct.details?.netBanking {
@@ -716,23 +736,33 @@ extension CustomPaymentVC : UITableViewDataSource, UITableViewDelegate, CustomCe
                             self.customPaymentTV.reloadData()
                         }
                         else if tag == 1{
-                            
+                            cell.selectedIndexPathUPI = nil
                             cell.paymentOptionBG.isHidden = true
+                            cell.viewUPIListBG.isHidden = true
                             self.isCellExpandedPaymentOption = false
                             self.isCellExpandedPaymentOption2 = false
+                            self.isCellExpandedPaymentOption3 = false
                            
                             cell.banksViewBG.isHidden = true
                             self.customPaymentTV.reloadData()
                         }
                         else{
-                            print(tag)
+                            
+                            cell.collectionUPIApps.reloadData()
+                            cell.paymentOptionBG.isHidden = true
+                            cell.banksViewBG.isHidden = true
+                            self.isCellExpandedPaymentOption = false
+                            self.isCellExpandedPaymentOption2 = false
+                            self.isCellExpandedPaymentOption3.toggle()
+                            cell.UPIViewHideShow(isShow: self.isCellExpandedPaymentOption3)
+                            self.customPaymentTV.reloadData()
                         }
                         
-                        let UPIIndexPath = IndexPath(row: 0, section: 2)
-                        if let cell = self.customPaymentTV.cellForRow(at: UPIIndexPath) as? UPITVC {
-                            cell.selectedIndexPath = nil
-                            cell.collectionUPIApps.reloadData()
-                        }
+//                        let UPIIndexPath = IndexPath(row: 0, section: 2)
+//                        if let cell = self.customPaymentTV.cellForRow(at: UPIIndexPath) as? UPITVC {
+//                            cell.selectedIndexPath = nil
+//                            cell.collectionUPIApps.reloadData()
+//                        }
                     }
                     
                     cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
@@ -777,179 +807,23 @@ extension CustomPaymentVC : UITableViewDataSource, UITableViewDelegate, CustomCe
                     }
                     
                     
-    //                if  let imageURLlst = URL(string: self.bankInfoStruct.details?.last?.image ?? "") {
-    //                    cell.btnBank2BG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLlst)
-    //
-    //                    cell.imgViewBnk2.sd_setImage(with: imageURLlst, placeholderImage: nil, options: .highPriority, completed: nil)
-    //
-    //                }
-                    
-                    cell.paymentModeAction = {
-                        self.isOpenNEFT = true
-                        self.openDropDown(dataArr: ["Cheque","NEFT","RTGS","Wire Transfer", "Other"], anchorView: cell.txtPaymentMode, txtField: cell.txtPaymentMode)
-                    }
-                    
-                    return cell
-              
-                default:
-                    return UITableViewCell()
-                }
-            }
-            else{
-                switch indexPath.section {
-                case 0:
-                    let cell = tableView.dequeueReusableCell(withIdentifier: CustomInfoTVC.cellIdentifierCustomInfoTVC, for: indexPath) as! CustomInfoTVC
-                    cell.delegate = self
-                    cell.selectionStyle = .none
-                    return cell
-                case 1:
-                    let cell = tableView.dequeueReusableCell(withIdentifier: PaymentOptionTVC.cellIdentifierPaymentOptionTVC, for: indexPath) as! PaymentOptionTVC
-                    cell.selectionStyle = .none
-                    cell.buttonGroup.delegate = self
-                    
-                    cell.selectBankAction = {
-                        if let allBnks = self.bankingInfoStruct.details?.netBanking?.allBanks {
-                            var bankArr = [String]()
-                            allBnks.enumerated().forEach{ (index, bank) in
-                                bankArr.append(bank.bankName ?? "")
-                            }
-                            self.isOpenNEFT = false
-                            self.openDropDown(dataArr: bankArr, anchorView: cell.txtSelectedBnk, txtField: cell.txtSelectedBnk)
-                        }
-                      
-                    }
-                    
-                    cell.bnkCellTap = { tag in
-                       
-                            if let netBankInfo = self.bankingInfoStruct.details?.netBanking?.popularBanks {
-                                // var selectedIndex = netBankInfo.popularBanks?[indexPath.row].img
-                                self.selectedBankID  = netBankInfo[tag].bankID ?? ""
-                                cell.txtSelectedBnk.text = netBankInfo[tag].bankName
-                            }
-                        
-                    }
-                    
-                    cell.btnAction = { tag in
-                        self.isCellExpandedTag = tag
-                      
-                        if tag == 0 {
-                            
-                            self.isCellExpandedPaymentOption.toggle()
-                            cell.paymentOptionViewHideShow(isShow: self.isCellExpandedPaymentOption)
-                            cell.banksViewBG.isHidden = true
-                            self.isCellExpandedPaymentOption2 = false
-                            self.customPaymentTV.reloadData()
-                            
-                        }
-                        else if tag == 2{
-                            cell.paymentOptionBG.isHidden = true
-                            self.isCellExpandedPaymentOption = false
-                            self.isCellExpandedPaymentOption2.toggle()
-                            cell.bnkViewHideShow(isShow: self.isCellExpandedPaymentOption2)
-    //                        if let netBankInfo = self.bankingInfoStruct.details?.netBanking {
-    //                            cell.netBankingData = netBankInfo
-    //                            cell.banksCollectionView.reloadData()
-    //                        }
-                            
-                           
-                            self.customPaymentTV.reloadData()
-                        }
-                        else if tag == 1{
-                            
-                            cell.paymentOptionBG.isHidden = true
-                            self.isCellExpandedPaymentOption = false
-                            self.isCellExpandedPaymentOption2 = false
-                           
-                            cell.banksViewBG.isHidden = true
-                            self.customPaymentTV.reloadData()
-                        }
-                        else{
-                            print(tag)
-                        }
-                        
-                        let UPIIndexPath = IndexPath(row: 0, section: 2)
-                        if let cell = self.customPaymentTV.cellForRow(at: UPIIndexPath) as? UPITVC {
-                            cell.selectedIndexPath = nil
-                            cell.collectionUPIApps.reloadData()
-                        }
-                    }
-                    
-                    cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
-                    cell.lblSWIFT.text = self.bankInfoStruct.details?.first?.swift
-                    cell.lblBranchName.text = self.bankInfoStruct.details?.first?.branchName
-                    cell.lblBankName.text = self.bankInfoStruct.details?.first?.bankName
-                    cell.lblAccountNum.text = self.bankInfoStruct.details?.first?.accountNumber
-                    
-                    cell.lblTitle1.text = self.bankInfoStruct.details?.first?.bank?.uppercased()
-                    cell.lblTitle2.text = self.bankInfoStruct.details?.last?.bank?.uppercased()
-                    
-                    
-                    cell.btnActionBanks = { tag in
-                        self.seletedBankInt = tag
-                        if tag == 0{
-                            cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
-                            cell.lblSWIFT.text = self.bankInfoStruct.details?.first?.swift
-                            cell.lblBranchName.text = self.bankInfoStruct.details?.first?.branchName
-                            cell.lblBankName.text = self.bankInfoStruct.details?.first?.bankName
-                            cell.lblAccountNum.text = self.bankInfoStruct.details?.first?.accountNumber
-                        }
-                        else{
-                            cell.lblIFSC.text = self.bankInfoStruct.details?.last?.ifsc
-                            cell.lblSWIFT.text = self.bankInfoStruct.details?.last?.swift
-                            cell.lblBranchName.text = self.bankInfoStruct.details?.last?.branchName
-                            cell.lblBankName.text = self.bankInfoStruct.details?.last?.bankName
-                            cell.lblAccountNum.text = self.bankInfoStruct.details?.last?.accountNumber
-                        }
-                    }
-                    
-                    cell.btnDate = {
-                        self.customDatePicker.delegate = self
-                        self.customDatePicker.showDatePicker(in: self)
-                        
-                    }
-                    
-                    
-                    
-                    if  let imageURLfst = URL(string: self.bankInfoStruct.details?[self.seletedBankInt].image ?? "") {
-                        cell.btnBank1SBG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLfst)
-                        cell.imgViewBnk1.sd_setImage(with: imageURLfst, placeholderImage: nil, options: .highPriority, completed: nil)
-                    }
-                    
-                    
-    //                if  let imageURLlst = URL(string: self.bankInfoStruct.details?.last?.image ?? "") {
-    //                    cell.btnBank2BG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLlst)
-    //
-    //                    cell.imgViewBnk2.sd_setImage(with: imageURLlst, placeholderImage: nil, options: .highPriority, completed: nil)
-    //
-    //                }
-                    
-                    cell.paymentModeAction = {
-                        self.isOpenNEFT = true
-                        self.openDropDown(dataArr: ["Cheque","NEFT","RTGS","Wire Transfer", "Other"], anchorView: cell.txtPaymentMode, txtField: cell.txtPaymentMode)
-                    }
-                    
-                    
-                    return cell
-                case 2:
-                    let cell = tableView.dequeueReusableCell(withIdentifier: UPITVC.cellIdentifierUPITVC, for: indexPath) as! UPITVC
-                    cell.selectionStyle = .none
-                    cell.tapAction = { name, package in
+                    cell.tapActionUPI = { name, package in
                         self.lblTotalAmount.text = self.amount
                         
-                        let payIndexPath = IndexPath(row: 0, section: 1)
-                        if let cell = self.customPaymentTV.cellForRow(at: payIndexPath) as? PaymentOptionTVC {
-                            cell.buttonGroup.clearSelection()
-                            cell.btnNetBankSBG.borderColor = .clear
-                            cell.btnRTGSBG.borderColor = .clear
-                            cell.btnDebitCSBG.borderColor = .clear
-                            cell.paymentOptionBG.isHidden = true
-                            cell.banksViewBG.isHidden = true
-                            self.isCellExpandedPaymentOption = false
-                            self.isCellExpandedPaymentOption2 = false
-                            self.customPaymentTV.reloadData()
-                            
-                           // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
-                        }
+//                        let payIndexPath = IndexPath(row: 0, section: 1)
+//                        if let cell = self.customPaymentTV.cellForRow(at: payIndexPath) as? PaymentOptionTVC {
+//                            cell.buttonGroup.clearSelection()
+//                            cell.btnNetBankSBG.borderColor = .clear
+//                            cell.btnRTGSBG.borderColor = .clear
+//                            cell.btnDebitCSBG.borderColor = .clear
+//                            cell.paymentOptionBG.isHidden = true
+//                            cell.banksViewBG.isHidden = true
+//                            self.isCellExpandedPaymentOption = false
+//                            self.isCellExpandedPaymentOption2 = false
+//                            self.customPaymentTV.reloadData()
+//                            
+//                           // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
+//                        }
                         
                         ///
                         self.paymentModeSelected = "UPI"
@@ -964,189 +838,411 @@ extension CustomPaymentVC : UITableViewDataSource, UITableViewDelegate, CustomCe
                             // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
                         }
                     }
+                    
+                    cell.paymentModeAction = {
+                        self.isOpenNEFT = true
+                        self.openDropDown(dataArr: ["Cheque","NEFT","RTGS","Wire Transfer", "Other"], anchorView: cell.txtPaymentMode, txtField: cell.txtPaymentMode)
+                    }
+                    
                     return cell
-    //            case 3:
-    //                let cell = tableView.dequeueReusableCell(withIdentifier: OrderSummaryTVC.cellIdentifierOrderSummary, for: indexPath) as! OrderSummaryTVC
-    //                cell.selectionStyle = .none
-    //                return cell
+              
                 default:
                     return UITableViewCell()
                 }
-            }
-            
-            switch indexPath.section {
-            case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: CustomInfoTVC.cellIdentifierCustomInfoTVC, for: indexPath) as! CustomInfoTVC
-                cell.delegate = self
-                cell.selectionStyle = .none
-                return cell
-            case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: PaymentOptionTVC.cellIdentifierPaymentOptionTVC, for: indexPath) as! PaymentOptionTVC
-                cell.selectionStyle = .none
-                cell.buttonGroup.delegate = self
-                
-                cell.selectBankAction = {
-                    if let allBnks = self.bankingInfoStruct.details?.netBanking?.allBanks {
-                        var bankArr = [String]()
-                        allBnks.enumerated().forEach{ (index, bank) in
-                            bankArr.append(bank.bankName ?? "")
-                        }
-                        self.isOpenNEFT = false
-                        self.openDropDown(dataArr: bankArr, anchorView: cell.txtSelectedBnk, txtField: cell.txtSelectedBnk)
-                    }
-                  
-                }
-                
-                cell.bnkCellTap = { tag in
-                   
-                        if let netBankInfo = self.bankingInfoStruct.details?.netBanking?.popularBanks {
-                            // var selectedIndex = netBankInfo.popularBanks?[indexPath.row].img
-                            self.selectedBankID  = netBankInfo[tag].bankID ?? ""
-                            cell.txtSelectedBnk.text = netBankInfo[tag].bankName
-                        }
-                    
-                }
-                
-                cell.btnAction = { tag in
-                    self.isCellExpandedTag = tag
-                  
-                    if tag == 0 {
-                        
-                        self.isCellExpandedPaymentOption.toggle()
-                        cell.paymentOptionViewHideShow(isShow: self.isCellExpandedPaymentOption)
-                        cell.banksViewBG.isHidden = true
-                        self.isCellExpandedPaymentOption2 = false
-                        self.customPaymentTV.reloadData()
-                        
-                    }
-                    else if tag == 2{
-                        cell.paymentOptionBG.isHidden = true
-                        self.isCellExpandedPaymentOption = false
-                        self.isCellExpandedPaymentOption2.toggle()
-                        cell.bnkViewHideShow(isShow: self.isCellExpandedPaymentOption2)
-//                        if let netBankInfo = self.bankingInfoStruct.details?.netBanking {
-//                            cell.netBankingData = netBankInfo
-//                            cell.banksCollectionView.reloadData()
+//            }
+//            else{
+//                switch indexPath.section {
+//                case 0:
+//                    let cell = tableView.dequeueReusableCell(withIdentifier: CustomInfoTVC.cellIdentifierCustomInfoTVC, for: indexPath) as! CustomInfoTVC
+//                    cell.delegate = self
+//                    cell.selectionStyle = .none
+//                    return cell
+//                case 1:
+//                    let cell = tableView.dequeueReusableCell(withIdentifier: PaymentOptionTVC.cellIdentifierPaymentOptionTVC, for: indexPath) as! PaymentOptionTVC
+//                    cell.selectionStyle = .none
+//                    cell.buttonGroup.delegate = self
+//                    
+//                    cell.selectBankAction = {
+//                        if let allBnks = self.bankingInfoStruct.details?.netBanking?.allBanks {
+//                            var bankArr = [String]()
+//                            allBnks.enumerated().forEach{ (index, bank) in
+//                                bankArr.append(bank.bankName ?? "")
+//                            }
+//                            self.isOpenNEFT = false
+//                            self.openDropDown(dataArr: bankArr, anchorView: cell.txtSelectedBnk, txtField: cell.txtSelectedBnk)
 //                        }
-                        
-                       
-                        self.customPaymentTV.reloadData()
-                    }
-                    else{
-                        
-                        cell.paymentOptionBG.isHidden = true
-                        self.isCellExpandedPaymentOption = false
-                        self.isCellExpandedPaymentOption2 = false
-                       
-                        cell.banksViewBG.isHidden = true
-                        self.customPaymentTV.reloadData()
-                    }
-                    
-                    let UPIIndexPath = IndexPath(row: 0, section: 2)
-                    if let cell = self.customPaymentTV.cellForRow(at: UPIIndexPath) as? UPITVC {
-                        cell.selectedIndexPath = nil
-                        cell.collectionUPIApps.reloadData()
-                    }
-                }
-                
-                cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
-                cell.lblSWIFT.text = self.bankInfoStruct.details?.first?.swift
-                cell.lblBranchName.text = self.bankInfoStruct.details?.first?.branchName
-                cell.lblBankName.text = self.bankInfoStruct.details?.first?.bankName
-                cell.lblAccountNum.text = self.bankInfoStruct.details?.first?.accountNumber
-                
-                cell.lblTitle1.text = self.bankInfoStruct.details?.first?.bank?.uppercased()
-                cell.lblTitle2.text = self.bankInfoStruct.details?.last?.bank?.uppercased()
-                
-                
-                cell.btnActionBanks = { tag in
-                    self.seletedBankInt = tag
-                    if tag == 0{
-                        cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
-                        cell.lblSWIFT.text = self.bankInfoStruct.details?.first?.swift
-                        cell.lblBranchName.text = self.bankInfoStruct.details?.first?.branchName
-                        cell.lblBankName.text = self.bankInfoStruct.details?.first?.bankName
-                        cell.lblAccountNum.text = self.bankInfoStruct.details?.first?.accountNumber
-                    }
-                    else{
-                        cell.lblIFSC.text = self.bankInfoStruct.details?.last?.ifsc
-                        cell.lblSWIFT.text = self.bankInfoStruct.details?.last?.swift
-                        cell.lblBranchName.text = self.bankInfoStruct.details?.last?.branchName
-                        cell.lblBankName.text = self.bankInfoStruct.details?.last?.bankName
-                        cell.lblAccountNum.text = self.bankInfoStruct.details?.last?.accountNumber
-                    }
-                }
-                
-                cell.btnDate = {
-                    self.customDatePicker.delegate = self
-                    self.customDatePicker.showDatePicker(in: self)
-                    
-                }
-                
-                
-                
-                if  let imageURLfst = URL(string: self.bankInfoStruct.details?[self.seletedBankInt].image ?? "") {
-                    cell.btnBank1SBG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLfst)
-                    cell.imgViewBnk1.sd_setImage(with: imageURLfst, placeholderImage: nil, options: .highPriority, completed: nil)
-                }
-                
-                
-//                if  let imageURLlst = URL(string: self.bankInfoStruct.details?.last?.image ?? "") {
-//                    cell.btnBank2BG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLlst)
+//                      
+//                    }
 //                    
-//                    cell.imgViewBnk2.sd_setImage(with: imageURLlst, placeholderImage: nil, options: .highPriority, completed: nil)
+//                    cell.bnkCellTap = { tag in
+//                       
+//                            if let netBankInfo = self.bankingInfoStruct.details?.netBanking?.popularBanks {
+//                                // var selectedIndex = netBankInfo.popularBanks?[indexPath.row].img
+//                                self.selectedBankID  = netBankInfo[tag].bankID ?? ""
+//                                cell.txtSelectedBnk.text = netBankInfo[tag].bankName
+//                            }
+//                        
+//                    }
 //                    
+//                    cell.btnAction = { tag in
+//                        self.isCellExpandedTag = tag
+//                      
+//                        if tag == 0 {
+//                            
+//                            self.isCellExpandedPaymentOption.toggle()
+//                            cell.paymentOptionViewHideShow(isShow: self.isCellExpandedPaymentOption)
+//                            cell.banksViewBG.isHidden = true
+//                            //cell.viewUPIBG.isHidden = true
+//                            self.isCellExpandedPaymentOption2 = false
+//                            self.isCellExpandedPaymentOption3 = false
+//                            self.customPaymentTV.reloadData()
+//                            
+//                        }
+//                        else if tag == 2{
+//                            cell.paymentOptionBG.isHidden = true
+//                           // cell.viewUPIBG.isHidden = true
+//                            self.isCellExpandedPaymentOption = false
+//                            self.isCellExpandedPaymentOption3 = false
+//                            self.isCellExpandedPaymentOption2.toggle()
+//                            cell.bnkViewHideShow(isShow: self.isCellExpandedPaymentOption2)
+//   
+//                            self.customPaymentTV.reloadData()
+//                        }
+//                        else if tag == 1{
+//                           // cell.viewUPIBG.isHidden = true
+//                            cell.paymentOptionBG.isHidden = true
+//                            self.isCellExpandedPaymentOption = false
+//                            self.isCellExpandedPaymentOption2 = false
+//                            self.isCellExpandedPaymentOption3 = false
+//                           
+//                            cell.banksViewBG.isHidden = true
+//                            self.customPaymentTV.reloadData()
+//                        }
+//                        else{
+//                            cell.paymentOptionBG.isHidden = true
+//                            cell.banksViewBG.isHidden = true
+//                            self.isCellExpandedPaymentOption = false
+//                            self.isCellExpandedPaymentOption2 = false
+//                            self.isCellExpandedPaymentOption3.toggle()
+//                            cell.UPIViewHideShow(isShow: self.isCellExpandedPaymentOption3)
+//   
+//                            self.customPaymentTV.reloadData()
+//                        }
+//                        
+//                        let UPIIndexPath = IndexPath(row: 0, section: 2)
+//                        if let cell = self.customPaymentTV.cellForRow(at: UPIIndexPath) as? UPITVC {
+//                            cell.selectedIndexPath = nil
+//                            cell.collectionUPIApps.reloadData()
+//                        }
+//                    }
+//                    
+//                    cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
+//                    cell.lblSWIFT.text = self.bankInfoStruct.details?.first?.swift
+//                    cell.lblBranchName.text = self.bankInfoStruct.details?.first?.branchName
+//                    cell.lblBankName.text = self.bankInfoStruct.details?.first?.bankName
+//                    cell.lblAccountNum.text = self.bankInfoStruct.details?.first?.accountNumber
+//                    
+//                    cell.lblTitle1.text = self.bankInfoStruct.details?.first?.bank?.uppercased()
+//                    cell.lblTitle2.text = self.bankInfoStruct.details?.last?.bank?.uppercased()
+//                    
+//                    
+//                    cell.btnActionBanks = { tag in
+//                        self.seletedBankInt = tag
+//                        if tag == 0{
+//                            cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
+//                            cell.lblSWIFT.text = self.bankInfoStruct.details?.first?.swift
+//                            cell.lblBranchName.text = self.bankInfoStruct.details?.first?.branchName
+//                            cell.lblBankName.text = self.bankInfoStruct.details?.first?.bankName
+//                            cell.lblAccountNum.text = self.bankInfoStruct.details?.first?.accountNumber
+//                        }
+//                        else{
+//                            cell.lblIFSC.text = self.bankInfoStruct.details?.last?.ifsc
+//                            cell.lblSWIFT.text = self.bankInfoStruct.details?.last?.swift
+//                            cell.lblBranchName.text = self.bankInfoStruct.details?.last?.branchName
+//                            cell.lblBankName.text = self.bankInfoStruct.details?.last?.bankName
+//                            cell.lblAccountNum.text = self.bankInfoStruct.details?.last?.accountNumber
+//                        }
+//                    }
+//                    
+//                    cell.tapActionUPI = { name, package in
+//                        self.lblTotalAmount.text = self.amount
+//                        
+//                        let payIndexPath = IndexPath(row: 0, section: 1)
+//                        if let cell = self.customPaymentTV.cellForRow(at: payIndexPath) as? PaymentOptionTVC {
+//                            cell.buttonGroup.clearSelection()
+//                            cell.btnNetBankSBG.borderColor = .clear
+//                            cell.btnRTGSBG.borderColor = .clear
+//                            cell.btnDebitCSBG.borderColor = .clear
+//                            cell.paymentOptionBG.isHidden = true
+//                            cell.banksViewBG.isHidden = true
+//                            self.isCellExpandedPaymentOption = false
+//                            self.isCellExpandedPaymentOption2 = false
+//                            self.customPaymentTV.reloadData()
+//                            
+//                           // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
+//                        }
+//                        
+//                        ///
+//                        self.paymentModeSelected = "UPI"
+//                        self.selectedUPIName = name
+//                        self.selectedUPIBundl = package
+//                        self.amountCalculation()
+//                        
+//                        if name == ""{
+//                            
+//                            self.lblTotalAmount.text = self.amount
+//                            self.customPaymentTV.reloadData()
+//                            // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
+//                        }
+//                    }
+//                    
+//                    
+//                    
+//                    cell.btnDate = {
+//                        self.customDatePicker.delegate = self
+//                        self.customDatePicker.showDatePicker(in: self)
+//                        
+//                    }
+//                    
+//                    
+//                    
+//                    if  let imageURLfst = URL(string: self.bankInfoStruct.details?[self.seletedBankInt].image ?? "") {
+//                        cell.btnBank1SBG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLfst)
+//                        cell.imgViewBnk1.sd_setImage(with: imageURLfst, placeholderImage: nil, options: .highPriority, completed: nil)
+//                    }
+//                    
+//                    
+//    //                if  let imageURLlst = URL(string: self.bankInfoStruct.details?.last?.image ?? "") {
+//    //                    cell.btnBank2BG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLlst)
+//    //
+//    //                    cell.imgViewBnk2.sd_setImage(with: imageURLlst, placeholderImage: nil, options: .highPriority, completed: nil)
+//    //
+//    //                }
+//                    
+//                    cell.paymentModeAction = {
+//                        self.isOpenNEFT = true
+//                        self.openDropDown(dataArr: ["Cheque","NEFT","RTGS","Wire Transfer", "Other"], anchorView: cell.txtPaymentMode, txtField: cell.txtPaymentMode)
+//                    }
+//                    
+//                    
+//                    return cell
+//                case 2:
+//                    let cell = tableView.dequeueReusableCell(withIdentifier: UPITVC.cellIdentifierUPITVC, for: indexPath) as! UPITVC
+//                    cell.selectionStyle = .none
+//                    cell.tapAction = { name, package in
+//                        self.lblTotalAmount.text = self.amount
+//                        
+//                        let payIndexPath = IndexPath(row: 0, section: 1)
+//                        if let cell = self.customPaymentTV.cellForRow(at: payIndexPath) as? PaymentOptionTVC {
+//                            cell.buttonGroup.clearSelection()
+//                            cell.btnNetBankSBG.borderColor = .clear
+//                            cell.btnRTGSBG.borderColor = .clear
+//                            cell.btnDebitCSBG.borderColor = .clear
+//                            cell.paymentOptionBG.isHidden = true
+//                            cell.banksViewBG.isHidden = true
+//                            self.isCellExpandedPaymentOption = false
+//                            self.isCellExpandedPaymentOption2 = false
+//                            self.customPaymentTV.reloadData()
+//                            
+//                           // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
+//                        }
+//                        
+//                        ///
+//                        self.paymentModeSelected = "UPI"
+//                        self.selectedUPIName = name
+//                        self.selectedUPIBundl = package
+//                        self.amountCalculation()
+//                        
+//                        if name == ""{
+//                            
+//                            self.lblTotalAmount.text = self.amount
+//                            self.customPaymentTV.reloadData()
+//                            // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
+//                        }
+//                    }
+//                    return cell
+//    //            case 3:
+//    //                let cell = tableView.dequeueReusableCell(withIdentifier: OrderSummaryTVC.cellIdentifierOrderSummary, for: indexPath) as! OrderSummaryTVC
+//    //                cell.selectionStyle = .none
+//    //                return cell
+//                default:
+//                    return UITableViewCell()
 //                }
-                
-                cell.paymentModeAction = {
-                    self.isOpenNEFT = true
-                    self.openDropDown(dataArr: ["Cheque","NEFT","RTGS","Wire Transfer", "Other"], anchorView: cell.txtPaymentMode, txtField: cell.txtPaymentMode)
-                }
-                
-                
-                return cell
-            case 2:
-                let cell = tableView.dequeueReusableCell(withIdentifier: UPITVC.cellIdentifierUPITVC, for: indexPath) as! UPITVC
-                cell.selectionStyle = .none
-                cell.tapAction = { name, package in
-                    self.lblTotalAmount.text = self.amount
-                    
-                    let payIndexPath = IndexPath(row: 0, section: 1)
-                    if let cell = self.customPaymentTV.cellForRow(at: payIndexPath) as? PaymentOptionTVC {
-                        cell.buttonGroup.clearSelection()
-                        cell.btnNetBankSBG.borderColor = .clear
-                        cell.btnRTGSBG.borderColor = .clear
-                        cell.btnDebitCSBG.borderColor = .clear
-                        cell.paymentOptionBG.isHidden = true
-                        cell.banksViewBG.isHidden = true
-                        self.isCellExpandedPaymentOption = false
-                        self.isCellExpandedPaymentOption2 = false
-                        self.customPaymentTV.reloadData()
-                        
-                       // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
-                    }
-                    
-                    ///
-                    self.paymentModeSelected = "UPI"
-                    self.selectedUPIName = name
-                    self.selectedUPIBundl = package
-                    self.amountCalculation()
-                    
-                    if name == ""{
-                        
-                        self.lblTotalAmount.text = self.amount
-                        self.customPaymentTV.reloadData()
-                        // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
-                    }
-                }
-                return cell
-//            case 3:
-//                let cell = tableView.dequeueReusableCell(withIdentifier: OrderSummaryTVC.cellIdentifierOrderSummary, for: indexPath) as! OrderSummaryTVC
+//            }
+            
+//            switch indexPath.section {
+//            case 0:
+//                let cell = tableView.dequeueReusableCell(withIdentifier: CustomInfoTVC.cellIdentifierCustomInfoTVC, for: indexPath) as! CustomInfoTVC
+//                cell.delegate = self
 //                cell.selectionStyle = .none
 //                return cell
-            default:
-                return UITableViewCell()
-            }
+//            case 1:
+//                let cell = tableView.dequeueReusableCell(withIdentifier: PaymentOptionTVC.cellIdentifierPaymentOptionTVC, for: indexPath) as! PaymentOptionTVC
+//                cell.selectionStyle = .none
+//                cell.buttonGroup.delegate = self
+//                
+//                cell.selectBankAction = {
+//                    if let allBnks = self.bankingInfoStruct.details?.netBanking?.allBanks {
+//                        var bankArr = [String]()
+//                        allBnks.enumerated().forEach{ (index, bank) in
+//                            bankArr.append(bank.bankName ?? "")
+//                        }
+//                        self.isOpenNEFT = false
+//                        self.openDropDown(dataArr: bankArr, anchorView: cell.txtSelectedBnk, txtField: cell.txtSelectedBnk)
+//                    }
+//                  
+//                }
+//                
+//                cell.bnkCellTap = { tag in
+//                   
+//                        if let netBankInfo = self.bankingInfoStruct.details?.netBanking?.popularBanks {
+//                            // var selectedIndex = netBankInfo.popularBanks?[indexPath.row].img
+//                            self.selectedBankID  = netBankInfo[tag].bankID ?? ""
+//                            cell.txtSelectedBnk.text = netBankInfo[tag].bankName
+//                        }
+//                    
+//                }
+//                
+//                cell.btnAction = { tag in
+//                    self.isCellExpandedTag = tag
+//                  
+//                    if tag == 0 {
+//                        
+//                        self.isCellExpandedPaymentOption.toggle()
+//                        cell.paymentOptionViewHideShow(isShow: self.isCellExpandedPaymentOption)
+//                        cell.banksViewBG.isHidden = true
+//                        self.isCellExpandedPaymentOption2 = false
+//                        self.customPaymentTV.reloadData()
+//                        
+//                    }
+//                    else if tag == 2{
+//                        cell.paymentOptionBG.isHidden = true
+//                        self.isCellExpandedPaymentOption = false
+//                        self.isCellExpandedPaymentOption2.toggle()
+//                        cell.bnkViewHideShow(isShow: self.isCellExpandedPaymentOption2)
+////                        if let netBankInfo = self.bankingInfoStruct.details?.netBanking {
+////                            cell.netBankingData = netBankInfo
+////                            cell.banksCollectionView.reloadData()
+////                        }
+//                        
+//                       
+//                        self.customPaymentTV.reloadData()
+//                    }
+//                    else{
+//                        
+//                        cell.paymentOptionBG.isHidden = true
+//                        self.isCellExpandedPaymentOption = false
+//                        self.isCellExpandedPaymentOption2 = false
+//                       
+//                        cell.banksViewBG.isHidden = true
+//                        self.customPaymentTV.reloadData()
+//                    }
+//                    
+//                    let UPIIndexPath = IndexPath(row: 0, section: 2)
+//                    if let cell = self.customPaymentTV.cellForRow(at: UPIIndexPath) as? UPITVC {
+//                        cell.selectedIndexPath = nil
+//                        cell.collectionUPIApps.reloadData()
+//                    }
+//                }
+//                
+//                cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
+//                cell.lblSWIFT.text = self.bankInfoStruct.details?.first?.swift
+//                cell.lblBranchName.text = self.bankInfoStruct.details?.first?.branchName
+//                cell.lblBankName.text = self.bankInfoStruct.details?.first?.bankName
+//                cell.lblAccountNum.text = self.bankInfoStruct.details?.first?.accountNumber
+//                
+//                cell.lblTitle1.text = self.bankInfoStruct.details?.first?.bank?.uppercased()
+//                cell.lblTitle2.text = self.bankInfoStruct.details?.last?.bank?.uppercased()
+//                
+//                
+//                cell.btnActionBanks = { tag in
+//                    self.seletedBankInt = tag
+//                    if tag == 0{
+//                        cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
+//                        cell.lblSWIFT.text = self.bankInfoStruct.details?.first?.swift
+//                        cell.lblBranchName.text = self.bankInfoStruct.details?.first?.branchName
+//                        cell.lblBankName.text = self.bankInfoStruct.details?.first?.bankName
+//                        cell.lblAccountNum.text = self.bankInfoStruct.details?.first?.accountNumber
+//                    }
+//                    else{
+//                        cell.lblIFSC.text = self.bankInfoStruct.details?.last?.ifsc
+//                        cell.lblSWIFT.text = self.bankInfoStruct.details?.last?.swift
+//                        cell.lblBranchName.text = self.bankInfoStruct.details?.last?.branchName
+//                        cell.lblBankName.text = self.bankInfoStruct.details?.last?.bankName
+//                        cell.lblAccountNum.text = self.bankInfoStruct.details?.last?.accountNumber
+//                    }
+//                }
+//                
+//                cell.btnDate = {
+//                    self.customDatePicker.delegate = self
+//                    self.customDatePicker.showDatePicker(in: self)
+//                    
+//                }
+//                
+//                
+//                
+//                if  let imageURLfst = URL(string: self.bankInfoStruct.details?[self.seletedBankInt].image ?? "") {
+//                    cell.btnBank1SBG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLfst)
+//                    cell.imgViewBnk1.sd_setImage(with: imageURLfst, placeholderImage: nil, options: .highPriority, completed: nil)
+//                }
+//                
+//                
+////                if  let imageURLlst = URL(string: self.bankInfoStruct.details?.last?.image ?? "") {
+////                    cell.btnBank2BG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLlst)
+////                    
+////                    cell.imgViewBnk2.sd_setImage(with: imageURLlst, placeholderImage: nil, options: .highPriority, completed: nil)
+////                    
+////                }
+//                
+//                cell.paymentModeAction = {
+//                    self.isOpenNEFT = true
+//                    self.openDropDown(dataArr: ["Cheque","NEFT","RTGS","Wire Transfer", "Other"], anchorView: cell.txtPaymentMode, txtField: cell.txtPaymentMode)
+//                }
+//                
+//                
+//                return cell
+//            case 2:
+//                let cell = tableView.dequeueReusableCell(withIdentifier: UPITVC.cellIdentifierUPITVC, for: indexPath) as! UPITVC
+//                cell.selectionStyle = .none
+//                cell.tapAction = { name, package in
+//                    self.lblTotalAmount.text = self.amount
+//                    
+//                    let payIndexPath = IndexPath(row: 0, section: 1)
+//                    if let cell = self.customPaymentTV.cellForRow(at: payIndexPath) as? PaymentOptionTVC {
+//                        cell.buttonGroup.clearSelection()
+//                        cell.btnNetBankSBG.borderColor = .clear
+//                        cell.btnRTGSBG.borderColor = .clear
+//                        cell.btnDebitCSBG.borderColor = .clear
+//                        cell.paymentOptionBG.isHidden = true
+//                        cell.banksViewBG.isHidden = true
+//                        self.isCellExpandedPaymentOption = false
+//                        self.isCellExpandedPaymentOption2 = false
+//                        self.customPaymentTV.reloadData()
+//                        
+//                       // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
+//                    }
+//                    
+//                    ///
+//                    self.paymentModeSelected = "UPI"
+//                    self.selectedUPIName = name
+//                    self.selectedUPIBundl = package
+//                    self.amountCalculation()
+//                    
+//                    if name == ""{
+//                        
+//                        self.lblTotalAmount.text = self.amount
+//                        self.customPaymentTV.reloadData()
+//                        // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
+//                    }
+//                }
+//                return cell
+////            case 3:
+////                let cell = tableView.dequeueReusableCell(withIdentifier: OrderSummaryTVC.cellIdentifierOrderSummary, for: indexPath) as! OrderSummaryTVC
+////                cell.selectionStyle = .none
+////                return cell
+//            default:
+//                return UITableViewCell()
+//            }
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTVC.cellIdentifierHistoryTVC, for: indexPath) as! HistoryTVC
@@ -1191,6 +1287,8 @@ extension CustomPaymentVC : UITableViewDataSource, UITableViewDelegate, CustomCe
                     return isCellExpandedPaymentOption ? 650 : 190
                 case 2:
                     return isCellExpandedPaymentOption2 ? 330 : 190
+                case 3:
+                    return isCellExpandedPaymentOption3 ? 280 : 190
                 default:
                     return 190
                 }

@@ -167,39 +167,78 @@ class KYCDocStatusTVC: UITableViewCell {
     
     
     
-    func callingAPIGetKYCDocs(){
-        if let vc = objectVC{
-                    
-        CustomActivityIndicator2.shared.show(in: vc.view, gifName: "diamond_logo", topMargin: 300)
-        
-        let url =  APIs().get_KYCDoc_API
-        
-        
-        KYCDataModel().getKYCDocumentStatus(url: url, completion: { data, msg in
-            CustomActivityIndicator2.shared.hide()
-            if data.status == 1{
-                self.kycDocDataStruct = data
-                if data.details?.allDocument?.count ?? 0 > 0{
-                   // CustomActivityIndicator2.shared.hide()
-                    self.sataSetup()
-                    vc.btnProceadPayment.setTitle("Continue", for: .normal)
-                    vc.isresubmitTag = false
-                    //vc.shippingTableView.reloadSections(IndexSet(integer: 0), with: .none)
-                }
-                else{
-                    vc.btnProceadPayment.setTitle("Submit", for: .normal)
-                    vc.isresubmitTag = true
-                   // vc.shippingTableView.reloadSections(IndexSet(integer: 0), with: .none)
-                }
-               
-            }
-            else{
-                vc.toastMessage(msg ?? "")
-            }
-           //CustomActivityIndicator2.shared.hide()
+//    func callingAPIGetKYCDocs(){
+//        if let vc = objectVC{
+//                    
+//        CustomActivityIndicator2.shared.show(in: vc.view, gifName: "diamond_logo", topMargin: 300)
+//        
+//        let url =  APIs().get_KYCDoc_API
+//        
+//        
+//        KYCDataModel().getKYCDocumentStatus(url: url, completion: { data, msg in
+//            CustomActivityIndicator2.shared.hide()
+//            if data.status == 1{
+//                self.kycDocDataStruct = data
+//                if data.details?.allDocument?.count ?? 0 > 0{
+//                   // CustomActivityIndicator2.shared.hide()
+//                    self.sataSetup()
+//                    vc.btnProceadPayment.setTitle("Continue", for: .normal)
+//                    vc.isresubmitTag = false
+//                    //vc.shippingTableView.reloadSections(IndexSet(integer: 0), with: .none)
+//                }
+//                else{
+//                    vc.btnProceadPayment.setTitle("Submit", for: .normal)
+//                    vc.isresubmitTag = true
+//                   // vc.shippingTableView.reloadSections(IndexSet(integer: 0), with: .none)
+//                }
+//               
+//            }
+//            else{
+//                vc.toastMessage(msg ?? "")
+//            }
+//           //CustomActivityIndicator2.shared.hide()
+//            
+//        })
+//    }
+//    }
+    
+    func callingAPIGetKYCDocs() {
+        if let vc = objectVC {
+            CustomActivityIndicator2.shared.show(in: vc.view, gifName: "diamond_logo", topMargin: 300)
             
-        })
-    }
+            let url = APIs().get_KYCDoc_API
+            
+            // Create a work item to hide the activity indicator after a delay
+            let timeoutWorkItem = DispatchWorkItem {
+                CustomActivityIndicator2.shared.hide()
+                vc.toastMessage("Request timed out. Please try again.")
+            }
+            
+            // Schedule the timeout to run after 10 seconds (adjust the time as needed)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10, execute: timeoutWorkItem)
+            
+            KYCDataModel().getKYCDocumentStatus(url: url) { data, msg in
+                // Cancel the timeoutWorkItem if the API responds before the timeout
+                timeoutWorkItem.cancel()
+                
+                // Hide the activity indicator upon API completion
+                CustomActivityIndicator2.shared.hide()
+                
+                if data.status == 1 {
+                    self.kycDocDataStruct = data
+                    if data.details?.allDocument?.count ?? 0 > 0 {
+                        self.sataSetup()
+                        vc.btnProceadPayment.setTitle("Continue", for: .normal)
+                        vc.isresubmitTag = false
+                    } else {
+                        vc.btnProceadPayment.setTitle("Submit", for: .normal)
+                        vc.isresubmitTag = true
+                    }
+                } else {
+                    vc.toastMessage(msg ?? "")
+                }
+            }
+        }
     }
     
     

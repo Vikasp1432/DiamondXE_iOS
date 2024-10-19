@@ -7,6 +7,11 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LATO.SEMIBOLD.TTF">
+            <string>Lato-Semibold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -163,18 +168,29 @@
                                 <attributedString key="attributedText"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DM4-s5-csY">
-                                <rect key="frame" x="140" y="95.666666666666671" width="125.33333333333331" height="24"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="₹18,72,50481">
-                                        <attributes>
-                                            <color key="NSColor" name="gradient2"/>
-                                            <font key="NSFont" size="20" name="Lato-Semibold"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wsk-Dd-0TX">
+                                <rect key="frame" x="140" y="95.666666666666671" width="125.33333333333331" height="41.000000000000014"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DM4-s5-csY">
+                                        <rect key="frame" x="0.0" y="0.0" width="125.33333333333333" height="24"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="₹18,72,50481">
+                                                <attributes>
+                                                    <color key="NSColor" name="gradient2"/>
+                                                    <font key="NSFont" size="20" name="Lato-Semibold"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3K1-t0-zKg">
+                                        <rect key="frame" x="0.0" y="24" width="125.33333333333333" height="17"/>
+                                        <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
+                                        <color key="textColor" name="clrGray"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="g3J-kX-3NN">
                                 <rect key="frame" x="366" y="93" width="84" height="40"/>
                                 <subviews>
@@ -274,6 +290,7 @@
                             <constraint firstItem="ywm-eB-wEp" firstAttribute="trailing" secondItem="Rd8-lQ-0yr" secondAttribute="trailing" id="H4q-YD-ier"/>
                             <constraint firstItem="r6v-Ct-mxW" firstAttribute="leading" secondItem="TdG-gR-WtP" secondAttribute="trailing" constant="10" id="IKb-Xq-Zvb"/>
                             <constraint firstAttribute="bottom" secondItem="TdG-gR-WtP" secondAttribute="bottom" constant="10" id="IcE-oJ-PBC"/>
+                            <constraint firstItem="Wsk-Dd-0TX" firstAttribute="top" secondItem="1EU-4M-ckH" secondAttribute="bottom" constant="10" id="Oov-Lf-yLA"/>
                             <constraint firstItem="YtD-QY-7xn" firstAttribute="top" secondItem="TdG-gR-WtP" secondAttribute="top" id="VZR-wX-I5D"/>
                             <constraint firstItem="2Bb-tL-x6A" firstAttribute="centerY" secondItem="1EU-4M-ckH" secondAttribute="centerY" id="VbX-Gy-Qyi"/>
                             <constraint firstItem="uRA-Gf-e36" firstAttribute="centerY" secondItem="yxD-0a-Edq" secondAttribute="centerY" id="Vzi-ea-VRP"/>
@@ -281,15 +298,14 @@
                             <constraint firstItem="ywm-eB-wEp" firstAttribute="top" secondItem="ia3-6E-e9m" secondAttribute="top" id="XfE-XK-bby"/>
                             <constraint firstItem="uRA-Gf-e36" firstAttribute="leading" secondItem="yxD-0a-Edq" secondAttribute="trailing" constant="7" id="XsK-yD-awf"/>
                             <constraint firstItem="hpJ-MH-7UQ" firstAttribute="centerY" secondItem="yxD-0a-Edq" secondAttribute="centerY" id="YNY-PQ-EDS"/>
+                            <constraint firstItem="Wsk-Dd-0TX" firstAttribute="leading" secondItem="TdG-gR-WtP" secondAttribute="trailing" constant="10" id="Z3a-pm-DYG"/>
                             <constraint firstAttribute="bottom" secondItem="g3J-kX-3NN" secondAttribute="bottom" constant="15" id="Z6b-Ih-37R"/>
                             <constraint firstItem="Tya-HD-deW" firstAttribute="leading" secondItem="2Bb-tL-x6A" secondAttribute="trailing" constant="5" id="ZmW-SI-cd6"/>
                             <constraint firstItem="r6v-Ct-mxW" firstAttribute="top" secondItem="yxD-0a-Edq" secondAttribute="bottom" constant="7" id="aP2-o9-fYL"/>
                             <constraint firstAttribute="trailing" secondItem="jXT-5k-8iN" secondAttribute="trailing" constant="10" id="b2r-tj-5aI"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U2h-Uy-OaG" secondAttribute="trailing" constant="10" id="bU6-hf-77p"/>
                             <constraint firstItem="TdG-gR-WtP" firstAttribute="leading" secondItem="ia3-6E-e9m" secondAttribute="leading" constant="10" id="fAm-HF-Kcu"/>
-                            <constraint firstItem="DM4-s5-csY" firstAttribute="top" secondItem="1EU-4M-ckH" secondAttribute="bottom" constant="10" id="fSP-by-kEK"/>
                             <constraint firstItem="1EU-4M-ckH" firstAttribute="top" secondItem="r6v-Ct-mxW" secondAttribute="bottom" constant="7" id="go5-a3-lZT"/>
-                            <constraint firstItem="DM4-s5-csY" firstAttribute="leading" secondItem="TdG-gR-WtP" secondAttribute="trailing" constant="10" id="hbT-pR-H8m"/>
                             <constraint firstItem="hpJ-MH-7UQ" firstAttribute="leading" secondItem="uRA-Gf-e36" secondAttribute="trailing" constant="7" id="jwT-Zc-heE"/>
                             <constraint firstItem="YtD-QY-7xn" firstAttribute="leading" secondItem="TdG-gR-WtP" secondAttribute="leading" id="mLe-WO-dfQ"/>
                             <constraint firstItem="TdG-gR-WtP" firstAttribute="top" secondItem="ia3-6E-e9m" secondAttribute="top" constant="10" id="oQq-ie-aO9"/>
@@ -325,6 +341,7 @@
                 <outlet property="lblCirtificateNum" destination="yxD-0a-Edq" id="9ta-sf-fVJ"/>
                 <outlet property="lblClarity" destination="U2h-Uy-OaG" id="NXR-9h-gQE"/>
                 <outlet property="lblClor" destination="Tya-HD-deW" id="UZX-Sf-P5t"/>
+                <outlet property="lblDiscount" destination="3K1-t0-zKg" id="gxh-Hh-Rbc"/>
                 <outlet property="lblLotID" destination="hpJ-MH-7UQ" id="W41-vJ-BOG"/>
                 <outlet property="lblPrice" destination="DM4-s5-csY" id="rmf-2s-QVz"/>
                 <outlet property="lblShape" destination="r6v-Ct-mxW" id="nRA-W6-LsB"/>
@@ -348,6 +365,9 @@
         </namedColor>
         <namedColor name="blackClr">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="clrGray">
+            <color red="0.42699998617172241" green="0.42399999499320984" blue="0.42699998617172241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="gradient2">
             <color red="0.45100000500679016" green="0.20800000429153442" blue="0.48600000143051147" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

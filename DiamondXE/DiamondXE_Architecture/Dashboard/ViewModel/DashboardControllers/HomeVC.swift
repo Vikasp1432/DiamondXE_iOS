@@ -249,12 +249,29 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: BannerTVC.cellIdentifierBannerTVC, for: indexPath) as! BannerTVC
+            cell.selectionStyle = .none
             if let baner =  homeDataStruct.details?.banners{
                 cell.banners = baner
                 cell.sliderCollectionView.reloadData()
-
+               
             }
-            cell.selectionStyle = .none
+            
+            cell.tapAction = { url in
+                
+                if let url = URL(string: url) {
+                    if url.scheme == "http" || url.scheme == "https"{
+                        let vc = UIStoryboard(name: "Dashboard", bundle: Bundle.main).instantiateViewController(withIdentifier: "WKWebViewVC") as? WKWebViewVC
+                        vc?.urlBanner = url
+                        self.navigationController?.pushViewController(vc!, animated: true)
+                    }
+                   
+                } else{
+                    print("Url Is empity")
+                }
+                
+               
+            }
+            
             return cell
             
         case 2:
@@ -372,9 +389,15 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
            
             cell.selectionStyle = .none
             
-//            cell.registerNow = {
-//                self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
-//            }
+            cell.registerNow = {
+              //  self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
+                
+                let vc = UIStoryboard(name: "Dashboard", bundle: Bundle.main).instantiateViewController(withIdentifier: "WKWebViewVC") as? WKWebViewVC
+                vc?.urlBanner = URL(string: "https://diamondxe.com/limitedoffer")
+                self.navigationController?.pushViewController(vc!, animated: true)
+                
+                
+            }
             
             return cell
             

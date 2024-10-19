@@ -16,11 +16,15 @@ class CouponInfoTVC: UITableViewCell, UITextFieldDelegate {
     @IBOutlet var btnPointVeryfy:UIButton!
     @IBOutlet var btnPointVeryfied:UIButton!
     
+    @IBOutlet var btnViewAllCoupon:UIButton!
+    
     @IBOutlet var txtCouponCode:DTTextField!
     
     weak var delegate: TextFieldUpdateDelegate?
   
     var btnAction : (() -> Void) = { }
+    
+    var btnActionViewAll : (() -> Void) = { }
 
 
     override func awakeFromNib() {
@@ -69,6 +73,11 @@ class CouponInfoTVC: UITableViewCell, UITextFieldDelegate {
     
     @IBAction func btnActionApply(_ sender:UIButton){
         btnAction()
+       
+    }
+    
+    @IBAction func btnActionViewAll(_ sender:UIButton){
+        btnActionViewAll()
        
     }
     

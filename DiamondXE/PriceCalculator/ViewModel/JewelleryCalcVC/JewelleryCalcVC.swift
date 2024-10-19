@@ -99,6 +99,7 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
     var grandTotal = String()
     var priceWitCurr = String()
     var isEditQuatation = false
+    var quatationVC: QuotatiosVC?
 
     
     override func viewDidLoad() {
@@ -148,6 +149,8 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
         
         self.txtExtraCharges.delegate = self
         self.txtTaxCharges.delegate = self
+        
+      
         
         // setDefault
         
@@ -881,6 +884,11 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
 //            self.navigationController?.pushViewController(vc!, animated: true)
 //        }
         
+        
+        
+        
+        
+        
         if let grandTotalText = self.lblGrandTotal.text, !grandTotalText.isEmpty, grandTotalText != "0" {
         
         let currentQuotation = Quotationstruct(
@@ -917,6 +925,47 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
             
         CalcUserDefaultManager().saveQuotationData(currentQuotation)
             // Push to the next view controller
+            
+            if isEditQuatation{
+                if let latestQuotation =  CalcUserDefaultManager().getSavedQuotations().last {
+                    self.quatationVC?.metalwt = latestQuotation.metalwt ?? 0
+                    self.quatationVC?.metalRatePGm = latestQuotation.metalRatePGm ?? 0
+                    self.quatationVC?.metalwtTotal = latestQuotation.metalwtTotal ?? 0
+                    self.quatationVC?.labourChar = latestQuotation.labourChar ?? 0
+                    self.quatationVC?.labourCharRatePGm = latestQuotation.labourCharRatePGm ?? 0
+                    self.quatationVC?.labourCharTotal = latestQuotation.labourCharTotal ?? 0
+                    self.quatationVC?.solitairwt = latestQuotation.solitairwt ?? 0
+                    self.quatationVC?.solitairRatePCt = latestQuotation.solitairRatePCt ?? 0
+                    self.quatationVC?.solitairTotal = latestQuotation.solitairTotal ?? 0
+                    self.quatationVC?.sideDIA = latestQuotation.sideDIA ?? 0
+                    self.quatationVC?.sideDIARatePCt = latestQuotation.sideDIARatePCt ?? 0
+                    self.quatationVC?.sideDIATotal = latestQuotation.sideDIATotal ?? 0
+                    self.quatationVC?.colStoneWt = latestQuotation.colStoneWt ?? 0
+                    self.quatationVC?.colStonePCt = latestQuotation.colStonePCt ?? 0
+                    self.quatationVC?.colStoneTotal = latestQuotation.colStoneTotal ?? 0
+                    self.quatationVC?.extraCharges = latestQuotation.extraCharges ?? 0
+                    self.quatationVC?.taxCharges = latestQuotation.taxCharges ?? 0
+                    self.quatationVC?.taxCalculation = latestQuotation.taxCalculation ?? 0
+                    self.quatationVC?.currncyVal = latestQuotation.currncyVal ?? 0
+                    self.quatationVC?.currencyType = latestQuotation.currencyType ?? ""
+                    self.quatationVC?.natualOrLabGrown = latestQuotation.natualOrLabGrown ?? ""
+                    self.quatationVC?.solitaierNotes = latestQuotation.solitaierNotes ?? ""
+                    self.quatationVC?.sideDiaNotes = latestQuotation.sideDiaNotes ?? ""
+                    self.quatationVC?.otherCharges = latestQuotation.otherCharges ?? ""
+                    self.quatationVC?.productName = latestQuotation.productName ?? ""
+                    self.quatationVC?.purityType = latestQuotation.purityType ?? ""
+                    self.quatationVC?.grandTotal = latestQuotation.grandTotal ?? ""
+                    self.quatationVC?.priceWitCurr = latestQuotation.priceWitCurr ?? ""
+                    self.quatationVC?.date = latestQuotation.dateStr ?? ""
+                }
+                
+                
+                
+                
+                self.navigationController?.popViewController(animated: true)
+                
+            }
+            else{
             DispatchQueue.main.async {
                 let vc = UIStoryboard(name: "JewelleryCalc", bundle: Bundle.main).instantiateViewController(withIdentifier: "QuotatiosVC") as? QuotatiosVC
                 
@@ -954,6 +1003,8 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 }
                 
                 self.navigationController?.pushViewController(vc!, animated: true)
+            }
+                
             }
         } else {
             self.toastMessage("Please add some data")

@@ -48,4 +48,25 @@ class ShippingModuleModel{
             }
         })
     }
+    
+    
+    func getCouponList(url : String, requestParam: [String:Any], completion: @escaping (AllCouponObjStruct, String?) -> Void) {
+        var resultStruct = AllCouponObjStruct()
+        AlamofireManager().makePostAPIRequestWithLocation2(url: url, param: requestParam, completion: { result in
+            switch result {
+            case .success(let data):
+                // Handle the response data
+                do {
+                    resultStruct = try JsonParsingManagar.parse(jsonData: data!, type: AllCouponObjStruct.self)
+                    completion(resultStruct, resultStruct.msg)
+                } catch {
+                    completion(resultStruct, resultStruct.msg)
+                }
+            case .failure(let error):
+                // Handle the error
+                completion(resultStruct, error.localizedDescription)
+            }
+        })
+    }
+    
 }

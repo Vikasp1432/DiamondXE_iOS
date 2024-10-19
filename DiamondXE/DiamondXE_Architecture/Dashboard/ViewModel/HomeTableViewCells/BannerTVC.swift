@@ -16,6 +16,8 @@ class BannerTVC: UITableViewCell {
     
     var banners = Banners()
     
+    var tapAction : ((String) -> Void) = {_ in}
+    
     var imgArr = [ UIImage(named:"Banner1"),
                     UIImage(named:"Banner2") ,
                     UIImage(named:"Banner3") ,
@@ -108,10 +110,17 @@ class BannerTVC: UITableViewCell {
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCVC.cellIdentifierBannerCVC, for: indexPath) as! BannerCVC
          if banners.content?.count ?? 0 > 0 {
              cell.images.sd_setImage(with: URL(string: banners.content?[indexPath.row].image ?? ""), completed: nil)
+             
+             
          }
          else{
              cell.images.image = imgArr[indexPath.row]
          }
+         
+         cell.tapAction = {
+             self.tapAction(self.banners.content?[indexPath.row].link ?? "")
+         }
+         
 //         if let vc = cell.viewWithTag(111) as? UIImageView {
 //             if banners.content?.count ?? 0 > 0 {
 //                 vc.image.sd_setImage(with: URL(string: banners.content?[indexPath.row].image)!, for: .normal, completed: nil)
@@ -124,6 +133,8 @@ class BannerTVC: UITableViewCell {
 //         }
          return cell
      }
+     
+    
  }
 
  extension BannerTVC: UICollectionViewDelegateFlowLayout {

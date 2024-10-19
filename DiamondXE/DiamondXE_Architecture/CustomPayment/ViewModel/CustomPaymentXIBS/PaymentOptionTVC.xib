@@ -51,10 +51,10 @@
                                                 <rect key="frame" x="8" y="48" width="387" height="100"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kLu-Z5-SJf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="122.33333333333333" height="100"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="89.333333333333329" height="100"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHe-h8-xsf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="122.33333333333333" height="80"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="89.333333333333329" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="9iX-ki-POr"/>
                                                                 </constraints>
@@ -71,7 +71,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzA-nl-q4a">
-                                                                <rect key="frame" x="0.0" y="80" width="122.33333333333333" height="20"/>
+                                                                <rect key="frame" x="0.0" y="80" width="89.333333333333329" height="20"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="RTGS/NEFT">
                                                                         <attributes>
@@ -97,10 +97,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CP6-2I-40G">
-                                                        <rect key="frame" x="132.33333333333334" y="0.0" width="122.33333333333334" height="100"/>
+                                                        <rect key="frame" x="99.333333333333343" y="0.0" width="89.333333333333343" height="100"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pee-ex-Z3t">
-                                                                <rect key="frame" x="0.0" y="0.0" width="122.33333333333333" height="80"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="89.333333333333329" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="t90-BI-ypM"/>
                                                                 </constraints>
@@ -117,7 +117,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HW-bv-W16">
-                                                                <rect key="frame" x="0.0" y="80" width="122.33333333333333" height="20"/>
+                                                                <rect key="frame" x="0.0" y="80" width="89.333333333333329" height="20"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="Debit/Credit">
                                                                         <attributes>
@@ -143,10 +143,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oa4-XW-fDd">
-                                                        <rect key="frame" x="264.66666666666669" y="0.0" width="122.33333333333331" height="100"/>
+                                                        <rect key="frame" x="198.66666666666666" y="0.0" width="88.999999999999972" height="100"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22m-IE-gSg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="122.33333333333333" height="80"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="89" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="moG-NY-8zX"/>
                                                                 </constraints>
@@ -163,7 +163,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n71-wb-zo7">
-                                                                <rect key="frame" x="0.0" y="80" width="122.33333333333333" height="20"/>
+                                                                <rect key="frame" x="0.0" y="80" width="89" height="20"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="Net Banking">
                                                                         <attributes>
@@ -188,11 +188,11 @@
                                                             <constraint firstItem="22m-IE-gSg" firstAttribute="top" secondItem="oa4-XW-fDd" secondAttribute="top" id="hFb-qH-OXR"/>
                                                         </constraints>
                                                     </view>
-                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccE-Wl-bLC">
-                                                        <rect key="frame" x="387" y="0.0" width="0.0" height="100"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccE-Wl-bLC">
+                                                        <rect key="frame" x="297.66666666666669" y="0.0" width="89.333333333333314" height="100"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPX-Pn-37G">
-                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="80"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="89.333333333333329" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="80" id="AfV-SS-quZ"/>
                                                                 </constraints>
@@ -209,7 +209,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jT-E1-JcV">
-                                                                <rect key="frame" x="0.0" y="80" width="0.0" height="20"/>
+                                                                <rect key="frame" x="0.0" y="80" width="89.333333333333329" height="20"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="UPI">
                                                                         <attributes>
@@ -725,6 +725,91 @@
                                             <constraint firstAttribute="trailing" secondItem="NMy-rb-Y95" secondAttribute="trailing" constant="5" id="vno-4C-Ty1"/>
                                         </constraints>
                                     </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Gq-g0-dck">
+                                        <rect key="frame" x="0.0" y="158" width="403" height="86"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aq5-9p-4R7">
+                                                <rect key="frame" x="0.0" y="0.0" width="403" height="78"/>
+                                                <subviews>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JEf-dB-3eO">
+                                                        <rect key="frame" x="0.0" y="-40" width="403" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bG-xY-ANM">
+                                                                <rect key="frame" x="15" y="0.0" width="30" height="40"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="UPI">
+                                                                    <color key="titleColor" name="blackClr"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPK-Jh-39e">
+                                                                <rect key="frame" x="363" y="0.0" width="30" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="mk3-oz-Eas"/>
+                                                                </constraints>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" image="arrowDown">
+                                                                    <color key="titleColor" name="TabSelectClr"/>
+                                                                </state>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" name="whitClr"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="4bG-xY-ANM" secondAttribute="bottom" id="593-nb-zEO"/>
+                                                            <constraint firstAttribute="bottom" secondItem="vPK-Jh-39e" secondAttribute="bottom" id="91O-zc-diA"/>
+                                                            <constraint firstItem="4bG-xY-ANM" firstAttribute="leading" secondItem="JEf-dB-3eO" secondAttribute="leading" constant="15" id="EUm-tn-uyP"/>
+                                                            <constraint firstItem="vPK-Jh-39e" firstAttribute="top" secondItem="JEf-dB-3eO" secondAttribute="top" id="LUL-ys-tQq"/>
+                                                            <constraint firstAttribute="height" constant="40" id="Sac-MU-gAb"/>
+                                                            <constraint firstItem="4bG-xY-ANM" firstAttribute="centerY" secondItem="JEf-dB-3eO" secondAttribute="centerY" id="XJF-5Z-rOF"/>
+                                                            <constraint firstItem="4bG-xY-ANM" firstAttribute="top" secondItem="JEf-dB-3eO" secondAttribute="top" id="bD5-oI-JqI"/>
+                                                            <constraint firstAttribute="trailing" secondItem="vPK-Jh-39e" secondAttribute="trailing" constant="10" id="zEv-XT-vSM"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="P46-ok-RIr">
+                                                        <rect key="frame" x="0.0" y="0.0" width="403" height="78"/>
+                                                        <color key="backgroundColor" name="whitClr"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="78" id="emH-WA-jDe"/>
+                                                        </constraints>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="C1B-k8-vrh">
+                                                            <size key="itemSize" width="128" height="128"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                    </collectionView>
+                                                </subviews>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No UPI apps available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpL-Et-721">
+                                                <rect key="frame" x="0.0" y="0.0" width="403" height="78"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="757677"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="whitClr"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="aq5-9p-4R7" secondAttribute="bottom" constant="8" id="0eY-Zq-ZqH"/>
+                                            <constraint firstItem="rpL-Et-721" firstAttribute="trailing" secondItem="P46-ok-RIr" secondAttribute="trailing" id="7qf-hW-4Sc"/>
+                                            <constraint firstItem="rpL-Et-721" firstAttribute="leading" secondItem="P46-ok-RIr" secondAttribute="leading" id="Cm3-TF-MMJ"/>
+                                            <constraint firstItem="aq5-9p-4R7" firstAttribute="leading" secondItem="3Gq-g0-dck" secondAttribute="leading" id="H4z-RB-dxG"/>
+                                            <constraint firstItem="aq5-9p-4R7" firstAttribute="top" secondItem="3Gq-g0-dck" secondAttribute="top" id="SLK-nI-628"/>
+                                            <constraint firstItem="rpL-Et-721" firstAttribute="bottom" secondItem="P46-ok-RIr" secondAttribute="bottom" id="WO9-E7-anK"/>
+                                            <constraint firstItem="rpL-Et-721" firstAttribute="width" secondItem="P46-ok-RIr" secondAttribute="width" id="dD0-Js-Swg"/>
+                                            <constraint firstItem="rpL-Et-721" firstAttribute="height" secondItem="P46-ok-RIr" secondAttribute="height" id="iyF-8w-Bnw"/>
+                                            <constraint firstAttribute="trailing" secondItem="aq5-9p-4R7" secondAttribute="trailing" id="n5A-xa-mMc"/>
+                                            <constraint firstItem="rpL-Et-721" firstAttribute="top" secondItem="P46-ok-RIr" secondAttribute="top" id="wkA-08-2YI"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -761,12 +846,14 @@
                 <outlet property="btnNetBankSBG" destination="22m-IE-gSg" id="PyH-pk-cE2"/>
                 <outlet property="btnRTGSBG" destination="HHe-h8-xsf" id="bwc-FW-i3t"/>
                 <outlet property="btnUPISBG" destination="WPX-Pn-37G" id="58h-Oh-ET4"/>
+                <outlet property="collectionUPIApps" destination="P46-ok-RIr" id="GIa-le-VfX"/>
                 <outlet property="imgViewBnk1" destination="gYn-w8-HAU" id="nns-Hl-ziF"/>
                 <outlet property="imgViewBnk2" destination="0oE-bP-iee" id="LMt-HJ-Ceu"/>
                 <outlet property="lblAccountNum" destination="no6-Kg-zGG" id="Mt0-qv-Nqb"/>
                 <outlet property="lblBankName" destination="Dch-ph-Coo" id="NWc-Yr-0VS"/>
                 <outlet property="lblBranchName" destination="8La-4e-nW9" id="J8I-vX-Lxb"/>
                 <outlet property="lblIFSC" destination="xE3-Ug-HsS" id="b7y-Wj-LwM"/>
+                <outlet property="lblNodata" destination="rpL-Et-721" id="DD6-st-IRt"/>
                 <outlet property="lblSWIFT" destination="YFF-XV-kRn" id="sb0-jZ-68x"/>
                 <outlet property="lblTitle1" destination="EQg-e3-Tub" id="WnD-0D-EuS"/>
                 <outlet property="lblTitle2" destination="jXl-xw-vOc" id="duy-xb-WAv"/>
@@ -782,6 +869,7 @@
                 <outlet property="viewSelectDate" destination="p7y-zX-KMZ" id="jmc-fo-520"/>
                 <outlet property="viewSelectedBnkBG" destination="uGy-aQ-LRR" id="6F1-YQ-gTe"/>
                 <outlet property="viewUPIBG" destination="ccE-Wl-bLC" id="hVb-ch-e1Y"/>
+                <outlet property="viewUPIListBG" destination="3Gq-g0-dck" id="f7f-WK-YwK"/>
             </connections>
             <point key="canvasLocation" x="101.5267175572519" y="282.3943661971831"/>
         </tableViewCell>
@@ -802,11 +890,15 @@
     </designables>
     <resources>
         <image name="UPIIc" width="24" height="36"/>
+        <image name="arrowDown" width="10.079999923706055" height="6.2800002098083496"/>
         <image name="calendar" width="18.489999771118164" height="19.409999847412109"/>
         <image name="dabitCard" width="29.819999694824219" height="26.549999237060547"/>
         <image name="dropDown" width="34" height="34"/>
         <image name="netBanking" width="28.709999084472656" height="28.549999237060547"/>
         <image name="rtgs" width="29.040000915527344" height="29.139999389648438"/>
+        <namedColor name="757677">
+            <color red="0.45882352941176469" green="0.46274509803921571" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="A1A1A1">
             <color red="0.63137254901960782" green="0.63137254901960782" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

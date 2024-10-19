@@ -139,9 +139,12 @@ struct CartDataStruct: Codable {
     var totalChargeWithTax, totalTaxes, totalAmount, taxPerOnCharges: Int?
     var finalAmount, bankCharge, bankChargePerc: Int?
     var details: [CardDataDetail]?
-  
+    var couponDesPer : Double?
+    var subtotalAfterCouponDiscount : Double?
 
     enum CodingKeys: String, CodingKey {
+        case couponDesPer = "coupon_discount_perc"
+        case subtotalAfterCouponDiscount = "subtotal_after_coupon_discount"
         case isCoupanApplied = "is_coupan_applied"
         case couponCode = "coupon_code"
       //  case couponValue = "coupon_value"
@@ -195,11 +198,15 @@ struct CardDataDetail: Codable {
     var isReturnable, dxePrefered: Int?
     var status: String?
     var onHold: Int?
-    var dxeMarkup: String?
+   // var dxeMarkup: String?
     var  platformFeeTax, shippingChargeTax, totalAmount: Int?//dealerMarkupCommission,
     var totalTax, totalCharges: Int?
+    var couponDesPer : Double?
+    var subtotalAfterCouponDiscount : Double?
 
     enum CodingKeys: String, CodingKey {
+        case couponDesPer = "coupon_discount_perc"
+        case subtotalAfterCouponDiscount = "subtotal_after_coupon_discount"
         case itemName = "item_name"
         case stockID = "stock_id"
         case certificateNo = "certificate_no"
@@ -230,7 +237,7 @@ struct CardDataDetail: Codable {
         case dxePrefered = "dxe_prefered"
         case status
         case onHold = "on_hold"
-        case dxeMarkup = "dxe_markup"
+       // case dxeMarkup = "dxe_markup"
       //  case dealerMarkupCommission = "dealer_markup_commission"
         case platformFeeTax = "platform_fee_tax"
         case shippingChargeTax = "shipping_charge_tax"

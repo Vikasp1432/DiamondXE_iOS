@@ -51,7 +51,19 @@ class PaymentOptionTVC: UITableViewCell {
     @IBOutlet var viewNetBnkBG:UIView!
     @IBOutlet var viewCreditCrdBG:UIView!
     
+    @IBOutlet var viewUPIListBG:UIView!
+    
     @IBOutlet var viewUPIBG:UIView!
+    
+    
+    @IBOutlet var lblNodata:UILabel!
+    @IBOutlet var collectionUPIApps:UICollectionView!
+    var upiApps: [UPIAppInfo] = []
+    
+    var selectedIndexPathUPI: IndexPath?
+    
+    var tapActionUPI : ((String, String) -> Void) = { _,_  in }
+    
     
      var buttonGroup: SingleSelectionButtonGroup!
     
@@ -96,7 +108,7 @@ class PaymentOptionTVC: UITableViewCell {
         banksCollectionView.register(UINib(nibName: PopularBanksCVC.cellIdentifierPopularBanksCVC, bundle: nil), forCellWithReuseIdentifier: PopularBanksCVC.cellIdentifierPopularBanksCVC)
         
      
-        buttonGroup = SingleSelectionButtonGroup(buttons: [btnRTGSBG, btnDebitCSBG, btnNetBankSBG])
+        buttonGroup = SingleSelectionButtonGroup(buttons: [btnRTGSBG, btnDebitCSBG, btnNetBankSBG, btnUPISBG])
         buttonGroup2 = SingleSelectionButtonGroup2(buttons: [btnBank1SBG, btnBank2BG])
 
        
@@ -106,11 +118,23 @@ class PaymentOptionTVC: UITableViewCell {
         
         let tapbnkGesture = UITapGestureRecognizer(target: self, action: #selector(bnkviewTapped))
         viewSelectedBnkBG.addGestureRecognizer(tapbnkGesture)
+      
         
 //        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(doneButtonPressed))
 //        viewSelectDate.addGestureRecognizer(tapGesture2)
         
         txtChecqDate.addInputViewDatePicker(target: self, selector: #selector(doneButtonPressed))
+        
+        
+       // viewUPIListBG.applyShadow()
+        collectionUPIApps.delegate = self
+        collectionUPIApps.dataSource  = self
+     
+        
+        collectionUPIApps.register(UINib(nibName: UPIAppsCVC.cellIdentifierUPIAppsCVC, bundle: nil), forCellWithReuseIdentifier: UPIAppsCVC.cellIdentifierUPIAppsCVC)
+        
+        upiApps = fetchInstalledUPIApps()
+        
 
     }
     
@@ -161,6 +185,8 @@ class PaymentOptionTVC: UITableViewCell {
     @objc func bnkviewTapped() {
         selectBankAction()
     }
+    
+  
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -199,6 +225,16 @@ class PaymentOptionTVC: UITableViewCell {
         }
         else{
             banksViewBG.isHidden = true
+        }
+    }
+    
+    
+    func UPIViewHideShow(isShow:Bool){
+        if isShow{
+            viewUPIListBG.isHidden = false
+        }
+        else{
+            viewUPIListBG.isHidden = true
         }
     }
     
@@ -254,6 +290,15 @@ class PaymentOptionTVC: UITableViewCell {
 
     }
     
+    func selectedIndexUPI(index : IndexPath) {
+       
+        
+        self.selectedIndexPathUPI = index
+        collectionUPIApps.reloadData()
+      
+
+    }
+    
     
     
 }
@@ -261,76 +306,145 @@ class PaymentOptionTVC: UITableViewCell {
 
 extension PaymentOptionTVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return netBankingData.popularBanks?.count ?? 0
+        
+        if collectionUPIApps == collectionView{
+            if upiApps.count <= 0{
+                self.lblNodata.isHidden = false
+            }
+            else{
+                self.lblNodata.isHidden = true
+            }
+            return upiApps.count
+        }
+        else{
+            return netBankingData.popularBanks?.count ?? 0
+        }
+        
+       
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularBanksCVC.cellIdentifierPopularBanksCVC, for: indexPath) as! PopularBanksCVC
-        
-        if let image = netBankingData.popularBanks?[indexPath.row].img {
-            cell.imgView.sd_setImage(with: URL(string: image!))
-        }
-        
-        
-        
-        cell.tapAction = {
+        if collectionUPIApps == collectionView{
             
-            // self.tapAction(upiApp.appName)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UPIAppsCVC.cellIdentifierUPIAppsCVC, for: indexPath) as! UPIAppsCVC
+            let upiApp = upiApps[indexPath.row]
             
-            if let previousIndexPath = self.selectedIndexPath {
-                let previousCell = collectionView.cellForItem(at: previousIndexPath) as? PopularBanksCVC
-                previousCell?.imgView.borderWidth = 0
-                previousCell?.imgView.borderColor = UIColor.clear
-                self.bnkCellTap(0)
+            cell.lblName?.text = upiApp.appName
+            cell.iconIMG?.image = upiApp.appIcon
+            
+           
+            
+            cell.tapAction = {
+               
+                
+                if self.selectedIndexPathUPI == indexPath {
+                    self.selectedIndexPathUPI = nil
+                    self.tapActionUPI("", "")
+                } else {
+                    self.selectedIndexPathUPI = indexPath
+                    self.tapActionUPI(upiApp.appName, upiApp.packageName)
+                }
+                
+              //  collectionView.reloadItems(at: [indexPath])
+                collectionView.reloadData()
+                
             }
             
-            // Select the new cell
-            let cell = collectionView.cellForItem(at: indexPath) as? PopularBanksCVC
-            cell?.imgView.borderColor = UIColor.tabSelectClr
-            cell?.imgView.borderWidth = 1.5
-            cell?.imgView.cornerRadius = 3
+            if indexPath == self.selectedIndexPathUPI {
+                cell.viewBG.borderWidth = 1.5
+                cell.viewBG.borderColor = UIColor.tabSelectClr
+              
+            } else {
+                cell.viewBG.borderWidth = 0
+                cell.viewBG.borderColor = UIColor.clear
+            }
             
-            // Update the selected index path
-            self.selectedIndexPath = indexPath
-            self.bnkCellTap(indexPath.row)
-            
+            return cell
         }
-        
-        cell.imgView.borderWidth = 0
-        cell.imgView.borderColor = UIColor.clear
-      
-        // Add border if the cell is selected
-        if indexPath == selectedIndexPath {
-            cell.imgView.borderColor = UIColor.tabSelectClr
-            cell.imgView.borderWidth = 1.5
-            cell.imgView.cornerRadius = 3
+        else{
             
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularBanksCVC.cellIdentifierPopularBanksCVC, for: indexPath) as! PopularBanksCVC
+            
+            if let image = netBankingData.popularBanks?[indexPath.row].img {
+                cell.imgView.sd_setImage(with: URL(string: image!))
+            }
+            
+            cell.tapAction = {
+                
+                // self.tapAction(upiApp.appName)
+                
+                if let previousIndexPath = self.selectedIndexPath {
+                    let previousCell = collectionView.cellForItem(at: previousIndexPath) as? PopularBanksCVC
+                    previousCell?.imgView.borderWidth = 0
+                    previousCell?.imgView.borderColor = UIColor.clear
+                    self.bnkCellTap(0)
+                }
+                
+                // Select the new cell
+                let cell = collectionView.cellForItem(at: indexPath) as? PopularBanksCVC
+                cell?.imgView.borderColor = UIColor.tabSelectClr
+                cell?.imgView.borderWidth = 1.5
+                cell?.imgView.cornerRadius = 3
+                
+                // Update the selected index path
+                self.selectedIndexPath = indexPath
+                self.bnkCellTap(indexPath.row)
+                
+            }
+            
+            cell.imgView.borderWidth = 0
+            cell.imgView.borderColor = UIColor.clear
+            
+            // Add border if the cell is selected
+            if indexPath == selectedIndexPath {
+                cell.imgView.borderColor = UIColor.tabSelectClr
+                cell.imgView.borderWidth = 1.5
+                cell.imgView.cornerRadius = 3
+                
+            }
+            
+            return cell
         }
-        
-        return cell
     }
     
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let noOfCellsInRow = 5 //number of column you want
-        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-        let totalSpace = flowLayout.sectionInset.left
-        + flowLayout.sectionInset.right
-        + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
         
-        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
-        return CGSize(width: size + 20 , height: size + 10 )
+        if collectionUPIApps == collectionView{
+            
+            let noOfCellsInRow = 6 //number of column you want
+            let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+            let totalSpace = flowLayout.sectionInset.left
+            + flowLayout.sectionInset.right
+            + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
+            
+            let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
+            return CGSize(width: size + 35 , height: size + 20 )
+        }
+        else{
+            
+            let noOfCellsInRow = 5 //number of column you want
+            let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+            let totalSpace = flowLayout.sectionInset.left
+            + flowLayout.sectionInset.right
+            + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
+            
+            let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
+            return CGSize(width: size + 20 , height: size + 10 )
+        }
        }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        
+       
         return 8
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+       
         return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0) // Adjust the left padding
+        
     }
     
     

@@ -13,7 +13,7 @@ var url_Certificate = String()
 
 class WKWebViewVC: BaseViewController , DataReceiver{
     var vcTag =  VCTags()
-   
+    var urlBanner : URL?
     
     func receiveData(_ data: VCTags) {
         // Use the received data here
@@ -27,7 +27,18 @@ class WKWebViewVC: BaseViewController , DataReceiver{
 
         // Do any additional setup after loading the view.
         self.navigationController?.isNavigationBarHidden = true
-        loadURL()
+        
+        if let url = urlBanner{
+            var Bnrurl = url
+            //let web_url = url
+            let web_request = URLRequest(url: Bnrurl)
+            wkWebview.load(web_request)
+        }
+        else{
+            loadURL()
+        }
+        
+        
     }
     
     @IBAction func btnActionBack(_ sender: UIButton) {

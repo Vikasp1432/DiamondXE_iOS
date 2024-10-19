@@ -102,6 +102,11 @@
 		44417EE32C57A9F7008C6AA6 /* KYCVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44417EE22C57A9F7008C6AA6 /* KYCVerification.swift */; };
 		44417EE52C57B2C8008C6AA6 /* KYCDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44417EE42C57B2C8008C6AA6 /* KYCDataStruct.swift */; };
 		444243932C05D473001E976B /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444243922C05D473001E976B /* UserDefaultManager.swift */; };
+		4442EA202CC125DE001843C8 /* AllCouponObjStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4442EA1F2CC125DE001843C8 /* AllCouponObjStruct.swift */; };
+		4442EA232CC12918001843C8 /* CouponListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4442EA222CC12918001843C8 /* CouponListTVC.xib */; };
+		4442EA242CC12918001843C8 /* CouponListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4442EA212CC12918001843C8 /* CouponListTVC.swift */; };
+		4442EA272CC12D97001843C8 /* CouponListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4442EA262CC12D97001843C8 /* CouponListVC.xib */; };
+		4442EA282CC12D97001843C8 /* CouponListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4442EA252CC12D97001843C8 /* CouponListVC.swift */; };
 		4442EFCB2C9D7917004E25ED /* CancelOrderWithResionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4442EFCA2C9D7917004E25ED /* CancelOrderWithResionViewController.swift */; };
 		4444DFB72C81A2E700097CDB /* PaymentStatusStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444DFB62C81A2E700097CDB /* PaymentStatusStruct.swift */; };
 		4444DFB92C81A59300097CDB /* PaymentStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444DFB82C81A59300097CDB /* PaymentStatusVC.swift */; };
@@ -541,6 +546,11 @@
 		44417EE22C57A9F7008C6AA6 /* KYCVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCVerification.swift; sourceTree = "<group>"; };
 		44417EE42C57B2C8008C6AA6 /* KYCDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCDataStruct.swift; sourceTree = "<group>"; };
 		444243922C05D473001E976B /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		4442EA1F2CC125DE001843C8 /* AllCouponObjStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCouponObjStruct.swift; sourceTree = "<group>"; };
+		4442EA212CC12918001843C8 /* CouponListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListTVC.swift; sourceTree = "<group>"; };
+		4442EA222CC12918001843C8 /* CouponListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CouponListTVC.xib; sourceTree = "<group>"; };
+		4442EA252CC12D97001843C8 /* CouponListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListVC.swift; sourceTree = "<group>"; };
+		4442EA262CC12D97001843C8 /* CouponListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CouponListVC.xib; sourceTree = "<group>"; };
 		4442EFCA2C9D7917004E25ED /* CancelOrderWithResionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderWithResionViewController.swift; sourceTree = "<group>"; };
 		4444DFB62C81A2E700097CDB /* PaymentStatusStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentStatusStruct.swift; sourceTree = "<group>"; };
 		4444DFB82C81A59300097CDB /* PaymentStatusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentStatusVC.swift; sourceTree = "<group>"; };
@@ -1158,6 +1168,17 @@
 			path = UserDefaultManager;
 			sourceTree = "<group>";
 		};
+		4442EA1A2CC1245D001843C8 /* CouponBottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				4442EA212CC12918001843C8 /* CouponListTVC.swift */,
+				4442EA222CC12918001843C8 /* CouponListTVC.xib */,
+				4442EA252CC12D97001843C8 /* CouponListVC.swift */,
+				4442EA262CC12D97001843C8 /* CouponListVC.xib */,
+			);
+			path = CouponBottomSheet;
+			sourceTree = "<group>";
+		};
 		44457F732C241AF7008B1D9C /* DiaDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -1285,6 +1306,7 @@
 				445C69EA2C8AD57A0090255B /* CheckOutDataStruct.swift */,
 				445C69EC2C8ADEDB0090255B /* ShippingModuleModel.swift */,
 				442EF0E22C90445D004EAF80 /* CreateOrderStruct.swift */,
+				4442EA1F2CC125DE001843C8 /* AllCouponObjStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1300,6 +1322,7 @@
 		444F2D322C4FB8FC00004857 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4442EA1A2CC1245D001843C8 /* CouponBottomSheet */,
 				4441244E2C75DC04006AEC86 /* PaymentSectionXIBS */,
 				445276802C50DF7C006D2F64 /* ShippingXIBs */,
 				445B94262C85C5E1008A39B9 /* KYCXibs */,
@@ -2474,6 +2497,7 @@
 				443C27BD2C916CC400789BC3 /* MyOrder.storyboard in Resources */,
 				44C94F862C11B7D0009E6B59 /* DropDownViewCell.xib in Resources */,
 				44A81B532BDF6F95008AB93A /* Dealer_BasicCell.xib in Resources */,
+				4442EA232CC12918001843C8 /* CouponListTVC.xib in Resources */,
 				445B942B2C85CAF0008A39B9 /* KYCDocStatusTVC.xib in Resources */,
 				445B94252C85ABB3008A39B9 /* OrderSummeryItemsCVC.xib in Resources */,
 				44E61DA72BFB30F4006E136E /* CategoriesVC.storyboard in Resources */,
@@ -2482,6 +2506,7 @@
 				44AC5EEC2CAFF78A00167147 /* ReturnItemImgVideoTVC.xib in Resources */,
 				448A56602BFE0B0100F01591 /* MediaSpotlightTVCl.xib in Resources */,
 				449ADF2E2C3964E4003D64DC /* ShippingAddress.storyboard in Resources */,
+				4442EA272CC12D97001843C8 /* CouponListVC.xib in Resources */,
 				44BCF0B92C9313A000778B72 /* MultiItemListTVC.xib in Resources */,
 				44624DA62C2D9C7B002D5757 /* SizesViewXIB.xib in Resources */,
 				446A19772C91C72E00AFC167 /* BuyItemInfoTVC.xib in Resources */,
@@ -2854,6 +2879,7 @@
 				447746912C0B1FAC001B051B /* BtnGradient.swift in Sources */,
 				443886A82C09A7F100F96AF5 /* SearchDiamondVC.swift in Sources */,
 				44546A372BD63721007AFEF8 /* TimerManager.swift in Sources */,
+				4442EA202CC125DE001843C8 /* AllCouponObjStruct.swift in Sources */,
 				447E72D42BCFCB3E00AAEA57 /* DiamondXE_Environment.swift in Sources */,
 				44C38ADF2C25A135005AAF9A /* DiamondDetailsStruct.swift in Sources */,
 				44CF42522C245D4200C20EAB /* ProductDetailsTVC.swift in Sources */,
@@ -2914,6 +2940,7 @@
 				4452A0F82C3574D6004A39EA /* WishlistDataStruct.swift in Sources */,
 				443C27C52C917B9800789BC3 /* RecentIListVC.swift in Sources */,
 				44BA46F92C525C620054C550 /* AddAddressBTNCell.swift in Sources */,
+				4442EA242CC12918001843C8 /* CouponListTVC.swift in Sources */,
 				44C8A45D2BE12145006C9B06 /* Supplier_AuthorisedPersonCell.swift in Sources */,
 				445B94202C859DD9008A39B9 /* OrderSummeryWithItemTVC.swift in Sources */,
 				444243932C05D473001E976B /* UserDefaultManager.swift in Sources */,
@@ -2939,6 +2966,7 @@
 				44A4C1C32C75E3B200A1B871 /* CouponTVC.swift in Sources */,
 				44C8A4592BE11CCB006C9B06 /* Supplier_BankInfoCell.swift in Sources */,
 				445C69ED2C8ADEDB0090255B /* ShippingModuleModel.swift in Sources */,
+				4442EA282CC12D97001843C8 /* CouponListVC.swift in Sources */,
 				44757FE62C7CA5F600B953B5 /* ClassRingSizer.swift in Sources */,
 				4455F4362C4BE9BE009618DA /* DashboardCountryView.swift in Sources */,
 				4442EFCB2C9D7917004E25ED /* CancelOrderWithResionViewController.swift in Sources */,
@@ -3160,7 +3188,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -3183,7 +3211,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.105;
+				MARKETING_VERSION = 1.02.106;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3205,7 +3233,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -3228,7 +3256,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.105;
+				MARKETING_VERSION = 1.02.106;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3394,7 +3422,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -3417,7 +3445,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.105;
+				MARKETING_VERSION = 1.02.106;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3543,7 +3571,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -3566,7 +3594,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.105;
+				MARKETING_VERSION = 1.02.106;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3692,7 +3720,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -3715,7 +3743,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.105;
+				MARKETING_VERSION = 1.02.106;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3834,7 +3862,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -3857,7 +3885,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.105;
+				MARKETING_VERSION = 1.02.106;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3976,7 +4004,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -3999,7 +4027,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.105;
+				MARKETING_VERSION = 1.02.106;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -4118,7 +4146,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FF7UTTC3CH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DiamondXE/Info.plist;
@@ -4141,7 +4169,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.105;
+				MARKETING_VERSION = 1.02.106;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

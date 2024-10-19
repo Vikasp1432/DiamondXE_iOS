@@ -27,7 +27,7 @@
                                     <constraint firstAttribute="height" constant="24" id="cHb-GU-1Ec"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="blackClr"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lEr-3R-zHK">

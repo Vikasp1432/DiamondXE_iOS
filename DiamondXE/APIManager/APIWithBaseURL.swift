@@ -148,6 +148,8 @@ struct APIs {
     
     var returnOrderRequest_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/return-order"
     
+    var getCouponList_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/coupon-offers-list"
+    
 }
 
 //struct HeaderInfo {

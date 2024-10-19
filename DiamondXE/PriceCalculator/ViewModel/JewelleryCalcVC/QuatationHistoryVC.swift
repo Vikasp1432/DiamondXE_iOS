@@ -41,6 +41,7 @@ class QuatationHistoryVC: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         self.quotations = CalcUserDefaultManager().getSavedQuotations().reversed()
+        self.listQATableView.reloadData()
     }
     
     @IBAction func btnactionsManage(_ sender : UIButton){

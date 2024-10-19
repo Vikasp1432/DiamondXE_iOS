@@ -30,6 +30,8 @@ class CartItemTVC: UITableViewCell {
     @IBOutlet var btnWishList :UIButton!
     @IBOutlet var btnDelete :UIButton!
     
+    @IBOutlet var lblDiscount :UILabel!
+    
     @IBOutlet var tagViewBG :UIView!
     @IBOutlet var lblTAG :UILabel!
     

@@ -40,6 +40,7 @@ class ShippingModuleVC: BaseViewController {
     
     var isCellExpandedPaymentOption = false
     var isCellExpandedPaymentOption2 = false
+    var isCellExpandedPaymentOption3 = false
     
     var isCellExpandedTag = 0
 
@@ -650,7 +651,7 @@ class ShippingModuleVC: BaseViewController {
             
             CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
             SignupDataModel().verifyDoc(url: APIs().upload_KYCDoc_API, requestParam: param, completion: { result , msg in
-                
+                CustomActivityIndicator2.shared.hide()
                 if result.status == 1{
                     self.btnProceadPayment.setTitle("Continue", for: .normal)
                     self.isresubmitTag = false
@@ -661,7 +662,7 @@ class ShippingModuleVC: BaseViewController {
                 }
                 
                 //self.toastMessage(result.msg ?? "")
-                CustomActivityIndicator2.shared.hide()
+               
             })
         }
         
@@ -1272,43 +1273,43 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
             
              let isInterNatl = self.shippingAddressesStruct.details?[self.selectedIndexPathShipping?.row ?? 0]
                 if isInterNatl?.countryNameS == "United Arab Emirates"{
-                    indexSectionCnt = 4
+                    isAmountLess1L = true
                 }
                 else{
                     if self.checkUPIAmount(){
-                        isAmountLess1L = false
-                        indexSectionCnt = 4
+                        isAmountLess1L = true
+                        
                     }
                     else{
-                        indexSectionCnt = 5
-                        isAmountLess1L = true
+                        
+                        isAmountLess1L = false
                     }
                    
                 }
-                return  indexSectionCnt
+               
             }
             else{
                // var returnCnt = Int()
                 self.shippingAddressesStruct.details?.enumerated().forEach{ index, val in
                     if val.isDefault == 1{
                         if val.countryNameS == "United Arab Emirates"{
-                            indexSectionCnt = 4
+                            isAmountLess1L = true
                         }
                         else{
                             if self.checkUPIAmount(){
-                                isAmountLess1L = false
-                                indexSectionCnt = 4
+                                isAmountLess1L = true
+                               
                             }
                             else{
-                                indexSectionCnt = 5
-                                isAmountLess1L = true
+                                isAmountLess1L = false
                             }
                         }
                     }
                     
                 }
-                return indexSectionCnt
+               // return 4
             }
+            return  4
             
         default:
             return 0
@@ -1509,7 +1510,7 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
             
         case 2:
             
-            if self.indexSectionCnt == 5{
+//            if self.indexSectionCnt == 5{
                 switch indexPath.section {
                 case 0:
                     let cell = tableView.dequeueReusableCell(withIdentifier: PointsInfoTVC.cellIdentifierPointsInfoTVC, for: indexPath) as! PointsInfoTVC
@@ -1574,6 +1575,13 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                             self.toastMessage("Enter coupon code")
                         }
                     }
+                    
+                    cell.btnActionViewAll = {
+                        let bottomSheetVC = CouponListVC()
+                        bottomSheetVC.delegate = self
+                        bottomSheetVC.appear(sender: self)
+                    }
+                    
                     return cell
                 case 2:
                     let cell = tableView.dequeueReusableCell(withIdentifier: PaymentOptionTVC.cellIdentifierPaymentOptionTVC, for: indexPath) as! PaymentOptionTVC
@@ -1614,21 +1622,40 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                         
                     }
                     
+                    
+                        
+                        if isAmountLess1L{
+                            cell.viewUPIBG.isHidden = true
+                            self.paymentModeSelected = String()
+                            self.selectedUPIName = String()
+                            self.selectedUPIBundl = String()
+                            self.amountCalculation()
+                        }
+                        else{
+                            cell.viewUPIBG.isHidden = false
+                        }
+                        
+                    
                     cell.btnAction = { tag in
                         self.isCellExpandedTag = tag
                       
                         if tag == 0 {
-                            
+                            cell.selectedIndexPathUPI = nil
                             self.isCellExpandedPaymentOption.toggle()
                             cell.paymentOptionViewHideShow(isShow: self.isCellExpandedPaymentOption)
                             cell.banksViewBG.isHidden = true
+                            cell.viewUPIListBG.isHidden = true
                             self.isCellExpandedPaymentOption2 = false
-                           // self.shippingTableView.reloadData()
+                            self.isCellExpandedPaymentOption3 = false
+                            self.shippingTableView.reloadData()
                             
                         }
                         else if tag == 2{
+                            cell.selectedIndexPathUPI = nil
                             cell.paymentOptionBG.isHidden = true
+                            cell.viewUPIListBG.isHidden = true
                             self.isCellExpandedPaymentOption = false
+                            self.isCellExpandedPaymentOption3 = false
                             self.isCellExpandedPaymentOption2.toggle()
                             cell.bnkViewHideShow(isShow: self.isCellExpandedPaymentOption2)
     //                        if let netBankInfo = self.bankingInfoStruct.details?.netBanking {
@@ -1637,23 +1664,38 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
     //                        }
                             
                            
-                           // self.shippingTableView.reloadData()
+                            self.shippingTableView.reloadData()
                         }
-                        else{
-                            
+                        else if tag == 1{
+                            cell.selectedIndexPathUPI = nil
                             cell.paymentOptionBG.isHidden = true
+                            cell.viewUPIListBG.isHidden = true
                             self.isCellExpandedPaymentOption = false
                             self.isCellExpandedPaymentOption2 = false
+                            self.isCellExpandedPaymentOption3 = false
                            
                             cell.banksViewBG.isHidden = true
-                            //self.shippingTableView.reloadData()
+                            self.shippingTableView.reloadData()
+                        }
+                        else{
+                            cell.collectionUPIApps.reloadData()
+                            cell.paymentOptionBG.isHidden = true
+                            cell.banksViewBG.isHidden = true
+                            self.isCellExpandedPaymentOption = false
+                            self.isCellExpandedPaymentOption2 = false
+                            self.isCellExpandedPaymentOption3.toggle()
+                            cell.UPIViewHideShow(isShow: self.isCellExpandedPaymentOption3)
+                            
+                            
+                            
+                            self.shippingTableView.reloadData()
                         }
                         
-                        let UPIIndexPath = IndexPath(row: 0, section: 2)
-                        if let cell = self.shippingTableView.cellForRow(at: UPIIndexPath) as? UPITVC {
-                            cell.selectedIndexPath = nil
-                            cell.collectionUPIApps.reloadData()
-                        }
+//                        let UPIIndexPath = IndexPath(row: 0, section: 2)
+//                        if let cell = self.customPaymentTV.cellForRow(at: UPIIndexPath) as? UPITVC {
+//                            cell.selectedIndexPath = nil
+//                            cell.collectionUPIApps.reloadData()
+//                        }
                     }
                     
                     cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
@@ -1696,273 +1738,19 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                         cell.imgViewBnk1.sd_setImage(with: imageURLfst, placeholderImage: nil, options: .highPriority, completed: nil)
                     }
                     
-                    
-//                    if  let imageURLlst = URL(string: self.bankInfoStruct.details?.last?.image ?? "") {
-//                        cell.btnBank2BG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLlst)
-//                        
-//                        cell.imgViewBnk2.sd_setImage(with: imageURLlst, placeholderImage: nil, options: .highPriority, completed: nil)
-//                        
-//                    }
-                    
-                    cell.paymentModeAction = {
-                        self.isOpenNEFT = true
-                        self.openDropDown(dataArr: ["Cheque","NEFT","RTGS","Wire Transfer", "Other"], anchorView: cell.txtPaymentMode, txtField: cell.txtPaymentMode)
-                    }
-                    
-                    
-                    
-                    return cell
-                case 3:
-                    let cell = tableView.dequeueReusableCell(withIdentifier: UPITVC.cellIdentifierUPITVC, for: indexPath) as! UPITVC
-                    cell.selectionStyle = .none
-                    cell.tapAction = { name, package in
-                        let formattedNumber = self.formatNumberWithoutDeciml(Double(self.amount) ?? 0)
-                        self.lblTotalAmount.text = formattedNumber
-                        
-                        let payIndexPath = IndexPath(row: 0, section: 2)
-                        if let cell = self.shippingTableView.cellForRow(at: payIndexPath) as? PaymentOptionTVC {
-                            cell.buttonGroup.clearSelection()
-                            cell.btnNetBankSBG.borderColor = .clear
-                            cell.btnRTGSBG.borderColor = .clear
-                            cell.btnDebitCSBG.borderColor = .clear
-                            cell.paymentOptionBG.isHidden = true
-                            cell.banksViewBG.isHidden = true
-                            self.isCellExpandedPaymentOption = false
-                            self.isCellExpandedPaymentOption2 = false
-                            self.shippingTableView.reloadData()
-                            
-                           // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
-                        }
-                        
-                        ///
+                    cell.tapActionUPI = { name, package in
+                       
                         self.paymentModeSelected = "UPI"
                         self.selectedUPIName = name
                         self.selectedUPIBundl = package
-                        self.amountCalculation()
-                        
+                        //self.amountCalculation()
+                       
                         if name == ""{
-                            let formattedNumber = self.formatNumberWithoutDeciml(Double(self.amount) ?? 0)
-                            self.lblTotalAmount.text = formattedNumber
                             
-                          //  self.lblTotalAmount.text = self.amount
+                            self.lblTotalAmount.text = self.amount
                             self.shippingTableView.reloadData()
                             // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
                         }
-                    }
-                    return cell
-                default:
-                    let cell = tableView.dequeueReusableCell(withIdentifier: OrderSummeryWithItemTVC.cellIdentifierOrderSummeryWithItemTVC, for: indexPath) as! OrderSummeryWithItemTVC
-                    cell.selectionStyle = .none
-                    cell.baseVC = self
-                    cell.currencyRateDetailObj = currencyRateDetailObj
-                    cell.setupData(checkOutData: self.checkOutDetails, isPaymentSection: self.manageTopButtonTag)
-                    cell.reloadCollection(cartData: self.CartDataObj, singleDimd: self.diamondDetailsOBJ)
-                    return cell
-                }
-            }
-            else{
-                switch indexPath.section {
-                case 0:
-                    let cell = tableView.dequeueReusableCell(withIdentifier: PointsInfoTVC.cellIdentifierPointsInfoTVC, for: indexPath) as! PointsInfoTVC
-                    cell.selectionStyle = .none
-                    cell.delegate = self
-                    cell.lblTotalWalletPoints.text = "Available \(self.checkOutDetails.availableWalletPoints ?? "") Points"
-                    cell.btnAction = { tag in
-                        self.isCellExpandedPointsView.toggle()
-                        cell.pointsView(isShow: self.isCellExpandedPointsView)
-                        self.shippingTableView.reloadData()
-                    }
-                    
-                    
-                    if self.checkOutDetails.walletPoint ?? 0 > 0 {
-                        // if self.checkOutDetails.coupon_status == 1 {
-                            cell.btnWalletPointVerify.isHidden = true
-                            cell.btnWalletPointVerified.isHidden = false
-                       // }
-                     }
-                    
-                    cell.btnActionApply = {
-                        self.view.endEditing(true)
-                        if cell.txtWalletPoint.text?.count ?? 0 > 0{
-                            self.walletPoints = cell.txtWalletPoint.text ?? ""
-                            self.applyCouponCode(couponCode: self.checkOutDetails.couponCode ?? "", waletPoint: cell.txtWalletPoint.text?.replacingOccurrences(of: " ", with: "") ?? "", paymentMode: self.paymentModeSelected)
-                        }
-                        else{
-                            self.toastMessage("Enter Wallet Point")
-                        }
-                    }
-                    
-                    
-                    return cell
-                case 1:
-                    let cell = tableView.dequeueReusableCell(withIdentifier: CouponInfoTVC.cellIdentifierCouponInfoTVC, for: indexPath) as! CouponInfoTVC
-                    cell.selectionStyle = .none
-                    cell.delegate = self
-                    
-                   if self.checkOutDetails.isCoupanApplied == 1{
-                       
-                       if self.checkOutDetails.coupenStatus == 1 {
-                            cell.btnPointVeryfy.isHidden = true
-                            cell.btnPointVeryfied.isHidden = false
-                        }
-                        else{
-                            cell.btnPointVeryfy.isHidden = false
-                            cell.btnPointVeryfied.isHidden = true
-                            self.toastMessage(self.checkOutDetails.couperMSG ?? "")
-                        }
-                       // if self.checkOutDetails. == 1 {
-//                           cell.btnPointVeryfy.isHidden = true
-//                           cell.btnPointVeryfied.isHidden = false
-                      // }
-                    }
-                    
-                    cell.btnAction = {
-                        self.view.endEditing(true)
-                        if cell.txtCouponCode.text?.count ?? 0 > 0{
-                            self.couponCode = cell.txtCouponCode.text ?? ""
-                            self.applyCouponCode(couponCode: cell.txtCouponCode.text?.replacingOccurrences(of: " ", with: "") ?? "", waletPoint: "\(self.checkOutDetails.walletPoint ?? 0)", paymentMode: self.paymentModeSelected)
-                        }
-                        else{
-                            self.toastMessage("Enter coupon code")
-                        }
-                    }
-                    return cell
-                case 2:
-                    let cell = tableView.dequeueReusableCell(withIdentifier: PaymentOptionTVC.cellIdentifierPaymentOptionTVC, for: indexPath) as! PaymentOptionTVC
-                    cell.selectionStyle = .none
-                    cell.buttonGroup.delegate = self
-                    
-                    if self.isAmountLess1L{
-                        cell.viewNetBnkBG.isHidden = true
-                        cell.viewCreditCrdBG.isHidden = true
-                    }
-                    else{
-                        cell.viewNetBnkBG.isHidden = false
-                        cell.viewCreditCrdBG.isHidden = false
-                    }
-                    
-                   
-    //
-                    
-                    cell.shippingVC = self
-                    
-                    if let netBnk = bankingInfoStruct.details?.netBanking{
-                        cell.netBankingData = netBnk
-                        cell.banksCollectionView.reloadData()
-                    }
-                    
-                    
-                    cell.selectBankAction = {
-                        if let allBnks = self.bankingInfoStruct.details?.netBanking?.allBanks {
-                            var bankArr = [String]()
-                            allBnks.enumerated().forEach{ (index, bank) in
-                                bankArr.append(bank.bankName ?? "")
-                            }
-                            self.isOpenNEFT = false
-                            self.openDropDown(dataArr: bankArr, anchorView: cell.txtSelectedBnk, txtField: cell.txtSelectedBnk)
-                        }
-                      
-                    }
-                    
-                    cell.bnkCellTap = { tag in
-                       
-                            if let netBankInfo = self.bankingInfoStruct.details?.netBanking?.popularBanks {
-                                // var selectedIndex = netBankInfo.popularBanks?[indexPath.row].img
-                                self.selectedBankID  = netBankInfo[tag].bankID ?? ""
-                                cell.txtSelectedBnk.text = netBankInfo[tag].bankName
-                            }
-                        
-                    }
-                    
-                    cell.btnAction = { tag in
-                        self.isCellExpandedTag = tag
-                      
-                        if tag == 0 {
-                            
-                            self.isCellExpandedPaymentOption.toggle()
-                            cell.paymentOptionViewHideShow(isShow: self.isCellExpandedPaymentOption)
-                            cell.banksViewBG.isHidden = true
-                            self.isCellExpandedPaymentOption2 = false
-                            //self.shippingTableView.reloadData()
-                            
-                          
-                            
-                        }
-                        else if tag == 2{
-                            cell.paymentOptionBG.isHidden = true
-                            self.isCellExpandedPaymentOption = false
-                            self.isCellExpandedPaymentOption2.toggle()
-                            cell.bnkViewHideShow(isShow: self.isCellExpandedPaymentOption2)
-    //                        if let netBankInfo = self.bankingInfoStruct.details?.netBanking {
-    //                            cell.netBankingData = netBankInfo
-    //                            cell.banksCollectionView.reloadData()
-    //                        }
-                            
-                    
-                        }
-                        else{
-                            
-                            cell.paymentOptionBG.isHidden = true
-                            self.isCellExpandedPaymentOption = false
-                            self.isCellExpandedPaymentOption2 = false
-                           
-                            cell.banksViewBG.isHidden = true
-                            //self.shippingTableView.reloadData()
-                        }
-                        
-                        let UPIIndexPath = IndexPath(row: 0, section: 2)
-                        if let cell = self.shippingTableView.cellForRow(at: UPIIndexPath) as? UPITVC {
-                            cell.selectedIndexPath = nil
-                            cell.collectionUPIApps.reloadData()
-                        }
-                    }
-                    
-                    cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
-                    cell.lblSWIFT.text = self.bankInfoStruct.details?.first?.swift
-                    cell.lblBranchName.text = self.bankInfoStruct.details?.first?.branchName
-                    cell.lblBankName.text = self.bankInfoStruct.details?.first?.bankName
-                    cell.lblAccountNum.text = self.bankInfoStruct.details?.first?.accountNumber
-                    
-                    cell.lblTitle1.text = self.bankInfoStruct.details?.first?.bank?.uppercased()
-                    cell.lblTitle2.text = self.bankInfoStruct.details?.last?.bank?.uppercased()
-                    
-                    
-                    cell.btnActionBanks = { tag in
-                        self.seletedBankInt = tag
-                        if tag == 0{
-                            cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
-                            cell.lblSWIFT.text = self.bankInfoStruct.details?.first?.swift
-                            cell.lblBranchName.text = self.bankInfoStruct.details?.first?.branchName
-                            cell.lblBankName.text = self.bankInfoStruct.details?.first?.bankName
-                            cell.lblAccountNum.text = self.bankInfoStruct.details?.first?.accountNumber
-                        }
-                        else{
-                            cell.lblIFSC.text = self.bankInfoStruct.details?.last?.ifsc
-                            cell.lblSWIFT.text = self.bankInfoStruct.details?.last?.swift
-                            cell.lblBranchName.text = self.bankInfoStruct.details?.last?.branchName
-                            cell.lblBankName.text = self.bankInfoStruct.details?.last?.bankName
-                            cell.lblAccountNum.text = self.bankInfoStruct.details?.last?.accountNumber
-                        }
-                    }
-                    
-                    cell.btnDate = {
-                        self.customDatePicker.delegate = self
-                        self.customDatePicker.showDatePicker(in: self)
-                        
-                    }
-                    
-                    
-                    if  let imageURLfst = URL(string: self.bankInfoStruct.details?.first?.image ?? "") {
-                        cell.btnBank1SBG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLfst)
-                        cell.imgViewBnk1.sd_setImage(with: imageURLfst, placeholderImage: nil, options: .highPriority, completed: nil)
-                    }
-                    
-                    
-                    if  let imageURLlst = URL(string: self.bankInfoStruct.details?.last?.image ?? "") {
-                        cell.btnBank2BG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLlst)
-                        
-                        cell.imgViewBnk2.sd_setImage(with: imageURLlst, placeholderImage: nil, options: .highPriority, completed: nil)
-                        
                     }
                     
                     cell.paymentModeAction = {
@@ -2011,7 +1799,8 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
 //                        }
 //                    }
 //                    return cell
-                default:
+                    
+                case 3:
                     let cell = tableView.dequeueReusableCell(withIdentifier: OrderSummeryWithItemTVC.cellIdentifierOrderSummeryWithItemTVC, for: indexPath) as! OrderSummeryWithItemTVC
                     cell.selectionStyle = .none
                     cell.baseVC = self
@@ -2019,8 +1808,272 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
                     cell.setupData(checkOutData: self.checkOutDetails, isPaymentSection: self.manageTopButtonTag)
                     cell.reloadCollection(cartData: self.CartDataObj, singleDimd: self.diamondDetailsOBJ)
                     return cell
+                    
+                default:
+                   return UITableViewCell()
                 }
-            }
+//            }
+//            else{
+//                switch indexPath.section {
+//                case 0:
+//                    let cell = tableView.dequeueReusableCell(withIdentifier: PointsInfoTVC.cellIdentifierPointsInfoTVC, for: indexPath) as! PointsInfoTVC
+//                    cell.selectionStyle = .none
+//                    cell.delegate = self
+//                    cell.lblTotalWalletPoints.text = "Available \(self.checkOutDetails.availableWalletPoints ?? "") Points"
+//                    cell.btnAction = { tag in
+//                        self.isCellExpandedPointsView.toggle()
+//                        cell.pointsView(isShow: self.isCellExpandedPointsView)
+//                        self.shippingTableView.reloadData()
+//                    }
+//                    
+//                    
+//                    if self.checkOutDetails.walletPoint ?? 0 > 0 {
+//                        // if self.checkOutDetails.coupon_status == 1 {
+//                            cell.btnWalletPointVerify.isHidden = true
+//                            cell.btnWalletPointVerified.isHidden = false
+//                       // }
+//                     }
+//                    
+//                    cell.btnActionApply = {
+//                        self.view.endEditing(true)
+//                        if cell.txtWalletPoint.text?.count ?? 0 > 0{
+//                            self.walletPoints = cell.txtWalletPoint.text ?? ""
+//                            self.applyCouponCode(couponCode: self.checkOutDetails.couponCode ?? "", waletPoint: cell.txtWalletPoint.text?.replacingOccurrences(of: " ", with: "") ?? "", paymentMode: self.paymentModeSelected)
+//                        }
+//                        else{
+//                            self.toastMessage("Enter Wallet Point")
+//                        }
+//                    }
+//                    
+//                    
+//                    return cell
+//                case 1:
+//                    let cell = tableView.dequeueReusableCell(withIdentifier: CouponInfoTVC.cellIdentifierCouponInfoTVC, for: indexPath) as! CouponInfoTVC
+//                    cell.selectionStyle = .none
+//                    cell.delegate = self
+//                    
+//                   if self.checkOutDetails.isCoupanApplied == 1{
+//                       
+//                       if self.checkOutDetails.coupenStatus == 1 {
+//                            cell.btnPointVeryfy.isHidden = true
+//                            cell.btnPointVeryfied.isHidden = false
+//                        }
+//                        else{
+//                            cell.btnPointVeryfy.isHidden = false
+//                            cell.btnPointVeryfied.isHidden = true
+//                            self.toastMessage(self.checkOutDetails.couperMSG ?? "")
+//                        }
+//                       // if self.checkOutDetails. == 1 {
+////                           cell.btnPointVeryfy.isHidden = true
+////                           cell.btnPointVeryfied.isHidden = false
+//                      // }
+//                    }
+//                    
+//                    cell.btnAction = {
+//                        self.view.endEditing(true)
+//                        if cell.txtCouponCode.text?.count ?? 0 > 0{
+//                            self.couponCode = cell.txtCouponCode.text ?? ""
+//                            self.applyCouponCode(couponCode: cell.txtCouponCode.text?.replacingOccurrences(of: " ", with: "") ?? "", waletPoint: "\(self.checkOutDetails.walletPoint ?? 0)", paymentMode: self.paymentModeSelected)
+//                        }
+//                        else{
+//                            self.toastMessage("Enter coupon code")
+//                        }
+//                    }
+//                    return cell
+//                case 2:
+//                    let cell = tableView.dequeueReusableCell(withIdentifier: PaymentOptionTVC.cellIdentifierPaymentOptionTVC, for: indexPath) as! PaymentOptionTVC
+//                    cell.selectionStyle = .none
+//                    cell.buttonGroup.delegate = self
+//                    
+//                    if self.isAmountLess1L{
+//                        cell.viewNetBnkBG.isHidden = true
+//                        cell.viewCreditCrdBG.isHidden = true
+//                    }
+//                    else{
+//                        cell.viewNetBnkBG.isHidden = false
+//                        cell.viewCreditCrdBG.isHidden = false
+//                    }
+//                    
+//                   
+//    //
+//                    
+//                    cell.shippingVC = self
+//                    
+//                    if let netBnk = bankingInfoStruct.details?.netBanking{
+//                        cell.netBankingData = netBnk
+//                        cell.banksCollectionView.reloadData()
+//                    }
+//                    
+//                    
+//                    cell.selectBankAction = {
+//                        if let allBnks = self.bankingInfoStruct.details?.netBanking?.allBanks {
+//                            var bankArr = [String]()
+//                            allBnks.enumerated().forEach{ (index, bank) in
+//                                bankArr.append(bank.bankName ?? "")
+//                            }
+//                            self.isOpenNEFT = false
+//                            self.openDropDown(dataArr: bankArr, anchorView: cell.txtSelectedBnk, txtField: cell.txtSelectedBnk)
+//                        }
+//                      
+//                    }
+//                    
+//                    cell.bnkCellTap = { tag in
+//                       
+//                            if let netBankInfo = self.bankingInfoStruct.details?.netBanking?.popularBanks {
+//                                // var selectedIndex = netBankInfo.popularBanks?[indexPath.row].img
+//                                self.selectedBankID  = netBankInfo[tag].bankID ?? ""
+//                                cell.txtSelectedBnk.text = netBankInfo[tag].bankName
+//                            }
+//                        
+//                    }
+//                    
+//                    cell.btnAction = { tag in
+//                        self.isCellExpandedTag = tag
+//                      
+//                        if tag == 0 {
+//                            
+//                            self.isCellExpandedPaymentOption.toggle()
+//                            cell.paymentOptionViewHideShow(isShow: self.isCellExpandedPaymentOption)
+//                            cell.banksViewBG.isHidden = true
+//                            self.isCellExpandedPaymentOption2 = false
+//                            //self.shippingTableView.reloadData()
+//                            
+//                          
+//                            
+//                        }
+//                        else if tag == 2{
+//                            cell.paymentOptionBG.isHidden = true
+//                            self.isCellExpandedPaymentOption = false
+//                            self.isCellExpandedPaymentOption2.toggle()
+//                            cell.bnkViewHideShow(isShow: self.isCellExpandedPaymentOption2)
+//    //                        if let netBankInfo = self.bankingInfoStruct.details?.netBanking {
+//    //                            cell.netBankingData = netBankInfo
+//    //                            cell.banksCollectionView.reloadData()
+//    //                        }
+//                            
+//                    
+//                        }
+//                        else{
+//                            
+//                            cell.paymentOptionBG.isHidden = true
+//                            self.isCellExpandedPaymentOption = false
+//                            self.isCellExpandedPaymentOption2 = false
+//                           
+//                            cell.banksViewBG.isHidden = true
+//                            //self.shippingTableView.reloadData()
+//                        }
+//                        
+//                        let UPIIndexPath = IndexPath(row: 0, section: 2)
+//                        if let cell = self.shippingTableView.cellForRow(at: UPIIndexPath) as? UPITVC {
+//                            cell.selectedIndexPath = nil
+//                            cell.collectionUPIApps.reloadData()
+//                        }
+//                    }
+//                    
+//                    cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
+//                    cell.lblSWIFT.text = self.bankInfoStruct.details?.first?.swift
+//                    cell.lblBranchName.text = self.bankInfoStruct.details?.first?.branchName
+//                    cell.lblBankName.text = self.bankInfoStruct.details?.first?.bankName
+//                    cell.lblAccountNum.text = self.bankInfoStruct.details?.first?.accountNumber
+//                    
+//                    cell.lblTitle1.text = self.bankInfoStruct.details?.first?.bank?.uppercased()
+//                    cell.lblTitle2.text = self.bankInfoStruct.details?.last?.bank?.uppercased()
+//                    
+//                    
+//                    cell.btnActionBanks = { tag in
+//                        self.seletedBankInt = tag
+//                        if tag == 0{
+//                            cell.lblIFSC.text = self.bankInfoStruct.details?.first?.ifsc
+//                            cell.lblSWIFT.text = self.bankInfoStruct.details?.first?.swift
+//                            cell.lblBranchName.text = self.bankInfoStruct.details?.first?.branchName
+//                            cell.lblBankName.text = self.bankInfoStruct.details?.first?.bankName
+//                            cell.lblAccountNum.text = self.bankInfoStruct.details?.first?.accountNumber
+//                        }
+//                        else{
+//                            cell.lblIFSC.text = self.bankInfoStruct.details?.last?.ifsc
+//                            cell.lblSWIFT.text = self.bankInfoStruct.details?.last?.swift
+//                            cell.lblBranchName.text = self.bankInfoStruct.details?.last?.branchName
+//                            cell.lblBankName.text = self.bankInfoStruct.details?.last?.bankName
+//                            cell.lblAccountNum.text = self.bankInfoStruct.details?.last?.accountNumber
+//                        }
+//                    }
+//                    
+//                    cell.btnDate = {
+//                        self.customDatePicker.delegate = self
+//                        self.customDatePicker.showDatePicker(in: self)
+//                        
+//                    }
+//                    
+//                    
+//                    if  let imageURLfst = URL(string: self.bankInfoStruct.details?.first?.image ?? "") {
+//                        cell.btnBank1SBG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLfst)
+//                        cell.imgViewBnk1.sd_setImage(with: imageURLfst, placeholderImage: nil, options: .highPriority, completed: nil)
+//                    }
+//                    
+//                    
+//                    if  let imageURLlst = URL(string: self.bankInfoStruct.details?.last?.image ?? "") {
+//                        cell.btnBank2BG.applyVerticalGradientBackgroundWithImageURL(colors: [UIColor.btnGradient1, UIColor.btnGradient2], imageURL: imageURLlst)
+//                        
+//                        cell.imgViewBnk2.sd_setImage(with: imageURLlst, placeholderImage: nil, options: .highPriority, completed: nil)
+//                        
+//                    }
+//                    
+//                    cell.paymentModeAction = {
+//                        self.isOpenNEFT = true
+//                        self.openDropDown(dataArr: ["Cheque","NEFT","RTGS","Wire Transfer", "Other"], anchorView: cell.txtPaymentMode, txtField: cell.txtPaymentMode)
+//                    }
+//                    
+//                    
+//                    
+//                    return cell
+////                case 3:
+////                    let cell = tableView.dequeueReusableCell(withIdentifier: UPITVC.cellIdentifierUPITVC, for: indexPath) as! UPITVC
+////                    cell.selectionStyle = .none
+////                    cell.tapAction = { name, package in
+////                        let formattedNumber = self.formatNumberWithoutDeciml(Double(self.amount) ?? 0)
+////                        self.lblTotalAmount.text = formattedNumber
+////                        
+////                        let payIndexPath = IndexPath(row: 0, section: 2)
+////                        if let cell = self.shippingTableView.cellForRow(at: payIndexPath) as? PaymentOptionTVC {
+////                            cell.buttonGroup.clearSelection()
+////                            cell.btnNetBankSBG.borderColor = .clear
+////                            cell.btnRTGSBG.borderColor = .clear
+////                            cell.btnDebitCSBG.borderColor = .clear
+////                            cell.paymentOptionBG.isHidden = true
+////                            cell.banksViewBG.isHidden = true
+////                            self.isCellExpandedPaymentOption = false
+////                            self.isCellExpandedPaymentOption2 = false
+////                            self.shippingTableView.reloadData()
+////                            
+////                           // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
+////                        }
+////                        
+////                        ///
+////                        self.paymentModeSelected = "UPI"
+////                        self.selectedUPIName = name
+////                        self.selectedUPIBundl = package
+////                        self.amountCalculation()
+////                        
+////                        if name == ""{
+////                            let formattedNumber = self.formatNumberWithoutDeciml(Double(self.amount) ?? 0)
+////                            self.lblTotalAmount.text = formattedNumber
+////                            
+////                          //  self.lblTotalAmount.text = self.amount
+////                            self.shippingTableView.reloadData()
+////                            // self.customPaymentTV.reloadRows(at: [payIndexPath], with: .none)
+////                        }
+////                    }
+////                    return cell
+//                default:
+//                    let cell = tableView.dequeueReusableCell(withIdentifier: OrderSummeryWithItemTVC.cellIdentifierOrderSummeryWithItemTVC, for: indexPath) as! OrderSummeryWithItemTVC
+//                    cell.selectionStyle = .none
+//                    cell.baseVC = self
+//                    cell.currencyRateDetailObj = currencyRateDetailObj
+//                    cell.setupData(checkOutData: self.checkOutDetails, isPaymentSection: self.manageTopButtonTag)
+//                    cell.reloadCollection(cartData: self.CartDataObj, singleDimd: self.diamondDetailsOBJ)
+//                    return cell
+//                }
+//            }
             
             
             
@@ -2038,6 +2091,8 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
             switch indexPath.section {
             case 0:
                 return isCellExpandedPointsView ? 210 : 70
+//            case 3:
+//                return isCellExpandedPaymentOption3 ? 280 : 190
             default:
                 return UITableView.automaticDimension
             }
@@ -2079,7 +2134,17 @@ extension ShippingModuleVC:UITableViewDelegate, UITableViewDataSource{
     
 }
 
-extension ShippingModuleVC :  AddAddressDelegate{
+extension ShippingModuleVC :  AddAddressDelegate, CouponCodeDelegate{
+    func applyCouponObj(dataObj: CouponListDetail, text: String) {
+        let indexPath = IndexPath(row: 0, section: 1)
+        if let cell = self.shippingTableView.cellForRow(at: indexPath) as? CouponInfoTVC {
+            cell.txtCouponCode.text = dataObj.code
+            self.couponCode = cell.txtCouponCode.text ?? ""
+            self.applyCouponCode(couponCode: cell.txtCouponCode.text?.replacingOccurrences(of: " ", with: "") ?? "", waletPoint: "\(self.checkOutDetails.walletPoint ?? 0)", paymentMode: self.paymentModeSelected)
+            
+        }
+    }
+    
     func didUpdateAPISuccessfully(message: String) {
         print(message)
         if message == "Shipping"{
@@ -2170,6 +2235,8 @@ extension ShippingModuleVC : SingleSelectionButtonGroupDelegate , CustomDatePick
             self.paymentModeSelected = "CreditCard"
         case 2:
             self.paymentModeSelected = "NetBanking"
+        case 3:
+            self.paymentModeSelected = "UPI"
         default:
             self.paymentModeSelected = String()
         }

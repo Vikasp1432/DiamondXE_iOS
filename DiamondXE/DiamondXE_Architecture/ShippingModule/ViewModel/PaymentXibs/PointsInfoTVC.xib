@@ -203,7 +203,7 @@
                                                             <constraint firstAttribute="height" constant="30" id="cti-qc-7sq"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" image="walletPoints"/>
+                                                        <state key="normal" image="Loyalty"/>
                                                     </button>
                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Points" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fLs-xf-ONT" customClass="DTTextField" customModule="DTTextField">
                                                         <rect key="frame" x="50" y="0.0" width="298" height="45"/>
@@ -378,6 +378,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="Loyalty" width="29" height="30"/>
         <image name="Verify" width="22" height="22"/>
         <image name="d_down" width="14" height="8"/>
         <image name="information" width="13" height="13"/>

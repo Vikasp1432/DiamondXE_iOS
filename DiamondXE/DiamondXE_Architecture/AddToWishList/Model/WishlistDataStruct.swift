@@ -28,9 +28,13 @@ struct WishlistData: Codable {
     var status, totalGstPerc: String?
     var pricePerCT, subtotal, tax, totalPrice: Int?
     var isCart, onHold, shippingCharge, platformFeeAmt: Int?
-    var dxeMarkup: String?
+   // var dxeMarkup: String?
+    var couponDesPer : Double?
+    var subtotalAfterCouponDiscount : Double?
 
     enum CodingKeys: String, CodingKey {
+        case couponDesPer = "coupon_discount_perc"
+        case subtotalAfterCouponDiscount = "subtotal_after_coupon_discount"
         case certificateNo = "certificate_no"
         case createdAt = "created_at"
         case stockNo = "stock_no"
@@ -65,6 +69,6 @@ struct WishlistData: Codable {
         case onHold = "on_hold"
         case shippingCharge = "shipping_charge"
         case platformFeeAmt = "platform_fee_amt"
-        case dxeMarkup = "dxe_markup"
+      //  case dxeMarkup = "dxe_markup"
     }
 }
