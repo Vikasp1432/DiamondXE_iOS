@@ -38,6 +38,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Luxetag" translatesAutoresizingMaskIntoConstraints="NO" id="ZfO-E9-wdg">
+                                <rect key="frame" x="64" y="91" width="45.666666666666686" height="19"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTM-Qe-uNt">
                                 <rect key="frame" x="120" y="9.9999999999999982" width="101.33333333333331" height="16.333333333333329"/>
                                 <attributedString key="attributedText">
@@ -566,6 +569,7 @@
                             <constraint firstItem="Mw9-au-ezT" firstAttribute="leading" secondItem="qwG-cN-WxH" secondAttribute="trailing" constant="10" id="ckW-Xf-pah"/>
                             <constraint firstItem="knG-lN-Wdr" firstAttribute="centerY" secondItem="Mw9-au-ezT" secondAttribute="centerY" id="cyD-Xo-3GZ"/>
                             <constraint firstItem="eLz-4H-wcj" firstAttribute="top" secondItem="qwG-cN-WxH" secondAttribute="bottom" constant="20" id="e8A-Bs-bE1"/>
+                            <constraint firstItem="ZfO-E9-wdg" firstAttribute="bottom" secondItem="qwG-cN-WxH" secondAttribute="bottom" id="eIN-v7-9U0"/>
                             <constraint firstItem="XoX-j6-Ngd" firstAttribute="leading" secondItem="qwG-cN-WxH" secondAttribute="trailing" constant="10" id="fpY-BJ-khL"/>
                             <constraint firstItem="eLz-4H-wcj" firstAttribute="leading" secondItem="GnA-rP-caO" secondAttribute="leading" constant="10" id="ie7-Oz-F01"/>
                             <constraint firstItem="cGY-UC-3ja" firstAttribute="centerY" secondItem="Ywr-8z-xXs" secondAttribute="centerY" id="jCt-Ru-JU4"/>
@@ -576,6 +580,7 @@
                             <constraint firstItem="LnN-7R-Iuj" firstAttribute="leading" secondItem="cGY-UC-3ja" secondAttribute="trailing" constant="5" id="mcK-vJ-Yro"/>
                             <constraint firstItem="UOf-SX-LUg" firstAttribute="leading" secondItem="CIT-AW-Obb" secondAttribute="trailing" constant="7" id="okH-HY-1zD"/>
                             <constraint firstItem="SBX-So-zhf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VVf-CL-Ra1" secondAttribute="trailing" constant="10" id="pEX-49-FON"/>
+                            <constraint firstItem="ZfO-E9-wdg" firstAttribute="trailing" secondItem="qwG-cN-WxH" secondAttribute="trailing" id="v8b-vd-m4L"/>
                             <constraint firstItem="4rZ-Hl-cbu" firstAttribute="top" secondItem="XoX-j6-Ngd" secondAttribute="bottom" constant="7" id="wkr-1e-WGv"/>
                             <constraint firstItem="gTM-Qe-uNt" firstAttribute="leading" secondItem="qwG-cN-WxH" secondAttribute="trailing" constant="10" id="xmD-bQ-4t3"/>
                             <constraint firstItem="4rZ-Hl-cbu" firstAttribute="leading" secondItem="qwG-cN-WxH" secondAttribute="trailing" constant="10" id="xx7-6d-uxM"/>
@@ -625,6 +630,7 @@
                 <outlet property="lblSymmetry" destination="GVT-fu-NXz" id="FlA-ag-0vh"/>
                 <outlet property="lblTAG" destination="6QE-wn-nWu" id="Quz-a0-Lqw"/>
                 <outlet property="lblTablePer" destination="eLz-4H-wcj" id="8UY-xA-Lfm"/>
+                <outlet property="lmgLuxTag" destination="ZfO-E9-wdg" id="Z6K-vi-qQE"/>
                 <outlet property="refundViewToast" destination="go9-2e-75i" id="fr5-40-XtW"/>
                 <outlet property="tagViewBG" destination="knG-lN-Wdr" id="9Q8-34-Gdi"/>
                 <outlet property="viewCart" destination="VVf-CL-Ra1" id="a6Y-ey-m7O"/>
@@ -639,6 +645,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="Luxetag" width="45.666667938232422" height="19"/>
         <image name="available" width="11.199999809265137" height="11.199999809265137"/>
         <image name="place_Holder" width="87" height="73.333335876464844"/>
         <image name="returnable" width="13.680000305175781" height="15.829999923706055"/>

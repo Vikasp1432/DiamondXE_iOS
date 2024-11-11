@@ -57,7 +57,7 @@
                                                     <fragment content="-">
                                                         <attributes>
                                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="smallSystem"/>
+                                                            <font key="NSFont" metaFont="system" size="14"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -81,8 +81,8 @@
                                                 <attributedString key="attributedText">
                                                     <fragment content="-">
                                                         <attributes>
-                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="smallSystem"/>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" metaFont="system" size="14"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -129,10 +129,10 @@
     </objects>
     <designables>
         <designable name="5Fk-Dc-e1R">
-            <size key="intrinsicContentSize" width="7" height="15"/>
+            <size key="intrinsicContentSize" width="23" height="42.333333333333329"/>
         </designable>
         <designable name="w6Z-pw-4sx">
-            <size key="intrinsicContentSize" width="7" height="15"/>
+            <size key="intrinsicContentSize" width="23" height="42.333333333333329"/>
         </designable>
     </designables>
     <resources>

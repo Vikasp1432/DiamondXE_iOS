@@ -65,7 +65,6 @@ class HomeVC: BaseViewController, ChildViewControllerProtocol {
         }
         
         
-        
         //
         self.configureRefreshControl()
     }
@@ -216,6 +215,30 @@ class HomeVC: BaseViewController, ChildViewControllerProtocol {
         self.homeTableView.reloadData()
     }
     
+    func getStatusDXELux() {
+        CustomActivityIndicator2.shared.show(in: self.view, gifName: "diamond_logo", topMargin: 300)
+        let url = APIs().getDXELUXStatus_API
+        HomeDataModel().getStatusDXELUX(url: url, completion: { data, msg in
+            CustomActivityIndicator2.shared.hide()
+            if data.status == 1{
+                if data.details?.isLuxeMember == 1{
+                    self.dashBoardVC.isLux = 1
+                    self.dashBoardVC.gotoSearchDiamondVC(title: "DXE LUX")
+                } else{
+                    self.navigationManager(storybordName: "DXELUX", storyboardID: "DXELUXEViewController", controller: DXELUXEViewController())
+                }
+                
+            }
+            else{
+                self.toastMessage("\(data.msg ?? "")")
+            }
+            
+           
+        })
+        
+      }
+
+
     
     
 }
@@ -223,6 +246,7 @@ extension HomeVC : CategorySelecteDelegate {
     func categoryViewTapped(in cellCategoryTag: Int) {
         print(cellCategoryTag)
 //        dashBoardVC.gotoSearchDiamondVC()
+        dashBoardVC.isLux = 0
         delegate?.didPerformAction(tag: cellCategoryTag)
 
     }
@@ -253,7 +277,6 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
             if let baner =  homeDataStruct.details?.banners{
                 cell.banners = baner
                 cell.sliderCollectionView.reloadData()
-               
             }
             
             cell.tapAction = { url in
@@ -301,9 +324,11 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
             
             cell.tapAction = { tag in
                 if tag == 0{
+                    self.dashBoardVC.isLux = 0
                     self.dashBoardVC.gotoSearchDiamondVC(title: "Natural Diamonds")
                 }
                 else{
+                    self.dashBoardVC.isLux = 0
                     self.dashBoardVC.gotoSearchDiamondVC(title: "Lab Grown Diamonds")
                 }
                 
@@ -318,6 +343,13 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
                     cell.naturalDia = topDeals
                     cell.labGlDia = [LabGDiamond]()
                     cell.currencyRateDetailObj = self.currencySelectObj
+                    
+                    cell.btnNaturalDiamd.setTitleColor(.whitClr, for: .normal)
+                    cell.btnLABDiamd.backgroundColor = .clear
+                    cell.btnLABDiamd.setTitleColor(.tabSelectClr, for: .normal)
+                    cell.btnLABDiamd.clearGradient()
+                    cell.btnNaturalDiamd.setGradientLayer(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+                    
                     cell.collectionViewTopDeL.reloadData()
                 }
             }
@@ -325,6 +357,14 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
                 if let topDeals = self.topDealsStruct.details?.labGrown{
                     cell.naturalDia = [NaturalDiamond]()
                     cell.labGlDia = topDeals
+                    
+                    cell.btnNaturalDiamd.backgroundColor = .clear
+                    cell.btnNaturalDiamd.setTitleColor(.tabSelectClr, for: .normal)
+        //            btnLABDiamd.backgroundColor = .tabSelectClr
+                    cell.btnLABDiamd.setTitleColor(.whitClr, for: .normal)
+                    cell.btnNaturalDiamd.clearGradient()
+                    cell.btnLABDiamd.setGradientLayer(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+                    
                     cell.collectionViewTopDeL.reloadData()
                 }
             }
@@ -335,16 +375,19 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
                     if let topDeals = self.topDealsStruct.details?.labGrown{
                         cell.labGlDia = topDeals
                         cell.naturalDia = [NaturalDiamond]()
-                        cell.collectionViewTopDeL.reloadData()
+                       // cell.collectionViewTopDeL.reloadData()
                     }
                 }
                 else{
                     if let topDeals = self.topDealsStruct.details?.natural{
                         cell.naturalDia = topDeals
                         cell.labGlDia = [LabGDiamond]()
-                        cell.collectionViewTopDeL.reloadData()
+                       
                     }
                 }
+                let sectionIndex = IndexSet(integer: 4)
+                self.homeTableView.reloadSections(sectionIndex, with: .none)
+               // cell.collectionViewTopDeL.reloadData()
             }
             
             cell.buttonPressedDetails = { tag in
@@ -403,7 +446,7 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
             
         case 6:
             let cell = tableView.dequeueReusableCell(withIdentifier: DXELUXeTVC.cellIdentifierDXELuxe, for: indexPath) as! DXELUXeTVC
-            
+            cell.selectionStyle = .none
             let imageUrlString = self.homeDataStruct.details?.dxeLuxe?.content?.image ?? ""
             let placeholderImage = UIImage(named: "Middle Banner2")
             
@@ -412,9 +455,21 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
             } else {
                 cell.imgDXELuxe.image = placeholderImage
             }
+                        
+            cell.registerNowDXELUX = {
+                
+                let loginData = UserDefaultManager().retrieveLoginData()
+                if let userType = loginData?.details{
+                    self.getStatusDXELux()
+                }
+                else{
+                    self.navigationManager(storybordName: "DXELUX", storyboardID: "DXELUXEViewController", controller: DXELUXEViewController())
+                }
+//                self.dashBoardVC.isLux = 1
+//                self.dashBoardVC.gotoSearchDiamondVC(title: "DXE LUX")
+                //self.navigationManager(storybordName: "DXELUX", storyboardID: "DXELUXEViewController", controller: DXELUXEViewController())
+            }
             
-            
-            cell.selectionStyle = .none
             return cell
             
         case 7:
@@ -496,31 +551,28 @@ extension HomeVC : UITableViewDataSource, UITableViewDelegate{
         switch indexPath.section {
         case 0:
             return 175
-            
         case 1:
             return 320
-            
         case 2:
             return 480
-            
         case 3:
             return 270
         case 4:
-            return 310
-            
+            if self.topDealsTag == 0 {
+                return (self.topDealsStruct.details?.natural?.count ?? 0) > 0 ? 310 : 120
+            } else {
+                return (self.topDealsStruct.details?.labGrown?.count ?? 0) > 0 ? 310 : 120
+            }
         case 5:
             return 170
-            
         case 6:
             return 200
-            
         case 7:
             return 620
         case 8:
             return 870
         case 9:
             return 400
-            
         default:
             return 0
         }

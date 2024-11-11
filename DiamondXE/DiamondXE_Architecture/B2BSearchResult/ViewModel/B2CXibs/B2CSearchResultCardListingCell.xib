@@ -38,6 +38,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Luxetag" translatesAutoresizingMaskIntoConstraints="NO" id="Azh-Tx-HV2">
+                                <rect key="frame" x="95" y="144" width="45.666666666666686" height="19"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fah-g2-e3u">
                                 <rect key="frame" x="150" y="9.9999999999999982" width="101.33333333333331" height="16.333333333333329"/>
                                 <attributedString key="attributedText">
@@ -333,10 +336,12 @@
                             <constraint firstAttribute="trailing" secondItem="I5B-jg-OcX" secondAttribute="trailing" constant="10" id="8ra-Q5-gvU"/>
                             <constraint firstItem="qWN-2k-1hP" firstAttribute="leading" secondItem="yuM-ju-8sp" secondAttribute="trailing" constant="5" id="B9K-ex-sF8"/>
                             <constraint firstItem="I5B-jg-OcX" firstAttribute="centerY" secondItem="893-eu-KHl" secondAttribute="centerY" id="EIj-4o-cT7"/>
+                            <constraint firstItem="Azh-Tx-HV2" firstAttribute="bottom" secondItem="0Gl-Xh-Y9n" secondAttribute="bottom" id="Fds-WU-iiu"/>
                             <constraint firstItem="VxT-v1-nfg" firstAttribute="centerY" secondItem="yuM-ju-8sp" secondAttribute="centerY" id="FpS-oP-Pbu"/>
                             <constraint firstAttribute="trailing" secondItem="yUv-yV-6gA" secondAttribute="trailing" constant="10" id="GWO-mX-VoP"/>
                             <constraint firstAttribute="bottom" secondItem="79y-Ij-PFh" secondAttribute="bottom" constant="11" id="GbJ-cS-xrf"/>
                             <constraint firstItem="79y-Ij-PFh" firstAttribute="top" secondItem="yUv-yV-6gA" secondAttribute="bottom" constant="7" id="GjM-Ha-aTn"/>
+                            <constraint firstItem="Azh-Tx-HV2" firstAttribute="trailing" secondItem="0Gl-Xh-Y9n" secondAttribute="trailing" id="GzU-Y2-ey8"/>
                             <constraint firstItem="0Gl-Xh-Y9n" firstAttribute="leading" secondItem="iOx-Cx-P1S" secondAttribute="leading" constant="10" id="H2N-aH-IdX"/>
                             <constraint firstItem="aEl-KC-eQX" firstAttribute="leading" secondItem="fah-g2-e3u" secondAttribute="trailing" constant="7" id="IIu-2W-8Rw"/>
                             <constraint firstItem="yUv-yV-6gA" firstAttribute="leading" secondItem="0Gl-Xh-Y9n" secondAttribute="trailing" constant="12" id="JiX-x7-BzF"/>
@@ -397,6 +402,7 @@
                 <outlet property="lblPrice" destination="Lqv-kq-rVl" id="irK-gu-0n9"/>
                 <outlet property="lblShape" destination="Ejn-IM-ik8" id="noY-cs-asQ"/>
                 <outlet property="lblTAG" destination="jJu-A4-xfS" id="fCz-cg-zPh"/>
+                <outlet property="lmgLuxTag" destination="Azh-Tx-HV2" id="OHt-9p-ZDz"/>
                 <outlet property="nameViewToast" destination="Te7-bc-2ug" id="sUn-o4-LeV"/>
                 <outlet property="refundViewToast" destination="2u3-n4-NH4" id="TTa-jQ-Ffr"/>
                 <outlet property="stacViewkBTN" destination="79y-Ij-PFh" id="9CO-TU-6km"/>
@@ -407,6 +413,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="Luxetag" width="45.666667938232422" height="19"/>
         <image name="place_Holder" width="87" height="73.333335876464844"/>
         <image name="returnable" width="13.680000305175781" height="15.829999923706055"/>
         <image name="wishlist" width="37" height="37"/>

@@ -42,7 +42,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
     @IBOutlet var dataNotFound:UIImageView!
 
     var ishideFilters = false
-    
+    var isLux = 0
     var isDataListingView = false
     
     var filtersarryData = [SearchAttribDetail]()
@@ -52,7 +52,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
     var sessionID = String()
     var limit  = 20
     var page = 1
-    var isLuxe = 0
+    //var isLuxe = 0
     var filterDataDic = [String: Set<[FilterAttribDetail]>]()
     var advanceFilterDataDic = [String: Set<[FilterAttribDetail]>]()
     var manualfilterDataDic = [String: Set<[FilterAttribDetail]>]()
@@ -107,7 +107,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        CurrencyRatesManager.shareInstence.getCurrencyRates()
+       // CurrencyRatesManager.shareInstence.getCurrencyRates()
         
         SwipeGestureUtility.addSwipeGesture(to: self.view, navigationController: self.navigationController)
         filterCollectionView.delegate = self
@@ -135,7 +135,14 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
        
 //        filterDataRetrive()
         self.btnSelected()
-      
+        
+        if self.isLux == 1{
+            btnLabGrown.isHidden = true
+        }
+        else{
+            btnLabGrown.isHidden = false
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -488,7 +495,7 @@ class B2BSearchResultVC: BaseViewController, ChildViewControllerProtocol {
 
         
         
-        param = ["page": page, "limit": limit, "isLuxe":self.isLuxe, "sessionId" : self.sessionID,
+        param = ["page": page, "limit": limit, "isLuxe":self.isLux, "sessionId" : self.sessionID,
                  
                  "keyWord":DataManager.shared.keyWordSearch ?? "",
                  "category":DataManager.shared.diaType ?? "",       //natural/labgrown
@@ -895,7 +902,12 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 cell.selectionStyle = .default
                 cell.contentView.isUserInteractionEnabled = true
                 cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
-                
+                if self.isLux == 1{
+                    cell.lmgLuxTag.isHidden = false
+                }
+                else{
+                    cell.lmgLuxTag.isHidden = true
+                }
                 
                 
                 cell.addToCart = {
@@ -905,7 +917,10 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                         }
                         else{
                             cartVCIsComeFromHome = false
-                            self.navigationManager(storybordName: "AddTOCart", storyboardID: "AddToCartVC", controller: AddToCartVC())
+                            
+                           // self.navigationManager(storybordName: "AddTOCart", storyboardID: "AddToCartVC", controller: AddToCartVC())
+                            self.navigationManager(AddToCartVC.self, storyboardName: "AddTOCart", storyboardID: "AddToCartVC", data: self.currencyRateDetailObj)
+                            
                         }
                     }
                     
@@ -1094,7 +1109,12 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                 cell.contentView.isUserInteractionEnabled = true
                
                 cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
-                
+                if self.isLux == 1{
+                    cell.lmgLuxTag.isHidden = false
+                }
+                else{
+                    cell.lmgLuxTag.isHidden = true
+                }
                
                 cell.addToCart = {
                     if let isCart = self.diamondListDetails[indexPath.row].isCart{
@@ -1103,7 +1123,8 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                         }
                         else{
                             cartVCIsComeFromHome = false
-                            self.navigationManager(storybordName: "AddTOCart", storyboardID: "AddToCartVC", controller: AddToCartVC())
+                          //  self.navigationManager(storybordName: "AddTOCart", storyboardID: "AddToCartVC", controller: AddToCartVC())
+                            self.navigationManager(AddToCartVC.self, storyboardName: "AddTOCart", storyboardID: "AddToCartVC", data: self.currencyRateDetailObj)
                         }
                     }
                     
@@ -1289,7 +1310,12 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
             cell.selectionStyle = .default
             cell.contentView.isUserInteractionEnabled = true
             cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
-         
+            if self.isLux == 1{
+                cell.lmgLuxTag.isHidden = false
+            }
+            else{
+                cell.lmgLuxTag.isHidden = true
+            }
             
             cell.addToCart = {
                 if let isCart = self.diamondListDetails[indexPath.row].isCart{
@@ -1298,7 +1324,8 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                     }
                     else{
                         cartVCIsComeFromHome = false
-                        self.navigationManager(storybordName: "AddTOCart", storyboardID: "AddToCartVC", controller: AddToCartVC())
+                      //  self.navigationManager(storybordName: "AddTOCart", storyboardID: "AddToCartVC", controller: AddToCartVC())
+                        self.navigationManager(AddToCartVC.self, storyboardName: "AddTOCart", storyboardID: "AddToCartVC", data: self.currencyRateDetailObj)
                     }
                 }
                 
@@ -1491,6 +1518,14 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
             cell.selectionStyle = .default
             cell.contentView.isUserInteractionEnabled = true
             
+            if self.isLux == 1{
+                cell.lmgLuxTag.isHidden = false
+            }
+            else{
+                cell.lmgLuxTag.isHidden = true
+            }
+            
+            
             cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
         
             cell.addToCart = {
@@ -1500,7 +1535,8 @@ extension B2BSearchResultVC: UITableViewDelegate, UITableViewDataSource{
                     }
                     else{
                         cartVCIsComeFromHome = false
-                        self.navigationManager(storybordName: "AddTOCart", storyboardID: "AddToCartVC", controller: AddToCartVC())
+                       // self.navigationManager(storybordName: "AddTOCart", storyboardID: "AddToCartVC", controller: AddToCartVC())
+                        self.navigationManager(AddToCartVC.self, storyboardName: "AddTOCart", storyboardID: "AddToCartVC", data: self.currencyRateDetailObj)
                     }
                 }
                 

@@ -38,6 +38,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Luxetag" translatesAutoresizingMaskIntoConstraints="NO" id="kSZ-By-wH7">
+                                <rect key="frame" x="64.333333333333329" y="91" width="45.666666666666671" height="19"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPf-GQ-R8W">
                                 <rect key="frame" x="120" y="9.9999999999999982" width="101.33333333333331" height="16.333333333333329"/>
                                 <attributedString key="attributedText">
@@ -599,6 +602,7 @@
                             <constraint firstItem="JP6-UL-H0m" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="s4u-9z-mnZ" secondAttribute="trailing" constant="10" id="cWy-rQ-gDL"/>
                             <constraint firstItem="e1M-oW-Jp3" firstAttribute="top" secondItem="v5d-9o-GQ1" secondAttribute="top" constant="30" id="dMh-Rf-015"/>
                             <constraint firstItem="G1h-1l-AZY" firstAttribute="leading" secondItem="71z-QV-CsL" secondAttribute="trailing" constant="5" id="e0W-Zh-OkY"/>
+                            <constraint firstItem="kSZ-By-wH7" firstAttribute="bottom" secondItem="TZG-Td-sdx" secondAttribute="bottom" id="eHE-Nr-te0"/>
                             <constraint firstItem="SKb-xM-wAZ" firstAttribute="leading" secondItem="TZG-Td-sdx" secondAttribute="trailing" constant="10" id="i5U-o1-Af9"/>
                             <constraint firstItem="ezs-LT-pEu" firstAttribute="top" secondItem="w2j-M1-gpz" secondAttribute="bottom" constant="15" id="k6w-Fv-Gde"/>
                             <constraint firstItem="jpV-kD-BnR" firstAttribute="leading" secondItem="SPH-he-GwH" secondAttribute="trailing" constant="5" id="l4M-hj-aSU"/>
@@ -607,6 +611,7 @@
                             <constraint firstItem="TpR-RJ-5Q6" firstAttribute="leading" secondItem="EsD-2T-ILe" secondAttribute="trailing" constant="5" id="ncL-V7-5hl"/>
                             <constraint firstItem="TZG-Td-sdx" firstAttribute="leading" secondItem="v5d-9o-GQ1" secondAttribute="leading" constant="10" id="pqC-fE-cWd"/>
                             <constraint firstItem="UfX-n0-3LG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ezs-LT-pEu" secondAttribute="trailing" constant="10" id="qvm-8a-jhV"/>
+                            <constraint firstItem="kSZ-By-wH7" firstAttribute="trailing" secondItem="TZG-Td-sdx" secondAttribute="trailing" id="rsK-Vv-Jew"/>
                             <constraint firstAttribute="trailing" secondItem="UfX-n0-3LG" secondAttribute="trailing" constant="10" id="vQ8-bU-ugC"/>
                             <constraint firstItem="s4u-9z-mnZ" firstAttribute="leading" secondItem="TZG-Td-sdx" secondAttribute="trailing" constant="10" id="wia-Ca-7HW"/>
                             <constraint firstItem="TZG-Td-sdx" firstAttribute="top" secondItem="v5d-9o-GQ1" secondAttribute="top" constant="10" id="xgn-rD-Q8u"/>
@@ -655,6 +660,7 @@
                 <outlet property="lblSymmetry" destination="YXU-Cg-KNZ" id="9Dw-F0-pnc"/>
                 <outlet property="lblTAG" destination="fVU-wd-EJ4" id="imu-mY-JNO"/>
                 <outlet property="lblTablePer" destination="w2j-M1-gpz" id="Z9B-u0-YBb"/>
+                <outlet property="lmgLuxTag" destination="kSZ-By-wH7" id="g4N-Ew-mgj"/>
                 <outlet property="nameViewToast" destination="5i6-2q-O1V" id="Hd8-pM-ffV"/>
                 <outlet property="refundViewToast" destination="e1M-oW-Jp3" id="h2s-Vv-qbX"/>
                 <outlet property="stacViewkBTN" destination="ezs-LT-pEu" id="oD5-Dj-1fp"/>
@@ -671,6 +677,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="Luxetag" width="45.666667938232422" height="19"/>
         <image name="place_Holder" width="87" height="73.333335876464844"/>
         <image name="returnable" width="13.680000305175781" height="15.829999923706055"/>
         <image name="wishlist" width="37" height="37"/>

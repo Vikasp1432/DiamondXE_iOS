@@ -7,224 +7,144 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "80EC3FDD-B21C-4BC4-8B74-E34F093C5CEC"
+            uuid = "C7C465BC-7D15-4D96-B928-B83EDD4E6B31"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DiamondXE/PriceCalculator/ViewModel/JewelleryCalcVC/QuatationHistoryVC.swift"
+            filePath = "DiamondXE/DiamondXE_Architecture/Dashboard/DXELUX/DXELUXEViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "btnActionSubmit(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "68B7BC6A-D808-40B5-96FF-9449BF5E6045"
+            uuid = "BAC6C250-FFEB-4BFB-A6E9-E36AD42C56D8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DiamondXE/DiamondXE_Architecture/Dashboard/ViewModel/DashboardControllers/HomeVC.swift"
+            filePath = "DiamondXE/DiamondXE_Architecture/Dashboard/ViewModel/DashboardVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "678"
+            endingLineNumber = "678"
+            landmarkName = "didPerformAction(tag:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BD5E4508-F950-4AA3-8393-161F7AEB1DF4"
+            uuid = "22DC3019-AD4D-4416-9804-D5502C0BE406"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DiamondXE/DiamondXE_Architecture/Dashboard/ViewModel/DashboardControllers/HomeVC.swift"
+            filePath = "DiamondXE/DiamondXE_Architecture/Dashboard/ViewModel/DashboardVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "673"
+            endingLineNumber = "673"
+            landmarkName = "didPerformAction(tag:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "97F06CA3-1C5B-49B7-9F09-1E88C8325ED8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DiamondXE/DiamondXE_Architecture/Dashboard/ViewModel/DashboardControllers/HomeVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "395"
-            endingLineNumber = "395"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0F72D433-C260-49DD-B76A-1FD81629BDE0"
+            uuid = "430E6668-4CC2-4577-BEC3-2227DBEC8B03"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DiamondXE/DiamondXE_Architecture/AddToCart/ViewModel/AddToCartVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
-            landmarkName = "fetchCartData()"
+            startingLineNumber = "421"
+            endingLineNumber = "421"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "35D94F66-D111-4D76-A227-8FB5BC47F2CE"
+            uuid = "A8C0B1ED-3F9E-4880-9104-ACCB265A4385"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DiamondXE/DiamondXE_Architecture/AddToCart/ViewModel/AddToCartVC.swift"
+            filePath = "DiamondXE/DiamondXE_Architecture/Dashboard/ViewModel/DashboardVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "fetchCartData()"
+            startingLineNumber = "1624"
+            endingLineNumber = "1624"
+            landmarkName = "gotoSearchDiamondVC(title:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "46243E18-DC25-4E7A-821C-77F442C77908"
+            uuid = "85D8AC09-BAEC-41D4-BE56-42A6C15BCD6E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DiamondXE/DiamondXE_Architecture/AddToCart/Model/CartDataModel.swift"
+            filePath = "DiamondXE/DiamondXE_Architecture/Dashboard/ViewModel/DashboardVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "getMyCartData(url:requestParam:completion:)"
+            startingLineNumber = "1625"
+            endingLineNumber = "1625"
+            landmarkName = "gotoSearchDiamondVC(title:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CA20A620-93FE-477D-9244-D4CB903280EA"
+            uuid = "B2B37D1F-8A0D-40A4-BC41-831BAC7564ED"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DiamondXE/AlamofireManager/AlamofireManager.swift"
+            filePath = "DiamondXE/DiamondXE_Architecture/Dashboard/ViewModel/DashboardVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "makePostAPIRequestWithLocation(url:param:completion:)"
+            startingLineNumber = "1626"
+            endingLineNumber = "1626"
+            landmarkName = "gotoSearchDiamondVC(title:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EB809F12-5D18-44C6-826E-19633BFC0641"
+            uuid = "84527784-D456-4CD2-80B1-6F63D11E2F71"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DiamondXE/DiamondXE_Architecture/AddToCart/Model/CartDataModel.swift"
+            filePath = "DiamondXE/PriceCalculator/ViewModel/JewelleryCalcVC/JewelleryCalcVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "getMyCartData(url:requestParam:completion:)"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
+            landmarkName = "textField(_:shouldChangeCharactersIn:replacementString:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E2EB0EE1-005C-4BEA-9575-7947BEC4D7C4"
+            uuid = "0C4395C5-EB65-43D0-97A4-BA96F0783B98"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DiamondXE/AlamofireManager/AlamofireManager.swift"
+            filePath = "DiamondXE/Utality/GalleryMaganer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "makePostAPIRequestWithLocation(url:param:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "870CD05A-D047-4E55-B7DA-3A142C87ABB6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DiamondXE/AlamofireManager/AlamofireManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "makePostAPIRequestWithLocation(url:param:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "80C98B41-D130-4D7F-9DC4-7D67F7BCB52A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DiamondXE/AlamofireManager/AlamofireManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "makePostAPIRequestWithLocation(url:param:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5E037293-EE0B-4311-AFA8-1D851A9CA20D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DiamondXE/AlamofireManager/AlamofireManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "makePostAPIRequestWithLocation2(url:param:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A6186DA7-97BE-473B-A356-E0547C837EAA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DiamondXE/DiamondXE_Architecture/AddToCart/Model/CartDataModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "getMyCartData(url:requestParam:completion:)"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "pickImageItem(_:img:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

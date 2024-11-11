@@ -11,12 +11,20 @@ class DXELUXeTVC: UITableViewCell {
 
     static let cellIdentifierDXELuxe = String(describing: DXELUXeTVC.self)
     @IBOutlet var imgDXELuxe:UIImageView!
-
+    var registerNowDXELUX : (() -> Void) = { }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cellTapped))
+            contentView.addGestureRecognizer(tapGesture)
     }
+    
+    @objc func cellTapped() {
+        registerNowDXELUX()
+    }
+
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

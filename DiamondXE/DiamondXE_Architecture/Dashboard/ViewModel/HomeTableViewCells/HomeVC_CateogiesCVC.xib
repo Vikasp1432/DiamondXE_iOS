@@ -24,18 +24,18 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0R-RY-lEf">
-                        <rect key="frame" x="5" y="5" width="308" height="224"/>
+                        <rect key="frame" x="10" y="5" width="303" height="224"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Jewellery" translatesAutoresizingMaskIntoConstraints="NO" id="XNK-44-7ZP">
-                                <rect key="frame" x="0.0" y="0.0" width="308" height="224"/>
+                                <rect key="frame" x="0.0" y="0.0" width="303" height="224"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loose Diamonds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S45-kh-yUT">
-                                <rect key="frame" x="6" y="224" width="296" height="0.0"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loose Diamonds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S45-kh-yUT">
+                                <rect key="frame" x="6" y="224" width="291" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="JD2-uD-zcN"/>
                                 </constraints>
@@ -44,7 +44,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="viewBGClr"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="S45-kh-yUT" secondAttribute="trailing" constant="6" id="2iK-A1-sVL"/>
                             <constraint firstItem="S45-kh-yUT" firstAttribute="leading" secondItem="K0R-RY-lEf" secondAttribute="leading" constant="6" id="LCe-fR-NXM"/>
@@ -56,7 +56,7 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="10"/>
+                                <real key="value" value="12"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -65,7 +65,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="K0R-RY-lEf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="3G5-ik-KFC"/>
-                <constraint firstItem="K0R-RY-lEf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="5q0-75-wRo"/>
+                <constraint firstItem="K0R-RY-lEf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="5q0-75-wRo"/>
                 <constraint firstAttribute="trailing" secondItem="K0R-RY-lEf" secondAttribute="trailing" constant="10" id="EgC-aO-PHh"/>
                 <constraint firstAttribute="bottom" secondItem="K0R-RY-lEf" secondAttribute="bottom" constant="5" id="agb-Gc-z5q"/>
             </constraints>
@@ -82,9 +82,6 @@
         <image name="Jewellery" width="331" height="236"/>
         <namedColor name="blackClr">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="viewBGClr">
-            <color red="0.94900000095367432" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -39,7 +39,7 @@ class OrderSummeryWithItemTVC: UITableViewCell {
 
     var timer = Timer()
     var counter = 0
-    
+    var currencyVal = Double()
     var productArr = [String]()
     
     var diamondDetailsOBJ = DiamondDetails()
@@ -117,7 +117,9 @@ class OrderSummeryWithItemTVC: UITableViewCell {
         
         var currency = String()
         
+        
         if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+            currencyVal = self.currencyRateDetailObj.value ?? 1
             currency = currncySimbol
         }
         else{
@@ -131,49 +133,49 @@ class OrderSummeryWithItemTVC: UITableViewCell {
         else{
            // self.lblShippingHandling.textColor = .green2
             
-            let shippngFee = formatNumberWithoutDeciml(Double(checkOutData.shippingCharge ?? 0))
+            let shippngFee = formatNumberWithoutDeciml(Double(checkOutData.shippingCharge ?? 0) * currencyVal)
             self.lblShippingHandling.text = "\(currency)\(shippngFee)"
         }
         
-        let platFmFee = formatNumberWithoutDeciml(Double(checkOutData.platformFee ?? 0))
+        let platFmFee = formatNumberWithoutDeciml(Double(checkOutData.platformFee ?? 0) * currencyVal)
         self.lblPlatformFee.text = "\(currency)\(platFmFee)"
         
-        let totalChrgs = formatNumberWithoutDeciml(Double(checkOutData.totalCharge ?? 0))
+        let totalChrgs = formatNumberWithoutDeciml(Double(checkOutData.totalCharge ?? 0) * currencyVal)
         self.lblTotalCharges.text = "\(currency)\(totalChrgs)"
         
-        let otherChrgs = formatNumberWithoutDeciml(Double(checkOutData.totalChargeTax ?? 0))
+        let otherChrgs = formatNumberWithoutDeciml(Double(checkOutData.totalChargeTax ?? 0) * currencyVal)
         self.lblOtherTaxes.text = "\(currency)\(otherChrgs)"
         
-        let diaTACX = formatNumberWithoutDeciml(Double(checkOutData.tax ?? 0))
+        let diaTACX = formatNumberWithoutDeciml(Double(checkOutData.tax ?? 0) * currencyVal)
         self.lblDiamondTaxes.text = "\(currency)\(diaTACX)"
         
-        let totlTax = formatNumberWithoutDeciml(Double(checkOutData.totalTaxes ?? 0))
+        let totlTax = formatNumberWithoutDeciml(Double(checkOutData.totalTaxes ?? 0) * currencyVal)
         self.lblTotalTaxes.text = "\(currency)\(totlTax)"
         
-        let subTotl = formatNumberWithoutDeciml(Double(checkOutData.totalAmount ?? 0))
+        let subTotl = formatNumberWithoutDeciml(Double(checkOutData.totalAmount ?? 0) * currencyVal)
         self.lblSubTotal.text = "\(currency)\(subTotl)"
         
-        let granTotl = formatNumberWithoutDeciml(Double(checkOutData.finalAmount ?? 0))
+        let granTotl = formatNumberWithoutDeciml(Double(checkOutData.finalAmount ?? 0) * currencyVal)
         self.lblGrandTotal.text = "\(currency)\(granTotl)"
         
-        let diaPrice = formatNumberWithoutDeciml(Double(checkOutData.subTotal ?? 0))
+        let diaPrice = formatNumberWithoutDeciml(Double(checkOutData.subTotal ?? 0) * currencyVal)
         self.lblDiamondPrice.text = "\(currency)\(diaPrice)"
         
         if let vc = self.baseVC{
-            let formattedNumber = formatNumberWithoutDeciml(Double(checkOutData.finalAmount ?? 0))
+            let formattedNumber = formatNumberWithoutDeciml(Double(checkOutData.finalAmount ?? 0) * currencyVal)
             vc.lblTotalAmount.text = "\(currency)\(formattedNumber)"
         }
        
         
-        let cupnDis = formatNumberWithoutDeciml(Double(checkOutData.couponDiscount ?? 0))
+        let cupnDis = formatNumberWithoutDeciml(Double(checkOutData.couponDiscount ?? 0) * currencyVal)
         self.lblCouponP.text = "-\(currency)\(cupnDis)"
         self.lblCouponP.textColor = .green2
         
-        let walletDis = formatNumberWithoutDeciml(Double(checkOutData.walletPoint ?? 0))
+        let walletDis = formatNumberWithoutDeciml(Double(checkOutData.walletPoint ?? 0) * currencyVal)
         self.lblWallertPoint.text = "-\(currency)\(walletDis)"
         self.lblWallertPoint.textColor = .green2
         
-        let bnkCharges = formatNumberWithoutDeciml(Double(checkOutData.bankCharge ?? 0))
+        let bnkCharges = formatNumberWithoutDeciml(Double(checkOutData.bankCharge ?? 0) * currencyVal)
         self.lblBankCHarges.text = "\(currency)\(bnkCharges)"
     }
     
@@ -241,6 +243,13 @@ extension OrderSummeryWithItemTVC:UICollectionViewDataSource, UICollectionViewDe
         
         if self.isFromCart == 1{
             
+            if self.CartDataObj[indexPath.row].isDxeLUXE == 1{
+                cell.lmgLuxTag.isHidden = false
+            }
+            else{
+                cell.lmgLuxTag.isHidden = true
+            }
+            
              cell.lblCirtificateNum.text = self.CartDataObj[indexPath.row].stockNo
             cell.lblLotID.text = "\(self.CartDataObj[indexPath.row].supplierID)"
              cell.lblShape.text = self.CartDataObj[indexPath.row].shape
@@ -267,6 +276,13 @@ extension OrderSummeryWithItemTVC:UICollectionViewDataSource, UICollectionViewDe
             cell.imgDiamond.sd_setImage(with: URL(string: self.CartDataObj[indexPath.row].diamondImage), placeholderImage: UIImage(named: "place_Holder"))
         }
         else{
+            
+            if self.diamondDetailsOBJ.isDxeLUXE == 1{
+                cell.lmgLuxTag.isHidden = false
+            }
+            else{
+                cell.lmgLuxTag.isHidden = true
+            }
             
              cell.lblCirtificateNum.text = self.diamondDetailsOBJ.stockNO
              cell.lblLotID.text = "\(self.diamondDetailsOBJ.supplierID ?? "")"

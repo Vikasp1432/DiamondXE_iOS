@@ -227,6 +227,8 @@
 		445C238F2CABD5DF001B6ADE /* DealerMarkupTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445C238D2CABD5DF001B6ADE /* DealerMarkupTVC.xib */; };
 		445C69EB2C8AD57A0090255B /* CheckOutDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C69EA2C8AD57A0090255B /* CheckOutDataStruct.swift */; };
 		445C69ED2C8ADEDB0090255B /* ShippingModuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C69EC2C8ADEDB0090255B /* ShippingModuleModel.swift */; };
+		445CA8052CC8D57600ADA9D6 /* DXELUX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445CA8042CC8D57600ADA9D6 /* DXELUX.storyboard */; };
+		445CA8072CC8D75B00ADA9D6 /* DXELUXEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445CA8062CC8D75B00ADA9D6 /* DXELUXEViewController.swift */; };
 		44624D9E2C2D5E6C002D5757 /* MakeDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44624D9D2C2D5E6C002D5757 /* MakeDropDown.swift */; };
 		44624DA32C2D744A002D5757 /* CurrencyRatesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44624DA22C2D744A002D5757 /* CurrencyRatesManager.swift */; };
 		44624DA62C2D9C7B002D5757 /* SizesViewXIB.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44624DA52C2D9C7B002D5757 /* SizesViewXIB.xib */; };
@@ -237,6 +239,10 @@
 		4462F1CE2C4515A8009DDE8B /* SupplierINT_KYCTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4462F1CC2C4515A8009DDE8B /* SupplierINT_KYCTableViewCell.xib */; };
 		4463200A2C5242990087AEFB /* PersonalProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446320092C5242990087AEFB /* PersonalProfileVC.swift */; };
 		4463C2F92BCFF38C000D939E /* ViewProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463C2F82BCFF38C000D939E /* ViewProperty.swift */; };
+		4465218E2CDE024700B26064 /* WalletHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465218D2CDE024700B26064 /* WalletHistoryVC.swift */; };
+		446521962CDE07A900B26064 /* WalletHistoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446521942CDE07A900B26064 /* WalletHistoryTVC.swift */; };
+		446521972CDE07A900B26064 /* WalletHistoryTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446521952CDE07A900B26064 /* WalletHistoryTVC.xib */; };
+		446521992CDE2EC100B26064 /* WalletHistoryStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446521982CDE2EC100B26064 /* WalletHistoryStruct.swift */; };
 		44681F442BFF4D70009BD156 /* GlobleSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44681F432BFF4D70009BD156 /* GlobleSearchVC.swift */; };
 		44681F462BFF4D99009BD156 /* GlobleSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44681F452BFF4D99009BD156 /* GlobleSearch.storyboard */; };
 		44681F4A2BFF5212009BD156 /* GlobleSearchTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44681F492BFF5212009BD156 /* GlobleSearchTVC.xib */; };
@@ -665,6 +671,8 @@
 		445C238D2CABD5DF001B6ADE /* DealerMarkupTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DealerMarkupTVC.xib; sourceTree = "<group>"; };
 		445C69EA2C8AD57A0090255B /* CheckOutDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutDataStruct.swift; sourceTree = "<group>"; };
 		445C69EC2C8ADEDB0090255B /* ShippingModuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingModuleModel.swift; sourceTree = "<group>"; };
+		445CA8042CC8D57600ADA9D6 /* DXELUX.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DXELUX.storyboard; sourceTree = "<group>"; };
+		445CA8062CC8D75B00ADA9D6 /* DXELUXEViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DXELUXEViewController.swift; sourceTree = "<group>"; };
 		44624D9D2C2D5E6C002D5757 /* MakeDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeDropDown.swift; sourceTree = "<group>"; };
 		44624DA22C2D744A002D5757 /* CurrencyRatesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatesManager.swift; sourceTree = "<group>"; };
 		44624DA42C2D9C7B002D5757 /* SizesViewXIB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesViewXIB.swift; sourceTree = "<group>"; };
@@ -675,6 +683,10 @@
 		4462F1CC2C4515A8009DDE8B /* SupplierINT_KYCTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupplierINT_KYCTableViewCell.xib; sourceTree = "<group>"; };
 		446320092C5242990087AEFB /* PersonalProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalProfileVC.swift; sourceTree = "<group>"; };
 		4463C2F82BCFF38C000D939E /* ViewProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProperty.swift; sourceTree = "<group>"; };
+		4465218D2CDE024700B26064 /* WalletHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHistoryVC.swift; sourceTree = "<group>"; };
+		446521942CDE07A900B26064 /* WalletHistoryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHistoryTVC.swift; sourceTree = "<group>"; };
+		446521952CDE07A900B26064 /* WalletHistoryTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletHistoryTVC.xib; sourceTree = "<group>"; };
+		446521982CDE2EC100B26064 /* WalletHistoryStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHistoryStruct.swift; sourceTree = "<group>"; };
 		44681F432BFF4D70009BD156 /* GlobleSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobleSearchVC.swift; sourceTree = "<group>"; };
 		44681F452BFF4D99009BD156 /* GlobleSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GlobleSearch.storyboard; sourceTree = "<group>"; };
 		44681F482BFF5212009BD156 /* GlobleSearchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobleSearchTVC.swift; sourceTree = "<group>"; };
@@ -1575,6 +1587,14 @@
 			path = DealerMarkupXib;
 			sourceTree = "<group>";
 		};
+		445CA8032CC8D38900ADA9D6 /* DXELUX */ = {
+			isa = PBXGroup;
+			children = (
+				445CA8062CC8D75B00ADA9D6 /* DXELUXEViewController.swift */,
+			);
+			path = DXELUX;
+			sourceTree = "<group>";
+		};
 		44624DA12C2D742B002D5757 /* SetCurrcyRates */ = {
 			isa = PBXGroup;
 			children = (
@@ -1612,6 +1632,24 @@
 				445C23892CABD122001B6ADE /* DealerMarkupVC.swift */,
 			);
 			path = MyAccount;
+			sourceTree = "<group>";
+		};
+		4465218C2CDE022600B26064 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				4465218F2CDE073100B26064 /* WalletXIB */,
+				4465218D2CDE024700B26064 /* WalletHistoryVC.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		4465218F2CDE073100B26064 /* WalletXIB */ = {
+			isa = PBXGroup;
+			children = (
+				446521942CDE07A900B26064 /* WalletHistoryTVC.swift */,
+				446521952CDE07A900B26064 /* WalletHistoryTVC.xib */,
+			);
+			path = WalletXIB;
 			sourceTree = "<group>";
 		};
 		44681F3F2BFF4CE6009BD156 /* GlobleSearchVC */ = {
@@ -2195,6 +2233,7 @@
 		44CC388C2BD7C2D9002B3597 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				445CA8032CC8D38900ADA9D6 /* DXELUX */,
 				4437BA902C62458E006FC6C7 /* CommingSoonVC */,
 				44CC388F2BD7C30C002B3597 /* ViewModel */,
 				44CC388E2BD7C305002B3597 /* View */,
@@ -2211,6 +2250,7 @@
 				44682C042C5A3A7100931398 /* ProfileInfoStruct.swift */,
 				443051C52C048C2600A13ADF /* TopDealsDataStruct.swift */,
 				445C23872CABCF5E001B6ADE /* DealerMarkupStruct.swift */,
+				446521982CDE2EC100B26064 /* WalletHistoryStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2223,6 +2263,7 @@
 				44E61DA42BFB30E0006E136E /* HomeVC.storyboard */,
 				44E61DA62BFB30F4006E136E /* CategoriesVC.storyboard */,
 				44E61DA82BFB3105006E136E /* WishlistVC.storyboard */,
+				445CA8042CC8D57600ADA9D6 /* DXELUX.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2230,6 +2271,7 @@
 		44CC388F2BD7C30C002B3597 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4465218C2CDE022600B26064 /* Wallet */,
 				446320082C5242720087AEFB /* MyAccount */,
 				443E276B2C2AC72C00981A6F /* CustomViews */,
 				44E61DAC2BFB3F8D006E136E /* HomeTableViewCells */,
@@ -2538,6 +2580,7 @@
 				4457E2772C58E530006C1A7C /* KYCDocVerify.storyboard in Resources */,
 				4470B0992BF7919A00DC824B /* MainCell.xib in Resources */,
 				44556C272BF77EC600B5FBA4 /* LATO-BOLD.TTF in Resources */,
+				446521972CDE07A900B26064 /* WalletHistoryTVC.xib in Resources */,
 				44C571F52BFCA9D6007B081F /* GiftOfChoiceTVC.xib in Resources */,
 				44AC5EE22CAFE03300167147 /* ReturnOrderItemListTVC.xib in Resources */,
 				44556C252BF77EC600B5FBA4 /* LATO-ITALIC.TTF in Resources */,
@@ -2573,6 +2616,7 @@
 				44560D952C1AFF92003D8F18 /* B2BSearchResultListingTVC.xib in Resources */,
 				445100692C26AEBC0065284F /* AllDiamondDetailsTVC.xib in Resources */,
 				44F631292BEF4442003EE2BC /* Supplier_CompanyDetails.xib in Resources */,
+				445CA8052CC8D57600ADA9D6 /* DXELUX.storyboard in Resources */,
 				44AB742F2C1092CF00625FC2 /* AdvanceFilterTVC.xib in Resources */,
 				44681F462BFF4D99009BD156 /* GlobleSearch.storyboard in Resources */,
 				4462F1CE2C4515A8009DDE8B /* SupplierINT_KYCTableViewCell.xib in Resources */,
@@ -2822,6 +2866,7 @@
 				445B942A2C85CAF0008A39B9 /* KYCDocStatusTVC.swift in Sources */,
 				4435FDC12CA5416D00C548E8 /* ReturnItemTVC.swift in Sources */,
 				44457F842C241E14008B1D9C /* DiamondImagesTVC.swift in Sources */,
+				445CA8072CC8D75B00ADA9D6 /* DXELUXEViewController.swift in Sources */,
 				44AC5EE92CAFF46200167147 /* ReturnOrderItemReasionsTVC.swift in Sources */,
 				4457E2792C58F5A0006C1A7C /* KYCDOCResubmittedVC.swift in Sources */,
 				44757FCA2C7CA47A00B953B5 /* CalcAlamofireManager.swift in Sources */,
@@ -2851,6 +2896,7 @@
 				44CE862B2BF5F7EC004AAAF3 /* CategoriesVC.swift in Sources */,
 				443D16632C787D710014A7FB /* PaymentInProgressVC.swift in Sources */,
 				44546A332BD62F22007AFEF8 /* ForgotPasswordModel.swift in Sources */,
+				4465218E2CDE024700B26064 /* WalletHistoryVC.swift in Sources */,
 				44A4C1CF2C75ED9300A1B871 /* CustomPaymentVC.swift in Sources */,
 				44C38ADD2C259D5D005AAF9A /* TimeZoneManager.swift in Sources */,
 				446A19782C91C72E00AFC167 /* BuyItemInfoTVC.swift in Sources */,
@@ -2887,6 +2933,7 @@
 				44757FE92C7CA5F600B953B5 /* RingSizerVC.swift in Sources */,
 				445BD7632C20330200DB7DAF /* ModelGetDiamond.swift in Sources */,
 				440254632BEE59B900E90546 /* SplashVC.swift in Sources */,
+				446521962CDE07A900B26064 /* WalletHistoryTVC.swift in Sources */,
 				4462F1C52C451420009DDE8B /* SupplierKYCTableViewCell.swift in Sources */,
 				4462F1CD2C4515A8009DDE8B /* SupplierINT_KYCTableViewCell.swift in Sources */,
 				44CD7D532BD0FF790004153E /* FloatingTextField.swift in Sources */,
@@ -2895,6 +2942,7 @@
 				448A56652BFE16DD00F01591 /* CustomerReviewTVC.swift in Sources */,
 				44417EE32C57A9F7008C6AA6 /* KYCVerification.swift in Sources */,
 				445B94322C85E2D9008A39B9 /* PointsInfoTVC.swift in Sources */,
+				446521992CDE2EC100B26064 /* WalletHistoryStruct.swift in Sources */,
 				447E72DE2BCFD28E00AAEA57 /* LoginModel.swift in Sources */,
 				445689A62C995FC2009CC742 /* OrderSummaryStruct.swift in Sources */,
 				44B7383E2BE8E3EC005B9942 /* DealerDataStruct.swift in Sources */,
@@ -3211,7 +3259,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.106;
+				MARKETING_VERSION = 1.02.108;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3256,7 +3304,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.106;
+				MARKETING_VERSION = 1.02.108;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3445,7 +3493,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.106;
+				MARKETING_VERSION = 1.02.108;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3594,7 +3642,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.106;
+				MARKETING_VERSION = 1.02.108;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3743,7 +3791,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.106;
+				MARKETING_VERSION = 1.02.108;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3885,7 +3933,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.106;
+				MARKETING_VERSION = 1.02.108;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -4027,7 +4075,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.106;
+				MARKETING_VERSION = 1.02.108;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -4169,7 +4217,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02.106;
+				MARKETING_VERSION = 1.02.108;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dxe.DiamondXE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

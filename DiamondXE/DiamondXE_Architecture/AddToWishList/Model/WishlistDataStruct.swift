@@ -28,7 +28,7 @@ struct WishlistData: Codable {
     var status, totalGstPerc: String?
     var pricePerCT, subtotal, tax, totalPrice: Int?
     var isCart, onHold, shippingCharge, platformFeeAmt: Int?
-   // var dxeMarkup: String?
+    var isDxeLUXE: Int?
     var couponDesPer : Double?
     var subtotalAfterCouponDiscount : Double?
 
@@ -69,6 +69,6 @@ struct WishlistData: Codable {
         case onHold = "on_hold"
         case shippingCharge = "shipping_charge"
         case platformFeeAmt = "platform_fee_amt"
-      //  case dxeMarkup = "dxe_markup"
+        case isDxeLUXE 
     }
 }

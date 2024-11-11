@@ -112,6 +112,8 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
     
     // Image callback (Base64)
     var pickImageBase64: ((String) -> ())?
+    var pickImage: ((UIImage) -> ())?
+    var pickedImage : UIImage?
     
     // Video callback (URL for multipart)
     var pickVideoURL: ((URL) -> ())?
@@ -120,27 +122,7 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
         super.init()
         
         picker.view.backgroundColor = .white
-        
-        let cameraAction = UIAlertAction(title: "Camera", style: .default) { UIAlertAction in
-            self.openCamera()
-        }
-        
-        let galleryImageAction = UIAlertAction(title: "Gallery - Image", style: .default) { UIAlertAction in
-            self.openGallery(forMediaType: .image)
-        }
-        
-        let galleryVideoAction = UIAlertAction(title: "Gallery - Video", style: .default) { UIAlertAction in
-            self.openGallery(forMediaType: .video)
-        }
-
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { UIAlertAction in }
-        cancelAction.setValue(UIColor.red, forKey: "titleTextColor")
-        
-        picker.delegate = self
-        alert.addAction(cameraAction)
-        alert.addAction(galleryImageAction)
-        alert.addAction(galleryVideoAction)
-        alert.addAction(cancelAction)
+      
     }
 
     enum MediaType {
@@ -152,9 +134,57 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
     func pickImage(_ viewController: UIViewController, _ callback: @escaping ((String) -> ())) {
         pickImageBase64 = callback
         self.viewController = viewController
+        self.addButtonsO(showVideoOption: true)
         alert.popoverPresentationController?.sourceView = self.viewController!.view
         viewController.present(alert, animated: true, completion: nil)
     }
+    
+    func pickImageItem(_ viewController: UIViewController, _ callback: @escaping ((UIImage) -> ())) {
+        pickImage = callback
+        self.viewController = viewController
+      //  self.pickedImage = img
+        self.addButtonsO(showVideoOption: false)
+        alert.popoverPresentationController?.sourceView = self.viewController!.view
+        viewController.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
+    func addButtonsO(showVideoOption: Bool){
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { UIAlertAction in
+            self.openCamera()
+        }
+        alert.addAction(cameraAction)
+        
+        let galleryImageAction = UIAlertAction(title: "Gallery - Image", style: .default) { UIAlertAction in
+            self.openGallery(forMediaType: .image)
+        }
+        alert.addAction(galleryImageAction)
+        
+        if showVideoOption {
+            let galleryVideoAction = UIAlertAction(title: "Gallery - Video", style: .default) { UIAlertAction in
+                self.openGallery(forMediaType: .video)
+            }
+            alert.addAction(galleryVideoAction)
+        }
+        
+//        
+//        if let pikedImg = pickedImage {
+//               let removeImageAction = UIAlertAction(title: "Remove Image", style: .destructive) { _ in
+//                   self.pickImage?(UIImage(named: "cameraIC")!)
+//               }
+//               alert.addAction(removeImageAction)
+//        }
+//        
+        
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { UIAlertAction in }
+        cancelAction.setValue(UIColor.red, forKey: "titleTextColor")
+        
+        picker.delegate = self
+        alert.addAction(cancelAction)
+    }
+    
 
     // Picking a video
     func pickVideo(_ viewController: UIViewController, _ callback: @escaping ((URL) -> ())) {
@@ -210,6 +240,9 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
                 guard let image = info[.originalImage] as? UIImage else { return }
                 let base64String = image.jpegData(compressionQuality: 0.5)?.base64EncodedString() ?? ""
                 pickImageBase64?(base64String)
+                pickImage?(image)
+                pickedImage = image
+                
             }
         }
     }

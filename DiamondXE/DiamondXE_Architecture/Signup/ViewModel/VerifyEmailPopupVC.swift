@@ -53,13 +53,13 @@ class VerifyEmailPopupVC: UIViewController {
         if txtOTP.text?.count ?? 0 > 0{
             
             
-            
             param  = ["email" : self.email, "requestOtp": 0,  "otp": Int(self.txtOTP.text ?? "") ?? 0]
             
             
             CustomActivityIndicator.shared.show(in: view)
             SignupDataModel().emialVerification(url: APIs().email_verification_API, requestParam: self.param, completion: { emailVerify , message in
                 print(emailVerify)
+                CustomActivityIndicator.shared.hide()
                 if emailVerify.status == 1{
                     self.emailVerifyDelegate?.didEmailVerify(status: emailVerify.status ?? 0, msg: emailVerify.msg ?? "")
                     self.toastMessage(emailVerify.msg ?? "")
@@ -68,7 +68,7 @@ class VerifyEmailPopupVC: UIViewController {
                 else{
                     self.toastMessage(emailVerify.msg ?? "")
                 }
-                CustomActivityIndicator.shared.hide()
+               
                 
             })
         }

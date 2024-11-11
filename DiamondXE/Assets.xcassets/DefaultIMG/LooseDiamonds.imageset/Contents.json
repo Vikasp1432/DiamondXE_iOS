@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "LooseDiamonds.png",
+      "filename" : "solitaire.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "LooseDiamonds@2x.png",
+      "filename" : "solitaire@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "LooseDiamonds@3x.png",
+      "filename" : "solitaire@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

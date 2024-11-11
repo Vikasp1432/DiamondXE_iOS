@@ -129,7 +129,7 @@ struct CartDataStruct: Codable {
     var msg: String?
     var subTotal, cgst: Int?
     //var cgstPerc: Double?
-   // var sgst: Int?
+    var isDxeLUXE: Int?
    // var sgstPerc: Double?
    // var igst, igstPerc: Int?
     var discountPerc: Double?
@@ -154,7 +154,7 @@ struct CartDataStruct: Codable {
         case stockNO = "stock_no"
         case cgst
        // case cgstPerc = "cgst_perc"
-      //  case sgst
+        case isDxeLUXE
       //  case sgstPerc = "sgst_perc"
 //        case igst
 //        case igstPerc = "igst_perc"
@@ -189,7 +189,7 @@ struct CardDataDetail: Codable {
     var totalGstPerc: String
     var pricePerCT, subtotal: Int
   //  var cgstPer: String
-   // var cgstAmt: Int
+    var isDxeLUXE: Int?
    // var sgstPer: String
    // var sgstAmt: Int
     //var igstPer: String
@@ -220,7 +220,7 @@ struct CardDataDetail: Codable {
         case totalGstPerc = "total_gst_perc"
         case pricePerCT = "price_per_ct"
         case subtotal
-       // case cgstPer = "cgst_per"
+        case isDxeLUXE
        // case cgstAmt = "cgst_amt"
        // case sgstPer = "sgst_per"
 //        case sgstAmt = "sgst_amt"

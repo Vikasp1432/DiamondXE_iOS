@@ -167,22 +167,46 @@ class QuatationHistoryVC: UIViewController, UITableViewDataSource, UITableViewDe
             
         }else{
             if quotations.count > 0{
-            let indexData = self.quotations[indexPath.row]
+                let indexData = self.quotations[indexPath.row]
                 cell.lbldate.text = "\(indexData.dateStr ?? "")"
                 cell.lblKt.text = indexData.purityType
                 cell.lblName.text = indexData.productName ?? ""
-            cell.lblGrandTotl.text = indexData.grandTotal
-            
-            return cell
-        }else{
-            return cell
+                cell.lblGrandTotl.text = indexData.grandTotal
+                
+                return cell
+            }else{
+                return cell
+            }
         }
+        
+        
+        
     }
-    
-    
-}
 
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+       
+            if editingStyle == .delete {
+                if !isSearch{
+                    // Remove the quotation from the array
+                    self.quotations.remove(at: indexPath.row)
+                    if let encodedData = try? JSONEncoder().encode(self.quotations) {
+                        UserDefaults.standard.set(encodedData, forKey: "savedQuotations")
+                    }
+                }
+                else{
+                    self.searchQuotations.remove(at: indexPath.row)
+                    if let encodedData = try? JSONEncoder().encode(self.searchQuotations) {
+                        UserDefaults.standard.set(encodedData, forKey: "savedQuotations")
+                    }
+                }
+                
+                // Delete the row from the table view
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        
+        
+       }
+
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.uiSearchBar.resignFirstResponder()

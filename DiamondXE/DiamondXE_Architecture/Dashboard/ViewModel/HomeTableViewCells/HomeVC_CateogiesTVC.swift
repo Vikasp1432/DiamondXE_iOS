@@ -20,9 +20,9 @@ class HomeVC_CateogiesTVC: UITableViewCell {
 
     
     
-//    var imgArr = [ UIImage(named:"LooseDiamonds"),
-//                    UIImage(named:"Rings_") ,
-//                    UIImage(named:"EarRings") ,
+    var imgArr = [ UIImage(named:"LooseDiamonds"),
+                    UIImage(named:"EarRings") ,
+                    UIImage(named:"Rings_") ]
 //                    UIImage(named:"Pendants") ,
 //                    UIImage(named:"Bracelets") ,
 //                    UIImage(named:"Bangles_") ]
@@ -35,10 +35,10 @@ class HomeVC_CateogiesTVC: UITableViewCell {
 //                    "Bangles"]
     
     
-    var imgArr = [ UIImage(named:"Solitaires"),
-                    UIImage(named:"Jewellery")]
+   // var imgArr = [ UIImage(named:"Solitaires"),
+                   // UIImage(named:"Jewellery")]
     
-    var titleArr = [ "",
+    var titleArr = [ "","",
                     "" ]
     
     
@@ -92,20 +92,20 @@ extension HomeVC_CateogiesTVC: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let noOfCellsInRow = 2   //number of column you want
+        let noOfCellsInRow = 3  //number of column you want
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let totalSpace = flowLayout.sectionInset.left
             + flowLayout.sectionInset.right
             + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
 
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
-        return CGSize(width: size - 5   , height: size - 55)
+        return CGSize(width: size - 5   , height: size + 12)
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
 //            return 10 // Adjust the spacing between rows
 //        }
-        
+//        
 //        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
 //            return 40 // Adjust the spacing between items in a row
 //        }

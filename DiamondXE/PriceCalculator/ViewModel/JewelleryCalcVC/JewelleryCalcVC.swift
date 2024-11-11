@@ -43,7 +43,7 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lblGrandTotal: UILabel!
     @IBOutlet weak var lblCurrency: UILabel!
 
-    
+    @IBOutlet weak var imgItem: UIImageView!
     
     @IBOutlet weak var btnNatural: UIButton!
     @IBOutlet weak var btnLabGrown: UIButton!
@@ -150,22 +150,26 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
         self.txtExtraCharges.delegate = self
         self.txtTaxCharges.delegate = self
         
-      
-        
-        // setDefault
-        
-        
         if isEditQuatation{
             setDataForEditQuatation()
-            
         }
         else{
             self.natualOrLabGrown = "Natural Diamond"
             setDefaultValue()
         }
+        
+//        imgItem.isUserInteractionEnabled = true
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+//        imgItem.addGestureRecognizer(tapGesture)
        
     }
     
+//    @objc func imageTapped() {
+//        ImagePickerManager().pickImageItem(self){ image in
+//            self.imgItem.image = image
+//            self.imgItem.contentMode = .scaleAspectFill
+//        }
+//    }
     
     func setDataForEditQuatation(){
      
@@ -231,8 +235,8 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
         if textField.tag == 1{
             if newString == "" {
                 self.metalwt = 0 
-                self.labourChar = 0
-                self.txtLabour.text = "0"
+               // self.labourChar = 0
+               // self.txtLabour.text = "0"
                 let metalTotal = self.calculation.calculateByMultiplyLogic(paramA: self.metalwt, paramB: self.metalRatePGm)
                 
                 self.metalwtTotal = metalTotal
@@ -247,8 +251,8 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
             else{
                 if newString != "0" {
                     //self.txtMetalWt.text = newString as String
-                    self.txtLabour.text = newString as String
-                    self.labourChar = Double(newString as String) ?? 0
+                   // self.txtLabour.text = newString as String
+                  //  self.labourChar = Double(newString as String) ?? 0
                     self.metalwt = Double(newString as String) ?? 0
                     
                     let metalTotal = self.calculation.calculateByMultiplyLogic(paramA: self.metalwt, paramB: self.metalRatePGm)
@@ -311,8 +315,8 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
         else if textField.tag == 4{
             if newString == "" {
                 self.labourChar = 0 
-                self.metalwt = 0
-                self.txtMetalWt.text = "0"
+               // self.metalwt = 0
+               // self.txtMetalWt.text = "0"
                 let labourTotal = self.calculation.calculateByMultiplyLogic(paramA: self.labourChar, paramB: self.labourCharRatePGm)
                 self.labourCharTotal = labourTotal
                 self.txtLabourTotalAmt.text = calculation.decimalRoundOf(value: self.labourCharTotal)// "\(self.labourCharTotal.rounded())"
@@ -325,9 +329,9 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
             }
             else{
                 if newString != "0" {
-                    self.txtMetalWt.text = newString as String
+                   // self.txtMetalWt.text = newString as String
                     self.labourChar = Double(newString as String) ?? 0
-                    self.metalwt = Double(newString as String) ?? 0
+                   // self.metalwt = Double(newString as String) ?? 0
                     let labourTotal = self.calculation.calculateByMultiplyLogic(paramA: self.labourChar, paramB: self.labourCharRatePGm)
                     self.labourCharTotal = labourTotal
                     self.txtLabourTotalAmt.text = calculation.decimalRoundOf(value: self.labourCharTotal)// "\(self.labourCharTotal.rounded())"
@@ -927,41 +931,37 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
             // Push to the next view controller
             
             if isEditQuatation{
-                if let latestQuotation =  CalcUserDefaultManager().getSavedQuotations().last {
-                    self.quatationVC?.metalwt = latestQuotation.metalwt ?? 0
-                    self.quatationVC?.metalRatePGm = latestQuotation.metalRatePGm ?? 0
-                    self.quatationVC?.metalwtTotal = latestQuotation.metalwtTotal ?? 0
-                    self.quatationVC?.labourChar = latestQuotation.labourChar ?? 0
-                    self.quatationVC?.labourCharRatePGm = latestQuotation.labourCharRatePGm ?? 0
-                    self.quatationVC?.labourCharTotal = latestQuotation.labourCharTotal ?? 0
-                    self.quatationVC?.solitairwt = latestQuotation.solitairwt ?? 0
-                    self.quatationVC?.solitairRatePCt = latestQuotation.solitairRatePCt ?? 0
-                    self.quatationVC?.solitairTotal = latestQuotation.solitairTotal ?? 0
-                    self.quatationVC?.sideDIA = latestQuotation.sideDIA ?? 0
-                    self.quatationVC?.sideDIARatePCt = latestQuotation.sideDIARatePCt ?? 0
-                    self.quatationVC?.sideDIATotal = latestQuotation.sideDIATotal ?? 0
-                    self.quatationVC?.colStoneWt = latestQuotation.colStoneWt ?? 0
-                    self.quatationVC?.colStonePCt = latestQuotation.colStonePCt ?? 0
-                    self.quatationVC?.colStoneTotal = latestQuotation.colStoneTotal ?? 0
-                    self.quatationVC?.extraCharges = latestQuotation.extraCharges ?? 0
-                    self.quatationVC?.taxCharges = latestQuotation.taxCharges ?? 0
-                    self.quatationVC?.taxCalculation = latestQuotation.taxCalculation ?? 0
-                    self.quatationVC?.currncyVal = latestQuotation.currncyVal ?? 0
-                    self.quatationVC?.currencyType = latestQuotation.currencyType ?? ""
-                    self.quatationVC?.natualOrLabGrown = latestQuotation.natualOrLabGrown ?? ""
-                    self.quatationVC?.solitaierNotes = latestQuotation.solitaierNotes ?? ""
-                    self.quatationVC?.sideDiaNotes = latestQuotation.sideDiaNotes ?? ""
-                    self.quatationVC?.otherCharges = latestQuotation.otherCharges ?? ""
-                    self.quatationVC?.productName = latestQuotation.productName ?? ""
-                    self.quatationVC?.purityType = latestQuotation.purityType ?? ""
-                    self.quatationVC?.grandTotal = latestQuotation.grandTotal ?? ""
-                    self.quatationVC?.priceWitCurr = latestQuotation.priceWitCurr ?? ""
-                    self.quatationVC?.date = latestQuotation.dateStr ?? ""
-                }
-                
-                
-                
-                
+              
+                self.quatationVC?.metalwt = self.metalwt
+                    self.quatationVC?.metalRatePGm = self.metalRatePGm
+                    self.quatationVC?.metalwtTotal = self.metalwtTotal
+                    self.quatationVC?.labourChar = self.labourChar
+                    self.quatationVC?.labourCharRatePGm = self.labourCharRatePGm
+                    self.quatationVC?.labourCharTotal = self.labourCharTotal
+                    self.quatationVC?.solitairwt = self.solitairwt
+                    self.quatationVC?.solitairRatePCt = self.solitairRatePCt
+                    self.quatationVC?.solitairTotal = self.solitairTotal
+                    self.quatationVC?.sideDIA = self.sideDIA
+                    self.quatationVC?.sideDIARatePCt = self.sideDIARatePCt
+                    self.quatationVC?.sideDIATotal = self.sideDIATotal
+                    self.quatationVC?.colStoneWt = self.colStoneWt
+                    self.quatationVC?.colStonePCt = self.colStonePCt
+                    self.quatationVC?.colStoneTotal = self.colStoneTotal
+                    self.quatationVC?.extraCharges = self.extraCharges
+                    self.quatationVC?.taxCharges = self.taxCharges
+                    self.quatationVC?.taxCalculation = self.taxCalculation
+                    self.quatationVC?.currncyVal = self.currncyVal
+                    self.quatationVC?.currencyType = self.currencyType
+                    self.quatationVC?.natualOrLabGrown = self.natualOrLabGrown
+                    self.quatationVC?.solitaierNotes = self.solitaierNotes
+                    self.quatationVC?.sideDiaNotes = self.sideDiaNotes
+                    self.quatationVC?.otherCharges = self.otherCharges
+                    self.quatationVC?.productName = self.txtProducName.text ?? ""
+                    self.quatationVC?.purityType = self.purityType
+                    self.quatationVC?.grandTotal = self.lblGrandTotal.text ?? ""
+                    self.quatationVC?.priceWitCurr = self.lblCurrency.text ?? ""
+                    self.quatationVC?.date = self.getCurrentDateInIndianFormat()
+               
                 self.navigationController?.popViewController(animated: true)
                 
             }
@@ -972,6 +972,7 @@ class JewelleryCalcVC: UIViewController, UITextFieldDelegate {
                 // Fetch the latest quotation and pass it to the next VC
                 if let latestQuotation =  CalcUserDefaultManager().getSavedQuotations().last {
                     vc?.metalwt = latestQuotation.metalwt ?? 0
+                  
                     vc?.metalRatePGm = latestQuotation.metalRatePGm ?? 0
                     vc?.metalwtTotal = latestQuotation.metalwtTotal ?? 0
                     vc?.labourChar = latestQuotation.labourChar ?? 0

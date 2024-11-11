@@ -204,6 +204,22 @@ extension DashboardLoginVC: UITableViewDelegate, UITableViewDataSource{
           
         }
         
+        
+        else if account_wallet == sectionStr{
+            let loginData = UserDefaultManager().retrieveLoginData()
+//            if let userType = loginData?.details?.userRole{
+//                if userType.lowercased() == "buyer"{
+//                    return
+//                }
+//            }
+            if let authToken = loginData?.details?.authToken{
+                self.navigationManager(storybordName: "Dashboard", storyboardID: "WalletHistoryVC", controller: WalletHistoryVC())
+            }
+            else{
+                self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
+            }
+        }
+        
         else if account_markup == sectionStr{
             let loginData = UserDefaultManager().retrieveLoginData()
             if let userType = loginData?.details?.userRole{

@@ -35,6 +35,9 @@ class B2CSearchResultTableListingCell: UITableViewCell, ShimmeringViewProtocol {
     @IBOutlet var tagViewBG :UIView!
     @IBOutlet var lblTAG :UILabel!
     @IBOutlet var lblDiscountPrice :UILabel!
+    
+    @IBOutlet var lmgLuxTag :UIImageView!
+    
     var actionReturnable : (() -> Void) = { }
     var diamondSelect : (() -> Void) = { }
     var shapeClick : (() -> Void) = { }
@@ -55,7 +58,8 @@ class B2CSearchResultTableListingCell: UITableViewCell, ShimmeringViewProtocol {
             lblPrice,
             btnWhshlist,
             btnCard,
-            lblDiscountPrice
+            lblDiscountPrice,
+            lmgLuxTag
             
            ]
        }

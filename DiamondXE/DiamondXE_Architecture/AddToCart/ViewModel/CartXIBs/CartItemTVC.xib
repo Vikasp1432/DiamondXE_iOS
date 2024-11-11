@@ -36,6 +36,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Luxetag" translatesAutoresizingMaskIntoConstraints="NO" id="WUa-Dk-EOl">
+                                <rect key="frame" x="84.333333333333329" y="119" width="45.666666666666671" height="19"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxD-0a-Edq">
                                 <rect key="frame" x="140" y="14.999999999999998" width="101.33333333333331" height="16.333333333333329"/>
                                 <attributedString key="attributedText">
@@ -291,6 +294,7 @@
                             <constraint firstItem="r6v-Ct-mxW" firstAttribute="leading" secondItem="TdG-gR-WtP" secondAttribute="trailing" constant="10" id="IKb-Xq-Zvb"/>
                             <constraint firstAttribute="bottom" secondItem="TdG-gR-WtP" secondAttribute="bottom" constant="10" id="IcE-oJ-PBC"/>
                             <constraint firstItem="Wsk-Dd-0TX" firstAttribute="top" secondItem="1EU-4M-ckH" secondAttribute="bottom" constant="10" id="Oov-Lf-yLA"/>
+                            <constraint firstItem="WUa-Dk-EOl" firstAttribute="trailing" secondItem="TdG-gR-WtP" secondAttribute="trailing" id="TLx-tz-eGD"/>
                             <constraint firstItem="YtD-QY-7xn" firstAttribute="top" secondItem="TdG-gR-WtP" secondAttribute="top" id="VZR-wX-I5D"/>
                             <constraint firstItem="2Bb-tL-x6A" firstAttribute="centerY" secondItem="1EU-4M-ckH" secondAttribute="centerY" id="VbX-Gy-Qyi"/>
                             <constraint firstItem="uRA-Gf-e36" firstAttribute="centerY" secondItem="yxD-0a-Edq" secondAttribute="centerY" id="Vzi-ea-VRP"/>
@@ -310,6 +314,7 @@
                             <constraint firstItem="YtD-QY-7xn" firstAttribute="leading" secondItem="TdG-gR-WtP" secondAttribute="leading" id="mLe-WO-dfQ"/>
                             <constraint firstItem="TdG-gR-WtP" firstAttribute="top" secondItem="ia3-6E-e9m" secondAttribute="top" constant="10" id="oQq-ie-aO9"/>
                             <constraint firstItem="Tya-HD-deW" firstAttribute="centerY" secondItem="1EU-4M-ckH" secondAttribute="centerY" id="ozo-2Q-FSq"/>
+                            <constraint firstItem="WUa-Dk-EOl" firstAttribute="bottom" secondItem="TdG-gR-WtP" secondAttribute="bottom" id="pSw-lK-9IB"/>
                             <constraint firstItem="U2h-Uy-OaG" firstAttribute="leading" secondItem="Hau-wI-WNX" secondAttribute="trailing" constant="5" id="rsH-Gh-aYF"/>
                             <constraint firstItem="yxD-0a-Edq" firstAttribute="top" secondItem="ia3-6E-e9m" secondAttribute="top" constant="15" id="tAf-ap-UpP"/>
                             <constraint firstItem="2Bb-tL-x6A" firstAttribute="leading" secondItem="1EU-4M-ckH" secondAttribute="trailing" constant="5" id="w4n-Ut-TE7"/>
@@ -346,6 +351,7 @@
                 <outlet property="lblPrice" destination="DM4-s5-csY" id="rmf-2s-QVz"/>
                 <outlet property="lblShape" destination="r6v-Ct-mxW" id="nRA-W6-LsB"/>
                 <outlet property="lblTAG" destination="qQl-Hc-5jW" id="Ja3-JA-f3r"/>
+                <outlet property="lmgLuxTag" destination="WUa-Dk-EOl" id="miI-AD-XgW"/>
                 <outlet property="refundViewToast" destination="ywm-eB-wEp" id="gca-k6-TY9"/>
                 <outlet property="tagViewBG" destination="jXT-5k-8iN" id="RiL-Pj-S9E"/>
                 <outlet property="viewBG" destination="ia3-6E-e9m" id="5nb-sY-hmT"/>
@@ -354,6 +360,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="Luxetag" width="45.666667938232422" height="19"/>
         <image name="check" width="20.590000152587891" height="20.590000152587891"/>
         <image name="delete" width="37" height="37"/>
         <image name="onHold" width="11.199999809265137" height="11.199999809265137"/>

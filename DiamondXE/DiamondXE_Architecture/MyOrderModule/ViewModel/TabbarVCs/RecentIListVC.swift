@@ -25,10 +25,11 @@ class RecentIListVC: BaseViewController, IndicatorInfoProvider {
             tableViewRecent.reloadData()
         }
     }
+    let refreshControl = UIRefreshControl()
     var orderListData  = MyOrderDataStruct()
     var page = 1
     
-    let refreshControl = UIRefreshControl()
+   
     
     @IBOutlet var imgNoDataFnd: UIImageView!
     

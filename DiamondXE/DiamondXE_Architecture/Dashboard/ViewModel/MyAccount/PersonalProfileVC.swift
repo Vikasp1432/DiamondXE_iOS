@@ -166,7 +166,7 @@ class PersonalProfileVC: BaseViewController {
             self.txtCompanyName.text = self.profileInfoStruct.details?.companyName ?? ""
             self.txtCompanyEmail.text = self.profileInfoStruct.details?.companyEmailID ?? ""
             
-            var companyContact = self.profileInfoStruct.details?.companyContact ?? ""
+            let companyContact = self.profileInfoStruct.details?.companyContact ?? ""
             let numStr = companyContact.split(separator: " ")
             
             if  numStr.count > 1{

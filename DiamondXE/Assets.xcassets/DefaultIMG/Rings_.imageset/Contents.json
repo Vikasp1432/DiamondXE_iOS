@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Rings.png",
+      "filename" : "jewellery.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Rings@2x.png",
+      "filename" : "jewellery@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Rings@3x.png",
+      "filename" : "jewellery@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -122,7 +122,7 @@ var nv_mainICN = [UIImage(named: "Home")!,UIImage(named: "Search Diamonds")!,UII
 
 //var account_icons = [UIImage(named: "myAccount")!,UIImage(named: "myOrder")!,UIImage(named: "wallet")!,UIImage(named: "acution")!,UIImage(named: "dealerMarkup")!,UIImage(named: "referAFriend")!,UIImage(named: "loyaltyProgram")!,UIImage(named: "customPayment")!,UIImage(named: "apiSolutions")!,UIImage(named: "delteAccount")!]
 
-var account_icons = [UIImage(named: "myAccount")!,UIImage(named: "myOrder")!,UIImage(named: "dealerMarkup")!,UIImage(named: "customPayment")!,UIImage(named: "delteAccount")!]
+var account_icons = [UIImage(named: "myAccount")!,UIImage(named: "myOrder")!,UIImage(named: "wallet")!,UIImage(named: "dealerMarkup")!,UIImage(named: "customPayment")!,UIImage(named: "delteAccount")!]
 
 var account_Profileicons = [UIImage(named: "profile")!,UIImage(named: "address")!,UIImage(named: "kvcVerification")!,UIImage(named: "Change Password")!]
 

@@ -21,6 +21,7 @@ class B2BSearchResultListingTVC: UITableViewCell , ShimmeringViewProtocol{
     
     @IBOutlet var nameViewToast :UIView!
     @IBOutlet var lblFullNameView :UILabel!
+    @IBOutlet var lmgLuxTag :UIImageView!
 
     
     @IBOutlet var lblCirtificateNum :UILabel!
@@ -77,7 +78,8 @@ class B2BSearchResultListingTVC: UITableViewCell , ShimmeringViewProtocol{
             lblTablePer ,
             lblDepPer ,
             lblMasurments,
-            lblDiscountPrice
+            lblDiscountPrice,
+            lmgLuxTag
            ]
        }
     

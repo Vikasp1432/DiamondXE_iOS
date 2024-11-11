@@ -24,16 +24,19 @@ class SearchDiamondVC: BaseViewController , ChildViewControllerProtocol {
     @IBOutlet var txtSearchKeyword:UITextField!
 
     var searchAttributeStruct = SearchOptionDataStruct()
+    var currencyRateDetailObj = CurrencyRateDetail()
     
+    
+    var isLux = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        txtSearchKeyword.delegate = self
-        
-        if let keyWord = DataManager.shared.keyWordSearch{
-            txtSearchKeyword.text = keyWord
-        }
+//        txtSearchKeyword.delegate = self
+//        
+//        if let keyWord = DataManager.shared.keyWordSearch{
+//            txtSearchKeyword.text = keyWord
+//        }
         
         
         tbleViewSearchDim.register(UINib(nibName: SearchDiamondTVC.cellIdentifierSearchDiamondTVC, bundle: nil), forCellReuseIdentifier: SearchDiamondTVC.cellIdentifierSearchDiamondTVC)
@@ -57,10 +60,6 @@ class SearchDiamondVC: BaseViewController , ChildViewControllerProtocol {
     }
   
     
-    // Implement UITextFieldDelegate methods
-       func textFieldDidBeginEditing(_ textField: UITextField) {
-           print("Text field did begin editing")
-       }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         print("Text field did end editing")
@@ -194,11 +193,33 @@ extension SearchDiamondVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchDiamondTVC.cellIdentifierSearchDiamondTVC, for: indexPath) as! SearchDiamondTVC
         cell.delegate = self
-        
+        cell.isLux = self.isLux
+        if self.isLux == 1{
+            cell.btnLabGrownDia.setGradientLayer(colorsInOrder:  [UIColor.borderClr.cgColor, UIColor.borderClr.cgColor])
+            cell.btnLabGrownDia.setTitleColor(.whitClr, for: .normal)
+            cell.btnLabGrownDia.isUserInteractionEnabled = false
+        }
+        else{
+            cell.btnLabGrownDia.isUserInteractionEnabled = true
+            cell.btnLabGrownDia.clearGradient()
+           // cell.btnLabGrownDia.isHidden = false
+        }
         cell.clearAll = {
-            self.txtSearchKeyword.text = ""
+            self.dashboardVC.txtSearchKeyword.text = ""
             DataManager.shared.keyWordSearch = ""
         }
+        if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
+            //let currncyVal = self.currencyRateDetailObj.value ?? 1
+            cell.lblFrom.text = "\(currncySimbol)\(" ")\("From")"
+            cell.lblTOO.text = "\(currncySimbol)\(" ")\("To")"
+                    
+        }
+        else{
+            cell.lblFrom.text = "₹\(" ")From"
+            cell.lblTOO.text = "₹\(" ")To"
+          
+        }
+        
         
         cell.setGradientBtn(string: self.strTitle ?? "")
         cell.filterDataStruct(searchAttributeStruct: self.searchAttributeStruct)

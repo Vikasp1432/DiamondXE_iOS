@@ -149,7 +149,13 @@ struct APIs {
     var returnOrderRequest_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/return-order"
     
     var getCouponList_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/coupon-offers-list"
+  
+
+    var getDXELUXStatus_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/dxe-luxe-status"
     
+    var getDXELUXRequest_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/dxe-luxe-registration"
+    
+    var getWalletHistory_API = "https://\(DiamondXEEnvironment.rootURL)app/v1/wallet-history"
 }
 
 //struct HeaderInfo {

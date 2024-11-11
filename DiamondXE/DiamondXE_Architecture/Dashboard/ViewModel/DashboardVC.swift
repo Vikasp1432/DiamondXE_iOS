@@ -17,9 +17,9 @@ protocol CountUpdateDelegate: AnyObject {
 
 class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCountryPopupViewDelegate, PinCodeDelegate, CountUpdateDelegate {
     
-    
-    
     func updateCount(crdCnt: Int, wishCnt: Int) {
+        self.getCurrentLocation()
+        
         if crdCnt > 0{
             self.lblCrdCnt.isHidden = false
             self.lblCrdCnt.text = "\(crdCnt)"
@@ -75,7 +75,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
     var countryView = SelectCountryView()
     
     var currencySelectObj = CurrencyRateDetail()
-    
+    var isLux = 0
     
     let screen = UIScreen.main.bounds
     var menu = false
@@ -106,10 +106,15 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
     @IBOutlet var lblType: UILabel!
 
     @IBOutlet weak var containerView: UIView!
+    
+    @IBOutlet var txtSearchKeyword:UITextField!
+    @IBOutlet var shadowedBGView:UIView!
+
+    
     var tagV = VCTags()
     
     var sections: [Sections] = []
-    
+   
     
     private var currentViewController: UIViewController?
     private var currentViewControllerIdentifier: String?
@@ -171,9 +176,41 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
         defineCountryPopupView()
         defineDIADetailsPopupView()
         
-        getCurrentLocation()
+        txtSearchKeyword.delegate = self
+        
+        if let keyWord = DataManager.shared.keyWordSearch{
+            txtSearchKeyword.text = keyWord
+        }
+        self.shadowedBGView.isHidden = true
         
     }
+    
+    
+  
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("Text field did end editing")
+        
+        DataManager.shared.keyWordSearch = textField.text ?? "".uppercased()
+        
+    }
+
+       func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+           print("Text field text changed to: \(string)")
+           return true
+       }
+
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           // Hide keyboard when 'return' key is pressed
+           textField.resignFirstResponder()
+        
+        DataManager.shared.keyWordSearch = textField.text ?? "".uppercased()
+        self.searcItemhWithKeyWord()
+        
+        
+           return true
+       }
+    
     
     
     func getCurrentLocation(){
@@ -214,8 +251,8 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
         }
        // self.counrtyDropDownView.isHidden.toggle()
        
-        var getCurrnyRate = CurrencyRatesManager.shareInstence.currencyRateStruct
-        for (index, value) in getCurrnyRate.enumerated() {
+        let getCurrnyRate = CurrencyRatesManager.shareInstence.currencyRateStruct
+        for (_, value) in getCurrnyRate.enumerated() {
             if updateCode == value.currency {
                 self.currencySelectObj = value
                 print(value)
@@ -300,10 +337,11 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
     
  
     @objc private func floatingButtonTapped() {
-        
+       
         switch self.currentViewController {
         case is HomeVC :
-            gotoSearchDiamondVC(title: "Search Diamond")
+            self.isLux = 0
+            gotoSearchDiamondVC(title: "Search Solitaires")
             
            // navigationManager(storybordName: "GlobleSearch", storyboardID: "GlobleSearchVC", controller: GlobleSearchVC())
         case is SearchDiamondVC:
@@ -407,8 +445,8 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
         }
         self.counrtyDropDownView.isHidden.toggle()
        
-        var getCurrnyRate = CurrencyRatesManager.shareInstence.currencyRateStruct
-        for (index, value) in getCurrnyRate.enumerated() {
+        let getCurrnyRate = CurrencyRatesManager.shareInstence.currencyRateStruct
+        for (_, value) in getCurrnyRate.enumerated() {
             if returnValue == value.currency {
                 self.currencySelectObj = value
                 print(value)
@@ -566,6 +604,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
                     ])
             selectCountryView.viewData.isHidden = true
             selectCountryView.isViewExpand = false
+            
             if let title = self.currencySelectObj.currency{
                 selectCountryView.lblTitle.text = "\(title)"
                 selectCountryView.lblSubTitle.text = "\(self.currencySelectObj.desc ?? "")"
@@ -674,7 +713,9 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             self.byTopDeals = false
             self.isByCard = false
             self.isBydWish = false
+            diamondDetailsVC.currencyRateDetailObj = self.currencySelectObj
             diamondDetailsVC.dashboardVC = self
+            diamondDetailsVC.isLux = isLux
             self.btnSearch.setImage(UIImage(named: "SearchI"), for: .normal)
         }
         
@@ -686,6 +727,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             self.isBydWish = false
             addToCartVC.delegateCount = self
             addToCartVC.currencyRateDetailObj = self.currencySelectObj
+            self.btnSearch.setImage(UIImage(named: "SearchI"), for: .normal)
         }
         
         if let addToWishListVC = newViewController as? AddToWishListVC{
@@ -695,6 +737,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             self.isByCard = false
             addToWishListVC.delegateCount = self
             addToWishListVC.currencyRateDetailObj = self.currencySelectObj
+            self.btnSearch.setImage(UIImage(named: "SearchI"), for: .normal)
         }
         
         if let diamondDetailsVC = newViewController as? DiamondDetailsVC {
@@ -710,7 +753,8 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             self.lblTitle.isHidden = false
             self.imgLOGO.isHidden = true
             self.stackIcons.isHidden = true
-            
+            self.shadowedBGView.isHidden = true
+            diamondDetailsVC.isLux = isLux
             diamondDetailsVC.delegateCount = self
         }
         
@@ -719,6 +763,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             b2bSearchDiamondVC.updateCurreny(currncyOBJ: self.currencySelectObj)
             self.byTopDeals = false
             b2bSearchDiamondVC.delegateCount = self
+            b2bSearchDiamondVC.isLux = isLux
             self.btnSearch.setImage(UIImage(named: "plus"), for: .normal)
         }
         self.currncyValChange(currncyValObj: self.currencySelectObj)
@@ -873,6 +918,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
         self.btnSideMenu.setImage(UIImage(named: "sideMenu"), for: .normal)
         self.lblTitle.isHidden = true
         self.imgLOGO.isHidden = false
+        self.shadowedBGView.isHidden = true
         self.stackIcons.isHidden = false
         isComeFromHome = true
         cartVCIsComeFromHome = true
@@ -898,6 +944,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
         self.btnSideMenu.setImage(UIImage(named: "sideMenu"), for: .normal)
         self.lblTitle.isHidden = true
         self.imgLOGO.isHidden = false
+        self.shadowedBGView.isHidden = true
         self.stackIcons.isHidden = false
         isComeFromHome = true
         cartVCIsComeFromHome = true
@@ -923,6 +970,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
         self.btnSideMenu.setImage(UIImage(named: "sideMenu"), for: .normal)
         self.lblTitle.isHidden = true
         self.imgLOGO.isHidden = false
+        self.shadowedBGView.isHidden = true
         self.stackIcons.isHidden = false
         isComeFromHome = true
         cartVCIsComeFromHome = true
@@ -941,20 +989,28 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
     
     
     @IBAction func btnActionTapped(_ sender: UIButton) {
-        let identifier = viewControllerIdentifiers[sender.tag]
-        let storyboardName = storyboardNames[sender.tag]
-        loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
-        self.sideMenuBtnTag = 0
-        updateHeaderBG(setUpTag: 1)
-        self.btnSideMenu.setImage(UIImage(named: "sideMenu"), for: .normal)
-        self.lblTitle.isHidden = true
-        self.imgLOGO.isHidden = false
-        self.stackIcons.isHidden = false
-        isComeFromHome = true
-        cartVCIsComeFromHome = true
+        
+        if sender.tag == 1{
+            self.navigationManager(storybordName: "DXECalc", storyboardID: "CalcDashboardVC", controller: CalcDashboardVC())
+            
+        }else{
+            
+            let identifier = viewControllerIdentifiers[sender.tag]
+            let storyboardName = storyboardNames[sender.tag]
+            loadViewController(withIdentifier: identifier, fromStoryboard: storyboardName)
+            self.sideMenuBtnTag = 0
+            updateHeaderBG(setUpTag: 1)
+            self.btnSideMenu.setImage(UIImage(named: "sideMenu"), for: .normal)
+            self.lblTitle.isHidden = true
+            self.imgLOGO.isHidden = false
+            self.shadowedBGView.isHidden = true
+            self.stackIcons.isHidden = false
+            isComeFromHome = true
+            cartVCIsComeFromHome = true
+        }
         switch sender.tag {
         case 0:
-            CurrencyRatesManager.shareInstence.getCurrencyRates()
+           // CurrencyRatesManager.shareInstence.getCurrencyRates()
             self.btnHome.tintColor = .themeClr
             self.btnCategory.tintColor = .clrGray
             self.btnWish.tintColor = .clrGray
@@ -966,18 +1022,18 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
             self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
             
-        case 1:
-            self.btnHome.tintColor = .clrGray
-            self.btnCategory.tintColor = .themeClr
-            self.btnWish.tintColor = .clrGray
-            self.btnCart.tintColor = .clrGray
-            self.btnLogin.tintColor = .clrGray
-            self.btnTitleHome.setTitleColor(UIColor.clrGray, for: .normal)
-            self.btnTitleCategory.setTitleColor(UIColor.themeClr, for: .normal)
-            self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
-            self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
-            self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
-            
+//        case 1:
+//            self.btnHome.tintColor = .clrGray
+//            self.btnCategory.tintColor = .themeClr
+//            self.btnWish.tintColor = .clrGray
+//            self.btnCart.tintColor = .clrGray
+//            self.btnLogin.tintColor = .clrGray
+//            self.btnTitleHome.setTitleColor(UIColor.clrGray, for: .normal)
+//            self.btnTitleCategory.setTitleColor(UIColor.themeClr, for: .normal)
+//            self.btnTitleWish.setTitleColor(UIColor.clrGray, for: .normal)
+//            self.btnTitleCart.setTitleColor(UIColor.clrGray, for: .normal)
+//            self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
+         
         case 2:
             self.btnHome.tintColor = .clrGray
             self.btnCategory.tintColor = .clrGray
@@ -1002,7 +1058,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
             self.btnTitleCart.setTitleColor(UIColor.themeClr, for: .normal)
             self.btnTitleLogin.setTitleColor(UIColor.clrGray, for: .normal)
             
-        default:
+        case 4:
             
             self.btnHome.tintColor = .clrGray
             self.btnCategory.tintColor = .clrGray
@@ -1022,6 +1078,8 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
                 self.navigationManager(storybordName: "Login", storyboardID: "LoginVC", controller: LoginVC())
             }
            
+        default:
+           print("")
             
         }
     }
@@ -1076,6 +1134,7 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
                 self.btnSideMenu.setImage(UIImage(named: "sideMenu"), for: .normal)
                 self.lblTitle.isHidden = true
                 self.imgLOGO.isHidden = false
+                self.shadowedBGView.isHidden = true
                 self.stackIcons.isHidden = false
             }
         }
@@ -1117,13 +1176,47 @@ class DashboardVC: BaseViewController, BaseViewControllerDelegate, DashbordCount
 extension DashboardVC : SelectCountryViewDelegate, DiaDetailsPopupViewDelegate {
     func customViewButtonTapped(_ customView: SelectCountryView, returnValue: String) {
         if returnValue != "isExpand" && returnValue != "None"{
-            var getCurrnyRate = CurrencyRatesManager.shareInstence.currencyRateStruct
+            let getCurrnyRate = CurrencyRatesManager.shareInstence.currencyRateStruct
             for (index, value) in getCurrnyRate.enumerated() {
                 if returnValue == value.currency {
                     switch self.currentViewController {
                     case is B2BSearchResultVC:
                         if let b2bSearchResultVC = self.currentViewController as? B2BSearchResultVC {
                             b2bSearchResultVC.updateCurreny(currncyOBJ: value)
+                            switch returnValue {
+                            case "INR":
+                                self.btnSelectC0untry.setImage(UIImage(named: "Flag"), for: .normal)
+                            case "USD":
+                                self.btnSelectC0untry.setImage(UIImage(named: "usd"), for: .normal)
+                            case "EUR":
+                                self.btnSelectC0untry.setImage(UIImage(named: "eur"), for: .normal)
+                            case "GBD":
+                                self.btnSelectC0untry.setImage(UIImage(named: "gbp"), for: .normal)
+                            case "AUD":
+                                self.btnSelectC0untry.setImage(UIImage(named: "aud"), for: .normal)
+                            case "CAD":
+                                self.btnSelectC0untry.setImage(UIImage(named: "cad"), for: .normal)
+                            case "NZD":
+                                self.btnSelectC0untry.setImage(UIImage(named: "nzd"), for: .normal)
+                            case "SGD":
+                                self.btnSelectC0untry.setImage(UIImage(named: "sgd"), for: .normal)
+                            case "AED":
+                                self.btnSelectC0untry.setImage(UIImage(named: "aed"), for: .normal)
+                            default:
+                                print("")
+                            }
+                           
+                            let getCurrnyRate = CurrencyRatesManager.shareInstence.currencyRateStruct
+                            for (_, value) in getCurrnyRate.enumerated() {
+                                if returnValue == value.currency {
+                                    self.currencySelectObj = value
+                                    print(value)
+                                    break
+                                }
+                            }
+
+                            
+                            
                             break
                         }
                     default:
@@ -1531,7 +1624,7 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
         self.lblTitle.isHidden = false
         self.imgLOGO.isHidden = true
         self.stackIcons.isHidden = true
-        
+        self.shadowedBGView.isHidden = false
         manageBottomTag()
     }
     
@@ -1548,7 +1641,7 @@ extension DashboardVC:UITableViewDelegate, UITableViewDataSource{
         self.lblTitle.isHidden = false
         self.imgLOGO.isHidden = true
         self.stackIcons.isHidden = true
-        
+        self.shadowedBGView.isHidden = true
         manageBottomTag()
     }
     

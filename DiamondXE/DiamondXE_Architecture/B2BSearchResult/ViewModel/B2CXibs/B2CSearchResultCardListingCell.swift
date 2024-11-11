@@ -37,6 +37,8 @@ class B2CSearchResultCardListingCell: UITableViewCell, ShimmeringViewProtocol {
     @IBOutlet var lblCarat :UILabel!
     @IBOutlet var lblClarity :UILabel!
     @IBOutlet var lblPrice :UILabel!
+    
+    @IBOutlet var lmgLuxTag :UIImageView!
 
     var actionReturnable : (() -> Void) = { }
     
@@ -66,7 +68,8 @@ class B2CSearchResultCardListingCell: UITableViewCell, ShimmeringViewProtocol {
             stacViewkBTN,
             btnWhshlist,
             btnCard,
-            lblDiscountPrice
+            lblDiscountPrice,
+            lmgLuxTag
            ]
        }
 

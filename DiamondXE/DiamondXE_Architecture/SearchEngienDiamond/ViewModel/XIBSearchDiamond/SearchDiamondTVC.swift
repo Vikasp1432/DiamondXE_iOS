@@ -41,8 +41,12 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
     @IBOutlet var txtPriceTo:UITextField!
     @IBOutlet var txtCaratTo:UITextField!
     
-    var delegate : SearchOptionSelecteDelegate?
+    @IBOutlet var lblFrom:UILabel!
+    @IBOutlet var lblTOO:UILabel!
     
+    var delegate : SearchOptionSelecteDelegate?
+   
+    var isLux = 0
     var searchAttributeStruct = SearchOptionDataStruct()
     
     
@@ -130,7 +134,7 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
     
     var clearAll : (() -> Void) = {}
     
-
+    //var currencyRateDetailObj = CurrencyRateDetail()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -195,8 +199,28 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
         self.btnClorFancy.setImage(UIImage(named: "radioButtonDeselected"), for: .normal)
 
         DataManager.shared.color = "white"
+        
+       
 
     }
+    
+    
+//    func manageCurrency(currncyObj : CurrencyRateDetail){
+//        if let currncySimbol = currncyObj.currencySymbol{
+//            //let currncyVal = self.currencyRateDetailObj.value ?? 1
+//            
+//            self.btnFrom.setTitle("\(currncySimbol)\("From")", for: .normal)
+//            self.btnTOO.setTitle("\(currncySimbol)\("To")", for: .normal)
+//                    
+//        }
+//        else{
+//            self.btnFrom.setTitle("₹\(" ")From", for: .normal)
+//            self.btnTOO.setTitle("₹\(" ")To", for: .normal)
+//          
+//        }
+//    }
+    
+    
     
     func textFieldDidEndEditing(_ textField: UITextField) {
 //           if let text = textField.tag {
@@ -925,21 +949,24 @@ class SearchDiamondTVC: UITableViewCell, UITextFieldDelegate {
     
     @IBAction func btnActionNaturalLabD(_ sender:UIButton){
 
-        if sender.tag == 0{
-            btnNaturalDia.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
-            btnNaturalDia.setTitleColor(.whitClr, for: .normal)
-            btnLabGrownDia.clearGradient()
-            btnLabGrownDia.setTitleColor(.themeClr, for: .normal)
-            DataManager.shared.diaType = "natural"
+        if self.isLux == 0{
             
-        }
-        else{
-            btnLabGrownDia.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
-//            viewLabBG.setGradientLayerView(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
-            btnLabGrownDia.setTitleColor(.whitClr, for: .normal)
-            btnNaturalDia.clearGradient()
-            btnNaturalDia.setTitleColor(.themeClr, for: .normal)
-            DataManager.shared.diaType = "labgrown"
+            if sender.tag == 0{
+                btnNaturalDia.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+                btnNaturalDia.setTitleColor(.whitClr, for: .normal)
+                btnLabGrownDia.clearGradient()
+                btnLabGrownDia.setTitleColor(.themeClr, for: .normal)
+                DataManager.shared.diaType = "natural"
+                
+            }
+            else{
+                btnLabGrownDia.setGradientLayer(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+                //            viewLabBG.setGradientLayerView(colorsInOrder:  [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+                btnLabGrownDia.setTitleColor(.whitClr, for: .normal)
+                btnNaturalDia.clearGradient()
+                btnNaturalDia.setTitleColor(.themeClr, for: .normal)
+                DataManager.shared.diaType = "labgrown"
+            }
         }
         
     }

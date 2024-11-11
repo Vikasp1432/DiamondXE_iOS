@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "EarRings.png",
+      "filename" : "gemstones.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "EarRings@2x.png",
+      "filename" : "gemstones@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "EarRings@3x.png",
+      "filename" : "gemstones@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

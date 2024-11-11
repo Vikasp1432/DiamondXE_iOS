@@ -69,7 +69,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" name="whitClr"/>
                             <constraints>
                                 <constraint firstItem="nGD-RW-VjM" firstAttribute="centerY" secondItem="1Bp-3g-zeM" secondAttribute="centerY" id="1IY-KX-yXH"/>
                                 <constraint firstItem="GEN-mK-BUZ" firstAttribute="top" secondItem="1Bp-3g-zeM" secondAttribute="top" id="1mb-aF-jdd"/>
@@ -85,7 +85,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" name="whitClr"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="500" id="0pw-cF-A30"/>
                         <constraint firstItem="Bps-sf-gNV" firstAttribute="top" secondItem="MAL-iF-5ef" secondAttribute="top" constant="15" id="8hf-IF-NZa"/>
@@ -119,6 +119,9 @@
         <image name="cross2" width="11.479999542236328" height="11.479999542236328"/>
         <namedColor name="themeClr">
             <color red="0.29800000786781311" green="0.046999998390674591" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="whitClr">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

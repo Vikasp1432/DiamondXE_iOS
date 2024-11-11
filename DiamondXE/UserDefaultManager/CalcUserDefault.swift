@@ -139,8 +139,6 @@ class CalcUserDefaultManager{
     }
     
     
-    
-    
     // Save quotation data to UserDefaults
     func saveQuotationData(_ newQuotation: Quotationstruct) {
         var savedQuotations = getSavedQuotations()
@@ -150,7 +148,7 @@ class CalcUserDefaultManager{
         } else {
             savedQuotations.append(newQuotation)
             
-            if savedQuotations.count > 10 {
+            if savedQuotations.count > 15 {
                 savedQuotations.removeFirst()
             }
         }

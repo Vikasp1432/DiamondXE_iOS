@@ -262,25 +262,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="199" height="45"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qCk-lx-ulK">
-                                                <rect key="frame" x="10" y="7.6666666666666856" width="38" height="30"/>
+                                                <rect key="frame" x="10" y="7.6666666666666856" width="37.666666666666664" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="2fP-ya-ym6"/>
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal">
-                                                    <attributedString key="attributedTitle">
-                                                        <fragment content="₹ From">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="12" name="Lato-Medium"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                    <attributedString key="attributedTitle"/>
                                                 </state>
                                             </button>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cIB-Pz-9zI">
-                                                <rect key="frame" x="53" y="5" width="126" height="35"/>
+                                                <rect key="frame" x="52.666666666666679" y="5" width="126.33333333333331" height="35"/>
                                                 <color key="textColor" name="themeClr"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -290,6 +282,19 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksO-vr-oUT">
+                                                <rect key="frame" x="10" y="7.6666666666666856" width="37.666666666666664" height="30"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="₹ From">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="12" name="Lato-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -297,9 +302,13 @@
                                             <constraint firstItem="qCk-lx-ulK" firstAttribute="centerY" secondItem="bil-d0-KPr" secondAttribute="centerY" id="Gle-ih-ZLc"/>
                                             <constraint firstAttribute="height" constant="45" id="IOg-k8-2bw"/>
                                             <constraint firstItem="qCk-lx-ulK" firstAttribute="leading" secondItem="bil-d0-KPr" secondAttribute="leading" constant="10" id="Jok-tZ-8gH"/>
+                                            <constraint firstItem="ksO-vr-oUT" firstAttribute="bottom" secondItem="qCk-lx-ulK" secondAttribute="bottom" id="Lnf-sO-FDb"/>
                                             <constraint firstItem="cIB-Pz-9zI" firstAttribute="top" secondItem="bil-d0-KPr" secondAttribute="top" constant="5" id="Ug1-AQ-0mr"/>
+                                            <constraint firstItem="ksO-vr-oUT" firstAttribute="top" secondItem="qCk-lx-ulK" secondAttribute="top" id="ZT3-Vu-yi6"/>
                                             <constraint firstItem="cIB-Pz-9zI" firstAttribute="leading" secondItem="qCk-lx-ulK" secondAttribute="trailing" constant="5" id="roF-uc-Jq8"/>
+                                            <constraint firstItem="ksO-vr-oUT" firstAttribute="trailing" secondItem="qCk-lx-ulK" secondAttribute="trailing" id="sf6-iP-0an"/>
                                             <constraint firstAttribute="bottom" secondItem="cIB-Pz-9zI" secondAttribute="bottom" constant="5" id="v5J-3k-IoL"/>
+                                            <constraint firstItem="ksO-vr-oUT" firstAttribute="leading" secondItem="qCk-lx-ulK" secondAttribute="leading" id="vUf-Jo-eww"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -329,15 +338,7 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal">
-                                                    <attributedString key="attributedTitle">
-                                                        <fragment content="₹ To">
-                                                            <attributes>
-                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                <font key="NSFont" size="12" name="Lato-Medium"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                    <attributedString key="attributedTitle"/>
                                                 </state>
                                             </button>
                                             <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jwj-nP-fVe">
@@ -351,14 +352,31 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxC-00-bOw">
+                                                <rect key="frame" x="10" y="7.6666666666666856" width="30" height="30"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="₹ To">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="12" name="Lato-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Jwj-nP-fVe" secondAttribute="trailing" constant="20" id="5Vv-vu-0Ij"/>
                                             <constraint firstItem="dqi-RT-Df7" firstAttribute="centerY" secondItem="aFN-Gn-Z3b" secondAttribute="centerY" id="AOI-XI-nOx"/>
+                                            <constraint firstItem="oxC-00-bOw" firstAttribute="bottom" secondItem="dqi-RT-Df7" secondAttribute="bottom" id="FM1-H7-poL"/>
+                                            <constraint firstItem="oxC-00-bOw" firstAttribute="trailing" secondItem="dqi-RT-Df7" secondAttribute="trailing" id="GvS-ge-WBH"/>
+                                            <constraint firstItem="oxC-00-bOw" firstAttribute="top" secondItem="dqi-RT-Df7" secondAttribute="top" id="Pff-mT-3Ew"/>
                                             <constraint firstItem="Jwj-nP-fVe" firstAttribute="top" secondItem="aFN-Gn-Z3b" secondAttribute="top" constant="5" id="c78-QR-OYF"/>
                                             <constraint firstAttribute="bottom" secondItem="Jwj-nP-fVe" secondAttribute="bottom" constant="5" id="dy8-sJ-hre"/>
                                             <constraint firstItem="dqi-RT-Df7" firstAttribute="leading" secondItem="aFN-Gn-Z3b" secondAttribute="leading" constant="10" id="n21-Eh-b1Z"/>
+                                            <constraint firstItem="oxC-00-bOw" firstAttribute="leading" secondItem="dqi-RT-Df7" secondAttribute="leading" id="rNd-Cb-933"/>
                                             <constraint firstItem="Jwj-nP-fVe" firstAttribute="leading" secondItem="dqi-RT-Df7" secondAttribute="trailing" constant="5" id="zxw-4J-1GM"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -849,6 +867,8 @@
                 <outlet property="collectionFluorescence" destination="WQN-GO-n4K" id="2xY-ho-tg0"/>
                 <outlet property="collectionMake" destination="7TS-rz-OXy" id="TuN-Cr-Nny"/>
                 <outlet property="collectionShap" destination="xU7-Lz-BPZ" id="DDg-gx-VOB"/>
+                <outlet property="lblFrom" destination="ksO-vr-oUT" id="hd9-jv-2ym"/>
+                <outlet property="lblTOO" destination="oxC-00-bOw" id="U1S-Mt-Oaz"/>
                 <outlet property="txtCaratFrom" destination="mCD-Rq-GUa" id="TT9-wi-uO1"/>
                 <outlet property="txtCaratTo" destination="o5r-hp-PlF" id="KK3-Wb-sU7"/>
                 <outlet property="txtPriceFrom" destination="cIB-Pz-9zI" id="N3z-fR-20y"/>

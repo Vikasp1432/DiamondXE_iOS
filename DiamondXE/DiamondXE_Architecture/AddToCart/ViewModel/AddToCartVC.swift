@@ -14,7 +14,12 @@ protocol BackVCDelegate: AnyObject {
 
 var cartVCIsComeFromHome:Bool?
 
-class AddToCartVC: BaseViewController , ChildViewControllerProtocol {
+class AddToCartVC: BaseViewController , ChildViewControllerProtocol , DataReceiver {
+    
+    func receiveData(_ data: CurrencyRateDetail) {
+        // Use the received data here
+        currencyRateDetailObj = data
+    }
     
     func didSendString(str: String) {
         print(str)
@@ -411,6 +416,13 @@ extension AddToCartVC : UITableViewDelegate, UITableViewDataSource{
             else if  self.cartDataStruct.details?[indexPath.row].category == "Lab Grown"{
                 cell.tagViewBG.backgroundColor = .green2
                 cell.lblTAG.text = "LAB"
+            }
+            
+            if  self.cartDataStruct.details?[indexPath.row].isDxeLUXE == 1{
+                cell.lmgLuxTag.isHidden = false
+            }
+            else{
+                cell.lmgLuxTag.isHidden = true
             }
             
             

@@ -201,6 +201,28 @@ class HomeDataModel {
         })
     }
     
+    
+    func getWalletHistory(param:[String:Any],url : String, completion: @escaping (WalletHistoryStruct, String?) -> Void) {
+        var resultData = WalletHistoryStruct()
+        
+        AlamofireManager().makePostAPIRequest(url: url, param: param,  completion: { result in
+            switch result {
+            case .success(let data):
+                // Handle the response data
+                do {
+                    resultData = try JsonParsingManagar.parse(jsonData: data!, type: WalletHistoryStruct.self)
+                    completion(resultData, resultData.msg)
+                } catch {
+                    completion(resultData, resultData.msg)
+                }
+            case .failure(let error):
+                // Handle the error
+                completion(resultData, error.localizedDescription)
+            }
+        })
+    }
+    
+    
     func deleteUserAccount(param:[String:Any],url : String, completion: @escaping (LogoutDataStruct, String?) -> Void) {
         var deleteProfile = LogoutDataStruct()
         
@@ -264,6 +286,26 @@ class HomeDataModel {
         })
     }
     
+    
+    func getStatusDXELUX(url : String, completion: @escaping (DXELUXStatus, String?) -> Void) {
+        var resultData = DXELUXStatus()
+        
+        AlamofireManager().makePostAPIRequestWithLocation(url: url, param: [:],  completion: { result in
+            switch result {
+            case .success(let data):
+                // Handle the response data
+                do {
+                    resultData = try JsonParsingManagar.parse(jsonData: data!, type: DXELUXStatus.self)
+                    completion(resultData, resultData.msg)
+                } catch {
+                    completion(resultData, resultData.msg)
+                }
+            case .failure(let error):
+                // Handle the error
+                completion(resultData, error.localizedDescription)
+            }
+        })
+    }
     
 }
     

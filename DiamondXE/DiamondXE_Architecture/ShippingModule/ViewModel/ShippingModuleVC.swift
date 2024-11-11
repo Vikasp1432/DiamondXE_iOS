@@ -959,8 +959,8 @@ class ShippingModuleVC: BaseViewController {
                 self.checkOutDetails = data
                 
                 if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
-                //let currncyVal = self.currencyRateDetailObj.value ?? 1
-                    let finalVal = self.checkOutDetails.finalAmount ?? 0
+                    let currncyVal = self.currencyRateDetailObj.value ?? 1
+                    let finalVal = Double(self.checkOutDetails.finalAmount ?? 0) * currncyVal
                     let formattedNumber = self.formatNumberWithoutDeciml(Double(finalVal))
                     self.lblTotalAmount.text = "\(currncySimbol)\(formattedNumber)"
                     self.amountTotal = "\(finalVal)"
@@ -1215,8 +1215,8 @@ extension ShippingModuleVC : TransactionIDDelegate{
         if self.CartDataObj.count > 0{
             
             if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
-            //let currncyVal = self.currencyRateDetailObj.value ?? 1
-               let finalVal = checkOutDetails.finalAmount ?? 0
+                let currncyVal = self.currencyRateDetailObj.value ?? 1
+                let finalVal = Double(checkOutDetails.finalAmount ?? 0) * currncyVal
                let formattedNumber = formatNumberWithoutDeciml(Double(finalVal))
                 self.lblTotalAmount.text = "\(currncySimbol)\(formattedNumber)"
                 self.amountTotal = "\(finalVal)"
@@ -1231,8 +1231,8 @@ extension ShippingModuleVC : TransactionIDDelegate{
         else if self.diamondDetailsOBJ.certificateNo != nil{
             
             if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
-                //let currncyVal = self.currencyRateDetailObj.value ?? 1
-                let finalVal = Double(checkOutDetails.finalAmount ?? 0)
+                let currncyVal = self.currencyRateDetailObj.value ?? 1
+                let finalVal = Double(checkOutDetails.finalAmount ?? 0) * currncyVal
                 let formattedNumber = formatNumberWithoutDeciml(finalVal)
                 self.lblTotalAmount.text = "\(currncySimbol)\(formattedNumber)"
                 self.amountTotal = "\(finalVal)"

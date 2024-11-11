@@ -25,6 +25,7 @@ class OrderSummeryItemsCVC: UICollectionViewCell {
     @IBOutlet var lblCarat :UILabel!
     @IBOutlet var lblClarity :UILabel!
     @IBOutlet var lblPrice :UILabel!
+    @IBOutlet var lmgLuxTag :UIImageView!
 
 
     override func awakeFromNib() {

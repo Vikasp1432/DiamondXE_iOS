@@ -24,22 +24,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ssj-yy-RXU">
-                                <rect key="frame" x="0.0" y="59" width="393" height="65"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="0.0"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yt-U0-iD0" customClass="InnerDropShadowView" customModule="DiamondXE" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="5" width="353" height="54"/>
+                                        <rect key="frame" x="20" y="0.0" width="353" height="0.0"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqH-db-I0N">
-                                                <rect key="frame" x="10" y="7" width="30" height="40"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqH-db-I0N">
+                                                <rect key="frame" x="10" y="-11" width="30" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="H0H-WL-Ggz"/>
-                                                    <constraint firstAttribute="height" constant="40" id="IUF-UM-CQO"/>
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="magnifyingGlass"/>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search diamond" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tv1-cU-8Qk">
-                                                <rect key="frame" x="45" y="5" width="288" height="44"/>
+                                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search diamond" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tv1-cU-8Qk">
+                                                <rect key="frame" x="45" y="0.0" width="288" height="18.666666666666668"/>
                                                 <color key="textColor" name="themeClr"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -52,10 +51,9 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="tv1-cU-8Qk" firstAttribute="top" secondItem="9yt-U0-iD0" secondAttribute="top" constant="5" id="7iX-RW-7Yl"/>
+                                            <constraint firstItem="tv1-cU-8Qk" firstAttribute="top" secondItem="9yt-U0-iD0" secondAttribute="top" id="7iX-RW-7Yl"/>
                                             <constraint firstItem="IqH-db-I0N" firstAttribute="centerY" secondItem="9yt-U0-iD0" secondAttribute="centerY" id="AQ2-bB-j6D"/>
                                             <constraint firstItem="tv1-cU-8Qk" firstAttribute="leading" secondItem="IqH-db-I0N" secondAttribute="trailing" constant="5" id="B0A-tz-fvk"/>
-                                            <constraint firstAttribute="bottom" secondItem="tv1-cU-8Qk" secondAttribute="bottom" constant="5" id="Enz-r3-9b2"/>
                                             <constraint firstItem="IqH-db-I0N" firstAttribute="leading" secondItem="9yt-U0-iD0" secondAttribute="leading" constant="10" id="PMs-5R-XpM"/>
                                             <constraint firstAttribute="trailing" secondItem="tv1-cU-8Qk" secondAttribute="trailing" constant="20" id="x8b-N0-94q"/>
                                         </constraints>
@@ -82,13 +80,13 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="9yt-U0-iD0" secondAttribute="trailing" constant="20" id="Km9-sx-nzw"/>
                                     <constraint firstItem="9yt-U0-iD0" firstAttribute="leading" secondItem="Ssj-yy-RXU" secondAttribute="leading" constant="20" id="Lc2-UD-OJ9"/>
-                                    <constraint firstItem="9yt-U0-iD0" firstAttribute="top" secondItem="Ssj-yy-RXU" secondAttribute="top" constant="5" id="f7y-Na-s4s"/>
-                                    <constraint firstAttribute="bottom" secondItem="9yt-U0-iD0" secondAttribute="bottom" constant="6" id="w1O-z4-Feg"/>
-                                    <constraint firstAttribute="height" constant="65" id="zOd-oy-Fdc"/>
+                                    <constraint firstItem="9yt-U0-iD0" firstAttribute="top" secondItem="Ssj-yy-RXU" secondAttribute="top" id="f7y-Na-s4s"/>
+                                    <constraint firstAttribute="bottom" secondItem="9yt-U0-iD0" secondAttribute="bottom" id="w1O-z4-Feg"/>
+                                    <constraint firstAttribute="height" id="zOd-oy-Fdc"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eQR-A2-s5Y">
-                                <rect key="frame" x="0.0" y="124" width="393" height="694"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="PAW-H0-iEJ" id="jY6-gI-N4i"/>

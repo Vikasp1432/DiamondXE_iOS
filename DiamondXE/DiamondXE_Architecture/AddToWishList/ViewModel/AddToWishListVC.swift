@@ -210,6 +210,13 @@ extension AddToWishListVC: UITableViewDelegate , UITableViewDataSource{
             cell.lblTAG.text =  "LAB"
         }
         
+        if  self.wishlistDataStruct.details?[indexPath.row].isDxeLUXE == 1{
+            cell.lmgLuxTag.isHidden = false
+        }
+        else{
+            cell.lmgLuxTag.isHidden = true
+        }
+        
         
         cell.diamondSelect = {
             self.dashboardVC?.diamondDetails.certificateNo = self.wishlistDataStruct.details?[indexPath.row].certificateNo

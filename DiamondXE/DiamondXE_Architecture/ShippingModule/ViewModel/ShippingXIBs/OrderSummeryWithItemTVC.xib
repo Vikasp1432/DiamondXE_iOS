@@ -77,7 +77,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMb-d5-TAU">
                                                 <rect key="frame" x="0.0" y="0.0" width="151" height="35"/>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="Diamond Price">
+                                                    <fragment content="Diamond">
                                                         <attributes>
                                                             <color key="NSColor" name="lblHeading"/>
                                                             <font key="NSFont" size="16" name="Lato-Semibold"/>

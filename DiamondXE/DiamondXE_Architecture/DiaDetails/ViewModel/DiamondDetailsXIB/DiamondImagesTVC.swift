@@ -17,7 +17,7 @@ class DiamondImagesTVC: UITableViewCell {
     @IBOutlet var btnAvailable: UIButton!
     
     @IBOutlet var viewCategoryBG: UIView!
-
+    @IBOutlet var lmgLuxTag :UIImageView!
     @IBOutlet var viewImages: UIView!
     @IBOutlet var view360View: UIView!
     @IBOutlet var viewCertificate: UIView!

@@ -63,7 +63,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aA6-pe-xSH">
-                                <rect key="frame" x="427" y="13.333333333333332" width="18" height="19.999999999999996"/>
+                                <rect key="frame" x="377" y="13.333333333333332" width="18" height="19.999999999999996"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rd3-Aa-QD1">
                                         <rect key="frame" x="5" y="5" width="8" height="10"/>
@@ -161,7 +161,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CPe-E7-0Sp">
-                                <rect key="frame" x="455" y="10" width="50" height="30"/>
+                                <rect key="frame" x="405" y="10" width="100" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLU-zM-LhG">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="30"/>
@@ -178,6 +178,12 @@
                                             <action selector="btnActionRetunable:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZAl-Xf-kLp"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Luxetag" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ8-7K-H0E">
+                                        <rect key="frame" x="50" y="0.0" width="50" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="xsQ-5w-mBO"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="dsg-py-WQd"/>
@@ -237,7 +243,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4s-zF-E8f">
-                                <rect key="frame" x="375" y="30" width="130" height="36"/>
+                                <rect key="frame" x="325" y="30" width="130" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Returnable within 7 days, T&amp;C apply." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZk-um-bUV">
                                         <rect key="frame" x="5" y="5" width="120" height="26"/>
@@ -354,6 +360,7 @@
                 <outlet property="lblPrice" destination="h4S-Lm-r6U" id="p9V-uF-DxR"/>
                 <outlet property="lblShape" destination="FNx-E0-w1p" id="sze-Wj-BU7"/>
                 <outlet property="lblTAG" destination="rd3-Aa-QD1" id="rmZ-Zh-nbX"/>
+                <outlet property="lmgLuxTag" destination="ZQ8-7K-H0E" id="GNN-W6-FzJ"/>
                 <outlet property="nameViewToast" destination="K0l-vZ-Och" id="R0i-29-a52"/>
                 <outlet property="refundViewToast" destination="Z4s-zF-E8f" id="Gaf-0L-q4r"/>
                 <outlet property="tagViewBG" destination="aA6-pe-xSH" id="01I-Up-2rE"/>
@@ -362,6 +369,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="Luxetag" width="45.666667938232422" height="19"/>
         <image name="cart_" width="37" height="37"/>
         <image name="returnable" width="13.680000305175781" height="15.829999923706055"/>
         <image name="wishlist" width="37" height="37"/>

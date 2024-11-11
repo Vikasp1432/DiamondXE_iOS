@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="backView" destination="eih-wz-tP5" id="KF3-oD-FL5"/>
                 <outlet property="contentView" destination="YRQ-R9-SJn" id="WVc-i8-Qx0"/>
+                <outlet property="lblNoData" destination="e8g-Dt-lKk" id="8Eg-Af-RVB"/>
                 <outlet property="tableViewCoupons" destination="xM5-Wc-PzD" id="E2R-rg-HpK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -90,16 +91,29 @@
                                         <outlet property="delegate" destination="ocd-dY-u9B" id="fks-Tr-C9h"/>
                                     </connections>
                                 </tableView>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8g-Dt-lKk">
+                                    <rect key="frame" x="84" y="240.66666666666663" width="195" height="19"/>
+                                    <attributedString key="attributedText">
+                                        <fragment content="No Coupon Code Available">
+                                            <attributes>
+                                                <font key="NSFont" size="16" name="Lato-Medium"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" name="whitClr"/>
                             <constraints>
                                 <constraint firstItem="Bbj-6C-ZP1" firstAttribute="leading" secondItem="ocd-dY-u9B" secondAttribute="leading" id="1ip-6p-o2n"/>
                                 <constraint firstAttribute="trailing" secondItem="Bbj-6C-ZP1" secondAttribute="trailing" id="KqB-1x-enr"/>
+                                <constraint firstItem="e8g-Dt-lKk" firstAttribute="centerY" secondItem="ocd-dY-u9B" secondAttribute="centerY" id="MZd-Hi-g55"/>
                                 <constraint firstItem="xM5-Wc-PzD" firstAttribute="leading" secondItem="ocd-dY-u9B" secondAttribute="leading" id="Mug-H6-zM7"/>
                                 <constraint firstAttribute="bottom" secondItem="xM5-Wc-PzD" secondAttribute="bottom" id="NlT-Ah-vWl"/>
                                 <constraint firstItem="Bbj-6C-ZP1" firstAttribute="top" secondItem="ocd-dY-u9B" secondAttribute="top" id="VkR-Mu-JZ8"/>
                                 <constraint firstItem="xM5-Wc-PzD" firstAttribute="top" secondItem="Bbj-6C-ZP1" secondAttribute="bottom" id="XOH-wV-f4S"/>
                                 <constraint firstAttribute="trailing" secondItem="xM5-Wc-PzD" secondAttribute="trailing" id="hrr-1U-2KT"/>
+                                <constraint firstItem="e8g-Dt-lKk" firstAttribute="centerX" secondItem="ocd-dY-u9B" secondAttribute="centerX" id="r9G-Ey-y1E"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

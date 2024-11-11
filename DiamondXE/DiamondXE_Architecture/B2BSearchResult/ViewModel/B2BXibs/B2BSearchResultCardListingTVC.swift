@@ -38,7 +38,8 @@ class B2BSearchResultCardListingTVC: UITableViewCell, ShimmeringViewProtocol {
     @IBOutlet var lblTablePer :UILabel!
     @IBOutlet var lblDepPer :UILabel!
     @IBOutlet var lblMasurments :UILabel!
-    
+    @IBOutlet var lmgLuxTag :UIImageView!
+
     @IBOutlet var stacViewkBTN :UIStackView!
     
     @IBOutlet var viewCut :UIView!
@@ -86,7 +87,8 @@ class B2BSearchResultCardListingTVC: UITableViewCell, ShimmeringViewProtocol {
             btnWhshlist,
             stacViewkBTN,
             btnCard,
-            lblDiscountPrice
+            lblDiscountPrice,
+            lmgLuxTag
            ]
        }
 

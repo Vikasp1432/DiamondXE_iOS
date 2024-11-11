@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -120,7 +119,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scb-c8-r94" customClass="RingSizer" customModule="DiamondXE" customModuleProvider="target">
                                 <rect key="frame" x="20" y="240.66666666666663" width="353" height="180"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="whitClr"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="rBc-P4-56D"/>
                                 </constraints>
@@ -177,7 +176,7 @@
                                         <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </slider>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="whitClr"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="9Om-i6-4Ov"/>
                                     <constraint firstItem="KU8-Md-XLr" firstAttribute="leading" secondItem="VPW-M4-28W" secondAttribute="leading" constant="10" id="GJ6-SQ-HAu"/>
@@ -208,7 +207,7 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LMB-t6-c1C">
                                         <rect key="frame" x="0.0" y="39.999999999999957" width="353" height="187.33333333333337"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="whitClr"/>
                                         <connections>
                                             <outlet property="dataSource" destination="Y6W-OH-hqX" id="31K-3s-m5K"/>
                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="1GA-Sm-v2O"/>
@@ -263,7 +262,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="whitClr"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="LMB-t6-c1C" secondAttribute="trailing" id="IXO-0X-f1f"/>
                                     <constraint firstItem="RIr-5S-1QL" firstAttribute="leading" secondItem="PCt-rz-VI5" secondAttribute="leading" id="JM6-B5-8UF"/>
@@ -673,8 +672,8 @@
         <namedColor name="selectionClr">
             <color red="0.92199999094009399" green="0.92199999094009399" blue="0.92199999094009399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="whitClr">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

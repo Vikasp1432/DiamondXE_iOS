@@ -32,6 +32,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Luxetag" translatesAutoresizingMaskIntoConstraints="NO" id="xe9-9j-StO">
+                                <rect key="frame" x="54.333333333333343" y="103" width="45.666666666666657" height="19"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfp-aN-Bpg">
                                 <rect key="frame" x="110" y="9.9999999999999982" width="101.33333333333331" height="16.333333333333329"/>
                                 <attributedString key="attributedText">
@@ -215,11 +218,13 @@
                             <constraint firstItem="RGy-AD-vTo" firstAttribute="leading" secondItem="w5a-5P-XWN" secondAttribute="trailing" constant="5" id="I4x-JY-sNT"/>
                             <constraint firstItem="hGg-f6-cPE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6c1-Uk-PDk" secondAttribute="trailing" id="L8k-qb-7Gk"/>
                             <constraint firstItem="RGy-AD-vTo" firstAttribute="centerY" secondItem="Boh-oR-Ca6" secondAttribute="centerY" id="Ldz-fw-TbW"/>
+                            <constraint firstItem="xe9-9j-StO" firstAttribute="bottom" secondItem="Ogs-Pb-TSO" secondAttribute="bottom" id="LjF-L3-Uvp"/>
                             <constraint firstItem="8Zy-ed-JDi" firstAttribute="leading" secondItem="Ogs-Pb-TSO" secondAttribute="trailing" constant="12" id="NRG-h4-U1G"/>
                             <constraint firstItem="6c1-Uk-PDk" firstAttribute="centerY" secondItem="Jfp-aN-Bpg" secondAttribute="centerY" id="RHQ-vO-Wc5"/>
                             <constraint firstItem="Oz5-SU-aYn" firstAttribute="top" secondItem="Jfp-aN-Bpg" secondAttribute="bottom" constant="7" id="SGr-af-NpD"/>
                             <constraint firstItem="Ogs-Pb-TSO" firstAttribute="leading" secondItem="4Sb-46-a92" secondAttribute="leading" constant="10" id="Tdp-9b-8w4"/>
                             <constraint firstItem="Ogs-Pb-TSO" firstAttribute="top" secondItem="4Sb-46-a92" secondAttribute="top" constant="5" id="Uot-JT-77M"/>
+                            <constraint firstItem="xe9-9j-StO" firstAttribute="trailing" secondItem="Ogs-Pb-TSO" secondAttribute="trailing" id="VZK-Vl-yLA"/>
                             <constraint firstItem="AWQ-kE-x0s" firstAttribute="centerY" secondItem="RGy-AD-vTo" secondAttribute="centerY" id="Wjk-oH-kKK"/>
                             <constraint firstItem="Boh-oR-Ca6" firstAttribute="top" secondItem="Oz5-SU-aYn" secondAttribute="bottom" constant="7" id="ZSG-ot-7aR"/>
                             <constraint firstItem="p4v-FG-mlL" firstAttribute="leading" secondItem="AWQ-kE-x0s" secondAttribute="trailing" constant="5" id="Zx0-pM-1wP"/>
@@ -262,12 +267,14 @@
                 <outlet property="lblLotID" destination="6c1-Uk-PDk" id="BSP-cn-rSV"/>
                 <outlet property="lblPrice" destination="8Zy-ed-JDi" id="tjF-Nt-juM"/>
                 <outlet property="lblShape" destination="Oz5-SU-aYn" id="zx9-GW-2Zd"/>
+                <outlet property="lmgLuxTag" destination="xe9-9j-StO" id="t4y-oo-uHf"/>
                 <outlet property="refundViewToast" destination="XZD-Ua-xaK" id="50D-m9-0b1"/>
             </connections>
             <point key="canvasLocation" x="387.02290076335879" y="52.464788732394368"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="Luxetag" width="45.666667938232422" height="19"/>
         <image name="place_Holder" width="87" height="73.333335876464844"/>
         <image name="returnable" width="13.680000305175781" height="15.829999923706055"/>
         <namedColor name="757677">

@@ -18,6 +18,7 @@ class CouponListVC: BaseViewController {
     @IBOutlet weak var contentView: UIView!
     
     @IBOutlet var tableViewCoupons:UITableView!
+    @IBOutlet weak var lblNoData: UILabel!
     
     var allCouponsObj = AllCouponObjStruct()
     var delegate : CouponCodeDelegate?
@@ -30,7 +31,7 @@ class CouponListVC: BaseViewController {
         tableViewCoupons.register(UINib(nibName: CouponListTVC.cellIdentifierCouponListTVC, bundle: nil), forCellReuseIdentifier: CouponListTVC.cellIdentifierCouponListTVC)
 
         // Do any additional setup after loading the view.
-        
+        self.lblNoData.isHidden = true
     }
     
     private func configView() {
@@ -106,9 +107,11 @@ class CouponListVC: BaseViewController {
 extension CouponListVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let dataCount = self.allCouponsObj.details{
+            self.lblNoData.isHidden = true
             return dataCount.count
         }
         else{
+            self.lblNoData.isHidden = false
             return 0
         }
     }

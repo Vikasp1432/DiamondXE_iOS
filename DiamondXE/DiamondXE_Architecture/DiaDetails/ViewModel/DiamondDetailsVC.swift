@@ -20,7 +20,7 @@ class DiamondDetailsVC: BaseViewController, ChildViewControllerProtocol{
     var currencyRateDetailObj = CurrencyRateDetail()
     var delegateCount: CountUpdateDelegate?
 
-   
+    var isLux = 0
     @IBOutlet var tbleViewDetails:UITableView!
     
     var  diamondInfo = DiamondListingDetail()
@@ -326,7 +326,13 @@ extension DiamondDetailsVC : UITableViewDataSource, UITableViewDelegate{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: DiamondImagesTVC.cellIdentifierDiaDetailsTVC, for: indexPath) as! DiamondImagesTVC
             cell.selectionStyle = .none
-           // cell.lblTypeDia.text = self.diamondDetails.details?.category
+           // cell.lblTypeDia.text = self.diamondDetails.details?.category            
+            if self.isLux == 1{
+                cell.lmgLuxTag.isHidden = false
+            }
+            else{
+                cell.lmgLuxTag.isHidden = true
+            }
             
             if let availibility = self.diamondDetails.details?.status{
                 if availibility == "On Hold"{

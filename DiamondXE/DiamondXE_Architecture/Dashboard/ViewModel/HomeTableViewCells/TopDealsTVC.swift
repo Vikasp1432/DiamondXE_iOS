@@ -44,7 +44,7 @@ class TopDealsTVC: UITableViewCell {
         
         collectionViewTopDeL.showsHorizontalScrollIndicator = false
         collectionViewTopDeL.showsVerticalScrollIndicator = false
-        self.btnNaturalDiamd.setGradientLayer(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
+       // self.btnNaturalDiamd.setGradientLayer(colorsInOrder: [UIColor.gradient2.cgColor, UIColor.gradient1.cgColor])
         
     }
 
@@ -92,7 +92,7 @@ extension TopDealsTVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             return self.labGlDia.count
         }
         else{
-            return self.imgArr.count
+            return 0
         }
        
     }
@@ -118,7 +118,6 @@ extension TopDealsTVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             cell.lblDiaName.text = naturalDia[indexPath.row].itemName
             
             
-            
             if let currncySimbol = self.currencyRateDetailObj.currencySymbol{
                 let currncyVal = self.currencyRateDetailObj.value ?? 1
                 let finalVal = Double((naturalDia[indexPath.row].subtotalAfterCouponDiscount ?? 0)) * currncyVal
@@ -138,7 +137,6 @@ extension TopDealsTVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
                 else{
                     cell.lblDiscountPrice.isHidden = true
                 }
-                
                 
             }
             else{

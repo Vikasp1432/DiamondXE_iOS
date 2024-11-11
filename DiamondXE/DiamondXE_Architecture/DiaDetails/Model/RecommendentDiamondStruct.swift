@@ -32,6 +32,7 @@ struct RecommendedDiamdDetail: Codable {
     var rDiscount, rDiscountType: String?
     var couponDesPer : Double?
     var subtotalAfterCouponDiscount : Double?
+    var isDxeLUXE : Int?
 
     enum CodingKeys: String, CodingKey {
         case couponDesPer = "coupon_discount_perc"
@@ -65,5 +66,6 @@ struct RecommendedDiamdDetail: Codable {
         case onHold = "on_hold"
         case rDiscount = "r_discount"
         case rDiscountType = "r_discount_type"
+        case isDxeLUXE
     }
 }

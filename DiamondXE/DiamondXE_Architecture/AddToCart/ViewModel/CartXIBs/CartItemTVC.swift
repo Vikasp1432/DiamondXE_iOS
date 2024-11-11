@@ -29,7 +29,8 @@ class CartItemTVC: UITableViewCell {
 
     @IBOutlet var btnWishList :UIButton!
     @IBOutlet var btnDelete :UIButton!
-    
+    @IBOutlet var lmgLuxTag :UIImageView!
+
     @IBOutlet var lblDiscount :UILabel!
     
     @IBOutlet var tagViewBG :UIView!

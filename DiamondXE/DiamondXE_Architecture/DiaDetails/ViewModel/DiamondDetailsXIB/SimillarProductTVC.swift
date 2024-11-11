@@ -137,7 +137,13 @@ class SimillarProductTVC: UITableViewCell {
 
          cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .viewBGClr)
          
-        
+         if  self.diaDataObj[indexPath.row].isDxeLUXE == 1{
+             cell.lmgLuxTag.isHidden = false
+         }
+         else{
+             cell.lmgLuxTag.isHidden = true
+         }
+         
          
          cell.addToCart = {
              self.delegate?.cellViewTapped(in: self.diaDataObj[indexPath.row].certificateNo ?? "", cell, tag: 0)

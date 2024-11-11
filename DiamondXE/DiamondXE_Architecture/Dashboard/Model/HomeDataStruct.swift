@@ -163,3 +163,16 @@ struct AddressDetail: Codable {
         case mobileNumber = "MobileNumber"
     }
 }
+
+
+
+struct DXELUXStatus: Codable {
+    var status: Int?
+    var msg: String?
+    var details: DXELUXStatusDetails?
+}
+
+struct DXELUXStatusDetails: Codable {
+    var isLuxeMember: Int?
+}
+

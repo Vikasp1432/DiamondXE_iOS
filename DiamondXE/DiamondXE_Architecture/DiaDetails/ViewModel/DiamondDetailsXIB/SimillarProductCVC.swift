@@ -48,6 +48,9 @@ class SimillarProductCVC: UICollectionViewCell {
     @IBOutlet var tagViewBG :UIView!
     @IBOutlet var lblTAG :UILabel!
     
+    @IBOutlet var lmgLuxTag :UIImageView!
+
+    
     @IBOutlet var lblDiscountPrice :UILabel!
 
     var actionReturnable : (() -> Void) = { }
